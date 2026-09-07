@@ -1,0 +1,34 @@
+# Ephemeral, recipe-driven pulls -- never archived (DESIGN.md Sec 4). Re-fetchable
+# on demand via bin/fetch_uniprot_proteome.py / bin/fetch_genome_assembly.py.
+/data/
+
+# Per-study materialized inputs (decompressed FASTA/GFF3 built from data/ by
+# bin/build_study_config.py) -- regenerable from species.csv + the cache above,
+# not source. config.csv and DATA_MANIFEST.yaml (the actual tracked outputs of that
+# script) are NOT excluded here since they're small and are the study's own record.
+studies/*/*/data_dir/
+
+# Nextflow run state (when studies invoke nf_NovInvenio directly from here)
+.nextflow/
+.nextflow.log*
+work/
+.nf_launch/
+
+# results/view of pipeline runs -- regenerated fresh per DESIGN.md Sec 9, not archived
+# except via docs/*/archive/ (small derived compressed TSVs, published deliberately)
+results/
+view/
+
+# pixi
+.pixi/*
+!.pixi/config.toml
+
+# python
+__pycache__/
+*.pyc
+
+# Claude Code / mycelium session-local state
+.claude/*.tmp
+.claude/*.log
+.claude/settings.local.json
+.mycelium/locks/

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fungal — NovInvenio Investigations</title>
+<link rel="icon" href="../assets/logo/NI_logo_favicon.ico">
+<style>
+:root { color-scheme: light dark; }
+body { margin: 0; padding: 2rem; font-family: system-ui, -apple-system, sans-serif;
+       background: #f7f7f5; color: #1a1a1a; }
+@media (prefers-color-scheme: dark) {
+  body { background: #16181c; color: #e6e6e6; }
+  .card { background: #22252b !important; border-color: #33373f !important; }
+  a { color: #7db4ff; }
+}
+h1 { font-size: 1.6rem; margin-bottom: 0.2rem; }
+.subtitle { color: #666; margin-bottom: 1.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.card { border: 1px solid #ddd; border-radius: 10px; padding: 1rem 1.2rem;
+        background: #fff; text-decoration: none; color: inherit; display: block; }
+.card:hover { border-color: #888; }
+.card.empty { opacity: 0.5; border-style: dashed; pointer-events: none; }
+.card h2 { font-size: 1.1rem; margin: 0 0 0.3rem; }
+.card .desc { font-size: 0.9rem; color: #555; margin: 0 0 0.5rem; }
+.card .meta { font-size: 0.8rem; color: #888; }
+footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
+.attribution { font-size: 0.75rem; color: #999; margin-top: 0.4rem; }
+</style>
+</head>
+<body>
+
+<h1>Fungal</h1>
+<p class="subtitle"><a href="../index.html">&larr; all domains</a></p>
+<div class="grid">
+<a class="card empty" href="#">
+  <h2>pezizo_set1</h2>
+  <p class="desc">Taphrinomycotina, Basidiomycota, Mucoromycotina, Saccharomycotina, Pezizomycotina</p>
+  <p class="meta">5 ingroup &middot; 6 outgroup &mdash; not yet started (no data pulled)</p>
+</a></div>
+
+<footer>Includes data from UniProt (https://www.uniprot.org) and the Gene Ontology Consortium (http://geneontology.org), CC BY 4.0.</footer>
+</body>
+</html>

@@ -1,0 +1,159 @@
+#!/usr/bin/env python3
+"""Drive a study's species.csv through both pull scripts and emit a nf_NovInvenio-ready
+run config.
+
+Input: <study-dir>/species.csv, columns:
+    Short,Species,Strain,Group,TaxonGroup,UniProt_Proteome_ID,Taxon_ID,GCA_Accession
+
+For each species this:
+  1. Runs bin/fetch_uniprot_proteome.py (protein FASTA + taxonomy/GO/Pfam/InterPro .dat)
+  2. Runs bin/fetch_genome_assembly.py (DNA + GFF3, keyed off the same UniProt-reported
+     GCA accession, so genome and protein annotation are version-matched -- see
+     DESIGN.md Sec 5)
+  3. Materializes plain (decompressed) files into <study-dir>/data_dir/{pep,dna,gff3}/,
+     named by Short code -- matching main.nf's resolve_fa() lookup convention, so
+     <study-dir>/data_dir can be passed directly as nf_NovInvenio's --data_dir.
+  4. Writes <study-dir>/config.csv (GROUP,Species,Strain,Protein,DNA,GFF3,Short,
+     TaxonGroup) with basenames only, and <study-dir>/DATA_MANIFEST.yaml aggregating
+     every species' provenance record plus a record for this generation step itself.
+
+Re-running with --skip-fetch rebuilds config.csv/data_dir from whatever's already in
+the ephemeral data/ cache, without re-downloading (useful after the first pull, or
+when only the species list/grouping changed, not the source data).
+"""
+import argparse
+import csv
+import gzip
+import shutil
+import subprocess
+import sys
+import yaml
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
+from provenance import append_manifest, build_record, now_utc_iso  # noqa: E402
+
+BIN = Path(__file__).parent
+
+
+def run(cmd: list[str]) -> None:
+    print(f"$ {' '.join(cmd)}", file=sys.stderr)
+    subprocess.run(cmd, check=True)
+
+
+def gunzip_to(src: Path, dest: Path) -> None:
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    with gzip.open(src, "rb") as fin, open(dest, "wb") as fout:
+        shutil.copyfileobj(fin, fout)
+
+
+def load_provenance(sidecar: Path) -> dict:
+    with open(sidecar) as fh:
+        return yaml.safe_load(fh)
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--study-dir", required=True, help="e.g. studies/fungal/pezizo_set1")
+    ap.add_argument("--uniprot-cache", default="data/uniprot")
+    ap.add_argument("--ncbi-cache", default="data/ncbi")
+    ap.add_argument("--skip-fetch", action="store_true", help="Rebuild config/data_dir from an already-populated cache, no downloads")
+    args = ap.parse_args()
+
+    study_dir = Path(args.study_dir)
+    species_csv = study_dir / "species.csv"
+    if not species_csv.exists():
+        sys.exit(f"ERROR: {species_csv} not found")
+
+    link_dir = study_dir / "data_dir"
+    pep_dir, dna_dir, gff3_dir = (link_dir / d for d in ("pep", "dna", "gff3"))
+
+    config_rows = []
+    manifest_records = []
+
+    with open(species_csv, newline="") as fh:
+        for row in csv.DictReader(fh):
+            short = row["Short"]
+            upid = row["UniProt_Proteome_ID"]
+            taxid = row["Taxon_ID"]
+            gca = row["GCA_Accession"]
+
+            if not args.skip_fetch:
+                run([
+                    sys.executable, str(BIN / "fetch_uniprot_proteome.py"),
+                    "--proteome-id", upid, "--taxid", taxid,
+                    "--outdir", args.uniprot_cache, "--short", short,
+                ])
+                run([
+                    sys.executable, str(BIN / "fetch_genome_assembly.py"),
+                    "--accession", gca, "--outdir", args.ncbi_cache, "--short", short,
+                ])
+
+            # locate cached files
+            stem = f"{upid}_{taxid}"
+            fasta_gz = Path(args.uniprot_cache) / upid / f"{stem}.fasta.gz"
+            dat_gz = Path(args.uniprot_cache) / upid / f"{stem}.dat.gz"
+            genome_dir = Path(args.ncbi_cache) / gca / "extracted" / "ncbi_dataset" / "data" / gca
+            fna_candidates = sorted(genome_dir.glob("*.fna")) if genome_dir.exists() else []
+            gff_candidates = sorted(genome_dir.glob("*.gff")) if genome_dir.exists() else []
+            if not fasta_gz.exists():
+                sys.exit(f"[{short}] ERROR: expected {fasta_gz} not found -- run without --skip-fetch first")
+            if not fna_candidates:
+                sys.exit(f"[{short}] ERROR: expected genome under {genome_dir} not found -- run without --skip-fetch first")
+
+            # materialize plain files into data_dir/{pep,dna,gff3}/, named by Short
+            pep_out = pep_dir / f"{short}.pep.fa"
+            dna_out = dna_dir / f"{short}.dna.fa"
+            gunzip_to(fasta_gz, pep_out)
+            dna_dir.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(fna_candidates[0], dna_out)
+            gff3_out = ""
+            if gff_candidates:
+                gff3_dir.mkdir(parents=True, exist_ok=True)
+                gff3_out = f"{short}.gff3"
+                shutil.copyfile(gff_candidates[0], gff3_dir / gff3_out)
+
+            config_rows.append({
+                "GROUP": row["Group"],
+                "Species": row["Species"],
+                "Strain": row["Strain"],
+                "Protein": pep_out.name,
+                "DNA": dna_out.name,
+                "GFF3": gff3_out,
+                "Short": short,
+                "TaxonGroup": row["TaxonGroup"],
+            })
+
+            # fold this species' individual provenance sidecars into the study manifest
+            for sidecar in (fasta_gz, dat_gz):
+                sc = sidecar.with_suffix(sidecar.suffix + ".provenance.yaml")
+                if sc.exists():
+                    manifest_records.append(load_provenance(sc))
+            for f in (fna_candidates[:1] + gff_candidates[:1]):
+                sc = f.with_suffix(f.suffix + ".provenance.yaml")
+                if sc.exists():
+                    manifest_records.append(load_provenance(sc))
+
+    config_csv = study_dir / "config.csv"
+    with open(config_csv, "w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=["GROUP", "Species", "Strain", "Protein", "DNA", "GFF3", "Short", "TaxonGroup"])
+        w.writeheader()
+        w.writerows(config_rows)
+
+    manifest_records.append(build_record(
+        source_url="(derived, no external source)",
+        source_release="n/a",
+        license="n/a",
+        local_path=config_csv,
+        derived_by=f"bin/build_study_config.py --study-dir {study_dir}",
+    ))
+    append_manifest(manifest_records, study_dir / "DATA_MANIFEST.yaml")
+
+    print(f"\nWrote {config_csv} ({len(config_rows)} species)", file=sys.stderr)
+    print(f"Wrote {link_dir} (pep/dna/gff3 -- pass as --data_dir to nf_NovInvenio)", file=sys.stderr)
+    print(f"Wrote {study_dir / 'DATA_MANIFEST.yaml'}", file=sys.stderr)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

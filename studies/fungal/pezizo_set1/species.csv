@@ -1,0 +1,12 @@
+Short,Species,Strain,Group,TaxonGroup,UniProt_Proteome_ID,Taxon_ID,GCA_Accession
+Nirr,Neolecta irregularis,DAH-3,OUT,Taphrinomycotina,UP000186594,1198029,GCA_001929475.1
+CneoH99,Cryptococcus neoformans,H99,OUT,Basidiomycota,UP000010091,235443,GCA_000149245.3
+Ccin,Coprinopsis cinerea,Okayama-7/130,OUT,Basidiomycota,UP000001861,240176,GCA_000182895.1
+Mcir,Mucor circinelloides,1006PhL,OUT,Mucoromycotina,UP000014254,1220926,GCA_000401635.1
+Spom,Schizosaccharomyces pombe,972h,OUT,Taphrinomycotina,UP000002485,284812,GCA_000002945.2
+Scer,Saccharomyces cerevisiae,S288C,OUT,Saccharomycotina,UP000002311,559292,GCA_000146045.2
+Amega,Arthrobotrys megalospora,TWF281,IN,Pezizomycotina,UP001658139,2528406,GCA_036971655.1
+Ncra,Neurospora crassa,OR74A,IN,Pezizomycotina,UP000001805,367110,GCA_000182925.2
+Afum,Aspergillus fumigatus,Af293,IN,Pezizomycotina,UP000002530,330879,GCA_000002655.1
+Ztri,Zymoseptoria tritici,IPO323,IN,Pezizomycotina,UP000008062,336722,GCA_000219625.1
+Cimm,Coccidioides immitis,RS,IN,Pezizomycotina,UP000001261,246410,GCA_000149335.2
