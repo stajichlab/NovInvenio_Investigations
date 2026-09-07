@@ -5,9 +5,16 @@ Unlike NII's shared bin/build_study_config.py (which pulls both protein and DNA 
 species from UniProt/NCBI keyed off a UniProt proteome ID), this study's proteomes
 already exist as local .faa files -- 16 NCBI RefSeq outgroup references and 18 UHM
 metagenome-assembled (metashot binning + prodigal gene calling) ingroup genomes. This
-script materializes those directly instead of fetching them, and only fetches DNA for
-the outgroup (the only group nf_NovInvenio's VALIDATE workflow ever runs TBLASTN
-against when cluster_tool=pairwise -- see fetch_koxytoca_outgroup_dna.sh's header).
+script materializes those directly instead of fetching them, and materializes DNA for
+BOTH groups: outgroup DNA is fetched from NCBI (fetch_koxytoca_outgroup_dna.sh), while
+ingroup DNA is copied from the same metashot binning run's own assembled-genome output
+(--ingroup-dna-dir, matched 1:1 by the same Accession stem as --ingroup-faa-dir).
+Both are genuinely needed under cluster_tool=pairwise: VALIDATE's TBLASTN runs against
+outgroup_dna_ch (novelty candidates), but LOSS_VALIDATE's TBLASTN runs against
+ingroup_dna_ch (main.nf's loss-search mirror) -- an early version of this script only
+fetched outgroup DNA, which left ingroup_dna_ch empty and silently starved
+LOSS_VALIDATE (and everything downstream of loss_tblastn_summary: MAKE_LOSSES_REPORT,
+MAKE_PDF_REPORT, COLLATE_REPORTS/report.html) with no error, just missing output.
 
 This is a study-specific script (lives under this study's own bin/, not NII's shared
 bin/ -- see CLAUDE.md's "Where new code goes"), so it hardcodes NII_ROOT below rather
@@ -27,8 +34,9 @@ Writes:
     filename as the original koxytoca_outgroup_faa/<Accession>.faa -- keeps a
     file identifiable by its GCF_* accession instead of the display-only Short
     code)
-  - <study-dir>/data_dir/dna/<Accession>.fna  (OUT only, copied from --ncbi-cache,
-    same GCF_* naming as the protein file above)
+  - <study-dir>/data_dir/dna/<Accession>.fna  (OUT, copied from --ncbi-cache, same
+    GCF_* naming as the protein file above) or <Short>.dna.fa (IN, copied from
+    --ingroup-dna-dir)
   - <study-dir>/config.csv (GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup)
   - <study-dir>/DATA_MANIFEST.yaml (provenance: NCBI fetch sidecars for outgroup DNA,
     plus a synthesized record for each copied .faa -- NCBI Datasets provenance for
@@ -60,6 +68,8 @@ def main() -> int:
     ap.add_argument("--study-dir", default=str(NII_ROOT / "studies/bacteria/UHM_Koxytoca"))
     ap.add_argument("--outgroup-faa-dir", default="/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa")
     ap.add_argument("--ingroup-faa-dir", default="/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa")
+    ap.add_argument("--ingroup-dna-dir", default="/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full",
+                     help="Per-bin assembled-genome FASTA, matched 1:1 by Accession stem to --ingroup-faa-dir")
     ap.add_argument("--ncbi-cache", default=str(NII_ROOT / "data/ncbi"))
     args = ap.parse_args()
 
@@ -70,6 +80,7 @@ def main() -> int:
 
     outgroup_faa_dir = Path(args.outgroup_faa_dir)
     ingroup_faa_dir = Path(args.ingroup_faa_dir)
+    ingroup_dna_dir = Path(args.ingroup_dna_dir)
     ncbi_cache = Path(args.ncbi_cache)
 
     link_dir = study_dir / "data_dir"
@@ -132,6 +143,26 @@ def main() -> int:
                     checksum=sha256_of(pep_out),
                     derived_by=(
                         f"MAG {accession}: metashot binning + prodigal gene calling "
+                        "(jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py"
+                    ),
+                ))
+
+                dna_src = ingroup_dna_dir / f"{accession}.fa"
+                if not dna_src.exists():
+                    sys.exit(f"[{short}] ERROR: expected assembled-genome FASTA {dna_src} not found")
+                dna_dir.mkdir(parents=True, exist_ok=True)
+                dna_out = dna_dir / f"{short}.dna.fa"
+                shutil.copyfile(dna_src, dna_out)
+                dna_out_name = dna_out.name
+
+                manifest_records.append(build_record(
+                    source_url="(internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)",
+                    source_release="UHM combined MAG set (binned/annotated 2025-2026, frozen for this study 2026-09-01)",
+                    license=UHM_LICENSE,
+                    local_path=dna_out,
+                    checksum=sha256_of(dna_out),
+                    derived_by=(
+                        f"MAG {accession}: metashot binning assembled-genome contigs "
                         "(jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py"
                     ),
                 ))
