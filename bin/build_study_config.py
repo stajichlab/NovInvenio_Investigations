@@ -11,8 +11,14 @@ For each species this:
      GCA accession, so genome and protein annotation are version-matched -- see
      DESIGN.md Sec 5)
   3. Materializes plain (decompressed) files into <study-dir>/data_dir/{pep,dna,gff3}/,
-     named by Short code -- matching main.nf's resolve_fa() lookup convention, so
-     <study-dir>/data_dir can be passed directly as nf_NovInvenio's --data_dir.
+     named by the UniProt proteome stem ("{Proteome_ID}_{Taxon_ID}", e.g.
+     "UP001658139_2528406") rather than Short -- self-documenting back to the exact
+     UniProt record regardless of what Short a study happens to assign, and
+     inherently unique even across multiple strains of the same species (each strain
+     is its own UniProt proteome, hence its own stem) without relying on the study
+     author never reusing a Short. config.csv's Protein/DNA/GFF3 columns carry
+     whatever this actually materializes to -- nf_NovInvenio's resolve_fa() only
+     needs those basenames to exist under --data_dir, not to equal Short.
   4. Runs bin/extract_dat_annotations.py against each species' cached .dat.gz, writing
      <study-dir>/annotations/<UniProt_Proteome_ID>.tsv (gene_name/description/GO/Pfam/
      InterPro per accession) -- gitignored, regenerable from the cache in ~2s/species,
@@ -75,6 +81,7 @@ def main() -> int:
 
     config_rows = []
     manifest_records = []
+    seen_stems: dict[str, str] = {}  # stem -> Short, to catch a copy-paste duplicate row
 
     with open(species_csv, newline="") as fh:
         for row in csv.DictReader(fh):
@@ -96,6 +103,13 @@ def main() -> int:
 
             # locate cached files
             stem = f"{upid}_{taxid}"
+            if stem in seen_stems:
+                sys.exit(
+                    f"ERROR: {species_csv} lists proteome {stem} twice "
+                    f"(Short={seen_stems[stem]!r} and Short={short!r}) -- likely a "
+                    f"copy-paste mistake, since each row should be a distinct strain/proteome"
+                )
+            seen_stems[stem] = short
             fasta_gz = Path(args.uniprot_cache) / upid / f"{stem}.fasta.gz"
             dat_gz = Path(args.uniprot_cache) / upid / f"{stem}.dat.gz"
             genome_dir = Path(args.ncbi_cache) / gca / "extracted" / "ncbi_dataset" / "data" / gca
@@ -117,16 +131,17 @@ def main() -> int:
                     "--output", str(annotations_dir / f"{upid}.tsv"),
                 ])
 
-            # materialize plain files into data_dir/{pep,dna,gff3}/, named by Short
-            pep_out = pep_dir / f"{short}.pep.fa"
-            dna_out = dna_dir / f"{short}.dna.fa"
+            # materialize plain files into data_dir/{pep,dna,gff3}/, named by the
+            # UniProt proteome stem (see module docstring point 3), not Short
+            pep_out = pep_dir / f"{stem}.pep.fa"
+            dna_out = dna_dir / f"{stem}.dna.fa"
             gunzip_to(fasta_gz, pep_out)
             dna_dir.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(fna_candidates[0], dna_out)
             gff3_out = ""
             if gff_candidates:
                 gff3_dir.mkdir(parents=True, exist_ok=True)
-                gff3_out = f"{short}.gff3"
+                gff3_out = f"{stem}.gff3"
                 shutil.copyfile(gff_candidates[0], gff3_dir / gff3_out)
 
             config_rows.append({
