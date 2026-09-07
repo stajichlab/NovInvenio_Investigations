@@ -13,7 +13,12 @@ For each species this:
   3. Materializes plain (decompressed) files into <study-dir>/data_dir/{pep,dna,gff3}/,
      named by Short code -- matching main.nf's resolve_fa() lookup convention, so
      <study-dir>/data_dir can be passed directly as nf_NovInvenio's --data_dir.
-  4. Writes <study-dir>/config.csv (GROUP,Species,Strain,Protein,DNA,GFF3,Short,
+  4. Runs bin/extract_dat_annotations.py against each species' cached .dat.gz, writing
+     <study-dir>/annotations/<UniProt_Proteome_ID>.tsv (gene_name/description/GO/Pfam/
+     InterPro per accession) -- gitignored, regenerable from the cache in ~2s/species,
+     but produced here unconditionally (even with --skip-fetch) so bin/run_study.sh's
+     post-run report sync (bin/sync_reports.sh) always has current annotation to merge.
+  5. Writes <study-dir>/config.csv (GROUP,Species,Strain,Protein,DNA,GFF3,Short,
      TaxonGroup) with basenames only, and <study-dir>/DATA_MANIFEST.yaml aggregating
      every species' provenance record plus a record for this generation step itself.
 
@@ -100,6 +105,17 @@ def main() -> int:
                 sys.exit(f"[{short}] ERROR: expected {fasta_gz} not found -- run without --skip-fetch first")
             if not fna_candidates:
                 sys.exit(f"[{short}] ERROR: expected genome under {genome_dir} not found -- run without --skip-fetch first")
+
+            # per-species GO/Pfam/InterPro/gene-name/description extract (report-facing
+            # annotation, distinct from pep_out/dna_out/gff3_out above)
+            if dat_gz.exists():
+                annotations_dir = study_dir / "annotations"
+                annotations_dir.mkdir(parents=True, exist_ok=True)
+                run([
+                    sys.executable, str(BIN / "extract_dat_annotations.py"),
+                    "--dat-gz", str(dat_gz),
+                    "--output", str(annotations_dir / f"{upid}.tsv"),
+                ])
 
             # materialize plain files into data_dir/{pep,dna,gff3}/, named by Short
             pep_out = pep_dir / f"{short}.pep.fa"

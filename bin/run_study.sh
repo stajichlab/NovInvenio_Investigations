@@ -16,6 +16,14 @@
 #   NII_PIPELINE=/bigdata/stajichlab/jstajich/projects/NovInvenio/main.nf bin/run_study.sh ...
 # Once the rename lands, change PIPELINE_DEFAULT below (one line) -- no other
 # changes needed here or in any study.
+#
+# After a successful run, bin/sync_reports.sh merges this study's UniProt-derived
+# annotation (gene name/description/GO/Pfam/InterPro -- studies/<domain>/<set>/
+# annotations/, built by bin/build_study_config.py) into the presence matrices and
+# regenerates novelties/core/losses.html, syncing them into view/ and docs/. This
+# needs a local pipeline checkout (same NII_PIPELINE requirement as above) -- when
+# NII_PIPELINE isn't a local main.nf path, report sync is skipped with a warning,
+# not a hard failure, since the nextflow run itself still succeeded.
 
 set -euo pipefail
 
@@ -63,3 +71,10 @@ nextflow run "$PIPELINE" \
     --outdir "$REPO_ROOT/results" \
     "${STUDY_PARAMS[@]}" \
     "$@"
+
+if [[ "$PIPELINE" == */main.nf ]]; then
+    NOVINVENIO_ROOT="${NOVINVENIO_ROOT:-$(dirname "$PIPELINE")}" "$REPO_ROOT/bin/sync_reports.sh" "$STUDY" \
+        || echo "== WARNING: bin/sync_reports.sh failed -- nextflow run itself succeeded, reports just weren't UniProt-annotation-synced ==" >&2
+else
+    echo "== PIPELINE ($PIPELINE) is not a local checkout -- skipping bin/sync_reports.sh; set NII_PIPELINE=/path/to/local/NovInvenio/main.nf to enable it ==" >&2
+fi

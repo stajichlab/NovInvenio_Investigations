@@ -9,10 +9,12 @@ recomputed -- see studies/fungal/pezizo_set1/run.sh's header comment for why run
 a fresh hmmscan/diamond pass on top would be redundant, and could disagree with
 UniProt's own calls.
 
-Adds four new columns (prefixed uniprot_ to stay distinct from any gene_name/
-Pfam_Names columns nf_NovInvenio's own ANNOTATE_MATRIX might have added, e.g. via
+Adds new columns (prefixed uniprot_ to stay distinct from any gene_name/Pfam_Names
+columns nf_NovInvenio's own ANNOTATE_MATRIX might have added, e.g. via
 --modelorgs_config, which this script leaves untouched): uniprot_gene_name,
-uniprot_pfam_ids, uniprot_interpro_ids, uniprot_go_ids. A protein_id with no matching
+uniprot_description, uniprot_pfam_ids, uniprot_pfam_names, uniprot_interpro_ids,
+uniprot_go_ids, uniprot_ec_numbers, uniprot_alphafold_id.
+A protein_id with no matching
 UniProt annotation (shouldn't happen for a study built entirely from UniProt
 proteomes, but --lenient allows it) gets empty strings, not a hard error.
 
@@ -54,7 +56,10 @@ def main() -> int:
         rows = list(reader)
         fieldnames = list(reader.fieldnames)
 
-    new_cols = ["uniprot_gene_name", "uniprot_pfam_ids", "uniprot_interpro_ids", "uniprot_go_ids"]
+    new_cols = [
+        "uniprot_gene_name", "uniprot_description", "uniprot_pfam_ids", "uniprot_pfam_names",
+        "uniprot_interpro_ids", "uniprot_go_ids", "uniprot_ec_numbers", "uniprot_alphafold_id",
+    ]
     for c in new_cols:
         if c not in fieldnames:
             fieldnames.append(c)
@@ -68,9 +73,13 @@ def main() -> int:
                 row[c] = ""
             continue
         row["uniprot_gene_name"] = a["gene_name"]
+        row["uniprot_description"] = a.get("description", "")
         row["uniprot_pfam_ids"] = a["pfam_ids"]
+        row["uniprot_pfam_names"] = a.get("pfam_names", "")
         row["uniprot_interpro_ids"] = a["interpro_ids"]
         row["uniprot_go_ids"] = a["go_ids"]
+        row["uniprot_ec_numbers"] = a.get("ec_numbers", "")
+        row["uniprot_alphafold_id"] = a.get("alphafold_id", "")
 
     if n_missing and not args.lenient:
         sys.exit(
