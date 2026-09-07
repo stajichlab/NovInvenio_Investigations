@@ -1,0 +1,10 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Batrachochytrium dendrobatidis,JAM81,Batrdend.pep.fa,Batrdend.dna.fa,Batrdend.gff3,Batrdend,Zoosporic
+IN,Spizellomyces punctatus,DAOM BR117,Spizpunc.pep.fa,Spizpunc.dna.fa,Spizpunc.gff3,Spizpunc,Zoosporic
+IN,Synchytrium endobioticum,,Syncendo.pep.fa,Syncendo.dna.fa,Syncendo.gff3,Syncendo,Zoosporic
+IN,Catenaria anguillulae,PL171,Cateangu.pep.fa,Cateangu.dna.fa,Cateangu.gff3,Cateangu,Zoosporic
+OUT,Saccharomyces cerevisiae,S288C,Scer.pep.fa,Scer.dna.fa,Scer.gff3,Scer,Dikarya
+OUT,Neurospora crassa,OR74A,Ncra.pep.fa,Ncra.dna.fa,Ncra.gff3,Ncra,Dikarya
+OUT,Aspergillus nidulans,FGSC A4,Anid.pep.fa,Anid.dna.fa,Anid.gff3,Anid,Dikarya
+OUT,Schizosaccharomyces pombe,972h,Spom.pep.fa,Spom.dna.fa,Spom.gff3,Spom,Dikarya
+OUT,Coprinopsis cinerea,Okayama-7/130,Ccin.pep.fa,Ccin.dna.fa,Ccin.gff3,Ccin,Dikarya

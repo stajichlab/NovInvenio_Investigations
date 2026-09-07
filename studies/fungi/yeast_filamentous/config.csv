@@ -1,0 +1,9 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Saccharomyces cerevisiae,S288C,Scer.pep.fa,Scer.dna.fa,Scer.gff3,Scer,Saccharomycotina
+IN,Yarrowia lipolytica,CLIB122,Ylip.pep.fa,Ylip.dna.fa,Ylip.gff3,Ylip,Saccharomycotina
+IN,Schizosaccharomyces pombe,972h,Spom.pep.fa,Spom.dna.fa,Spom.gff3,Spom,Taphrinomycotina
+IN,Neolecta irregularis,DAH-3,Nirr.pep.fa,Nirr.dna.fa,Nirr.gff3,Nirr,Taphrinomycotina
+OUT,Neurospora crassa,OR74A,Ncra.pep.fa,Ncra.dna.fa,Ncra.gff3,Ncra,Pezizomycotina
+OUT,Aspergillus fumigatus,Af293,Afum.pep.fa,Afum.dna.fa,Afum.gff3,Afum,Pezizomycotina
+OUT,Zymoseptoria tritici,IPO323,Ztri.pep.fa,Ztri.dna.fa,Ztri.gff3,Ztri,Pezizomycotina
+OUT,Coccidioides immitis,RS,Cimm.pep.fa,Cimm.dna.fa,Cimm.gff3,Cimm,Pezizomycotina

@@ -1,0 +1,5 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Coprinopsis cinerea,Okayama-7/130,Ccin.pep.fa,Ccin.dna.fa,Ccin.gff3,Ccin,Agaricomycotina
+IN,Agaricus bisporus var. burnettii,JB137-S8,Agbis.pep.fa,Agbis.dna.fa,Agbis.gff3,Agbis,Agaricomycotina
+OUT,Cryptococcus neoformans,H99,CneoH99.pep.fa,CneoH99.dna.fa,CneoH99.gff3,CneoH99,Tremellomycetes
+OUT,Tremella mesenterica,,Tremes.pep.fa,Tremes.dna.fa,Tremes.gff3,Tremes,Tremellomycetes

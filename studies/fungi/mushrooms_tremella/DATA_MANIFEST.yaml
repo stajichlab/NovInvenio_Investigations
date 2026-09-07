@@ -1,0 +1,218 @@
+- local_path: data/uniprot/UP000001861/UP000001861_240176.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001861/UP000001861_240176.fasta.gz
+  source_release: UniProt reference proteomes release 2026_02 (10-Jun-2026)
+  access_date: '2026-09-07T19:23:58Z'
+  checksum_sha256: a3bd812d9a034458d1791fab43fdcb9e9dbbdf6a1d12087b5835c75fd8795699
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on i29
+  proteome_id: UP000001861
+  taxon_id: '240176'
+  organism: Coprinopsis cinerea (strain Okayama-7 / 130 / ATCC MYA-4618 / FGSC 9003)
+  genome_assembly:
+    assemblyId: GCA_000182895.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000182895.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000001861/UP000001861_240176.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001861/UP000001861_240176.dat.gz
+  source_release: UniProt reference proteomes release 2026_02 (10-Jun-2026)
+  access_date: '2026-09-07T19:23:59Z'
+  checksum_sha256: 14296ec9b9f4026a36426357676af78ce8760653403216ceb03d277bd65cc93d
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on i29
+  proteome_id: UP000001861
+  taxon_id: '240176'
+  organism: Coprinopsis cinerea (strain Okayama-7 / 130 / ATCC MYA-4618 / FGSC 9003)
+  genome_assembly:
+    assemblyId: GCA_000182895.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000182895.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000182895.1/extracted/ncbi_dataset/data/GCA_000182895.1/GCA_000182895.1_CC3_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000182895.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_000182895.1'
+  access_date: '2026-09-07T19:24:04Z'
+  checksum_sha256: fc0c90f128ab6117f1eadb3645b9c6dc1c2c255d448100c39a33313ac5364294
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: genome
+  accession: GCA_000182895.1
+- local_path: data/ncbi/GCA_000182895.1/extracted/ncbi_dataset/data/GCA_000182895.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000182895.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_000182895.1'
+  access_date: '2026-09-07T19:24:04Z'
+  checksum_sha256: 77c841de9e514742d45840e3d4ad5ff39b3bf2a281b8096e87b1430f35fefe30
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: gff3
+  accession: GCA_000182895.1
+- local_path: data/uniprot/UP000008493/UP000008493_597362.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000008493/UP000008493_597362.fasta.gz
+  source_release: UniProt reference proteomes release 2026_02 (10-Jun-2026)
+  access_date: '2026-09-07T19:24:09Z'
+  checksum_sha256: 2cb9bb9a63333c47e8b25fafc5db482e81c152d6f9c1a2eb547e7ee72dbf0c45
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on i29
+  proteome_id: UP000008493
+  taxon_id: '597362'
+  organism: Agaricus bisporus var. burnettii (strain JB137-S8 / ATCC MYA-4627 / FGSC
+    10392)
+  genome_assembly:
+    assemblyId: GCA_000300555.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000300555.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000008493/UP000008493_597362.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000008493/UP000008493_597362.dat.gz
+  source_release: UniProt reference proteomes release 2026_02 (10-Jun-2026)
+  access_date: '2026-09-07T19:24:10Z'
+  checksum_sha256: 1701b3fa6bb64713fccda3a946d03730dcdd3992195d8a0b5345e041dc3fba3e
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on i29
+  proteome_id: UP000008493
+  taxon_id: '597362'
+  organism: Agaricus bisporus var. burnettii (strain JB137-S8 / ATCC MYA-4627 / FGSC
+    10392)
+  genome_assembly:
+    assemblyId: GCA_000300555.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000300555.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000300555.1/extracted/ncbi_dataset/data/GCA_000300555.1/GCA_000300555.1_Agabi_varbur_1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000300555.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_000300555.1'
+  access_date: '2026-09-07T19:24:13Z'
+  checksum_sha256: 3492645a2c8d90d27f163811468704de39e5a094938843049a93a81cdf6ee939
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: genome
+  accession: GCA_000300555.1
+- local_path: data/ncbi/GCA_000300555.1/extracted/ncbi_dataset/data/GCA_000300555.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000300555.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_000300555.1'
+  access_date: '2026-09-07T19:24:13Z'
+  checksum_sha256: 5a7978c9cbb6bb9dc3d579b803ff9ca3e133002cee5a0fca36ffc6fa01cb096e
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: gff3
+  accession: GCA_000300555.1
+- local_path: data/uniprot/UP000010091/UP000010091_235443.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000010091/UP000010091_235443.fasta.gz
+  source_release: UniProt reference proteomes release 2026_02 (10-Jun-2026)
+  access_date: '2026-09-07T19:24:17Z'
+  checksum_sha256: 839098e80ace0df85bbe9f9b857ea37788e39ce48dbbcec3377f1b380e61edce
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on i29
+  proteome_id: UP000010091
+  taxon_id: '235443'
+  organism: Cryptococcus neoformans (strain H99 / ATCC 208821 / CBS 10515 / FGSC 9487)
+  genome_assembly:
+    assemblyId: GCA_000149245.3
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000149245.3
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000010091/UP000010091_235443.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000010091/UP000010091_235443.dat.gz
+  source_release: UniProt reference proteomes release 2026_02 (10-Jun-2026)
+  access_date: '2026-09-07T19:24:18Z'
+  checksum_sha256: a6eef47ce582c32f2f06c14343b3cd4422d32250a30e70a86bcb68837e143107
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on i29
+  proteome_id: UP000010091
+  taxon_id: '235443'
+  organism: Cryptococcus neoformans (strain H99 / ATCC 208821 / CBS 10515 / FGSC 9487)
+  genome_assembly:
+    assemblyId: GCA_000149245.3
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000149245.3
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000149245.3/extracted/ncbi_dataset/data/GCA_000149245.3/GCA_000149245.3_CNA3_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149245.3/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_000149245.3'
+  access_date: '2026-09-07T19:24:21Z'
+  checksum_sha256: c9de52ffef6ca461d248d01583bb740ba413a65386f3de8aefe997c4a18d6fc1
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: genome
+  accession: GCA_000149245.3
+- local_path: data/ncbi/GCA_000149245.3/extracted/ncbi_dataset/data/GCA_000149245.3/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149245.3/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_000149245.3'
+  access_date: '2026-09-07T19:24:21Z'
+  checksum_sha256: 3920eedc10c712429495825dc43511542d52e0936a2e33d86d596c7aa2e0aada
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: gff3
+  accession: GCA_000149245.3
+- local_path: data/uniprot/UP000289152/UP000289152_5217.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000289152/UP000289152_5217.fasta.gz
+  source_release: UniProt reference proteomes release 2026_02 (10-Jun-2026)
+  access_date: '2026-09-07T19:24:24Z'
+  checksum_sha256: e1ad9c21051d85b1504f733885d1f9e158bdf13159f084f722945f02118860d1
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on i29
+  proteome_id: UP000289152
+  taxon_id: '5217'
+  organism: Tremella mesenterica
+  genome_assembly:
+    assemblyId: GCA_004117975.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_004117975.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000289152/UP000289152_5217.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000289152/UP000289152_5217.dat.gz
+  source_release: UniProt reference proteomes release 2026_02 (10-Jun-2026)
+  access_date: '2026-09-07T19:24:26Z'
+  checksum_sha256: 2e56ca91bdc2e347ba0141ccf0283ea2caeb5a59d5042057e6c22819758581eb
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on i29
+  proteome_id: UP000289152
+  taxon_id: '5217'
+  organism: Tremella mesenterica
+  genome_assembly:
+    assemblyId: GCA_004117975.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_004117975.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_004117975.1/extracted/ncbi_dataset/data/GCA_004117975.1/GCA_004117975.1_Trem_mese_ATCC28783_V1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_004117975.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_004117975.1'
+  access_date: '2026-09-07T19:24:28Z'
+  checksum_sha256: c513dde709f9928d0f907941128c2d448352c94325a85572e2dc3e05fc841bd5
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: genome
+  accession: GCA_004117975.1
+- local_path: data/ncbi/GCA_004117975.1/extracted/ncbi_dataset/data/GCA_004117975.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_004117975.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_004117975.1'
+  access_date: '2026-09-07T19:24:28Z'
+  checksum_sha256: 9c3b04ba90ff96c6be3b97e2876de58a38cfb7484f80b1623ceb56030c365884
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: gff3
+  accession: GCA_004117975.1
+- local_path: studies/fungi/mushrooms_tremella/config.csv
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T19:24:29Z'
+  checksum_sha256: 080506e7efb1fd326e63ff11c96018a06f7f3d256d5f13b27229a25325084273
+  license: n/a
+  derived_by: bin/build_study_config.py --study-dir studies/fungi/mushrooms_tremella
+  pulled_with: build_study_config.py on i29
