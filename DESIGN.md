@@ -245,6 +245,33 @@ continuously-curated Scer/Spom).
 Further sets (`pezizo_set2`, etc.) to be defined the same way, guided per-set as this one
 was.
 
+### Additional `fungi/` sets (2026-09-07)
+
+Three more pairwise IN/OUT contrasts, same UniProt-reference-proteome sourcing, same
+`--run_tool diamond`/no-Pfam-hmmscan pattern as `pezizo_set1`:
+
+- **`zoosporic_dikarya`** — IN: 4 zoosporic (chytrid) fungi (Batrdend, Spizpunc, Syncendo,
+  Cateangu) vs OUT: 5 Dikarya (Scer, Ncra, Anid, Spom, Ccin). Originally scoped for 6
+  zoosporic species (matching the old BFD-era `zoosporic_opisthokont_dikarya` config), but
+  **Chytriomyces hyalinus and Paraphysoderma sedebokerense have no UniProt reference
+  proteome** (confirmed against the Eukaryota reference-proteome listing — only
+  non-reference entries exist for either) — dropped rather than breaking the
+  reference-proteome-only sourcing principle.
+- **`yeast_filamentous`** — IN: 4 yeasts, Saccharomycotina (Scer, Ylip) + Taphrinomycotina
+  (Spom, Nirr), vs OUT: 4 filamentous Pezizomycotina (Ncra, Afum, Ztri, Cimm — reused
+  directly from `pezizo_set1`'s ingroup). Direction chosen as "genes specific to yeast
+  growth form, absent from filamentous relatives" — flip the GROUP column if the reverse
+  question (filamentous-specific genes) turns out to be the one actually wanted.
+- **`mushrooms_tremella`** — IN: 2 Agaricomycotina (mushroom-forming) species (Ccin,
+  Agbis — *Agaricus bisporus* var. *burnettii*, the only UniProt-reference-proteome
+  strain), vs OUT: 2 Tremellomycetes (CneoH99, Tremes — *Tremella mesenterica*). Thinnest
+  of the three (2v2) — could be expanded with more Agaricomycotina/Tremellomycetes species
+  later if the initial result looks background-noise-dominated.
+
+All species/UniProt-proteome/GCA-accession mappings verified live against
+`rest.uniprot.org` and the Eukaryota reference-proteome FTP listing before use, same
+verification standard as `pezizo_set1`.
+
 ## 7. Functional enrichment
 
 **Decision: ORA (over-representation analysis) only, hypergeometric test — no GSEA.**

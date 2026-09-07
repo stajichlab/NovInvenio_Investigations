@@ -1,0 +1,9 @@
+# Extra nextflow params for this study, applied by bin/run_study.sh before any
+# args passed on the command line (so a command-line arg can still override one
+# of these). One flag/value per line; '#' starts a comment; blank lines ignored.
+
+# diamond over phmmer for pairwise search + self-search: this study's ingroup/
+# outgroup proteomes are large enough that diamond's speed matters more than
+# phmmer's sensitivity edge here -- chosen for turnaround, not because phmmer
+# would give a materially different novelty/loss call.
+--run_tool diamond

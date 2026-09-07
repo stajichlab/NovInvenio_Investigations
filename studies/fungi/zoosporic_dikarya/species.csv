@@ -1,0 +1,10 @@
+Short,Species,Strain,Group,TaxonGroup,UniProt_Proteome_ID,Taxon_ID,GCA_Accession
+Batrdend,Batrachochytrium dendrobatidis,JAM81,IN,Zoosporic,UP000007241,684364,GCA_000203795.2
+Spizpunc,Spizellomyces punctatus,DAOM BR117,IN,Zoosporic,UP000053201,645134,GCA_000182565.2
+Syncendo,Synchytrium endobioticum,,IN,Zoosporic,UP000317494,286115,GCA_006535955.1
+Cateangu,Catenaria anguillulae,PL171,IN,Zoosporic,UP000193411,765915,GCA_002102555.1
+Scer,Saccharomyces cerevisiae,S288C,OUT,Dikarya,UP000002311,559292,GCA_000146045.2
+Ncra,Neurospora crassa,OR74A,OUT,Dikarya,UP000001805,367110,GCA_000182925.2
+Anid,Aspergillus nidulans,FGSC A4,OUT,Dikarya,UP000000560,227321,GCA_000011425.1
+Spom,Schizosaccharomyces pombe,972h,OUT,Dikarya,UP000002485,284812,GCA_000002945.2
+Ccin,Coprinopsis cinerea,Okayama-7/130,OUT,Dikarya,UP000001861,240176,GCA_000182895.1

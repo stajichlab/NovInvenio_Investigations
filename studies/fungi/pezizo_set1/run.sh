@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 #SBATCH -p batch -c 2 --mem 8gb --time=2-00:00:00 --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/logs/pezizo_set1.log
 
-# Real run of pezizo_set1 (studies/fungal/pezizo_set1/): the first NII study,
+# Real run of pezizo_set1 (studies/fungi/pezizo_set1/): the first NII study,
 # UniProt-reference-proteome-sourced replacement for NovInvenio's BFD-based
 # pezizo5 config. Data already pulled (species.csv -> config.csv + data_dir via
 # bin/build_study_config.py, see DATA_MANIFEST.yaml for full provenance).
@@ -34,7 +34,7 @@ NOVINVENIO_ROOT="/bigdata/stajichlab/jstajich/projects/NovInvenio"
 
 export NII_PIPELINE="$NOVINVENIO_ROOT/main.nf"
 
-"$NII_ROOT/bin/run_study.sh" fungal/pezizo_set1 \
+"$NII_ROOT/bin/run_study.sh" fungi/pezizo_set1 \
     -profile slurm \
     -c "$NOVINVENIO_ROOT/conf/ucr_hpcc_slurm.config" \
     --modelorgs_config "$NOVINVENIO_ROOT/configs/modelorgs.yaml"
