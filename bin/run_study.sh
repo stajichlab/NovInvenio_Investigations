@@ -2,7 +2,12 @@
 # Build a study's config+data_dir (if not already built) and run nf_NovInvenio against it.
 #
 # Usage: bin/run_study.sh <domain>/<set_name> [extra nextflow args...]
-# Example: bin/run_study.sh fungal/pezizo_set1 --run_tool diamond --pfam_hmm /path/to/Pfam-A.hmm
+# Example: bin/run_study.sh fungal/pezizo_set1 --pfam_hmm /path/to/Pfam-A.hmm
+#
+# A study's own studies/<domain>/<set>/run_params.txt (if present) supplies this
+# study's committed nextflow params (e.g. --run_tool diamond) -- applied first, so
+# any matching flag given on the command line still wins (nextflow/most CLIs take
+# the last occurrence of a repeated flag).
 #
 # PIPELINE resolution: the NovInvenio -> nf_NovInvenio rename is deliberately
 # deferred (DESIGN.md Sec 2/9 -- no purge/rename yet), so this defaults to the
@@ -35,6 +40,17 @@ else
     echo "== $STUDY_DIR/config.csv + data_dir already present, skipping fetch (delete to rebuild) ==" >&2
 fi
 
+STUDY_PARAMS=()
+if [ -f "$STUDY_DIR/run_params.txt" ]; then
+    while IFS= read -r line; do
+        line="${line%%#*}"                 # strip comments
+        [ -n "${line// }" ] || continue    # skip blank/comment-only lines
+        read -ra words <<< "$line"
+        STUDY_PARAMS+=("${words[@]}")
+    done < "$STUDY_DIR/run_params.txt"
+    echo "== applying ${STUDY_DIR}/run_params.txt: ${STUDY_PARAMS[*]} ==" >&2
+fi
+
 LAUNCH_DIR="$REPO_ROOT/.nf_launch/$STUDY"
 mkdir -p "$LAUNCH_DIR"
 cd "$LAUNCH_DIR"
@@ -45,4 +61,5 @@ nextflow run "$PIPELINE" \
     --data_dir "$STUDY_DIR/data_dir" \
     --project "$(basename "$STUDY")" \
     --outdir "$REPO_ROOT/results" \
+    "${STUDY_PARAMS[@]}" \
     "$@"

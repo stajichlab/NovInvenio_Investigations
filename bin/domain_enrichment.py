@@ -32,6 +32,7 @@ from scipy.stats import hypergeom
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from stats_util import bh_fdr  # noqa: E402
+from uniprot_ids import bare_accession  # noqa: E402
 
 
 def load_annotations(paths: list[Path], field: str) -> dict[str, set[str]]:
@@ -48,7 +49,7 @@ def load_annotations(paths: list[Path], field: str) -> dict[str, set[str]]:
 
 def load_ids(path: Path) -> set[str]:
     with open(path) as fh:
-        return {line.strip() for line in fh if line.strip()}
+        return {bare_accession(line.strip()) for line in fh if line.strip()}
 
 
 def main() -> int:

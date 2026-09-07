@@ -1,12 +1,18 @@
 # Ephemeral, recipe-driven pulls -- never archived (DESIGN.md Sec 4). Re-fetchable
 # on demand via bin/fetch_uniprot_proteome.py / bin/fetch_genome_assembly.py.
 /data/
+/logs/
 
 # Per-study materialized inputs (decompressed FASTA/GFF3 built from data/ by
 # bin/build_study_config.py) -- regenerable from species.csv + the cache above,
 # not source. config.csv and DATA_MANIFEST.yaml (the actual tracked outputs of that
 # script) are NOT excluded here since they're small and are the study's own record.
 studies/*/*/data_dir/
+
+# Per-species UniProt DR annotation extracts (bin/extract_dat_annotations.py) --
+# regenerable from the (also gitignored) data/uniprot/ cache in ~2s/species, not
+# source.
+studies/*/*/annotations/
 
 # Nextflow run state (when studies invoke nf_NovInvenio directly from here)
 .nextflow/

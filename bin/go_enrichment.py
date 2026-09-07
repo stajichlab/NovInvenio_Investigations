@@ -27,6 +27,7 @@ from goatools.go_enrichment import GOEnrichmentStudy
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from stats_util import bh_fdr  # noqa: E402
+from uniprot_ids import bare_accession  # noqa: E402
 
 
 def load_go_assoc(paths: list[Path], exclude_iea: bool) -> dict[str, set[str]]:
@@ -53,7 +54,7 @@ def load_go_assoc(paths: list[Path], exclude_iea: bool) -> dict[str, set[str]]:
 
 def load_ids(path: Path) -> set[str]:
     with open(path) as fh:
-        return {line.strip() for line in fh if line.strip()}
+        return {bare_accession(line.strip()) for line in fh if line.strip()}
 
 
 def main() -> int:

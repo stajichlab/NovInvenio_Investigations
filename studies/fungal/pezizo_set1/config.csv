@@ -1,0 +1,12 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+OUT,Neolecta irregularis,DAH-3,Nirr.pep.fa,Nirr.dna.fa,Nirr.gff3,Nirr,Taphrinomycotina
+OUT,Cryptococcus neoformans,H99,CneoH99.pep.fa,CneoH99.dna.fa,CneoH99.gff3,CneoH99,Basidiomycota
+OUT,Coprinopsis cinerea,Okayama-7/130,Ccin.pep.fa,Ccin.dna.fa,Ccin.gff3,Ccin,Basidiomycota
+OUT,Mucor circinelloides,1006PhL,Mcir.pep.fa,Mcir.dna.fa,Mcir.gff3,Mcir,Mucoromycotina
+OUT,Schizosaccharomyces pombe,972h,Spom.pep.fa,Spom.dna.fa,Spom.gff3,Spom,Taphrinomycotina
+OUT,Saccharomyces cerevisiae,S288C,Scer.pep.fa,Scer.dna.fa,Scer.gff3,Scer,Saccharomycotina
+IN,Arthrobotrys megalospora,TWF281,Amega.pep.fa,Amega.dna.fa,Amega.gff3,Amega,Pezizomycotina
+IN,Neurospora crassa,OR74A,Ncra.pep.fa,Ncra.dna.fa,Ncra.gff3,Ncra,Pezizomycotina
+IN,Aspergillus fumigatus,Af293,Afum.pep.fa,Afum.dna.fa,Afum.gff3,Afum,Pezizomycotina
+IN,Zymoseptoria tritici,IPO323,Ztri.pep.fa,Ztri.dna.fa,Ztri.gff3,Ztri,Pezizomycotina
+IN,Coccidioides immitis,RS,Cimm.pep.fa,Cimm.dna.fa,Cimm.gff3,Cimm,Pezizomycotina
