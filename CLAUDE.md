@@ -72,8 +72,19 @@ rename actually happens.
 | A new external-data pull recipe (new database, new domain) | `bin/fetch_<source>.py`, following `fetch_uniprot_proteome.py`'s provenance pattern |
 | Shared Python logic | `lib/` |
 | A new study | `studies/<domain>/<set_name>/species.csv`, then `bin/build_study_config.py --study-dir studies/<domain>/<set_name>` |
+| A script specific to one study (custom `species.csv` schema, hardcoded accession lists, a one-off model-organism pull, etc.) | `studies/<domain>/<set_name>/bin/`, not `bin/` — see "Study-specific vs. shared scripts" below |
 | Enrichment/analysis scripts (GO/Pfam/InterPro ORA) | `bin/`, reading a study's annotated presence matrix — not yet built, see `DESIGN.md` Sec 7 |
 | Site generation | `docs/` — not yet built, see `DESIGN.md` Sec 8 |
+
+### Study-specific vs. shared scripts
+
+`bin/` is for scripts any study could call, parameterized by CLI args (`fetch_uniprot_proteome.py --proteome-id ...`, `build_study_config.py --study-dir ...`). A script belongs in `studies/<domain>/<set_name>/bin/` instead the moment it stops being reusable in that sense — the giveaway is usually right there in the name or the body:
+
+- The filename itself names a study, species, or one-off dataset (`build_koxytoca_config.py`, `fetch_kpn78578_modelorg.py`) rather than a general source/action (`fetch_uniprot_proteome.py`).
+- It hardcodes a species list, an accession list, or a specific study's directory layout instead of taking them as arguments.
+- It exists to solve one study's particular data-shape problem (e.g. proteomes that are already local files instead of a UniProt/NCBI pull-per-species) rather than a recipe any study would reuse.
+
+Study-specific scripts still follow the shared-`lib/` and provenance conventions (import `lib/provenance.py`, write `.provenance.yaml` sidecars / fold into that study's `DATA_MANIFEST.yaml`) — only their own location, and any hardcoded reference back to `NII_ROOT`/`NII_BIN`, changes. Since they don't live next to the scripts they invoke via `subprocess` (e.g. `fetch_uniprot_proteome.py`) or the `lib/` they import, hardcode absolute paths to those (`NII_ROOT = Path("/bigdata/.../NovInvenio_Investigations")`) rather than deriving them from `__file__` or cwd — same reasoning as `~/.claude/CLAUDE.md`'s BASH_SOURCE/SLURM warning, just triggered by directory distance instead of a SLURM work dir.
 
 ## Mycelium
 

@@ -1,0 +1,32 @@
+# Model organism annotation config for the UHM_Koxytoca study (see
+# nf_NovInvenio/lib/model_organisms.py for the consuming code + full format docs).
+#
+# Kpn78578 = Klebsiella pneumoniae subsp. pneumoniae MGH 78578 (NCBI assembly
+# GCF_000016305.1 / UniProt proteome UP000000265, taxid 272620) -- the closest
+# well-annotated reference for this Klebsiella oxytoca study. Regeneration recipe
+# and full provenance: config_support/MODELORG_KPN78578_PROVENANCE.md (NII repo)
+#
+# id_transform: diamond_fasta, because the ingroup UHM MAG proteins are
+# prodigal-called locus tags (e.g. "k141_4769_1") with no direct ID relationship to
+# Kpn78578's UniProt accessions -- a diamond best-hit lookup is required, not a
+# regex strip. protein_fasta's headers were rewritten to ">ACCESSION gene=ACCESSION"
+# so the diamond hit's subject ID resolves straight back to itself as the
+# gene_names_csv lookup key (see studies/bacteria/UHM_Koxytoca/bin/fetch_kpn78578_modelorg.py's docstring for why
+# UniProt's stock header doesn't work here).
+#
+# Paths below are absolute, deliberately: nf_NovInvenio resolves any relative path
+# in this file against its OWN projectDir (--launch_dir ${projectDir}, see
+# workflows/annotate.nf), not against this file's directory or NII's repo root --
+# so a relative path here would resolve inside the pipeline checkout, not NII.
+
+model_organisms:
+  - short: Kpn78578
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
