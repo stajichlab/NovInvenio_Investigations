@@ -32,10 +32,15 @@
 #   bin/make_report.py etc. are invoked directly here, not through nextflow) --
 #   same local-checkout requirement as bin/run_study.sh's NII_PIPELINE override.
 #
-# No-ops (with a message, not an error) when a study has no studies/<set>/annotations/
-# yet (non-UniProt-sourced study, or bin/build_study_config.py hasn't been (re-)run
-# since it started producing them) or no results/<set>/ output yet (pipeline hasn't
-# run).
+# When a study has no studies/<set>/annotations/ yet (non-UniProt-sourced study --
+# e.g. one built via a study-specific bin/build_<study>_config.py instead of the
+# shared bin/build_study_config.py -- or bin/build_study_config.py hasn't been
+# (re-)run since it started producing them), the UniProt-merge + report-regenerate
+# steps are skipped, but results/<set>/{core,losses,novelties}.html (nf_NovInvenio's
+# own un-merged output) still gets published to docs/ as-is -- publishing to docs/
+# shouldn't depend on a study having UniProt annotation to merge. Only a genuine
+# no-op (with a message, not an error): no results/<set>/ output yet (pipeline
+# hasn't run).
 
 set -euo pipefail
 
@@ -51,81 +56,86 @@ DOCS_DIR="$REPO_ROOT/docs/$STUDY"
 # module docstring above (Helpers.viewDir()). Not ours; just where it lands.
 PIPELINE_VIEW_DIR="$REPO_ROOT/view/$SET_NAME"
 
-if [ ! -d "$STUDY_DIR/annotations" ] || [ -z "$(ls -A "$STUDY_DIR/annotations" 2>/dev/null)" ]; then
-    echo "== $STUDY_DIR/annotations empty/missing -- nothing to merge, skipping report sync ==" >&2
-    exit 0
-fi
 if [ ! -f "$RESULTS_DIR/presence_matrix.function.tsv" ]; then
     echo "== $RESULTS_DIR/presence_matrix.function.tsv not found -- run the study first, skipping report sync ==" >&2
     exit 0
 fi
 
-shopt -s nullglob
-ANNOT_TSVS=("$STUDY_DIR"/annotations/*.tsv)
-shopt -u nullglob
+HAS_ANNOTATIONS=0
+if [ -d "$STUDY_DIR/annotations" ] && [ -n "$(ls -A "$STUDY_DIR/annotations" 2>/dev/null)" ]; then
+    HAS_ANNOTATIONS=1
+fi
 
 NIIPY() { pixi run --manifest-path "$REPO_ROOT/pixi.toml" python "$REPO_ROOT/bin/$1" "${@:2}"; }
 PIPEPY() { pixi run --manifest-path "$NOVINVENIO_ROOT/pixi.toml" python "$NOVINVENIO_ROOT/bin/$1" "${@:2}"; }
 
-echo "== merging UniProt annotation into $RESULTS_DIR presence matrices ==" >&2
-NIIPY merge_uniprot_annotations.py \
-    --matrix "$RESULTS_DIR/presence_matrix.function.tsv" \
-    --annotations "${ANNOT_TSVS[@]}" \
-    --output "$RESULTS_DIR/presence_matrix.uniprot.tsv" \
-    --lenient
+if [ "$HAS_ANNOTATIONS" -eq 1 ]; then
+    shopt -s nullglob
+    ANNOT_TSVS=("$STUDY_DIR"/annotations/*.tsv)
+    shopt -u nullglob
 
-if [ -f "$RESULTS_DIR/loss_presence_matrix.function.tsv" ]; then
+    echo "== merging UniProt annotation into $RESULTS_DIR presence matrices ==" >&2
     NIIPY merge_uniprot_annotations.py \
-        --matrix "$RESULTS_DIR/loss_presence_matrix.function.tsv" \
+        --matrix "$RESULTS_DIR/presence_matrix.function.tsv" \
         --annotations "${ANNOT_TSVS[@]}" \
-        --output "$RESULTS_DIR/loss_presence_matrix.uniprot.tsv" \
+        --output "$RESULTS_DIR/presence_matrix.uniprot.tsv" \
         --lenient
-fi
 
-echo "== regenerating novelties.html ==" >&2
-NOV_ARGS=(
-    --matrix "$RESULTS_DIR/presence_matrix.uniprot.tsv"
-    --config "$STUDY_DIR/config.csv"
-    --project "$SET_NAME"
-    --data_dir "$STUDY_DIR/data_dir"
-    --sequences novelties
-    --output "$RESULTS_DIR/novelties.html"
-)
-[ -f "$RESULTS_DIR/tblastn_summary.tsv" ] && NOV_ARGS+=(--tblastn_summary "$RESULTS_DIR/tblastn_summary.tsv")
-shopt -s nullglob
-NOV_TSVS=("$RESULTS_DIR"/novelties.*.tsv)
-shopt -u nullglob
-[ ${#NOV_TSVS[@]} -gt 0 ] && NOV_ARGS+=(--novelties "${NOV_TSVS[@]}")
-[ -f "$RESULTS_DIR/candidates.fa" ] && NOV_ARGS+=(--candidates_fa "$RESULTS_DIR/candidates.fa")
-[ -f "$RESULTS_DIR/clusters/clusters_cluster.tsv" ] && NOV_ARGS+=(--cluster_tsv "$RESULTS_DIR/clusters/clusters_cluster.tsv")
-[ -f "$RESULTS_DIR/presence_matrix.evalues.tsv" ] && NOV_ARGS+=(--evalues "$RESULTS_DIR/presence_matrix.evalues.tsv")
-[ -f "$RESULTS_DIR/context_presence.tsv" ] && NOV_ARGS+=(--context_matrix "$RESULTS_DIR/context_presence.tsv")
-[ -f "$RESULTS_DIR/context_presence.evalues.tsv" ] && NOV_ARGS+=(--context_evalues "$RESULTS_DIR/context_presence.evalues.tsv")
-PIPEPY make_report.py "${NOV_ARGS[@]}"
+    if [ -f "$RESULTS_DIR/loss_presence_matrix.function.tsv" ]; then
+        NIIPY merge_uniprot_annotations.py \
+            --matrix "$RESULTS_DIR/loss_presence_matrix.function.tsv" \
+            --annotations "${ANNOT_TSVS[@]}" \
+            --output "$RESULTS_DIR/loss_presence_matrix.uniprot.tsv" \
+            --lenient
+    fi
 
-echo "== regenerating core.html ==" >&2
-CORE_ARGS=(
-    --matrix "$RESULTS_DIR/presence_matrix.uniprot.tsv"
-    --config "$STUDY_DIR/config.csv"
-    --project "$SET_NAME"
-    --data_dir "$STUDY_DIR/data_dir"
-    --output "$RESULTS_DIR/core.html"
-)
-[ -f "$RESULTS_DIR/clusters/clusters_cluster.tsv" ] && CORE_ARGS+=(--cluster_tsv "$RESULTS_DIR/clusters/clusters_cluster.tsv")
-PIPEPY make_core_report.py "${CORE_ARGS[@]}"
-
-if [ -f "$RESULTS_DIR/loss_presence_matrix.uniprot.tsv" ]; then
-    echo "== regenerating losses.html ==" >&2
-    LOSSES_ARGS=(
-        --matrix "$RESULTS_DIR/loss_presence_matrix.uniprot.tsv"
+    echo "== regenerating novelties.html ==" >&2
+    NOV_ARGS=(
+        --matrix "$RESULTS_DIR/presence_matrix.uniprot.tsv"
         --config "$STUDY_DIR/config.csv"
         --project "$SET_NAME"
         --data_dir "$STUDY_DIR/data_dir"
-        --output "$RESULTS_DIR/losses.html"
+        --sequences novelties
+        --output "$RESULTS_DIR/novelties.html"
     )
-    [ -f "$RESULTS_DIR/loss_tblastn_summary.tsv" ] && LOSSES_ARGS+=(--tblastn_summary "$RESULTS_DIR/loss_tblastn_summary.tsv")
-    [ -f "$RESULTS_DIR/clusters/loss_clusters_cluster.tsv" ] && LOSSES_ARGS+=(--cluster_tsv "$RESULTS_DIR/clusters/loss_clusters_cluster.tsv")
-    PIPEPY make_losses_report.py "${LOSSES_ARGS[@]}"
+    [ -f "$RESULTS_DIR/tblastn_summary.tsv" ] && NOV_ARGS+=(--tblastn_summary "$RESULTS_DIR/tblastn_summary.tsv")
+    shopt -s nullglob
+    NOV_TSVS=("$RESULTS_DIR"/novelties.*.tsv)
+    shopt -u nullglob
+    [ ${#NOV_TSVS[@]} -gt 0 ] && NOV_ARGS+=(--novelties "${NOV_TSVS[@]}")
+    [ -f "$RESULTS_DIR/candidates.fa" ] && NOV_ARGS+=(--candidates_fa "$RESULTS_DIR/candidates.fa")
+    [ -f "$RESULTS_DIR/clusters/clusters_cluster.tsv" ] && NOV_ARGS+=(--cluster_tsv "$RESULTS_DIR/clusters/clusters_cluster.tsv")
+    [ -f "$RESULTS_DIR/presence_matrix.evalues.tsv" ] && NOV_ARGS+=(--evalues "$RESULTS_DIR/presence_matrix.evalues.tsv")
+    [ -f "$RESULTS_DIR/context_presence.tsv" ] && NOV_ARGS+=(--context_matrix "$RESULTS_DIR/context_presence.tsv")
+    [ -f "$RESULTS_DIR/context_presence.evalues.tsv" ] && NOV_ARGS+=(--context_evalues "$RESULTS_DIR/context_presence.evalues.tsv")
+    PIPEPY make_report.py "${NOV_ARGS[@]}"
+
+    echo "== regenerating core.html ==" >&2
+    CORE_ARGS=(
+        --matrix "$RESULTS_DIR/presence_matrix.uniprot.tsv"
+        --config "$STUDY_DIR/config.csv"
+        --project "$SET_NAME"
+        --data_dir "$STUDY_DIR/data_dir"
+        --output "$RESULTS_DIR/core.html"
+    )
+    [ -f "$RESULTS_DIR/clusters/clusters_cluster.tsv" ] && CORE_ARGS+=(--cluster_tsv "$RESULTS_DIR/clusters/clusters_cluster.tsv")
+    PIPEPY make_core_report.py "${CORE_ARGS[@]}"
+
+    if [ -f "$RESULTS_DIR/loss_presence_matrix.uniprot.tsv" ]; then
+        echo "== regenerating losses.html ==" >&2
+        LOSSES_ARGS=(
+            --matrix "$RESULTS_DIR/loss_presence_matrix.uniprot.tsv"
+            --config "$STUDY_DIR/config.csv"
+            --project "$SET_NAME"
+            --data_dir "$STUDY_DIR/data_dir"
+            --output "$RESULTS_DIR/losses.html"
+        )
+        [ -f "$RESULTS_DIR/loss_tblastn_summary.tsv" ] && LOSSES_ARGS+=(--tblastn_summary "$RESULTS_DIR/loss_tblastn_summary.tsv")
+        [ -f "$RESULTS_DIR/clusters/loss_clusters_cluster.tsv" ] && LOSSES_ARGS+=(--cluster_tsv "$RESULTS_DIR/clusters/loss_clusters_cluster.tsv")
+        PIPEPY make_losses_report.py "${LOSSES_ARGS[@]}"
+    fi
+else
+    echo "== $STUDY_DIR/annotations empty/missing -- skipping UniProt merge/regenerate, publishing results/$SET_NAME's own report HTML as-is ==" >&2
 fi
 
 echo "== syncing reports to $DOCS_DIR ==" >&2
