@@ -30,7 +30,7 @@ DOCS_ROOT = REPO_ROOT / "docs"
 
 # Domain registry (DESIGN.md Sec 3/8) -- fixed set, populated over time.
 DOMAINS = [
-    ("fungal", "Fungal", "Lineage-specific gene novelty/loss in fungi (Ascomycota, Basidiomycota, early-diverging lineages)."),
+    ("fungi", "Fungal", "Lineage-specific gene novelty/loss in fungi (Ascomycota, Basidiomycota, early-diverging lineages)."),
     ("animal", "Animal", "Not yet populated."),
     ("plant", "Plant", "Not yet populated."),
     ("bacteria", "Bacteria", "Not yet populated."),

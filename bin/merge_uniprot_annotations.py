@@ -5,7 +5,7 @@ nf_NovInvenio presence_matrix.tsv or novelties.<Short>.tsv, keyed by protein_id.
 This replaces nf_NovInvenio's own ANNOTATE_MATRIX (Pfam hmmscan + SwissProt diamond)
 for UniProt-sourced studies: candidates here already carry real UniProt accessions,
 so their DR Pfam/InterPro/GO cross-references are looked up directly rather than
-recomputed -- see studies/fungal/pezizo_set1/run.sh's header comment for why running
+recomputed -- see studies/fungi/pezizo_set1/run.sh's header comment for why running
 a fresh hmmscan/diamond pass on top would be redundant, and could disagree with
 UniProt's own calls.
 

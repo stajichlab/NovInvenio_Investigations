@@ -2,7 +2,7 @@
 # Build a study's config+data_dir (if not already built) and run nf_NovInvenio against it.
 #
 # Usage: bin/run_study.sh <domain>/<set_name> [extra nextflow args...]
-# Example: bin/run_study.sh fungal/pezizo_set1 --pfam_hmm /path/to/Pfam-A.hmm
+# Example: bin/run_study.sh fungi/pezizo_set1 --pfam_hmm /path/to/Pfam-A.hmm
 #
 # A study's own studies/<domain>/<set>/run_params.txt (if present) supplies this
 # study's committed nextflow params (e.g. --run_tool diamond) -- applied first, so

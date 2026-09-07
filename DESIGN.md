@@ -90,7 +90,7 @@ NovInvenio_Investigations/
 │   ├── animal_pool.csv, source_db.csv, 1KFG_*.csv, Chaetothyriales_samples.csv
 │   └── modelorgs/                       (moved from NovInvenio's db/modelorgs/*.csv)
 ├── studies/
-│   └── fungal/
+│   └── fungi/
 │       ├── pezizo_set1/
 │       │   ├── config.csv               ← NII-generated run config (UniProt-sourced)
 │       │   ├── provenance.yaml          ← per-study provenance record (§4)
@@ -210,7 +210,7 @@ needed for GO-DAG structure/true-path propagation if `goatools` is to do full GO
 enrichment properly. This needs the same provenance treatment as UniProt (§4): recipe-
 driven pull, version/date recorded, not archived.
 
-## 6. First study: `fungal/pezizo_set1`
+## 6. First study: `fungi/pezizo_set1`
 
 Originally scoped as `pezizo5` minus Nirr/Mcir/Amega (8 species), but the independent
 Fable-model review (§10 addendum) flagged that dropping those three leaves an all-Dikarya
@@ -269,7 +269,7 @@ the existing per-study grouping):
 docs/
 ├── index.html                 ← top-level: one card per domain (Fungal, Animal, Plant,
 │                                 Bacteria, Other — greyed out until populated)
-├── fungal/
+├── fungi/
 │   ├── index.html             ← domain landing: one card per set (pezizo_set1, ...);
 │   │                             card = set name, one-line hypothesis, species count/
 │   │                             ingroup-outgroup summary, date generated, link in
@@ -286,7 +286,7 @@ docs/
 └── bacteria/index.html
 ```
 
-`studies/fungal/pezizo_set1/` (working dir) and `docs/fungal/pezizo_set1/` (published
+`studies/fungi/pezizo_set1/` (working dir) and `docs/fungi/pezizo_set1/` (published
 site) share the same two-level key, so "where do I find X" stays consistent between repo
 and live site.
 

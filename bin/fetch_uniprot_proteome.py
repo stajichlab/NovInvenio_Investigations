@@ -79,7 +79,7 @@ def main() -> int:
     meta = fetch_json(upid)
     taxid = args.taxid or str(meta["taxonomy"]["taxonId"])
     superkingdom = meta.get("superkingdom", "Eukaryota")
-    domain_folder = DOMAIN_FOLDERS.get(superkingdom, "Eukaryota")
+    domain_folder = DOMAIN_FOLDERS.get(superkingdom.capitalize(), "Eukaryota")
     genome_assembly = meta.get("genomeAssembly", {})
     release = fetch_release_string()
 

@@ -59,7 +59,7 @@ def load_provenance(sidecar: Path) -> dict:
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--study-dir", required=True, help="e.g. studies/fungal/pezizo_set1")
+    ap.add_argument("--study-dir", required=True, help="e.g. studies/fungi/pezizo_set1")
     ap.add_argument("--uniprot-cache", default="data/uniprot")
     ap.add_argument("--ncbi-cache", default="data/ncbi")
     ap.add_argument("--skip-fetch", action="store_true", help="Rebuild config/data_dir from an already-populated cache, no downloads")

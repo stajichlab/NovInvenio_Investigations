@@ -13,7 +13,7 @@ see `DESIGN.md` Sec 2). NII depends on `nf_NovInvenio` as an external Nextflow p
 invoked by reference (`nextflow run stajichlab/nf_NovInvenio`), never vendored/copied in.
 
 Organized as one repo, domain subdirectories: `studies/<domain>/<set_name>/` (e.g.
-`studies/fungal/pezizo_set1/`). See `DESIGN.md` Sec 3 for the full layout and Sec 8 for
+`studies/fungi/pezizo_set1/`). See `DESIGN.md` Sec 3 for the full layout and Sec 8 for
 the published-site structure this mirrors.
 
 ## Data provenance & tracking — hard rules
@@ -56,7 +56,7 @@ refresh of the old one (`DESIGN.md` Sec 10).
 ## Running a study
 
 ```bash
-bin/run_study.sh fungal/pezizo_set1 --run_tool diamond --pfam_hmm /path/to/Pfam-A.hmm
+bin/run_study.sh fungi/pezizo_set1 --run_tool diamond --pfam_hmm /path/to/Pfam-A.hmm
 ```
 
 Builds `studies/<domain>/<set>/config.csv` + `data_dir/` from `species.csv` (via
