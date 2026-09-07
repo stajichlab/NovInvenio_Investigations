@@ -6,6 +6,18 @@
 # well-annotated reference for this Klebsiella oxytoca study. Regeneration recipe
 # and full provenance: config_support/MODELORG_KPN78578_PROVENANCE.md (NII repo)
 #
+# IMPORTANT: nf_NovInvenio/bin/annotate_presence_matrix.py calls
+# ModelOrgAnnotator.annotate(protein_id, source) where `source` is the row's own
+# `source_proteome` (== each candidate's OWN Short code from config.csv) -- NOT
+# some separate reference-organism name. A model_organisms entry only ever fires
+# for candidates whose source proteome's Short matches that entry's `short:`.
+# An earlier version of this file had a single `short: Kpn78578` entry, which
+# never matched any of this study's 34 actual Short codes (none of them is
+# "Kpn78578" -- Kpn78578 is only a comparison reference, never itself one of the
+# analyzed proteomes) -- so gene_name/product came back empty for every row,
+# silently (no error). The fix: one entry per INGROUP Short (the actual rows we
+# want Kpn78578-based gene names for), all pointing at the same lookup files.
+#
 # id_transform: diamond_fasta, because the ingroup UHM MAG proteins are
 # prodigal-called locus tags (e.g. "k141_4769_1") with no direct ID relationship to
 # Kpn78578's UniProt accessions -- a diamond best-hit lookup is required, not a
@@ -20,7 +32,194 @@
 # so a relative path here would resolve inside the pipeline checkout, not NII.
 
 model_organisms:
-  - short: Kpn78578
+  - short: UHM102bin47
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM125bin22
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM125bin48
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM145bin17
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM145bin33
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM145bin28
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM17bin35
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM18bin40
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM20bin40
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM20bin12
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM22bin50
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM22bin54
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM22bin8
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM40bin4
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM40bin27
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM43bin53
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM56bin19
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
+    fasta_gene_field: gene
+
+  - short: UHM72bin19
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
     gene_id_col: accession
     gene_name_col: gene_name
