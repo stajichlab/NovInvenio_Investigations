@@ -7,7 +7,27 @@ framework, system fonts only, light+dark via prefers-color-scheme.
 """
 from __future__ import annotations
 
+import base64
 from html import escape
+from pathlib import Path
+
+# Embedded as base64 data URIs rather than a relative path to assets/logo/:
+# GitHub Pages (.github/workflows/static.yml) publishes only docs/, not the
+# repo-root assets/ these files actually live in, so a relative link is broken
+# on the live site regardless of path depth -- and depth itself varies (this
+# module renders pages at docs/index.html, docs/<domain>/index.html, and,
+# indirectly, docs/<domain>/<set>/*.html sit at yet another level). Same fix as
+# NovInvenio's own report templates (lib/report_common.py's FAVICON_DATA_URI).
+_ASSETS_LOGO_DIR = Path(__file__).resolve().parent.parent / "assets" / "logo"
+
+
+def _data_uri(filename: str, mime: str) -> str:
+    data = (_ASSETS_LOGO_DIR / filename).read_bytes()
+    return f"data:{mime};base64,{base64.b64encode(data).decode('ascii')}"
+
+
+_FAVICON_DATA_URI = _data_uri("NI_logo_favicon.ico", "image/x-icon")
+_LOGO_DATA_URI = _data_uri("NI_logo_card-96.png", "image/png")
 
 _BASE_CSS = """
 :root { color-scheme: light dark; }
@@ -19,6 +39,8 @@ body { margin: 0; padding: 2rem; font-family: system-ui, -apple-system, sans-ser
   a { color: #7db4ff; }
 }
 h1 { font-size: 1.6rem; margin-bottom: 0.2rem; }
+.title-row { display: flex; align-items: center; gap: 0.8rem; }
+.title-row img.logo { width: 40px; height: 40px; border-radius: 8px; flex: 0 0 auto; }
 .subtitle { color: #666; margin-bottom: 1.5rem; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
 .card { border: 1px solid #ddd; border-radius: 10px; padding: 1rem 1.2rem;
@@ -45,7 +67,7 @@ def _page(title: str, body: str) -> str:
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{escape(title)}</title>
-<link rel="icon" href="../assets/logo/NI_logo_favicon.ico">
+<link rel="icon" href="{_FAVICON_DATA_URI}">
 <style>{_BASE_CSS}</style>
 </head>
 <body>
@@ -70,7 +92,7 @@ def render_top_level(domains: list[dict]) -> str:
      {'' if d['n_studies'] else '(not yet populated)'}</p>
 </a>""")
     body = f"""
-<h1>NovInvenio Investigations</h1>
+<div class="title-row"><img class="logo" src="{_LOGO_DATA_URI}" alt=""><h1>NovInvenio Investigations</h1></div>
 <p class="subtitle">Lineage-specific gene novelty/loss studies, organized by taxonomic domain.</p>
 <div class="grid">{''.join(cards)}</div>
 """
@@ -103,7 +125,7 @@ def render_domain_index(domain_name: str, studies: list[dict]) -> str:
   <p class="meta">{meta}{status_bit}</p>
 </a>""")
     body = f"""
-<h1>{escape(domain_name)}</h1>
+<div class="title-row"><img class="logo" src="{_LOGO_DATA_URI}" alt=""><h1>{escape(domain_name)}</h1></div>
 <p class="subtitle"><a href="../index.html">&larr; all domains</a></p>
 <div class="grid">{''.join(cards)}</div>
 """
