@@ -1,0 +1,15 @@
+Short,Species,Strain,Group,TaxonGroup,Source,Accession
+C286,Candidate genus sp.,EHM034720,IN,candidate_genus,ingroup,NOVEL_sp01_n18
+C287,Candidate genus sp.,EHM034692,IN,candidate_genus,ingroup,NOVEL_sp02_n16
+C288,Candidate genus sp.,UHM1073.23039_R.bin.125,IN,candidate_genus,ingroup,NOVEL_sp03_n16
+C289,Candidate genus sp.,EHM034674,IN,candidate_genus,ingroup,NOVEL_sp04_n15
+C294,Candidate genus sp.,UHM1210.23070_R.bin.101,IN,candidate_genus,ingroup,NOVEL_sp09_n4
+C298,Candidate genus sp.,STP248.12601_R.bin.118,IN,candidate_genus,ingroup,NOVEL_sp13_n1
+clade01,Akkermansia sp.,AKK_clade01_n39_amphibian39,OUT,Akkermansia,outgroup,AKK_clade01_n39_amphibian39
+clade02,Akkermansia sp.,AKK_clade02_n36_amphibian24-unknown8,OUT,Akkermansia,outgroup,AKK_clade02_n36_amphibian24-unknown8
+clade03,Akkermansia sp.,AKK_clade03_n19_mammal11-unknown8,OUT,Akkermansia,outgroup,AKK_clade03_n19_mammal11-unknown8
+clade04,Akkermansia sp.,AKK_clade04_n16_mammal10-unknown6,OUT,Akkermansia,outgroup,AKK_clade04_n16_mammal10-unknown6
+clade05,Akkermansia sp.,AKK_clade05_n14_amphibian13-unknown1,OUT,Akkermansia,outgroup,AKK_clade05_n14_amphibian13-unknown1
+clade06,Akkermansia sp.,AKK_clade06_n11_amphibian11,OUT,Akkermansia,outgroup,AKK_clade06_n11_amphibian11
+clade07,Akkermansia sp.,AKK_clade07_n8_mammal8,OUT,Akkermansia,outgroup,AKK_clade07_n8_mammal8
+clade08,Akkermansia sp.,AKK_clade08_n6_unknown6,OUT,Akkermansia,outgroup,AKK_clade08_n6_unknown6
