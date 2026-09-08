@@ -1,0 +1,23 @@
+# Top-level docs/ gallery domain registry (DESIGN.md Sec 3/8), read by
+# bin/generate_docs.py. Fixed set of taxonomic-domain tabs, populated over time --
+# edit desc here (and re-run bin/generate_docs.py) as a domain's first study lands
+# or its blurb needs updating; no code change needed.
+#
+# Order here is the tab order on docs/index.html.
+- slug: fungi
+  name: Fungal
+  desc: >-
+    Lineage-specific gene novelty/loss in fungi (Ascomycota, Basidiomycota,
+    early-diverging lineages).
+- slug: animal
+  name: Animal
+  desc: Not yet populated.
+- slug: plant
+  name: Plant
+  desc: Not yet populated.
+- slug: bacteria
+  name: Bacteria
+  desc: Klebsiella comparison.
+- slug: other
+  name: Other
+  desc: Not yet populated.

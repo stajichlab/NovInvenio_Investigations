@@ -16,10 +16,15 @@ Re-run any time a study is added or its status changes (data staged, pipeline ru
 Does not touch a study's own report.html/novelties.html/etc -- those are published
 by copying nf_NovInvenio's COLLATE_REPORTS output into docs/<domain>/<set>/, same
 place this script expects to find them.
+
+The domain registry itself (slug/name/desc for each tab) is curated data, not code
+-- see conf/domains.yaml, edited directly rather than here.
 """
 import csv
 import sys
 from pathlib import Path
+
+import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from site_pages import render_domain_index, render_top_level  # noqa: E402
@@ -27,15 +32,14 @@ from site_pages import render_domain_index, render_top_level  # noqa: E402
 REPO_ROOT = Path(__file__).parent.parent
 STUDIES_ROOT = REPO_ROOT / "studies"
 DOCS_ROOT = REPO_ROOT / "docs"
+DOMAINS_YAML = REPO_ROOT / "conf" / "domains.yaml"
 
-# Domain registry (DESIGN.md Sec 3/8) -- fixed set, populated over time.
-DOMAINS = [
-    ("fungi", "Fungal", "Lineage-specific gene novelty/loss in fungi (Ascomycota, Basidiomycota, early-diverging lineages)."),
-    ("animal", "Animal", "Not yet populated."),
-    ("plant", "Plant", "Not yet populated."),
-    ("bacteria", "Bacteria", "Not yet populated."),
-    ("other", "Other", "Not yet populated."),
-]
+
+def load_domains() -> list[tuple[str, str, str]]:
+    """Return [(slug, name, desc), ...] from conf/domains.yaml, in file order."""
+    with open(DOMAINS_YAML) as fh:
+        rows = yaml.safe_load(fh)
+    return [(row["slug"], row["name"], row["desc"]) for row in rows]
 
 
 def study_status(domain_slug: str, set_name: str) -> str:
@@ -96,16 +100,17 @@ def find_studies(domain_slug: str) -> list[dict]:
 
 
 def main() -> int:
-    domain_data = {slug: find_studies(slug) for slug, _, _ in DOMAINS}
+    domains = load_domains()
+    domain_data = {slug: find_studies(slug) for slug, _, _ in domains}
 
     DOCS_ROOT.mkdir(parents=True, exist_ok=True)
     (DOCS_ROOT / "index.html").write_text(render_top_level([
         {"name": name, "slug": slug, "desc": desc, "n_studies": len(domain_data[slug])}
-        for slug, name, desc in DOMAINS
+        for slug, name, desc in domains
     ]))
     print(f"Wrote {DOCS_ROOT / 'index.html'}", file=sys.stderr)
 
-    for slug, name, _ in DOMAINS:
+    for slug, name, _ in domains:
         studies = domain_data[slug]
         if not studies:
             continue
