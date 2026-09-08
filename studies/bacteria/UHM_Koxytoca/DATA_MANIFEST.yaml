@@ -815,3 +815,327 @@
   derived_by: 'MAG UHM72.35762_R.bin.19: metashot binning assembled-genome contigs
     (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
   pulled_with: build_koxytoca_config.py on skylark
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM102bin47.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:25Z'
+  checksum_sha256: d45c12b23decb7c392a14bc2bcef352a8c17433e31cb2eeeb0ca810be9cea061
+  license: n/a
+  derived_by: headers prefixed with 'UHM102bin47__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM102bin47.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:25Z'
+  checksum_sha256: ce3403f188e4608baa5879b0312b13aff229364979d4ae951c60ad916e3ff81b
+  license: n/a
+  derived_by: headers prefixed with 'UHM102bin47__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM125bin22.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: bb3d5711c804ed5e1b470d9a403857fd42312f723e979d5bc219b06fa0a6c3e9
+  license: n/a
+  derived_by: headers prefixed with 'UHM125bin22__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM125bin22.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: 5d5c1a9b4c1dce2000854a5edefeea59c44a8c903e666b6f6d58eade1ce0c96f
+  license: n/a
+  derived_by: headers prefixed with 'UHM125bin22__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM125bin48.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: 096ea9b4021010f5412a68f3d110d663159992b05a08dd8e7f4586820eb1a526
+  license: n/a
+  derived_by: headers prefixed with 'UHM125bin48__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM125bin48.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: 8846c4da29ec8cc15fc4b5240c71e918687c6054bc3d52919afcbb20dd150510
+  license: n/a
+  derived_by: headers prefixed with 'UHM125bin48__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM145bin17.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: 949905c743393af83c617913d55e72959dcb4752d5b2747e82e835c4d9632452
+  license: n/a
+  derived_by: headers prefixed with 'UHM145bin17__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin17.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: 76765c95702bc3507b4da2126a2374361e5ad3bc4f851bcd54ca9fb4c45f1af4
+  license: n/a
+  derived_by: headers prefixed with 'UHM145bin17__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM145bin33.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: 5c55ff916760bd435a7d4375e731c36454ec95912a90b5c2724522ca8a276e2e
+  license: n/a
+  derived_by: headers prefixed with 'UHM145bin33__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin33.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: 8cc7e2ec1a3ebfe413f9e1e644b80fb7a2c0bae50ccb9b3115d9ba848f94dff1
+  license: n/a
+  derived_by: headers prefixed with 'UHM145bin33__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM145bin28.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: c5f524bb8643b07d63632b574e3422691bd2fc778b47a7994e719aced730ba7a
+  license: n/a
+  derived_by: headers prefixed with 'UHM145bin28__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin28.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: ff1e79c01a9fbeac71b8b63329fb8ce24230240063328130b20d68d6b482b078
+  license: n/a
+  derived_by: headers prefixed with 'UHM145bin28__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM17bin35.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: 6305e55240a91eeded627607c583af5181a878686bab8cabc43dde3c7954d7c6
+  license: n/a
+  derived_by: headers prefixed with 'UHM17bin35__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM17bin35.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: 7a48debc8a62b4a92a38626a5e7c670064cdaffc72aac91aabccfe82336e02f3
+  license: n/a
+  derived_by: headers prefixed with 'UHM17bin35__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM18bin40.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:26Z'
+  checksum_sha256: e0326b02c79ec3cf3f317ac4c80b8d127286a1eb370e9b676725c2078ca775d4
+  license: n/a
+  derived_by: headers prefixed with 'UHM18bin40__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM18bin40.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: 79ee8a0906b373b502d7397182e8091be8ee1963259b9f10f1c4d0b6003b69d2
+  license: n/a
+  derived_by: headers prefixed with 'UHM18bin40__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM20bin40.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: 397a93351b960bfdefa2dbc1a2282177436efc3813320b7e3b18ba87e0fa87c2
+  license: n/a
+  derived_by: headers prefixed with 'UHM20bin40__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM20bin40.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: c515541c2edfba49d2b2b57c55e42de21133632774f4238d4a3d3c611fe1733c
+  license: n/a
+  derived_by: headers prefixed with 'UHM20bin40__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM20bin12.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: f758601bc333b8e87f8c48bf0c9342b7b1ff2b3b72e7ccb4035a1bca47651dfd
+  license: n/a
+  derived_by: headers prefixed with 'UHM20bin12__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM20bin12.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: 72c462872aca879e3b6d7847e92b8c10082341f31c5c40470fbab0e346a77cc3
+  license: n/a
+  derived_by: headers prefixed with 'UHM20bin12__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM22bin50.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: 0ecac9415902679213d73d05acdfba698e0eb67805507dc574011c8be9288221
+  license: n/a
+  derived_by: headers prefixed with 'UHM22bin50__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin50.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: 40ccc233404f793c6a7c69c1a80b1b0d5d9fef8e0c79de34dad8721d906bb8fe
+  license: n/a
+  derived_by: headers prefixed with 'UHM22bin50__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM22bin54.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: e3d3d9bf764836f0dd9a3fb989aef88d7043e0c3404b98466cdb2f2a99a522c1
+  license: n/a
+  derived_by: headers prefixed with 'UHM22bin54__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin54.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: d1bd3e7995da555fcda09c34f79379dcc922198beb8f2a65e1aca58de96ff9d4
+  license: n/a
+  derived_by: headers prefixed with 'UHM22bin54__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM22bin8.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: afd7178ce9952d0bb1feabe92f91120918bac8bfe1599fd7fb31f53695362ec1
+  license: n/a
+  derived_by: headers prefixed with 'UHM22bin8__' to disambiguate megahit contig ids
+    (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin8.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: 83348fd673bbe73ab5488f2c8f625ff071c269cd1e3a0b3126cca315fea237f6
+  license: n/a
+  derived_by: headers prefixed with 'UHM22bin8__' to disambiguate megahit contig ids
+    (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM40bin4.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:27Z'
+  checksum_sha256: 9cfc6e405310e6f09aa1ddf16d11c8285f53eabdb6ec68cf7cd88b9ede11ae45
+  license: n/a
+  derived_by: headers prefixed with 'UHM40bin4__' to disambiguate megahit contig ids
+    (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM40bin4.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:28Z'
+  checksum_sha256: 4cc1f60c994501c52dae9b2b67b2aa32e1ce1baf9b4f1785f144043afbb05a8e
+  license: n/a
+  derived_by: headers prefixed with 'UHM40bin4__' to disambiguate megahit contig ids
+    (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM40bin27.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:28Z'
+  checksum_sha256: fa5c8e4b44c43d3b4405c95a86ec3c92d5a8a02a9f1eb03416ede367d15224d9
+  license: n/a
+  derived_by: headers prefixed with 'UHM40bin27__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM40bin27.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:28Z'
+  checksum_sha256: a390f01d84b5cf363d95ae3801980203ab697814f8d81e501ed537427be4219d
+  license: n/a
+  derived_by: headers prefixed with 'UHM40bin27__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM43bin53.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:28Z'
+  checksum_sha256: f24b15f5efd6ba04ac922b851569daf394f475004dd724762612ed3f03fdc910
+  license: n/a
+  derived_by: headers prefixed with 'UHM43bin53__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM43bin53.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:28Z'
+  checksum_sha256: 152ac58321eba096a5eeec7ae18d63f94108accd985083cb579eb3c0cbf95610
+  license: n/a
+  derived_by: headers prefixed with 'UHM43bin53__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM56bin19.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:28Z'
+  checksum_sha256: 9af36eb26e04506715dd8efbeabd657a4bed5e94012d1ec4d71a03b1cf7b36fe
+  license: n/a
+  derived_by: headers prefixed with 'UHM56bin19__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM56bin19.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:28Z'
+  checksum_sha256: d27d44f8b1fb1bf96d11557a9c760ff543dd9c8de7a2a3054b162802f71cf770
+  license: n/a
+  derived_by: headers prefixed with 'UHM56bin19__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM72bin19.pep.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:28Z'
+  checksum_sha256: 0b2602d3c95ea68df115b7875f5733a8bd1abd4455d7f6ea9e4522a29675bb1a
+  license: n/a
+  derived_by: headers prefixed with 'UHM72bin19__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM72bin19.dna.fa
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-07T23:02:28Z'
+  checksum_sha256: cc24a2e6cdc4f01e86989589c0736430d605e9f9fe1a47a242dc398285412934
+  license: n/a
+  derived_by: headers prefixed with 'UHM72bin19__' to disambiguate megahit contig
+    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
+  pulled_with: prefix_uhm_bin_headers.py on i29
