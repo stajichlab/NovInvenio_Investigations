@@ -1,0 +1,118 @@
+# Model organism annotation config for the UHM_Akkermansia study (see
+# nf_NovInvenio/lib/model_organisms.py for the consuming code + full format docs).
+#
+# AkkMuc = Akkermansia muciniphila strain ATCC BAA-835 (the type strain of the
+# genus; NCBI assembly GCF_000020225.1 / UniProt proteome UP000001031, taxid
+# 349741) -- the reference genome for this study's candidate-genus ingroup.
+# Regeneration recipe and full provenance:
+# config_support/MODELORG_AKKMUC_PROVENANCE.md (NII repo)
+#
+# IMPORTANT (same gotcha UHM_Koxytoca's modelorgs.yaml hit first): nf_NovInvenio's
+# bin/annotate_presence_matrix.py calls
+# ModelOrgAnnotator.annotate(protein_id, source) where `source` is the row's own
+# `source_proteome` (== each candidate's OWN Short code from config.csv) -- NOT
+# some separate reference-organism name. A model_organisms entry only ever fires
+# for candidates whose source proteome's Short matches that entry's `short:`.
+# AkkMuc is only a comparison reference, never itself one of the analyzed
+# proteomes -- so this file needs one entry per INGROUP Short (species.csv's
+# Source=ingroup rows: C286, C287, C288, C289, C294, C298), all pointing at the
+# same lookup files. The 8 Akkermansia-clade OUTGROUP Shorts (clade01..clade08)
+# deliberately have no entry here -- they are the comparison set, not what we
+# want AkkMuc-based gene names for.
+#
+# id_transform: diamond_fasta, because the ingroup candidate-genus MAG proteins
+# are prodigal-called locus tags (e.g. "C286__EHM034720_123") with no direct ID
+# relationship to AkkMuc's UniProt accessions -- a diamond best-hit lookup is
+# required, not a regex strip. protein_fasta's headers were rewritten to
+# ">ACCESSION gene=ACCESSION" so the diamond hit's subject ID resolves straight
+# back to itself as the gene_names_csv lookup key (see
+# studies/bacteria/UHM_Akkermansia/bin/fetch_akkmuc_modelorg.py's docstring for
+# why UniProt's stock header doesn't work here).
+#
+# Paths below are absolute, deliberately: nf_NovInvenio resolves any relative path
+# in this file against its OWN projectDir (--launch_dir ${projectDir}, see
+# workflows/annotate.nf), not against this file's directory or NII's repo root --
+# so a relative path here would resolve inside the pipeline checkout, not NII.
+#
+# gene_url_template gives the report a hyperlink for the resolved protein.
+# nf_NovInvenio's ModelOrgAnnotator.gene_url() resolves "{gene}" against the
+# gene_names_csv LOOKUP KEY (this entry's gene_id_col, "accession" -- e.g.
+# "B2UM99"), never against gene_name: AkkMuc_gene_names_UniProt.tsv's gene_name
+# column falls back to a UniProt locus tag whenever a protein has no real gene
+# symbol, which doesn't guarantee a unique UniProtKB record the way the
+# accession does. Do NOT default this to a FungiDB link: like UHM_Koxytoca's
+# Kpn78578, AkkMuc is UniProt-backed, and this study's candidates are MAG/
+# prodigal locus tags that were never FungiDB gene IDs.
+
+model_organisms:
+  - short: C286
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_protein.faa
+    fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
+
+  - short: C287
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_protein.faa
+    fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
+
+  - short: C288
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_protein.faa
+    fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
+
+  - short: C289
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_protein.faa
+    fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
+
+  - short: C294
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_protein.faa
+    fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
+
+  - short: C298
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_gene_names_UniProt.tsv
+    gene_id_col: accession
+    gene_name_col: gene_name
+    product_col: description
+    csv_delimiter: "\t"
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_vs_UHM_ingroup.diamond.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/AkkMuc_protein.faa
+    fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"

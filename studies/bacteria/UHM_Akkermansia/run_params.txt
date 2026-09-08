@@ -1,0 +1,30 @@
+# Extra nextflow params for this study, applied by bin/run_study.sh before any
+# args passed on the command line (so a command-line arg can still override one
+# of these). One flag/value per line; '#' starts a comment; blank lines ignored.
+#
+# All paths below are absolute: nf_NovInvenio's file(params.X) calls resolve a
+# relative path against the nextflow process's own launch cwd (NII's repo root),
+# not against the NovInvenio checkout the db/ files actually live under.
+
+# diamond over phmmer: 34 bacterial proteomes, speed matters more here than
+# phmmer's sensitivity edge.
+--run_tool diamond
+
+# pairwise clustering (not mmseqs/novelty_discovery) -- also the only cluster_tool
+# path that runs the generic VALIDATE (TBLASTN vs outgroup DNA) workflow; only 5
+# of the 8 outgroup clades have DNA (see build_akkermansia_config.py's module
+# docstring for which/why) and none of the 6 ingroup Shorts do.
+--cluster_tool pairwise
+
+# Pfam-A + SwissProt-diamond annotation: unlike the UniProt-sourced fungal
+# pezizo_set1 study, these proteomes (NCBI RefSeq outgroup + prodigal-called UHM
+# MAG ingroup) carry no precomputed Pfam/GO/InterPro cross-references of their
+# own, so a fresh hmmscan/diamond-vs-swissprot pass is the only annotation source
+# here (not redundant, unlike pezizo_set1's reasoning for omitting these).
+--pfam_hmm /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/38.2/Pfam-A.hmm
+--swissprot_dmnd /bigdata/stajichlab/jstajich/projects/NovInvenio/db/uniprot/uniprot_sprot.fasta.dmnd
+
+# AkkMuc (Akkermansia muciniphila ATCC BAA-835, GCF_000020225.1 / UniProt
+# UP000001031) gene-name lookup for the 6 candidate-genus ingroup Shorts -- see
+# modelorgs.yaml + config_support/MODELORG_AKKMUC_PROVENANCE.md.
+--modelorgs_config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Akkermansia/modelorgs.yaml
