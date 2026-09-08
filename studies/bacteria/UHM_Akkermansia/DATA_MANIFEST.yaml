@@ -2,7 +2,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp01_n18.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: 2bfd5d9b6a4513ee22f400ad4d0b45b5774303634df92724d47edcadfefb4c24
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -19,7 +19,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp02_n16.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: b5bd2d04d603d66c2057c3524e81bf523e196b1fb9062466cf7bd4326948be9b
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -36,7 +36,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp03_n16.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: b83f2305fb156432cb7a7da38e3f03906a576d5c200fc85fb5e9e2da6e30b30e
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -53,7 +53,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp04_n15.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: 0f7c2caf4e320008a07643ab21b111beac210f109765a2ce05d0036baa9b2f85
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -70,7 +70,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp09_n4.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: 0ec04836251497cfc6dcc60d65773ee05c9dad5bd51272680a9aa53e19deec2a
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -87,7 +87,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp13_n1.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: 54016c3e90fb3caa62bbac71a6982279aac0549bf340e2d6141ec8294109f4da
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -104,7 +104,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade01_n39_amphibian39.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: d1878c9b46b317fd2cef23a2b52fb0b7cfe8793e9303884f8022bc596c51ba7f
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -121,7 +121,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade02_n36_amphibian24-unknown8.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: b2cc7f957bb6311d37c12ab7f2eddf2983ace51d1573f59a0e6de4ec29bd1882
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -138,7 +138,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade03_n19_mammal11-unknown8.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: 80efd80e37bb75894cc9befa10e1cbc22aaf4cea8f9445e37011e6e5c8353518
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -155,7 +155,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade04_n16_mammal10-unknown6.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: 3dd3c66de5973c93fe44f3217fc8f8932208acba2bcaf4525bf122d8342807e4
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -172,7 +172,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade05_n14_amphibian13-unknown1.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: fed04274e944591d0f8bf56c9b99b3905dab6aa26d95f5cb5e0a610b6f8ddf95
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -189,7 +189,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade06_n11_amphibian11.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:45Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: 6482995c2275bb3fa5b27fd6d0abfa3bdae0792c7236c2ca5b27ea0aac622d61
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -206,7 +206,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade07_n8_mammal8.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:46Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: c0a248fed11f206a44a223c4ff284789b77595a5109e95f2b6f97b2258262437
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -223,7 +223,7 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade08_n6_unknown6.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:50:46Z'
+  access_date: '2026-09-08T00:55:15Z'
   checksum_sha256: becde4b2c3fb74f5591575dc6cfb241786e60b41e7c23e24d1a116fabdebfaa7
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
@@ -239,9 +239,109 @@
 - local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Akkermansia/config.csv
   source_url: (derived, no external source)
   source_release: n/a
-  access_date: '2026-09-08T00:50:46Z'
-  checksum_sha256: bf95cbc741061fb939b00cb2aac794fe4d84c3d4e5f7a8fa3118f8588e488616
+  access_date: '2026-09-08T00:55:15Z'
+  checksum_sha256: 2afb9dbe82f81eccb4a196c54c8dc7749e53b96bcece82fdb9684a0b4ba44e9a
   license: n/a
   derived_by: studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py --study-dir
     /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Akkermansia
+  pulled_with: build_akkermansia_config.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/ncbi/GCA_030525455.1/extracted/ncbi_dataset/data/GCA_030525455.1/GCA_030525455.1_ASM3052545v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_030525455.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_030525455.1'
+  access_date: '2026-09-08T00:53:37Z'
+  checksum_sha256: cb15611b96ad188fa03de95ed358cedb42422d0f5c7ee5ac622c2703834c5a36
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: genome
+  accession: GCA_030525455.1
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Akkermansia/data_dir/dna/clade02.dna.fa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_030525455.1/
+  source_release: NCBI genome assembly GCA_030525455.1
+  access_date: '2026-09-08T00:55:15Z'
+  checksum_sha256: cb15611b96ad188fa03de95ed358cedb42422d0f5c7ee5ac622c2703834c5a36
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: genomic.fna from the GCA_030525455.1 NCBI Datasets genome package (resolved
+    from proteome AKK_clade02_n36_amphibian24-unknown8.faa's own WGS project prefix
+    -- see bin/fetch_akkermansia_outgroup_dna.sh), copied via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py
+  pulled_with: build_akkermansia_config.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/ncbi/GCA_017517385.1/extracted/ncbi_dataset/data/GCA_017517385.1/GCA_017517385.1_ASM1751738v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_017517385.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_017517385.1'
+  access_date: '2026-09-08T00:53:39Z'
+  checksum_sha256: 4d0579e42adafd61f2efabf449a42d727ec4aebd1ab0730dbb400e43e6e3840c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: genome
+  accession: GCA_017517385.1
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Akkermansia/data_dir/dna/clade03.dna.fa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_017517385.1/
+  source_release: NCBI genome assembly GCA_017517385.1
+  access_date: '2026-09-08T00:55:15Z'
+  checksum_sha256: 4d0579e42adafd61f2efabf449a42d727ec4aebd1ab0730dbb400e43e6e3840c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: genomic.fna from the GCA_017517385.1 NCBI Datasets genome package (resolved
+    from proteome AKK_clade03_n19_mammal11-unknown8.faa's own WGS project prefix --
+    see bin/fetch_akkermansia_outgroup_dna.sh), copied via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py
+  pulled_with: build_akkermansia_config.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/ncbi/GCA_904501915.1/extracted/ncbi_dataset/data/GCA_904501915.1/GCA_904501915.1_MAG30_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_904501915.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_904501915.1'
+  access_date: '2026-09-08T00:53:42Z'
+  checksum_sha256: 443dba0249f7ccc6ebacf6bc9f608ca9da2ba22c7ebb64b7f05d1f92d499112c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: genome
+  accession: GCA_904501915.1
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Akkermansia/data_dir/dna/clade04.dna.fa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_904501915.1/
+  source_release: NCBI genome assembly GCA_904501915.1
+  access_date: '2026-09-08T00:55:15Z'
+  checksum_sha256: 443dba0249f7ccc6ebacf6bc9f608ca9da2ba22c7ebb64b7f05d1f92d499112c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: genomic.fna from the GCA_904501915.1 NCBI Datasets genome package (resolved
+    from proteome AKK_clade04_n16_mammal10-unknown6.faa's own WGS project prefix --
+    see bin/fetch_akkermansia_outgroup_dna.sh), copied via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py
+  pulled_with: build_akkermansia_config.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/ncbi/GCA_947588645.1/extracted/ncbi_dataset/data/GCA_947588645.1/GCA_947588645.1_Lapin-004_bin59_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_947588645.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_947588645.1'
+  access_date: '2026-09-08T00:53:43Z'
+  checksum_sha256: 04d1d2bcec39ef002282197a2a908a419a1111a46fa9b2411d0f89a2587ca3de
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: genome
+  accession: GCA_947588645.1
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Akkermansia/data_dir/dna/clade07.dna.fa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_947588645.1/
+  source_release: NCBI genome assembly GCA_947588645.1
+  access_date: '2026-09-08T00:55:15Z'
+  checksum_sha256: 04d1d2bcec39ef002282197a2a908a419a1111a46fa9b2411d0f89a2587ca3de
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: genomic.fna from the GCA_947588645.1 NCBI Datasets genome package (resolved
+    from proteome AKK_clade07_n8_mammal8.faa's own WGS project prefix -- see bin/fetch_akkermansia_outgroup_dna.sh),
+    copied via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py
+  pulled_with: build_akkermansia_config.py on i29
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/ncbi/GCA_030536145.1/extracted/ncbi_dataset/data/GCA_030536145.1/GCA_030536145.1_ASM3053614v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_030536145.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCA_030536145.1'
+  access_date: '2026-09-08T00:53:44Z'
+  checksum_sha256: 93bb6c2168ac47d69ec62e9b6411fc7b31dd3a7f9828ee3ab1068419a5d1391b
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i29
+  kind: genome
+  accession: GCA_030536145.1
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Akkermansia/data_dir/dna/clade08.dna.fa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_030536145.1/
+  source_release: NCBI genome assembly GCA_030536145.1
+  access_date: '2026-09-08T00:55:15Z'
+  checksum_sha256: 93bb6c2168ac47d69ec62e9b6411fc7b31dd3a7f9828ee3ab1068419a5d1391b
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: genomic.fna from the GCA_030536145.1 NCBI Datasets genome package (resolved
+    from proteome AKK_clade08_n6_unknown6.faa's own WGS project prefix -- see bin/fetch_akkermansia_outgroup_dna.sh),
+    copied via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py
   pulled_with: build_akkermansia_config.py on i29

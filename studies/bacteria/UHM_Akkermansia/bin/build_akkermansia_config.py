@@ -6,9 +6,18 @@ Source data: Leila Shadmani's ch3-chitin-evolution project (--staging-dir, defau
 genus ingroup MAGs + 8 Akkermansia-clade outgroup representative genomes, each a
 metashot-binned assembly with prodigal gene calling (see --staging-dir's own
 groups.tsv for the per-proteome cluster/clade and note columns this script folds into
-DATA_MANIFEST.yaml). Protein-only: no assembled-genome DNA was staged for either group,
-so config.csv's DNA column is empty for every row -- --run_tool pairwise TBLASTN
-validate/loss-search workflows aren't runnable for this study until DNA is supplied.
+DATA_MANIFEST.yaml).
+
+DNA: no assembled-genome DNA was staged for the ingroup MAGs or 3 of the 8 outgroup
+clades (clade01/05/06 -- internal metashot MAGs, no public genome), so config.csv's
+DNA column is empty for those rows. The other 5 outgroup clades' proteomes are each
+one NCBI WGS genome assembly (contig ids like "JAUNER010000020.1_1"); species.csv's
+NCBI_Accession column carries each clade's resolved GCA_* accession (see
+bin/fetch_akkermansia_outgroup_dna.sh's header for how these were resolved from the
+proteome's own WGS project prefix), fetched into --ncbi-cache by that script and
+copied into data_dir/dna/ here. --run_tool pairwise TBLASTN validate/loss-search
+workflows are runnable against those 5 outgroups; the ingroup and the other 3
+outgroups have no DNA to validate against until one is supplied.
 
 Header fixes applied on copy:
   1. A subset of the ingroup proteomes (the ones whose prodigal headers start with a
@@ -31,23 +40,29 @@ bin/ -- see CLAUDE.md's "Where new code goes"), so it hardcodes NII_ROOT below r
 than deriving paths from __file__/cwd.
 
 Input: <study-dir>/species.csv, columns:
-    Short,Species,Strain,Group,TaxonGroup,Source,Accession
+    Short,Species,Strain,Group,TaxonGroup,Source,Accession,NCBI_Accession
   Source is "ingroup" or "outgroup" (selects the --staging-dir subdirectory);
   Accession is the original proteome's filename stem (<Accession>.faa under that
-  subdirectory).
+  subdirectory); NCBI_Accession is a GCA_* assembly accession (only set for the 5
+  outgroup clades with one -- see module docstring) already fetched into
+  --ncbi-cache by bin/fetch_akkermansia_outgroup_dna.sh.
 
 Writes:
   - <study-dir>/data_dir/pep/<Short>.pep.fa (header-fixed copy of the source .faa)
-  - <study-dir>/config.csv (GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup;
-    DNA always empty -- see module docstring)
+  - <study-dir>/data_dir/dna/<Short>.dna.fa (copied from --ncbi-cache, only for rows
+    with an NCBI_Accession)
+  - <study-dir>/config.csv (GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup)
   - <study-dir>/DATA_MANIFEST.yaml (provenance: Leila Shadmani, ch3-chitin-evolution,
-    metashot assembly + prodigal gene calling, frozen for this study 2026-09-01)
+    metashot assembly + prodigal gene calling, frozen for this study 2026-09-01, for
+    the proteins; NCBI Datasets provenance for the 5 outgroup genomes' DNA)
 """
 import argparse
 import csv
 import re
 import sys
 from pathlib import Path
+
+import yaml
 
 NII_ROOT = Path("/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations")
 sys.path.insert(0, str(NII_ROOT / "lib"))
@@ -58,6 +73,7 @@ SOURCE_RELEASE = (
     "Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning + prodigal "
     "gene calling), frozen for this study 2026-09-01"
 )
+NCBI_LICENSE = "Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)"
 
 CARET_ARTIFACT_RE = re.compile(r"\^_")
 HEADER_ID_RE = re.compile(r"^>(\S+)")
@@ -86,6 +102,7 @@ def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--study-dir", default=str(NII_ROOT / "studies/bacteria/UHM_Akkermansia"))
     ap.add_argument("--staging-dir", default="/bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set")
+    ap.add_argument("--ncbi-cache", default=str(NII_ROOT / "data/ncbi"))
     args = ap.parse_args()
 
     study_dir = Path(args.study_dir)
@@ -94,6 +111,7 @@ def main() -> int:
         sys.exit(f"ERROR: {species_csv} not found")
 
     staging_dir = Path(args.staging_dir)
+    ncbi_cache = Path(args.ncbi_cache)
     groups_tsv = staging_dir / "groups.tsv"
     groups_by_proteome = {}
     if groups_tsv.exists():
@@ -102,6 +120,7 @@ def main() -> int:
                 groups_by_proteome[row["proteome"]] = row
 
     pep_dir = study_dir / "data_dir" / "pep"
+    dna_dir = study_dir / "data_dir" / "dna"
     pep_dir.mkdir(parents=True, exist_ok=True)
 
     config_rows = []
@@ -145,12 +164,44 @@ def main() -> int:
                 },
             ))
 
+            dna_name = ""
+            ncbi_accession = row.get("NCBI_Accession", "").strip()
+            if ncbi_accession:
+                genome_dir = ncbi_cache / ncbi_accession / "extracted" / "ncbi_dataset" / "data" / ncbi_accession
+                fna_candidates = sorted(genome_dir.glob("*.fna")) if genome_dir.exists() else []
+                if not fna_candidates:
+                    sys.exit(f"[{short}] ERROR: expected genome under {genome_dir} -- run studies/bacteria/UHM_Akkermansia/bin/fetch_akkermansia_outgroup_dna.sh first")
+                dna_dir.mkdir(parents=True, exist_ok=True)
+                dna_out = dna_dir / f"{short}.dna.fa"
+                dna_out.write_bytes(fna_candidates[0].read_bytes())
+                dna_name = dna_out.name
+
+                for f in fna_candidates[:1]:
+                    sc = f.with_suffix(f.suffix + ".provenance.yaml")
+                    if sc.exists():
+                        with open(sc) as fh_sc:
+                            manifest_records.append(yaml.safe_load(fh_sc))
+
+                manifest_records.append(build_record(
+                    source_url=f"https://www.ncbi.nlm.nih.gov/datasets/genome/{ncbi_accession}/",
+                    source_release=f"NCBI genome assembly {ncbi_accession}",
+                    license=NCBI_LICENSE,
+                    local_path=dna_out,
+                    checksum=sha256_of(dna_out),
+                    derived_by=(
+                        f"genomic.fna from the {ncbi_accession} NCBI Datasets genome package "
+                        f"(resolved from proteome {accession}.faa's own WGS project prefix -- "
+                        "see bin/fetch_akkermansia_outgroup_dna.sh), copied via "
+                        "studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py"
+                    ),
+                ))
+
             config_rows.append({
                 "GROUP": row["Group"],
                 "Species": row["Species"],
                 "Strain": row["Strain"],
                 "Protein": pep_out.name,
-                "DNA": "",
+                "DNA": dna_name,
                 "GFF3": "",
                 "Short": short,
                 "TaxonGroup": row["TaxonGroup"],
