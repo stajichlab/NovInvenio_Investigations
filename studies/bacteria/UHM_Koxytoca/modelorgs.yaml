@@ -30,6 +30,17 @@
 # in this file against its OWN projectDir (--launch_dir ${projectDir}, see
 # workflows/annotate.nf), not against this file's directory or NII's repo root --
 # so a relative path here would resolve inside the pipeline checkout, not NII.
+#
+# gene_url_template gives the report a hyperlink for the resolved protein.
+# nf_NovInvenio's ModelOrgAnnotator.gene_url() resolves "{gene}" against the
+# gene_names_csv LOOKUP KEY (this entry's gene_id_col, "accession" -- e.g.
+# "A6T901"), never against gene_name: Kpn78578_gene_names_UniProt.tsv's
+# gene_name column falls back to a UniProt locus tag (e.g. "KPN_01641")
+# whenever a protein has no real gene symbol, which doesn't guarantee a
+# unique UniProtKB record the way the accession does. Do NOT default this to
+# a FungiDB link: unlike NovInvenio's legacy fungal model-organism configs,
+# Kpn78578 is UniProt-backed, and this study's candidates are MAG/prodigal
+# locus tags (e.g. "k141_4769_1") that were never FungiDB gene IDs.
 
 model_organisms:
   - short: UHM102bin47
@@ -42,6 +53,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM125bin22
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -53,6 +65,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM125bin48
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -64,6 +77,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM145bin17
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -75,6 +89,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM145bin33
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -86,6 +101,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM145bin28
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -97,6 +113,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM17bin35
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -108,6 +125,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM18bin40
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -119,6 +137,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM20bin40
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -130,6 +149,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM20bin12
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -141,6 +161,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM22bin50
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -152,6 +173,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM22bin54
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -163,6 +185,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM22bin8
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -174,6 +197,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM40bin4
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -185,6 +209,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM40bin27
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -196,6 +221,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM43bin53
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -207,6 +233,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM56bin19
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -218,6 +245,7 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
 
   - short: UHM72bin19
     gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_gene_names_UniProt.tsv
@@ -229,3 +257,4 @@ model_organisms:
     diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_vs_UHM_ingroup.diamond.tsv
     protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Kpn78578_protein.faa
     fasta_gene_field: gene
+    gene_url_template: "https://www.uniprot.org/uniprotkb/{gene}/entry"
