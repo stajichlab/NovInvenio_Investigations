@@ -10,24 +10,21 @@ DATA_MANIFEST.yaml). Protein-only: no assembled-genome DNA was staged for either
 so config.csv's DNA column is empty for every row -- --run_tool pairwise TBLASTN
 validate/loss-search workflows aren't runnable for this study until DNA is supplied.
 
-Header fixes applied on copy (both no-ops when the pattern in question is absent from
-a given proteome):
+Header fixes applied on copy:
   1. A subset of the ingroup proteomes (the ones whose prodigal headers start with a
      MAG bin id, e.g. "EHA02359_bin.2") carry a "^_" artifact between the bin id and
      the contig/gene coordinates (">EHA02359_bin.2^_257_4") instead of a real
-     separator. Rewritten to "_gene_" (">EHA02359_bin.2_gene_257_4").
-  2. A different subset of proteomes (3 ingroup, 3 outgroup) still carry bare
-     megahit contig ids with no embedded genome identity at all
-     (">k141_<contig>_<gene>"). Unlike case 1's bin-id headers or the outgroup's own
-     NCBI WGS-accession headers (">JAUNER010000020.1_<gene>" etc, already globally
-     unique and worth keeping traceable to their public accession as-is), a bare
-     k141_* id is only unique *within* its own proteome -- no different from
-     UHM_Koxytoca's colliding MAG contig ids (see that study's
-     bin/prefix_uhm_bin_headers.py). None of the 14 proteomes' raw ids collide with
-     any other's today (verified up front), but nothing stops a same-named k141_N
-     contig from landing in two of these proteomes as more get added later, so
-     every bare k141_* header is prefixed "<Short>__" here rather than waiting for
-     that to actually happen.
+     separator. Rewritten to "_gene_" (">EHA02359_bin.2_gene_257_4"). A no-op when
+     the artifact is absent (every other proteome).
+  2. Every header's id is then prefixed "<Short>__", uniformly across all 14
+     proteomes -- bare megahit contig ids with no embedded genome identity
+     (">k141_<contig>_<gene>", 3 ingroup + 3 outgroup proteomes) are exactly
+     UHM_Koxytoca's colliding-MAG-contig problem waiting to happen (see that
+     study's bin/prefix_uhm_bin_headers.py) once more proteomes are added, but the
+     bin-id and NCBI WGS-accession headers get the same "<Short>__" prefix too, so
+     every id in data_dir/pep/ is traceable to its proteome by a consistent,
+     single naming convention rather than three different ones. Idempotent: a
+     header already starting with its own "<Short>__" is left alone.
 
 This is a study-specific script (lives under this study's own bin/, not NII's shared
 bin/ -- see CLAUDE.md's "Where new code goes"), so it hardcodes NII_ROOT below rather
@@ -63,16 +60,20 @@ SOURCE_RELEASE = (
 )
 
 CARET_ARTIFACT_RE = re.compile(r"\^_")
-BARE_K141_RE = re.compile(r"^>(k141_\S+)")
+HEADER_ID_RE = re.compile(r"^>(\S+)")
 
 
 def fix_header_line(line: str, short: str) -> str:
-    """Apply both header fixes (see module docstring) to one FASTA line;
-    a no-op on non-header lines and on headers matching neither pattern."""
+    """Apply both header fixes (see module docstring) to one FASTA line: the
+    '^_' artifact rewrite, then a uniform '<Short>__' id prefix (idempotent --
+    a no-op if the id already starts with it). A no-op entirely on non-header
+    lines."""
     if not line.startswith(">"):
         return line
     line = CARET_ARTIFACT_RE.sub("_gene_", line, count=1)
-    return BARE_K141_RE.sub(rf">{short}__\1", line, count=1)
+    if line.startswith(f">{short}__"):
+        return line
+    return HEADER_ID_RE.sub(rf">{short}__\1", line, count=1)
 
 
 def copy_with_header_fix(src: Path, dst: Path, short: str) -> None:
@@ -133,10 +134,8 @@ def main() -> int:
                     f"protein.faa copied from {faa_src} via "
                     "studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: "
                     "any '<bin_id>^_<contig>_<gene>' prodigal header artifact rewritten "
-                    "to '<bin_id>_gene_<contig>_<gene>', and any bare "
-                    f"'k141_<contig>_<gene>' header prefixed '{short}__' to disambiguate "
-                    "megahit contig ids that could otherwise collide with another "
-                    "proteome's (both no-ops when the pattern in question is absent)"
+                    "to '<bin_id>_gene_<contig>_<gene>' (no-op when absent), then every "
+                    f"header id uniformly prefixed '{short}__'"
                 ),
                 extra={
                     "cluster_or_clade": g.get("cluster_or_clade", ""),

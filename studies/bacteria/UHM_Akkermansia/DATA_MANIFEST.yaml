@@ -2,16 +2,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp01_n18.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
-  checksum_sha256: cef2e6d7e599a4aa8f8e9e9dedf39db31b7a4385ef4e550b0e86b1872ad53043
+  access_date: '2026-09-08T00:50:45Z'
+  checksum_sha256: 2bfd5d9b6a4513ee22f400ad4d0b45b5774303634df92724d47edcadfefb4c24
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp01_n18.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''C286__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''C286__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: C286
   source_genome: EHM034720
@@ -21,16 +19,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp02_n16.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
-  checksum_sha256: 37a1f8f351a74f126109517798f39ddbd98968ed016cd91272ef6a1ab71f782e
+  access_date: '2026-09-08T00:50:45Z'
+  checksum_sha256: b5bd2d04d603d66c2057c3524e81bf523e196b1fb9062466cf7bd4326948be9b
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp02_n16.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''C287__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''C287__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: C287
   source_genome: EHM034692
@@ -40,16 +36,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp03_n16.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
+  access_date: '2026-09-08T00:50:45Z'
   checksum_sha256: b83f2305fb156432cb7a7da38e3f03906a576d5c200fc85fb5e9e2da6e30b30e
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp03_n16.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''C288__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''C288__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: C288
   source_genome: UHM1073.23039_R.bin.125
@@ -59,16 +53,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp04_n15.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
-  checksum_sha256: 496524773d5d4bcb10b0fbc2b2f8c511770176addaeb9b439e4216027b470db1
+  access_date: '2026-09-08T00:50:45Z'
+  checksum_sha256: 0f7c2caf4e320008a07643ab21b111beac210f109765a2ce05d0036baa9b2f85
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp04_n15.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''C289__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''C289__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: C289
   source_genome: EHM034674
@@ -78,16 +70,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp09_n4.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
+  access_date: '2026-09-08T00:50:45Z'
   checksum_sha256: 0ec04836251497cfc6dcc60d65773ee05c9dad5bd51272680a9aa53e19deec2a
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp09_n4.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''C294__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''C294__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: C294
   source_genome: UHM1210.23070_R.bin.101
@@ -97,16 +87,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp13_n1.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
+  access_date: '2026-09-08T00:50:45Z'
   checksum_sha256: 54016c3e90fb3caa62bbac71a6982279aac0549bf340e2d6141ec8294109f4da
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/ingroup/NOVEL_sp13_n1.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''C298__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''C298__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: C298
   source_genome: STP248.12601_R.bin.118
@@ -116,16 +104,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade01_n39_amphibian39.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
+  access_date: '2026-09-08T00:50:45Z'
   checksum_sha256: d1878c9b46b317fd2cef23a2b52fb0b7cfe8793e9303884f8022bc596c51ba7f
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade01_n39_amphibian39.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''clade01__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''clade01__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: clade01
   source_genome: clade representative
@@ -135,16 +121,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade02_n36_amphibian24-unknown8.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
-  checksum_sha256: 614816f4e0d727a82dbf08ce9e687657e2b5cbf5361328d3040cbf4ce6094efc
+  access_date: '2026-09-08T00:50:45Z'
+  checksum_sha256: b2cc7f957bb6311d37c12ab7f2eddf2983ace51d1573f59a0e6de4ec29bd1882
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade02_n36_amphibian24-unknown8.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''clade02__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''clade02__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: clade02
   source_genome: clade representative
@@ -154,16 +138,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade03_n19_mammal11-unknown8.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
-  checksum_sha256: d10ed332ea98b636455478344bff81d6281aa538288cf79b5dd8ac481e330d7a
+  access_date: '2026-09-08T00:50:45Z'
+  checksum_sha256: 80efd80e37bb75894cc9befa10e1cbc22aaf4cea8f9445e37011e6e5c8353518
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade03_n19_mammal11-unknown8.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''clade03__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''clade03__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: clade03
   source_genome: clade representative
@@ -173,16 +155,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade04_n16_mammal10-unknown6.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
-  checksum_sha256: 9a97ff9f45b940a83f0bef25403d4cb5650df9037a7aa5bc930d3c5f7fecba8c
+  access_date: '2026-09-08T00:50:45Z'
+  checksum_sha256: 3dd3c66de5973c93fe44f3217fc8f8932208acba2bcaf4525bf122d8342807e4
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade04_n16_mammal10-unknown6.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''clade04__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''clade04__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: clade04
   source_genome: clade representative
@@ -192,16 +172,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade05_n14_amphibian13-unknown1.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
+  access_date: '2026-09-08T00:50:45Z'
   checksum_sha256: fed04274e944591d0f8bf56c9b99b3905dab6aa26d95f5cb5e0a610b6f8ddf95
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade05_n14_amphibian13-unknown1.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''clade05__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''clade05__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: clade05
   source_genome: clade representative
@@ -211,16 +189,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade06_n11_amphibian11.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
+  access_date: '2026-09-08T00:50:45Z'
   checksum_sha256: 6482995c2275bb3fa5b27fd6d0abfa3bdae0792c7236c2ca5b27ea0aac622d61
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade06_n11_amphibian11.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''clade06__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''clade06__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: clade06
   source_genome: clade representative
@@ -230,16 +206,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade07_n8_mammal8.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
-  checksum_sha256: 1bb7f3803ce6bfe167f44c78c42ea79a061f3eed550013328787c1674c28597f
+  access_date: '2026-09-08T00:50:46Z'
+  checksum_sha256: c0a248fed11f206a44a223c4ff284789b77595a5109e95f2b6f97b2258262437
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade07_n8_mammal8.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''clade07__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''clade07__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: clade07
   source_genome: clade representative
@@ -249,16 +223,14 @@
   source_url: (internal -- UCR HPCC, /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade08_n6_unknown6.faa)
   source_release: Leila Shadmani ch3-chitin-evolution MAG/genome set (metashot binning
     + prodigal gene calling), frozen for this study 2026-09-01
-  access_date: '2026-09-08T00:49:00Z'
-  checksum_sha256: 0c972ef7a26dfa903a1c17837ebb0195ea94e3c7eb6edf65ade41fb99f46ecae
+  access_date: '2026-09-08T00:50:46Z'
+  checksum_sha256: becde4b2c3fb74f5591575dc6cfb241786e60b41e7c23e24d1a116fabdebfaa7
   license: Internal / unpublished (Stajich lab, Leila Shadmani ch3-chitin-evolution
     project)
   derived_by: 'protein.faa copied from /bigdata/stajichlab/lshad003/ch3-chitin-evolution/results/novinvenio_set/outgroup/AKK_clade08_n6_unknown6.faa
     via studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py: any ''<bin_id>^_<contig>_<gene>''
-    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'', and any
-    bare ''k141_<contig>_<gene>'' header prefixed ''clade08__'' to disambiguate megahit
-    contig ids that could otherwise collide with another proteome''s (both no-ops
-    when the pattern in question is absent)'
+    prodigal header artifact rewritten to ''<bin_id>_gene_<contig>_<gene>'' (no-op
+    when absent), then every header id uniformly prefixed ''clade08__'''
   pulled_with: build_akkermansia_config.py on i29
   cluster_or_clade: clade08
   source_genome: clade representative
@@ -267,7 +239,7 @@
 - local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Akkermansia/config.csv
   source_url: (derived, no external source)
   source_release: n/a
-  access_date: '2026-09-08T00:49:00Z'
+  access_date: '2026-09-08T00:50:46Z'
   checksum_sha256: bf95cbc741061fb939b00cb2aac794fe4d84c3d4e5f7a8fa3118f8588e488616
   license: n/a
   derived_by: studies/bacteria/UHM_Akkermansia/bin/build_akkermansia_config.py --study-dir
