@@ -23,7 +23,13 @@
 # annotation into the matrix itself afterward (bin/merge_uniprot_annotations.py)
 # instead of asking nf_NovInvenio's ANNOTATE_MATRIX to recompute it.
 # --modelorgs_config is kept: it's a cheap lookup (no Pfam-A/hmmscan involved)
-# and orthogonal to the Pfam/SwissProt redundancy concern above.
+# and orthogonal to the Pfam/SwissProt redundancy concern above. Points at
+# this study's OWN studies/fungi/pezizo_set1/modelorgs.yaml (Ncra -> FungiDB
+# release-68 product/gene-name + linkout, see config_support/
+# MODELORG_NCRA_PROVENANCE.md), not NovInvenio's pipeline-default
+# configs/modelorgs.yaml -- that default's Ncra entry targets a different,
+# non-UniProt local protein ID scheme and would silently annotate nothing
+# against this study's Ncra.pep.fa.
 
 module load nextflow
 
@@ -37,4 +43,4 @@ export NII_PIPELINE="$NOVINVENIO_ROOT/main.nf"
 "$NII_ROOT/bin/run_study.sh" fungi/pezizo_set1 \
     -profile slurm \
     -c "$NOVINVENIO_ROOT/conf/ucr_hpcc_slurm.config" \
-    --modelorgs_config "$NOVINVENIO_ROOT/configs/modelorgs.yaml"
+    --modelorgs_config "$NII_ROOT/studies/fungi/pezizo_set1/modelorgs.yaml"
