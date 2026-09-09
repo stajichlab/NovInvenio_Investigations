@@ -15,7 +15,7 @@ DESIGN.md Sec 5/9. (If this ever turns out not fast enough for larger proteomes,
 fallback is still Biopython -- not the other direction.)
 
 Output columns: accession, taxon_id, gene_name, description, go_ids, pfam_ids,
-pfam_names, interpro_ids, ec_numbers, alphafold_id
+pfam_names, interpro_ids, ec_numbers, alphafold_id, xrefs
   - go_ids / pfam_ids / pfam_names / interpro_ids / ec_numbers are "|"-separated
     (same order across pfam_ids/pfam_names -- index i of each names the same
     domain); each GO entry carries its evidence code as "GO:0016020:IEA"
@@ -35,6 +35,9 @@ pfam_names, interpro_ids, ec_numbers, alphafold_id
     always be, identical to `accession`) -- AlphaFold DB covers nearly all of
     UniProt, so this fires for nearly every protein and replaces the report's
     generic "structure search" fallback with a direct predicted-structure link.
+  - xrefs is a "|"-separated set of allow-listed cross-reference databases
+    (FungiDB/NCBI Gene/RefSeq/KEGG/Ensembl), packed as DB:id pairs; see
+    docs/superpowers/specs/2026-09-09-uniprot-xref-linkout-design.md for packing rules.
 """
 import argparse
 import csv
@@ -61,6 +64,30 @@ DR_ALPHAFOLD_RE = re.compile(r"^DR\s+AlphaFoldDB;\s*([A-Z0-9]+);")
 # descriptions with ChEBI references) that are much less reliable to anchor on.
 DE_EC_RE = re.compile(r"EC=([\d.]+(?:-)?)")
 
+XREF_FIRST_FIELD_DBS = {"VEuPathDB", "GeneID", "KEGG", "RefSeq"}
+XREF_LAST_FIELD_DBS = {"EnsemblFungi", "EnsemblBacteria"}
+# DR line dispatch, e.g. "DR   GeneID; 5847462; -." -> db="GeneID", rest="5847462; -."
+# Kept as one generic split (not a per-DB regex) so adding a 7th allow-listed DB
+# later is a one-line set addition, and so a DR line for a DB we don't care
+# about (the overwhelming majority -- EMBL/PANTHER/STRING/etc.) costs one
+# split+lookup instead of several failed regex .match() attempts (this parser's
+# own docstring flags per-line performance as the reason it isn't Biopython;
+# Ncra alone has ~250k DR lines).
+DR_LINE_RE = re.compile(r"^DR\s+(\w+);\s*(.*?)\.?\s*$")
+
+
+def _first_xref_field(fields: list[str]) -> str:
+    return fields[0].strip() if fields else ""
+
+
+def _last_xref_field(fields: list[str]) -> str:
+    # Field position/count for Ensembl* DR lines is not stable across organisms
+    # (Ncra: protein;protein;gene -- Scer: transcript;protein;gene), but the
+    # last non-placeholder field is consistently the stable gene ID, which is
+    # also what Ensembl's /id/ resolver handles best.
+    cleaned = [f.strip() for f in fields if f.strip() and f.strip() != "-"]
+    return cleaned[-1] if cleaned else ""
+
 
 def parse_dat_gz(path: Path):
     """Yield one dict per protein entry."""
@@ -75,13 +102,18 @@ def parse_dat_gz(path: Path):
     interpro_ids = []
     ec_numbers = []
     alphafold_id = None
+    xrefs = []
+    xref_seen_dbs = set()  # RefSeq: keep only the first line per record
 
     def reset():
         nonlocal accession, taxon_id, gene_name, rec_description, sub_description
         nonlocal go_ids, pfam_ids, pfam_names, interpro_ids, ec_numbers, alphafold_id
+        nonlocal xrefs, xref_seen_dbs
         accession = taxon_id = gene_name = rec_description = sub_description = None
         go_ids, pfam_ids, pfam_names, interpro_ids, ec_numbers = [], [], [], [], []
         alphafold_id = None
+        xrefs = []
+        xref_seen_dbs = set()
 
     opener = gzip.open if path.suffix == ".gz" else open
     with opener(path, "rt", encoding="utf-8", errors="replace") as fh:
@@ -99,6 +131,7 @@ def parse_dat_gz(path: Path):
                         "interpro_ids": "|".join(interpro_ids),
                         "ec_numbers": "|".join(ec_numbers),
                         "alphafold_id": alphafold_id or "",
+                        "xrefs": "|".join(xrefs),
                     }
                 reset()
                 continue
@@ -149,6 +182,22 @@ def parse_dat_gz(path: Path):
                     if m:
                         alphafold_id = m.group(1)
                         continue
+                m = DR_LINE_RE.match(line)
+                if m:
+                    db, rest = m.group(1), m.group(2)
+                    if db in XREF_FIRST_FIELD_DBS:
+                        if db == "RefSeq" and "RefSeq" in xref_seen_dbs:
+                            continue
+                        val = _first_xref_field(rest.split(";"))
+                        if val:
+                            xrefs.append(f"{db}:{val}")
+                            xref_seen_dbs.add(db)
+                        continue
+                    if db in XREF_LAST_FIELD_DBS:
+                        val = _last_xref_field(rest.split(";"))
+                        if val:
+                            xrefs.append(f"{db}:{val}")
+                        continue
 
 
 def main() -> int:
@@ -160,7 +209,7 @@ def main() -> int:
     n = 0
     args.output.parent.mkdir(parents=True, exist_ok=True)
     with open(args.output, "w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=["accession", "taxon_id", "gene_name", "description", "go_ids", "pfam_ids", "pfam_names", "interpro_ids", "ec_numbers", "alphafold_id"], delimiter="\t")
+        w = csv.DictWriter(fh, fieldnames=["accession", "taxon_id", "gene_name", "description", "go_ids", "pfam_ids", "pfam_names", "interpro_ids", "ec_numbers", "alphafold_id", "xrefs"], delimiter="\t")
         w.writeheader()
         for rec in parse_dat_gz(args.dat_gz):
             w.writerow(rec)
