@@ -288,9 +288,11 @@ discrete set-membership call (candidate vs. not), which is what ORA is for. Appl
 
 ## 8. Publishing
 
-**Site structure** — two-tier gallery, extending `NovInvenio`'s existing
-`view/index.html` + `view/generate_index.py` pattern by one level (domain grouping above
-the existing per-study grouping):
+**Site structure** — two-tier gallery, extending `NovInvenio`'s `docs/<project>/`
+publishing convention (`Helpers.docsDir()` — renamed from `view/` in 2026-09; the old
+`view/index.html` + `view/generate_index.py` gallery tool this section originally
+described has since been removed from `NovInvenio`) by one level, domain grouping above
+the existing per-study grouping:
 
 ```
 docs/
@@ -301,10 +303,16 @@ docs/
 │   │                             card = set name, one-line hypothesis, species count/
 │   │                             ingroup-outgroup summary, date generated, link in
 │   └── pezizo_set1/
-│       ├── report.html        ← set landing (mirrors today's view/<project>/report.html)
+│       ├── report.html        ← set landing (mirrors nf_NovInvenio's own
+│       │                         docs/<project>/report.html)
 │       ├── novelties.html
 │       ├── core.html
 │       ├── losses.html
+│       ├── alignment.html             ← standalone TBLASTN alignment viewer
+│       │                                 (nf_NovInvenio issue #86)
+│       ├── alignments/                ← TBLASTN alignment shards (novelty direction) --
+│       │                                 gitignored, NOT committed (see below)
+│       ├── loss_alignments/           ← same, loss direction -- also gitignored
 │       ├── go_enrichment.html         ← new
 │       ├── domain_enrichment.html     ← new (Pfam + InterPro ORA)
 │       └── archive/                   ← *.tsv.gz downloads for this set
@@ -321,6 +329,18 @@ and live site.
 gzip natively with zero extra dependency; the size difference on tables this small
 (presence matrices, enrichment results — thousands of rows) doesn't justify requiring
 `zstd` downstream.
+
+**`alignments/`/`loss_alignments/` are NOT covered by the `archive/` convention above,
+deliberately.** `archive/`'s `.tsv.gz` files are small (thousands of rows); the
+TBLASTN alignment shards `nf_NovInvenio`'s `BUILD_ALIGNMENT_SHARDS` process produces
+carry real sequence text and can run into the multi-MB-gzipped range per genome — that
+compounds much faster per study rerun than `archive/`'s tables do, which is exactly the
+`view/`-style repo-bloat mistake `NovInvenio` itself already made once (see the
+retrospective note below) and this repo exists partly to avoid repeating. So these two
+directories are `.gitignore`d and published instead as a GitHub Release asset
+(`bin/publish_alignment_release.sh`), downloaded and merged back into `docs/` only at
+Pages-deploy time (`.github/workflows/static.yml`) — the committed repo never grows from
+this data no matter how many times a study reruns.
 
 **License:** CC-BY-4.0 for data/pages (matches UniProt/GOA upstream terms, requires
 attribution, permits redistribution/adaptation). Every published page carries a standing

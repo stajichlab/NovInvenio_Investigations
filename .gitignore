@@ -25,6 +25,16 @@ work/
 results/
 view/
 
+# TBLASTN alignment shards (nf_NovInvenio issue #73's BUILD_ALIGNMENT_SHARDS,
+# relocated into the two-tier gallery path by bin/sync_reports.sh, issue #5) --
+# unlike docs/*/archive/'s small TSVs, these carry real sequence text and can run
+# into the multi-MB-gzipped range per genome (DESIGN.md Sec 8), so they are
+# published as a GitHub Release asset (issue #1) instead of committed, and
+# reassembled into docs/ only at Pages-deploy time (issue #2). Never committed
+# even though they physically live under docs/ on local disk.
+docs/*/*/alignments/
+docs/*/*/loss_alignments/
+
 # pixi
 .pixi/*
 !.pixi/config.toml

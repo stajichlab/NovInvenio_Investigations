@@ -1,0 +1,25 @@
+# Extra nextflow params for this study, applied by bin/run_study.sh before any
+# args passed on the command line (so a command-line arg can still override one
+# of these). One flag/value per line; '#' starts a comment; blank lines ignored.
+
+# Same config.csv/data_dir as studies/fungi/pezizo_set1/ (symlinked) -- this
+# study exists to compare --cluster_tool mmseqs (the family-profile pathway,
+# ADR-0002) against pezizo_set1's own --cluster_tool pairwise (default) run.
+
+# diamond over phmmer for pairwise search + self-search -- carried over from
+# pezizo_set1/run_params.txt for the same reason (large proteomes, turnaround
+# over sensitivity); mmseqs/PROFILE_SEARCH still uses --run_tool for its
+# self-search paralog lookup even though the main presence-matrix search is
+# mmseqs2-based.
+--run_tool diamond
+
+--cluster_tool mmseqs
+
+# hmm_presence_cov 0.3 (down from the current 0.5 default) + a min_residues
+# floor of 100 residues: the 0.5 coverage floor was found to reject 83% of
+# otherwise-significant hits on HMMs >600aa (multi-domain proteins failing a
+# whole-length coverage fraction, not promiscuous-domain false positives -- see
+# NovInvenio CLAUDE.md's hmm_presence_cov row and lib/family_presence.py). This
+# is the pairing intended to become the new default.
+--hmm_presence_cov 0.3
+--hmm_presence_min_residues 100
