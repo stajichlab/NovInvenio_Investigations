@@ -181,9 +181,13 @@ if [ -d "$PIPELINE_DOCS_DIR" ]; then
     done
     # alignments/loss_alignments/: not git-committed (NII issue #3) -- relocated
     # here on local disk only, for NII issue #1's release-asset publish step to
-    # package from $DOCS_DIR afterward.
+    # package from $DOCS_DIR afterward. rsync (not cp -r) because cp -r tries to
+    # preserve owner/mode bits, which some filesystems (e.g. node-local /scratch
+    # on UCR HPCC) reject with "Operation not supported" on every run -- content
+    # still copied fine when that happened, but rsync just doesn't attempt it in
+    # the first place (see NII issue #6).
     for d in alignments loss_alignments; do
-        [ -d "$PIPELINE_DOCS_DIR/$d" ] && rm -rf "$DOCS_DIR/$d" && cp -r "$PIPELINE_DOCS_DIR/$d" "$DOCS_DIR/$d"
+        [ -d "$PIPELINE_DOCS_DIR/$d" ] && rm -rf "$DOCS_DIR/$d" && rsync -r "$PIPELINE_DOCS_DIR/$d" "$DOCS_DIR/"
     done
     rm -rf "$PIPELINE_DOCS_DIR"
 fi
