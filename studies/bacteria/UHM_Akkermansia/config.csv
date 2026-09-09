@@ -1,15 +1,15 @@
 GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
-IN,Candidate genus sp.,EHM034720,C286.pep.fa,,,C286,candidate_genus
-IN,Candidate genus sp.,EHM034692,C287.pep.fa,,,C287,candidate_genus
-IN,Candidate genus sp.,UHM1073.23039_R.bin.125,C288.pep.fa,,,C288,candidate_genus
-IN,Candidate genus sp.,EHM034674,C289.pep.fa,,,C289,candidate_genus
-IN,Candidate genus sp.,UHM1210.23070_R.bin.101,C294.pep.fa,,,C294,candidate_genus
-IN,Candidate genus sp.,STP248.12601_R.bin.118,C298.pep.fa,,,C298,candidate_genus
-OUT,Akkermansia sp.,AKK_clade01_n39_amphibian39,clade01.pep.fa,,,clade01,Akkermansia
+IN,Candidate genus sp.,EHM034720,C286.pep.fa,C286.dna.fa,C286.gff3,C286,candidate_genus
+IN,Candidate genus sp.,EHM034692,C287.pep.fa,C287.dna.fa,C287.gff3,C287,candidate_genus
+IN,Candidate genus sp.,UHM1073.23039_R.bin.125,C288.pep.fa,C288.dna.fa,C288.gff3,C288,candidate_genus
+IN,Candidate genus sp.,EHM034674,C289.pep.fa,C289.dna.fa,C289.gff3,C289,candidate_genus
+IN,Candidate genus sp.,UHM1210.23070_R.bin.101,C294.pep.fa,C294.dna.fa,C294.gff3,C294,candidate_genus
+IN,Candidate genus sp.,STP248.12601_R.bin.118,C298.pep.fa,C298.dna.fa,C298.gff3,C298,candidate_genus
+OUT,Akkermansia sp.,AKK_clade01_n39_amphibian39,clade01.pep.fa,clade01.dna.fa,clade01.gff3,clade01,Akkermansia
 OUT,Akkermansia sp.,S24M_St_8,clade02.pep.fa,clade02.dna.fa,,clade02,Akkermansia
 OUT,Akkermansia sp.,RGIG6206,clade03.pep.fa,clade03.dna.fa,,clade03,Akkermansia
 OUT,Akkermansia sp.,MAG30,clade04.pep.fa,clade04.dna.fa,,clade04,Akkermansia
-OUT,Akkermansia sp.,AKK_clade05_n14_amphibian13-unknown1,clade05.pep.fa,,,clade05,Akkermansia
-OUT,Akkermansia sp.,AKK_clade06_n11_amphibian11,clade06.pep.fa,,,clade06,Akkermansia
+OUT,Akkermansia sp.,AKK_clade05_n14_amphibian13-unknown1,clade05.pep.fa,clade05.dna.fa,clade05.gff3,clade05,Akkermansia
+OUT,Akkermansia sp.,AKK_clade06_n11_amphibian11,clade06.pep.fa,clade06.dna.fa,clade06.gff3,clade06,Akkermansia
 OUT,Akkermansia sp.,Lapin-004__bin59,clade07.pep.fa,clade07.dna.fa,,clade07,Akkermansia
 OUT,Akkermansia sp.,S38M_St_6,clade08.pep.fa,clade08.dna.fa,,clade08,Akkermansia
