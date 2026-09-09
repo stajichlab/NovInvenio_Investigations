@@ -13,7 +13,7 @@ Adds new columns (prefixed uniprot_ to stay distinct from any gene_name/Pfam_Nam
 columns nf_NovInvenio's own ANNOTATE_MATRIX might have added, e.g. via
 --modelorgs_config, which this script leaves untouched): uniprot_gene_name,
 uniprot_description, uniprot_pfam_ids, uniprot_pfam_names, uniprot_interpro_ids,
-uniprot_go_ids, uniprot_ec_numbers, uniprot_alphafold_id.
+uniprot_go_ids, uniprot_ec_numbers, uniprot_alphafold_id, uniprot_xrefs.
 A protein_id with no matching
 UniProt annotation (shouldn't happen for a study built entirely from UniProt
 proteomes, but --lenient allows it) gets empty strings, not a hard error.
@@ -59,6 +59,7 @@ def main() -> int:
     new_cols = [
         "uniprot_gene_name", "uniprot_description", "uniprot_pfam_ids", "uniprot_pfam_names",
         "uniprot_interpro_ids", "uniprot_go_ids", "uniprot_ec_numbers", "uniprot_alphafold_id",
+        "uniprot_xrefs",
     ]
     for c in new_cols:
         if c not in fieldnames:
@@ -80,6 +81,7 @@ def main() -> int:
         row["uniprot_go_ids"] = a["go_ids"]
         row["uniprot_ec_numbers"] = a.get("ec_numbers", "")
         row["uniprot_alphafold_id"] = a.get("alphafold_id", "")
+        row["uniprot_xrefs"] = a.get("xrefs", "")
 
     if n_missing and not args.lenient:
         sys.exit(
