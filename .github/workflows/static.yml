@@ -1,13 +1,15 @@
 # Deploys docs/ to GitHub Pages, merging in each study's TBLASTN alignment
 # shards (docs/<domain>/<set>/alignments/, .../loss_alignments/ -- issues #1/#2/
-# #3/#5) from GitHub Release assets at build time. Those shards are deliberately
-# NOT git-committed (see DESIGN.md Sec 8) -- bin/publish_alignment_release.sh
-# publishes them as a `alignments-<domain>-<set>`-tagged release, each carrying a
-# manifest.json naming its own destination, and triggers this workflow via
+# #3/#5) AND each study's report pages (docs/<domain>/<set>/{novelties,core,
+# losses}.html, summary.pdf) from GitHub Release assets at build time. Both are
+# deliberately NOT git-committed (see DESIGN.md Sec 8) -- bin/publish_alignment_
+# release.sh and bin/publish_report_release.sh each publish a tagged release
+# (`alignments-<domain>-<set>` / `reports-<domain>-<set>`), every one carrying a
+# manifest.json naming its own destination, and trigger this workflow via
 # workflow_dispatch afterward (a --clobber re-upload doesn't refire
-# release:published, so it can't be the trigger). Every alignments-* release is
-# merged on every deploy, not just whichever one triggered the run, since
-# deploy-pages replaces the whole site each time.
+# release:published, so it can't be the trigger). Every alignments-*/reports-*
+# release is merged on every deploy, not just whichever one triggered the run,
+# since deploy-pages replaces the whole site each time.
 name: Deploy static content to Pages
 
 on:
@@ -43,14 +45,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Merge alignment release assets into docs/
+      - name: Merge alignment + report release assets into docs/
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          tags=$(gh release list --repo "${{ github.repository }}" --json tagName -q '.[].tagName' | grep '^alignments-' || true)
+          tags=$(gh release list --repo "${{ github.repository }}" --json tagName -q '.[].tagName' | grep -E '^(alignments|reports)-' || true)
           if [ -z "$tags" ]; then
-            echo "No alignments-* releases found -- nothing to merge."
+            echo "No alignments-*/reports-* releases found -- nothing to merge."
             exit 0
           fi
           for tag in $tags; do
@@ -72,8 +74,15 @@ jobs:
             set_name=$(jq -r '.set' "$extract_dir/manifest.json")
             dest="docs/$domain/$set_name"
             mkdir -p "$dest"
+            # alignments-* assets: whole directories, replaced wholesale.
             [ -d "$extract_dir/alignments" ] && rm -rf "$dest/alignments" && cp -r "$extract_dir/alignments" "$dest/alignments"
             [ -d "$extract_dir/loss_alignments" ] && rm -rf "$dest/loss_alignments" && cp -r "$extract_dir/loss_alignments" "$dest/loss_alignments"
+            # reports-* assets: individual files, overwritten in place -- these
+            # may already exist in the git checkout (committed historically);
+            # this release's copy always wins since it's the freshly rebuilt one.
+            for f in novelties.html core.html losses.html summary.pdf; do
+              [ -f "$extract_dir/$f" ] && cp -f "$extract_dir/$f" "$dest/$f"
+            done
             echo "merged $tag -> $dest"
           done
       - name: Setup Pages
