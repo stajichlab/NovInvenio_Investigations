@@ -1,0 +1,10 @@
+local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Ncra_self_id_crosswalk.tsv
+source_url: ''
+source_release: derived, not fetched -- see module docstring
+access_date: '2026-09-09T03:37:27Z'
+checksum_sha256: 13c1bc6f15c745f99694865df3f4077c9db46a1a7f7228114c7e4f459a3897e6
+license: N/A (derived from this study's own UniProt-sourced Ncra.pep.fa)
+derived_by: studies/fungi/pezizo_set1/bin/build_ncra_fungidb_crosswalk.py, identity
+  map from studies/fungi/pezizo_set1/data_dir/pep/Ncra.pep.fa headers (UniProt proteome
+  UP000001805, see this study's own DATA_MANIFEST.yaml for that pull's provenance)
+pulled_with: build_ncra_fungidb_crosswalk.py on i29
