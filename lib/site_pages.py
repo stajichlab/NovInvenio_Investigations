@@ -78,8 +78,16 @@ def _page(title: str, body: str) -> str:
 """
 
 
-def render_top_level(domains: list[dict]) -> str:
-    """domains: [{name, slug, desc, n_studies, status}]"""
+def render_top_level(domains: list[dict], site_name: str = "NovInvenio Investigations") -> str:
+    """domains: [{name, slug, desc, n_studies, status}]
+
+    site_name: this repo's own display name (default matches NII's own,
+    preserving today's output byte-for-byte) -- parameterized so a repo
+    scaffolded from this one (nf_NovInvenio's bin/ni, issue #76) doesn't
+    brand its gallery "NovInvenio Investigations" regardless of what it's
+    actually called. bin/generate_docs.py derives it from pixi.toml's own
+    `name` field rather than requiring a second place to edit it.
+    """
     cards = []
     for d in domains:
         cls = "card" if d["n_studies"] else "card empty"
@@ -92,11 +100,11 @@ def render_top_level(domains: list[dict]) -> str:
      {'' if d['n_studies'] else '(not yet populated)'}</p>
 </a>""")
     body = f"""
-<div class="title-row"><img class="logo" src="{_LOGO_DATA_URI}" alt=""><h1>NovInvenio Investigations</h1></div>
+<div class="title-row"><img class="logo" src="{_LOGO_DATA_URI}" alt=""><h1>{escape(site_name)}</h1></div>
 <p class="subtitle">Lineage-specific gene novelty/loss studies, organized by taxonomic domain.</p>
 <div class="grid">{''.join(cards)}</div>
 """
-    return _page("NovInvenio Investigations", body)
+    return _page(site_name, body)
 
 
 _STATUS_TEXT = {
@@ -106,8 +114,14 @@ _STATUS_TEXT = {
 }
 
 
-def render_domain_index(domain_name: str, studies: list[dict]) -> str:
-    """studies: [{name, slug, hypothesis, n_ingroup, n_outgroup, status, updated}]"""
+def render_domain_index(
+    domain_name: str, studies: list[dict], site_name: str = "NovInvenio Investigations"
+) -> str:
+    """studies: [{name, slug, hypothesis, n_ingroup, n_outgroup, status, updated}]
+
+    site_name: see render_top_level()'s docstring -- same parameterization,
+    same default.
+    """
     cards = []
     for s in studies:
         complete = s["status"] == "complete"
@@ -129,4 +143,4 @@ def render_domain_index(domain_name: str, studies: list[dict]) -> str:
 <p class="subtitle"><a href="../index.html">&larr; all domains</a></p>
 <div class="grid">{''.join(cards)}</div>
 """
-    return _page(f"{domain_name} — NovInvenio Investigations", body)
+    return _page(f"{domain_name} — {site_name}", body)

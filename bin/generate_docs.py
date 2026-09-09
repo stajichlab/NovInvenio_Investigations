@@ -22,6 +22,7 @@ The domain registry itself (slug/name/desc for each tab) is curated data, not co
 """
 import csv
 import sys
+import tomllib
 from pathlib import Path
 
 import yaml
@@ -33,6 +34,23 @@ REPO_ROOT = Path(__file__).parent.parent
 STUDIES_ROOT = REPO_ROOT / "studies"
 DOCS_ROOT = REPO_ROOT / "docs"
 DOMAINS_YAML = REPO_ROOT / "conf" / "domains.yaml"
+PIXI_TOML = REPO_ROOT / "pixi.toml"
+
+
+def load_site_name() -> str:
+    """This repo's own display name for the gallery header/title, derived
+    from pixi.toml's [workspace] name field (underscores read as spaces)
+    rather than hardcoded -- so a repo scaffolded from this one
+    (nf_NovInvenio's bin/ni, issue #76) brands its own gallery correctly
+    instead of inheriting "NovInvenio Investigations" regardless of what
+    it's actually called. Falls back to that same default if pixi.toml is
+    missing/unparseable, matching lib/site_pages.py's own default."""
+    try:
+        with open(PIXI_TOML, "rb") as fh:
+            name = tomllib.load(fh)["workspace"]["name"]
+        return name.replace("_", " ")
+    except (OSError, KeyError, tomllib.TOMLDecodeError):
+        return "NovInvenio Investigations"
 
 
 def load_domains() -> list[tuple[str, str, str]]:
@@ -100,6 +118,7 @@ def find_studies(domain_slug: str) -> list[dict]:
 
 
 def main() -> int:
+    site_name = load_site_name()
     domains = load_domains()
     domain_data = {slug: find_studies(slug) for slug, _, _ in domains}
 
@@ -107,7 +126,7 @@ def main() -> int:
     (DOCS_ROOT / "index.html").write_text(render_top_level([
         {"name": name, "slug": slug, "desc": desc, "n_studies": len(domain_data[slug])}
         for slug, name, desc in domains
-    ]))
+    ], site_name=site_name))
     print(f"Wrote {DOCS_ROOT / 'index.html'}", file=sys.stderr)
 
     for slug, name, _ in domains:
@@ -116,7 +135,9 @@ def main() -> int:
             continue
         domain_docs_dir = DOCS_ROOT / slug
         domain_docs_dir.mkdir(parents=True, exist_ok=True)
-        (domain_docs_dir / "index.html").write_text(render_domain_index(name, studies))
+        (domain_docs_dir / "index.html").write_text(
+            render_domain_index(name, studies, site_name=site_name)
+        )
         print(f"Wrote {domain_docs_dir / 'index.html'} ({len(studies)} studies)", file=sys.stderr)
         for s in studies:
             (domain_docs_dir / s["slug"]).mkdir(parents=True, exist_ok=True)
