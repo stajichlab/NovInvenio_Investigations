@@ -1,4 +1,13 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Deploys docs/ to GitHub Pages, merging in each study's TBLASTN alignment
+# shards (docs/<domain>/<set>/alignments/, .../loss_alignments/ -- issues #1/#2/
+# #3/#5) from GitHub Release assets at build time. Those shards are deliberately
+# NOT git-committed (see DESIGN.md Sec 8) -- bin/publish_alignment_release.sh
+# publishes them as a `alignments-<domain>-<set>`-tagged release, each carrying a
+# manifest.json naming its own destination, and triggers this workflow via
+# workflow_dispatch afterward (a --clobber re-upload doesn't refire
+# release:published, so it can't be the trigger). Every alignments-* release is
+# merged on every deploy, not just whichever one triggered the run, since
+# deploy-pages replaces the whole site each time.
 name: Deploy static content to Pages
 
 on:
@@ -6,10 +15,13 @@ on:
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab, and is what
+  # bin/publish_alignment_release.sh triggers after uploading a release asset.
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages and
+# reading this repo's own releases (contents: read already covered release
+# read access; called out explicitly since the merge step below relies on it).
 permissions:
   contents: read
   pages: write
@@ -31,12 +43,47 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Merge alignment release assets into docs/
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tags=$(gh release list --repo "${{ github.repository }}" --json tagName -q '.[].tagName' | grep '^alignments-' || true)
+          if [ -z "$tags" ]; then
+            echo "No alignments-* releases found -- nothing to merge."
+            exit 0
+          fi
+          for tag in $tags; do
+            echo "== merging $tag =="
+            dl_dir=$(mktemp -d)
+            extract_dir=$(mktemp -d)
+            gh release download "$tag" --repo "${{ github.repository }}" -p '*.tar.gz' -D "$dl_dir"
+            tarball=$(find "$dl_dir" -name '*.tar.gz' | head -1)
+            if [ -z "$tarball" ]; then
+              echo "::warning::$tag has no .tar.gz asset -- skipping"
+              continue
+            fi
+            tar -xzf "$tarball" -C "$extract_dir"
+            if [ ! -f "$extract_dir/manifest.json" ]; then
+              echo "::warning::$tag's asset has no manifest.json -- skipping"
+              continue
+            fi
+            domain=$(jq -r '.domain' "$extract_dir/manifest.json")
+            set_name=$(jq -r '.set' "$extract_dir/manifest.json")
+            dest="docs/$domain/$set_name"
+            mkdir -p "$dest"
+            [ -d "$extract_dir/alignments" ] && rm -rf "$dest/alignments" && cp -r "$extract_dir/alignments" "$dest/alignments"
+            [ -d "$extract_dir/loss_alignments" ] && rm -rf "$dest/loss_alignments" && cp -r "$extract_dir/loss_alignments" "$dest/loss_alignments"
+            echo "merged $tag -> $dest"
+          done
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
+          # Upload entire repository (docs/, now including the merged shards --
+          # this merged tree is never written back to git, only to the runner's
+          # own workspace and the Pages deployment artifact built from it)
           path: 'docs'
       - name: Deploy to GitHub Pages
         id: deployment
