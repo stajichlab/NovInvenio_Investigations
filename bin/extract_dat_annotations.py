@@ -64,16 +64,26 @@ DR_ALPHAFOLD_RE = re.compile(r"^DR\s+AlphaFoldDB;\s*([A-Z0-9]+);")
 # descriptions with ChEBI references) that are much less reliable to anchor on.
 DE_EC_RE = re.compile(r"EC=([\d.]+(?:-)?)")
 
+# Only RefSeq is deduped to its first DR line per record (see xref_seen_dbs
+# below): RefSeq's first/last field ambiguity is a real protein-vs-transcript
+# correctness hazard. The other DBs here -- VEuPathDB/GeneID/KEGG and, in
+# XREF_LAST_FIELD_DBS below, EnsemblFungi/EnsemblBacteria -- can legitimately
+# repeat per record (different loci/paralogs sharing an accession, confirmed
+# against real cached data, up to 8 entries for one DB on one busy protein)
+# and all such entries are kept.
 XREF_FIRST_FIELD_DBS = {"VEuPathDB", "GeneID", "KEGG", "RefSeq"}
 XREF_LAST_FIELD_DBS = {"EnsemblFungi", "EnsemblBacteria"}
 # DR line dispatch, e.g. "DR   GeneID; 5847462; -." -> db="GeneID", rest="5847462; -."
-# Kept as one generic split (not a per-DB regex) so adding a 7th allow-listed DB
-# later is a one-line set addition, and so a DR line for a DB we don't care
-# about (the overwhelming majority -- EMBL/PANTHER/STRING/etc.) costs one
-# split+lookup instead of several failed regex .match() attempts (this parser's
-# own docstring flags per-line performance as the reason it isn't Biopython;
-# Ncra alone has ~250k DR lines).
-DR_LINE_RE = re.compile(r"^DR\s+(\w+);\s*(.*?)\.?\s*$")
+# This check runs after the four dedicated GO/Pfam/InterPro/AlphaFold regexes
+# above (which already `continue` on match), so it doesn't replace those --
+# it's one more check after them. Its own efficiency property is that all 6
+# allow-listed DB types here are dispatched through this single generic regex
+# + a dict lookup, rather than adding a 7th dedicated regex per DB type.
+# Some Ensembl* DR lines carry a trailing isoform bracket tag after the final
+# period, e.g. "DR   EnsemblFungi; YML032C_mRNA; YML032C; YML032C. [P06778-1]"
+# (real cached data, UP000002311/S. cerevisiae) -- strip that too so the
+# extracted field is a clean id, not "YML032C. [P06778-1]".
+DR_LINE_RE = re.compile(r"^DR\s+(\w+);\s*(.*?)\.?(?:\s*\[[^\]]*\])?\s*$")
 
 
 def _first_xref_field(fields: list[str]) -> str:

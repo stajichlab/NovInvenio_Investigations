@@ -32,6 +32,27 @@ DR   EnsemblFungi; YML051W_mRNA; YML051W; YML051W.
 SQ   SEQUENCE   6 AA;  1 MW;  0000000000000000 CRC64;
      MATTEI
 //
+ID   C0000000_TEST           Unreviewed;       10 AA.
+AC   C0000000;
+GN   ORFNames=NCU88888;
+OX   NCBI_TaxID=4932;
+DE   SubName: Full=Test with an Ensembl isoform bracket tag;
+DR   EnsemblFungi; YML032C_mRNA; YML032C; YML032C. [P06778-1]
+SQ   SEQUENCE   6 AA;  1 MW;  0000000000000000 CRC64;
+     MATTEI
+//
+ID   D0000000_TEST           Unreviewed;       10 AA.
+AC   D0000000;
+GN   ORFNames=NCU77777;
+OX   NCBI_TaxID=367110;
+DE   SubName: Full=Test with duplicate non-RefSeq DR lines;
+DR   GeneID; 1111111; -.
+DR   GeneID; 2222222; -.
+DR   KEGG; ncr:NCU77777; -.
+DR   KEGG; ncr:NCU77778; -.
+SQ   SEQUENCE   6 AA;  1 MW;  0000000000000000 CRC64;
+     MATTEI
+//
 """
 
 
@@ -74,3 +95,30 @@ def test_xrefs_drops_pdb_and_non_allowlisted_dbs(tmp_path):
     xrefs = records["A7UWL5"]["xrefs"]
     assert "PDB" not in xrefs
     assert "STRING" not in xrefs
+
+
+def test_xrefs_ensemblfungi_strips_trailing_isoform_bracket(tmp_path):
+    # Real cached-data shape (UP000002311, S. cerevisiae): some Ensembl* DR
+    # lines carry a trailing isoform bracket tag AFTER the period, e.g.
+    # "DR   EnsemblFungi; YML032C_mRNA; YML032C; YML032C. [P06778-1]".
+    # The extracted gene id must be clean -- no literal period, space, or
+    # brackets left attached.
+    path = _write_fixture(tmp_path)
+    records = {r["accession"]: r for r in parse_dat_gz(path)}
+    xrefs = records["C0000000"]["xrefs"].split("|")
+    assert "EnsemblFungi:YML032C" in xrefs
+    assert not any("[" in x or "]" in x for x in xrefs)
+
+
+def test_xrefs_does_not_dedupe_non_refseq_dbs(tmp_path):
+    # Only RefSeq is deduped to its first DR line per record (protein-vs-
+    # transcript ambiguity is a real correctness hazard there). GeneID/KEGG/
+    # VEuPathDB/Ensembl* can legitimately repeat per record (different
+    # loci/paralogs sharing an accession) and every entry must be kept.
+    path = _write_fixture(tmp_path)
+    records = {r["accession"]: r for r in parse_dat_gz(path)}
+    xrefs = records["D0000000"]["xrefs"].split("|")
+    assert "GeneID:1111111" in xrefs
+    assert "GeneID:2222222" in xrefs
+    assert "KEGG:ncr:NCU77777" in xrefs
+    assert "KEGG:ncr:NCU77778" in xrefs
