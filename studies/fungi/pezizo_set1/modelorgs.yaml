@@ -1,0 +1,45 @@
+# Model organism annotation config for the pezizo_set1 study (see
+# nf_NovInvenio/lib/model_organisms.py for the consuming code + full format docs).
+#
+# Ncra = Neurospora crassa OR74A (UniProt reference proteome UP000001805, taxid
+# 367110) -- one of this study's own IN-group proteomes (config.csv's Ncra
+# row), not merely a comparison reference. Full provenance and regeneration
+# recipe: config_support/MODELORG_NCRA_PROVENANCE.md (NII repo).
+#
+# id_transform: diamond_fasta, used here as an EXACT self-referential lookup,
+# not an actual diamond alignment -- Ncra.pep.fa's own UniProt headers already
+# carry the FungiDB NCU gene ID directly (">tr|A7UWL5|A7UWL5_NEUCR ...
+# GN=NCU10683 ..."), so protein_fasta points at Ncra.pep.fa itself
+# (fasta_gene_field: "GN") and diamond_hits is only an identity map
+# (protein_id -> itself, config_support/modelorgs/Ncra_self_id_crosswalk.tsv)
+# needed to satisfy ModelOrgAnnotator's 2-hop code path. See
+# studies/fungi/pezizo_set1/bin/build_ncra_fungidb_crosswalk.py's docstring
+# for why config_support/modelorgs/Ncra_vs_FungiDB_Ncra.diamond.tsv (a REAL
+# diamond search output, but against a different local protein ID scheme) is
+# NOT used here -- its query IDs don't match this study's Ncra.pep.fa at all.
+#
+# Paths below are absolute, deliberately: nf_NovInvenio resolves any relative
+# path in this file against its OWN projectDir (--launch_dir ${projectDir},
+# see workflows/annotate.nf), not against this file's directory or NII's repo
+# root -- so a relative path here would resolve inside the pipeline checkout,
+# not NII.
+#
+# gene_url_template gives the report a FungiDB hyperlink for the resolved
+# gene. nf_NovInvenio's ModelOrgAnnotator.gene_url() resolves "{gene}" against
+# the gene_names_csv LOOKUP KEY (this entry's gene_id_col, "Gene ID" -- the
+# bare NCU accession, e.g. "NCU10683"), never against gene_name -- this is
+# exactly why the diamond_fasta 2-hop above has to land on the NCU accession
+# itself as its final gene_key, not the UniProt accession.
+
+model_organisms:
+  - short: Ncra
+    gene_names_csv: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Neurospora_crassa_gene_names_FungiDB.csv
+    gene_id_col: "Gene ID"
+    gene_name_col: "Gene Name or Symbol"
+    product_col: "Product Description"
+    csv_delimiter: ","
+    id_transform: diamond_fasta
+    diamond_hits: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/config_support/modelorgs/Ncra_self_id_crosswalk.tsv
+    protein_fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/data_dir/pep/Ncra.pep.fa
+    fasta_gene_field: "GN"
+    gene_url_template: "https://fungidb.org/fungidb/app/record/gene/{gene}"
