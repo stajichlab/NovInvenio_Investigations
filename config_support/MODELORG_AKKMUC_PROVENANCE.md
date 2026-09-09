@@ -49,10 +49,14 @@ both the lookup table and the diamond target are built from UniProt
 - `config_support/modelorgs/AkkMuc_vs_UHM_ingroup.diamond.tsv` -- best diamond
   hit (`--max-target-seqs 1 --evalue 1e-5`) for every candidate-genus ingroup
   protein (the 6 `data_dir/pep/{C286,C287,C288,C289,C294,C298}.pep.fa` files
-  concatenated as query, already `<Short>__`-prefixed by
-  `bin/build_akkermansia_config.py`) against `AkkMuc_protein.faa`, via
+  concatenated as query -- headers already prefixed with their own source
+  genome id upstream, by Leila Shadmani's `ingroup_prefixed/`, with
+  `bin/build_akkermansia_config.py` still fixing the leftover `'^_'` prodigal
+  artifact to `'_gene_'` on copy, e.g. `EHM034720|EHA02359_bin.2_gene_0_3`)
+  against `AkkMuc_protein.faa`, via
   `studies/bacteria/UHM_Akkermansia/bin/build_akkmuc_diamond_hits.sh`. 8,385
-  hits.
+  hits (regenerated 2026-09-07 after the ingroup/outgroup header format
+  changed upstream; same hit set, re-keyed to the new headers).
 
 Same `model_organisms.py` gotcha as Koxytoca's `modelorgs.yaml` (documented in
 that file's header, repeated in this study's own `modelorgs.yaml`): a

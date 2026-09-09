@@ -21,8 +21,9 @@
 # want AkkMuc-based gene names for.
 #
 # id_transform: diamond_fasta, because the ingroup candidate-genus MAG proteins
-# are prodigal-called locus tags (e.g. "C286__EHM034720_123") with no direct ID
-# relationship to AkkMuc's UniProt accessions -- a diamond best-hit lookup is
+# are prodigal-called locus tags, genome-name-prefixed upstream by Leila Shadmani
+# (e.g. "EHM034720|EHA02359_bin.2_gene_0_3") with no direct ID relationship to
+# AkkMuc's UniProt accessions -- a diamond best-hit lookup is
 # required, not a regex strip. protein_fasta's headers were rewritten to
 # ">ACCESSION gene=ACCESSION" so the diamond hit's subject ID resolves straight
 # back to itself as the gene_names_csv lookup key (see

@@ -11,9 +11,10 @@
 --run_tool diamond
 
 # pairwise clustering (not mmseqs/novelty_discovery) -- also the only cluster_tool
-# path that runs the generic VALIDATE (TBLASTN vs outgroup DNA) workflow; only 5
-# of the 8 outgroup clades have DNA (see build_akkermansia_config.py's module
-# docstring for which/why) and none of the 6 ingroup Shorts do.
+# path that runs the generic VALIDATE (TBLASTN vs outgroup DNA) workflow; all 14
+# rows now have DNA (see build_akkermansia_config.py's module docstring: 3
+# outgroup clades from NCBI GCA_* assemblies, the other 11 -- 6 ingroup + 5
+# outgroup -- from Leila Shadmani's genome_map.tsv).
 --cluster_tool pairwise
 
 # Pfam-A + SwissProt-diamond annotation: unlike the UniProt-sourced fungal
