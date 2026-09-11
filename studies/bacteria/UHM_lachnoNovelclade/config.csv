@@ -1,0 +1,10 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+OUT,Lachnospiraceae sp.,UHM1088.41098__UHM1088.41098_R.bin.56,Ub56.pep.fa,Ub56.dna.fa,,Ub56,Lachnospiraceae
+OUT,Lachnospiraceae sp.,UHM1210.23070__UHM1210.23070_R.bin.85,Ub85.pep.fa,Ub85.dna.fa,,Ub85,Lachnospiraceae
+OUT,Lachnospiraceae sp.,UHM896.23052__UHM896.23052_R.bin.22,Ub22.pep.fa,Ub22.dna.fa,,Ub22,Lachnospiraceae
+OUT,Lachnospiraceae sp.,UHM904.23055__UHM904.23055_R.bin.119,Ub119.pep.fa,Ub119.dna.fa,,Ub119,Lachnospiraceae
+IN,Lachnospiraceae sp.,UHM207.23041__UHM207.23041_R.bin.71,Ub71.pep.fa,Ub71.dna.fa,,Ub71,Lachnospiraceae
+IN,Lacrimispora sp.,,Lsp1.pep.fa,Lsp1.dna.fa,Lsp1.gff3,Lsp1,Lachnospiraceae
+IN,Lacrimispora sphenoides,,Lsph.pep.fa,Lsph.dna.fa,Lsph.gff3,Lsph,Lachnospiraceae
+IN,Enterocloster asparagiformis,,Easp.pep.fa,Easp.dna.fa,Easp.gff3,Easp,Lachnospiraceae
+IN,[Clostridium] aminophilum,,Cami.pep.fa,Cami.dna.fa,Cami.gff3,Cami,Lachnospiraceae
