@@ -1,1141 +1,796 @@
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_050916275.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_050916275.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:53Z'
+  checksum_sha256: 1c930c109140558dee86e2b2bb3d56a7cc1cabfcc59932053212aa1521f9a86a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_050916275.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_050916275.1/extracted/ncbi_dataset/data/GCF_050916275.1/GCF_050916275.1_ASM5091627v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_050916275.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_050916275.1'
-  access_date: '2026-09-07T19:19:16Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_050916275.1'
+  access_date: '2026-09-11T20:49:46Z'
   checksum_sha256: ee4a614e9ca67bfcff7899b1258507e28a8f0bfa6cd0b2b4f78192421e1a9afc
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_050916275.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_050916275.pep.fa
+- local_path: data/ncbi/GCF_050916275.1/extracted/ncbi_dataset/data/GCF_050916275.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_050916275.1/
-  source_release: NCBI RefSeq assembly GCF_050916275.1
-  access_date: '2026-09-07T19:27:08Z'
-  checksum_sha256: 1c930c109140558dee86e2b2bb3d56a7cc1cabfcc59932053212aa1521f9a86a
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_050916275.1'
+  access_date: '2026-09-11T20:49:46Z'
+  checksum_sha256: 6ab74daea0195cef1cbc3b42675c51debdc16fdc66c230a72469811f1d8d46bb
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_050916275.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_050916275.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_017310465.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_017310465.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:53Z'
+  checksum_sha256: 7e08151617d9f76119185a260f5c069a382d2e9faca11eecd8b8f7e5f7a4952d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_017310465.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_017310465.1/extracted/ncbi_dataset/data/GCF_017310465.1/GCF_017310465.1_ASM1731046v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_017310465.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_017310465.1'
-  access_date: '2026-09-07T19:19:18Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_017310465.1'
+  access_date: '2026-09-11T20:49:48Z'
   checksum_sha256: b5224e11175921329e516130c2f83c4b08077b56a2208cc2dff5f84f5a968b66
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_017310465.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_017310465.pep.fa
+- local_path: data/ncbi/GCF_017310465.1/extracted/ncbi_dataset/data/GCF_017310465.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_017310465.1/
-  source_release: NCBI RefSeq assembly GCF_017310465.1
-  access_date: '2026-09-07T19:27:08Z'
-  checksum_sha256: 7e08151617d9f76119185a260f5c069a382d2e9faca11eecd8b8f7e5f7a4952d
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_017310465.1'
+  access_date: '2026-09-11T20:49:48Z'
+  checksum_sha256: a2e8b414dd6c810467d753a0e84590094db28c2e90b87946332b500ee4fa2724
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_017310465.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_017310465.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_929608445.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_929608445.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:54Z'
+  checksum_sha256: d3d181c03bb31920d5ad4697a58eb7ffc9558fff571fcf2a0885433800b5d133
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_929608445.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_929608445.1/extracted/ncbi_dataset/data/GCF_929608445.1/GCF_929608445.1_cpe088_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_929608445.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_929608445.1'
-  access_date: '2026-09-07T19:19:19Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_929608445.1'
+  access_date: '2026-09-11T20:49:50Z'
   checksum_sha256: 311b8b65e95420a820f91a04fb775c367995808b9ecf180e8761096f06411cc1
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_929608445.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_929608445.pep.fa
+- local_path: data/ncbi/GCF_929608445.1/extracted/ncbi_dataset/data/GCF_929608445.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_929608445.1/
-  source_release: NCBI RefSeq assembly GCF_929608445.1
-  access_date: '2026-09-07T19:27:08Z'
-  checksum_sha256: d3d181c03bb31920d5ad4697a58eb7ffc9558fff571fcf2a0885433800b5d133
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_929608445.1'
+  access_date: '2026-09-11T20:49:50Z'
+  checksum_sha256: a8e8271b93b00020670dadfed558948e8752628a5b34e679384e04422d00f016
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_929608445.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_929608445.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_040561445.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_040561445.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:54Z'
+  checksum_sha256: 7d6e0d26e3e86e7e0c6776926015cbe3c93825cf5c4ddcbde704b842ab770cdf
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_040561445.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_040561445.1/extracted/ncbi_dataset/data/GCF_040561445.1/GCF_040561445.1_ASM4056144v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_040561445.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_040561445.1'
-  access_date: '2026-09-07T19:19:21Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_040561445.1'
+  access_date: '2026-09-11T20:49:53Z'
   checksum_sha256: 6f02e0fcaebf947314345ee23d77c86ff1d3435a47a72c247470a852de2e38da
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_040561445.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_040561445.pep.fa
+- local_path: data/ncbi/GCF_040561445.1/extracted/ncbi_dataset/data/GCF_040561445.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_040561445.1/
-  source_release: NCBI RefSeq assembly GCF_040561445.1
-  access_date: '2026-09-07T19:27:08Z'
-  checksum_sha256: 7d6e0d26e3e86e7e0c6776926015cbe3c93825cf5c4ddcbde704b842ab770cdf
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_040561445.1'
+  access_date: '2026-09-11T20:49:53Z'
+  checksum_sha256: a31e134dd0aee9e695c887d66fdf522ea713772bb29fe81c336897023aeacf26
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_040561445.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_040561445.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_900083795.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_900083795.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:54Z'
+  checksum_sha256: a15e5c3baaaf6668e91f273de7c7601f2555b032ed270c88b06fa66418cea39e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_900083795.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_900083795.1/extracted/ncbi_dataset/data/GCF_900083795.1/GCF_900083795.1_12045_7_49_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900083795.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_900083795.1'
-  access_date: '2026-09-07T19:19:22Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_900083795.1'
+  access_date: '2026-09-11T20:49:55Z'
   checksum_sha256: 4ac4e9d815a70412b8d9838d8388d495ff626dc2643e5888871a246e57768720
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_900083795.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_900083795.pep.fa
+- local_path: data/ncbi/GCF_900083795.1/extracted/ncbi_dataset/data/GCF_900083795.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900083795.1/
-  source_release: NCBI RefSeq assembly GCF_900083795.1
-  access_date: '2026-09-07T19:27:08Z'
-  checksum_sha256: a15e5c3baaaf6668e91f273de7c7601f2555b032ed270c88b06fa66418cea39e
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_900083795.1'
+  access_date: '2026-09-11T20:49:55Z'
+  checksum_sha256: 05ddf93efdfe228226edd1e66b30fbf3154010bde278602a049714ea7a5d2871
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_900083795.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_900083795.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_024918735.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_024918735.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:54Z'
+  checksum_sha256: 29925d5aedc2d88f4539dc33ac93b32e6e8e1a41ba227afd42b781859ae88446
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_024918735.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_024918735.1/extracted/ncbi_dataset/data/GCF_024918735.1/GCF_024918735.1_ASM2491873v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_024918735.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_024918735.1'
-  access_date: '2026-09-07T19:19:23Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_024918735.1'
+  access_date: '2026-09-11T20:49:56Z'
   checksum_sha256: 606c7be1f84827a318fb1329715eef6f1fbf157869ab4f424ae51e6d8e03bebb
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_024918735.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_024918735.pep.fa
+- local_path: data/ncbi/GCF_024918735.1/extracted/ncbi_dataset/data/GCF_024918735.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_024918735.1/
-  source_release: NCBI RefSeq assembly GCF_024918735.1
-  access_date: '2026-09-07T19:27:08Z'
-  checksum_sha256: 29925d5aedc2d88f4539dc33ac93b32e6e8e1a41ba227afd42b781859ae88446
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_024918735.1'
+  access_date: '2026-09-11T20:49:56Z'
+  checksum_sha256: 9d6862f8328ee692468506c4e114affa26cc8cb19b164b8fdf62e902582e7b65
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_024918735.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_024918735.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_902162875.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_902162875.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:54Z'
+  checksum_sha256: 0690578c969c42b07e4e457a77fdd323a06ba5631869bfda083c82718803dd7f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_902162875.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_902162875.1/extracted/ncbi_dataset/data/GCF_902162875.1/GCF_902162875.1_25964_2_51_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_902162875.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_902162875.1'
-  access_date: '2026-09-07T19:19:25Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_902162875.1'
+  access_date: '2026-09-11T20:49:58Z'
   checksum_sha256: 5c26af8861161d5c01324dc72414df7b0cd96db38fc83d4b4745f0af6bb29506
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_902162875.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_902162875.pep.fa
+- local_path: data/ncbi/GCF_902162875.1/extracted/ncbi_dataset/data/GCF_902162875.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_902162875.1/
-  source_release: NCBI RefSeq assembly GCF_902162875.1
-  access_date: '2026-09-07T19:27:08Z'
-  checksum_sha256: 0690578c969c42b07e4e457a77fdd323a06ba5631869bfda083c82718803dd7f
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_902162875.1'
+  access_date: '2026-09-11T20:49:58Z'
+  checksum_sha256: e3f1ae0ee3815cc9a53ff9d40662d298edca6056510dc0088d00f475323c846f
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_902162875.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_902162875.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_053276915.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_053276915.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:55Z'
+  checksum_sha256: cd25cd37b58b117d4e926b6e2ce373cb73ab5f67cdcd60627e042fad3a2d1b5b
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_053276915.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_053276915.1/extracted/ncbi_dataset/data/GCF_053276915.1/GCF_053276915.1_ASM5327691v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_053276915.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_053276915.1'
-  access_date: '2026-09-07T19:19:26Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_053276915.1'
+  access_date: '2026-09-11T20:50:00Z'
   checksum_sha256: 0eabe204970e5e700da0d64b00ba043e59f483d228ee65105f2b61cd4597d640
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_053276915.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_053276915.pep.fa
+- local_path: data/ncbi/GCF_053276915.1/extracted/ncbi_dataset/data/GCF_053276915.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_053276915.1/
-  source_release: NCBI RefSeq assembly GCF_053276915.1
-  access_date: '2026-09-07T19:27:08Z'
-  checksum_sha256: cd25cd37b58b117d4e926b6e2ce373cb73ab5f67cdcd60627e042fad3a2d1b5b
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_053276915.1'
+  access_date: '2026-09-11T20:50:00Z'
+  checksum_sha256: ff7042299baac85f2d48e3cd31e92c79549a8f8de5c509c4e16f8b39cba56265
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_053276915.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_053276915.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_030343105.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_030343105.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:55Z'
+  checksum_sha256: a651aedd45c791c5ff637ec5fe473bcefb1b90ee3961913ed099bd9b4279cebd
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_030343105.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_030343105.1/extracted/ncbi_dataset/data/GCF_030343105.1/GCF_030343105.1_ASM3034310v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030343105.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_030343105.1'
-  access_date: '2026-09-07T19:19:27Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_030343105.1'
+  access_date: '2026-09-11T20:50:04Z'
   checksum_sha256: ce8b4f035c9887ae0e9f886ca7c9e7c3bac42c9bd246993d15d3f7fc9c5f5bef
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_030343105.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_030343105.pep.fa
+- local_path: data/ncbi/GCF_030343105.1/extracted/ncbi_dataset/data/GCF_030343105.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030343105.1/
-  source_release: NCBI RefSeq assembly GCF_030343105.1
-  access_date: '2026-09-07T19:27:08Z'
-  checksum_sha256: a651aedd45c791c5ff637ec5fe473bcefb1b90ee3961913ed099bd9b4279cebd
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_030343105.1'
+  access_date: '2026-09-11T20:50:04Z'
+  checksum_sha256: 08ba009215eac342a7882030a435be086acc08a853718d62b5cde3f665e35749
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_030343105.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_030343105.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_030343375.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_030343375.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:55Z'
+  checksum_sha256: dcea91fde71130c870dc2670130dd3e746203adf7d2e34956c3f5fa782cc5e3d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_030343375.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_030343375.1/extracted/ncbi_dataset/data/GCF_030343375.1/GCF_030343375.1_ASM3034337v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030343375.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_030343375.1'
-  access_date: '2026-09-07T19:19:29Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_030343375.1'
+  access_date: '2026-09-11T20:50:07Z'
   checksum_sha256: 87282a277a2055473609d17440bd2c7b4fa2853861ae9055d09924b57e1d27d9
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_030343375.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_030343375.pep.fa
+- local_path: data/ncbi/GCF_030343375.1/extracted/ncbi_dataset/data/GCF_030343375.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030343375.1/
-  source_release: NCBI RefSeq assembly GCF_030343375.1
-  access_date: '2026-09-07T19:27:09Z'
-  checksum_sha256: dcea91fde71130c870dc2670130dd3e746203adf7d2e34956c3f5fa782cc5e3d
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_030343375.1'
+  access_date: '2026-09-11T20:50:07Z'
+  checksum_sha256: 99dee0caee0812d3283a502e0cb7d7a66689b2726d96caf9a7e970b1ed502892
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_030343375.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_030343375.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_016734995.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_016734995.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:55Z'
+  checksum_sha256: 5cf1dc1a034566ea62f1f6f38d84ad4031318fefdce486c4d45084e3306a0974
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_016734995.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_016734995.1/extracted/ncbi_dataset/data/GCF_016734995.1/GCF_016734995.1_ASM1673499v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016734995.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_016734995.1'
-  access_date: '2026-09-07T19:19:30Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_016734995.1'
+  access_date: '2026-09-11T20:50:09Z'
   checksum_sha256: eecfa3ad41bcd85b366497513fea1684f11dbdc613a0d3f33aeef09faf21c5b6
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_016734995.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_016734995.pep.fa
+- local_path: data/ncbi/GCF_016734995.1/extracted/ncbi_dataset/data/GCF_016734995.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016734995.1/
-  source_release: NCBI RefSeq assembly GCF_016734995.1
-  access_date: '2026-09-07T19:27:09Z'
-  checksum_sha256: 5cf1dc1a034566ea62f1f6f38d84ad4031318fefdce486c4d45084e3306a0974
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_016734995.1'
+  access_date: '2026-09-11T20:50:09Z'
+  checksum_sha256: a1901d1cf6f1c601f6cdcf3a65e6f06b18d358a951b03880ef282f40e9d4bd9a
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_016734995.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_016734995.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_030343565.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_030343565.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:55Z'
+  checksum_sha256: 82841896eacdf4e3b13675d9e118200bc2c907eb530248685135d28a20b8c4a9
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_030343565.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_030343565.1/extracted/ncbi_dataset/data/GCF_030343565.1/GCF_030343565.1_ASM3034356v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030343565.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_030343565.1'
-  access_date: '2026-09-07T19:19:31Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_030343565.1'
+  access_date: '2026-09-11T20:50:11Z'
   checksum_sha256: 7ae90cd856c8a5a26ff375219607affd9fe1fb9f4541e6698ec2061b2157ef93
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_030343565.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_030343565.pep.fa
+- local_path: data/ncbi/GCF_030343565.1/extracted/ncbi_dataset/data/GCF_030343565.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030343565.1/
-  source_release: NCBI RefSeq assembly GCF_030343565.1
-  access_date: '2026-09-07T19:27:09Z'
-  checksum_sha256: 82841896eacdf4e3b13675d9e118200bc2c907eb530248685135d28a20b8c4a9
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_030343565.1'
+  access_date: '2026-09-11T20:50:11Z'
+  checksum_sha256: 25eb35fba5c514a0a8f0f8afd0a894467c43721f4f3cb6dfd88dc01f854ba5d9
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_030343565.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_030343565.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_900083995.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_900083995.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:56Z'
+  checksum_sha256: bdd222d0d5c1862a99ac3a183e2a64b06d8e839a282048aa21491878f4f5b420
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_900083995.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_900083995.1/extracted/ncbi_dataset/data/GCF_900083995.1/GCF_900083995.1_12045_6_74_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900083995.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_900083995.1'
-  access_date: '2026-09-07T19:19:32Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_900083995.1'
+  access_date: '2026-09-11T20:50:13Z'
   checksum_sha256: 652d8eae5b2cf21fb347c603187bcf5d1641c17d47c6a14488238a988ce36ead
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_900083995.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_900083995.pep.fa
+- local_path: data/ncbi/GCF_900083995.1/extracted/ncbi_dataset/data/GCF_900083995.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900083995.1/
-  source_release: NCBI RefSeq assembly GCF_900083995.1
-  access_date: '2026-09-07T19:27:09Z'
-  checksum_sha256: bdd222d0d5c1862a99ac3a183e2a64b06d8e839a282048aa21491878f4f5b420
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_900083995.1'
+  access_date: '2026-09-11T20:50:13Z'
+  checksum_sha256: cfb671e6465df047ff99c7653210e3cd1d899edc5aab2e088ea901ac4d702876
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_900083995.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_900083995.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_004360035.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_004360035.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:56Z'
+  checksum_sha256: aa4d2925b174101693f90ac8165168aa4ee5cf1ec2dc92bc86b2da307fcc2516
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_004360035.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_004360035.1/extracted/ncbi_dataset/data/GCF_004360035.1/GCF_004360035.1_ASM436003v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_004360035.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_004360035.1'
-  access_date: '2026-09-07T19:19:34Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_004360035.1'
+  access_date: '2026-09-11T20:50:15Z'
   checksum_sha256: 92083065d9a243f379d51ffce7da34c1f1d16e3bdba8cb5799ac188fd3ddd7c7
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_004360035.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_004360035.pep.fa
+- local_path: data/ncbi/GCF_004360035.1/extracted/ncbi_dataset/data/GCF_004360035.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_004360035.1/
-  source_release: NCBI RefSeq assembly GCF_004360035.1
-  access_date: '2026-09-07T19:27:09Z'
-  checksum_sha256: aa4d2925b174101693f90ac8165168aa4ee5cf1ec2dc92bc86b2da307fcc2516
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_004360035.1'
+  access_date: '2026-09-11T20:50:15Z'
+  checksum_sha256: 3040a052ad7745e532322f9049e6bcd5fb08e23f8ed035d28f82e338f9c9597f
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_004360035.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_004360035.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_030344075.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_030344075.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:56Z'
+  checksum_sha256: 75e89e35d0c859de9a4d5a204afbb2f9dafafafb82afc90802e30f25f220b5f8
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_030344075.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_030344075.1/extracted/ncbi_dataset/data/GCF_030344075.1/GCF_030344075.1_ASM3034407v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030344075.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_030344075.1'
-  access_date: '2026-09-07T19:19:35Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_030344075.1'
+  access_date: '2026-09-11T20:50:16Z'
   checksum_sha256: 63a0c0945a2945447ab37cce737e3a7ecb3a6e4327efe95a1c8a69b477780da6
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_030344075.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_030344075.pep.fa
+- local_path: data/ncbi/GCF_030344075.1/extracted/ncbi_dataset/data/GCF_030344075.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030344075.1/
-  source_release: NCBI RefSeq assembly GCF_030344075.1
-  access_date: '2026-09-07T19:27:09Z'
-  checksum_sha256: 75e89e35d0c859de9a4d5a204afbb2f9dafafafb82afc90802e30f25f220b5f8
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_030344075.1'
+  access_date: '2026-09-11T20:50:16Z'
+  checksum_sha256: bb33abbd301b7c9fede6e1efb42a63d322472e5b927f25779e5e8e46c465a266
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_030344075.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_030344075.1
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_051951865.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_051951865.1.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:56Z'
+  checksum_sha256: d234701cc7101f11a5d04b2cfcc3f5944df82ffa77f341983556680969fc29d7
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_outgroup_faa/GCF_051951865.1.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: data/ncbi/GCF_051951865.1/extracted/ncbi_dataset/data/GCF_051951865.1/GCF_051951865.1_ASM5195186v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_051951865.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.30.1, accession GCF_051951865.1'
-  access_date: '2026-09-07T19:19:37Z'
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_051951865.1'
+  access_date: '2026-09-11T20:50:20Z'
   checksum_sha256: 85312d97e7b2c59873e56fd2ce63b472c68c3d04cb9f5ebddcf59346638f2fa9
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
-  pulled_with: fetch_genome_assembly.py on skylark
+  pulled_with: fetch_genome_assembly.py on i32
   kind: genome
   accession: GCF_051951865.1
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/KoxO_051951865.pep.fa
+- local_path: data/ncbi/GCF_051951865.1/extracted/ncbi_dataset/data/GCF_051951865.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_051951865.1/
-  source_release: NCBI RefSeq assembly GCF_051951865.1
-  access_date: '2026-09-07T19:27:09Z'
-  checksum_sha256: d234701cc7101f11a5d04b2cfcc3f5944df82ffa77f341983556680969fc29d7
+  source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_051951865.1'
+  access_date: '2026-09-11T20:50:20Z'
+  checksum_sha256: 9a2029284c30c3a0254456a54962fbb6c697df70af34177ab14f47622073e0d5
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_051951865.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
+  derived_by: null
+  pulled_with: fetch_genome_assembly.py on i32
+  kind: gff3
+  accession: GCF_051951865.1
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM102bin47.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:01Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM102.35765_R.bin.47.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:56Z'
   checksum_sha256: f69be009edd292abbffce05f46174a8bf9e8275ca11d1fd253f2b9e461f68df9
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM102.35765_R.bin.47: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM102.35765_R.bin.47.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM102bin47.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM102.35765_R.bin.47.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:56Z'
+  checksum_sha256: 29fcacf0cbd44830386417a28072da66eb4d930cba8ca7ee6ff853a1fdc06e97
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM102.35765_R.bin.47.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM125bin22.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:01Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM125.35768_R.bin.22.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
   checksum_sha256: b1a48b080ee1673a71b534e27d21ca47a7a1fe52b02b95d07a3b04bb317a6517
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM125.35768_R.bin.22: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM125.35768_R.bin.22.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM125bin22.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM125.35768_R.bin.22.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
+  checksum_sha256: 607660a7c11732814771d1c55ddab761f3defdd9e499b26174f1e8a001b1fbac
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM125.35768_R.bin.22.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM125bin48.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM125.35770_R.bin.48.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
   checksum_sha256: 74358c06276177e41f9e55caa4485fd46f255e029b3d12cbc97778fc97c36bd5
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM125.35770_R.bin.48: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM125.35770_R.bin.48.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM125bin48.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM125.35770_R.bin.48.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
+  checksum_sha256: 25ffda4eb0f99134031637abb53901becbb3c8e223d67eacc9c85cbb18d7d033
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM125.35770_R.bin.48.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM145bin17.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM145.35771_R.bin.17.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
   checksum_sha256: 94857682d1fa1f81dd213181ddcff7b547329d9833538cf8402e3774b8a5c530
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM145.35771_R.bin.17: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM145.35771_R.bin.17.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin17.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM145.35771_R.bin.17.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
+  checksum_sha256: 98cecd807661222d08fff774f8a478a4501b71dcbbfbb2fcec85a77a046bb9e3
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM145.35771_R.bin.17.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM145bin33.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM145.35772_R.bin.33.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
   checksum_sha256: 4d3b97492452ab6946b7f5e67b4f256d4b24935c797dd03975a405b1662601e5
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM145.35772_R.bin.33: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM145.35772_R.bin.33.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin33.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM145.35772_R.bin.33.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
+  checksum_sha256: 2f098f8f8989d0b5b4b4b5792dbab9d8fe7d110cb24d595cef39ff1b026eb3d1
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM145.35772_R.bin.33.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM145bin28.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM145.35773_R.bin.28.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
   checksum_sha256: 8b55cb028ccb99ebf6fd1bbd63b2af820e49949017a71ffa1e03f38313588260
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM145.35773_R.bin.28: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM145.35773_R.bin.28.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin28.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM145.35773_R.bin.28.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
+  checksum_sha256: 6e5bfdaffaf715a82dbf217cbbdd2941e1a033c2f2aeb015641f1726047a8f54
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM145.35773_R.bin.28.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM17bin35.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM17.35739_R.bin.35.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
   checksum_sha256: bd204d57849e4dd7e6e8b6ac66e1c6777b9f1f9109b6db71d060ff9e043795fc
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM17.35739_R.bin.35: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM17.35739_R.bin.35.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM17bin35.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM17.35739_R.bin.35.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
+  checksum_sha256: 8ac3433be6d7f90b8aa28cad84f88188dda3e75e8cd36d4e673da32a0111642f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM17.35739_R.bin.35.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM18bin40.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM18.35742_R.bin.40.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
   checksum_sha256: 1ccb01ef83524a3948c4e03b081b6178f9d8186a55608a010751d9f29180fb01
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM18.35742_R.bin.40: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM18.35742_R.bin.40.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM18bin40.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM18.35742_R.bin.40.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
+  checksum_sha256: 40726f2113be12b282e9f8ac1b9847f17e27c2dbcd01de0ca0edaac9162463e3
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM18.35742_R.bin.40.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM20bin40.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM20.35743_R.bin.40.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:57Z'
   checksum_sha256: 3d958f1a50a4d9794d2b33bdfec2f94e9635d54b5749b2eeb0956502222c7f07
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM20.35743_R.bin.40: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM20.35743_R.bin.40.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM20bin40.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM20.35743_R.bin.40.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
+  checksum_sha256: 2b562f3bd617f727cb7390a7e5b88208f849bd22170ecc2010a20b9de9259e8a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM20.35743_R.bin.40.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM20bin12.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM20.35744_R.bin.12.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
   checksum_sha256: ca6cab5cf7b0e28ffabc0a62d070e03e34de0e3272c7b75c2cd9aabb3c4cf971
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM20.35744_R.bin.12: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM20.35744_R.bin.12.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM20bin12.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM20.35744_R.bin.12.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
+  checksum_sha256: e75bb30039316fe40b4e63073414c308cb3e4783c9e022260dc0bea0a319c4e6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM20.35744_R.bin.12.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM22bin50.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM22.35745_R.bin.50.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
   checksum_sha256: 4f266fd5a61fea8bd912b57bd80a4fba4db51dccd43b407ea623d78fbaa31034
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM22.35745_R.bin.50: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM22.35745_R.bin.50.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin50.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM22.35745_R.bin.50.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
+  checksum_sha256: efd3055313f3f7a3275f1ae4aeeb5026dac09dd7aef96e53c38ff4b4f9e29a1c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM22.35745_R.bin.50.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM22bin54.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM22.35746_R.bin.54.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
   checksum_sha256: d2031796b6dd1d9c58d524c077558e14e98edff8e57f2835e1617880185a8082
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM22.35746_R.bin.54: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM22.35746_R.bin.54.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin54.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM22.35746_R.bin.54.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
+  checksum_sha256: 56f4579f3c359af51c94af4dc9496f1b42524382fe9dd06494c75753414fec00
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM22.35746_R.bin.54.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM22bin8.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM22.35747_R.bin.8.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
   checksum_sha256: c77e60aa2adda1bd1f65bc6ee7df51087c80db235145c480ab1c3c41cb8b892b
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM22.35747_R.bin.8: metashot binning + prodigal gene calling (jpere468
-    klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM22.35747_R.bin.8.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin8.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM22.35747_R.bin.8.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
+  checksum_sha256: 929c75249d7bce8d0fcfefe77e6df3fccdc6f9b77a643ab5411f475dcaf832b7
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM22.35747_R.bin.8.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM40bin4.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM40.35754_R.bin.4.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
   checksum_sha256: 86efdf0b44d0f8bbe8ab2f377ba8572a84b59c3e4074263e1510f9a4bb6db23e
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM40.35754_R.bin.4: metashot binning + prodigal gene calling (jpere468
-    klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM40.35754_R.bin.4.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM40bin4.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM40.35754_R.bin.4.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
+  checksum_sha256: 53f8ecf9d7f32bcf6f8f178b249122a0ccf4f7574bd9041d053bf608d15dfd06
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM40.35754_R.bin.4.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM40bin27.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM40.35755_R.bin.27.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
   checksum_sha256: 1f6a8c0f575731b07e6a07cc854689ba3d368509f31c192986fb5d116c535f0c
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM40.35755_R.bin.27: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM40.35755_R.bin.27.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM40bin27.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM40.35755_R.bin.27.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
+  checksum_sha256: 412cacff6bb808f12f7d60f6f5bf591ce156b7a3e83e2333cbbde4b9283cca98
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM40.35755_R.bin.27.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM43bin53.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM43.10836_R.bin.53.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
   checksum_sha256: 17fee3906875e67276c15e0e98a2c3d30c1fbb0d3232bdf6a141d5244e294b3e
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM43.10836_R.bin.53: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM43.10836_R.bin.53.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM43bin53.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM43.10836_R.bin.53.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
+  checksum_sha256: 5e720cb7fffe015d6cacff724c02942d291541a2ce9e7c012ea0ceace3404a56
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM43.10836_R.bin.53.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM56bin19.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM56.35760_R.bin.19.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
   checksum_sha256: 109d500ad86d55e0bf635e824b726dc05a42a7f4580177c65f497d73451e562b
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM56.35760_R.bin.19: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM56.35760_R.bin.19.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM56bin19.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM56.35760_R.bin.19.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:58Z'
+  checksum_sha256: b9814f60db8c2f5c8ed113ad262c52a72a458cfa341a8b7e91cb064b3c0d207f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM56.35760_R.bin.19.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM72bin19.pep.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM72.35762_R.bin.19.faa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:59Z'
   checksum_sha256: 743c7992b94804688717df9c96794710a142e4c48fcc7e1b100d5abab98e495f
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM72.35762_R.bin.19: metashot binning + prodigal gene calling
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM72.35762_R.bin.19.faa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
+- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM72bin19.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM72.35762_R.bin.19.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-11T20:57:59Z'
+  checksum_sha256: e821589516e4fb25d245b75b9e5d3ec7383f6c4df7750a8678a08f425fd8aca0
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full/UHM72.35762_R.bin.19.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on i32
 - local_path: studies/bacteria/UHM_Koxytoca/config.csv
   source_url: (derived, no external source)
   source_release: n/a
-  access_date: '2026-09-07T21:22:04Z'
-  checksum_sha256: adba33fbb5354a0730a6c443dfff3fd65b72a02aa6dea80ea385c96449a99638
+  access_date: '2026-09-11T20:57:59Z'
+  checksum_sha256: cfb62f71e826777ec08b4ab7d30814b8e870f7569e70b26f2fba927b847d7057
   license: n/a
-  derived_by: studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py --study-dir
-    studies/bacteria/UHM_Koxytoca
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_050916275.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_050916275.1/
-  source_release: NCBI RefSeq assembly GCF_050916275.1
-  access_date: '2026-09-07T21:21:59Z'
-  checksum_sha256: 1c930c109140558dee86e2b2bb3d56a7cc1cabfcc59932053212aa1521f9a86a
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_050916275.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_017310465.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_017310465.1/
-  source_release: NCBI RefSeq assembly GCF_017310465.1
-  access_date: '2026-09-07T21:21:59Z'
-  checksum_sha256: 7e08151617d9f76119185a260f5c069a382d2e9faca11eecd8b8f7e5f7a4952d
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_017310465.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_929608445.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_929608445.1/
-  source_release: NCBI RefSeq assembly GCF_929608445.1
-  access_date: '2026-09-07T21:21:59Z'
-  checksum_sha256: d3d181c03bb31920d5ad4697a58eb7ffc9558fff571fcf2a0885433800b5d133
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_929608445.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_040561445.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_040561445.1/
-  source_release: NCBI RefSeq assembly GCF_040561445.1
-  access_date: '2026-09-07T21:21:59Z'
-  checksum_sha256: 7d6e0d26e3e86e7e0c6776926015cbe3c93825cf5c4ddcbde704b842ab770cdf
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_040561445.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_900083795.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900083795.1/
-  source_release: NCBI RefSeq assembly GCF_900083795.1
-  access_date: '2026-09-07T21:21:59Z'
-  checksum_sha256: a15e5c3baaaf6668e91f273de7c7601f2555b032ed270c88b06fa66418cea39e
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_900083795.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_024918735.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_024918735.1/
-  source_release: NCBI RefSeq assembly GCF_024918735.1
-  access_date: '2026-09-07T21:21:59Z'
-  checksum_sha256: 29925d5aedc2d88f4539dc33ac93b32e6e8e1a41ba227afd42b781859ae88446
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_024918735.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_902162875.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_902162875.1/
-  source_release: NCBI RefSeq assembly GCF_902162875.1
-  access_date: '2026-09-07T21:22:00Z'
-  checksum_sha256: 0690578c969c42b07e4e457a77fdd323a06ba5631869bfda083c82718803dd7f
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_902162875.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_053276915.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_053276915.1/
-  source_release: NCBI RefSeq assembly GCF_053276915.1
-  access_date: '2026-09-07T21:22:00Z'
-  checksum_sha256: cd25cd37b58b117d4e926b6e2ce373cb73ab5f67cdcd60627e042fad3a2d1b5b
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_053276915.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_030343105.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030343105.1/
-  source_release: NCBI RefSeq assembly GCF_030343105.1
-  access_date: '2026-09-07T21:22:00Z'
-  checksum_sha256: a651aedd45c791c5ff637ec5fe473bcefb1b90ee3961913ed099bd9b4279cebd
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_030343105.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_030343375.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030343375.1/
-  source_release: NCBI RefSeq assembly GCF_030343375.1
-  access_date: '2026-09-07T21:22:00Z'
-  checksum_sha256: dcea91fde71130c870dc2670130dd3e746203adf7d2e34956c3f5fa782cc5e3d
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_030343375.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_016734995.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_016734995.1/
-  source_release: NCBI RefSeq assembly GCF_016734995.1
-  access_date: '2026-09-07T21:22:00Z'
-  checksum_sha256: 5cf1dc1a034566ea62f1f6f38d84ad4031318fefdce486c4d45084e3306a0974
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_016734995.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_030343565.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030343565.1/
-  source_release: NCBI RefSeq assembly GCF_030343565.1
-  access_date: '2026-09-07T21:22:01Z'
-  checksum_sha256: 82841896eacdf4e3b13675d9e118200bc2c907eb530248685135d28a20b8c4a9
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_030343565.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_900083995.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900083995.1/
-  source_release: NCBI RefSeq assembly GCF_900083995.1
-  access_date: '2026-09-07T21:22:01Z'
-  checksum_sha256: bdd222d0d5c1862a99ac3a183e2a64b06d8e839a282048aa21491878f4f5b420
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_900083995.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_004360035.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_004360035.1/
-  source_release: NCBI RefSeq assembly GCF_004360035.1
-  access_date: '2026-09-07T21:22:01Z'
-  checksum_sha256: aa4d2925b174101693f90ac8165168aa4ee5cf1ec2dc92bc86b2da307fcc2516
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_004360035.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_030344075.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_030344075.1/
-  source_release: NCBI RefSeq assembly GCF_030344075.1
-  access_date: '2026-09-07T21:22:01Z'
-  checksum_sha256: 75e89e35d0c859de9a4d5a204afbb2f9dafafafb82afc90802e30f25f220b5f8
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_030344075.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/pep/GCF_051951865.1.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_051951865.1/
-  source_release: NCBI RefSeq assembly GCF_051951865.1
-  access_date: '2026-09-07T21:22:01Z'
-  checksum_sha256: d234701cc7101f11a5d04b2cfcc3f5944df82ffa77f341983556680969fc29d7
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: protein.faa from the GCF_051951865.1 NCBI Datasets genome package (jpere468/klebsiella_story/koxytoca_outgroup_faa),
-    copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM102bin47.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:01Z'
-  checksum_sha256: 29fcacf0cbd44830386417a28072da66eb4d930cba8ca7ee6ff853a1fdc06e97
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM102.35765_R.bin.47: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM125bin22.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
-  checksum_sha256: 607660a7c11732814771d1c55ddab761f3defdd9e499b26174f1e8a001b1fbac
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM125.35768_R.bin.22: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM125bin48.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
-  checksum_sha256: 25ffda4eb0f99134031637abb53901becbb3c8e223d67eacc9c85cbb18d7d033
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM125.35770_R.bin.48: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin17.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
-  checksum_sha256: 98cecd807661222d08fff774f8a478a4501b71dcbbfbb2fcec85a77a046bb9e3
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM145.35771_R.bin.17: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin33.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
-  checksum_sha256: 2f098f8f8989d0b5b4b4b5792dbab9d8fe7d110cb24d595cef39ff1b026eb3d1
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM145.35772_R.bin.33: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin28.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
-  checksum_sha256: 6e5bfdaffaf715a82dbf217cbbdd2941e1a033c2f2aeb015641f1726047a8f54
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM145.35773_R.bin.28: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM17bin35.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
-  checksum_sha256: 8ac3433be6d7f90b8aa28cad84f88188dda3e75e8cd36d4e673da32a0111642f
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM17.35739_R.bin.35: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM18bin40.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
-  checksum_sha256: 40726f2113be12b282e9f8ac1b9847f17e27c2dbcd01de0ca0edaac9162463e3
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM18.35742_R.bin.40: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM20bin40.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
-  checksum_sha256: 2b562f3bd617f727cb7390a7e5b88208f849bd22170ecc2010a20b9de9259e8a
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM20.35743_R.bin.40: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM20bin12.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:02Z'
-  checksum_sha256: e75bb30039316fe40b4e63073414c308cb3e4783c9e022260dc0bea0a319c4e6
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM20.35744_R.bin.12: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin50.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
-  checksum_sha256: efd3055313f3f7a3275f1ae4aeeb5026dac09dd7aef96e53c38ff4b4f9e29a1c
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM22.35745_R.bin.50: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin54.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
-  checksum_sha256: 56f4579f3c359af51c94af4dc9496f1b42524382fe9dd06494c75753414fec00
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM22.35746_R.bin.54: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin8.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
-  checksum_sha256: 929c75249d7bce8d0fcfefe77e6df3fccdc6f9b77a643ab5411f475dcaf832b7
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM22.35747_R.bin.8: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM40bin4.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
-  checksum_sha256: 53f8ecf9d7f32bcf6f8f178b249122a0ccf4f7574bd9041d053bf608d15dfd06
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM40.35754_R.bin.4: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM40bin27.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
-  checksum_sha256: 412cacff6bb808f12f7d60f6f5bf591ce156b7a3e83e2333cbbde4b9283cca98
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM40.35755_R.bin.27: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM43bin53.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
-  checksum_sha256: 5e720cb7fffe015d6cacff724c02942d291541a2ce9e7c012ea0ceace3404a56
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM43.10836_R.bin.53: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM56bin19.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:03Z'
-  checksum_sha256: b9814f60db8c2f5c8ed113ad262c52a72a458cfa341a8b7e91cb064b3c0d207f
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM56.35760_R.bin.19: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM72bin19.dna.fa
-  source_url: (internal -- UCR HPCC, /bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_mags_full)
-  source_release: UHM combined MAG set (binned/annotated 2025-2026, frozen for this
-    study 2026-09-01)
-  access_date: '2026-09-07T21:22:04Z'
-  checksum_sha256: e821589516e4fb25d245b75b9e5d3ec7383f6c4df7750a8678a08f425fd8aca0
-  license: Internal / unpublished (Stajich lab, UHM collaboration)
-  derived_by: 'MAG UHM72.35762_R.bin.19: metashot binning assembled-genome contigs
-    (jpere468 klebsiella_story project); copied via studies/bacteria/UHM_Koxytoca/bin/build_koxytoca_config.py'
-  pulled_with: build_koxytoca_config.py on skylark
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM102bin47.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:25Z'
-  checksum_sha256: d45c12b23decb7c392a14bc2bcef352a8c17433e31cb2eeeb0ca810be9cea061
-  license: n/a
-  derived_by: headers prefixed with 'UHM102bin47__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM102bin47.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:25Z'
-  checksum_sha256: ce3403f188e4608baa5879b0312b13aff229364979d4ae951c60ad916e3ff81b
-  license: n/a
-  derived_by: headers prefixed with 'UHM102bin47__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM125bin22.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: bb3d5711c804ed5e1b470d9a403857fd42312f723e979d5bc219b06fa0a6c3e9
-  license: n/a
-  derived_by: headers prefixed with 'UHM125bin22__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM125bin22.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: 5d5c1a9b4c1dce2000854a5edefeea59c44a8c903e666b6f6d58eade1ce0c96f
-  license: n/a
-  derived_by: headers prefixed with 'UHM125bin22__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM125bin48.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: 096ea9b4021010f5412a68f3d110d663159992b05a08dd8e7f4586820eb1a526
-  license: n/a
-  derived_by: headers prefixed with 'UHM125bin48__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM125bin48.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: 8846c4da29ec8cc15fc4b5240c71e918687c6054bc3d52919afcbb20dd150510
-  license: n/a
-  derived_by: headers prefixed with 'UHM125bin48__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM145bin17.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: 949905c743393af83c617913d55e72959dcb4752d5b2747e82e835c4d9632452
-  license: n/a
-  derived_by: headers prefixed with 'UHM145bin17__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin17.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: 76765c95702bc3507b4da2126a2374361e5ad3bc4f851bcd54ca9fb4c45f1af4
-  license: n/a
-  derived_by: headers prefixed with 'UHM145bin17__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM145bin33.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: 5c55ff916760bd435a7d4375e731c36454ec95912a90b5c2724522ca8a276e2e
-  license: n/a
-  derived_by: headers prefixed with 'UHM145bin33__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin33.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: 8cc7e2ec1a3ebfe413f9e1e644b80fb7a2c0bae50ccb9b3115d9ba848f94dff1
-  license: n/a
-  derived_by: headers prefixed with 'UHM145bin33__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM145bin28.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: c5f524bb8643b07d63632b574e3422691bd2fc778b47a7994e719aced730ba7a
-  license: n/a
-  derived_by: headers prefixed with 'UHM145bin28__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM145bin28.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: ff1e79c01a9fbeac71b8b63329fb8ce24230240063328130b20d68d6b482b078
-  license: n/a
-  derived_by: headers prefixed with 'UHM145bin28__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM17bin35.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: 6305e55240a91eeded627607c583af5181a878686bab8cabc43dde3c7954d7c6
-  license: n/a
-  derived_by: headers prefixed with 'UHM17bin35__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM17bin35.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: 7a48debc8a62b4a92a38626a5e7c670064cdaffc72aac91aabccfe82336e02f3
-  license: n/a
-  derived_by: headers prefixed with 'UHM17bin35__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM18bin40.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:26Z'
-  checksum_sha256: e0326b02c79ec3cf3f317ac4c80b8d127286a1eb370e9b676725c2078ca775d4
-  license: n/a
-  derived_by: headers prefixed with 'UHM18bin40__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM18bin40.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: 79ee8a0906b373b502d7397182e8091be8ee1963259b9f10f1c4d0b6003b69d2
-  license: n/a
-  derived_by: headers prefixed with 'UHM18bin40__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM20bin40.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: 397a93351b960bfdefa2dbc1a2282177436efc3813320b7e3b18ba87e0fa87c2
-  license: n/a
-  derived_by: headers prefixed with 'UHM20bin40__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM20bin40.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: c515541c2edfba49d2b2b57c55e42de21133632774f4238d4a3d3c611fe1733c
-  license: n/a
-  derived_by: headers prefixed with 'UHM20bin40__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM20bin12.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: f758601bc333b8e87f8c48bf0c9342b7b1ff2b3b72e7ccb4035a1bca47651dfd
-  license: n/a
-  derived_by: headers prefixed with 'UHM20bin12__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM20bin12.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: 72c462872aca879e3b6d7847e92b8c10082341f31c5c40470fbab0e346a77cc3
-  license: n/a
-  derived_by: headers prefixed with 'UHM20bin12__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM22bin50.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: 0ecac9415902679213d73d05acdfba698e0eb67805507dc574011c8be9288221
-  license: n/a
-  derived_by: headers prefixed with 'UHM22bin50__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin50.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: 40ccc233404f793c6a7c69c1a80b1b0d5d9fef8e0c79de34dad8721d906bb8fe
-  license: n/a
-  derived_by: headers prefixed with 'UHM22bin50__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM22bin54.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: e3d3d9bf764836f0dd9a3fb989aef88d7043e0c3404b98466cdb2f2a99a522c1
-  license: n/a
-  derived_by: headers prefixed with 'UHM22bin54__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin54.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: d1bd3e7995da555fcda09c34f79379dcc922198beb8f2a65e1aca58de96ff9d4
-  license: n/a
-  derived_by: headers prefixed with 'UHM22bin54__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM22bin8.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: afd7178ce9952d0bb1feabe92f91120918bac8bfe1599fd7fb31f53695362ec1
-  license: n/a
-  derived_by: headers prefixed with 'UHM22bin8__' to disambiguate megahit contig ids
-    (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM22bin8.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: 83348fd673bbe73ab5488f2c8f625ff071c269cd1e3a0b3126cca315fea237f6
-  license: n/a
-  derived_by: headers prefixed with 'UHM22bin8__' to disambiguate megahit contig ids
-    (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM40bin4.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:27Z'
-  checksum_sha256: 9cfc6e405310e6f09aa1ddf16d11c8285f53eabdb6ec68cf7cd88b9ede11ae45
-  license: n/a
-  derived_by: headers prefixed with 'UHM40bin4__' to disambiguate megahit contig ids
-    (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM40bin4.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:28Z'
-  checksum_sha256: 4cc1f60c994501c52dae9b2b67b2aa32e1ce1baf9b4f1785f144043afbb05a8e
-  license: n/a
-  derived_by: headers prefixed with 'UHM40bin4__' to disambiguate megahit contig ids
-    (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM40bin27.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:28Z'
-  checksum_sha256: fa5c8e4b44c43d3b4405c95a86ec3c92d5a8a02a9f1eb03416ede367d15224d9
-  license: n/a
-  derived_by: headers prefixed with 'UHM40bin27__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM40bin27.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:28Z'
-  checksum_sha256: a390f01d84b5cf363d95ae3801980203ab697814f8d81e501ed537427be4219d
-  license: n/a
-  derived_by: headers prefixed with 'UHM40bin27__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM43bin53.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:28Z'
-  checksum_sha256: f24b15f5efd6ba04ac922b851569daf394f475004dd724762612ed3f03fdc910
-  license: n/a
-  derived_by: headers prefixed with 'UHM43bin53__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM43bin53.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:28Z'
-  checksum_sha256: 152ac58321eba096a5eeec7ae18d63f94108accd985083cb579eb3c0cbf95610
-  license: n/a
-  derived_by: headers prefixed with 'UHM43bin53__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM56bin19.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:28Z'
-  checksum_sha256: 9af36eb26e04506715dd8efbeabd657a4bed5e94012d1ec4d71a03b1cf7b36fe
-  license: n/a
-  derived_by: headers prefixed with 'UHM56bin19__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM56bin19.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:28Z'
-  checksum_sha256: d27d44f8b1fb1bf96d11557a9c760ff543dd9c8de7a2a3054b162802f71cf770
-  license: n/a
-  derived_by: headers prefixed with 'UHM56bin19__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/pep/UHM72bin19.pep.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:28Z'
-  checksum_sha256: 0b2602d3c95ea68df115b7875f5733a8bd1abd4455d7f6ea9e4522a29675bb1a
-  license: n/a
-  derived_by: headers prefixed with 'UHM72bin19__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
-- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir/dna/UHM72bin19.dna.fa
-  source_url: (derived, no external source)
-  source_release: n/a
-  access_date: '2026-09-07T23:02:28Z'
-  checksum_sha256: cc24a2e6cdc4f01e86989589c0736430d605e9f9fe1a47a242dc398285412934
-  license: n/a
-  derived_by: headers prefixed with 'UHM72bin19__' to disambiguate megahit contig
-    ids (k141_N) that collide across separately-assembled UHM MAG bins; studies/bacteria/UHM_Koxytoca/bin/prefix_uhm_bin_headers.py
-  pulled_with: prefix_uhm_bin_headers.py on i29
+  derived_by: bin/build_study_config.py --study-dir studies/bacteria/UHM_Koxytoca
+  pulled_with: build_study_config.py on i32
