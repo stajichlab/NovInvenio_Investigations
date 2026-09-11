@@ -251,3 +251,57 @@ def test_ncbi_genome_with_gff3_none(tmp_path, monkeypatch):
     # Count lines with "genomic.gff" -- should be 0 (not used, so no provenance)
     gff_lines = [line for line in manifest.split("\n") if "genomic.gff" in line]
     assert len(gff_lines) == 0, f"Manifest should not contain provenance for declined GFF3, but found: {gff_lines}"
+
+
+def test_ncbi_sourced_protein(tmp_path, monkeypatch):
+    # Arrange: Protein_Source=ncbi (protein from same NCBI Datasets genome package)
+    study_dir = tmp_path / "studies" / "fungi" / "toy_study5"
+    study_dir.mkdir(parents=True)
+
+    ncbi_cache = tmp_path / "data/ncbi"
+    genome_dir = ncbi_cache / "GCF_000005845.2" / "extracted" / "ncbi_dataset" / "data" / "GCF_000005845.2"
+    genome_dir.mkdir(parents=True)
+    (genome_dir / "genomic.fna").write_text(">chr1\nCCCC\n")
+    (genome_dir / "genomic.gff").write_text("##gff-version 3\nchr1\t.\tgene\t1\t20\t.\t+\t.\tID=gene1\n")
+    (genome_dir / "protein.faa").write_text(">prot1\nMEEE\n")
+
+    _write_species_csv(study_dir / "species.csv", [{
+        "Short": "Sp5", "Species": "Test species 5", "Strain": "T5",
+        "Group": "IN", "TaxonGroup": "TestGroup",
+        "Protein_Source": "ncbi", "Protein_Accession": "GCF_000005845.2",
+        "Taxon_ID": "",
+        "Genome_Source": "ncbi", "Genome_Accession": "GCF_000005845.2",
+        "GFF3_Source": "", "GFF3_Accession": "",
+    }])
+
+    calls = []
+
+    def fake_run(cmd):
+        calls.append(cmd)
+
+    monkeypatch.setattr(bsc, "run", fake_run)
+    monkeypatch.setattr(sys, "argv", [
+        "build_study_config.py",
+        "--study-dir", str(study_dir),
+        "--uniprot-cache", str(tmp_path / "data/uniprot"),
+        "--ncbi-cache", str(ncbi_cache),
+    ])
+
+    rc = bsc.main()
+
+    assert rc == 0
+    # Verify fetch_genome_assembly.py was called with --include-protein (resolve_protein calls it for NCBI protein fetch)
+    assert any("--include-protein" in call for call in calls), \
+        f"Expected fetch_genome_assembly.py --include-protein in calls, got: {calls}"
+    config_csv = study_dir / "config.csv"
+    with open(config_csv, newline="") as fh:
+        row = next(csv.DictReader(fh))
+    # Verify protein, genome, and GFF3 are all present from NCBI
+    assert row["Short"] == "Sp5"
+    assert row["Protein"] == "Sp5.pep.fa"
+    assert row["DNA"] == "Sp5.dna.fa"
+    assert row["GFF3"] == "Sp5.gff3"
+    # Verify files were copied correctly
+    assert (study_dir / "data_dir" / "pep" / "Sp5.pep.fa").read_text() == ">prot1\nMEEE\n"
+    assert (study_dir / "data_dir" / "dna" / "Sp5.dna.fa").read_text() == ">chr1\nCCCC\n"
+    assert (study_dir / "data_dir" / "gff3" / "Sp5.gff3").read_text() == "##gff-version 3\nchr1\t.\tgene\t1\t20\t.\t+\t.\tID=gene1\n"

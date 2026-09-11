@@ -17,6 +17,9 @@ FASTA paired with a genome that still needs an NCBI fetch). Recognized values:
                   Fetched via fetch_uniprot_proteome.py; also drives GO/Pfam/
                   InterPro/gene-name annotation extraction (extract_dat_annotations.py)
                   -- the only Protein_Source that does.
+    ncbi       -- Protein_Accession = GCA/GCF assembly accession. Protein FASTA
+                  included in the same NCBI Datasets genome package (fetched via
+                  fetch_genome_assembly.py --include-protein), with provenance record.
     local_faa  -- Protein_Accession = path to an existing protein FASTA. Copied in
                   directly, with a provenance record (no fetch).
 
@@ -128,6 +131,27 @@ def resolve_protein(row, args, pep_dir, manifest_records):
             if sc.exists():
                 manifest_records.append(load_provenance(sc))
         return stem, pep_out.name, (dat_gz if dat_gz.exists() else None)
+
+    if source == "ncbi":
+        if not args.skip_fetch:
+            run([
+                sys.executable, str(BIN / "fetch_genome_assembly.py"),
+                "--accession", accession, "--outdir", args.ncbi_cache, "--short", short,
+                "--include-protein",
+            ])
+        genome_dir = Path(args.ncbi_cache) / accession / "extracted" / "ncbi_dataset" / "data" / accession
+        faa_candidates = sorted(genome_dir.glob("*.faa")) if genome_dir.exists() else []
+        if not faa_candidates:
+            sys.exit(f"[{short}] ERROR: expected protein FASTA under {genome_dir} not found -- run without --skip-fetch first")
+        stem = short
+        pep_dir.mkdir(parents=True, exist_ok=True)
+        pep_out = pep_dir / f"{stem}.pep.fa"
+        shutil.copyfile(faa_candidates[0], pep_out)
+        # Load provenance for the protein file
+        sc = faa_candidates[0].with_suffix(faa_candidates[0].suffix + ".provenance.yaml")
+        if sc.exists():
+            manifest_records.append(load_provenance(sc))
+        return stem, pep_out.name, None
 
     if source == "local_faa":
         src = Path(accession)
