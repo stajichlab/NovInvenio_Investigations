@@ -11,8 +11,13 @@
 --run_tool diamond
 
 # pairwise clustering (not mmseqs/novelty_discovery) -- also the only cluster_tool
-# path that runs the generic VALIDATE (TBLASTN vs outgroup DNA) workflow;
-# see studies/bacteria/UHM_Koxytoca/bin/fetch_koxytoca_outgroup_dna.sh's header for why only OUT has DNA here.
+# path that runs the generic VALIDATE (TBLASTN vs outgroup DNA) workflow, which
+# it runs against the outgroup (Group=OUT) rows' DNA specifically. Since this
+# study's 2026-09-11 migration onto the unified bin/build_study_config.py, DNA
+# is populated in config.csv/data_dir/dna for both IN (Genome_Source=local_genome)
+# and OUT (Genome_Source=ncbi) rows -- VALIDATE's outgroup-only behavior comes
+# from nf_NovInvenio filtering on the Group column, not from DNA being absent
+# for the ingroup.
 --cluster_tool pairwise
 
 # Pfam-A + SwissProt-diamond annotation: unlike the UniProt-sourced fungal
