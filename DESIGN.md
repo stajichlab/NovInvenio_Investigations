@@ -321,6 +321,28 @@ The dividing line is "does this file's size scale with candidate/sequence count,
 "is this file under `docs/`" — a landing page and a viewer shell don't, a report table
 with embedded protein sequences does.
 
+**Required one-time repo setting, not captured anywhere in code — GitHub Pages
+"Build and deployment" source must be `GitHub Actions`, not `Deploy from a branch`.**
+`.github/workflows/static.yml`'s `actions/deploy-pages` step only actually serves
+traffic when Pages is configured this way; with the branch-based ("legacy") source,
+GitHub builds and serves `docs/` directly from what's committed to `main`, ignoring
+the workflow's runtime merge of `alignments-*`/`reports-*` release assets entirely —
+the workflow reports success (a real deployment is created) while the live site
+silently never shows anything beyond the small, always-committed `report.html`/
+`alignment.html`. This exact failure happened 2026-09-09 through 2026-09-11: every
+study's `novelties.html`/`core.html`/`losses.html`/`summary.pdf`/`alignments/` 404'd
+on the live site the whole time, undetected because the workflow's own run history
+showed nothing but green. Verify with:
+```
+gh api repos/stajichlab/NovInvenio_Investigations/pages --jq '.build_type'
+# must print "workflow", not "legacy"
+```
+Fix (if it ever reverts — e.g. after a Pages setting reset or repo transfer):
+```
+gh api -X PUT repos/stajichlab/NovInvenio_Investigations/pages -f build_type=workflow
+gh workflow run static.yml   # re-trigger so the fix takes effect immediately
+```
+
 **Companion rule, `nf_NovInvenio` side:** the pipeline source repo never holds analysis
 run output at all, not even transiently pre-publish — see its own `CLAUDE.md`. A study
 run's `--outdir` must resolve outside that checkout (`bin/run_study.sh` already does
