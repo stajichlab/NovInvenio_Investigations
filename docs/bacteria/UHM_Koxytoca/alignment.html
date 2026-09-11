@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TBLASTN alignment</title>
+<link rel="icon" href="data:image/x-icon;base64,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dv+DlJP/kJ+i/4aSlP9ocG3/bXJu/5eamP/BwsH/5ebl//j4+P/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/5+fn/9vb2/+fo6P/Nz8//pquo/3aAev90gn7/na+0/6q9xf+Wqa3/b4N+/zxRQf80STf/WGth/3aIhv+Jmp7/e4mN/09YV/9KUU3/cHRy/5yfnv/Mzc3/6urq//b29v/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+/v7//b29v/p6en/1NXV/7a6u/+VnJv/dH55/3eFg/+esLX/rL/H/52vtP92iYb/P1ND/zRINv9XamD/d4mH/42dov+Bj5T/V19g/0lPTf9cYmD/fYKB/6qsrP/Q0dH/7e7u//z7+//7+/v/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz/8PDw/9fY1/++wMH/p6yt/5CXl/96hIL/gY6O/6O0uv+xxM3/qLrC/4eamv9UZ1z/S15R/22Aev+ImZv/lqar/4mVm/9ja2z/UVdW/1heXv9tcnL/jpGR/7a4uP/j5OT/+vr6//v7+//6+vr/+vr6//r6+v/6+vr/+/v7//z8/P/p6en/wcPC/6irq/+epKb/k5qc/4ePkP+OmZz/p7i//7XI0v+0x9H/n7G3/3mLif91h4X/laer/6W2vf+hsLj/j5ug/3B4ef9hZ2b/Ymho/2twcP96f37/oKOi/9na2v/4+Pf/+vr6//r6+v/6+vr/+vr6//r6+v/8+/v//f39/+Tl5P+ztrT/lJmX/4qRkP+Ci4r/fIWF/4GNjf+QoaT/mayx/5yus/+Tpaj/gZKS/4SUlf+arLD/orO6/5qorv+NmJz/fISF/3B2df9qb2//aW9u/3J2dv+UmJf/z9DQ//Hx8f/4+Pj/+/v7//r6+v/6+vr/+vr6//z8/P/+/f7/4+Tj/66yrv+FjIf/a3Vv/15pYv9bZ2H/XGpj/15waP9gc2v/YHNr/2V2cP9ue3n/dYOC/3uMi/9/kI//gI6P/4OOj/+Hjo7/gISD/21ycf9obWz/c3h4/5OXl//GyMj/5+jo//b29v/8/Pz/+/v7//r6+v/6+vr//Pz8//39/f/o6ej/u7+7/42Ujv9ibWP/SVZK/0JRQ/8/UEL/QFNE/0RWSP9KW07/V2Vc/2hzb/9sd3T/YXBp/15vZ/9mdG7/eYSA/5acmv+VmJf/d3t5/2pvbv90eXn/kJWV/72/v//f39//8/Pz//z8/P/7+/v/+vr6//r6+v/7+/v//Pz8//Hy8f/Y2tj/rbKs/3F7cP9IVkb/NEUy/zBCLv86TDv/SllL/1xpX/9qdW7/c3t4/2lzbv9PXlL/RVVH/09dUP9yfXP/qq6q/7Gzsv+Hion/cHV0/3N4eP+Lj5D/tbe3/9jZ2f/x8fH//fz8//v7+//6+vr/+vr6//r6+v/7+/v/9/f3/+3u7f/N0c3/maGY/2x4av9KWEj/QFA//09dUP9hbWT/c354/3mBfv9xeHX/Y2xm/1JeU/9SX1H/Y29i/4qTif/DxsL/ycvK/56gn/+ChoX/fICA/46Skv+4urr/2tvb//Ly8v/9/Pz/+/v7//r6+v/6+vr/+vr6//r6+v/5+fn/9/f3/+zt7P/X2db/srex/4GJgf9ud3D/eoOA/4aOjf+NlJT/gIeG/2FpZP9ZYVv/anJs/4KJg/+gpqD/wcTA/+Dh4P/e3t7/u7y8/56goP+Mj4//mZyc/8TFxf/j5OT/9PX1//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/7+/v/+/v7//f39//Z2tn/oqWk/4uQj/+Vm53/maCj/5Sbnf95gH//TFRO/0lRSv9yeHX/m5+e/8DCwP/b3Nv/6+zr/+Xl5f/Jysn/q66s/5GUkv+VmJb/trq3/9XY1v/u7u7/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v6+//7+/v/+vr6/93e3v+oq6v/kpeX/5yipP+aoaT/i5KS/2dvbP81Pjb/Nj42/2xxbv+anp3/vb++/9bX1v/l5eX/3+Df/8bKx/+oran/iY6K/4GHgv+RmJL/sbey/93f3v/29vb/+vn5//v7+//6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/39/f/29zc/6eqqv+RlZf/mZ+h/5adnv+EjIv/Zm5q/z9HQP9CSkP/cXd0/5qenf+6vLv/0tLS/+Dg4P/Y2tn/vMG9/5+loP+EioT/d354/3yFff+bo53/0tbT//Pz8//5+fn/+/v7//r6+v/6+vr/+vr6//r6+v/7+/v/+fn5//Pz8v/U1dX/oKSk/4mOj/+OlZb/jZSV/4OKif91fHv/Z25r/2tycP+DiIj/nqKh/7q8u//Q0dD/39/f/9LV0/+ssq3/kJiR/4GIgv95gHr/eYJ7/5aemP/O0s//8PDw//j4+P/7+/v/+vr6//r6+v/6+vr/+vr6//v7+//5+fn/8fHx/9HS0v+bn5//goeI/4eNjv+Hjo7/gIeG/32Eg/9/hYX/g4mJ/4qQkP+fo6P/wMLC/9jZ2P/k5OT/0NPR/6Goov+Fjof/gIaB/3yDff98hH3/lp6Y/8rOy//s7Oz/9/f3//z8/P/6+vr/+vr6//r6+v/7+/v//Pz8//r6+v/y8vL/0dLS/5mcnf9/hIT/hImK/4SKiv99g4P/fYOC/4OJif+GjIz/iI2N/6Cjo//Nz87/6enp/+7u7v/T1tT/nKWe/36JgP99hX//foV//4GJgv+ZoZr/xsrH/+bn5v/19vb//f39//r6+v/6+vr/+vr6//r6+v/5+fn/9vb2//Dw8P/S09P/nqGi/4WKiv+IjY7/h46P/4OJiv+DiYn/h42O/4uQkf+QlJT/q66t/9rb2//09PT/9fX1/9jb2P+gqKL/gIqC/3uDfP96gXv/fYZ+/5ael//DyMT/5Obk//X19f/9/f3/+vr6//r6+v/7+/v/+Pj4//Hy8f/t7e3/6enp/9PU0/+rrq7/lZma/5KXmf+Rl5n/kpia/5CWmP+Nk5T/k5iZ/6Snp//AwsL/5ufm//r5+f/4+Pj/3eDe/6yzrf+Jkov/eIB5/3B4cf9we3L/jZaO/8LHw//m6Of/9vb2//39/f/6+vr/+/v7//z8/P/x8vH/293b/8/Sz//Nz83/xcjG/7e5uf+nqqv/lpuc/5GXmP+XnZ//mqCi/5qfoP+lqar/vb+//9bX1//v8PD//Pz8//r5+v/f4eD/r7Ww/4qTjP91fXb/bXZv/3R+dv+Tm5T/xsrH/+jq6P/29/b//fz9//r6+v/8+/z//f39/+bo5v+5vrj/n6ae/52jnP+praj/v8G//7a5uf+Slpb/hYqL/5KYmf+hpab/rrKy/8HExP/Z29v/7Ozs//b29v/8+/v/+vr6/97g3/+qsqz/hY+H/3J8dP9zfXX/iJGJ/6euqf/P0s//6uvq//b39v/8/Pz/+vr6//z8/P/+/v7/4uTi/6mvqP+Ci4H/cXxw/32He/+gp5//nqSe/3d+ef9yeXX/kZeV/66ysv/Hycn/3N3d/+3u7v/39/f/+vr6//v7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7//l5uX/3N7d/9TX1//M0dP/xszP/8HJzf+8xsr/tL7D/6OusP+Pmpr/hZCP/4yXl/+cqKn/qrW4/664vP+vuLr/sLe5/7O4uf+3u7n/v8G//87Pzf/h4eD/7/Dv//b29v/5+fn/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/7+/v/+vr6//f39//z8/P/6uvq/9vc2//Iy8n/u8C9/7i+vv+6wsT/usTI/7bBxv+uu7//oa+y/4yamv9zgn3/ZnVu/259eP+CkI//k6Gi/5uoq/+eqq3/n6ms/5ujpP+WnJr/mJyZ/6msqf/Bw8H/1tfX/+Xm5f/w8PD/+Pj3//v7+//7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz/+fn5//Pz8//o6ej/2drZ/8DDwP+kqaX/k5uW/5iioP+ntLf/scDG/669w/+isrf/kaKj/3eIhf9abGL/S1xQ/1NlWv9pe3T/fY6M/4qamv+SoKP/kp+i/4WQkv9ze3r/bXNv/32Bff+ZnJn/tbe2/83Pzv/j5OT/8/Tz//r6+v/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/9vb2/+vs7P/c3d3/yMrJ/6muqv+Hj4n/dYB6/4COjP+aqq7/rL3F/6m7w/+crrL/h5ma/2p9d/9JXU//OEs6/0BURf9Ya2H/boF8/36Qj/+Kmp3/ipmd/3eDhv9bZWT/TlVR/1tgXf94fHn/l5qZ/7W4tv/T1dT/6uvq//X19f/5+fn/+vr6//v7+//6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/7+/v/+vr6//j4+P/19fX/7u7u/+Dh4f/O0ND/uLy7/5qgnf97hH7/a3dx/3mIhv+Wp6v/qrzE/6m8w/+brrP/hpma/2d6c/9DV0j/L0Mw/zdMOv9QY1j/Z3p1/3qMi/+ImZz/iZid/3SBhf9WYF//RExJ/01ST/9kaWf/gISD/5+iof+/wcD/2dra/+nq6v/z8/P/+fn5//v7+//7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//7+/v/+vr6//X19f/u7u7/4uPj/9PU1P+/wsP/qq+v/5GXlf94gXz/bXl0/3yKif+XqKz/qr3F/6u+xv+fsrj/i56g/2t+eP9FWUr/L0Mw/zdLOf9PY1f/Z3p0/3uMjP+Km57/jZyh/3mGiv9bZWb/SE9N/0pQTv9ZX13/b3Nz/4mNjP+oqqr/w8XF/9na2v/r7Oz/9/f3//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz/+fn5//Hx8f/k5eT/1dfW/8XHx/+ytrf/oKWm/4uSkv95gn//cn56/4GPj/+aq6//q77G/63AyP+lt77/k6Wp/3OGgv9OYVX/OEw7/0BTRP9YamH/b4F9/4GSk/+Pn6P/kaCm/3+LkP9jbG7/UFdW/01TUv9VW1r/Y2lp/3l9ff+Ul5f/r7Gx/8nLy//j5OT/9fX1//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//9/Pz/+Pj4/+vr6//Y2dn/xsfH/7e6uv+pra//nKKj/42UlP9/iIb/e4aE/4mWl/+fr7X/r8HK/7PFz/+twMn/oLK3/4OWlf9hdGz/TmFV/1ZpX/9ugHv/g5WV/5ChpP+Yp63/lqSq/4SQlf9rdHX/WF9e/1NZWP9XXV3/YWdn/3B1df+EiIj/nJ+f/7q8vP/b29v/8vLy//v7+//7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//z8/P/9/f3/9/f3/+Tl5P/KzMv/tbe3/6msrf+ipqj/m6Gj/5GYmf+Hj5D/hY+P/5GdoP+js7r/scPN/7fJ1P+1yNL/rL7H/5Woq/95i4n/anx3/3OGgv+KnJ3/nK6y/6Kzuv+hsbj/mqiu/4mUmf9zfH3/Y2lp/15kY/9fZWX/ZWtr/21ycv95fX3/jJCP/6yvrv/S09P/7+/v//r6+v/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//z8/P/9/f3/9vb2/9/g3//AwsH/p6qp/5ygoP+YnZ7/lJud/42Vlv+Hj5D/hpCR/4+bn/+erbP/qbvD/6/Cy/+ww8z/q77F/5utsv+HmJr/fY6N/4aYmf+arLD/qLrB/6m6wv+jsrr/maet/4uWmv97g4T/bnR0/2hubf9nbWz/aW5u/2txcP9ydnb/gYWF/6KlpP/KzMv/6urq//f39//6+vn/+vr6//v7+//6+vr/+vr6//r6+v/6+vr/+vr6//z8/P/+/v7/9vb2/9zd3P+5vLr/naGf/46Tkf+GjYz/gYmI/3uEg/94gYD/eIKB/36Liv+Glpf/jaCi/5Gkp/+Spaj/kaOm/4qbnf+BkZH/fY2N/4WVl/+TpKj/nK6z/52us/+Yp6z/kZ6j/4mUl/+AiIn/eH5+/3F2df9rcXD/aW5u/2pvbv9vdHP/foKC/52goP/Exsb/4+Tk//Ly8v/39/f/+vr6//v7+//7+/v/+vr6//r6+v/6+vr/+vr6//39/f/+/v7/9vb2/9vd2/+3urf/l5yY/4KJhP9ze3b/aHJt/2JtaP9hbGf/YW5o/2Nxa/9md3H/aHt1/2l8dv9pfHb/a313/219ef9wfnz/dIKB/3qIiP+AkJD/hJaW/4WWl/+FlJb/hZGT/4WPkf+GjY3/g4iH/3p/fv9vdHL/aG1s/2lubf9wdXT/f4SE/5yfn/+/wcH/3N3d/+zt7P/19fX/+vr6//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//39/f/+/v7/9vb2/93f3f+7vrr/mp+a/3+GgP9ocWr/V2Na/09cUv9NWlH/TVtQ/0xcUP9LXVH/TF9S/0xfU/9NX1P/UWJX/1ppYf9lcW3/bXh2/297ef9tfXj/bH15/25/e/9ygX7/eISD/4KLiv+Mk5L/kJST/4WJiP91eXf/am5t/2pubf9xdnb/gIWF/5qenv+6vLz/1dbW/+fn5//y8vL/+vr5//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//z8/P/+/v7/9/f3/+Pl4//Hysf/qa6p/4qRiv9qdGv/Ul5T/0RSRf8/TkD/PE0+/zxNPf89T0D/QFND/0RWSP9KWk3/UWBV/1xpYf9ocm7/bnh1/2l1cf9fbmf/WWpg/1lqYf9fbWb/aXZw/32Hg/+Vm5j/oKSi/5WYl/9+goD/bnJx/2twb/9xdnb/f4OE/5aamv+0t7f/ztDQ/+Li4v/w8PD/+fn5//38/P/7+/v/+vr6//r6+v/6+vr/+vr6//z8/P/9/f3/+Pj4/+zt7P/Z29n/wMTA/52knf92gHb/VmNV/0JRQf82RzX/MUMw/zJEMf84Sjj/QFFB/0paTP9VY1j/X2xj/2h0bf9weXb/cXp3/2Zxa/9VY1n/SVpM/0hYSv9OXVD/XWpf/3uFff+fpaD/srWz/6epqP+Kjoz/dXh3/25zcv9xdnb/fIGC/5KWl/+vsbL/ycrK/93e3v/u7u7/+fn5//39/f/8/Pz/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz/+fn5//P08//p6uj/1djV/7S5s/+Lk4r/Z3Nl/05cS/87TDn/MkQw/zRFMv89Tj3/SVlK/1ZkWf9kcGj/bnlz/3R9ef91fXr/cHh1/2JtZv9QXlL/RVRF/0VURP9NW0z/X2xe/4KMgv+ssqz/xMbE/7i5uP+Zm5r/f4OC/3V6ef90eXn/fYGC/5GVlf+tsLD/x8nJ/9zd3f/t7u3/+fn5//39/f/8/Pz/+vr6//r6+v/6+vr/+vr6//v6+//7+/v/+vr6//f39//y8vL/5Obk/8zPy/+rsar/jJWL/3B7bv9XZFX/SFdH/0hXSP9SYFT/Xmth/2p1bv91gHr/fIWB/3mBfv9xeXb/aHBs/19oYv9XYlj/VWFV/1tnWv9oc2f/fIV6/5yjm//BxMD/1NXU/8jJyP+qrKz/kZST/4SHh/9+goL/g4eH/5aamv+ztbX/zc7O/+Dh4f/v8PD/+fn5//39/f/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//n5+f/39/f/8PHw/+Tl4//S1dH/vMG7/5+lnv9/h37/anNq/2hyav9xenX/eoSA/4KLif+IkY//iJCO/3uDgP9ocGz/XGRf/1xkXv9jbGX/b3hw/36Gf/+RmJH/pqul/7/Dvv/X2df/4uPi/9bX1/+9vr7/pqin/5aYmP+Ljo7/jI+P/56hof+7vb3/1dbW/+bn5v/y8vL/+vr6//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+Pj4//X29f/v8O//4eLh/8PGw/+fo5//hYuH/4GIhf+JkI//kJiZ/5Sbnf+VnJ3/jpWV/3iAfv9dZWH/TlZQ/1ZeWP9rcm7/g4mG/5qfnP+xtbL/xsjG/9ja2P/n5+f/6+vr/9/g4P/Ky8v/tbe2/6OlpP+TlpX/kJOS/6Cjov+7vbz/1NXV/+Tl5f/x8fH/+Pn4//v7+//7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/7+/v/+/v7//z8/P/7+vv/7/Dv/9LT0/+tr67/kpaV/42Tk/+Vm5z/m6Gk/5qho/+WnJ7/iZCQ/252c/9OVlD/PkY//0tSTP9pb2v/iI2L/6Kmpf+7vbz/z9DP/9/f3//p6un/6+zr/+Hi4f/O0M//ur27/6app/+Tl5X/jJCN/5aal/+rr6z/wcXC/9XX1f/n6Of/9PX0//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/7+/v/+/v7//z8/P/8+/v/8fHx/9XW1v+ws7L/lpqa/5KXmP+Zn6H/nqSn/5mgo/+Ql5j/gIeG/2FpZf8+R0D/Ljcu/z9HP/9jaWX/houJ/6GlpP+5u7r/zM3M/9vb2//l5eX/5ufm/93e3f/Mz83/ub26/6Sopf+Pk5D/g4iE/4aMh/+TmZT/paym/77Dv//a3Nr/7+/v//j4+P/6+vr/+vr6//v7+//6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//6+vr/7/Dw/9TV1f+ws7P/l5ub/5OYmf+an6L/naOm/5adn/+KkpL/eIB+/1tjXv86Qjv/KzQr/z1FPf9iaGP/hYqI/5+jov+2uLf/yMnI/9fX1//g4OD/4uLi/9ja2P/Hy8j/tLm1/5+loP+KkIv/fIN9/3qBe/+AiIH/j5iR/6uyrP/O0s//6uvq//b29v/5+fn/+vr6//v7+//6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/4+Pj/7e7t/9LT0/+usbH/lZmZ/5CVlv+WnJ7/mZ+h/5KZm/+Hj4//eIB+/2FpZf9JUUv/P0dA/05VT/9scm7/iY6N/6Cko/+1t7f/xsfH/9XV1f/e397/3+Df/9PW0/+/xMD/qrGr/5iemf+HjYf/e4J8/3Z+d/94gnr/hY+H/6KqpP/JzMn/5+jn//T19P/4+Pj/+vr6//v7+//6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/7+/v/+vr6//n5+f/19fX/6enp/83Oz/+qrK3/kJSV/4qPkf+PlZb/kpia/42Ulf+FjIz/fIOC/292dP9iamb/XmZi/2hvbP97gX//j5ST/6Kmpf+1t7f/xsfG/9TU1P/e3t3/3d7e/87Rzv+1urb/nqag/4+WkP+EioX/fYN9/3h/ef94gXn/g4yE/5+nof/Gysb/5Obl//Pz8//4+Pj/+vr6//z8/P/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/7+/v/+vr6//j4+P/z8/P/5ubm/8nLy/+lqKn/i5CR/4WKi/+Jj5D/jJKT/4mPkP+Dior/foWE/3qBgP93fn3/eH59/32Dgv+GjIz/k5iY/6Snp/+3ubn/yMnJ/9bW1v/f4N//3t/e/8rNy/+ss67/lJyV/4ePif+BiIL/foR//3qBe/95gnr/g4yE/56moP/EyMT/4uPi//Hx8f/39/f/+vr6//z8/P/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz/+/v7//j4+P/z8/P/5ebm/8jJyf+jpqb/iIyN/4GGh/+Fi4z/iI6P/4WMjP+Ah4f/fYSD/32Eg/9/hob/gomJ/4WLi/+Ijo7/kpeX/6WoqP+8v77/0NHR/97e3v/l5eX/4eLh/8nNyv+nr6n/jZaP/4KLg/9/h4D/f4WA/3yDff97hH3/hY6G/56moP/BxsL/3uDe/+7u7v/29vb/+vr6//38/f/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz/+/v7//n5+f/09PT/5ufm/8jJyf+hpaX/hoqL/36EhP+CiIn/hoyN/4OJif9+hYT/fIKB/32Eg/+CiIj/hYuM/4aMjP+HjIz/j5SU/6apqf/ExsX/3Nzc/+np6P/t7e3/5ebl/8rOy/+lraf/iJKK/36HgP99hX//f4aA/36Ff/9/h4D/iJGK/6Cnof+/xMD/2tza/+rr6v/09PT/+vr6//39/f/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/7+/v/+vr6//j4+P/z9PP/5ubm/8jKyv+jpqb/h4yM/4CFhf+DiYn/hoyN/4OKiv9/hYX/fYOD/3+Fhf+Dior/h42O/4iNjv+IjY3/kpaV/6uurv/Mzs3/5ubm//Ly8v/09PT/6erp/8zQzf+lraf/h5KK/3yGfv98hH3/foV//32Ff/9/iIH/iZKL/6Cnof+9wr7/19nX/+jp6P/z9PP/+vr6//79/v/6+vr/+vr6//r6+v/6+vr/+vr6//n5+f/5+fn/9/f3//X19f/x8vH/5ebm/8rMzP+oq6v/j5KT/4eLjP+Ijo//ipCS/4iPkP+GjI3/hYuL/4WLjP+HjY7/ipCR/4ySkv+QlZX/nKCf/7W4t//V1tb/7e3t//f39//39/f/7O3s/9DU0f+qsqz/jZeP/3+Jgf97g3z/eoF7/3iAef95gnv/g42F/5ujnf+7wLz/1tnX/+jp6P/z9PP/+vr6//79/v/6+vr/+vr6//r6+v/6+vr/+vr6//f49//09PT/8fHx/+/v7//t7ez/4+Tj/8zOzv+wsrL/mp2d/5GVlv+QlZf/kJaY/5CWmP+Qlpf/j5WX/42Ulf+MkpP/jZOU/5OYmf+doaH/q66u/8PFxP/e39//8vLy//r6+v/6+fn/7u/v/9XY1f+yubP/lZ6X/4SNhv96gnz/dXx2/3B5cv9xe3L/e4V9/5ael/+5v7r/2NrY/+rr6v/09PT/+vr6//39/f/6+vr/+vr6//v7+//7+/v/+fn5//P08//r7Ov/5OXk/+Hj4f/g4d//2dvZ/8rLy/+2uLj/paio/5ufoP+Wm5z/k5mb/5OanP+WnJ7/l56f/5Wbnf+TmJr/lJqb/52iov+rr6//vL6+/9HS0v/m5+f/9vb2//z8/P/7+/v/8PHw/9jb2P+3vbj/m6Oc/4eQif95gnv/cXly/2x1bv9teG//eYR7/5Wel/+6wLv/2dza/+vs6//19fX/+vr6//39/f/6+vr/+vr6//v7+//8/Pz/+Pj4/+vs6//a3Nn/zM/M/8fKxv/GycX/xMfE/8HDwf+7vbz/s7a2/6eqq/+ZnZ//kJWX/5CWmP+Vm53/mqCi/5uhov+coaP/oaan/62xsf+9wMD/zs/P/97f3//t7u7/+Pj4//38/f/7+/v/8fHx/9fa2P+2vLf/maGa/4SOhv92f3j/b3hw/253cP90fnb/goyE/52ln/+/xMD/293c/+zt7P/19fX/+vr6//39/f/6+vr/+vr6//z8/P/+/f7/9/f3/+Hj4f/FycT/r7Su/6aspf+lqqT/qK2o/7K1sf+9v77/wMHB/7Czs/+ZnZ3/iY6O/4iOj/+Rlpf/mp+h/6Gmp/+orK3/srW2/8DDw//R09P/4OHg/+vr6//09PT/+fn5//z8/P/7+/v/8fHx/9bZ1/+zubT/lZ6W/4GLg/90fnX/b3lx/3N9df+AioL/kpqU/6qxrP/Gysf/3uDe/+zt7f/19fX/+vr6//39/f/6+vr/+vr6//38/f/+/v//9vb2/9vd2v+2u7X/maCY/4uTif+Gj4X/ipKJ/5uim/+ytrL/vL+8/6yvrf+PlJL/fIKA/3+Fg/+NkpL/nKGi/6mtrv+2ubr/xMbG/9PU1P/i4+L/7u7u//X19P/4+Pj/+vr6//z7/P/7+/v/8fLx/9jb2f+3vbj/mqOc/4WPh/93gnn/c311/3uFff+MlY7/oaii/7e9uP/P0s//4uTi/+7v7//29vb/+vr6//z8/P/6+vr/+vr6//39/f///v//9vb2/9nc2f+yuLH/kZmP/3qFef9seGr/aXVo/3mDd/+RmZD/naSc/4+Wj/91fXb/Z3Bp/3J6df+LkY7/o6in/7a6uf/Hysr/1tjY/+Pk5P/t7u7/9fX1//n5+f/6+vr/+vr6//v7+//7+vv/8/Tz/+Lk4v/Jzsr/sbiy/5qim/+Ej4b/e4Z9/4KNhP+Wnpf/rLKt/8LGwv/Y2tj/6erq//P08//4+Pj/+vr6//z7/P/6+vr/+vr6//39/f///v//9vb2/9vd2/+1u7X/kpqQ/3J+cP9XZlX/SVpH/1FhT/9kcmL/b3xu/2VxZP9TYFL/TltO/2VvZv+KkYv/rLGu/8bIx//a29v/6enp//Ly8v/29vb/+Pj4//r6+v/6+vr/+vr6//r6+v/6+vr/9vb2/+7v7v/i5OP/0dXS/7a8t/+YoZr/h5GJ/4yWjv+fp6H/tbu2/8vPzP/i5OL/8vPy//n5+f/6+vr/+vr6//v6+//6+vr/+vr6//38/f/+/v//9/f3/9/h3/++w77/m6Oa/3aCdP9SYk//Ok03/zhMNf9DVUD/SltI/0NUQf85Sjf/Pk09/15qXf+NlIz/trq2/9PV0//o6ej/9vb2//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+fn5//j4+P/19fX/6uvr/8/T0P+ttK//mKKa/5uknf+ss63/wMXB/9XY1f/q6+r/+fn5//39/f/8/Pz/+vr6//r6+v/6+vr/+vr6//z8/P/9/f7/+Pj4/+fo5//O0s7/sLav/4uVif9icWD/RFZB/zdLNf82STP/Nkkz/zFELv8vQSz/O0w5/2BtX/+Tm5L/wMO//9zd3P/v8O//+/v7///////9/f3/+/v7//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz/9fX1/+Di4P/EycX/srmz/7O6tf/AxcH/z9PQ/9/i4P/w8PD/+/v7//7+/v/8/Pz/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz/+fn5//Dx8P/i5OL/zNDM/6qxqf+BjID/X21d/0dYRP83SjT/LkIq/yo/J/8vQyz/QlM//2p3aP+epZz/yczI/+Pk4v/y8vL/+/v7//7+/v/8/Pz/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz/+Pj4/+vt7P/b3dv/0NPQ/9DU0f/X2tj/4OLg/+rr6v/09PT/+/r7//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/7+/v/+vr6//f39//y8vL/4+Xj/8bKxv+iqaH/f4l9/2FuXv9HWET/OEs0/zZJM/9AUj3/VWZT/3yIev+ss6v/09bT/+nq6f/09PT/+vr6//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//7+/v/+fn5//T09P/s7ez/5+jn/+fo5//q6+r/7e7t//Ly8v/29/f/+vr6//v7+//6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/5+fn/8PDw/9ve2//AxL//pKuj/4iSh/9ue2z/X21c/15tXP9qeGf/fop8/52mm//Cx8L/4OLg//Dw8P/39/f/+vr6//z7/P/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//7+/v/+vr6//j4+P/19fX/8/Pz//Pz8//09PT/9fX1//f39//4+fj/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//7+vv/9vb2/+vs6//b3dv/yc3J/7S5s/+epp3/kZqQ/5Kbkf+dpZz/rbSs/8LHwf/a3dr/7e7t//b29v/5+fn/+vr6//v7+//6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/7+vv/+vr6//r6+v/5+fn/+Pj4//j4+P/4+Pj/+Pj4//n5+f/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//7+/v/+vr6//X19f/u7u7/4+Xj/9PW0//BxcH/t7u2/7m9uP/CxsL/z9LO/9ze3P/r7Ov/9vb2//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//8/Pz//Pz8//r6+v/29vb/7+/v/+Hi4f/Q0tD/xsnG/8nLyP/S1NL/3d/d/+jp6P/y8/L/+vr6//z8/P/7+/v/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//r6+v/6+vr/+vr6//v7+//7+/v//Pz8//z8/P/8/Pz/+/v7//v7+//6+vr/+vr6//r6+v/6+vr/+vr6//r6+v8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=">
+<style>
+  :root {
+    color-scheme: light;
+    --page: #f9f9f7;
+    --surface-1: #fcfcfb;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+    --border: rgba(11, 11, 11, 0.10);
+    --series-1: #2a78d6;
+    --series-2: #008300;
+    --on-series: #ffffff;
+    --wash: rgba(42, 120, 214, 0.10);
+    --hover-wash: rgba(11, 11, 11, 0.05);
+    --warn: #a15c00;
+    --shadow: 0 6px 24px rgba(11, 11, 11, 0.18);
+    --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+    --glow: none;
+    --overlay: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-skin])) {
+      color-scheme: dark;
+      --page: #0d0d0d;
+      --surface-1: #1a1a19;
+      --text-primary: #ffffff;
+      --text-secondary: #c3c2b7;
+      --muted: #898781;
+      --grid: #2c2c2a;
+      --axis: #383835;
+      --border: rgba(255, 255, 255, 0.10);
+      --series-1: #3987e5;
+      --series-2: #008300;
+      --on-series: #ffffff;
+      --wash: rgba(57, 135, 229, 0.16);
+      --hover-wash: rgba(255, 255, 255, 0.06);
+      --warn: #e0a030;
+      --shadow: 0 6px 24px rgba(0, 0, 0, 0.55);
+      --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+      --glow: none;
+      --overlay: none;
+    }
+  }
+  :root[data-skin="paper"] {
+    color-scheme: light;
+    --page: #f9f9f7;
+    --surface-1: #fcfcfb;
+    --text-primary: #0b0b0b;
+    --text-secondary: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --axis: #c3c2b7;
+    --border: rgba(11, 11, 11, 0.10);
+    --series-1: #2a78d6;
+    --series-2: #008300;
+    --on-series: #ffffff;
+    --wash: rgba(42, 120, 214, 0.10);
+    --hover-wash: rgba(11, 11, 11, 0.05);
+    --warn: #a15c00;
+    --shadow: 0 6px 24px rgba(11, 11, 11, 0.18);
+    --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+    --glow: none;
+    --overlay: none;
+  }
+  :root[data-skin="dark"] {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface-1: #1a1a19;
+    --text-primary: #ffffff;
+    --text-secondary: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --axis: #383835;
+    --border: rgba(255, 255, 255, 0.10);
+    --series-1: #3987e5;
+    --series-2: #008300;
+    --on-series: #ffffff;
+    --wash: rgba(57, 135, 229, 0.16);
+    --hover-wash: rgba(255, 255, 255, 0.06);
+    --warn: #e0a030;
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.55);
+    --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+    --glow: none;
+    --overlay: none;
+  }
+  :root[data-skin="neuromancer"] {
+    color-scheme: dark;
+    --page: #0a0e14;
+    --surface-1: #111820;
+    --text-primary: #c6d3d6;
+    --text-secondary: #8fa3a7;
+    --muted: #6b8085;
+    --grid: #1b2733;
+    --axis: #2b3b48;
+    --border: rgba(0, 229, 255, 0.16);
+    --series-1: #00e5ff;
+    --series-2: #ff9d00;
+    --on-series: #0a0e14;
+    --wash: rgba(0, 229, 255, 0.14);
+    --hover-wash: rgba(0, 229, 255, 0.07);
+    --warn: #ff5f56;
+    --shadow: 0 6px 24px rgba(0, 0, 0, 0.65);
+    --font-ui: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+    --glow: 0 0 6px rgba(0, 229, 255, 0.35);
+    --overlay: repeating-linear-gradient(to bottom, rgba(0, 229, 255, 0.06) 0px, rgba(0, 229, 255, 0.06) 1px, transparent 1px, transparent 3px);
+  }
+  :root[data-skin="contrast"] {
+    color-scheme: dark;
+    --page: #000000;
+    --surface-1: #0a0a0a;
+    --text-primary: #ffffff;
+    --text-secondary: #e6e6e6;
+    --muted: #b8b8b8;
+    --grid: #3a3a3a;
+    --axis: #6a6a6a;
+    --border: rgba(255, 255, 255, 0.35);
+    --series-1: #4db8ff;
+    --series-2: #ffd400;
+    --on-series: #000000;
+    --wash: rgba(77, 184, 255, 0.22);
+    --hover-wash: rgba(255, 255, 255, 0.12);
+    --warn: #ff6b6b;
+    --shadow: 0 0 0 1px rgba(255, 255, 255, 0.45), 0 6px 24px rgba(0, 0, 0, 0.8);
+    --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+    --glow: none;
+    --overlay: none;
+  }
+  @media print {
+    :root, :root[data-skin] {
+      color-scheme: light;
+      --page: #f9f9f7;
+      --surface-1: #fcfcfb;
+      --text-primary: #0b0b0b;
+      --text-secondary: #52514e;
+      --muted: #898781;
+      --grid: #e1e0d9;
+      --axis: #c3c2b7;
+      --border: rgba(11, 11, 11, 0.10);
+      --series-1: #2a78d6;
+      --series-2: #008300;
+      --on-series: #ffffff;
+      --wash: rgba(42, 120, 214, 0.10);
+      --hover-wash: rgba(11, 11, 11, 0.05);
+      --warn: #a15c00;
+      --shadow: 0 6px 24px rgba(11, 11, 11, 0.18);
+      --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, "DejaVu Sans Mono", Consolas, monospace;
+      --glow: none;
+      --overlay: none;
+    }
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    /* Skin-supplied page texture (scanlines for the neon skin, `none`
+       everywhere else) painted as a background layer on the page ground.
+       An element's background always paints below all of its descendants, so
+       the texture can never land on a card, a table, the detail panel or a
+       tooltip -- it shows in the page's negative space only. An overlay
+       element positioned above the content cannot make that guarantee without
+       every content region opting out by z-index, which is how the first
+       attempt at this put scanlines across the detail panel and the heatmap
+       tooltip. Deliberately static, never animated. */
+    background: var(--page) var(--overlay);
+    color: var(--text-primary);
+    font: 14px/1.5 var(--font-ui);
+  }
+  .wrap { max-width: min(95vw, 2100px); margin: 0 auto; padding: 24px 20px 64px; }
+  header.top { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 24px; }
+  header.top .titles { flex: 1; min-width: 0; }
+  h1 { margin: 0 0 4px; font-size: 22px; font-weight: 600; letter-spacing: -0.01em; text-shadow: var(--glow); }
+  .sub { margin: 0; color: var(--text-secondary); font-size: 13px; }
+  .mono { font-family: var(--font-mono); font-size: 11px; }
+  button, select, input[type="search"] {
+    font: inherit;
+    color: var(--text-primary);
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+  }
+  button { cursor: pointer; }
+  button:hover { background: var(--hover-wash); }
+  button:focus-visible, select:focus-visible, input:focus-visible {
+    outline: 2px solid var(--series-1);
+    outline-offset: 2px;
+  }
+  .btn-ghost { background: transparent; }
+  section.card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .card-title { margin: 0 0 2px; font-size: 14px; font-weight: 600; }
+  .card-note { margin: 0 0 16px; color: var(--text-secondary); font-size: 12px; }
+  .tiles { display: flex; flex-wrap: wrap; gap: 28px; }
+  .tile-label { color: var(--text-secondary); font-size: 12px; }
+  .tile-value { font-size: 20px; font-weight: 600; }
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+  .filters input[type="search"] { min-width: 260px; }
+  .spacer { flex: 1; }
+  .count { color: var(--text-secondary); font-size: 13px; font-variant-numeric: tabular-nums; }
+  .explorer { display: grid; grid-template-columns: 1fr 380px; gap: 16px; align-items: start; }
+  @media (max-width: 1180px) { .explorer { grid-template-columns: 1fr; } }
+  .tbl-scroll { overflow: auto; height: 560px; }
+  table.data { border-collapse: collapse; width: 100%; font-size: 12px; }
+  table.data th, table.data td {
+    text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--grid); white-space: nowrap;
+  }
+  table.data th {
+    position: sticky; top: 0; background: var(--surface-1); font-weight: 600; z-index: 1;
+    border-bottom: 1px solid var(--axis);
+  }
+  table.data th.sortable { cursor: pointer; user-select: none; }
+  table.data th.sortable:hover { color: var(--series-1); }
+  table.data th.sortable::after { content: ""; margin-left: 4px; color: var(--series-1); }
+  table.data th.sortable.sort-active::after { content: "\25BE"; }
+  table.data td.num { font-variant-numeric: tabular-nums; }
+  /* Text columns grow with the viewport (floor keeps them readable, ceiling bounded). */
+  table.data td.wrap-cell, table.data th.wrap-cell {
+    white-space: normal; overflow-wrap: anywhere;
+    min-width: 200px; max-width: clamp(260px, 26vw, 640px);
+  }
+  table.data td.cell, table.data th.cell { padding: 6px 5px; text-align: center; }
+  table.data tbody tr:hover { background: var(--hover-wash); }
+  table.data tbody tr.sel { background: var(--wash); }
+  .empty { padding: 40px 8px; color: var(--text-secondary); font-size: 13px; }
+  .detail { position: sticky; top: 16px; }
+  .detail h3 { margin: 0 0 2px; font-size: 15px; font-weight: 600; word-break: break-all; }
+  .detail .species { color: var(--text-secondary); font-size: 12px; font-style: italic; margin-bottom: 14px; }
+  .field { margin-bottom: 12px; }
+  .field-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 3px; }
+  .field-value { font-size: 13px; word-break: break-word; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .chip {
+    display: inline-block; padding: 2px 7px; border: 1px solid var(--border); border-radius: 999px;
+    font-size: 11px; text-decoration: none; color: var(--text-primary); background: var(--page);
+  }
+  .chip:hover { border-color: var(--series-1); }
+  a.pfam-link { color: var(--series-1); text-decoration: none; }
+  a.pfam-link:hover { text-decoration: underline; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px; }
+  .links a, .links button {
+    font-size: 12px; padding: 5px 9px; border: 1px solid var(--border); border-radius: 6px;
+    text-decoration: none; color: var(--text-primary); background: var(--page);
+  }
+  .links a:hover, .links button:hover { border-color: var(--series-1); }
+  /* The "this protein has no annotation" follow-up cluster -- the population
+     this pipeline exists to surface, so it gets its own visible grouping
+     rather than being one more link in the row. */
+  .links-note {
+    font-size: 11px; color: var(--muted); margin: 8px 0 4px;
+  }
+  .badge {
+    display: inline-block; padding: 1px 6px; border-radius: 999px; font-size: 10.5px;
+    border: 1px solid var(--border); color: var(--text-secondary);
+  }
+  .badge.warn { color: var(--warn); border-color: var(--warn); }
+  .placeholder { color: var(--text-secondary); font-size: 13px; }
+  .hidden { display: none !important; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
+  @media print {
+    .filters, .tabs, header.top select, header.top button { display: none !important; }
+    .tbl-scroll { height: auto; overflow: visible; }
+    .explorer { grid-template-columns: 1fr; }
+  }
+
+  dialog.alignment {
+    max-width: min(92vw, 900px);
+    width: 100%;
+    max-height: 85vh;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-1);
+    color: var(--text-primary);
+    box-shadow: var(--shadow);
+  }
+  dialog.alignment::backdrop { background: rgba(0, 0, 0, 0.45); }
+  dialog.alignment .align-head {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 18px; border-bottom: 1px solid var(--border);
+  }
+  dialog.alignment .align-head h3 { margin: 0; font-size: 14px; font-weight: 600; flex: 1; min-width: 0; }
+  dialog.alignment .align-head h3 .align-uniprot-link {
+    font-weight: 400; font-size: 12px; color: var(--text-secondary); text-decoration: none;
+  }
+  dialog.alignment .align-head h3 .align-uniprot-link:hover { text-decoration: underline; }
+  dialog.alignment .align-stats {
+    padding: 10px 18px; font-size: 12px; color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+  }
+  dialog.alignment .align-body { padding: 12px 18px; overflow: auto; max-height: 60vh; }
+  dialog.alignment pre.align-block {
+    font-family: var(--font-mono); font-size: 11px; line-height: 1.5;
+    white-space: pre; margin: 0 0 10px;
+  }
+  dialog.alignment .align-empty { padding: 24px 4px; color: var(--text-secondary); font-size: 13px; }
+</style>
+<script>
+(function () {
+  try {
+    var v = localStorage.getItem("novinvenio.skin");
+    if (v && ["paper", "dark", "neuromancer", "contrast"].indexOf(v) >= 0) {
+      document.documentElement.setAttribute("data-skin", v);
+    }
+  } catch (e) { /* opaque file:// origin, or storage disabled */ }
+})();
+</script>
+</head>
+<body>
+
+  <dialog class="alignment" id="alignment-dialog">
+    <div class="align-head">
+      <h3 id="alignment-title"></h3>
+      <button type="button" class="btn-ghost" id="alignment-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="align-stats" id="alignment-stats"></div>
+    <div class="align-body" id="alignment-body"></div>
+  </dialog>
+
+<script>
+
+  (function () {
+    var shardCache = new Map(); // url -> Promise<Object>, cached by URL so two
+                                 // rapid clicks against the same genome never
+                                 // fire a second fetch (see #74 design notes).
+
+    function isGzip(bytes) {
+      return bytes.length >= 2 && bytes[0] === 0x1f && bytes[1] === 0x8b;
+    }
+
+    async function fetchDataShard(url) {
+      if (shardCache.has(url)) return shardCache.get(url);
+      var promise = (async function () {
+        var resp = await fetch(url);
+        if (!resp.ok) throw new Error("fetch " + url + ": " + resp.status);
+        var bytes = new Uint8Array(await resp.arrayBuffer());
+        var text;
+        if (isGzip(bytes)) {
+          if (typeof DecompressionStream === "undefined") {
+            throw new Error("DECOMPRESSION_UNSUPPORTED");
+          }
+          var stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+          text = await new Response(stream).text();
+        } else {
+          // Some hosts transparently decode gzip in transit (Content-Encoding) --
+          // if the bytes we got back aren't gzip-magic, treat them as already-
+          // decoded plain text rather than double-decompressing and throwing.
+          text = new TextDecoder("utf-8").decode(bytes);
+        }
+        return JSON.parse(text);
+      })();
+      shardCache.set(url, promise);
+      return promise;
+    }
+
+    // Positional match/mismatch line. tblastn is gapped by default, so qseq/
+    // sseq are always equal length (padded with '-') -- never assume ungapped.
+    function midline(qseq, sseq) {
+      var out = "";
+      for (var i = 0; i < qseq.length; i++) {
+        var a = qseq[i], b = sseq[i];
+        out += (a === "-" || b === "-") ? " " : (a === b ? "|" : " ");
+      }
+      return out;
+    }
+
+    // Query coordinates advance left-to-right per block (proteins have no
+    // strand, so they always increase). Subject coordinates are genomic
+    // nucleotide positions -- each residue of sseq corresponds to one codon
+    // (3 nt) -- and move in the direction given by sframe: increasing for a
+    // plus-strand hit (sframe > 0), decreasing for a minus-strand hit
+    // (sframe < 0). Gap columns ('-') consume a query/subject residue on one
+    // side only, so per-block spans are computed from each side's own
+    // non-gap character count, not the raw slice width.
+    function chunkAlignment(qseq, sseq, qstart, sstart, sframe, width) {
+      width = width || 60;
+      var mid = midline(qseq, sseq);
+      var strand = sframe < 0 ? -1 : 1;
+      var blocks = [];
+      var qi = qstart;
+      var si = sstart;
+      for (var off = 0; off < qseq.length; off += width) {
+        var qc = qseq.slice(off, off + width);
+        var sc = sseq.slice(off, off + width);
+        var mc = mid.slice(off, off + width);
+        var qConsumed = qc.replace(/-/g, "").length;
+        var sConsumed = sc.replace(/-/g, "").length;
+        var sSpanNt = sConsumed * 3;
+        var qBlockStart = qi;
+        var qBlockEnd = qi + qConsumed - 1;
+        var sBlockStart = si;
+        var sBlockEnd = strand > 0 ? si + sSpanNt - 1 : si - sSpanNt + 1;
+        blocks.push({
+          qstart: qBlockStart, qend: qBlockEnd, qseq: qc, mid: mc, sseq: sc,
+          sstart: sBlockStart, send: sBlockEnd,
+        });
+        qi += qConsumed;
+        si = strand > 0 ? sBlockEnd + 1 : sBlockEnd - 1;
+      }
+      return blocks;
+    }
+
+    // UniProt FASTA-header-style IDs look like "sp|P12345|NAME_ORG" or
+    // "tr|P12345|NAME_ORG" -- pull the accession out so the title can link
+    // straight to the UniProt entry (that's the fastest way to get the
+    // protein's real name today, short of embedding gene_name/description
+    // into the shard itself). Not every proteinId matches (e.g. test
+    // fixtures, or a future non-UniProt-sourced protein set), so this is a
+    // best-effort addition, not a required field.
+    function uniprotAccession(proteinId) {
+      var m = /^(?:sp|tr)\|([^|]+)\|/.exec(proteinId);
+      return m ? m[1] : null;
+    }
+
+    // queryDesc: the shard entry's own {gene_name?, description?} (schema v2) --
+    // the query protein's real name, not the target's (see lib/build_alignment_
+    // shards.py's module docstring). Undefined/empty fields are simply omitted,
+    // so a shard built before --descriptions was wired in (or a query with no
+    // matching FASTA header) still renders exactly as before.
+    function renderHit(dialogEls, proteinId, hit, queryDesc) {
+      dialogEls.title.textContent = "";
+      dialogEls.title.appendChild(document.createTextNode(proteinId));
+      var acc = uniprotAccession(proteinId);
+      if (acc) {
+        dialogEls.title.appendChild(document.createTextNode(" "));
+        var link = document.createElement("a");
+        link.href = "https://www.uniprot.org/uniprotkb/" + encodeURIComponent(acc);
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "align-uniprot-link";
+        link.textContent = "(UniProt ↗)";
+        dialogEls.title.appendChild(link);
+      }
+      dialogEls.title.appendChild(document.createTextNode(" vs " + hit.sseqid + " (" + hit.genome + ")"));
+      var alignedNote = hit.aligned_as ? (" (shown via cluster representative " + hit.aligned_as + ")") : "";
+      var queryNote = "";
+      if (queryDesc && (queryDesc.gene_name || queryDesc.description)) {
+        queryNote = "Query= " +
+          [queryDesc.gene_name, queryDesc.description].filter(Boolean).join(" ") + "  ";
+      }
+      dialogEls.stats.textContent =
+        queryNote +
+        "Subject= " + hit.sseqid + "  evalue=" + hit.evalue + "  bitscore=" + hit.bitscore +
+        "  pident=" + hit.pident.toFixed(1) + "%" +
+        "  length=" + hit.length + "  range=" + hit.sstart + "-" + hit.send +
+        " (frame " + hit.sframe + ")" + alignedNote;
+      dialogEls.body.textContent = "";
+      var blocks = chunkAlignment(hit.qseq, hit.sseq, hit.qstart, hit.sstart, hit.sframe);
+      // Pad every block's position numbers to the same width (the widest
+      // number seen across the whole HSP), so Query/Sbjct columns line up
+      // block to block the way NCBI BLAST's own text output does.
+      var numWidth = Math.max(
+        String(hit.qstart).length, String(hit.qend).length,
+        String(hit.sstart).length, String(hit.send).length
+      );
+      blocks.forEach(function (b) {
+        var pre = document.createElement("pre");
+        pre.className = "align-block";
+        var qLabel = "Query  " + String(b.qstart).padStart(numWidth, " ") + "  ";
+        var sLabel = "Sbjct  " + String(b.sstart).padStart(numWidth, " ") + "  ";
+        var labelWidth = Math.max(qLabel.length, sLabel.length);
+        qLabel = qLabel.padEnd(labelWidth, " ");
+        sLabel = sLabel.padEnd(labelWidth, " ");
+        pre.textContent =
+          qLabel + b.qseq + "  " + b.qend + "\n" +
+          " ".repeat(labelWidth) + b.mid + "\n" +
+          sLabel + b.sseq + "  " + b.send;
+        dialogEls.body.appendChild(pre);
+      });
+    }
+
+    function renderEmpty(dialogEls, message) {
+      dialogEls.title.textContent = "";
+      dialogEls.stats.textContent = "";
+      dialogEls.body.textContent = "";
+      var p = document.createElement("p");
+      p.className = "align-empty";
+      p.textContent = message;
+      dialogEls.body.appendChild(p);
+    }
+
+    function dialogEls() {
+      return {
+        dialog: document.getElementById("alignment-dialog"),
+        title: document.getElementById("alignment-title"),
+        stats: document.getElementById("alignment-stats"),
+        body: document.getElementById("alignment-body"),
+      };
+    }
+
+    async function open(baseUrl, genome, proteinId, hitIndex) {
+      var els = dialogEls();
+      if (!els.dialog) return; // page didn't include ALIGNMENT_POPUP_HTML
+      els.dialog.showModal();
+      renderEmpty(els, "Loading alignment...");
+      try {
+        var shard = await fetchDataShard(baseUrl + genome + ".json.gz");
+        // Schema v2: shard[proteinId] = {hits: [...], gene_name?, description?}.
+        // Schema v1 (pre-existing shards not yet rebuilt by a real pipeline run since
+        // the v2 upgrade -- the report HTML embedding this script can be regenerated
+        // standalone by bin/sync_reports.sh well before the shard files themselves
+        // are, since those only come from an actual BUILD_ALIGNMENT_SHARDS run):
+        // shard[proteinId] is the bare hits array itself, with no query name/
+        // description available. Detect which shape this is rather than assuming
+        // v2 and silently reporting "no archived alignment" for real v1 data.
+        var raw = shard[proteinId];
+        var hits, queryDesc;
+        if (Array.isArray(raw)) {
+          hits = raw;
+          queryDesc = null;
+        } else {
+          hits = raw && raw.hits;
+          queryDesc = raw;
+        }
+        if (!hits || !hits.length) {
+          renderEmpty(els, "No archived alignment for " + proteinId + " vs " + genome + ".");
+          return;
+        }
+        renderHit(els, proteinId, hits[hitIndex || 0], queryDesc);
+      } catch (err) {
+        if (err && err.message === "DECOMPRESSION_UNSUPPORTED") {
+          renderEmpty(els, "Alignment viewer requires a modern browser (Chrome/Firefox/Safari, last ~2 years).");
+        } else {
+          renderEmpty(els, "Could not load alignment data (" + (err && err.message ? err.message : err) + ").");
+        }
+      }
+    }
+
+    // Shared click-handler entry point (issue #86): a plain click opens the
+    // in-page dialog; Ctrl/Cmd-click opens the standalone alignment.html
+    // page in a new tab instead -- a real bookmarkable URL, same convention
+    // as any ordinary link's modifier-click behaviour. alignment.html lives
+    // alongside the calling report (docs/<project>/alignment.html), so a
+    // bare relative href resolves correctly from either novelties.html or
+    // losses.html.
+    function openOrNewTab(baseUrl, genome, proteinId, ev, hitIndex) {
+      if (ev && (ev.ctrlKey || ev.metaKey)) {
+        var qs = "dir=" + encodeURIComponent(baseUrl) +
+          "&genome=" + encodeURIComponent(genome) +
+          "&protein=" + encodeURIComponent(proteinId) +
+          (hitIndex ? "&hit=" + encodeURIComponent(hitIndex) : "");
+        window.open("alignment.html?" + qs, "_blank", "noopener");
+        return;
+      }
+      open(baseUrl, genome, proteinId, hitIndex);
+    }
+
+    function wireClose() {
+      var els = dialogEls();
+      if (!els.dialog) return;
+      var closeBtn = document.getElementById("alignment-close");
+      if (closeBtn) closeBtn.addEventListener("click", function () { els.dialog.close(); });
+      els.dialog.addEventListener("click", function (ev) {
+        if (ev.target === els.dialog) els.dialog.close(); // click on backdrop
+      });
+    }
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", wireClose);
+    } else {
+      wireClose();
+    }
+
+    window.NIAlignments = { open: open, openOrNewTab: openOrNewTab, fetchDataShard: fetchDataShard };
+  })();
+
+(function () {
+  var params = new URLSearchParams(location.search);
+  var dir = params.get("dir") || "alignments/";
+  var genome = params.get("genome");
+  var protein = params.get("protein");
+  var hitIndex = params.get("hit") ? parseInt(params.get("hit"), 10) : 0;
+  if (genome && protein) {
+    document.title = protein + " vs " + genome + " — TBLASTN alignment";
+    window.NIAlignments.open(dir, genome, protein, hitIndex);
+  }
+})();
+
+</script>
+</body>
+</html>

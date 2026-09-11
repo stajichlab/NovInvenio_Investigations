@@ -20,4 +20,5 @@ export NII_PIPELINE="$NOVINVENIO_ROOT/main.nf"
 "$NII_ROOT/bin/run_study.sh" fungi/mushrooms_tremella \
     -profile slurm \
     -c "$NOVINVENIO_ROOT/conf/ucr_hpcc_slurm.config" \
-    --modelorgs_config "$NOVINVENIO_ROOT/configs/modelorgs.yaml"
+    --modelorgs_config "$NOVINVENIO_ROOT/configs/modelorgs.yaml" \
+    -resume

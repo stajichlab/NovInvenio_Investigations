@@ -44,7 +44,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Merge alignment + report release assets into docs/
         env:
           GH_TOKEN: ${{ github.token }}
@@ -86,9 +86,9 @@ jobs:
             echo "merged $tag -> $dest"
           done
       - name: Setup Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           # Upload entire repository (docs/, now including the merged shards --
           # this merged tree is never written back to git, only to the runner's

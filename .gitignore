@@ -35,6 +35,19 @@ view/
 docs/*/*/alignments/
 docs/*/*/loss_alignments/
 
+# Report HTML/PDF (novelties/core/losses.html, summary.pdf) -- same reasoning as
+# alignments/ above: these embed real candidate sequence text and grow with the
+# data (one real case reached 105MB, over GitHub's 100MB file limit, 2026-09-10).
+# Published as a GitHub Release asset (bin/publish_report_release.sh) instead of
+# committed, merged into docs/ only at Pages-deploy time (.github/workflows/
+# static.yml). report.html (the small, stable per-study landing page) and
+# alignment.html (the small static viewer shell) are NOT part of this -- neither
+# grows with candidate data, both stay git-tracked normally.
+docs/*/*/novelties.html
+docs/*/*/core.html
+docs/*/*/losses.html
+docs/*/*/summary.pdf
+
 # pixi
 .pixi/*
 !.pixi/config.toml
