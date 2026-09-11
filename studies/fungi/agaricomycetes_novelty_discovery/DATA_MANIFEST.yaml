@@ -1,0 +1,16 @@
+- local_path: studies/fungi/agaricomycetes_novelty_discovery/data_dir/pep/Ncra.pep.fa
+  source_url: https://fungidb.org/
+  source_release: FungiDB direct download, Neurospora crassa OR74A (manual download,
+    exact FungiDB release/date not recorded at download time)
+  access_date: '2026-09-11T22:12:20Z'
+  checksum_sha256: 8380e4396f2c01211b0eda883e888fcca7cb2aca341e9507e4b51d686bc5e24b
+  license: FungiDB data usage terms (https://fungidb.org/fungidb/app/staticContent/dataAccessPolicy.html)
+  derived_by: Manually downloaded from FungiDB. Resolved via a symlink chain -- studies/fungi/agaricomycetes_novelty_discovery/data_dir
+    is itself a symlink to agaricomycetes_pairwise/data_dir (studies sharing one data_dir,
+    see run_params.txt), whose pep/Ncra.pep.fa symlinks to
+    /bigdata/stajichlab/jstajich/projects/NovInvenio/data/agaricomycetes_v1/pep/Neurospora_crassa.faa,
+    which itself symlinks to the true underlying file,
+    /bigdata/stajichlab/jstajich/projects/NovInvenio/data/pep/Neurospora_crassa_OR74A.pep.fa
+    (10,813 proteins, confirmed 2026-09-11 -- not the ~10-gene subset it was
+    initially mistaken for during a truncated-diff review).
+  pulled_with: manual (ad hoc python one-liner using lib/provenance.py, run 2026-09-11)
