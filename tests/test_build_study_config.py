@@ -138,3 +138,116 @@ def test_unknown_source_errors(tmp_path, monkeypatch):
         assert False, "expected SystemExit"
     except SystemExit as e:
         assert "bogus" in str(e)
+
+
+def test_ncbi_genome_with_local_gff3(tmp_path, monkeypatch):
+    # Arrange: NCBI genome but local GFF3 (local overrides NCBI's GFF3)
+    study_dir = tmp_path / "studies" / "bacteria" / "toy_study3"
+    study_dir.mkdir(parents=True)
+    local_faa = tmp_path / "src" / "Sp3.faa"
+    local_faa.parent.mkdir(parents=True)
+    local_faa.write_text(">seq3\nMCCC\n")
+    local_gff3 = tmp_path / "src" / "Sp3.gff3"
+    local_gff3.write_text("##gff-version 3\ncontig1\t.\tgene\t1\t100\t.\t+\t.\tID=gene1\n")
+
+    ncbi_cache = tmp_path / "data/ncbi"
+    genome_dir = ncbi_cache / "GCF_000000002.1" / "extracted" / "ncbi_dataset" / "data" / "GCF_000000002.1"
+    genome_dir.mkdir(parents=True)
+    (genome_dir / "genomic.fna").write_text(">contig3\nGGGG\n")
+    (genome_dir / "genomic.gff").write_text("##gff-version 3\ncontig3\t.\tgene\t1\t50\t.\t+\t.\tID=ncbi_gene1\n")
+
+    _write_species_csv(study_dir / "species.csv", [{
+        "Short": "Sp3", "Species": "Test species 3", "Strain": "T3",
+        "Group": "IN", "TaxonGroup": "TestGroup",
+        "Protein_Source": "local_faa", "Protein_Accession": str(local_faa),
+        "Taxon_ID": "",
+        "Genome_Source": "ncbi", "Genome_Accession": "GCF_000000002.1",
+        "GFF3_Source": "local_gff3", "GFF3_Accession": str(local_gff3),
+    }])
+
+    calls = []
+
+    def fake_run(cmd):
+        calls.append(cmd)
+
+    monkeypatch.setattr(bsc, "run", fake_run)
+    monkeypatch.setattr(sys, "argv", [
+        "build_study_config.py",
+        "--study-dir", str(study_dir),
+        "--uniprot-cache", str(tmp_path / "data/uniprot"),
+        "--ncbi-cache", str(ncbi_cache),
+    ])
+
+    rc = bsc.main()
+
+    assert rc == 0
+    config_csv = study_dir / "config.csv"
+    with open(config_csv, newline="") as fh:
+        row = next(csv.DictReader(fh))
+    # Verify genome and GFF3 were used
+    assert row["DNA"] == "Sp3.dna.fa"
+    assert row["GFF3"] == "Sp3.gff3"
+    assert (study_dir / "data_dir" / "dna" / "Sp3.dna.fa").read_text() == ">contig3\nGGGG\n"
+    # Verify local GFF3 was copied (not NCBI's)
+    assert (study_dir / "data_dir" / "gff3" / "Sp3.gff3").read_text() == "##gff-version 3\ncontig1\t.\tgene\t1\t100\t.\t+\t.\tID=gene1\n"
+    # Verify both local and NCBI provenance are in manifest
+    manifest = (study_dir / "DATA_MANIFEST.yaml").read_text()
+    assert str(local_gff3) in manifest  # local GFF3 source recorded
+    assert "source_url:" in manifest
+
+
+def test_ncbi_genome_with_gff3_none(tmp_path, monkeypatch):
+    # Arrange: NCBI genome available but explicitly declined (GFF3_Source=none).
+    # This tests the bug fix: provenance should NOT include the declined GFF3.
+    study_dir = tmp_path / "studies" / "bacteria" / "toy_study4"
+    study_dir.mkdir(parents=True)
+    local_faa = tmp_path / "src" / "Sp4.faa"
+    local_faa.parent.mkdir(parents=True)
+    local_faa.write_text(">seq4\nMDDD\n")
+
+    ncbi_cache = tmp_path / "data/ncbi"
+    genome_dir = ncbi_cache / "GCF_000000003.1" / "extracted" / "ncbi_dataset" / "data" / "GCF_000000003.1"
+    genome_dir.mkdir(parents=True)
+    (genome_dir / "genomic.fna").write_text(">contig4\nAAAA\n")
+    (genome_dir / "genomic.gff").write_text("##gff-version 3\ncontig4\t.\tgene\t1\t30\t.\t+\t.\tID=ncbi_gene\n")
+
+    _write_species_csv(study_dir / "species.csv", [{
+        "Short": "Sp4", "Species": "Test species 4", "Strain": "T4",
+        "Group": "OUT", "TaxonGroup": "TestGroup",
+        "Protein_Source": "local_faa", "Protein_Accession": str(local_faa),
+        "Taxon_ID": "",
+        "Genome_Source": "ncbi", "Genome_Accession": "GCF_000000003.1",
+        "GFF3_Source": "none", "GFF3_Accession": "",
+    }])
+
+    calls = []
+
+    def fake_run(cmd):
+        calls.append(cmd)
+
+    monkeypatch.setattr(bsc, "run", fake_run)
+    monkeypatch.setattr(sys, "argv", [
+        "build_study_config.py",
+        "--study-dir", str(study_dir),
+        "--uniprot-cache", str(tmp_path / "data/uniprot"),
+        "--ncbi-cache", str(ncbi_cache),
+    ])
+
+    rc = bsc.main()
+
+    assert rc == 0
+    config_csv = study_dir / "config.csv"
+    with open(config_csv, newline="") as fh:
+        row = next(csv.DictReader(fh))
+    # Verify genome was used but GFF3 was declined
+    assert row["DNA"] == "Sp4.dna.fa"
+    assert row["GFF3"] == ""
+    assert (study_dir / "data_dir" / "dna" / "Sp4.dna.fa").read_text() == ">contig4\nAAAA\n"
+    # Verify GFF3 directory was NOT created (file was not copied)
+    gff3_file = study_dir / "data_dir" / "gff3" / "Sp4.gff3"
+    assert not gff3_file.exists(), "GFF3 file should not exist when GFF3_Source=none"
+    # BUG FIX REGRESSION TEST: Verify manifest does NOT contain provenance for the declined NCBI GFF3
+    manifest = (study_dir / "DATA_MANIFEST.yaml").read_text()
+    # Count lines with "genomic.gff" -- should be 0 (not used, so no provenance)
+    gff_lines = [line for line in manifest.split("\n") if "genomic.gff" in line]
+    assert len(gff_lines) == 0, f"Manifest should not contain provenance for declined GFF3, but found: {gff_lines}"

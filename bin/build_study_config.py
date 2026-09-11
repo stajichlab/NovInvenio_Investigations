@@ -169,16 +169,21 @@ def resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records
         dna_out = dna_dir / f"{stem}.dna.fa"
         shutil.copyfile(fna_candidates[0], dna_out)
         dna_out_name = dna_out.name
-        for f in (fna_candidates[:1] + gff_candidates[:1]):
-            sc = f.with_suffix(f.suffix + ".provenance.yaml")
-            if sc.exists():
-                manifest_records.append(load_provenance(sc))
+        # Load provenance for the genome file (always used)
+        sc = fna_candidates[0].with_suffix(fna_candidates[0].suffix + ".provenance.yaml")
+        if sc.exists():
+            manifest_records.append(load_provenance(sc))
+        # Determine which GFF3 to use, if any: gffsource=="none" suppresses NCBI GFF3
         if gffsource == "none":
             gff_candidates = []
         if gffsource == "" and gff_candidates:
             gff3_dir.mkdir(parents=True, exist_ok=True)
             gff3_out_name = f"{stem}.gff3"
             shutil.copyfile(gff_candidates[0], gff3_dir / gff3_out_name)
+            # Load provenance for the GFF3 file (only if we actually use it)
+            sc = gff_candidates[0].with_suffix(gff_candidates[0].suffix + ".provenance.yaml")
+            if sc.exists():
+                manifest_records.append(load_provenance(sc))
     elif gsource == "local_genome":
         src = Path(gaccession)
         if not src.exists():
