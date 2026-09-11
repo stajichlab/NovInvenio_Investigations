@@ -66,3 +66,6 @@ __pycache__/
 .claude/*.log
 .claude/settings.local.json
 .mycelium/locks/
+
+# Local git worktrees (superpowers:using-git-worktrees)
+.worktrees/
