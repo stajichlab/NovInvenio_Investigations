@@ -1,0 +1,27 @@
+# Extra nextflow params for this study, applied by bin/run_study.sh before any
+# args passed on the command line (so a command-line arg can still override one
+# of these). One flag/value per line; '#' starts a comment; blank lines ignored.
+#
+# All paths below are absolute: nf_NovInvenio's file(params.X) calls resolve a
+# relative path against the nextflow process's own launch cwd (NII's repo root),
+# not against the NovInvenio checkout the db/ files actually live under.
+
+# diamond over phmmer: matches this repo's convention for other bacteria
+# studies (UHM_Koxytoca); 9 genomes is small enough that either tool finishes
+# quickly, but diamond keeps the convention consistent.
+--run_tool diamond
+
+# pairwise clustering -- standard IN vs OUT novelty/loss comparison (4 OUT
+# unclassified UHM MAG bins vs. 5 IN: 1 more unclassified MAG bin + 4 named
+# Lachnospiraceae/Lacrimispora/Enterocloster reference genomes). Same choice
+# as UHM_Koxytoca, for the same reason -- this study has plain IN/OUT groups,
+# not novelty_discovery's DISCOVERY_TARGET/DISCOVERY_OUT/NEAR_INGROUP/
+# BROAD_OUTGROUP scheme.
+--cluster_tool pairwise
+
+# None of these proteomes (local MAG bins or NCBI RefSeq genomes) carry
+# precomputed Pfam/GO/InterPro cross-references, so a fresh hmmscan/diamond-
+# vs-swissprot annotation pass is the only annotation source here -- same
+# reasoning as UHM_Koxytoca's run_params.txt.
+--pfam_hmm /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/38.2/Pfam-A.hmm
+--swissprot_dmnd /bigdata/stajichlab/jstajich/projects/NovInvenio/db/uniprot/uniprot_sprot.fasta.dmnd
