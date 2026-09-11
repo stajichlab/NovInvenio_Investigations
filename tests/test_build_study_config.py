@@ -305,3 +305,76 @@ def test_ncbi_sourced_protein(tmp_path, monkeypatch):
     assert (study_dir / "data_dir" / "pep" / "Sp5.pep.fa").read_text() == ">prot1\nMEEE\n"
     assert (study_dir / "data_dir" / "dna" / "Sp5.dna.fa").read_text() == ">chr1\nCCCC\n"
     assert (study_dir / "data_dir" / "gff3" / "Sp5.gff3").read_text() == "##gff-version 3\nchr1\t.\tgene\t1\t20\t.\t+\t.\tID=gene1\n"
+
+
+def test_uniprot_sourced_protein(tmp_path, monkeypatch):
+    # Arrange: Protein_Source=uniprot -- pre-seed the uniprot cache the way
+    # fetch_uniprot_proteome.py would, so we test build_study_config.py's own
+    # cache-reading logic (resolve_protein's uniprot branch), not the network
+    # fetch itself. Run with --skip-fetch so fetch_uniprot_proteome.py must NOT
+    # be invoked; a .dat.gz sidecar is also seeded so we can verify main()
+    # invokes extract_dat_annotations.py against it.
+    study_dir = tmp_path / "studies" / "fungi" / "toy_study6"
+    study_dir.mkdir(parents=True)
+    local_genome = tmp_path / "src" / "Sp6.fna"
+    local_genome.parent.mkdir(parents=True)
+    local_genome.write_text(">contig6\nGATC\n")
+
+    proteome_id = "UP000001"
+    taxid = "9606"
+    stem = f"{proteome_id}_{taxid}"
+    uniprot_cache = tmp_path / "data/uniprot"
+    proteome_dir = uniprot_cache / proteome_id
+    proteome_dir.mkdir(parents=True)
+    with gzip.open(proteome_dir / f"{stem}.fasta.gz", "wt") as fh:
+        fh.write(">seq\nMAAA\n")
+    with gzip.open(proteome_dir / f"{stem}.dat.gz", "wt") as fh:
+        fh.write("ID   dummy\n")
+
+    _write_species_csv(study_dir / "species.csv", [{
+        "Short": "Sp6", "Species": "Test species 6", "Strain": "T6",
+        "Group": "IN", "TaxonGroup": "TestGroup",
+        "Protein_Source": "uniprot", "Protein_Accession": proteome_id,
+        "Taxon_ID": taxid,
+        "Genome_Source": "local_genome", "Genome_Accession": str(local_genome),
+        "GFF3_Source": "", "GFF3_Accession": "",
+    }])
+
+    calls = []
+
+    def fake_run(cmd):
+        calls.append(cmd)
+
+    monkeypatch.setattr(bsc, "run", fake_run)
+    monkeypatch.setattr(sys, "argv", [
+        "build_study_config.py",
+        "--study-dir", str(study_dir),
+        "--uniprot-cache", str(uniprot_cache),
+        "--ncbi-cache", str(tmp_path / "data/ncbi"),
+        "--skip-fetch",
+    ])
+
+    rc = bsc.main()
+
+    assert rc == 0
+    # --skip-fetch means fetch_uniprot_proteome.py must NOT have been called.
+    assert not any("fetch_uniprot_proteome.py" in str(c) for call in calls for c in call), \
+        f"fetch_uniprot_proteome.py should not run with --skip-fetch, got: {calls}"
+    # extract_dat_annotations.py IS run unconditionally by main() once dat_gz
+    # is present (not gated by --skip-fetch).
+    dat_gz = proteome_dir / f"{stem}.dat.gz"
+    assert any(
+        "extract_dat_annotations.py" in str(c) for call in calls for c in call
+    ), f"expected extract_dat_annotations.py invocation, got: {calls}"
+    assert any(str(dat_gz) in call for call in calls), \
+        f"expected extract_dat_annotations.py called with --dat-gz {dat_gz}, got: {calls}"
+
+    config_csv = study_dir / "config.csv"
+    with open(config_csv, newline="") as fh:
+        row = next(csv.DictReader(fh))
+    assert row["Short"] == "Sp6"
+    # Stem naming: uniprot-sourced protein keeps the <proteome_id>_<taxid> stem.
+    assert row["Protein"] == f"{stem}.pep.fa"
+    assert (study_dir / "data_dir" / "pep" / f"{stem}.pep.fa").read_text() == ">seq\nMAAA\n"
+    assert row["DNA"] == f"{stem}.dna.fa"
+    assert (study_dir / "data_dir" / "dna" / f"{stem}.dna.fa").read_text() == ">contig6\nGATC\n"

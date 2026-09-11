@@ -30,6 +30,10 @@ full schema rationale.
    - A bare UniProt proteome ID (no local file at all) is `Protein_Source=uniprot`
      (needs a `Taxon_ID` too — look it up via UniProt if the user hasn't given
      one).
+   - A species with no UniProt reference proteome, whose protein comes from the
+     same NCBI Datasets genome package as its genome, is `Protein_Source=ncbi`
+     with `Protein_Accession` = the same `GCF_*`/`GCA_*` accession as
+     `Genome_Accession`.
 
 3. **Get real `Species`/`Strain`/`TaxonGroup` values from the user.** Filenames
    (MAG bin IDs, accessions) are not species names. Do not fabricate a
@@ -41,7 +45,10 @@ full schema rationale.
 4. **Write `species.csv`** with the header:
    `Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession`
    `Group` is `IN` or `OUT`. Leave `GFF3_Source`/`GFF3_Accession` blank unless the
-   user has an explicit local GFF3 to attach.
+   user has an explicit local GFF3 to attach. Setting `GFF3_Source=none` forces
+   the GFF3 cell to stay empty even when `Genome_Source=ncbi` would otherwise
+   supply a GFF3 from that same NCBI Datasets package — use it when a study
+   wants to explicitly decline an NCBI-provided GFF3.
 
 5. **Run** `pixi run python bin/build_study_config.py --study-dir studies/<domain>/<set_name>`.
    Fix any `ERROR:` it reports (missing file, unknown Source value) before moving on.

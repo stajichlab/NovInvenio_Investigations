@@ -18,6 +18,18 @@
 # and OUT (Genome_Source=ncbi) rows -- VALIDATE's outgroup-only behavior comes
 # from nf_NovInvenio filtering on the Group column, not from DNA being absent
 # for the ingroup.
+#
+# SCOPE CHANGE from the same 2026-09-11 migration: main.nf's LOSS_VALIDATE
+# (the loss-direction counterpart of VALIDATE, run whenever cluster_tool !=
+# 'novelty_discovery' -- true here, ~main.nf:344-345) is fed `ingroup_dna_ch`
+# (~main.nf:121), i.e. the Group=IN rows' DNA. Before this migration, the old
+# per-study script never populated ingroup DNA at all, so ingroup_dna_ch was
+# empty and LOSS_VALIDATE's TBLASTN step had nothing to run against for this
+# study. Now that the 18 ingroup MAG genomes have real DNA
+# (Genome_Source=local_genome) for the first time, the next pipeline run will,
+# for the first time, execute LOSS_VALIDATE's TBLASTN against all 18 ingroup
+# MAG genomes -- a real increase in scientific scope and compute cost versus
+# prior runs of this study, not just a file-naming/config change.
 --cluster_tool pairwise
 
 # Pfam-A + SwissProt-diamond annotation: unlike the UniProt-sourced fungal
