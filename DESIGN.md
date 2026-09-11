@@ -210,6 +210,20 @@ needed for GO-DAG structure/true-path propagation if `goatools` is to do full GO
 enrichment properly. This needs the same provenance treatment as UniProt (§4): recipe-
 driven pull, version/date recorded, not archived.
 
+**2026-09-11 update — `species.csv`/`bin/build_study_config.py` generalized beyond
+UniProt+NCBI-only.** This section (and §4) describe the UniProt/NCBI pulls this
+repo started with; those remain the default path, but `bin/build_study_config.py`
+now dispatches each species' protein/genome/GFF3 *independently* via its own
+`Protein_Source`/`Genome_Source`/`GFF3_Source` `species.csv` columns — `uniprot`
+(as above), `ncbi` (protein pulled from the same NCBI Datasets genome package,
+for species with no UniProt reference proteome), `local_faa`/`local_genome`/
+`local_gff3` (an already-downloaded file, copied in with a provenance record per
+§4's rule, no fetch). This exists because bacteria studies (`UHM_Koxytoca`,
+`UHM_lachnoNovelclade`) routinely combine sources this way — one species'
+protein already sitting on disk, its genome still needing an NCBI pull. Full
+rationale, schema, and migration record:
+`notes/superpowers/specs/2026-09-11-study-onboarding-design.md`.
+
 ## 6. First study: `fungi/pezizo_set1`
 
 Originally scoped as `pezizo5` minus Nirr/Mcir/Amega (8 species), but the independent

@@ -80,7 +80,10 @@ bin/run_study.sh fungi/pezizo_set1 --run_tool diamond --pfam_hmm /path/to/Pfam-A
 ```
 
 Builds `studies/<domain>/<set>/config.csv` + `data_dir/` from `species.csv` (via
-`bin/build_study_config.py`, which drives the two fetch scripts per species) if not
+`bin/build_study_config.py`, which dispatches each species' protein/genome/GFF3
+independently to a UniProt fetch, an NCBI Datasets fetch, or a local-file copy per
+its `Protein_Source`/`Genome_Source`/`GFF3_Source` columns — see
+`notes/superpowers/specs/2026-09-11-study-onboarding-design.md`) if not
 already built, then invokes `nf_NovInvenio` against it. See `bin/run_study.sh`'s header
 comment for the `NII_PIPELINE` override needed until the `NovInvenio` → `nf_NovInvenio`
 rename actually happens.
@@ -100,7 +103,7 @@ rename actually happens.
 
 `bin/` is for scripts any study could call, parameterized by CLI args (`fetch_uniprot_proteome.py --proteome-id ...`, `build_study_config.py --study-dir ...`). A script belongs in `studies/<domain>/<set_name>/bin/` instead the moment it stops being reusable in that sense — the giveaway is usually right there in the name or the body:
 
-- The filename itself names a study, species, or one-off dataset (`build_koxytoca_config.py`, `fetch_kpn78578_modelorg.py`) rather than a general source/action (`fetch_uniprot_proteome.py`).
+- The filename itself names a study, species, or one-off dataset (`build_akkermansia_config.py`, `fetch_kpn78578_modelorg.py`) rather than a general source/action (`fetch_uniprot_proteome.py`).
 - It hardcodes a species list, an accession list, or a specific study's directory layout instead of taking them as arguments.
 - It exists to solve one study's particular data-shape problem (e.g. proteomes that are already local files instead of a UniProt/NCBI pull-per-species) rather than a recipe any study would reuse.
 
