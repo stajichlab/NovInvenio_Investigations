@@ -1,1 +1,8 @@
-/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/config.csv
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Schizophyllum commune,H4-8,Scom.pep.fa,Scom.dna.fa,Scom.gff3,Scom,Agaricales
+IN,Coprinopsis cinerea,Okayama7#130,Ccin.pep.fa,Ccin.dna.fa,Ccin.gff3,Ccin,Agaricales
+IN,Agaricus bisporus var. burnettii,JB137-S8,Agbi.pep.fa,Agbi.dna.fa,Agbi.gff3,Agbi,Agaricales
+IN,Laccaria bicolor,S238N-H82,Lbic.pep.fa,Lbic.dna.fa,Lbic.gff3,Lbic,Agaricales
+OUT,Cryptococcus neoformans,H99,Cneo.pep.fa,Cneo.dna.fa,Cneo.gff3,Cneo,Tremellomycetes
+OUT,Ustilago maydis,521,Umay.pep.fa,Umay.dna.fa,Umay.gff3,Umay,Ustilaginomycotina
+OUT,Rhodotorula toruloides,NP11,Rtor.pep.fa,Rtor.dna.fa,Rtor.gff3,Rtor,Pucciniomycotina
