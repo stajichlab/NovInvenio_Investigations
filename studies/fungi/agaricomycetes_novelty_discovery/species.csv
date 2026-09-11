@@ -6,4 +6,4 @@ Lbic,Laccaria bicolor,S238N-H82,NEAR_INGROUP,Agaricales,uniprot,UP000001194,4860
 Cneo,Cryptococcus neoformans,H99,DISCOVERY_OUT,Tremellomycetes,uniprot,UP000010091,235443,ncbi,GCA_000149245.1,,
 Umay,Ustilago maydis,521,DISCOVERY_OUT,Ustilaginomycotina,uniprot,UP000000561,5270,ncbi,GCA_000328475.2,,
 Rtor,Rhodotorula toruloides,NP11,DISCOVERY_OUT,Pucciniomycotina,uniprot,UP000016926,1130832,ncbi,GCA_000320785.1,,
-Ncra,Neurospora crassa,OR74A,BROAD_OUTGROUP,Pezizomycotina,uniprot,UP000001805,367110,ncbi,GCA_000182925.2,,
+Ncra,Neurospora crassa,OR74A,BROAD_OUTGROUP,Pezizomycotina,,,367110,,,
