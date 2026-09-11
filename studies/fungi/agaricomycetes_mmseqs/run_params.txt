@@ -1,0 +1,22 @@
+# Same config.csv/data_dir as studies/fungi/agaricomycetes_pairwise/ (symlinked)
+# -- this study exists to compare --cluster_tool mmseqs (the family-profile
+# pathway, ADR-0002) against agaricomycetes_pairwise's own --cluster_tool
+# pairwise (default) run, same pattern as pezizo_set1 vs pezizo_set1_cluster.
+
+--run_tool diamond
+--cluster_tool mmseqs
+
+# hmm_presence_cov 0.3 + hmm_presence_min_residues 100: current recommended
+# pairing per NovInvenio CLAUDE.md (the 0.5 default rejects 83% of otherwise-
+# significant hits on HMMs >600aa) -- carried over from pezizo_set1_cluster's
+# own run_params.txt.
+--hmm_presence_cov 0.3
+--hmm_presence_min_residues 100
+
+# hmm_presence_domain_evalue 0.01: fixes the promiscuous-domain-fragment false-
+# positive found 2026-09-10 (bZIP/WD40 cross-hits merging past
+# hmm_presence_min_residues with no real full-protein homology behind them --
+# see NovInvenio commit 06a2468). Not yet swept/validated against a broader
+# dataset (todo/validate-hmm-presence-coverage-broader-sweep.md in the
+# NovInvenio repo) -- this study is itself part of gathering that evidence.
+--hmm_presence_domain_evalue 0.01

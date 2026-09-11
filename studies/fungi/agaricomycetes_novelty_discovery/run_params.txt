@@ -1,0 +1,23 @@
+# Two-phase targeted novelty pipeline (--cluster_tool novelty_discovery).
+# DISCOVERY_TARGET = Scom+Ccin+Agbi (3 genomes -- avoids the documented single-
+# target-genome family-clustering gap). DISCOVERY_OUT = Cneo+Umay+Rtor (the
+# true distant outgroups, used here for phase-1's absence call rather than a
+# close reference panel -- with only 8 species total to split five ways, this
+# maximizes what a "novel vs DISCOVERY_OUT" call actually means). NEAR_INGROUP =
+# Lbic alone, so phase 2 can produce target_specific vs clade_specific.
+# BROAD_OUTGROUP = Ncra (Neurospora crassa, Pezizomycotina -- genuinely outside
+# Basidiomycota entirely, unlike DISCOVERY_OUT's Cneo/Umay/Rtor which are all
+# still Basidiomycota), so phase 2 can also produce false_novelty: a candidate
+# absent from Cneo/Umay/Rtor but conserved in Ncra is broadly conserved beyond
+# Basidiomycota, not a real lineage-restricted novelty. Originally launched with
+# zero BROAD_OUTGROUP rows (a real gap this run's first attempt surfaced --
+# NovInvenio issue #94, modules/summarize_tblastn.nf crashed rather than
+# degrading gracefully); Ncra added instead of leaving it empty so all three
+# phase-2 categories are actually exercised on real data.
+
+--run_tool diamond
+--cluster_tool novelty_discovery
+
+# See agaricomycetes_mmseqs/run_params.txt for the rationale -- same fix,
+# shared lib/family_presence.py code path.
+--hmm_presence_domain_evalue 0.01

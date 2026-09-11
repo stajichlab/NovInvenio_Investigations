@@ -288,6 +288,52 @@ discrete set-membership call (candidate vs. not), which is what ORA is for. Appl
 
 ## 8. Publishing
 
+**2026-09-11 update — release-asset publishing now covers the whole *data-bearing* part
+of a study's bundle, not just alignment shards; the small, stable parts stay committed.**
+The rest of this section (structure diagram, archive format) still describes the site
+layout accurately, but its original text below treated
+`novelties.html`/`core.html`/`losses.html`/`summary.pdf` as fine to commit directly and
+reserved the release-asset mechanism for `alignments/`/`loss_alignments/` alone. That
+undersold the actual bloat risk: every study *rerun* recommits a fresh copy of these
+(sequences dominate `novelties.html`'s size — one real case reached 105MB, over GitHub's
+100MB file limit, 2026-09-10), not just once but on every iteration of a study while
+it's being tuned — the exact repeated-bloat pattern this repo already hit once (the
+~230MB/~200-commit history this repo's own retrospective cites). `.gitignore` already
+reflects the corrected line (implemented ahead of this doc catching up):
+
+- **Release-asset only, never committed:** `docs/*/*/novelties.html`, `core.html`,
+  `losses.html`, `summary.pdf` (candidate-sequence-bearing, grows with the data),
+  `alignments/`, `loss_alignments/` (real sequence text, multi-MB-gzipped per genome).
+  Published via `bin/publish_report_release.sh` (report bundle) and
+  `bin/publish_alignment_release.sh` (alignment shards) — both GitHub Release assets,
+  `--clobber`-overwritten on every rerun (no run-history accumulation). A CI workflow
+  (`.github/workflows/static.yml`) downloads both and assembles them into `docs/` only
+  at Pages-deploy time — the committed repo never grows from either, no matter how many
+  times a study reruns.
+- **Still committed normally:** `report.html` (the small, stable per-study landing
+  page) and `alignment.html` (the small static viewer shell) — neither grows with
+  candidate data — plus `archive/*.tsv.gz` (small derived tables, thousands of rows,
+  not multi-MB) and the two gallery `index.html` levels. `species.csv` / `config.csv` /
+  `DATA_MANIFEST.yaml` (Sec 4's "curated/tracked" class) are unaffected either way —
+  small, hand-curated, and don't regenerate on every pipeline rerun.
+
+The dividing line is "does this file's size scale with candidate/sequence count," not
+"is this file under `docs/`" — a landing page and a viewer shell don't, a report table
+with embedded protein sequences does.
+
+**Companion rule, `nf_NovInvenio` side:** the pipeline source repo never holds analysis
+run output at all, not even transiently pre-publish — see its own `CLAUDE.md`. A study
+run's `--outdir` must resolve outside that checkout (`bin/run_study.sh` already does
+this correctly: `--outdir "$NII_ROOT/results"`); an ad hoc run launched directly against
+a `nf_NovInvenio` checkout with an in-repo `--outdir` also pollutes *that* repo's own
+git-tracked `docs/` (its real, hand-written ADRs/Sphinx site — `Helpers.docsDir()`
+resolves as a sibling of `--outdir`'s parent, so an in-repo `--outdir` lands there too,
+not just the gitignored `results/`). Real incident, 2026-09-10/11: an agent-run
+comparison study launched directly against the pipeline checkout did exactly this;
+caught and cleaned up before anything was committed, but it's exactly the class of
+mistake this two-repo split exists to make structurally hard, not just documented
+against.
+
 **Site structure** — two-tier gallery, extending `NovInvenio`'s `docs/<project>/`
 publishing convention (`Helpers.docsDir()` — renamed from `view/` in 2026-09; the old
 `view/index.html` + `view/generate_index.py` gallery tool this section originally
@@ -328,19 +374,25 @@ and live site.
 **Archive format:** plain `.tsv.gz`, not zstd. Every tool (pandas, `zcat`, R) reads
 gzip natively with zero extra dependency; the size difference on tables this small
 (presence matrices, enrichment results — thousands of rows) doesn't justify requiring
-`zstd` downstream.
+`zstd` downstream. (This describes the *content* format only — per the 2026-09-11
+update above, `archive/*.tsv.gz` is no longer committed either; it ships inside the same
+per-study release asset as everything else.)
 
-**`alignments/`/`loss_alignments/` are NOT covered by the `archive/` convention above,
-deliberately.** `archive/`'s `.tsv.gz` files are small (thousands of rows); the
-TBLASTN alignment shards `nf_NovInvenio`'s `BUILD_ALIGNMENT_SHARDS` process produces
-carry real sequence text and can run into the multi-MB-gzipped range per genome — that
-compounds much faster per study rerun than `archive/`'s tables do, which is exactly the
+**`alignments/`/`loss_alignments/` were the first directories moved to release-asset
+publishing, not the only ones (extended 2026-09-11 above).** They were the forcing
+case: TBLASTN alignment shards carry real sequence text and can run into the
+multi-MB-gzipped range per genome, so they compound the fastest per study rerun — the
 `view/`-style repo-bloat mistake `NovInvenio` itself already made once (see the
-retrospective note below) and this repo exists partly to avoid repeating. So these two
-directories are `.gitignore`d and published instead as a GitHub Release asset
-(`bin/publish_alignment_release.sh`), downloaded and merged back into `docs/` only at
-Pages-deploy time (`.github/workflows/static.yml`) — the committed repo never grows from
-this data no matter how many times a study reruns.
+retrospective note below), which this repo exists partly to avoid repeating. Once that
+mechanism existed, extending it to `novelties.html`/`core.html`/`losses.html`/
+`summary.pdf` (same recompound-per-rerun problem, just a slower fuse — one real instance
+still crossed GitHub's 100MB file limit) was the smaller step, not a separate decision —
+see the 2026-09-11 note above for the exact dividing line (`report.html`/
+`alignment.html`/`archive/*.tsv.gz` stay committed; they don't grow with candidate
+data). `bin/publish_alignment_release.sh` (shards) and `bin/publish_report_release.sh`
+(report bundle) both push via `--clobber` and are downloaded and merged back into
+`docs/` only at Pages-deploy time (`.github/workflows/static.yml`) — the committed repo
+never grows from either no matter how many times a study reruns.
 
 **License:** CC-BY-4.0 for data/pages (matches UniProt/GOA upstream terms, requires
 attribution, permits redistribution/adaptation). Every published page carries a standing

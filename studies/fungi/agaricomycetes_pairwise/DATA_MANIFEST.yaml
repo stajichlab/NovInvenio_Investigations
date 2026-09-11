@@ -1,0 +1,59 @@
+# Provenance for this study's data_dir/ (symlinks into the primary NovInvenio
+# checkout's data/agaricomycetes_v1/, built there via the `ncbi_datasets` CLI,
+# 2026-09-10). Unlike pezizo_set1/mushrooms_tremella (UniProt-sourced proteomes,
+# fetch_uniprot_proteome.py provenance), every proteome/genome/GFF3 here is NCBI
+# RefSeq-sourced -- protein/DNA/GFF3 always from the same assembly per species.
+#
+# UniProt_Proteome_ID in species.csv (where non-empty) is a separate, additional
+# cross-reference used only by the pipeline's optional UniProtDatGz annotation
+# lookup (NovInvenio issue #92) -- not this data's source.
+- short: Scom
+  organism: Schizophyllum commune (strain H4-8 / FGSC 9210)
+  taxon_id: '578458'
+  assembly: GCF_000143185.2 (Schco3)
+  source: NCBI Datasets (ncbi_datasets CLI, module ncbi_datasets/18.30.1)
+  access_date: '2026-09-10'
+  note: No UniProt reference proteome exists for this species (checked live
+    against rest.uniprot.org/uniparc 2026-09-10 -- its only UniParc entry is
+    non-reference, unassembled-WGS-based, and unindexed by UniProtKB search).
+- short: Ccin
+  organism: Coprinopsis cinerea (strain Okayama-7/130 / ATCC MYA-4618 / FGSC 9003)
+  taxon_id: '240176'
+  assembly: GCF_000182895.1 (CC3)
+  source: NCBI Datasets (ncbi_datasets CLI, module ncbi_datasets/18.30.1)
+  access_date: '2026-09-10'
+- short: Agbi
+  organism: Agaricus bisporus var. burnettii (strain JB137-S8 / ATCC MYA-4627 / FGSC 10392)
+  taxon_id: '597362'
+  assembly: GCF_000300555.1 (Agabi_varbur_1)
+  source: NCBI Datasets (ncbi_datasets CLI, module ncbi_datasets/18.30.1)
+  access_date: '2026-09-10'
+  note: var. bisporus H97 (the common commercial strain) has no UniProt reference
+    proteome; var. burnettii JB137-S8 is UniProt's only A. bisporus reference
+    (UP000008493), so it was chosen instead for UniProtDatGz cross-reference
+    compatibility even though the NCBI genome/protein/GFF3 data used here is
+    RefSeq, not UniProt.
+- short: Lbic
+  organism: Laccaria bicolor (strain S238N-H82 / ATCC MYA-4686)
+  taxon_id: '486041'
+  assembly: GCF_000143565.1 (V1.0)
+  source: NCBI Datasets (ncbi_datasets CLI, module ncbi_datasets/18.30.1)
+  access_date: '2026-09-10'
+- short: Cneo
+  organism: Cryptococcus neoformans var. grubii H99
+  taxon_id: '235443'
+  assembly: GCF_000149245.1 (CNA3)
+  source: NCBI Datasets (ncbi_datasets CLI, module ncbi_datasets/18.30.1)
+  access_date: '2026-09-10'
+- short: Umay
+  organism: Mycosarcoma (Ustilago) maydis 521
+  taxon_id: '5270'
+  assembly: GCF_000328475.2 (Umaydis521_2.0)
+  source: NCBI Datasets (ncbi_datasets CLI, module ncbi_datasets/18.30.1)
+  access_date: '2026-09-10'
+- short: Rtor
+  organism: Rhodotorula toruloides NP11
+  taxon_id: '1130832'
+  assembly: GCF_000320785.1 (RHOziaDV1.0)
+  source: NCBI Datasets (ncbi_datasets CLI, module ncbi_datasets/18.30.1)
+  access_date: '2026-09-10'

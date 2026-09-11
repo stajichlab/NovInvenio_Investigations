@@ -18,7 +18,7 @@ the published-site structure this mirrors.
 
 ## Data provenance & tracking — hard rules
 
-Two classes of data. Getting this wrong is the one thing this repo exists to avoid
+Three classes of data. Getting this wrong is the one thing this repo exists to avoid
 repeating (`NovInvenio`'s own history had ~230 MB of regenerable report/data blobs
 committed across ~200 commits before anyone decided that shouldn't happen).
 
@@ -30,8 +30,28 @@ committed across ~200 commits before anyone decided that shouldn't happen).
    tracked.
 
 2. **Curated / tracked** — `config_support/` (trait tables, curated sample/species
-   lists), `studies/*/*/species.csv` + `config.csv` + `DATA_MANIFEST.yaml`, anything
-   published under `docs/`. These live in git and **must** carry a provenance record.
+   lists), `studies/*/*/species.csv` + `config.csv` + `DATA_MANIFEST.yaml`. These live in
+   git and **must** carry a provenance record. Also in this class, without a provenance
+   record (they're generated, not sourced, but don't regenerate-and-grow the way class 3
+   does): each study's `docs/<domain>/<set>/report.html` (landing page), `alignment.html`
+   (static viewer shell), `archive/*.tsv.gz` (small derived tables), and the two gallery
+   `index.html` levels. What makes something class 2 vs. class 3 is whether its size
+   scales with candidate/sequence count — none of these do.
+
+3. **Published / release-asset-only (extended 2026-09-11)** — the candidate/sequence
+   -bearing parts of a study's `docs/<domain>/<set>/`: `novelties.html`, `core.html`,
+   `losses.html`, `summary.pdf` (one real case reached 105MB, over GitHub's 100MB file
+   limit), plus `alignments/`/`loss_alignments/` (real sequence text,
+   multi-MB-gzipped per genome). **Never committed, regardless of size** — these
+   regenerate on every study rerun, which is exactly the repeated-recommit pattern that
+   caused this repo's original bloat incident. Publish via `bin/publish_report_release.sh`
+   (report bundle) / `bin/publish_alignment_release.sh` (alignment shards) — both GitHub
+   Release assets, `--clobber`-overwritten per rerun — instead of committing. `docs/`'s
+   `report.html` (per-study landing page) and `alignment.html` (static viewer shell)
+   stay in class 2 and are committed normally: neither grows with candidate data.
+   `archive/*.tsv.gz` (small derived tables) and the two gallery `index.html` levels
+   are also class 2. See `DESIGN.md` Sec 8's 2026-09-11 update for the full mechanism
+   and the exact dividing line (grows with candidate/sequence count, or doesn't).
 
 **No agent (Claude Code or otherwise) commits a new or changed tracked data file
 without a provenance record for it.** If source URL/version/date is unknown, stop and
@@ -74,7 +94,7 @@ rename actually happens.
 | A new study | `studies/<domain>/<set_name>/species.csv`, then `bin/build_study_config.py --study-dir studies/<domain>/<set_name>` |
 | A script specific to one study (custom `species.csv` schema, hardcoded accession lists, a one-off model-organism pull, etc.) | `studies/<domain>/<set_name>/bin/`, not `bin/` — see "Study-specific vs. shared scripts" below |
 | Enrichment/analysis scripts (GO/Pfam/InterPro ORA) | `bin/`, reading a study's annotated presence matrix — not yet built, see `DESIGN.md` Sec 7 |
-| Site generation | `docs/` — not yet built, see `DESIGN.md` Sec 8 |
+| Site generation | `docs/` — release-asset published, never committed; see `DESIGN.md` Sec 8 |
 
 ### Study-specific vs. shared scripts
 

@@ -27,6 +27,15 @@
 # bin/run_study.sh's automatic post-run chain, since it creates a real GitHub
 # Release and triggers a real Pages deploy (external, visible side effects).
 # Run it by hand once a study's reports are ready to actually go live.
+#
+# Set NII_SKIP_DEPLOY_TRIGGER=1 to upload the release without triggering
+# static.yml -- for bin/publish_all_studies.sh, which publishes every study's
+# releases first and triggers exactly one deploy at the end (static.yml's
+# single deploy job re-merges EVERY alignments-*/reports-* release on every
+# run regardless of which one triggered it, so triggering once per study in a
+# row is pure waste -- each is a full sequential Pages redeploy, and only the
+# last one's output is ever visible, since concurrency: cancel-in-progress is
+# false).
 
 set -euo pipefail
 
@@ -64,7 +73,10 @@ else
         --notes "TBLASTN alignment shards for $STUDY -- data-only release asset (not a software release), see DESIGN.md Sec 8. Downloaded and merged into docs/ at Pages-deploy time; never git-committed."
 fi
 
-echo "== triggering Pages deploy ==" >&2
-gh workflow run static.yml
-
-echo "== done: $TAG published, deploy triggered ==" >&2
+if [ -n "${NII_SKIP_DEPLOY_TRIGGER:-}" ]; then
+    echo "== done: $TAG published (deploy trigger skipped, NII_SKIP_DEPLOY_TRIGGER set) ==" >&2
+else
+    echo "== triggering Pages deploy ==" >&2
+    gh workflow run static.yml
+    echo "== done: $TAG published, deploy triggered ==" >&2
+fi

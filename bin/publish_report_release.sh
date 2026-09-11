@@ -28,6 +28,11 @@
 # bin/sync_reports.sh's automatic post-run chain, since it creates a real GitHub
 # Release and triggers a real Pages deploy (external, visible side effects).
 # Run it by hand once a study's regenerated reports are ready to actually go live.
+#
+# Set NII_SKIP_DEPLOY_TRIGGER=1 to upload the release without triggering
+# static.yml -- see bin/publish_alignment_release.sh's matching note /
+# bin/publish_all_studies.sh, which uses this to publish every study first and
+# trigger exactly one deploy at the end.
 
 set -euo pipefail
 
@@ -68,7 +73,10 @@ else
         --notes "Report pages for $STUDY -- data-only release asset (not a software release), see DESIGN.md Sec 8. Downloaded and merged into docs/ at Pages-deploy time; never git-committed."
 fi
 
-echo "== triggering Pages deploy ==" >&2
-gh workflow run static.yml
-
-echo "== done: $TAG published, deploy triggered ==" >&2
+if [ -n "${NII_SKIP_DEPLOY_TRIGGER:-}" ]; then
+    echo "== done: $TAG published (deploy trigger skipped, NII_SKIP_DEPLOY_TRIGGER set) ==" >&2
+else
+    echo "== triggering Pages deploy ==" >&2
+    gh workflow run static.yml
+    echo "== done: $TAG published, deploy triggered ==" >&2
+fi

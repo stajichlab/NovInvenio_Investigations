@@ -1,0 +1,14 @@
+# Extra nextflow params for this study, applied by bin/run_study.sh before any
+# args passed on the command line (so a command-line arg can still override one
+# of these). One flag/value per line; '#' starts a comment; blank lines ignored.
+
+# --cluster_tool pairwise is the default -- named explicitly anyway since this
+# study exists specifically to be compared against agaricomycetes_mmseqs and
+# agaricomycetes_novelty_discovery (same config.csv/data_dir, symlinked into
+# those study dirs), same pattern as pezizo_set1 vs pezizo_set1_cluster.
+--cluster_tool pairwise
+
+# diamond over phmmer: same rationale as pezizo_set1/mushrooms_tremella --
+# these proteomes are large enough that diamond's speed matters more than
+# phmmer's sensitivity edge for a comparison run.
+--run_tool diamond

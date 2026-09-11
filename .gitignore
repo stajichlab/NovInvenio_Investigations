@@ -7,7 +7,12 @@
 # bin/build_study_config.py) -- regenerable from species.csv + the cache above,
 # not source. config.csv and DATA_MANIFEST.yaml (the actual tracked outputs of that
 # script) are NOT excluded here since they're small and are the study's own record.
-studies/*/*/data_dir/
+# No trailing slash: some studies share one study's data_dir via a symlink (e.g.
+# a --cluster_tool comparison study reusing another's fetched data) rather than
+# their own real directory, and a trailing-slash pattern only matches directories,
+# not symlinks -- one such symlink (an absolute, host-specific path) was caught
+# about to be committed for real on 2026-09-11 before this fix.
+studies/*/*/data_dir
 
 # Per-species UniProt DR annotation extracts (bin/extract_dat_annotations.py) --
 # regenerable from the (also gitignored) data/uniprot/ cache in ~2s/species, not
