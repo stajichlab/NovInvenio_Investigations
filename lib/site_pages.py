@@ -47,7 +47,7 @@ h1 { font-size: 1.6rem; margin-bottom: 0.2rem; }
         background: #fff; text-decoration: none; color: inherit; display: block; }
 .card:hover { border-color: #888; }
 .card.empty { opacity: 0.5; border-style: dashed; pointer-events: none; }
-.card h2 { font-size: 1.1rem; margin: 0 0 0.3rem; }
+.card h2 { font-size: 1.1rem; margin: 0 0 0.3rem; overflow-wrap: anywhere; }
 .card .desc { font-size: 0.9rem; color: #555; margin: 0 0 0.5rem; }
 .card .meta { font-size: 0.8rem; color: #888; }
 footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
@@ -134,7 +134,7 @@ def render_domain_index(
         status_bit = _STATUS_TEXT.get(s["status"], "")
         cards.append(f"""
 <a class="{cls}" href="{escape(href)}">
-  <h2>{escape(s['name'])}</h2>
+  <h2>{escape(s['name'].replace('_', ' '))}</h2>
   <p class="desc">{escape(s.get('hypothesis', ''))}</p>
   <p class="meta">{meta}{status_bit}</p>
 </a>""")
