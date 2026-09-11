@@ -1,7 +1,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Ub56.pep.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/unknown_tree/clade1_faa/UHM1088.41098__UHM1088.41098_R.bin.56.faa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:34Z'
+  access_date: '2026-09-11T22:17:32Z'
   checksum_sha256: 78240ff74980e027af865013e406dff2e9b1c71cf5565b47f74b39127d1ba3f6
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/unknown_tree/clade1_faa/UHM1088.41098__UHM1088.41098_R.bin.56.faa
@@ -10,7 +10,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/dna/Ub56.dna.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM1088.41098__UHM1088.41098_R.bin.56.fa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:32Z'
   checksum_sha256: 6c165e97dcef5733a90ea40961e33be5822ab017389022488f9a7bd46651c43e
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM1088.41098__UHM1088.41098_R.bin.56.fa
@@ -19,7 +19,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Ub85.pep.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/unknown_tree/clade1_faa/UHM1210.23070__UHM1210.23070_R.bin.85.faa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:33Z'
   checksum_sha256: f24cea77837d4be510c6dc38d79288385faff370c75a2bcd3bd4b87bb5accd55
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/unknown_tree/clade1_faa/UHM1210.23070__UHM1210.23070_R.bin.85.faa
@@ -28,7 +28,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/dna/Ub85.dna.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM1210.23070__UHM1210.23070_R.bin.85.fa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:33Z'
   checksum_sha256: 47474abc6e3708b6c78e8080e528f0eba400c632875966ddcac856bc834b2694
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM1210.23070__UHM1210.23070_R.bin.85.fa
@@ -37,7 +37,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Ub22.pep.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/unknown_tree/clade1_faa/UHM896.23052__UHM896.23052_R.bin.22.faa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:33Z'
   checksum_sha256: e931b63947ef8f5992460c363cb7f92fd8e41cf0c070f04a40562d4d0f2e8128
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/unknown_tree/clade1_faa/UHM896.23052__UHM896.23052_R.bin.22.faa
@@ -46,7 +46,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/dna/Ub22.dna.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM896.23052__UHM896.23052_R.bin.22.fa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:33Z'
   checksum_sha256: 78d90f68700bcea5710e7ef922024632945abbc609f1e49ab90c926f83786a0e
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM896.23052__UHM896.23052_R.bin.22.fa
@@ -55,7 +55,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Ub119.pep.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/unknown_tree/clade1_faa/UHM904.23055__UHM904.23055_R.bin.119.faa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:33Z'
   checksum_sha256: af2175ed018a6c843e3d35032d0ff6758c70d1276b1bae807ac669a5c9fbf25c
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/unknown_tree/clade1_faa/UHM904.23055__UHM904.23055_R.bin.119.faa
@@ -64,7 +64,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/dna/Ub119.dna.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM904.23055__UHM904.23055_R.bin.119.fa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:33Z'
   checksum_sha256: b11a746046429187c83a4f0662d2899338c313fb2e78bd1d7eb38a075187d3c2
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM904.23055__UHM904.23055_R.bin.119.fa
@@ -73,7 +73,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Ub71.pep.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/UHM207.23041__UHM207.23041_R.bin.71.faa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:33Z'
   checksum_sha256: 2a6b928751117d1da73e415220eaabc6fae2f0864a343e1a82f5128ad3941480
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/UHM207.23041__UHM207.23041_R.bin.71.faa
@@ -82,7 +82,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/dna/Ub71.dna.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM207.23041__UHM207.23041_R.bin.71.fa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:33Z'
   checksum_sha256: 37f3ba259f6b8271c623c7c22091a436e0f98f2fc33e6d4c3faa49b0018d6e46
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/drep_herptile_95/high_quality_genomes/UHM207.23041__UHM207.23041_R.bin.71.fa
@@ -91,7 +91,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Lsp1.pep.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_000687555.1.faa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:35Z'
+  access_date: '2026-09-11T22:17:33Z'
   checksum_sha256: dc68e879082adefd56dfd4416d8f7da7c303cad350ab5570e58c9ba05ae2984d
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_000687555.1.faa
@@ -100,7 +100,7 @@
 - local_path: data/ncbi/GCF_000687555.1/extracted/ncbi_dataset/data/GCF_000687555.1/GCF_000687555.1_ASM68755v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000687555.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_000687555.1'
-  access_date: '2026-09-11T21:10:38Z'
+  access_date: '2026-09-11T22:17:35Z'
   checksum_sha256: 49c99dde222a84192515a34aedf07ef03c6bf90040698fad24cd7e535bf64a39
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
@@ -110,7 +110,7 @@
 - local_path: data/ncbi/GCF_000687555.1/extracted/ncbi_dataset/data/GCF_000687555.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000687555.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_000687555.1'
-  access_date: '2026-09-11T21:10:38Z'
+  access_date: '2026-09-11T22:17:35Z'
   checksum_sha256: 09231c9f1fc3a5e590810215eeeec7a0b3869fdd41ecb562eb9c830b7dc60aae
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
@@ -120,7 +120,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Lsph.pep.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_002797975.1.faa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:38Z'
+  access_date: '2026-09-11T22:17:35Z'
   checksum_sha256: cb0ea7f2f1c11835c24d79cbc23637f5d63488c109935baae1f742fea9de824c
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_002797975.1.faa
@@ -129,7 +129,7 @@
 - local_path: data/ncbi/GCF_002797975.1/extracted/ncbi_dataset/data/GCF_002797975.1/GCF_002797975.1_ASM279797v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002797975.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_002797975.1'
-  access_date: '2026-09-11T21:10:40Z'
+  access_date: '2026-09-11T22:17:37Z'
   checksum_sha256: 083a12831a7199571a0a64652f1a8a70ed0b32e37b753a0188dae56991973227
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
@@ -139,7 +139,7 @@
 - local_path: data/ncbi/GCF_002797975.1/extracted/ncbi_dataset/data/GCF_002797975.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_002797975.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_002797975.1'
-  access_date: '2026-09-11T21:10:40Z'
+  access_date: '2026-09-11T22:17:37Z'
   checksum_sha256: 0ed57ecb25e57759b3ca0fa22ca78504425df6c6afe0b81a692ce4dcc5ad7907
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
@@ -149,7 +149,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Easp.pep.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_025149125.1.faa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:40Z'
+  access_date: '2026-09-11T22:17:37Z'
   checksum_sha256: cdaaf83668a0ec7a019acb379c6613a6bf372105aaa14b968f5f301635ee0b72
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_025149125.1.faa
@@ -158,7 +158,7 @@
 - local_path: data/ncbi/GCF_025149125.1/extracted/ncbi_dataset/data/GCF_025149125.1/GCF_025149125.1_ASM2514912v1_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_025149125.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_025149125.1'
-  access_date: '2026-09-11T21:10:43Z'
+  access_date: '2026-09-11T22:17:40Z'
   checksum_sha256: e11a2e286bb43fa119f9bc035763507c1d7e18cfa01040ff5b77ba87baab5522
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
@@ -168,7 +168,7 @@
 - local_path: data/ncbi/GCF_025149125.1/extracted/ncbi_dataset/data/GCF_025149125.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_025149125.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_025149125.1'
-  access_date: '2026-09-11T21:10:43Z'
+  access_date: '2026-09-11T22:17:40Z'
   checksum_sha256: 73821450edfef9a8f4e1efa6896dfc139a78e955d2988ce6aa02db423f665b65
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
@@ -178,7 +178,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Cami.pep.fa
   source_url: (internal -- /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_900112885.1.faa)
   source_release: local file, not independently versioned
-  access_date: '2026-09-11T21:10:43Z'
+  access_date: '2026-09-11T22:17:40Z'
   checksum_sha256: 6ad16c5ddc8e8aea462d1f6227ded70154bfc7742b49f3b228f8ec0eba18b741
   license: Internal / unpublished (not yet released outside this project)
   derived_by: copied from /bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_900112885.1.faa
@@ -187,7 +187,7 @@
 - local_path: data/ncbi/GCF_900112885.1/extracted/ncbi_dataset/data/GCF_900112885.1/GCF_900112885.1_IMG-taxon_2593339256_annotated_assembly_genomic.fna
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900112885.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_900112885.1'
-  access_date: '2026-09-11T21:10:46Z'
+  access_date: '2026-09-11T22:17:42Z'
   checksum_sha256: dc3b477a9d6f77394451bb55875f22a66044544e18a113c7afa6355418ad9065
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
@@ -197,7 +197,7 @@
 - local_path: data/ncbi/GCF_900112885.1/extracted/ncbi_dataset/data/GCF_900112885.1/genomic.gff
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_900112885.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.36.0, accession GCF_900112885.1'
-  access_date: '2026-09-11T21:10:46Z'
+  access_date: '2026-09-11T22:17:42Z'
   checksum_sha256: ad433843a379ffc82ec22b43a40beeae9d5c35ce2997891fa38621f6d65a29d0
   license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: null
@@ -207,7 +207,7 @@
 - local_path: studies/bacteria/UHM_lachnoNovelclade/config.csv
   source_url: (derived, no external source)
   source_release: n/a
-  access_date: '2026-09-11T21:10:46Z'
+  access_date: '2026-09-11T22:17:42Z'
   checksum_sha256: 6c9919882e44744245811211c1ab002129b50528a3636ec693028e118d7241ca
   license: n/a
   derived_by: bin/build_study_config.py --study-dir studies/bacteria/UHM_lachnoNovelclade
