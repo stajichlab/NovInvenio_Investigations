@@ -1,36 +1,62 @@
 #!/usr/bin/env python3
-"""Drive a study's species.csv through both pull scripts and emit a nf_NovInvenio-ready
-run config.
+"""Drive a study's species.csv through per-species source dispatch and emit a
+nf_NovInvenio-ready run config.
 
 Input: <study-dir>/species.csv, columns:
-    Short,Species,Strain,Group,TaxonGroup,UniProt_Proteome_ID,Taxon_ID,GCA_Accession
+    Short,Species,Strain,Group,TaxonGroup,
+    Protein_Source,Protein_Accession,Taxon_ID,
+    Genome_Source,Genome_Accession,
+    GFF3_Source,GFF3_Accession
+
+Protein_Source/Genome_Source/GFF3_Source are independent per row -- a species'
+protein and genome can come from unrelated places (e.g. an already-local protein
+FASTA paired with a genome that still needs an NCBI fetch). Recognized values:
+
+  Protein_Source:
+    uniprot    -- Protein_Accession = UniProt proteome ID (Taxon_ID also required).
+                  Fetched via fetch_uniprot_proteome.py; also drives GO/Pfam/
+                  InterPro/gene-name annotation extraction (extract_dat_annotations.py)
+                  -- the only Protein_Source that does.
+    local_faa  -- Protein_Accession = path to an existing protein FASTA. Copied in
+                  directly, with a provenance record (no fetch).
+
+  Genome_Source:
+    ncbi          -- Genome_Accession = GCA/GCF assembly accession. Fetched via
+                     fetch_genome_assembly.py (genome + GFF3 together).
+    local_genome  -- Genome_Accession = path to an existing genome FASTA. Copied in
+                     directly, with a provenance record (no fetch).
+    (blank)       -- no genome for this row; DNA config.csv cell left empty.
+
+  GFF3_Source (optional; blank means "auto" -- see below):
+    local_gff3 -- GFF3_Accession = path to an existing GFF3. Always used, regardless
+                  of Genome_Source.
+    none       -- force the GFF3 config.csv cell empty even if Genome_Source=ncbi
+                  would otherwise have supplied one.
+    (blank)    -- auto: if Genome_Source=ncbi, use whatever GFF3 that NCBI package
+                  included (today's behavior); otherwise empty.
+
+Stem naming: a uniprot-sourced protein keeps the existing
+"{Proteome_ID}_{Taxon_ID}" stem (self-documenting, collision-proof across
+strains sharing a Short by mistake). Every other row uses Short as its stem --
+Short is already required to be unique per study.
 
 For each species this:
-  1. Runs bin/fetch_uniprot_proteome.py (protein FASTA + taxonomy/GO/Pfam/InterPro .dat)
-  2. Runs bin/fetch_genome_assembly.py (DNA + GFF3, keyed off the same UniProt-reported
-     GCA accession, so genome and protein annotation are version-matched -- see
-     DESIGN.md Sec 5)
-  3. Materializes plain (decompressed) files into <study-dir>/data_dir/{pep,dna,gff3}/,
-     named by the UniProt proteome stem ("{Proteome_ID}_{Taxon_ID}", e.g.
-     "UP001658139_2528406") rather than Short -- self-documenting back to the exact
-     UniProt record regardless of what Short a study happens to assign, and
-     inherently unique even across multiple strains of the same species (each strain
-     is its own UniProt proteome, hence its own stem) without relying on the study
-     author never reusing a Short. config.csv's Protein/DNA/GFF3 columns carry
-     whatever this actually materializes to -- nf_NovInvenio's resolve_fa() only
-     needs those basenames to exist under --data_dir, not to equal Short.
-  4. Runs bin/extract_dat_annotations.py against each species' cached .dat.gz, writing
-     <study-dir>/annotations/<UniProt_Proteome_ID>.tsv (gene_name/description/GO/Pfam/
-     InterPro per accession) -- gitignored, regenerable from the cache in ~2s/species,
-     but produced here unconditionally (even with --skip-fetch) so bin/run_study.sh's
-     post-run report sync (bin/sync_reports.sh) always has current annotation to merge.
-  5. Writes <study-dir>/config.csv (GROUP,Species,Strain,Protein,DNA,GFF3,Short,
-     TaxonGroup) with basenames only, and <study-dir>/DATA_MANIFEST.yaml aggregating
-     every species' provenance record plus a record for this generation step itself.
+  1. Resolves Protein (fetch or local copy).
+  2. Resolves Genome+GFF3 (fetch or local copy/copies).
+  3. If Protein_Source == "uniprot", runs bin/extract_dat_annotations.py against
+     the cached .dat.gz, writing <study-dir>/annotations/<Protein_Accession>.tsv
+     (gitignored, regenerable, produced unconditionally -- even with --skip-fetch
+     -- so bin/run_study.sh's post-run report sync always has current annotation
+     to merge). Rows sourced any other way get no annotation file (unchanged from
+     today's local-file studies).
+  4. Writes <study-dir>/config.csv (GROUP,Species,Strain,Protein,DNA,GFF3,Short,
+     TaxonGroup) with basenames only, and <study-dir>/DATA_MANIFEST.yaml
+     aggregating every species' provenance record plus a record for this
+     generation step itself.
 
-Re-running with --skip-fetch rebuilds config.csv/data_dir from whatever's already in
-the ephemeral data/ cache, without re-downloading (useful after the first pull, or
-when only the species list/grouping changed, not the source data).
+Re-running with --skip-fetch rebuilds config.csv/data_dir from whatever's already
+cached (uniprot/ncbi rows) without re-downloading; local_* rows are always
+re-copied (there's nothing to "skip" -- they were never fetched).
 """
 import argparse
 import csv
@@ -42,9 +68,10 @@ import yaml
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
-from provenance import append_manifest, build_record, now_utc_iso  # noqa: E402
+from provenance import append_manifest, build_record, sha256_of  # noqa: E402
 
 BIN = Path(__file__).parent
+LOCAL_LICENSE_DEFAULT = "Internal / unpublished (not yet released outside this project)"
 
 
 def run(cmd: list[str]) -> None:
@@ -63,12 +90,131 @@ def load_provenance(sidecar: Path) -> dict:
         return yaml.safe_load(fh)
 
 
+def _local_copy_record(src: Path, dest: Path, license_: str) -> dict:
+    return build_record(
+        source_url=f"(internal -- {src})",
+        source_release="local file, not independently versioned",
+        license=license_,
+        local_path=dest,
+        checksum=sha256_of(dest),
+        derived_by=f"copied from {src} via bin/build_study_config.py",
+    )
+
+
+def resolve_protein(row, args, pep_dir, manifest_records):
+    """Returns (stem, protein_basename, dat_gz_path_or_None)."""
+    short = row["Short"]
+    source = row["Protein_Source"]
+    accession = row["Protein_Accession"]
+
+    if source == "uniprot":
+        taxid = row["Taxon_ID"]
+        if not args.skip_fetch:
+            run([
+                sys.executable, str(BIN / "fetch_uniprot_proteome.py"),
+                "--proteome-id", accession, "--taxid", taxid,
+                "--outdir", args.uniprot_cache, "--short", short,
+            ])
+        stem = f"{accession}_{taxid}"
+        fasta_gz = Path(args.uniprot_cache) / accession / f"{stem}.fasta.gz"
+        dat_gz = Path(args.uniprot_cache) / accession / f"{stem}.dat.gz"
+        if not fasta_gz.exists():
+            sys.exit(f"[{short}] ERROR: expected {fasta_gz} not found -- run without --skip-fetch first")
+        pep_dir.mkdir(parents=True, exist_ok=True)
+        pep_out = pep_dir / f"{stem}.pep.fa"
+        gunzip_to(fasta_gz, pep_out)
+        for sidecar in (fasta_gz, dat_gz):
+            sc = sidecar.with_suffix(sidecar.suffix + ".provenance.yaml")
+            if sc.exists():
+                manifest_records.append(load_provenance(sc))
+        return stem, pep_out.name, (dat_gz if dat_gz.exists() else None)
+
+    if source == "local_faa":
+        src = Path(accession)
+        if not src.exists():
+            sys.exit(f"[{short}] ERROR: expected local protein FASTA {src} not found")
+        stem = short
+        pep_dir.mkdir(parents=True, exist_ok=True)
+        pep_out = pep_dir / f"{stem}.pep.fa"
+        shutil.copyfile(src, pep_out)
+        manifest_records.append(_local_copy_record(src, pep_out, args.local_license))
+        return stem, pep_out.name, None
+
+    sys.exit(f"[{short}] ERROR: unknown Protein_Source {source!r}")
+
+
+def resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records):
+    """Returns (dna_basename, gff3_basename) -- either may be ''."""
+    short = row["Short"]
+    gsource = row["Genome_Source"]
+    gaccession = row["Genome_Accession"]
+    gffsource = row["GFF3_Source"]
+    gffaccession = row["GFF3_Accession"]
+
+    dna_out_name = ""
+    gff3_out_name = ""
+
+    if gsource == "ncbi":
+        if not args.skip_fetch:
+            run([
+                sys.executable, str(BIN / "fetch_genome_assembly.py"),
+                "--accession", gaccession, "--outdir", args.ncbi_cache, "--short", short,
+            ])
+        genome_dir = Path(args.ncbi_cache) / gaccession / "extracted" / "ncbi_dataset" / "data" / gaccession
+        fna_candidates = sorted(genome_dir.glob("*.fna")) if genome_dir.exists() else []
+        gff_candidates = sorted(genome_dir.glob("*.gff")) if genome_dir.exists() else []
+        if not fna_candidates:
+            sys.exit(f"[{short}] ERROR: expected genome under {genome_dir} not found -- run without --skip-fetch first")
+        dna_dir.mkdir(parents=True, exist_ok=True)
+        dna_out = dna_dir / f"{stem}.dna.fa"
+        shutil.copyfile(fna_candidates[0], dna_out)
+        dna_out_name = dna_out.name
+        for f in (fna_candidates[:1] + gff_candidates[:1]):
+            sc = f.with_suffix(f.suffix + ".provenance.yaml")
+            if sc.exists():
+                manifest_records.append(load_provenance(sc))
+        if gffsource == "none":
+            gff_candidates = []
+        if gffsource == "" and gff_candidates:
+            gff3_dir.mkdir(parents=True, exist_ok=True)
+            gff3_out_name = f"{stem}.gff3"
+            shutil.copyfile(gff_candidates[0], gff3_dir / gff3_out_name)
+    elif gsource == "local_genome":
+        src = Path(gaccession)
+        if not src.exists():
+            sys.exit(f"[{short}] ERROR: expected local genome FASTA {src} not found")
+        dna_dir.mkdir(parents=True, exist_ok=True)
+        dna_out = dna_dir / f"{stem}.dna.fa"
+        shutil.copyfile(src, dna_out)
+        dna_out_name = dna_out.name
+        manifest_records.append(_local_copy_record(src, dna_out, args.local_license))
+    elif gsource == "":
+        pass
+    else:
+        sys.exit(f"[{short}] ERROR: unknown Genome_Source {gsource!r}")
+
+    if gffsource == "local_gff3":
+        src = Path(gffaccession)
+        if not src.exists():
+            sys.exit(f"[{short}] ERROR: expected local GFF3 {src} not found")
+        gff3_dir.mkdir(parents=True, exist_ok=True)
+        gff3_out = gff3_dir / f"{stem}.gff3"
+        shutil.copyfile(src, gff3_out)
+        gff3_out_name = gff3_out.name
+        manifest_records.append(_local_copy_record(src, gff3_out, args.local_license))
+    elif gffsource not in ("", "none"):
+        sys.exit(f"[{short}] ERROR: unknown GFF3_Source {gffsource!r}")
+
+    return dna_out_name, gff3_out_name
+
+
 def main() -> int:
-    ap = argparse.ArgumentParser(description=__doc__)
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--study-dir", required=True, help="e.g. studies/fungi/pezizo_set1")
     ap.add_argument("--uniprot-cache", default="data/uniprot")
     ap.add_argument("--ncbi-cache", default="data/ncbi")
     ap.add_argument("--skip-fetch", action="store_true", help="Rebuild config/data_dir from an already-populated cache, no downloads")
+    ap.add_argument("--local-license", default=LOCAL_LICENSE_DEFAULT)
     args = ap.parse_args()
 
     study_dir = Path(args.study_dir)
@@ -81,89 +227,41 @@ def main() -> int:
 
     config_rows = []
     manifest_records = []
-    seen_stems: dict[str, str] = {}  # stem -> Short, to catch a copy-paste duplicate row
+    seen_stems: dict[str, str] = {}
 
     with open(species_csv, newline="") as fh:
         for row in csv.DictReader(fh):
             short = row["Short"]
-            upid = row["UniProt_Proteome_ID"]
-            taxid = row["Taxon_ID"]
-            gca = row["GCA_Accession"]
+            stem, protein_name, dat_gz = resolve_protein(row, args, pep_dir, manifest_records)
 
-            if not args.skip_fetch:
-                run([
-                    sys.executable, str(BIN / "fetch_uniprot_proteome.py"),
-                    "--proteome-id", upid, "--taxid", taxid,
-                    "--outdir", args.uniprot_cache, "--short", short,
-                ])
-                run([
-                    sys.executable, str(BIN / "fetch_genome_assembly.py"),
-                    "--accession", gca, "--outdir", args.ncbi_cache, "--short", short,
-                ])
-
-            # locate cached files
-            stem = f"{upid}_{taxid}"
             if stem in seen_stems:
                 sys.exit(
-                    f"ERROR: {species_csv} lists proteome {stem} twice "
-                    f"(Short={seen_stems[stem]!r} and Short={short!r}) -- likely a "
-                    f"copy-paste mistake, since each row should be a distinct strain/proteome"
+                    f"ERROR: {species_csv} resolves two rows to the same stem {stem!r} "
+                    f"(Short={seen_stems[stem]!r} and Short={short!r})"
                 )
             seen_stems[stem] = short
-            fasta_gz = Path(args.uniprot_cache) / upid / f"{stem}.fasta.gz"
-            dat_gz = Path(args.uniprot_cache) / upid / f"{stem}.dat.gz"
-            genome_dir = Path(args.ncbi_cache) / gca / "extracted" / "ncbi_dataset" / "data" / gca
-            fna_candidates = sorted(genome_dir.glob("*.fna")) if genome_dir.exists() else []
-            gff_candidates = sorted(genome_dir.glob("*.gff")) if genome_dir.exists() else []
-            if not fasta_gz.exists():
-                sys.exit(f"[{short}] ERROR: expected {fasta_gz} not found -- run without --skip-fetch first")
-            if not fna_candidates:
-                sys.exit(f"[{short}] ERROR: expected genome under {genome_dir} not found -- run without --skip-fetch first")
 
-            # per-species GO/Pfam/InterPro/gene-name/description extract (report-facing
-            # annotation, distinct from pep_out/dna_out/gff3_out above)
-            if dat_gz.exists():
+            dna_name, gff3_name = resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records)
+
+            if row["Protein_Source"] == "uniprot" and dat_gz is not None:
                 annotations_dir = study_dir / "annotations"
                 annotations_dir.mkdir(parents=True, exist_ok=True)
                 run([
                     sys.executable, str(BIN / "extract_dat_annotations.py"),
                     "--dat-gz", str(dat_gz),
-                    "--output", str(annotations_dir / f"{upid}.tsv"),
+                    "--output", str(annotations_dir / f"{row['Protein_Accession']}.tsv"),
                 ])
-
-            # materialize plain files into data_dir/{pep,dna,gff3}/, named by the
-            # UniProt proteome stem (see module docstring point 3), not Short
-            pep_out = pep_dir / f"{stem}.pep.fa"
-            dna_out = dna_dir / f"{stem}.dna.fa"
-            gunzip_to(fasta_gz, pep_out)
-            dna_dir.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(fna_candidates[0], dna_out)
-            gff3_out = ""
-            if gff_candidates:
-                gff3_dir.mkdir(parents=True, exist_ok=True)
-                gff3_out = f"{stem}.gff3"
-                shutil.copyfile(gff_candidates[0], gff3_dir / gff3_out)
 
             config_rows.append({
                 "GROUP": row["Group"],
                 "Species": row["Species"],
                 "Strain": row["Strain"],
-                "Protein": pep_out.name,
-                "DNA": dna_out.name,
-                "GFF3": gff3_out,
+                "Protein": protein_name,
+                "DNA": dna_name,
+                "GFF3": gff3_name,
                 "Short": short,
                 "TaxonGroup": row["TaxonGroup"],
             })
-
-            # fold this species' individual provenance sidecars into the study manifest
-            for sidecar in (fasta_gz, dat_gz):
-                sc = sidecar.with_suffix(sidecar.suffix + ".provenance.yaml")
-                if sc.exists():
-                    manifest_records.append(load_provenance(sc))
-            for f in (fna_candidates[:1] + gff_candidates[:1]):
-                sc = f.with_suffix(f.suffix + ".provenance.yaml")
-                if sc.exists():
-                    manifest_records.append(load_provenance(sc))
 
     config_csv = study_dir / "config.csv"
     with open(config_csv, "w", newline="") as fh:
