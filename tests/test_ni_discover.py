@@ -359,9 +359,9 @@ def test_detect_duplicate_groups_unions_via_biosample_when_strain_differs():
 
 def test_build_report_includes_group_counts():
     genomes = [
-        {"accession": "GCA_1", "record_taxon_id": "1", "organism_name": "X f. sp. a", "strain": "s1", "isolate": None, "assembly_level": "Scaffold", "annotation_pipeline": "p1", "protein_coding_count": 100, "busco_score": 90.0},
-        {"accession": "GCA_2", "record_taxon_id": "2", "organism_name": "X f. sp. a", "strain": "s2", "isolate": None, "assembly_level": "Scaffold", "annotation_pipeline": "p1", "protein_coding_count": 200, "busco_score": 95.0},
-        {"accession": "GCA_3", "record_taxon_id": "3", "organism_name": "X", "strain": "s3", "isolate": None, "assembly_level": "Chromosome", "annotation_pipeline": "p2", "protein_coding_count": 150, "busco_score": None},
+        {"accession": "GCA_1", "record_taxon_id": "1", "organism_name": "X f. sp. a", "strain": "s1", "isolate": None, "assembly_level": "Scaffold", "annotation_pipeline": "p1", "provider": "ProviderA", "protein_coding_count": 100, "busco_score": 90.0, "contig_n50": 1000},
+        {"accession": "GCA_2", "record_taxon_id": "2", "organism_name": "X f. sp. a", "strain": "s2", "isolate": None, "assembly_level": "Scaffold", "annotation_pipeline": "p1", "provider": "ProviderA", "protein_coding_count": 200, "busco_score": 95.0, "contig_n50": 2000},
+        {"accession": "GCA_3", "record_taxon_id": "3", "organism_name": "X", "strain": "s3", "isolate": None, "assembly_level": "Chromosome", "annotation_pipeline": "p2", "provider": "ProviderB", "protein_coding_count": 150, "busco_score": None, "contig_n50": 3000},
     ]
     rank_lookup = {}  # forma_group precomputed and stashed on each genome dict for this test
     for g, grp in zip(genomes, ["a", "a", "no-fsp-in-name"]):
@@ -370,6 +370,23 @@ def test_build_report_includes_group_counts():
     assert "a" in report
     assert "2" in report  # count for group "a"
     assert "no-fsp-in-name" in report
+    # Annotation-quality columns (finding 1): provider, gene-count RANGE (not
+    # just an average), assembly level, contig N50 must all appear.
+    assert "ProviderA" in report
+    assert "100-200" in report  # gene-count range for group "a", not an average
+    assert "1,000-2,000" in report  # contig N50 range for group "a"
+
+
+def test_build_report_surfaces_regex_fallback_usage():
+    # Finding 2: _used_fallback is computed but was never surfaced -- a user
+    # must be able to tell a taxonomy-derived group from a string-parsed one.
+    genomes = [
+        {"accession": "GCA_1", "_forma_group": "cubense", "_used_fallback": True, "strain": "s1", "isolate": None},
+        {"accession": "GCA_2", "_forma_group": "cubense", "_used_fallback": False, "strain": "s2", "isolate": None},
+    ]
+    report = nd.build_report(genomes, {}, duplicate_groups=[[g] for g in genomes], species_complex=None, complex_genome_count=0)
+    assert "fallback" in report.lower()
+    assert "1/2" in report
 
 
 def test_build_report_notes_duplicate_groups():
@@ -382,14 +399,32 @@ def test_build_report_notes_duplicate_groups():
     assert "duplicate" in report.lower() or "merged" in report.lower()
 
 
-def test_build_report_notes_species_complex():
+def test_build_report_notes_species_complex_default_mode_wording():
+    # Finding 3: default mode's count means "additional genomes beyond the
+    # queried species" -- must read distinctly from include-mode's "total"
+    # wording, not share one ambiguous sentence.
     report = nd.build_report(
         [], {}, duplicate_groups=[],
         species_complex={"taxon_id": "171631", "name": "Fusarium oxysporum species complex"},
         complex_genome_count=4,
+        include_species_complex=False,
     )
     assert "Fusarium oxysporum species complex" in report
     assert "4" in report
+    assert "additional" in report.lower()
+    assert "total" not in report.lower()
+
+
+def test_build_report_notes_species_complex_include_mode_wording():
+    report = nd.build_report(
+        [], {}, duplicate_groups=[],
+        species_complex={"taxon_id": "171631", "name": "Fusarium oxysporum species complex"},
+        complex_genome_count=74,
+        include_species_complex=True,
+    )
+    assert "74" in report
+    assert "total" in report.lower()
+    assert "additional" not in report.lower()
 
 
 def _fake_genome(accession, taxid, strain, group_after_lookup="no-fsp-in-name"):
@@ -601,6 +636,69 @@ def test_pick_duplicate_group_representative_falls_back_to_busco_then_assembly_l
     ]
     kept = nd._pick_duplicate_group_representative(group)
     assert kept["accession"] == "GCA_2"  # neither paired -- higher BUSCO wins
+
+
+def test_pick_duplicate_group_representative_prefers_labelled_forma_specialis():
+    # Finding 5: a labelled reference strain (e.g. "conglutinans") must not
+    # be silently dropped in favor of an unlabelled duplicate ("no-fsp-in-
+    # name") just because the unlabelled one wins on BUSCO/assembly-level
+    # grounds -- the unlabelled record won't match any named
+    # --ingroup-groups/--outgroup-groups selection and would be filtered out.
+    group = [
+        {"accession": "GCA_unlabelled", "paired_accession": None, "busco_score": 99.0, "assembly_level": "Chromosome", "_forma_group": "no-fsp-in-name"},
+        {"accession": "GCA_labelled", "paired_accession": None, "busco_score": 70.0, "assembly_level": "Scaffold", "_forma_group": "conglutinans"},
+    ]
+    kept = nd._pick_duplicate_group_representative(group)
+    assert kept["accession"] == "GCA_labelled"
+
+
+def test_pick_duplicate_group_representative_labelled_preference_beats_missing_pair():
+    # The labelled/unlabelled tie-break must come BEFORE paired_accession too.
+    group = [
+        {"accession": "GCA_unlabelled_paired", "paired_accession": "GCF_1", "busco_score": None, "assembly_level": "Scaffold", "_forma_group": "no-fsp-in-name"},
+        {"accession": "GCA_labelled_unpaired", "paired_accession": None, "busco_score": None, "assembly_level": "Contig", "_forma_group": "cubense"},
+    ]
+    kept = nd._pick_duplicate_group_representative(group)
+    assert kept["accession"] == "GCA_labelled_unpaired"
+
+
+def test_build_auto_proposal_excludes_no_fsp_in_name_from_largest_group():
+    # Finding 4: no-fsp-in-name must never be presented as "largest/best-
+    # sampled" even when it is numerically the biggest bucket.
+    genomes = [
+        {"accession": "GCA_1", "_forma_group": "no-fsp-in-name"},
+        {"accession": "GCA_2", "_forma_group": "no-fsp-in-name"},
+        {"accession": "GCA_3", "_forma_group": "no-fsp-in-name"},
+        {"accession": "GCA_4", "_forma_group": "cubense"},
+    ]
+    proposal = nd.build_auto_proposal(
+        genomes, {}, duplicate_groups=[[g] for g in genomes],
+        species_complex=None, primary_species_name="Test species",
+        include_species_complex=False,
+    )
+    assert "Largest/best-sampled named group: cubense" in proposal
+    assert "no-fsp-in-name" not in proposal.split("Largest/best-sampled named group:")[1].split("\n")[0]
+    assert "fallback" in proposal.lower()
+
+
+def test_species_strain_prefix_derives_from_species_name():
+    assert nd.species_strain_prefix("Fusarium oxysporum") == "fo"
+    assert nd.species_strain_prefix("Cryptococcus neoformans") == "cn"
+    assert nd.species_strain_prefix("Singleword") == ""
+
+
+def test_normalize_strain_key_does_not_apply_fo_strip_to_other_genera():
+    # Finding 9: the "fo" strip must be derived from the actual species being
+    # discovered, not hardcoded for every genus -- a Cryptococcus study's
+    # "Cn"-prefixed strain must not get an unrelated "fo" strip applied, and
+    # a real strain like "Fox1" in a non-Fusarium study must not be
+    # incorrectly stripped to "x1" just because it happens to start with "fo".
+    cn_prefix = nd.species_strain_prefix("Cryptococcus neoformans")
+    assert nd._normalize_strain_key({"strain": "Fox1", "isolate": None}, cn_prefix) == "fox1"
+
+    fo_prefix = nd.species_strain_prefix("Fusarium oxysporum")
+    assert nd._normalize_strain_key({"strain": "Fo4287", "isolate": None}, fo_prefix) == "4287"
+    assert nd._normalize_strain_key({"strain": "4287", "isolate": None}, fo_prefix) == "4287"
 
 
 def test_build_report_names_kept_vs_merged_accession():

@@ -63,6 +63,7 @@ def query_species_genomes(taxon_id: str) -> list[dict[str, Any]]:
         org = r.get("organism", {})
         infra = org.get("infraspecific_names", {})
         ann = r.get("annotation_info", {})
+        stats = r.get("assembly_stats", {})
         genomes.append({
             "accession": r["accession"],
             "paired_accession": r.get("paired_accession"),
@@ -74,8 +75,16 @@ def query_species_genomes(taxon_id: str) -> list[dict[str, Any]]:
             "assembly_level": info.get("assembly_level"),
             "has_annotation": bool(ann),
             "annotation_pipeline": ann.get("pipeline"),
+            # `annotation_info.provider` is populated on essentially every
+            # annotated record (unlike `pipeline`, which only exists on
+            # GCF/RefSeq records -- and those are always the discarded side
+            # of a GCA/GCF pair-collapse, so `pipeline` almost never survives
+            # to build_report). Use `provider` for the per-group quality
+            # table instead.
+            "provider": ann.get("provider"),
             "protein_coding_count": ann.get("stats", {}).get("gene_counts", {}).get("protein_coding"),
             "busco_score": ann.get("busco", {}).get("complete"),
+            "contig_n50": stats.get("contig_n50"),
         })
     return genomes
 
@@ -209,14 +218,32 @@ def pick_short(genome: dict[str, Any], species_abbrev: str, used_shorts: set[str
     return final
 
 
-def _normalize_strain_key(genome: dict[str, Any]) -> str | None:
+def species_strain_prefix(species_name: str) -> str:
+    """Genus-initial + species-epithet-initial abbreviation (e.g. "fo" for
+    Fusarium oxysporum, "cn" for Cryptococcus neoformans), used to strip a
+    genus/species-derived prefix from strain identifiers before duplicate-
+    strain matching (e.g. "Fo4287" / "4287" both need to normalize to the
+    same key). Derived from the actual species being discovered -- never
+    hardcoded to "fo" for every genus, which risked false-merging unrelated
+    strains in other genera (e.g. a real strain "Fox1" in a non-Fusarium
+    study incorrectly stripped to "x1")."""
+    words = species_name.split()
+    if len(words) < 2 or not words[0] or not words[1]:
+        return ""
+    return (words[0][0] + words[1][0]).lower()
+
+
+def _normalize_strain_key(genome: dict[str, Any], species_prefix: str = "") -> str | None:
     raw = (genome.get("strain") or genome.get("isolate") or "").lower()
-    raw = re.sub(r"^fo[_\s]?", "", raw)
+    if species_prefix:
+        raw = re.sub(rf"^{re.escape(species_prefix)}[_\s]?", "", raw)
     raw = re.sub(r"[^a-z0-9]", "", raw)
     return raw or None
 
 
-def detect_duplicate_groups(genomes: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
+def detect_duplicate_groups(
+    genomes: list[dict[str, Any]], species_prefix: str = ""
+) -> list[list[dict[str, Any]]]:
     """Partition genomes into duplicate-groups via a union-find over two
     independent criteria: matching `biosample_accession` (both non-None) OR
     matching normalized strain/isolate strings. Either criterion alone
@@ -224,7 +251,12 @@ def detect_duplicate_groups(genomes: list[dict[str, Any]]) -> list[list[dict[str
     data has cases needing each (e.g. the same strain re-registered under
     different BioSamples, or the same BioSample recorded under different
     strain spellings). A genome with no match to any other is its own
-    singleton group."""
+    singleton group.
+
+    `species_prefix` (from `species_strain_prefix`) is the genus/species-
+    derived prefix stripped during strain-key normalization -- passed in by
+    the caller (`discover_species`) for the species actually being
+    discovered, never hardcoded here."""
     n = len(genomes)
     parent = list(range(n))
 
@@ -248,7 +280,7 @@ def detect_duplicate_groups(genomes: list[dict[str, Any]]) -> list[list[dict[str
                 union(idx, by_biosample[bs])
             else:
                 by_biosample[bs] = idx
-        key = _normalize_strain_key(g)
+        key = _normalize_strain_key(g, species_prefix)
         if key:
             if key in by_strain_key:
                 union(idx, by_strain_key[key])
@@ -267,23 +299,62 @@ _ASSEMBLY_LEVEL_RANK = {"Complete Genome": 0, "Chromosome": 0, "Scaffold": 1, "C
 def _pick_duplicate_group_representative(group: list[dict[str, Any]]) -> dict[str, Any]:
     """Choose which record in a duplicate group (per detect_duplicate_groups)
     becomes the row written to species.csv -- never grp[0]'s arbitrary NCBI
-    listing order. Tie-break, in priority order: (1) a record that carries a
-    paired_accession (i.e. part of a GCA/GCF pair -- the RefSeq side of such
-    a pair is NCBI-curated/annotated, generally higher quality than a lone
-    GenBank submission of the same genome), (2) the highest busco_score
-    (more complete annotation), (3) the best (lowest-rank) assembly_level,
-    (4) NCBI's own first-listed order, as a final deterministic-but-arbitrary
-    tiebreak. Documented here, not left implicit, per the design spec's
-    "never merge silently" rule -- build_report reports which record this
-    function kept vs. which it merged away.
+    listing order. Tie-break, in priority order:
+
+    (1) a record whose forma-specialis label (`_forma_group`) is NOT the
+        "no-fsp-in-name" fallback bucket -- an unlabelled duplicate of a
+        labelled reference strain (e.g. "conglutinans" vs. "no-fsp-in-name"
+        for the same physical strain) must not silently win on BUSCO/
+        assembly-level grounds alone and get filtered out of an explicit
+        --ingroup-groups/--outgroup-groups selection, since the unlabelled
+        copy won't match any named group.
+    (2) a record that carries a paired_accession (i.e. part of a GCA/GCF
+        pair). This does NOT mean the RefSeq side is independently
+        re-annotated or inherently higher quality -- live verification found
+        RefSeq propagates the ORIGINAL submitter's annotation via the "NCBI
+        Eukaryotic Annotation Propagation Pipeline" for every real pair
+        checked, with GCA/GCF protein-coding-gene counts differing by only
+        0-5 genes. The rule is kept anyway because NCBI chose to mirror this
+        assembly into RefSeq at all, which is itself a defensible (if weak)
+        quality signal independent of any annotation-content difference.
+    (3) the highest busco_score (more complete annotation),
+    (4) the best (lowest-rank) assembly_level,
+    (5) NCBI's own first-listed order, as a final deterministic-but-arbitrary
+        tiebreak.
+
+    Documented here, not left implicit, per the design spec's "never merge
+    silently" rule -- build_report reports which record this function kept
+    vs. which it merged away.
     """
-    def sort_key(g: dict[str, Any]) -> tuple[int, float, int]:
+    def sort_key(g: dict[str, Any]) -> tuple[int, int, float, int]:
+        unlabelled = 0 if g.get("_forma_group") not in (None, "no-fsp-in-name") else 1
         has_pair = 0 if g.get("paired_accession") else 1
         busco = -(g.get("busco_score") or 0.0)
         level = _ASSEMBLY_LEVEL_RANK.get(g.get("assembly_level"), 3)
-        return (has_pair, busco, level)
+        return (unlabelled, has_pair, busco, level)
 
     return min(group, key=sort_key)
+
+
+def _collapse_paired_with_partner_busco(genomes: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Wraps `_collapse_paired` (from `ni_resolve`, kept byte-for-byte
+    unchanged -- a project constraint, no new GCA/GCF pair-preference rule)
+    to additionally retain, on each surviving record, the BUSCO completeness
+    score of its discarded GCA/GCF pair partner, if that partner had one.
+
+    `_collapse_paired` always keeps the GCA member of a pair and discards
+    the GCF/RefSeq member -- but the GCF member is frequently the only one
+    carrying a `busco` block (live-verified: Fo47's GCF member has BUSCO
+    97.8%, its GCA partner has none). Without this, that score is lost
+    before `build_report` ever sees the genomes. This is bookkeeping done
+    ALONGSIDE the collapse, not a change to the collapse itself.
+    """
+    busco_by_accession = {g["accession"]: g.get("busco_score") for g in genomes}
+    collapsed = _collapse_paired(genomes)
+    for g in collapsed:
+        partner = g.get("paired_accession")
+        g["_partner_busco_score"] = busco_by_accession.get(partner) if partner else None
+    return collapsed
 
 
 def build_report(
@@ -292,11 +363,23 @@ def build_report(
     duplicate_groups: list[list[dict[str, Any]]],
     species_complex: dict[str, Any] | None,
     complex_genome_count: int,
+    *,
+    include_species_complex: bool = False,
 ) -> str:
     """Format a printed summary report: per-forma-specialis-group counts,
-    quality metadata (provider/gene-count/assembly-level/BUSCO), duplicate-
-    strain-group notes, and a species-complex note when one exists. Pure
-    formatting over Tasks 1-2's data, no new querying."""
+    quality metadata (provider/gene-count-range/assembly-level/contig-N50/
+    collapsed-pair BUSCO), how many records per group used the regex
+    fallback instead of the FORMA_SPECIALIS taxonomy rank, duplicate-strain-
+    group notes, and a species-complex note when one exists. Pure formatting
+    over Tasks 1-2's data, no new querying.
+
+    `include_species_complex` controls the species-complex line's wording:
+    the printed count means two different things depending on the flag --
+    "additional genomes beyond the queried species" (default mode) vs.
+    "genomes total, including this species" (--include-species-complex
+    mode) -- and both must read distinctly, not share one ambiguous
+    sentence.
+    """
     lines = []
 
     # Count genomes by forma-specialis group
@@ -311,23 +394,39 @@ def build_report(
         for grp in sorted(group_counts.keys()):
             count = group_counts[grp]
             lines.append(f"  {grp}: {count}")
-            # Collect quality metadata for this group
+            # Collect quality metadata for this group -- the dominant
+            # confounder the design spec warns about, so this must be
+            # visible before groups get assigned, not just forma-specialis
+            # counts.
             group_genomes = [g for g in genomes if g.get("_forma_group") == grp]
             gene_counts = [g.get("protein_coding_count") for g in group_genomes if g.get("protein_coding_count") is not None]
-            busco_scores = [g.get("busco_score") for g in group_genomes if g.get("busco_score") is not None]
-            pipelines = set(g.get("annotation_pipeline") for g in group_genomes if g.get("annotation_pipeline"))
-            assembly_levels = set(g.get("assembly_level") for g in group_genomes if g.get("assembly_level"))
+            n50s = [g.get("contig_n50") for g in group_genomes if g.get("contig_n50") is not None]
+            providers = sorted({g.get("provider") for g in group_genomes if g.get("provider")})
+            assembly_levels = sorted({g.get("assembly_level") for g in group_genomes if g.get("assembly_level")})
+            partner_buscos = [g.get("_partner_busco_score") for g in group_genomes if g.get("_partner_busco_score") is not None]
+            fallback_count = sum(1 for g in group_genomes if g.get("_used_fallback"))
 
+            if providers:
+                lines.append(f"    Providers: {', '.join(providers)}")
             if gene_counts:
-                avg_genes = sum(gene_counts) / len(gene_counts)
-                lines.append(f"    Avg protein-coding genes: {avg_genes:.0f}")
-            if busco_scores:
-                avg_busco = sum(busco_scores) / len(busco_scores)
-                lines.append(f"    Avg BUSCO: {avg_busco:.1f}")
-            if pipelines:
-                lines.append(f"    Pipelines: {', '.join(sorted(p for p in pipelines if p))}")
+                if min(gene_counts) == max(gene_counts):
+                    lines.append(f"    Protein-coding genes: {gene_counts[0]} (n={len(gene_counts)})")
+                else:
+                    lines.append(f"    Protein-coding genes: {min(gene_counts)}-{max(gene_counts)} (n={len(gene_counts)})")
             if assembly_levels:
-                lines.append(f"    Assembly levels: {', '.join(sorted(assembly_levels))}")
+                lines.append(f"    Assembly levels: {', '.join(assembly_levels)}")
+            if n50s:
+                lines.append(f"    Contig N50: {min(n50s):,}-{max(n50s):,}")
+            if partner_buscos:
+                lines.append(
+                    "    BUSCO (discarded GCF pair member, GCA kept instead): "
+                    + ", ".join(f"{b:.1f}" for b in partner_buscos)
+                )
+            if fallback_count:
+                lines.append(
+                    f"    Grouped via regex fallback (not FORMA_SPECIALIS taxonomy rank): "
+                    f"{fallback_count}/{len(group_genomes)}"
+                )
 
     # Report duplicate groups (those with more than one genome), naming
     # which record was kept as the species.csv row vs. which were merged
@@ -342,13 +441,20 @@ def build_report(
             merged_away = ", ".join(g.get("accession", "?") for g in group if g is not kept)
             lines.append(f"  Merged: {merged_away} -> kept {kept.get('accession', '?')}")
 
-    # Report species complex if present
+    # Report species complex if present. Same sentence shape must not carry
+    # two different meanings for the printed count -- see docstring.
     if species_complex:
         if lines:
             lines.append("")
         lines.append("Species complex:")
         name = species_complex.get("name", "Unknown")
-        lines.append(f"  {name} ({complex_genome_count} genomes)")
+        if include_species_complex:
+            lines.append(f"  {name}: {complex_genome_count} genomes total (including this species)")
+        else:
+            lines.append(
+                f"  {name} has {complex_genome_count} additional genomes beyond the queried species "
+                "(use --include-species-complex to pull them in)"
+            )
 
     return "\n".join(lines)
 
@@ -387,9 +493,22 @@ def build_auto_proposal(
     for g in genomes:
         grp = g.get("_forma_group", "unknown")
         group_counts[grp] = group_counts.get(grp, 0) + 1
-    if group_counts:
-        largest_group, largest_count = max(group_counts.items(), key=lambda kv: kv[1])
-        lines.append(f"  Largest/best-sampled group: {largest_group} ({largest_count} genomes)")
+    # "no-fsp-in-name" is the fallback bucket for submitters who didn't
+    # register a pathotype label -- per the design spec's own central
+    # finding, it is NOT a coherent population (it contains reference
+    # strains of named groups, just registered without the label) and must
+    # never be presented as "largest/best-sampled" like a real candidate
+    # group, even when it happens to be the biggest bucket by count.
+    named_group_counts = {k: v for k, v in group_counts.items() if k != "no-fsp-in-name"}
+    if named_group_counts:
+        largest_group, largest_count = max(named_group_counts.items(), key=lambda kv: kv[1])
+        lines.append(f"  Largest/best-sampled named group: {largest_group} ({largest_count} genomes)")
+    if "no-fsp-in-name" in group_counts:
+        lines.append(
+            f"  Note: 'no-fsp-in-name' ({group_counts['no-fsp-in-name']} genomes) is the fallback "
+            "bucket for submitters who didn't register a pathotype label -- not a coherent "
+            "population, and excluded from the largest/best-sampled comparison above."
+        )
 
     cross_group_dupes = [
         grp for grp in duplicate_groups
@@ -523,14 +642,14 @@ def discover_species(
             all_complex_genomes = query_species_genomes(species_complex["taxon_id"])
             complex_genome_count = len(all_complex_genomes) - len(genomes)
 
-    genomes = _collapse_paired(genomes)
+    genomes = _collapse_paired_with_partner_busco(genomes)
 
     for g in genomes:
         g["_forma_group"], g["_used_fallback"] = find_forma_specialis_group(
             g["record_taxon_id"], rank_lookup, g["organism_name"]
         )
 
-    duplicate_groups = detect_duplicate_groups(genomes)
+    duplicate_groups = detect_duplicate_groups(genomes, species_strain_prefix(primary_species_name))
     # One representative genome per duplicate group, chosen by a documented
     # tie-break (see _pick_duplicate_group_representative) -- never an
     # arbitrary grp[0] on whatever order NCBI happened to return.
@@ -541,7 +660,10 @@ def discover_species(
         if label not in available_group_labels:
             sys.exit(f"ERROR: group label {label!r} not found -- available groups: {sorted(available_group_labels)}")
 
-    report = build_report(representatives, rank_lookup, duplicate_groups, species_complex, complex_genome_count)
+    report = build_report(
+        representatives, rank_lookup, duplicate_groups, species_complex, complex_genome_count,
+        include_species_complex=include_species_complex,
+    )
     print(report)
     if auto:
         print(build_auto_proposal(

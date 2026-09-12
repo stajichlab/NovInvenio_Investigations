@@ -118,23 +118,40 @@ and writes `species.csv` ready for the pipeline:
 pixi run python bin/ni discover --species "Fusarium oxysporum" --study-dir studies/fungi/my_pangenome_study
 ```
 
-The tool prints a table of forma-specialis groups (e.g. `f. sp. lycopersici`, `f. sp.
-cubense`) with genome counts and quality metadata (average gene count, BUSCO scores,
-assembly levels). Review the table, then assign `Group` (IN/OUT) to each strain by hand
-in `species.csv`, or use `--ingroup-groups` and `--outgroup-groups` if you already know
-which groups to separate:
+The tool prints a table of forma-specialis groups (e.g. `lycopersici`, `cubense`,
+`no-fsp-in-name` for genomes registered without a pathotype label) with genome counts
+and per-group quality metadata: annotation provider, protein-coding gene-count range,
+assembly level, contig N50, and (for a collapsed GCA/GCF pair) the BUSCO score of the
+discarded higher-quality member — annotation-quality variation across providers is
+often a bigger confounder than the forma-specialis grouping itself. Review the table,
+then assign `Group` (IN/OUT) to each strain by hand in `species.csv`, or use
+`--ingroup-groups` and `--outgroup-groups` if you already know which groups to
+separate (label values are whatever the printed table shows for this species — a
+genome with no forma-specialis label in its name always groups under the literal
+label `no-fsp-in-name`, not `others`):
 
 ```bash
 pixi run python bin/ni discover --species "Fusarium oxysporum" --study-dir studies/fungi/my_pangenome_study \
-  --ingroup-groups "lycopersici,cucurbitacearum" --outgroup-groups "others"
+  --ingroup-groups "lycopersici,cucurbitacearum" --outgroup-groups "no-fsp-in-name"
 ```
 
-Pass `--auto` to request an extended report with a largest-group suggestion and
-cross-group duplicate warnings — this proposal is informational only and does NOT set
-Group in the written file. Nota bene: forma specialis is a host-specificity label
-used for plant pathogens, not a phylogenetic split; see
-`notes/superpowers/specs/2026-09-11-ni-discover-design.md` for grouping rationale and
-caveats.
+Pass `--auto` to request an extended report with a largest-named-group suggestion
+(the `no-fsp-in-name` fallback bucket is deliberately excluded from that comparison —
+it is not a coherent population, see the design spec) and cross-group duplicate
+warnings — this proposal is informational only and does NOT set Group in the written
+file. Nota bene: forma specialis is a host-specificity label used for plant pathogens,
+not a phylogenetic split; see `notes/superpowers/specs/2026-09-11-ni-discover-design.md`
+for grouping rationale and caveats.
+
+Pass `--include-species-complex` when NCBI Taxonomy has split part of the species'
+population out under a different species name within the same species-group/complex
+node — the real motivating case is *Fusarium oxysporum*: querying the literal species
+name misses `Fusarium odoratissimum` genomes (including the reference TR4 strain),
+which are only visible by querying the parent `Fusarium oxysporum species complex`
+node. Without the flag, `discover` still reports how many additional genomes exist in
+the complex; with it, every child species' genomes are enumerated and each row's
+`Species` column reflects whatever species name that record actually carries (not
+forced under the name you queried).
 
 ## Data provenance
 

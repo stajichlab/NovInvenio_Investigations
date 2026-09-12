@@ -37,8 +37,26 @@ def main() -> int:
     discover_ap.add_argument("--study-dir", required=True)
     discover_ap.add_argument("--ingroup-groups", default=None, help="Comma-separated group labels")
     discover_ap.add_argument("--outgroup-groups", default=None, help="Comma-separated group labels")
-    discover_ap.add_argument("--auto", action="store_true")
-    discover_ap.add_argument("--include-species-complex", action="store_true")
+    discover_ap.add_argument(
+        "--auto", action="store_true",
+        help=(
+            "Print an extended, informational proposal (largest/best-sampled named group, "
+            "cross-group duplicate strains, sibling species in the complex) in addition to the "
+            "group/count table. Report-only: Group is still written blank for every row, exactly "
+            "like the default mode -- never combine with --ingroup-groups/--outgroup-groups."
+        ),
+    )
+    discover_ap.add_argument(
+        "--include-species-complex", action="store_true",
+        help=(
+            "Query the species' parent NCBI species-group/complex node instead of the literal "
+            "species name, pulling in every sibling species registered under a different name "
+            "within the same complex (e.g. Fusarium odoratissimum/TR4 genomes that a plain "
+            "'Fusarium oxysporum' query never sees). Without this flag, discover still reports "
+            "how many additional genomes exist in the complex, but only enumerates the literal "
+            "species queried."
+        ),
+    )
 
     args = ap.parse_args()
 

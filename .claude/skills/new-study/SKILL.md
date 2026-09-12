@@ -12,7 +12,10 @@ full schema rationale.
 study and don't already know which strains or forma-specialis groups to include, use
 `bin/ni discover` instead. It queries NCBI to enumerate all annotated genomes of a
 species, groups them by pathotype, and writes `species.csv` ready for manual Group
-assignment or explicit selection via flags. See `bin/ni discover --help` and the
+assignment or explicit selection via flags. Pass `--include-species-complex` when the
+species has sibling populations registered under a different species name within the
+same NCBI species-group/complex (e.g. *Fusarium odoratissimum*/TR4 genomes that a
+plain *Fusarium oxysporum* query misses) -- see `bin/ni discover --help` and the
 `README.md` section on `bin/ni discover` for details; the sections below assume you
 already have a species list ready to resolve.
 
