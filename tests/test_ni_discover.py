@@ -354,3 +354,38 @@ def test_detect_duplicate_groups_unions_via_biosample_when_strain_differs():
     groups = nd.detect_duplicate_groups(genomes)
     assert len(groups) == 1
     assert len(groups[0]) == 2
+
+
+def test_build_report_includes_group_counts():
+    genomes = [
+        {"accession": "GCA_1", "record_taxon_id": "1", "organism_name": "X f. sp. a", "strain": "s1", "isolate": None, "assembly_level": "Scaffold", "annotation_pipeline": "p1", "protein_coding_count": 100, "busco_score": 90.0},
+        {"accession": "GCA_2", "record_taxon_id": "2", "organism_name": "X f. sp. a", "strain": "s2", "isolate": None, "assembly_level": "Scaffold", "annotation_pipeline": "p1", "protein_coding_count": 200, "busco_score": 95.0},
+        {"accession": "GCA_3", "record_taxon_id": "3", "organism_name": "X", "strain": "s3", "isolate": None, "assembly_level": "Chromosome", "annotation_pipeline": "p2", "protein_coding_count": 150, "busco_score": None},
+    ]
+    rank_lookup = {}  # forma_group precomputed and stashed on each genome dict for this test
+    for g, grp in zip(genomes, ["a", "a", "no-fsp-in-name"]):
+        g["_forma_group"] = grp
+    report = nd.build_report(genomes, rank_lookup, duplicate_groups=[[g] for g in genomes], species_complex=None, complex_genome_count=0)
+    assert "a" in report
+    assert "2" in report  # count for group "a"
+    assert "no-fsp-in-name" in report
+
+
+def test_build_report_notes_duplicate_groups():
+    genomes = [
+        {"accession": "GCA_1", "strain": "Fo5176", "isolate": None, "_forma_group": "no-fsp-in-name"},
+        {"accession": "GCA_2", "strain": "Fo5176", "isolate": None, "_forma_group": "no-fsp-in-name"},
+    ]
+    report = nd.build_report(genomes, {}, duplicate_groups=[genomes], species_complex=None, complex_genome_count=0)
+    assert "GCA_1" in report and "GCA_2" in report
+    assert "duplicate" in report.lower() or "merged" in report.lower()
+
+
+def test_build_report_notes_species_complex():
+    report = nd.build_report(
+        [], {}, duplicate_groups=[],
+        species_complex={"taxon_id": "171631", "name": "Fusarium oxysporum species complex"},
+        complex_genome_count=4,
+    )
+    assert "Fusarium oxysporum species complex" in report
+    assert "4" in report

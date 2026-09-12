@@ -258,3 +258,67 @@ def detect_duplicate_groups(genomes: list[dict[str, Any]]) -> list[list[dict[str
     for idx, g in enumerate(genomes):
         groups.setdefault(find(idx), []).append(g)
     return list(groups.values())
+
+
+def build_report(
+    genomes: list[dict[str, Any]],
+    rank_lookup: dict[str, dict[str, Any]],
+    duplicate_groups: list[list[dict[str, Any]]],
+    species_complex: dict[str, Any] | None,
+    complex_genome_count: int,
+) -> str:
+    """Format a printed summary report: per-forma-specialis-group counts,
+    quality metadata (provider/gene-count/assembly-level/BUSCO), duplicate-
+    strain-group notes, and a species-complex note when one exists. Pure
+    formatting over Tasks 1-2's data, no new querying."""
+    lines = []
+
+    # Count genomes by forma-specialis group
+    group_counts: dict[str, int] = {}
+    for g in genomes:
+        grp = g.get("_forma_group", "unknown")
+        group_counts[grp] = group_counts.get(grp, 0) + 1
+
+    # Report per-group counts and quality metadata
+    if group_counts:
+        lines.append("Forma specialis groups:")
+        for grp in sorted(group_counts.keys()):
+            count = group_counts[grp]
+            lines.append(f"  {grp}: {count}")
+            # Collect quality metadata for this group
+            group_genomes = [g for g in genomes if g.get("_forma_group") == grp]
+            gene_counts = [g.get("protein_coding_count") for g in group_genomes if g.get("protein_coding_count") is not None]
+            busco_scores = [g.get("busco_score") for g in group_genomes if g.get("busco_score") is not None]
+            pipelines = set(g.get("annotation_pipeline") for g in group_genomes if g.get("annotation_pipeline"))
+            assembly_levels = set(g.get("assembly_level") for g in group_genomes if g.get("assembly_level"))
+
+            if gene_counts:
+                avg_genes = sum(gene_counts) / len(gene_counts)
+                lines.append(f"    Avg protein-coding genes: {avg_genes:.0f}")
+            if busco_scores:
+                avg_busco = sum(busco_scores) / len(busco_scores)
+                lines.append(f"    Avg BUSCO: {avg_busco:.1f}")
+            if pipelines:
+                lines.append(f"    Pipelines: {', '.join(sorted(p for p in pipelines if p))}")
+            if assembly_levels:
+                lines.append(f"    Assembly levels: {', '.join(sorted(assembly_levels))}")
+
+    # Report duplicate groups (those with more than one genome)
+    multi_genome_groups = [g for g in duplicate_groups if len(g) > 1]
+    if multi_genome_groups:
+        if lines:
+            lines.append("")
+        lines.append("Duplicate/merged strains:")
+        for group in multi_genome_groups:
+            accessions = ", ".join(g.get("accession", "?") for g in group)
+            lines.append(f"  Merged: {accessions}")
+
+    # Report species complex if present
+    if species_complex:
+        if lines:
+            lines.append("")
+        lines.append("Species complex:")
+        name = species_complex.get("name", "Unknown")
+        lines.append(f"  {name} ({complex_genome_count} genomes)")
+
+    return "\n".join(lines)
