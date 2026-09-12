@@ -28,7 +28,7 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
-from site_pages import render_domain_index, render_top_level  # noqa: E402
+from site_pages import render_domain_index, render_report_redirect, render_top_level  # noqa: E402
 
 REPO_ROOT = Path(__file__).parent.parent
 STUDIES_ROOT = REPO_ROOT / "studies"
@@ -140,7 +140,10 @@ def main() -> int:
         )
         print(f"Wrote {domain_docs_dir / 'index.html'} ({len(studies)} studies)", file=sys.stderr)
         for s in studies:
-            (domain_docs_dir / s["slug"]).mkdir(parents=True, exist_ok=True)
+            study_docs_dir = domain_docs_dir / s["slug"]
+            study_docs_dir.mkdir(parents=True, exist_ok=True)
+            if s["status"] == "complete":
+                (study_docs_dir / "index.html").write_text(render_report_redirect())
 
     return 0
 

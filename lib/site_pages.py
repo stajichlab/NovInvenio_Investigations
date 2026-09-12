@@ -78,6 +78,31 @@ def _page(title: str, body: str) -> str:
 """
 
 
+def render_report_redirect() -> str:
+    """A study's docs/<domain>/<set>/index.html -- so the bare directory URL
+    (e.g. from a gallery card's own address bar, or someone guessing the
+    folder path) lands on report.html instead of a static-host directory
+    listing or 404. GitHub Pages has no server-side redirect config, so this
+    is a client-side meta-refresh + JS fallback stub, not a rename of
+    report.html itself -- report.html stays the canonical filename every
+    other script (generate_docs.py's own study_status(), sync_reports.sh,
+    the publish_*_release.sh scripts, nf_NovInvenio's make_index_report.py)
+    already hardcodes."""
+    return """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url=report.html">
+<title>Redirecting…</title>
+</head>
+<body>
+<p>Redirecting to <a href="report.html">report.html</a>…</p>
+<script>location.replace("report.html");</script>
+</body>
+</html>
+"""
+
+
 def render_top_level(domains: list[dict], site_name: str = "NovInvenio Investigations") -> str:
     """domains: [{name, slug, desc, n_studies, status}]
 
