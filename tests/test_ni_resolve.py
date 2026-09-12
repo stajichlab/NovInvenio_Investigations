@@ -234,3 +234,100 @@ def test_rank_ncbi_candidates_ties_when_no_reference_designation():
         candidates = nr.query_ncbi_assemblies("1", require_reference=False)
     tied = nr.rank_ncbi_candidates(candidates, require_annotation=False)
     assert len(tied) == 2  # genuine tie, not collapsed -- different accessions, no ranking signal
+
+
+def test_resolve_row_uniprot_reference_match(monkeypatch):
+    monkeypatch.setattr(nr, "resolve_taxon_id", lambda s: [{"taxon_id": "5334", "scientific_name": s}])
+    monkeypatch.setattr(nr, "search_uniprot_proteomes", lambda tid, reference_only: (
+        [{"proteome_id": "UP000001805", "strain": "OR74A / FGSC 987", "busco_score": 98.5,
+          "genome_assembly_id": "GCA_000182925.2", "superkingdom": "Eukaryota"}]
+        if reference_only else []
+    ))
+    monkeypatch.setattr(nr, "check_ftp_available", lambda pid, sk: True)
+    monkeypatch.setattr(nr, "query_ncbi_assemblies", lambda tid, require_reference: [])
+
+    row = nr.resolve_row("Ncra", "Neurospora crassa", "OR74A")
+
+    assert row.resolved is True
+    assert row.protein_source == "uniprot"
+    assert row.protein_accession == "UP000001805"
+    assert row.taxon_id == "5334"
+    assert row.genome_source == "ncbi"
+    assert row.genome_accession == "GCA_000182925.2"
+
+
+def test_resolve_row_uniprot_ftp_not_yet_available_falls_back_to_ncbi(monkeypatch):
+    monkeypatch.setattr(nr, "resolve_taxon_id", lambda s: [{"taxon_id": "1", "scientific_name": s}])
+    monkeypatch.setattr(nr, "search_uniprot_proteomes", lambda tid, reference_only: (
+        [{"proteome_id": "UP001497681", "strain": "Tattone D", "busco_score": 97.0,
+          "genome_assembly_id": "GCA_023508785.1", "superkingdom": "Eukaryota"}]
+        if reference_only else []
+    ))
+    monkeypatch.setattr(nr, "check_ftp_available", lambda pid, sk: False)  # not in FTP snapshot yet
+    monkeypatch.setattr(nr, "query_ncbi_assemblies", lambda tid, require_reference: [
+        {"accession": "GCA_023508785.1", "paired_accession": "GCF_023508785.1",
+         "refseq_category": "reference genome", "assembly_level": "Chromosome",
+         "assembly_status": "current", "strain": "H4-8", "has_annotation": True,
+         "submitter": "x", "submission_date": "2022-01-01"},
+        {"accession": "GCF_023508785.1", "paired_accession": "GCA_023508785.1",
+         "refseq_category": "reference genome", "assembly_level": "Chromosome",
+         "assembly_status": "current", "strain": "H4-8", "has_annotation": True,
+         "submitter": "x", "submission_date": "2022-01-01"},
+    ] if not require_reference else [])
+
+    row = nr.resolve_row("Scom", "Schizophyllum commune", "H4-8")
+
+    assert row.resolved is True
+    assert row.protein_source == "ncbi"  # NOT uniprot -- FTP wasn't available
+    assert row.protein_accession == "GCA_023508785.1"
+    assert row.genome_source == "ncbi"
+    assert row.genome_accession == "GCA_023508785.1"
+    assert any("FTP" in line for line in row.report_lines)
+
+
+def test_resolve_row_no_match_anywhere_leaves_blank(monkeypatch):
+    monkeypatch.setattr(nr, "resolve_taxon_id", lambda s: [{"taxon_id": "1", "scientific_name": s}])
+    monkeypatch.setattr(nr, "search_uniprot_proteomes", lambda tid, reference_only: [])
+    monkeypatch.setattr(nr, "query_ncbi_assemblies", lambda tid, require_reference: [])
+
+    row = nr.resolve_row("Xsp", "Xylaria sp.", "")
+
+    assert row.resolved is False
+    assert row.protein_source == ""
+    assert row.genome_source == ""
+
+
+def test_resolve_row_unresolvable_taxon_name(monkeypatch):
+    monkeypatch.setattr(nr, "resolve_taxon_id", lambda s: [])
+
+    row = nr.resolve_row("Xsp", "Xylaria sp.", "")
+
+    assert row.resolved is False
+    assert any("taxon" in line.lower() for line in row.report_lines)
+
+
+def test_resolve_row_strain_targeted_widening(monkeypatch):
+    # Default reference-only UniProt search finds nothing; strain is given;
+    # widened (non-reference) search matches by strain name.
+    monkeypatch.setattr(nr, "resolve_taxon_id", lambda s: [{"taxon_id": "1", "scientific_name": s}])
+
+    def fake_search(tid, reference_only):
+        if reference_only:
+            return []
+        return [
+            {"proteome_id": "UP1", "strain": "Fo47", "busco_score": 95.0,
+             "genome_assembly_id": None, "superkingdom": "Eukaryota"},
+            {"proteome_id": "UP2", "strain": "race 4", "busco_score": 93.0,
+             "genome_assembly_id": None, "superkingdom": "Eukaryota"},
+        ]
+
+    monkeypatch.setattr(nr, "search_uniprot_proteomes", fake_search)
+    monkeypatch.setattr(nr, "check_ftp_available", lambda pid, sk: True)
+    monkeypatch.setattr(nr, "query_ncbi_assemblies", lambda tid, require_reference: [])
+
+    row = nr.resolve_row("Foxy1", "Fusarium oxysporum", "Fo47")
+
+    assert row.resolved is True
+    assert row.protein_source == "uniprot"
+    assert row.protein_accession == "UP1"
+    assert any("strain-targeted" in line.lower() for line in row.report_lines)

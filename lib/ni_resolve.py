@@ -27,6 +27,7 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -220,3 +221,123 @@ def rank_ncbi_candidates(candidates: list[dict[str, Any]], *, require_annotation
 
     best_tier = min(tier(c) for c in pool)
     return [c for c in pool if tier(c) == best_tier]
+
+
+@dataclass
+class ResolvedRow:
+    short: str
+    resolved: bool
+    protein_source: str = ""
+    protein_accession: str = ""
+    taxon_id: str = ""
+    genome_source: str = ""
+    genome_accession: str = ""
+    busco_score: float | None = None  # from UniProt, when protein_source == "uniprot"
+    report_lines: list[str] = field(default_factory=list)
+
+
+def resolve_row(short: str, species: str, strain: str) -> ResolvedRow:
+    """Resolve one species.csv row: Steps 0 (taxon), 1 (UniProt reference),
+    1b (strain-targeted UniProt widening), 2 (NCBI genome/protein fallback),
+    2b (strain-targeted NCBI widening). Any ambiguity leaves the row
+    unresolved with a reason in report_lines rather than guessing.
+    """
+    taxa = resolve_taxon_id(species)
+    if len(taxa) != 1:
+        reason = "not a resolvable NCBI taxon name" if not taxa else f"{len(taxa)} ambiguous taxon matches"
+        return ResolvedRow(short=short, resolved=False, report_lines=[reason])
+    taxon_id = taxa[0]["taxon_id"]
+
+    protein_source = protein_accession = genome_source = genome_accession = ""
+    busco_score: float | None = None
+    report: list[str] = []
+
+    # Step 1: UniProt reference-only search
+    uniprot_candidates = search_uniprot_proteomes(taxon_id, reference_only=True)
+    chosen_uniprot = _pick_uniprot_candidate(uniprot_candidates, strain, report)
+
+    if chosen_uniprot is None and strain:
+        # Step 1b: strain-targeted widening (non-reference proteomes)
+        widened = search_uniprot_proteomes(taxon_id, reference_only=False)
+        matches = [c for c in widened if strain_matches(c["strain"], strain)]
+        if len(matches) == 1:
+            chosen_uniprot = matches[0]
+            report.append(f"strain-targeted UniProt match: {strain!r}")
+
+    if chosen_uniprot is not None:
+        if check_ftp_available(chosen_uniprot["proteome_id"], chosen_uniprot["superkingdom"]):
+            protein_source = "uniprot"
+            protein_accession = chosen_uniprot["proteome_id"]
+            busco_score = chosen_uniprot.get("busco_score")
+            if chosen_uniprot.get("strain") and not strain_matches(chosen_uniprot["strain"], strain):
+                report.append(f"WARNING strain mismatch: accepted record's strain is {chosen_uniprot['strain']!r}, species.csv says {strain!r}")
+            if chosen_uniprot.get("genome_assembly_id"):
+                genome_source = "ncbi"
+                genome_accession = chosen_uniprot["genome_assembly_id"]
+        else:
+            report.append(
+                f"REFERENCE proteome {chosen_uniprot['proteome_id']} found in REST but not yet "
+                "in the FTP release -- treating as absent"
+            )
+            chosen_uniprot = None
+
+    if not genome_source:
+        # Step 2 / Step 2b: NCBI genome (and protein, if UniProt didn't resolve one)
+        need_protein_too = not protein_source
+        ncbi_candidates = query_ncbi_assemblies(taxon_id, require_reference=True)
+        top = rank_ncbi_candidates(ncbi_candidates, require_annotation=need_protein_too)
+
+        if not top and strain:
+            # Collapse GCA/GCF pairs before strain-matching, or a single
+            # underlying assembly with a paired record shows up as a
+            # spurious 2-way tie.
+            widened = _collapse_paired(query_ncbi_assemblies(taxon_id, require_reference=False))
+            matches = [c for c in widened if strain_matches(c["strain"], strain)]
+            if len(matches) == 1:
+                top = matches
+                report.append(f"strain-targeted NCBI match: {strain!r}")
+
+        if len(top) == 1:
+            genome_source = "ncbi"
+            genome_accession = top[0]["accession"]
+            if top[0]["assembly_status"] != "current":
+                report.append(f"NOTE: {genome_accession} is superseded")
+            if need_protein_too:
+                protein_source = "ncbi"
+                protein_accession = genome_accession
+        elif len(top) > 1:
+            report.append(f"{len(top)} NCBI assembly groups tied, none disambiguated:")
+            for c in top[:10]:
+                report.append(f"  {c['accession']}  ({c['assembly_level']}, submitted {c['submission_date']}, {c['submitter']})")
+            if len(top) > 10:
+                report.append(f"  ... and {len(top) - 10} more")
+
+    # A row is resolved once its protein source is settled -- genome_source
+    # is populated alongside protein in every code path here except the
+    # UniProt-widening one (a non-reference proteome with no linked genome
+    # assembly), where the protein is still usable on its own.
+    resolved = bool(protein_source)
+    if not resolved and not report:
+        report.append("no UniProt reference proteome and no NCBI assembly found")
+
+    return ResolvedRow(
+        short=short, resolved=resolved,
+        protein_source=protein_source if resolved else "",
+        protein_accession=protein_accession if resolved else "",
+        taxon_id=taxon_id if resolved else "",
+        genome_source=genome_source if resolved else "",
+        genome_accession=genome_accession if resolved else "",
+        busco_score=busco_score if resolved else None,
+        report_lines=report,
+    )
+
+
+def _pick_uniprot_candidate(candidates: list[dict[str, Any]], strain: str, report: list[str]) -> dict[str, Any] | None:
+    if len(candidates) == 1:
+        return candidates[0]
+    if len(candidates) > 1:
+        matches = [c for c in candidates if strain_matches(c["strain"], strain)]
+        if len(matches) == 1:
+            return matches[0]
+        report.append(f"{len(candidates)} ambiguous UniProt reference proteomes, strain did not disambiguate")
+    return None
