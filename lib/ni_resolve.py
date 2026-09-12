@@ -217,8 +217,14 @@ def query_ncbi_assembly_by_accession(accession: str) -> dict[str, Any] | None:
     superseded requires querying that accession by name, not scanning a
     listing that structurally excludes superseded records.
 
-    Returns None if the accession is not found (e.g. `datasets` exits
-    non-zero, or returns no records).
+    Returns None only if `datasets` exits 0 but reports no records (live-
+    verified: a well-formed but nonexistent accession like GCA_999999999.9
+    behaves this way). A malformed/invalid accession string makes `datasets`
+    exit non-zero instead (live-verified), which raises
+    subprocess.CalledProcessError here -- resolve_species_csv's per-row
+    try/except catches that and reports the row unresolved rather than
+    aborting the whole run, so this is not silently swallowed, just not a
+    plain None return.
     """
     cmd = ["datasets", "summary", "genome", "accession", accession, "--as-json-lines"]
     result = subprocess.run(cmd, capture_output=True, text=True, check=True)

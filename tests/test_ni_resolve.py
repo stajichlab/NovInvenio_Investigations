@@ -109,7 +109,7 @@ def test_search_uniprot_proteomes_excludes_mycovirus_via_taxon_scoping():
         "results": [
             {
                 "id": "UP000001805",
-                "taxonomy": {"scientificName": "Neurospora crassa", "taxonId": 5334, "mnemonic": "NEUCR"},
+                "taxonomy": {"scientificName": "Neurospora crassa", "taxonId": 367110, "mnemonic": "NEUCR"},
                 "strain": "ATCC 24698 / 74-OR23-1A / CBS 708.71 / DSM 1257 / FGSC 987",
                 "superkingdom": "eukaryota",
                 "genomeAssembly": {"assemblyId": "GCA_000182925.2"},
@@ -135,9 +135,13 @@ def test_search_uniprot_proteomes_excludes_mycovirus_via_taxon_scoping():
     assert candidates[0]["busco_score"] == 98.5
     assert candidates[0]["strain"] == "ATCC 24698 / 74-OR23-1A / CBS 708.71 / DSM 1257 / FGSC 987"
     # Finding 2: the candidate must carry the RECORD's own taxonomy.taxonId
-    # (strain-level, distinct from the species-level taxon_id queried with),
-    # since that's what bin/fetch_uniprot_proteome.py's FTP download is keyed on.
-    assert candidates[0]["record_taxon_id"] == "5334"
+    # (strain-level, real value 367110 for UP000001805 -- deliberately DIFFERENT
+    # from the species-level "5334" queried with, so this assertion can actually
+    # fail if the code wrongly echoed back the queried taxon_id instead of
+    # reading the record's own field), since that's what
+    # bin/fetch_uniprot_proteome.py's FTP download is keyed on.
+    assert candidates[0]["record_taxon_id"] == "367110"
+    assert candidates[0]["record_taxon_id"] != "5334"
 
 
 def test_search_uniprot_proteomes_paginates():
