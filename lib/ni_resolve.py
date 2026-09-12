@@ -274,6 +274,7 @@ def resolve_row(short: str, species: str, strain: str) -> ResolvedRow:
             if chosen_uniprot.get("genome_assembly_id"):
                 genome_source = "ncbi"
                 genome_accession = chosen_uniprot["genome_assembly_id"]
+                _flag_if_superseded(taxon_id, genome_accession, report)
         else:
             report.append(
                 f"REFERENCE proteome {chosen_uniprot['proteome_id']} found in REST but not yet "
@@ -292,10 +293,19 @@ def resolve_row(short: str, species: str, strain: str) -> ResolvedRow:
             # underlying assembly with a paired record shows up as a
             # spurious 2-way tie.
             widened = _collapse_paired(query_ncbi_assemblies(taxon_id, require_reference=False))
-            matches = [c for c in widened if strain_matches(c["strain"], strain)]
+            strain_hits = [c for c in widened if strain_matches(c["strain"], strain)]
+            # An unannotated assembly can't supply a protein FASTA -- same
+            # rule Step 2's rank_ncbi_candidates(require_annotation=...)
+            # already applies to the non-widened path.
+            matches = [c for c in strain_hits if c["has_annotation"]] if need_protein_too else strain_hits
             if len(matches) == 1:
                 top = matches
                 report.append(f"strain-targeted NCBI match: {strain!r}")
+            elif strain_hits and not matches:
+                report.append(
+                    f"strain-targeted NCBI match {strain!r} found but lacks annotation -- "
+                    "cannot supply a protein FASTA from it"
+                )
 
         if len(top) == 1:
             genome_source = "ncbi"
@@ -317,6 +327,8 @@ def resolve_row(short: str, species: str, strain: str) -> ResolvedRow:
     # UniProt-widening one (a non-reference proteome with no linked genome
     # assembly), where the protein is still usable on its own.
     resolved = bool(protein_source)
+    if resolved and not genome_source:
+        report.append(f"protein resolved ({protein_source} {protein_accession}), but no genome found")
     if not resolved and not report:
         report.append("no UniProt reference proteome and no NCBI assembly found")
 
@@ -330,6 +342,20 @@ def resolve_row(short: str, species: str, strain: str) -> ResolvedRow:
         busco_score=busco_score if resolved else None,
         report_lines=report,
     )
+
+
+def _flag_if_superseded(taxon_id: str, genome_accession: str, report: list[str]) -> None:
+    """When a UniProt proteome record supplies a genome_assembly_id directly
+    (Step 1's one-query-resolves-both-columns path), that accession can be
+    stale in UniProt's own record even though the proteome itself is current
+    (live example: UP000007431 -> GCA_000143185.1, while NCBI's current
+    assembly for that taxon is GCA_000143185.2). Cross-check against NCBI
+    and flag rather than silently accepting it.
+    """
+    candidates = query_ncbi_assemblies(taxon_id, require_reference=False)
+    match = next((c for c in candidates if c["accession"] == genome_accession), None)
+    if match is not None and match["assembly_status"] != "current":
+        report.append(f"NOTE: {genome_accession} is superseded")
 
 
 def _pick_uniprot_candidate(candidates: list[dict[str, Any]], strain: str, report: list[str]) -> dict[str, Any] | None:

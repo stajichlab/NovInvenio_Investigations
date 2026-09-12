@@ -330,4 +330,60 @@ def test_resolve_row_strain_targeted_widening(monkeypatch):
     assert row.resolved is True
     assert row.protein_source == "uniprot"
     assert row.protein_accession == "UP1"
+    assert row.genome_source == ""
     assert any("strain-targeted" in line.lower() for line in row.report_lines)
+    assert any("no genome found" in line.lower() for line in row.report_lines)
+
+
+def test_resolve_row_ncbi_strain_widening_requires_annotation_for_protein(monkeypatch):
+    # Step 1 finds nothing; Step 2's default (require_reference) search finds
+    # nothing; Step 2b widens by strain and finds exactly one match -- but it
+    # has no annotation, so it cannot supply Protein_Source. Must NOT be
+    # silently accepted.
+    monkeypatch.setattr(nr, "resolve_taxon_id", lambda s: [{"taxon_id": "1", "scientific_name": s}])
+    monkeypatch.setattr(nr, "search_uniprot_proteomes", lambda tid, reference_only: [])
+
+    def fake_query(tid, require_reference):
+        if require_reference:
+            return []
+        return [
+            {"accession": "GCA_111111111.1", "paired_accession": None,
+             "refseq_category": None, "assembly_level": "Contig",
+             "assembly_status": "current", "strain": "XYZ123", "has_annotation": False,
+             "submitter": "y", "submission_date": "2020-01-01"},
+        ]
+
+    monkeypatch.setattr(nr, "query_ncbi_assemblies", fake_query)
+
+    row = nr.resolve_row("Tst1", "Test species", "XYZ123")
+
+    assert row.resolved is False
+    assert row.protein_source == ""
+    assert any("annotation" in line.lower() for line in row.report_lines)
+
+
+def test_resolve_row_uniprot_genome_flagged_superseded(monkeypatch):
+    # UniProt's proteome record links a genome_assembly_id directly (Step 1's
+    # one-query-resolves-both-columns path). If that accession is no longer
+    # NCBI's current assembly for the taxon, this must be flagged, not
+    # silently accepted (concrete live example from the spec: UP000007431 ->
+    # GCA_000143185.1 while NCBI's current is .2).
+    monkeypatch.setattr(nr, "resolve_taxon_id", lambda s: [{"taxon_id": "5", "scientific_name": s}])
+    monkeypatch.setattr(nr, "search_uniprot_proteomes", lambda tid, reference_only: (
+        [{"proteome_id": "UP000007431", "strain": "X", "busco_score": 90.0,
+          "genome_assembly_id": "GCA_000143185.1", "superkingdom": "Eukaryota"}]
+        if reference_only else []
+    ))
+    monkeypatch.setattr(nr, "check_ftp_available", lambda pid, sk: True)
+    monkeypatch.setattr(nr, "query_ncbi_assemblies", lambda tid, require_reference: [
+        {"accession": "GCA_000143185.1", "paired_accession": "GCF_000143185.1",
+         "refseq_category": "reference genome", "assembly_level": "Chromosome",
+         "assembly_status": "replaced", "strain": "X", "has_annotation": True,
+         "submitter": "y", "submission_date": "2010-01-01"},
+    ])
+
+    row = nr.resolve_row("Scom2", "Schizophyllum commune", "X")
+
+    assert row.resolved is True
+    assert row.genome_accession == "GCA_000143185.1"
+    assert any("superseded" in line.lower() for line in row.report_lines)
