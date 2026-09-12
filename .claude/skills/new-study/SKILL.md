@@ -50,10 +50,26 @@ full schema rationale.
    supply a GFF3 from that same NCBI Datasets package — use it when a study
    wants to explicitly decline an NCBI-provided GFF3.
 
-5. **Run** `pixi run python bin/build_study_config.py --study-dir studies/<domain>/<set_name>`.
+5. **Resolve sources for species needing UniProt/NCBI lookups.** Once `species.csv`
+   has `Short`/`Species`/`Strain`/`Group`/`TaxonGroup` filled in, run:
+   ```
+   pixi run python bin/ni resolve --study-dir studies/<domain>/<set_name>
+   ```
+   This auto-fills the source columns (`Protein_Source`, `Protein_Accession`,
+   `Taxon_ID`, `Genome_Source`, `Genome_Accession`) for any species classified
+   as needing a UniProt or NCBI lookup (as opposed to `local_faa` or `local_genome`,
+   which you classified by hand in step 2). `bin/ni resolve` only touches blank
+   rows — species with `Protein_Source=local_faa` or `Genome_Source=local_genome`
+   are left alone. Any rows `bin/ni resolve` reports as needing a decision (e.g.,
+   multiple competing UniProt proteome entries for the same species, or no NCBI
+   genome found) **must be resolved by hand** — check the reported candidates,
+   pick one, or determine the species genuinely has no usable public data yet —
+   before proceeding to the next step.
+
+6. **Run** `pixi run python bin/build_study_config.py --study-dir studies/<domain>/<set_name>`.
    Fix any `ERROR:` it reports (missing file, unknown Source value) before moving on.
 
-6. **Hand off**: `bin/run_study.sh <domain>/<set_name> [nextflow args]` runs the
+7. **Hand off**: `bin/run_study.sh <domain>/<set_name> [nextflow args]` runs the
    actual pipeline. See that script's own header comment for `NII_PIPELINE`/
    `NOVINVENIO_ROOT` local-checkout requirements.
 

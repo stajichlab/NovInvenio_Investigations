@@ -491,6 +491,13 @@ logo without depending on NII's repo being reachable/public.
   but the exact BUSCO-score JSON path wasn't nailed down during this session — worth
   finding before implementing the "record completeness in provenance.yaml" recommendation
   from the Fable review.
+- **Phase 2: open-ended clade/taxon discovery — deferred.** Tasks 1-4 implement Phase 1
+  only: given a species already known to belong to a study, auto-discover its UniProt
+  proteome ID and NCBI genome accessions via existing taxonomy/nomenclature. Phase 2
+  would be open-ended "find me good Ascomycota outgroups I haven't heard of" automation
+  via UniProt clade/phylogeny queries or other discovery heuristics — valuable long-term,
+  but a separate scope. See `notes/superpowers/specs/2026-09-11-ni-dataset-resolution-design.md`'s
+  own "Scope: Phase 1 only" section for the reasoning.
 
 ## 10. Expert evaluation
 
