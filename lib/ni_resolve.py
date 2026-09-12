@@ -382,6 +382,8 @@ def resolve_species_csv(study_dir: Path) -> None:
     split.
     """
     species_csv = study_dir / "species.csv"
+    if not species_csv.exists():
+        sys.exit(f"ERROR: {species_csv} not found")
     with open(species_csv, newline="") as fh:
         reader = _csv.DictReader(fh)
         fieldnames = reader.fieldnames

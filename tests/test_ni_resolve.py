@@ -409,13 +409,14 @@ def _write_csv(path, rows):
 def test_resolve_species_csv_fills_blank_rows_only(tmp_path, monkeypatch, capsys):
     study_dir = tmp_path / "studies" / "fungi" / "toy"
     study_dir.mkdir(parents=True)
+    already_row = {  # already filled -- must NOT be touched
+        "Short": "Already", "Species": "X", "Strain": "", "Group": "IN", "TaxonGroup": "X",
+        "Protein_Source": "local_faa", "Protein_Accession": "/some/path.faa", "Taxon_ID": "",
+        "Genome_Source": "local_genome", "Genome_Accession": "/some/path.fna",
+        "GFF3_Source": "", "GFF3_Accession": "",
+    }
     _write_csv(study_dir / "species.csv", [
-        {  # already filled -- must NOT be touched
-            "Short": "Already", "Species": "X", "Strain": "", "Group": "IN", "TaxonGroup": "X",
-            "Protein_Source": "local_faa", "Protein_Accession": "/some/path.faa", "Taxon_ID": "",
-            "Genome_Source": "local_genome", "Genome_Accession": "/some/path.fna",
-            "GFF3_Source": "", "GFF3_Accession": "",
-        },
+        already_row,
         {  # blank -- should resolve
             "Short": "Ncra", "Species": "Neurospora crassa", "Strain": "OR74A", "Group": "OUT",
             "TaxonGroup": "Pezizomycotina",
@@ -440,7 +441,7 @@ def test_resolve_species_csv_fills_blank_rows_only(tmp_path, monkeypatch, capsys
         rows = list(csv.DictReader(fh))
 
     already = next(r for r in rows if r["Short"] == "Already")
-    assert already["Protein_Source"] == "local_faa"  # untouched
+    assert already == already_row  # every field on this row is untouched, byte for byte
 
     ncra = next(r for r in rows if r["Short"] == "Ncra")
     assert ncra["Protein_Source"] == "uniprot"
@@ -473,3 +474,15 @@ def test_resolve_species_csv_leaves_unresolved_blank_and_reports(tmp_path, monke
     out = capsys.readouterr().out
     assert "need a decision" in out
     assert "not a resolvable NCBI taxon name" in out
+
+
+def test_resolve_species_csv_missing_species_csv_exits_cleanly(tmp_path):
+    study_dir = tmp_path / "studies" / "fungi" / "nocsv"
+    study_dir.mkdir(parents=True)
+    # No species.csv written here.
+    try:
+        nr.resolve_species_csv(study_dir)
+        assert False, "expected SystemExit"
+    except SystemExit as e:
+        assert str(study_dir / "species.csv") in str(e)
+        assert "not found" in str(e)
