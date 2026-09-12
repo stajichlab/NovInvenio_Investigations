@@ -173,6 +173,51 @@ def test_find_forma_specialis_group_walks_rank_lookup():
     assert used_fallback is False
 
 
+def test_find_forma_specialis_group_walks_realistic_multi_element_parents():
+    # Regression test for the parents[-1] vs parents[0] walk direction.
+    # Every other rank_lookup fixture in this file uses single-element (or
+    # empty) `parents` lists, for which [-1] and [0] are identical -- this
+    # test uses the REAL, full-length root-first `parents` arrays live-
+    # captured for taxid 1229664 (Fusarium oxysporum f. sp. cubense race 1)
+    # and its immediate parent 61366 (see task-1-report.md for the full
+    # `datasets summary taxonomy taxon 1229664 61366` transcript this was
+    # transcribed from). Swapping parents[-1] back to parents[0] in
+    # find_forma_specialis_group would walk toward taxid "1" (the root) on
+    # the very first hop instead of to 61366, and "1" is not in rank_lookup,
+    # so the walk would break and fall through to the organism_name regex.
+    # organism_name is deliberately given WITHOUT any "f. sp." text so that
+    # fallback path can't coincidentally produce the right label -- a
+    # parents[0] regression must show up as a wrong label/used_fallback, not
+    # be masked by the fallback also finding "cubense".
+    rank_lookup = {
+        "1229664": {
+            "rank": "STRAIN",
+            "name": "Fusarium oxysporum f. sp. cubense race 1",
+            "species_name": "Fusarium oxysporum",
+            "parents": [
+                "1", "131567", "2759", "33154", "4751", "451864", "4890",
+                "716545", "147538", "716546", "715989", "147550", "222543",
+                "5125", "110618", "5506", "171631", "5507", "61366",
+            ],
+        },
+        "61366": {
+            "rank": "FORMA_SPECIALIS",
+            "name": "Fusarium oxysporum f. sp. cubense",
+            "species_name": "Fusarium oxysporum",
+            "parents": [
+                "1", "131567", "2759", "33154", "4751", "451864", "4890",
+                "716545", "147538", "716546", "715989", "147550", "222543",
+                "5125", "110618", "5506", "171631", "5507",
+            ],
+        },
+    }
+    label, used_fallback = nd.find_forma_specialis_group(
+        "1229664", rank_lookup, "Fusarium isolate FOC-race1"
+    )
+    assert label == "cubense"
+    assert used_fallback is False
+
+
 def test_find_forma_specialis_group_falls_back_to_regex():
     # A taxid with no FORMA_SPECIALIS ancestor in rank_lookup at all.
     rank_lookup = {
@@ -199,6 +244,50 @@ def test_find_species_complex_detects_species_group_ancestor():
         "171631": {"rank": "SPECIES_GROUP", "name": "Fusarium oxysporum species complex", "parents": [], "species_name": ""},
     }
     complex_info = nd.find_species_complex("5507", rank_lookup)
+    assert complex_info == {"taxon_id": "171631", "name": "Fusarium oxysporum species complex"}
+
+
+def test_find_species_complex_walks_realistic_multi_element_parents_multi_hop():
+    # Regression test for the parents[-1] vs parents[0] walk direction,
+    # requiring TWO hops (61366 -> 5507 -> 171631) before reaching the
+    # SPECIES_GROUP ancestor, using the real full-length root-first
+    # `parents` arrays live-captured for taxids 61366, 5507, and 171631
+    # (see task-1-report.md). Swapping parents[-1] back to parents[0] would
+    # walk toward taxid "1" on the first hop, which is not in rank_lookup,
+    # so the walk would break and return None instead of finding 171631.
+    rank_lookup = {
+        "61366": {
+            "rank": "FORMA_SPECIALIS",
+            "name": "Fusarium oxysporum f. sp. cubense",
+            "species_name": "Fusarium oxysporum",
+            "parents": [
+                "1", "131567", "2759", "33154", "4751", "451864", "4890",
+                "716545", "147538", "716546", "715989", "147550", "222543",
+                "5125", "110618", "5506", "171631", "5507",
+            ],
+        },
+        "5507": {
+            "rank": "SPECIES",
+            "name": "Fusarium oxysporum",
+            "species_name": "Fusarium oxysporum",
+            "parents": [
+                "1", "131567", "2759", "33154", "4751", "451864", "4890",
+                "716545", "147538", "716546", "715989", "147550", "222543",
+                "5125", "110618", "5506", "171631",
+            ],
+        },
+        "171631": {
+            "rank": "SPECIES_GROUP",
+            "name": "Fusarium oxysporum species complex",
+            "species_name": "",
+            "parents": [
+                "1", "131567", "2759", "33154", "4751", "451864", "4890",
+                "716545", "147538", "716546", "715989", "147550", "222543",
+                "5125", "110618", "5506",
+            ],
+        },
+    }
+    complex_info = nd.find_species_complex("61366", rank_lookup)
     assert complex_info == {"taxon_id": "171631", "name": "Fusarium oxysporum species complex"}
 
 
