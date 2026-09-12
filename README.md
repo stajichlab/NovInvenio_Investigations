@@ -107,6 +107,35 @@ Notes specific to this mode:
   question (e.g. one clinical lineage vs. everything else); `bin/ni` only resolves
   accessions, it doesn't know or care about your grouping.
 
+### Use case 3: pangenome from population discovery
+
+Start a pangenome study when you do not know the species' annotated-strain population
+upfront. `bin/ni discover` queries NCBI for all annotated genomes of a species, groups
+them by forma specialis (a taxonomic pathotype label), reports population statistics,
+and writes `species.csv` ready for the pipeline:
+
+```bash
+pixi run python bin/ni discover --species "Fusarium oxysporum" --study-dir studies/fungi/my_pangenome_study
+```
+
+The tool prints a table of forma-specialis groups (e.g. `f. sp. lycopersici`, `f. sp.
+cubense`) with genome counts and quality metadata (average gene count, BUSCO scores,
+assembly levels). Review the table, then assign `Group` (IN/OUT) to each strain by hand
+in `species.csv`, or use `--ingroup-groups` and `--outgroup-groups` if you already know
+which groups to separate:
+
+```bash
+pixi run python bin/ni discover --species "Fusarium oxysporum" --study-dir studies/fungi/my_pangenome_study \
+  --ingroup-groups "lycopersici,cucurbitacearum" --outgroup-groups "others"
+```
+
+Pass `--auto` to request an extended report with a largest-group suggestion and
+cross-group duplicate warnings — this proposal is informational only and does NOT set
+Group in the written file. Nota bene: forma specialis is a host-specificity label
+used for plant pathogens, not a phylogenetic split; see
+`notes/superpowers/specs/2026-09-11-ni-discover-design.md` for grouping rationale and
+caveats.
+
 ## Data provenance
 
 Every tracked data file needs a provenance record (source URL, release/version,

@@ -8,6 +8,14 @@ description: Use when onboarding a new study into studies/<domain>/<set_name>/ -
 Reference: `notes/superpowers/specs/2026-09-11-study-onboarding-design.md` for the
 full schema rationale.
 
+**Alternative: pangenome discovery.** If you are starting a pangenome/multi-strain
+study and don't already know which strains or forma-specialis groups to include, use
+`bin/ni discover` instead. It queries NCBI to enumerate all annotated genomes of a
+species, groups them by pathotype, and writes `species.csv` ready for manual Group
+assignment or explicit selection via flags. See `bin/ni discover --help` and the
+`README.md` section on `bin/ni discover` for details; the sections below assume you
+already have a species list ready to resolve.
+
 ## Steps
 
 1. **Pick `<domain>/<set_name>`.** Domain is one of `conf/domains.yaml`'s slugs
