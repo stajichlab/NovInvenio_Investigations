@@ -317,6 +317,13 @@
     white-space: pre; margin: 0 0 10px;
   }
   dialog.alignment .align-empty { padding: 24px 4px; color: var(--text-secondary); font-size: 13px; }
+
+  nav.breadcrumb { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  nav.breadcrumb a {
+    font-size: 11px; padding: 3px 9px; border: 1px solid var(--border); border-radius: 999px;
+    text-decoration: none; color: var(--text-secondary); background: var(--surface-1);
+  }
+  nav.breadcrumb a:hover { border-color: var(--series-1); color: var(--text-primary); }
 </style>
 <script>
 (function () {
@@ -330,6 +337,8 @@
 </script>
 </head>
 <body>
+<div class="wrap">
+<nav class="breadcrumb"><a href="report.html">&#128193; Study</a><a href="../index.html">&#128194; Group</a><a href="../../index.html">&#127968; All studies</a></nav>
 
   <dialog class="alignment" id="alignment-dialog">
     <div class="align-head">
@@ -340,6 +349,7 @@
     <div class="align-body" id="alignment-body"></div>
   </dialog>
 
+</div>
 <script>
 
   (function () {
