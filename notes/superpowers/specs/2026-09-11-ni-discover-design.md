@@ -108,18 +108,23 @@ bin/ni discover --species "<name>" --study-dir studies/<domain>/<set>
   unannotated assembly can't produce a protein FASTA, same rule `resolve`
   already enforces for its own NCBI protein path).
 - **Groups by NCBI Taxonomy's own `FORMA_SPECIALIS` rank, not string-parsing
-  `organism_name`.** Per-record taxon lineage carries a `FORMA_SPECIALIS`
-  node when one exists (live-verified: e.g. taxid `1229664` "cubense race 1"
-  → parent `61366` "cubense", rank `FORMA_SPECIALIS`); walk each record's
-  lineage to that ancestor and use its name as the group label. This is
-  structurally correct and immune to tokenization edge cases (multi-word
-  forma names, race/pathotype suffixes) the original string-parse draft was
-  only accidentally safe against. Fall back to the same `f. sp. <token>`
-  regex on `organism_name` only for the (rare) case a lineage lookup isn't
-  available, clearly logging that the fallback path was used for that row.
-  **Verify the exact lineage/rank field path against a live `datasets
-  summary taxonomy taxon <id>` call during implementation** — this spec
-  states the mechanism, not a guessed JSON path.
+  `organism_name`.** Live-verified mechanism (re-review, all 74 records):
+  each genome record's `organism.tax_id` (usually strain-rank, e.g. `1229664`
+  "cubense race 1") needs a **separate, batched** `datasets summary taxonomy
+  taxon <id>` lookup — the genome-summary record itself carries no lineage,
+  and the taxonomy report's own `parents` field is a bare list of IDs with no
+  rank annotations, so a **second batched taxonomy call on those parent IDs**
+  is needed to learn which one is rank `FORMA_SPECIALIS` (confirmed live: 2
+  batched calls total resolve all 74 records' groups). The FORMA_SPECIALIS
+  node's own name is the full binomial-prefixed string (`"Fusarium oxysporum
+  f. sp. cubense"`) — strip the species prefix to get the bare label
+  (`cubense`) for `TaxonGroup`. This two-call mechanism is structurally
+  correct and immune to tokenization edge cases (multi-word forma names,
+  race/pathotype suffixes) the original string-parse draft was only
+  accidentally safe against — confirmed to agree with the regex on 74/74
+  live records. Fall back to the `f. sp. <token>` regex on `organism_name`
+  only for the (rare) case a taxon has no `FORMA_SPECIALIS` ancestor at all,
+  clearly logging that the fallback path was used for that row.
 - **Checks whether the resolved taxon has a parent species-complex
   (`SPECIES_GROUP`-rank) node, and reports it regardless of flags.** If one
   exists, print how many additional annotated genomes live under the
@@ -131,15 +136,31 @@ bin/ni discover --species "<name>" --study-dir studies/<domain>/<set>
   complex node instead and includes every child species' genomes, each row's
   `Species` reflecting whatever species name that record actually carries
   (do not force everything under the queried name).
-- **Detects same-strain duplicate registrations** before assigning Shorts:
-  group records whose `assembly_info.biosample.accession` matches (or, when
-  BioSample is absent, whose normalized strain/isolate string matches
-  case-insensitively after stripping a leading `Fo`/species-abbreviation
-  prefix), and treat each such group as **one** candidate row, not several.
-  When a duplicate group's members disagree on annotation provider/assembly
-  level, prefer the one selected by the GCA/GCF annotation-preference rule
-  below; report which records were merged and which was kept, never merge
-  silently without a report line.
+- **Detects same-strain duplicate registrations** before assigning Shorts.
+  **Correction from re-review (live-verified against the real dataset):**
+  the criteria must be **BioSample match OR normalized-strain match**,
+  applied as independent, unioned rules — not "BioSample first, strain only
+  as a fallback when BioSample is absent." Every record in the live
+  *F. oxysporum* + *F. odoratissimum* set (74/74) carries a BioSample, so a
+  fallback-only rule never fires; the real duplicates this feature exists to
+  catch (`Fo5176` re-registered 3 times, `Fo47` re-registered independently
+  of its own GCA/GCF pair, `4287`/`Fo4287` under two spellings) each have
+  **different** BioSample accessions — they're independent resubmissions of
+  the same physical strain, not one BioSample with multiple assembly
+  versions. So: group records whose `assembly_info.biosample.accession`
+  matches, **union** with records whose normalized strain/isolate string
+  matches case-insensitively after stripping a leading
+  `Fo`/species-abbreviation prefix, treat each resulting group as **one**
+  candidate row. When a duplicate group's members disagree on annotation
+  pipeline/assembly level, prefer the one selected by the GCA/GCF
+  annotation-preference rule below; report which records were merged and
+  which was kept, never merge silently without a report line. **Known
+  residual gap, report-only:** a duplicate that's both a different strain
+  *string* and registered under a *different species name* in the
+  species-complex case (live example: `II5` under *F. oxysporum* vs. `NRRL
+  54006` under *F. odoratissimum` — the same physical strain) cannot be
+  caught by either rule; `--auto`'s report should say so explicitly rather
+  than implying duplicate-detection is exhaustive.
 - **Always prints the group/count table** to stdout, regardless of which
   flags are given, now also carrying **provider, protein-coding gene count,
   assembly level, and contig N50** per group (min/max or a flagged outlier
@@ -222,20 +243,28 @@ GFF3_Source/GFF3_Accession — blank (auto -- Genome_Source=ncbi already
 
 **GCA/GCF pair-collapse** (reusing `_collapse_paired` from `resolve`'s own
 code) applies here too — a species-level listing can include both members of
-a pair, and they must not become two rows for one genome. **Refinement from
-review:** `_collapse_paired`'s existing rule (always keep the GCA member) is
-right for `resolve`'s single-accession case, but at species-listing scale
-pair members can carry *different* annotations (live example: `Fo47`'s
-`GCF_013085055.1` is NCBI's own RefSeq eukaryotic-annotation pipeline output;
-its `GCA_013085055.1` counterpart is the original submitter's annotation —
-different protein counts, different provenance). `discover` needs its own
-pair-preference rule, distinct from `resolve`'s: **prefer the RefSeq-
-annotated member when the pair's annotations differ in provider** (check
-`annotation_info`'s own provider/release fields — verify the exact field
-live during implementation), falling back to the GCA-preference rule only
-when annotation provenance is equivalent or the distinction can't be
-determined. Report which member of each pair was kept and why in the printed
-table, since this changes which actual protein set the row uses.
+a pair, and they must not become two rows for one genome.
+
+**Correction from re-review (live-verified against all 4 real pairs in the
+*F. oxysporum* dataset):** the first draft of this refinement described
+`GCF_013085055.1` (Fo47's RefSeq member) as "NCBI's own independent RefSeq
+annotation" versus the GCA member's "submitter's own annotation," and
+proposed keying preference on `annotation_info`'s **provider** field. Neither
+holds up: all 4 real pairs (1 Xi'an Jiaotong, 3 Broad Institute) have the
+**same `provider` on both members** — RefSeq is *propagating* the
+submitter's own annotation, via
+`annotation_info.pipeline: "NCBI Eukaryotic Annotation Propagation
+Pipeline"`, not producing an independent one. The actual protein-count
+difference between pair members in all 4 real cases is tiny (0-5 genes,
+e.g. Fo47's GCA=16,202 vs. GCF=16,197). Given that, **the pair-preference
+rule stays the same as `resolve`'s existing GCA-preference rule — no new
+rule needed.** What *is* worth capturing: the GCF/RefSeq-propagated member
+uniquely carries a `busco` completeness block in these cases (Fo47's GCF
+member: 97.8%) that the GCA member doesn't — record that BUSCO score in the
+printed table (feeding the same per-group quality columns as the annotation-
+heterogeneity reporting above) even though the GCA member is still the one
+kept. Report which member of each pair was kept and its BUSCO score (if the
+other member has one) in the printed table.
 
 ## Testing
 
@@ -261,11 +290,16 @@ be drawn from actual live captures, not hand-written shapes:
 - The 4 additional `Fusarium odoratissimum` records from the species-complex
   node — required so the species-complex-detection test is checked against
   the real record that motivated this feature (the actual TR4 reference
-  strain), not an invented stand-in.
-- At least one live-captured GCA/GCF pair whose members carry different
-  annotation providers (the `Fo47` pair above), so the annotation-aware
-  preference rule has a real test case distinguishing it from `resolve`'s
-  simpler always-prefer-GCA rule.
+  strain, `II5`/`NRRL 54006`). This set deliberately includes `race 4`
+  (`GCF_000350365.1`), which has no `isolate` field and no `f. sp.` in its
+  name at all — a real edge case for both the Short-derivation rule (I4) and
+  the FORMA_SPECIALIS-fallback path, not just a duplicate-detection case.
+- At least one live-captured GCA/GCF pair (the `Fo47` pair) to confirm the
+  pair-collapse keeps the GCA member as `resolve`'s existing rule already
+  does — this spec's re-review found no separate annotation-preference rule
+  is actually needed (see the Output Rows correction above), so this test
+  just needs to confirm the existing behavior still applies at
+  species-listing scale, not exercise new logic.
 
 ## Out of scope
 
