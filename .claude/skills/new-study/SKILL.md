@@ -83,8 +83,10 @@ already have a species list ready to resolve.
    still works directly). Fix any `ERROR:` it reports (missing file, unknown
    Source value) before moving on.
 
-7. **Hand off**: `bin/run_study.sh <domain>/<set_name> [nextflow args]` runs the
-   actual pipeline. See that script's own header comment for `NII_PIPELINE`/
+7. **Launch**: `pixi run python bin/ni run --study-dir studies/<domain>/<set_name> [-- extra nextflow args]`
+   (preferred -- same `bin/ni` entrypoint as steps 5-6; a thin pass-through to
+   `bin/run_study.sh <domain>/<set_name> [nextflow args]`, which also still works
+   directly). See that script's own header comment for `NII_PIPELINE`/
    `NOVINVENIO_ROOT` local-checkout requirements.
 
 ## What this skill does NOT automate

@@ -9,6 +9,7 @@ Usage:
   bin/ni discover --species "<name>" --study-dir studies/<domain>/<set>
                   [--ingroup-groups G1,G2] [--outgroup-groups G3] [--auto]
                   [--include-species-complex]
+  bin/ni run      --study-dir studies/<domain>/<set> [-- extra nextflow args]
 """
 import argparse
 import subprocess
@@ -58,6 +59,10 @@ def main() -> int:
         ),
     )
 
+    run_ap = sub.add_parser("run", help="Pass through to bin/run_study.sh (build if needed, then launch nextflow)")
+    run_ap.add_argument("--study-dir", required=True)
+    run_ap.add_argument("extra_args", nargs=argparse.REMAINDER)
+
     args = ap.parse_args()
 
     if args.command == "resolve":
@@ -89,6 +94,24 @@ def main() -> int:
             include_species_complex=args.include_species_complex,
         )
         return 0
+
+    if args.command == "run":
+        repo_root = BIN.parent
+        studies_root = (repo_root / "studies").resolve()
+        study_path = Path(args.study_dir).resolve()
+        try:
+            study_rel = study_path.relative_to(studies_root)
+        except ValueError:
+            print(
+                f"ERROR: --study-dir {args.study_dir} is not under {studies_root} "
+                "(bin/run_study.sh takes a studies/-relative <domain>/<set_name>)",
+                file=sys.stderr,
+            )
+            return 1
+        cmd = [str(repo_root / "run_study.sh"), str(study_rel)]
+        cmd.extend(a for a in args.extra_args if a != "--")
+        result = subprocess.run(cmd)
+        return result.returncode
 
     return 1
 

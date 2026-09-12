@@ -224,6 +224,30 @@ protein already sitting on disk, its genome still needing an NCBI pull. Full
 rationale, schema, and migration record:
 `notes/superpowers/specs/2026-09-11-study-onboarding-design.md`.
 
+**2026-09-12 update — `bin/ni discover` and a single `ni` entrypoint through
+launch.** `bin/ni resolve` (above) assumes you already know which species/strains
+you want. For a pangenome study where the strain population isn't known upfront,
+`bin/ni discover --species "<name>" --study-dir ...` queries NCBI Datasets
+directly for every annotated genome of a species (optionally including sibling
+species registered under a different name within the same NCBI species-group/
+complex, via `--include-species-complex` — the motivating case is *Fusarium
+oxysporum*/`Fusarium odoratissimum` TR4), groups them by forma-specialis
+taxonomic label, reports per-group annotation-quality metadata (provider,
+gene-count range, assembly level, N50, BUSCO), and writes `species.csv` with
+`Group` left blank for manual (or `--ingroup-groups`/`--outgroup-groups`
+explicit) assignment — it never auto-assigns `IN`/`OUT` itself, including
+under its report-only `--auto` mode; an earlier design draft's automatic
+grouping heuristic was found scientifically wrong during review and removed.
+Full rationale: `notes/superpowers/specs/2026-09-11-ni-discover-design.md`.
+
+`bin/ni` also gained a `run` subcommand (thin pass-through to the existing
+`bin/run_study.sh`, same as `fetch` is a thin pass-through to
+`bin/build_study_config.py`), so the full generate → download → launch flow is
+callable through one entrypoint (`ni resolve`/`ni discover` → `ni fetch` →
+manual `species.csv` edits if needed → `ni run`) without reaching for a
+second script name at the last step. See `README.md`'s Quick Start for the
+worked end-to-end examples.
+
 ## 6. First study: `fungi/pezizo_set1`
 
 Originally scoped as `pezizo5` minus Nirr/Mcir/Amega (8 species), but the independent

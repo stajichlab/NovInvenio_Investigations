@@ -9,24 +9,57 @@ See `DESIGN.md` for the full design record and `CLAUDE.md` for the operational
 ruleset (data provenance rules, where new code goes). This file is a practical
 quick start for onboarding a new study.
 
-## Quick start: onboarding a new study
+## Quick start
+
+Every study goes through the same four stages: **generate** a `species.csv`
+(the table the pipeline is built from) → **download** the data it points to →
+**manually tweak** anything the automatic step couldn't resolve → **launch**
+the pipeline. `bin/ni` is the one entrypoint for all four stages except the
+manual tweak, which is just editing a CSV in your editor.
+
+```
+generate table        download data        manual tweaks       launch
+------------------    -----------------    ------------------   ----------------
+ni resolve   (1a)      ni fetch             edit species.csv     ni run
+  or                     |                  by hand, then          |
+ni discover  (1b) -----> |                  re-run resolve/    -> (build_study_config.py
+  or                     |                  fetch if you            runs automatically
+hand-write species.csv   |                  changed anything)       if not already built)
+                         v                                          |
+                    config.csv + data_dir/                          v
+                                                                nextflow run ...
+```
 
 1. Create `studies/<domain>/<set_name>/` (`<domain>` is one of `conf/domains.yaml`'s
    slugs: `fungi`, `animal`, `plant`, `bacteria`, `other`).
-2. Write `species.csv` with your species' identity columns filled in, source columns
-   blank:
-   ```csv
-   Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
-   Ccin,Coprinopsis cinerea,,IN,Agaricales,,,,,,,
-   Scom,Schizophyllum commune,,IN,Agaricales,,,,,,,
-   Cneo,Cryptococcus neoformans,,OUT,Tremellomycetes,,,,,,,
-   ```
-3. Resolve accessions and fetch the data (see `bin/ni` below).
-4. Run the pipeline: `bin/run_study.sh <domain>/<set_name> [nextflow args]`.
+2. Generate `species.csv` one of three ways:
+   - **You already know your species** (a standard ingroup/outgroup comparison,
+     or a pangenome set where you already know every strain): hand-write it with
+     identity columns filled in and source columns blank, then run
+     `bin/ni resolve` to fill in the accessions (Use case 1/2 below).
+   - **You want every annotated genome of one species** (a pangenome study where
+     you don't know the strain population upfront): run `bin/ni discover`
+     instead — it queries NCBI directly and writes `species.csv` for you
+     (Use case 3 below).
+3. Download the data: `pixi run python bin/ni fetch --study-dir studies/<domain>/<set_name>`.
+   This builds `config.csv` + `data_dir/` from `species.csv`.
+4. **Manual tweaks, if needed** — a row `resolve`/`discover` couldn't resolve
+   unambiguously is left blank with the reason printed; fix it by hand (a local
+   FASTA path, a corrected strain name, a manually chosen accession), or assign
+   `Group` (IN/OUT) on `discover`'s output. Re-run `ni fetch` after any edit —
+   it's safe to re-run, and only touches what changed.
+5. Launch the pipeline: `pixi run python bin/ni run --study-dir studies/<domain>/<set_name> [-- extra nextflow args]`.
+   `ni run` is a thin pass-through to `bin/run_study.sh` — same effect, same
+   script, just callable from the same `ni` entrypoint as the earlier steps.
+   It builds `config.csv`/`data_dir` first if step 3 wasn't run yet, so steps
+   3-5 can also be collapsed into this one command for a study with no rows
+   needing manual attention.
 
-The `.claude/skills/new-study/SKILL.md` skill walks through this same flow with more
-detail on classifying `Protein_Source`/`Genome_Source` when a species' data is
-already a local file rather than something to look up.
+Concrete examples of steps 2-5 for each use case are in "Use case 1/2/3" below.
+The `.claude/skills/new-study/SKILL.md` skill walks through the hand-written
+`species.csv` path (step 2's first bullet) with more detail on classifying
+`Protein_Source`/`Genome_Source` when a species' data is already a local file
+rather than something to look up.
 
 ## `bin/ni`: automatic dataset resolution
 
@@ -37,6 +70,7 @@ existing fetch/build step. Full design: `notes/superpowers/specs/2026-09-11-ni-d
 ```bash
 pixi run python bin/ni resolve --study-dir studies/<domain>/<set_name>
 pixi run python bin/ni fetch    --study-dir studies/<domain>/<set_name>
+pixi run python bin/ni run      --study-dir studies/<domain>/<set_name>
 ```
 
 - `resolve` only ever touches rows where **both** `Protein_Source` and
@@ -48,6 +82,11 @@ pixi run python bin/ni fetch    --study-dir studies/<domain>/<set_name>
   reason printed in the summary. Fix those rows by hand, then re-run `resolve`.
 - `fetch` is a thin pass-through to `bin/build_study_config.py` — identical behavior,
   same script, just accessible from the same `ni` entrypoint.
+- `run` is a thin pass-through to `bin/run_study.sh` — it builds `config.csv`/`data_dir`
+  first if `fetch` wasn't run yet, then launches `nextflow run stajichlab/nf_NovInvenio`
+  against the study. Any extra arguments after `--` go straight to `nextflow` (e.g.
+  `-- -resume` or `-- --pfam_hmm /path/to/Pfam-A.hmm`); a study's own
+  `run_params.txt`, if present, supplies its committed params first.
 
 **First real use of this tool should be supervised** — check the resolved
 accessions against what you expect before trusting a run unattended. (An earlier
@@ -71,6 +110,7 @@ Cneo,Cryptococcus neoformans,,OUT,Tremellomycetes,,,,,,,
 ```bash
 pixi run python bin/ni resolve --study-dir studies/fungi/my_new_comparison
 pixi run python bin/ni fetch    --study-dir studies/fungi/my_new_comparison
+pixi run python bin/ni run      --study-dir studies/fungi/my_new_comparison
 ```
 
 `resolve` prefers UniProt's reference proteome per species, falling back to NCBI
@@ -94,6 +134,7 @@ FoRad,Fusarium oxysporum,f. sp. raphani 54005,OUT,Fusarium,,,,,,,
 ```bash
 pixi run python bin/ni resolve --study-dir studies/fungi/my_pangenome_study
 pixi run python bin/ni fetch    --study-dir studies/fungi/my_pangenome_study
+pixi run python bin/ni run      --study-dir studies/fungi/my_pangenome_study
 ```
 
 Notes specific to this mode:
@@ -152,6 +193,15 @@ node. Without the flag, `discover` still reports how many additional genomes exi
 the complex; with it, every child species' genomes are enumerated and each row's
 `Species` column reflects whatever species name that record actually carries (not
 forced under the name you queried).
+
+Once `species.csv`'s `Group` column is filled in (by hand, or already set via
+`--ingroup-groups`/`--outgroup-groups` above), continue exactly like the other
+two use cases:
+
+```bash
+pixi run python bin/ni fetch --study-dir studies/fungi/my_pangenome_study
+pixi run python bin/ni run   --study-dir studies/fungi/my_pangenome_study
+```
 
 ## Data provenance
 
