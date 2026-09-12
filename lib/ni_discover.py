@@ -158,3 +158,103 @@ def find_species_complex(taxon_id: str, rank_lookup: dict[str, dict[str, Any]]) 
         parents = node.get("parents", [])
         current = parents[-1] if parents else None
     return None
+
+
+_RACE_TOKEN_RE = re.compile(r"^(race\s*\d+|TR\d+|R\d+)$", re.IGNORECASE)
+
+
+def derive_species_name(genome: dict[str, Any], rank_lookup: dict[str, dict[str, Any]]) -> str:
+    """The genome's species-level name, from NCBI Taxonomy's own
+    classification (`rank_lookup[...]["species_name"]`) -- never derived by
+    string surgery on `organism_name`, per the design spec's explicit
+    correction. Falls back to `organism_name` if the taxon is missing from
+    `rank_lookup` or has no recorded species_name."""
+    node = rank_lookup.get(genome["record_taxon_id"])
+    if node and node.get("species_name"):
+        return node["species_name"]
+    return genome.get("organism_name", "")
+
+
+def _sanitize(s: str) -> str:
+    return re.sub(r"[^A-Za-z0-9_]", "", s.replace(" ", "_"))
+
+
+def pick_short(genome: dict[str, Any], species_abbrev: str, used_shorts: set[str]) -> str:
+    """A species-prefixed, sanitized, de-duplicated short identifier for a
+    genome. Prefers `isolate` over `strain` when `strain` looks like a bare
+    race/pathotype token (e.g. "TR4", "race 4", "R1") and a real `isolate`
+    is available -- otherwise uses `strain`, falling back to `isolate` or
+    "unk". Never produces a bare-numeric Short (the species_abbrev prefix
+    always precedes it). Adds a numeric suffix on collision with an
+    already-used Short."""
+    strain = genome.get("strain") or ""
+    isolate = genome.get("isolate") or ""
+    if strain and _RACE_TOKEN_RE.match(strain) and isolate:
+        base = isolate
+    elif strain:
+        base = strain
+    elif isolate:
+        base = isolate
+    else:
+        base = "unk"
+    candidate = _sanitize(f"{species_abbrev}_{base}")
+    if candidate and candidate[0].isdigit():
+        candidate = f"{species_abbrev}_{candidate}"
+    final = candidate
+    i = 2
+    while final in used_shorts:
+        final = f"{candidate}_{i}"
+        i += 1
+    return final
+
+
+def _normalize_strain_key(genome: dict[str, Any]) -> str | None:
+    raw = (genome.get("strain") or genome.get("isolate") or "").lower()
+    raw = re.sub(r"^fo[_\s]?", "", raw)
+    raw = re.sub(r"[^a-z0-9]", "", raw)
+    return raw or None
+
+
+def detect_duplicate_groups(genomes: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
+    """Partition genomes into duplicate-groups via a union-find over two
+    independent criteria: matching `biosample_accession` (both non-None) OR
+    matching normalized strain/isolate strings. Either criterion alone
+    unions two genomes -- neither is a fallback-only path, since real NCBI
+    data has cases needing each (e.g. the same strain re-registered under
+    different BioSamples, or the same BioSample recorded under different
+    strain spellings). A genome with no match to any other is its own
+    singleton group."""
+    n = len(genomes)
+    parent = list(range(n))
+
+    def find(i: int) -> int:
+        while parent[i] != i:
+            parent[i] = parent[parent[i]]
+            i = parent[i]
+        return i
+
+    def union(i: int, j: int) -> None:
+        ri, rj = find(i), find(j)
+        if ri != rj:
+            parent[ri] = rj
+
+    by_biosample: dict[str, int] = {}
+    by_strain_key: dict[str, int] = {}
+    for idx, g in enumerate(genomes):
+        bs = g.get("biosample_accession")
+        if bs:
+            if bs in by_biosample:
+                union(idx, by_biosample[bs])
+            else:
+                by_biosample[bs] = idx
+        key = _normalize_strain_key(g)
+        if key:
+            if key in by_strain_key:
+                union(idx, by_strain_key[key])
+            else:
+                by_strain_key[key] = idx
+
+    groups: dict[int, list[dict[str, Any]]] = {}
+    for idx, g in enumerate(genomes):
+        groups.setdefault(find(idx), []).append(g)
+    return list(groups.values())

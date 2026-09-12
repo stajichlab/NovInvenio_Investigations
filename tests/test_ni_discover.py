@@ -297,3 +297,60 @@ def test_find_species_complex_none_when_no_species_group_ancestor():
         "4751": {"rank": "KINGDOM", "name": "Fungi", "parents": [], "species_name": ""},
     }
     assert nd.find_species_complex("5507", rank_lookup) is None
+
+
+def test_derive_species_name_uses_taxonomy_not_string_surgery():
+    genome = {"record_taxon_id": "660027", "organism_name": "Fusarium oxysporum Fo47"}
+    rank_lookup = {"660027": {"rank": "STRAIN", "name": "Fusarium oxysporum Fo47", "parents": ["5507"], "species_name": "Fusarium oxysporum"}}
+    assert nd.derive_species_name(genome, rank_lookup) == "Fusarium oxysporum"
+
+
+def test_pick_short_prefers_isolate_over_race_token_strain():
+    genome = {"strain": "TR4", "isolate": "UK0001"}
+    short = nd.pick_short(genome, "Foxy", set())
+    assert "TR4" not in short
+    assert "UK0001" in short
+
+
+def test_pick_short_uses_strain_when_not_a_race_token():
+    genome = {"strain": "Fo47", "isolate": None}
+    short = nd.pick_short(genome, "Foxy", set())
+    assert "Fo47" in short
+
+
+def test_pick_short_deduplicates_on_collision():
+    used = set()
+    first = nd.pick_short({"strain": "X1", "isolate": None}, "Foxy", used)
+    used.add(first)
+    second = nd.pick_short({"strain": "X1", "isolate": None}, "Foxy", used)
+    assert first != second
+
+
+def test_pick_short_never_bare_numeric():
+    short = nd.pick_short({"strain": "9", "isolate": None}, "Foxy", set())
+    assert not short.isdigit()
+
+
+def test_detect_duplicate_groups_unions_biosample_and_strain_match():
+    # Fo5176 registered 3 times with 3 DIFFERENT biosample accessions
+    # (live-verified in the design spec's review) -- must still collapse via
+    # the strain-string match arm of the union, not the biosample arm.
+    genomes = [
+        {"accession": "GCA_1", "biosample_accession": "SAMN_A", "strain": "Fo5176", "isolate": None},
+        {"accession": "GCA_2", "biosample_accession": "SAMN_B", "strain": "Fo5176", "isolate": None},
+        {"accession": "GCA_3", "biosample_accession": "SAMN_C", "strain": "Fo5176", "isolate": None},
+        {"accession": "GCA_4", "biosample_accession": "SAMN_D", "strain": "SomethingElse", "isolate": None},
+    ]
+    groups = nd.detect_duplicate_groups(genomes)
+    sizes = sorted(len(g) for g in groups)
+    assert sizes == [1, 3]
+
+
+def test_detect_duplicate_groups_unions_via_biosample_when_strain_differs():
+    genomes = [
+        {"accession": "GCA_1", "biosample_accession": "SAMN_SHARED", "strain": "NameA", "isolate": None},
+        {"accession": "GCA_2", "biosample_accession": "SAMN_SHARED", "strain": "NameB", "isolate": None},
+    ]
+    groups = nd.detect_duplicate_groups(genomes)
+    assert len(groups) == 1
+    assert len(groups[0]) == 2
