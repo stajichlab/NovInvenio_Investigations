@@ -387,3 +387,89 @@ def test_resolve_row_uniprot_genome_flagged_superseded(monkeypatch):
     assert row.resolved is True
     assert row.genome_accession == "GCA_000143185.1"
     assert any("superseded" in line.lower() for line in row.report_lines)
+
+
+import csv
+
+
+HEADER = [
+    "Short", "Species", "Strain", "Group", "TaxonGroup",
+    "Protein_Source", "Protein_Accession", "Taxon_ID",
+    "Genome_Source", "Genome_Accession", "GFF3_Source", "GFF3_Accession",
+]
+
+
+def _write_csv(path, rows):
+    with open(path, "w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=HEADER)
+        w.writeheader()
+        w.writerows(rows)
+
+
+def test_resolve_species_csv_fills_blank_rows_only(tmp_path, monkeypatch, capsys):
+    study_dir = tmp_path / "studies" / "fungi" / "toy"
+    study_dir.mkdir(parents=True)
+    _write_csv(study_dir / "species.csv", [
+        {  # already filled -- must NOT be touched
+            "Short": "Already", "Species": "X", "Strain": "", "Group": "IN", "TaxonGroup": "X",
+            "Protein_Source": "local_faa", "Protein_Accession": "/some/path.faa", "Taxon_ID": "",
+            "Genome_Source": "local_genome", "Genome_Accession": "/some/path.fna",
+            "GFF3_Source": "", "GFF3_Accession": "",
+        },
+        {  # blank -- should resolve
+            "Short": "Ncra", "Species": "Neurospora crassa", "Strain": "OR74A", "Group": "OUT",
+            "TaxonGroup": "Pezizomycotina",
+            "Protein_Source": "", "Protein_Accession": "", "Taxon_ID": "",
+            "Genome_Source": "", "Genome_Accession": "", "GFF3_Source": "", "GFF3_Accession": "",
+        },
+    ])
+
+    def fake_resolve_row(short, species, strain):
+        assert short == "Ncra"
+        return nr.ResolvedRow(
+            short=short, resolved=True, protein_source="uniprot",
+            protein_accession="UP000001805", taxon_id="5334",
+            genome_source="ncbi", genome_accession="GCA_000182925.2",
+            report_lines=[],
+        )
+
+    monkeypatch.setattr(nr, "resolve_row", fake_resolve_row)
+    nr.resolve_species_csv(study_dir)
+
+    with open(study_dir / "species.csv", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+
+    already = next(r for r in rows if r["Short"] == "Already")
+    assert already["Protein_Source"] == "local_faa"  # untouched
+
+    ncra = next(r for r in rows if r["Short"] == "Ncra")
+    assert ncra["Protein_Source"] == "uniprot"
+    assert ncra["Protein_Accession"] == "UP000001805"
+    assert ncra["Genome_Source"] == "ncbi"
+    assert ncra["Genome_Accession"] == "GCA_000182925.2"
+
+    out = capsys.readouterr().out
+    assert "Resolved 1 of 1" in out
+
+
+def test_resolve_species_csv_leaves_unresolved_blank_and_reports(tmp_path, monkeypatch, capsys):
+    study_dir = tmp_path / "studies" / "fungi" / "toy2"
+    study_dir.mkdir(parents=True)
+    _write_csv(study_dir / "species.csv", [
+        {"Short": "Xsp", "Species": "Xylaria sp.", "Strain": "", "Group": "OUT", "TaxonGroup": "X",
+         "Protein_Source": "", "Protein_Accession": "", "Taxon_ID": "",
+         "Genome_Source": "", "Genome_Accession": "", "GFF3_Source": "", "GFF3_Accession": ""},
+    ])
+
+    monkeypatch.setattr(nr, "resolve_row", lambda short, species, strain: nr.ResolvedRow(
+        short=short, resolved=False, report_lines=["not a resolvable NCBI taxon name"]
+    ))
+    nr.resolve_species_csv(study_dir)
+
+    with open(study_dir / "species.csv", newline="") as fh:
+        row = next(csv.DictReader(fh))
+    assert row["Protein_Source"] == ""
+
+    out = capsys.readouterr().out
+    assert "need a decision" in out
+    assert "not a resolvable NCBI taxon name" in out

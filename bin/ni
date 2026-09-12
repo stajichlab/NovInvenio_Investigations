@@ -1,0 +1,48 @@
+#!/usr/bin/env python3
+"""ni: dataset resolution and config assembly for a new NII study.
+
+See notes/superpowers/specs/2026-09-11-ni-dataset-resolution-design.md.
+
+Usage:
+  bin/ni resolve --study-dir studies/<domain>/<set>
+  bin/ni fetch    --study-dir studies/<domain>/<set> [-- extra build_study_config.py args]
+"""
+import argparse
+import subprocess
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
+from ni_resolve import resolve_species_csv  # noqa: E402
+
+BIN = Path(__file__).parent
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = ap.add_subparsers(dest="command", required=True)
+
+    resolve_ap = sub.add_parser("resolve", help="Fill in species.csv's source columns")
+    resolve_ap.add_argument("--study-dir", required=True)
+
+    fetch_ap = sub.add_parser("fetch", help="Pass through to bin/build_study_config.py")
+    fetch_ap.add_argument("--study-dir", required=True)
+    fetch_ap.add_argument("extra_args", nargs=argparse.REMAINDER)
+
+    args = ap.parse_args()
+
+    if args.command == "resolve":
+        resolve_species_csv(Path(args.study_dir))
+        return 0
+
+    if args.command == "fetch":
+        cmd = [sys.executable, str(BIN / "build_study_config.py"), "--study-dir", args.study_dir]
+        cmd.extend(a for a in args.extra_args if a != "--")
+        result = subprocess.run(cmd)
+        return result.returncode
+
+    return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

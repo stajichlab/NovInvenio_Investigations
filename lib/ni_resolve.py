@@ -20,6 +20,7 @@ matched the sketch as written.
 """
 from __future__ import annotations
 
+import csv as _csv
 import json
 import re
 import subprocess
@@ -367,3 +368,57 @@ def _pick_uniprot_candidate(candidates: list[dict[str, Any]], strain: str, repor
             return matches[0]
         report.append(f"{len(candidates)} ambiguous UniProt reference proteomes, strain did not disambiguate")
     return None
+
+
+def resolve_species_csv(study_dir: Path) -> None:
+    """Drive resolve_row over every blank row of study_dir/species.csv,
+    rewriting the file in place. Only rows where BOTH Protein_Source and
+    Genome_Source are blank are touched -- a partially-filled row (e.g. a
+    local FASTA already set) is left completely untouched.
+
+    All output goes to plain stdout (print(), not sys.stderr) -- this is a
+    human-readable resolution report, not a progress log alongside piped
+    data, so it does not follow bin/build_study_config.py's stdout/stderr
+    split.
+    """
+    species_csv = study_dir / "species.csv"
+    with open(species_csv, newline="") as fh:
+        reader = _csv.DictReader(fh)
+        fieldnames = reader.fieldnames
+        rows = list(reader)
+
+    resolved_count = 0
+    unresolved: list[ResolvedRow] = []
+
+    for row in rows:
+        if row["Protein_Source"] or row["Genome_Source"]:
+            continue
+        result = resolve_row(row["Short"], row["Species"], row["Strain"])
+        if result.resolved:
+            row["Protein_Source"] = result.protein_source
+            row["Protein_Accession"] = result.protein_accession
+            row["Taxon_ID"] = result.taxon_id
+            row["Genome_Source"] = result.genome_source
+            row["Genome_Accession"] = result.genome_accession
+            resolved_count += 1
+            busco_note = f" (BUSCO {result.busco_score:.1f})" if result.busco_score is not None else ""
+            print(f"  {result.short}  {row['Species']}  -> {result.protein_source}{busco_note} "
+                  f"{result.protein_accession} (+ {result.genome_source} {result.genome_accession})")
+            for line in result.report_lines:
+                print(f"    {line}")
+        else:
+            unresolved.append(result)
+
+    with open(species_csv, "w", newline="") as fh:
+        writer = _csv.DictWriter(fh, fieldnames=fieldnames)
+        writer.writeheader()
+        writer.writerows(rows)
+
+    total_blank = resolved_count + len(unresolved)
+    print(f"\nResolved {resolved_count} of {total_blank} species needing resolution.")
+    if unresolved:
+        print(f"\n{len(unresolved)} species need a decision -- species.csv left blank for these rows:")
+        for r in unresolved:
+            print(f"  {r.short}")
+            for line in r.report_lines:
+                print(f"    {line}")
