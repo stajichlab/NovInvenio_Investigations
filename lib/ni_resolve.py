@@ -47,20 +47,37 @@ def resolve_taxon_id(species: str) -> list[dict[str, str]]:
     """Resolve a species name to NCBI taxon ID(s) via UniProt's taxonomy search.
 
     Empty list means no resolvable taxon -- caller reports and leaves the row
-    blank. A name can resolve to more than one hit (species-level plus
-    strain-level taxa, or unrelated organisms sharing part of the name);
-    disambiguating among them is a later task's job, not this function's.
+    blank. A free-text taxonomy search on a real species name commonly returns
+    many hits (strain-level taxa, `cf.` entries, unrelated organisms sharing
+    part of the name -- live-verified: "Neurospora crassa" returns 19 hits,
+    "Saccharomyces cerevisiae" returns 392 across multiple pages). When
+    exactly one result is an exact, case-insensitive match on scientificName,
+    that single hit is returned (this is the common case for a clean species
+    name). Otherwise every hit is returned so resolve_row's "not exactly one
+    -> ambiguous" fallback still applies.
+
+    Paginates by following the Link: rel="next" header (same mechanism as
+    search_uniprot_proteomes) so an exact match on page 2+ is not missed.
     """
+    query = urllib.parse.quote(species)
     url = (
         f"{UNIPROT_REST}/taxonomy/search"
-        f"?query={urllib.parse.quote(species)}&fields=id,scientific_name&format=json"
+        f"?query={query}&fields=id,scientific_name&format=json&size=500"
     )
-    with urllib.request.urlopen(url) as resp:
-        payload = json.load(resp)
-    return [
-        {"taxon_id": str(r["taxonId"]), "scientific_name": r["scientificName"]}
-        for r in payload.get("results", [])
-    ]
+
+    hits: list[dict[str, str]] = []
+    while url:
+        with urllib.request.urlopen(url) as resp:
+            payload = json.load(resp)
+            next_url = _parse_next_link(resp.headers.get("Link"))
+        for r in payload.get("results", []):
+            hits.append({"taxon_id": str(r["taxonId"]), "scientific_name": r["scientificName"]})
+        url = next_url
+
+    exact = [h for h in hits if h["scientific_name"].lower() == species.lower()]
+    if len(exact) == 1:
+        return exact
+    return hits
 
 
 def _parse_next_link(link_header: str | None) -> str | None:
@@ -103,6 +120,14 @@ def search_uniprot_proteomes(taxon_id: str, *, reference_only: bool) -> list[dic
                 "busco_score": busco,
                 "genome_assembly_id": r.get("genomeAssembly", {}).get("assemblyId"),
                 "superkingdom": r.get("superkingdom", "Eukaryota"),
+                # The proteome RECORD's own taxonomy.taxonId (usually
+                # strain-level), NOT the species-level taxon_id this function
+                # was queried with. bin/fetch_uniprot_proteome.py downloads
+                # {UPID}_{taxid}.fasta.gz keyed on this record-level taxid --
+                # using the species-level taxon_id here 404s on FTP (live-
+                # verified 2026-09-11: e.g. Coprinopsis cinerea species taxid
+                # 5346 vs. this record's own taxid 240176).
+                "record_taxon_id": str(r.get("taxonomy", {}).get("taxonId", "")),
             })
         url = next_url
     return candidates
@@ -158,20 +183,49 @@ def query_ncbi_assemblies(taxon_id: str, *, require_reference: bool) -> list[dic
     for line in result.stdout.strip().splitlines():
         if not line:
             continue
-        r = json.loads(line)
-        info = r.get("assembly_info", {})
-        candidates.append({
-            "accession": r["accession"],
-            "paired_accession": r.get("paired_accession"),
-            "refseq_category": info.get("refseq_category"),
-            "assembly_level": info.get("assembly_level"),
-            "assembly_status": info.get("assembly_status"),
-            "strain": r.get("organism", {}).get("infraspecific_names", {}).get("strain"),
-            "has_annotation": "annotation_info" in r,
-            "submitter": info.get("submitter"),
-            "submission_date": info.get("release_date"),
-        })
+        candidates.append(_parse_assembly_record(json.loads(line)))
     return candidates
+
+
+def _parse_assembly_record(r: dict[str, Any]) -> dict[str, Any]:
+    """Shared field-extraction logic for one `datasets summary genome`
+    JSON-lines record, used by both query_ncbi_assemblies (taxon listing) and
+    query_ncbi_assembly_by_accession (single-accession lookup) -- both
+    commands return records in this same shape."""
+    info = r.get("assembly_info", {})
+    return {
+        "accession": r["accession"],
+        "paired_accession": r.get("paired_accession"),
+        "refseq_category": info.get("refseq_category"),
+        "assembly_level": info.get("assembly_level"),
+        "assembly_status": info.get("assembly_status"),
+        "strain": r.get("organism", {}).get("infraspecific_names", {}).get("strain"),
+        "has_annotation": "annotation_info" in r,
+        "submitter": info.get("submitter"),
+        "submission_date": info.get("release_date"),
+    }
+
+
+def query_ncbi_assembly_by_accession(accession: str) -> dict[str, Any] | None:
+    """Query NCBI Datasets for one specific assembly accession directly.
+
+    Used by _flag_if_superseded: a taxon-level listing
+    (`query_ncbi_assemblies`) never contains superseded assemblies (live-
+    verified 2026-09-11: `datasets summary genome taxon 578458` returns only
+    the current GCA/GCF pair, never the superseded GCA_000143185.1/
+    GCF_000143185.1 predecessor) -- checking whether a specific accession is
+    superseded requires querying that accession by name, not scanning a
+    listing that structurally excludes superseded records.
+
+    Returns None if the accession is not found (e.g. `datasets` exits
+    non-zero, or returns no records).
+    """
+    cmd = ["datasets", "summary", "genome", "accession", accession, "--as-json-lines"]
+    result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+    lines = [line for line in result.stdout.strip().splitlines() if line]
+    if not lines:
+        return None
+    return _parse_assembly_record(json.loads(lines[0]))
 
 
 _ASSEMBLY_LEVEL_RANK = {"Complete Genome": 0, "Chromosome": 0, "Scaffold": 1, "Contig": 2}
@@ -265,17 +319,23 @@ def resolve_row(short: str, species: str, strain: str) -> ResolvedRow:
             chosen_uniprot = matches[0]
             report.append(f"strain-targeted UniProt match: {strain!r}")
 
+    uniprot_taxon_id = ""
     if chosen_uniprot is not None:
         if check_ftp_available(chosen_uniprot["proteome_id"], chosen_uniprot["superkingdom"]):
             protein_source = "uniprot"
             protein_accession = chosen_uniprot["proteome_id"]
             busco_score = chosen_uniprot.get("busco_score")
+            # bin/fetch_uniprot_proteome.py downloads {UPID}_{taxid}.fasta.gz
+            # keyed on the PROTEOME RECORD's own taxonomy.taxonId (usually
+            # strain-level), not Step 0's species-level taxon_id -- using the
+            # species-level id here 404s on FTP (live-verified 2026-09-11).
+            uniprot_taxon_id = chosen_uniprot.get("record_taxon_id") or taxon_id
             if chosen_uniprot.get("strain") and not strain_matches(chosen_uniprot["strain"], strain):
                 report.append(f"WARNING strain mismatch: accepted record's strain is {chosen_uniprot['strain']!r}, species.csv says {strain!r}")
             if chosen_uniprot.get("genome_assembly_id"):
                 genome_source = "ncbi"
                 genome_accession = chosen_uniprot["genome_assembly_id"]
-                _flag_if_superseded(taxon_id, genome_accession, report)
+                _flag_if_superseded(genome_accession, report)
         else:
             report.append(
                 f"REFERENCE proteome {chosen_uniprot['proteome_id']} found in REST but not yet "
@@ -333,11 +393,17 @@ def resolve_row(short: str, species: str, strain: str) -> ResolvedRow:
     if not resolved and not report:
         report.append("no UniProt reference proteome and no NCBI assembly found")
 
+    # For the uniprot path, ResolvedRow.taxon_id is the proteome RECORD's own
+    # taxon id (uniprot_taxon_id), not Step 0's species-level taxon_id --
+    # bin/fetch_uniprot_proteome.py's FTP download is keyed on the former.
+    # The ncbi protein path keeps using Step 0's taxon_id (already correct).
+    final_taxon_id = uniprot_taxon_id if protein_source == "uniprot" else taxon_id
+
     return ResolvedRow(
         short=short, resolved=resolved,
         protein_source=protein_source if resolved else "",
         protein_accession=protein_accession if resolved else "",
-        taxon_id=taxon_id if resolved else "",
+        taxon_id=final_taxon_id if resolved else "",
         genome_source=genome_source if resolved else "",
         genome_accession=genome_accession if resolved else "",
         busco_score=busco_score if resolved else None,
@@ -345,16 +411,22 @@ def resolve_row(short: str, species: str, strain: str) -> ResolvedRow:
     )
 
 
-def _flag_if_superseded(taxon_id: str, genome_accession: str, report: list[str]) -> None:
+def _flag_if_superseded(genome_accession: str, report: list[str]) -> None:
     """When a UniProt proteome record supplies a genome_assembly_id directly
     (Step 1's one-query-resolves-both-columns path), that accession can be
     stale in UniProt's own record even though the proteome itself is current
     (live example: UP000007431 -> GCA_000143185.1, while NCBI's current
     assembly for that taxon is GCA_000143185.2). Cross-check against NCBI
     and flag rather than silently accepting it.
+
+    Queries the accession directly via query_ncbi_assembly_by_accession, not
+    a taxon-level listing -- a taxon listing structurally never contains
+    superseded assemblies (live-verified: `datasets summary genome taxon
+    578458` returns only the current pair), so searching for the accession
+    within that listing can never find it even when it genuinely is
+    superseded.
     """
-    candidates = query_ncbi_assemblies(taxon_id, require_reference=False)
-    match = next((c for c in candidates if c["accession"] == genome_accession), None)
+    match = query_ncbi_assembly_by_accession(genome_accession)
     if match is not None and match["assembly_status"] != "current":
         report.append(f"NOTE: {genome_accession} is superseded")
 
@@ -395,7 +467,18 @@ def resolve_species_csv(study_dir: Path) -> None:
     for row in rows:
         if row["Protein_Source"] or row["Genome_Source"]:
             continue
-        result = resolve_row(row["Short"], row["Species"], row["Strain"])
+        try:
+            result = resolve_row(row["Short"], row["Species"], row["Strain"])
+        except (urllib.error.URLError, TimeoutError, subprocess.CalledProcessError, FileNotFoundError) as exc:
+            # A network blip or `datasets` CLI hiccup partway through must not
+            # discard every row resolved before it -- report this row as
+            # unresolved and keep going, rather than letting the exception
+            # propagate out of the loop (which would abort before the
+            # species.csv rewrite below ever runs, losing all prior work).
+            result = ResolvedRow(
+                short=row["Short"], resolved=False,
+                report_lines=[f"network/subprocess error during resolution: {exc}"],
+            )
         if result.resolved:
             row["Protein_Source"] = result.protein_source
             row["Protein_Accession"] = result.protein_accession

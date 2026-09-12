@@ -66,8 +66,11 @@ full schema rationale.
    pick one, or determine the species genuinely has no usable public data yet —
    before proceeding to the next step.
 
-6. **Run** `pixi run python bin/build_study_config.py --study-dir studies/<domain>/<set_name>`.
-   Fix any `ERROR:` it reports (missing file, unknown Source value) before moving on.
+6. **Run** `pixi run python bin/ni fetch --study-dir studies/<domain>/<set_name>`
+   (preferred -- the same `bin/ni` entrypoint used in step 5; it is a thin
+   pass-through to `bin/build_study_config.py --study-dir ...`, which also
+   still works directly). Fix any `ERROR:` it reports (missing file, unknown
+   Source value) before moving on.
 
 7. **Hand off**: `bin/run_study.sh <domain>/<set_name> [nextflow args]` runs the
    actual pipeline. See that script's own header comment for `NII_PIPELINE`/

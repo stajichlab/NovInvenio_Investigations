@@ -44,6 +44,51 @@ def test_resolve_taxon_id_no_match():
     assert hits == []
 
 
+def test_resolve_taxon_id_prefers_single_exact_match_among_many_hits():
+    # Finding 1: a free-text search on a real species name commonly returns
+    # many hits (strain-level taxa, cf. entries, ...) -- live-verified
+    # "Neurospora crassa" returns 19. When exactly one hit is an exact,
+    # case-insensitive scientificName match, return just that one.
+    payload = {"results": [
+        {"taxonId": 5141, "scientificName": "Neurospora crassa"},
+        {"taxonId": 1408857, "scientificName": "Neurospora crassa CBS 708.71"},
+        {"taxonId": 999999, "scientificName": "Neurospora crassa cf. sp."},
+    ]}
+    with patch("urllib.request.urlopen", return_value=_mock_response(payload)):
+        hits = nr.resolve_taxon_id("neurospora crassa")  # case-insensitive
+    assert hits == [{"taxon_id": "5141", "scientific_name": "Neurospora crassa"}]
+
+
+def test_resolve_taxon_id_falls_back_to_full_list_when_no_exact_or_multiple_exact():
+    # Zero exact matches -> fall back to the full ambiguous list so
+    # resolve_row's "not exactly one" check still applies.
+    payload = {"results": [
+        {"taxonId": 1, "scientificName": "Foo bar strain X"},
+        {"taxonId": 2, "scientificName": "Foo bar strain Y"},
+    ]}
+    with patch("urllib.request.urlopen", return_value=_mock_response(payload)):
+        hits = nr.resolve_taxon_id("Foo bar")
+    assert len(hits) == 2
+
+
+def test_resolve_taxon_id_paginates():
+    # Finding 4: the exact match can be on page 2+ of a large taxonomy result
+    # set (live-verified: "Saccharomyces cerevisiae" returns 392 total hits).
+    page1 = {"results": [{"taxonId": 1, "scientificName": "Saccharomyces cerevisiae var. x"}]}
+    page2 = {"results": [{"taxonId": 4932, "scientificName": "Saccharomyces cerevisiae"}]}
+    responses = [
+        _mock_response(page1, link_header='<https://rest.uniprot.org/taxonomy/search?cursor=abc>; rel="next"'),
+        _mock_response(page2),
+    ]
+
+    def fake_urlopen(req, *a, **kw):
+        return responses.pop(0)
+
+    with patch("urllib.request.urlopen", side_effect=fake_urlopen):
+        hits = nr.resolve_taxon_id("Saccharomyces cerevisiae")
+    assert hits == [{"taxon_id": "4932", "scientific_name": "Saccharomyces cerevisiae"}]
+
+
 def test_search_uniprot_proteomes_excludes_mycovirus_via_taxon_scoping():
     # Taxon-ID-scoped query should never see the mycovirus in the first place --
     # this test asserts the QUERY URL built uses taxonomy_id, not organism_name,
@@ -89,6 +134,10 @@ def test_search_uniprot_proteomes_excludes_mycovirus_via_taxon_scoping():
     assert candidates[0]["genome_assembly_id"] == "GCA_000182925.2"
     assert candidates[0]["busco_score"] == 98.5
     assert candidates[0]["strain"] == "ATCC 24698 / 74-OR23-1A / CBS 708.71 / DSM 1257 / FGSC 987"
+    # Finding 2: the candidate must carry the RECORD's own taxonomy.taxonId
+    # (strain-level, distinct from the species-level taxon_id queried with),
+    # since that's what bin/fetch_uniprot_proteome.py's FTP download is keyed on.
+    assert candidates[0]["record_taxon_id"] == "5334"
 
 
 def test_search_uniprot_proteomes_paginates():
@@ -256,6 +305,29 @@ def test_resolve_row_uniprot_reference_match(monkeypatch):
     assert row.genome_accession == "GCA_000182925.2"
 
 
+def test_resolve_row_uniprot_taxon_id_uses_record_taxon_id_not_species_level(monkeypatch):
+    # Finding 2: ResolvedRow.taxon_id must be the proteome RECORD's own
+    # taxonomy.taxonId (strain-level, what bin/fetch_uniprot_proteome.py's
+    # FTP download is keyed on), NOT Step 0's species-level taxon_id -- the
+    # species-level id 404s. Concrete live case: Coprinopsis cinerea's
+    # species-level taxid differs from UP000001861's record taxid 240176.
+    monkeypatch.setattr(nr, "resolve_taxon_id", lambda s: [{"taxon_id": "5346", "scientific_name": s}])
+    monkeypatch.setattr(nr, "search_uniprot_proteomes", lambda tid, reference_only: (
+        [{"proteome_id": "UP000001861", "strain": "Okayama-7 / 130",
+          "busco_score": 99.0, "genome_assembly_id": None,
+          "superkingdom": "Eukaryota", "record_taxon_id": "240176"}]
+        if reference_only else []
+    ))
+    monkeypatch.setattr(nr, "check_ftp_available", lambda pid, sk: True)
+    monkeypatch.setattr(nr, "query_ncbi_assemblies", lambda tid, require_reference: [])
+
+    row = nr.resolve_row("Ccin", "Coprinopsis cinerea", "Okayama-7")
+
+    assert row.resolved is True
+    assert row.protein_source == "uniprot"
+    assert row.taxon_id == "240176"  # record-level, not the species-level "5346"
+
+
 def test_resolve_row_uniprot_ftp_not_yet_available_falls_back_to_ncbi(monkeypatch):
     monkeypatch.setattr(nr, "resolve_taxon_id", lambda s: [{"taxon_id": "1", "scientific_name": s}])
     monkeypatch.setattr(nr, "search_uniprot_proteomes", lambda tid, reference_only: (
@@ -375,12 +447,16 @@ def test_resolve_row_uniprot_genome_flagged_superseded(monkeypatch):
         if reference_only else []
     ))
     monkeypatch.setattr(nr, "check_ftp_available", lambda pid, sk: True)
-    monkeypatch.setattr(nr, "query_ncbi_assemblies", lambda tid, require_reference: [
+    # Finding 3 fix: the superseded check now queries the accession directly
+    # (query_ncbi_assembly_by_accession), not a taxon-level listing -- a
+    # taxon listing never contains superseded records (live-verified).
+    monkeypatch.setattr(nr, "query_ncbi_assembly_by_accession", lambda accession: (
         {"accession": "GCA_000143185.1", "paired_accession": "GCF_000143185.1",
          "refseq_category": "reference genome", "assembly_level": "Chromosome",
-         "assembly_status": "replaced", "strain": "X", "has_annotation": True,
-         "submitter": "y", "submission_date": "2010-01-01"},
-    ])
+         "assembly_status": "previous", "strain": "X", "has_annotation": True,
+         "submitter": "y", "submission_date": "2010-01-01"}
+        if accession == "GCA_000143185.1" else None
+    ))
 
     row = nr.resolve_row("Scom2", "Schizophyllum commune", "X")
 
@@ -474,6 +550,61 @@ def test_resolve_species_csv_leaves_unresolved_blank_and_reports(tmp_path, monke
     out = capsys.readouterr().out
     assert "need a decision" in out
     assert "not a resolvable NCBI taxon name" in out
+
+
+def test_resolve_species_csv_survives_network_error_mid_loop(tmp_path, monkeypatch, capsys):
+    # Finding 5: a network blip / subprocess hiccup on one row must not
+    # discard rows resolved before it. Three rows; the middle one's
+    # resolve_row raises urllib.error.URLError. species.csv must still get
+    # written with the first row's resolution intact and the failed row left
+    # blank with a report line naming the exception.
+    import urllib.error
+
+    study_dir = tmp_path / "studies" / "fungi" / "toy3"
+    study_dir.mkdir(parents=True)
+    _write_csv(study_dir / "species.csv", [
+        {"Short": "First", "Species": "A", "Strain": "", "Group": "OUT", "TaxonGroup": "X",
+         "Protein_Source": "", "Protein_Accession": "", "Taxon_ID": "",
+         "Genome_Source": "", "Genome_Accession": "", "GFF3_Source": "", "GFF3_Accession": ""},
+        {"Short": "Second", "Species": "B", "Strain": "", "Group": "OUT", "TaxonGroup": "X",
+         "Protein_Source": "", "Protein_Accession": "", "Taxon_ID": "",
+         "Genome_Source": "", "Genome_Accession": "", "GFF3_Source": "", "GFF3_Accession": ""},
+        {"Short": "Third", "Species": "C", "Strain": "", "Group": "OUT", "TaxonGroup": "X",
+         "Protein_Source": "", "Protein_Accession": "", "Taxon_ID": "",
+         "Genome_Source": "", "Genome_Accession": "", "GFF3_Source": "", "GFF3_Accession": ""},
+    ])
+
+    def fake_resolve_row(short, species, strain):
+        if short == "First":
+            return nr.ResolvedRow(
+                short=short, resolved=True, protein_source="uniprot",
+                protein_accession="UP1", taxon_id="1",
+                genome_source="ncbi", genome_accession="GCA_1.1", report_lines=[],
+            )
+        if short == "Second":
+            raise urllib.error.URLError("connection reset")
+        return nr.ResolvedRow(short=short, resolved=False, report_lines=["no match"])
+
+    monkeypatch.setattr(nr, "resolve_row", fake_resolve_row)
+    nr.resolve_species_csv(study_dir)
+
+    with open(study_dir / "species.csv", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+
+    first = next(r for r in rows if r["Short"] == "First")
+    assert first["Protein_Source"] == "uniprot"
+    assert first["Protein_Accession"] == "UP1"
+
+    second = next(r for r in rows if r["Short"] == "Second")
+    assert second["Protein_Source"] == ""
+
+    third = next(r for r in rows if r["Short"] == "Third")
+    assert third["Protein_Source"] == ""
+
+    out = capsys.readouterr().out
+    assert "Resolved 1 of 3" in out
+    assert "network/subprocess error during resolution" in out
+    assert "connection reset" in out
 
 
 def test_resolve_species_csv_missing_species_csv_exits_cleanly(tmp_path):
