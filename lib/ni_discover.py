@@ -35,6 +35,7 @@ this task's original design sketch:
 """
 from __future__ import annotations
 
+import csv
 import json
 import re
 import subprocess
@@ -322,3 +323,135 @@ def build_report(
         lines.append(f"  {name} ({complex_genome_count} genomes)")
 
     return "\n".join(lines)
+
+
+DISCOVER_HEADER = [
+    "Short", "Species", "Strain", "Group", "TaxonGroup",
+    "Protein_Source", "Protein_Accession", "Taxon_ID",
+    "Genome_Source", "Genome_Accession", "GFF3_Source", "GFF3_Accession",
+]
+
+
+def discover_species(
+    species: str,
+    study_dir: Path,
+    *,
+    ingroup_groups: list[str] | None,
+    outgroup_groups: list[str] | None,
+    auto: bool,
+    include_species_complex: bool,
+) -> None:
+    """Full orchestration for `bin/ni discover`: resolve taxon, query
+    genomes (+ species-complex genomes if `include_species_complex`), fetch
+    taxonomy ranks (batched, twice per Task 1's design), group, detect
+    duplicates, collapse GCA/GCF pairs, assign Shorts, apply the selection
+    mode, write species.csv, print build_report's output.
+
+    Selection modes:
+    - default (no ingroup_groups/outgroup_groups, auto=False): every row
+      written with Group="" -- the human decides IN/OUT by hand afterward.
+    - explicit ingroup_groups/outgroup_groups: only genomes whose forma-
+      specialis group is named in one of the two lists are written, with
+      Group set to "IN" or "OUT" accordingly. An unknown label is a hard
+      error (sys.exit) naming the real available groups.
+    - --auto: REPORT-ONLY. Prints the same report plus an extra proposal
+      note, but writes every row with Group="" exactly like the default
+      mode -- --auto must NEVER write IN/OUT into species.csv.
+
+    --auto and explicit ingroup_groups/outgroup_groups are mutually
+    exclusive (sys.exit if both given). Refuses to run if species.csv
+    already exists (discover only seeds a brand-new study).
+    """
+    if (ingroup_groups or outgroup_groups) and auto:
+        sys.exit("ERROR: --ingroup-groups/--outgroup-groups and --auto are mutually exclusive")
+
+    species_csv = study_dir / "species.csv"
+    if species_csv.exists():
+        sys.exit(f"ERROR: {species_csv} already exists -- discover only seeds a new study")
+
+    taxa = resolve_taxon_id(species)
+    if len(taxa) != 1:
+        sys.exit(f"ERROR: could not resolve '{species}' to exactly one taxon ({len(taxa)} matches)")
+    taxon_id = taxa[0]["taxon_id"]
+
+    genomes = query_species_genomes(taxon_id)
+
+    # First batched taxonomy call: ranks for every genome's own record taxon.
+    record_taxon_ids = sorted({g["record_taxon_id"] for g in genomes} | {taxon_id})
+    rank_lookup = fetch_taxonomy_ranks(record_taxon_ids)
+
+    # Second batched call: ranks for every parent id not already looked up
+    # (needed so find_forma_specialis_group/find_species_complex can inspect
+    # ancestors' own rank field, per Task 1's design).
+    parent_ids = sorted({p for node in rank_lookup.values() for p in node.get("parents", [])} - set(rank_lookup))
+    if parent_ids:
+        rank_lookup.update(fetch_taxonomy_ranks(parent_ids))
+
+    species_complex = find_species_complex(taxon_id, rank_lookup)
+    complex_genome_count = 0
+    if species_complex:
+        if include_species_complex:
+            genomes = query_species_genomes(species_complex["taxon_id"])
+            extra_ids = sorted({g["record_taxon_id"] for g in genomes} - set(rank_lookup))
+            if extra_ids:
+                rank_lookup.update(fetch_taxonomy_ranks(extra_ids))
+        else:
+            all_complex_genomes = query_species_genomes(species_complex["taxon_id"])
+            complex_genome_count = len(all_complex_genomes) - len(genomes)
+
+    genomes = _collapse_paired(genomes)
+
+    for g in genomes:
+        g["_forma_group"], g["_used_fallback"] = find_forma_specialis_group(
+            g["record_taxon_id"], rank_lookup, g["organism_name"]
+        )
+
+    duplicate_groups = detect_duplicate_groups(genomes)
+    # One representative genome per duplicate group -- the rest are merged in.
+    representatives = [grp[0] for grp in duplicate_groups]
+
+    available_group_labels = {g["_forma_group"] for g in representatives}
+    for label in (ingroup_groups or []) + (outgroup_groups or []):
+        if label not in available_group_labels:
+            sys.exit(f"ERROR: group label {label!r} not found -- available groups: {sorted(available_group_labels)}")
+
+    report = build_report(representatives, rank_lookup, duplicate_groups, species_complex, complex_genome_count)
+    print(report)
+    if auto:
+        print("\n--auto: this is a PROPOSAL to review, not a trusted grouping. "
+              "Group is left blank for every row -- assign IN/OUT by hand.")
+
+    rows = []
+    used_shorts: set[str] = set()
+    species_abbrev = "".join(w[:2] for w in species.split()[:2]) or "Sp"
+    for g in representatives:
+        group_value = ""
+        if ingroup_groups and g["_forma_group"] in ingroup_groups:
+            group_value = "IN"
+        elif outgroup_groups and g["_forma_group"] in outgroup_groups:
+            group_value = "OUT"
+        elif ingroup_groups or outgroup_groups:
+            continue  # explicit mode: skip genomes not in any named group
+        short = pick_short(g, species_abbrev, used_shorts)
+        used_shorts.add(short)
+        rows.append({
+            "Short": short,
+            "Species": derive_species_name(g, rank_lookup),
+            "Strain": g.get("strain") or g.get("isolate") or "",
+            "Group": group_value,
+            "TaxonGroup": g["_forma_group"],
+            "Protein_Source": "ncbi",
+            "Protein_Accession": g["accession"],
+            "Taxon_ID": g["record_taxon_id"],
+            "Genome_Source": "ncbi",
+            "Genome_Accession": g["accession"],
+            "GFF3_Source": "",
+            "GFF3_Accession": "",
+        })
+
+    study_dir.mkdir(parents=True, exist_ok=True)
+    with open(species_csv, "w", newline="") as fh:
+        writer = csv.DictWriter(fh, fieldnames=DISCOVER_HEADER)
+        writer.writeheader()
+        writer.writerows(rows)
+    print(f"\nWrote {species_csv} ({len(rows)} species)")

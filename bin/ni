@@ -4,8 +4,11 @@
 See notes/superpowers/specs/2026-09-11-ni-dataset-resolution-design.md.
 
 Usage:
-  bin/ni resolve --study-dir studies/<domain>/<set>
+  bin/ni resolve  --study-dir studies/<domain>/<set>
   bin/ni fetch    --study-dir studies/<domain>/<set> [-- extra build_study_config.py args]
+  bin/ni discover --species "<name>" --study-dir studies/<domain>/<set>
+                  [--ingroup-groups G1,G2] [--outgroup-groups G3] [--auto]
+                  [--include-species-complex]
 """
 import argparse
 import subprocess
@@ -29,6 +32,14 @@ def main() -> int:
     fetch_ap.add_argument("--study-dir", required=True)
     fetch_ap.add_argument("extra_args", nargs=argparse.REMAINDER)
 
+    discover_ap = sub.add_parser("discover", help="Enumerate a species' NCBI genomes into a new study's species.csv")
+    discover_ap.add_argument("--species", required=True)
+    discover_ap.add_argument("--study-dir", required=True)
+    discover_ap.add_argument("--ingroup-groups", default=None, help="Comma-separated group labels")
+    discover_ap.add_argument("--outgroup-groups", default=None, help="Comma-separated group labels")
+    discover_ap.add_argument("--auto", action="store_true")
+    discover_ap.add_argument("--include-species-complex", action="store_true")
+
     args = ap.parse_args()
 
     if args.command == "resolve":
@@ -40,6 +51,18 @@ def main() -> int:
         cmd.extend(a for a in args.extra_args if a != "--")
         result = subprocess.run(cmd)
         return result.returncode
+
+    if args.command == "discover":
+        from ni_discover import discover_species
+        discover_species(
+            args.species,
+            Path(args.study_dir),
+            ingroup_groups=args.ingroup_groups.split(",") if args.ingroup_groups else None,
+            outgroup_groups=args.outgroup_groups.split(",") if args.outgroup_groups else None,
+            auto=args.auto,
+            include_species_complex=args.include_species_complex,
+        )
+        return 0
 
     return 1
 

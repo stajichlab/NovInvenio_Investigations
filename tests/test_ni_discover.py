@@ -1,3 +1,4 @@
+import csv
 import json
 import sys
 from pathlib import Path
@@ -389,3 +390,118 @@ def test_build_report_notes_species_complex():
     )
     assert "Fusarium oxysporum species complex" in report
     assert "4" in report
+
+
+DISCOVER_HEADER = [
+    "Short", "Species", "Strain", "Group", "TaxonGroup",
+    "Protein_Source", "Protein_Accession", "Taxon_ID",
+    "Genome_Source", "Genome_Accession", "GFF3_Source", "GFF3_Accession",
+]
+
+
+def _fake_genome(accession, taxid, strain, group_after_lookup="no-fsp-in-name"):
+    return {
+        "accession": accession, "paired_accession": None, "organism_name": "Test species",
+        "record_taxon_id": taxid, "strain": strain, "isolate": None,
+        "biosample_accession": f"SAMN_{accession}", "assembly_level": "Chromosome",
+        "has_annotation": True, "annotation_pipeline": "p", "protein_coding_count": 100,
+        "busco_score": 95.0,
+    }
+
+
+def test_discover_species_default_mode_writes_blank_group(tmp_path, monkeypatch):
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover"
+    genomes = [_fake_genome("GCA_1", "1", "StrainA"), _fake_genome("GCA_2", "2", "StrainB")]
+    monkeypatch.setattr(nd, "resolve_taxon_id", lambda s: [{"taxon_id": "999", "scientific_name": s}])
+    monkeypatch.setattr(nd, "query_species_genomes", lambda tid: genomes)
+    monkeypatch.setattr(nd, "fetch_taxonomy_ranks", lambda ids: {
+        "1": {"rank": "STRAIN", "name": "Test species StrainA", "parents": ["999"], "species_name": "Test species"},
+        "2": {"rank": "STRAIN", "name": "Test species StrainB", "parents": ["999"], "species_name": "Test species"},
+        "999": {"rank": "SPECIES", "name": "Test species", "parents": [], "species_name": "Test species"},
+    })
+
+    nd.discover_species("Test species", study_dir, ingroup_groups=None, outgroup_groups=None, auto=False, include_species_complex=False)
+
+    with open(study_dir / "species.csv", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    assert len(rows) == 2
+    assert all(r["Group"] == "" for r in rows)
+    assert all(r["Protein_Source"] == "ncbi" for r in rows)
+    assert all(r["Genome_Source"] == "ncbi" for r in rows)
+
+
+def test_discover_species_explicit_groups_filters_and_assigns(tmp_path, monkeypatch):
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover2"
+    genomes = [
+        _fake_genome("GCA_1", "1", "StrainA"),
+        _fake_genome("GCA_2", "2", "StrainB"),
+    ]
+    monkeypatch.setattr(nd, "resolve_taxon_id", lambda s: [{"taxon_id": "999", "scientific_name": s}])
+    monkeypatch.setattr(nd, "query_species_genomes", lambda tid: genomes)
+    monkeypatch.setattr(nd, "fetch_taxonomy_ranks", lambda ids: {
+        "1": {"rank": "FORMA_SPECIALIS", "name": "Test species f. sp. alpha", "parents": ["999"], "species_name": "Test species"},
+        "2": {"rank": "STRAIN", "name": "Test species StrainB", "parents": ["999"], "species_name": "Test species"},
+        "999": {"rank": "SPECIES", "name": "Test species", "parents": [], "species_name": "Test species"},
+    })
+
+    nd.discover_species("Test species", study_dir, ingroup_groups=["alpha"], outgroup_groups=["no-fsp-in-name"], auto=False, include_species_complex=False)
+
+    with open(study_dir / "species.csv", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    assert len(rows) == 2
+    groups = {r["Group"] for r in rows}
+    assert groups == {"IN", "OUT"}
+
+
+def test_discover_species_unknown_group_label_errors(tmp_path, monkeypatch):
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover3"
+    genomes = [_fake_genome("GCA_1", "1", "StrainA")]
+    monkeypatch.setattr(nd, "resolve_taxon_id", lambda s: [{"taxon_id": "999", "scientific_name": s}])
+    monkeypatch.setattr(nd, "query_species_genomes", lambda tid: genomes)
+    monkeypatch.setattr(nd, "fetch_taxonomy_ranks", lambda ids: {
+        "1": {"rank": "STRAIN", "name": "Test species StrainA", "parents": ["999"], "species_name": "Test species"},
+        "999": {"rank": "SPECIES", "name": "Test species", "parents": [], "species_name": "Test species"},
+    })
+    try:
+        nd.discover_species("Test species", study_dir, ingroup_groups=["nonexistent_group"], outgroup_groups=None, auto=False, include_species_complex=False)
+        assert False, "expected SystemExit"
+    except SystemExit as e:
+        assert "nonexistent_group" in str(e)
+
+
+def test_discover_species_auto_never_writes_group(tmp_path, monkeypatch, capsys):
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover4"
+    genomes = [_fake_genome("GCA_1", "1", "StrainA"), _fake_genome("GCA_2", "2", "StrainB")]
+    monkeypatch.setattr(nd, "resolve_taxon_id", lambda s: [{"taxon_id": "999", "scientific_name": s}])
+    monkeypatch.setattr(nd, "query_species_genomes", lambda tid: genomes)
+    monkeypatch.setattr(nd, "fetch_taxonomy_ranks", lambda ids: {
+        "1": {"rank": "FORMA_SPECIALIS", "name": "Test species f. sp. alpha", "parents": ["999"], "species_name": "Test species"},
+        "2": {"rank": "STRAIN", "name": "Test species StrainB", "parents": ["999"], "species_name": "Test species"},
+        "999": {"rank": "SPECIES", "name": "Test species", "parents": [], "species_name": "Test species"},
+    })
+
+    nd.discover_species("Test species", study_dir, ingroup_groups=None, outgroup_groups=None, auto=True, include_species_complex=False)
+
+    with open(study_dir / "species.csv", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    assert all(r["Group"] == "" for r in rows)  # --auto NEVER writes Group
+
+
+def test_discover_species_refuses_if_species_csv_exists(tmp_path, monkeypatch):
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover5"
+    study_dir.mkdir(parents=True)
+    (study_dir / "species.csv").write_text("Short,Species\n")
+    try:
+        nd.discover_species("Test species", study_dir, ingroup_groups=None, outgroup_groups=None, auto=False, include_species_complex=False)
+        assert False, "expected SystemExit"
+    except SystemExit as e:
+        assert "species.csv" in str(e)
+
+
+def test_discover_species_both_explicit_and_auto_errors(tmp_path, monkeypatch):
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover6"
+    try:
+        nd.discover_species("Test species", study_dir, ingroup_groups=["x"], outgroup_groups=None, auto=True, include_species_complex=False)
+        assert False, "expected SystemExit"
+    except SystemExit:
+        pass
