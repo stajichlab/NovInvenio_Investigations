@@ -129,3 +129,108 @@ def test_strain_matches_substring_case_insensitive():
     assert nr.strain_matches("Tattone D", "H4-8") is False
     assert nr.strain_matches(None, "H4-8") is False
     assert nr.strain_matches("", "H4-8") is False
+
+
+# NCBI Datasets fixtures below mirror the REAL live shape observed 2026-09-11
+# via `pixi run datasets summary genome taxon 5334 --as-json-lines` against a
+# GCA/GCF reference-genome pair (Schizophyllum commune, GCA_000143185.2 /
+# GCF_000143185.2). Two field paths differ from this task's brief sketch:
+#
+# - `paired_accession` is a TOP-LEVEL field on the record (`r["paired_accession"]`),
+#   not nested under `assembly_info` (`assembly_info.paired_accession` does not
+#   exist; there's a differently-shaped `assembly_info.paired_assembly.accession`
+#   object instead, which we don't use).
+# - There is no `assembly_info.submission_date` field at all. The closest
+#   analog present on every record is `assembly_info.release_date` (the date the
+#   assembly was released to the public database); we use that for the
+#   "submission_date" key in our returned candidate dicts. (A `submission_date`
+#   does exist, but only nested three levels down under
+#   `assembly_info.biosample.submission_date`, which describes the biological
+#   sample, not the assembly record -- not what this field is meant to capture.)
+NCRASSA_PAIR_JSONL = "\n".join([
+    json.dumps({
+        "accession": "GCA_000182925.2",
+        "paired_accession": "GCF_000182925.2",
+        "assembly_info": {
+            "refseq_category": "reference genome",
+            "assembly_level": "Chromosome",
+            "assembly_status": "current",
+            "submitter": "Broad Institute",
+            "release_date": "2014-05-01",
+        },
+        "organism": {"infraspecific_names": {"strain": "OR74A"}},
+        "annotation_info": {"name": "GCF_000182925.2-RS_2014_05"},
+    }),
+    json.dumps({
+        "accession": "GCF_000182925.2",
+        "paired_accession": "GCA_000182925.2",
+        "assembly_info": {
+            "refseq_category": "reference genome",
+            "assembly_level": "Chromosome",
+            "assembly_status": "current",
+            "submitter": "Broad Institute",
+            "release_date": "2014-05-01",
+        },
+        "organism": {"infraspecific_names": {"strain": "OR74A"}},
+        "annotation_info": {"name": "GCF_000182925.2-RS_2014_05"},
+    }),
+])
+
+
+def test_query_ncbi_assemblies_parses_jsonl():
+    fake_run = MagicMock(stdout=NCRASSA_PAIR_JSONL, returncode=0)
+    with patch("subprocess.run", return_value=fake_run):
+        candidates = nr.query_ncbi_assemblies("5334", require_reference=False)
+    assert len(candidates) == 2
+    accessions = {c["accession"] for c in candidates}
+    assert accessions == {"GCA_000182925.2", "GCF_000182925.2"}
+
+
+def test_rank_ncbi_candidates_collapses_gca_gcf_pair_to_one():
+    fake_run = MagicMock(stdout=NCRASSA_PAIR_JSONL, returncode=0)
+    with patch("subprocess.run", return_value=fake_run):
+        candidates = nr.query_ncbi_assemblies("5334", require_reference=False)
+    top = nr.rank_ncbi_candidates(candidates, require_annotation=False)
+    assert len(top) == 1  # NOT 2 -- this is the pair-collapse fix
+    assert top[0]["accession"] == "GCA_000182925.2"  # GCA preferred for recording
+
+
+def test_rank_ncbi_candidates_requires_annotation_when_asked():
+    unannotated = json.dumps({
+        "accession": "GCA_999999999.1",
+        "paired_accession": None,
+        "assembly_info": {
+            "refseq_category": None,
+            "assembly_level": "Complete Genome",
+            "assembly_status": "current",
+            "submitter": "Some Lab",
+            "release_date": "2025-01-01",
+        },
+        "organism": {"infraspecific_names": {}},
+    })  # no annotation_info key at all
+    fake_run = MagicMock(stdout=unannotated, returncode=0)
+    with patch("subprocess.run", return_value=fake_run):
+        candidates = nr.query_ncbi_assemblies("1", require_reference=False)
+    assert nr.rank_ncbi_candidates(candidates, require_annotation=True) == []
+    assert len(nr.rank_ncbi_candidates(candidates, require_annotation=False)) == 1
+
+
+def test_rank_ncbi_candidates_ties_when_no_reference_designation():
+    two_unranked = "\n".join([
+        json.dumps({
+            "accession": f"GCA_{i}00000000.1",
+            "paired_accession": None,
+            "assembly_info": {
+                "refseq_category": None, "assembly_level": "Chromosome",
+                "assembly_status": "current",
+                "submitter": f"Lab {i}", "release_date": "2025-01-01",
+            },
+            "organism": {"infraspecific_names": {"strain": f"strain{i}"}},
+            "annotation_info": {"name": "x"},
+        }) for i in (1, 2)
+    ])
+    fake_run = MagicMock(stdout=two_unranked, returncode=0)
+    with patch("subprocess.run", return_value=fake_run):
+        candidates = nr.query_ncbi_assemblies("1", require_reference=False)
+    tied = nr.rank_ncbi_candidates(candidates, require_annotation=False)
+    assert len(tied) == 2  # genuine tie, not collapsed -- different accessions, no ranking signal
