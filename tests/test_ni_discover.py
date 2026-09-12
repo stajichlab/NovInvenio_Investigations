@@ -392,13 +392,6 @@ def test_build_report_notes_species_complex():
     assert "4" in report
 
 
-DISCOVER_HEADER = [
-    "Short", "Species", "Strain", "Group", "TaxonGroup",
-    "Protein_Source", "Protein_Accession", "Taxon_ID",
-    "Genome_Source", "Genome_Accession", "GFF3_Source", "GFF3_Accession",
-]
-
-
 def _fake_genome(accession, taxid, strain, group_after_lookup="no-fsp-in-name"):
     return {
         "accession": accession, "paired_accession": None, "organism_name": "Test species",
@@ -505,3 +498,116 @@ def test_discover_species_both_explicit_and_auto_errors(tmp_path, monkeypatch):
         assert False, "expected SystemExit"
     except SystemExit:
         pass
+
+
+def test_discover_species_explicit_mode_drops_genomes_outside_named_groups(tmp_path, monkeypatch):
+    # A genome whose forma-specialis group is named in NEITHER
+    # --ingroup-groups nor --outgroup-groups must be dropped from the
+    # written species.csv entirely (the "continue" branch in the row-
+    # assembly loop) -- not written with a blank Group, just excluded.
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover7"
+    genomes = [
+        _fake_genome("GCA_1", "1", "StrainA"),  # -> alpha (ingroup)
+        _fake_genome("GCA_2", "2", "StrainB"),  # -> beta (outgroup)
+        _fake_genome("GCA_3", "3", "StrainC"),  # -> gamma (named in neither list)
+    ]
+    monkeypatch.setattr(nd, "resolve_taxon_id", lambda s: [{"taxon_id": "999", "scientific_name": s}])
+    monkeypatch.setattr(nd, "query_species_genomes", lambda tid: genomes)
+    monkeypatch.setattr(nd, "fetch_taxonomy_ranks", lambda ids: {
+        "1": {"rank": "FORMA_SPECIALIS", "name": "Test species f. sp. alpha", "parents": ["999"], "species_name": "Test species"},
+        "2": {"rank": "FORMA_SPECIALIS", "name": "Test species f. sp. beta", "parents": ["999"], "species_name": "Test species"},
+        "3": {"rank": "FORMA_SPECIALIS", "name": "Test species f. sp. gamma", "parents": ["999"], "species_name": "Test species"},
+        "999": {"rank": "SPECIES", "name": "Test species", "parents": [], "species_name": "Test species"},
+    })
+
+    nd.discover_species(
+        "Test species", study_dir,
+        ingroup_groups=["alpha"], outgroup_groups=["beta"], auto=False, include_species_complex=False,
+    )
+
+    with open(study_dir / "species.csv", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    accessions = {r["Protein_Accession"] for r in rows}
+    assert accessions == {"GCA_1", "GCA_2"}  # GCA_3 (gamma) excluded
+    by_accession = {r["Protein_Accession"]: r for r in rows}
+    assert by_accession["GCA_1"]["Group"] == "IN"
+    assert by_accession["GCA_2"]["Group"] == "OUT"
+
+
+def test_discover_species_include_species_complex_counts_and_multihop_grouping(tmp_path, monkeypatch):
+    # --include-species-complex must (a) report the real total genome count
+    # pulled from the complex-wide query (not 0, and not a stale re-query
+    # count), and (b) correctly group a sibling-species genome whose
+    # FORMA_SPECIALIS ancestor is two hops away -- requiring the third
+    # fetch_taxonomy_ranks batch for the complex genomes' own parents.
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover8"
+
+    primary_genome = _fake_genome("GCA_1", "1", "StrainA")
+    sibling_genome = _fake_genome("GCA_2", "2", "SiblingStrain")
+    sibling_genome["organism_name"] = "Sibling species"  # no "f. sp." text --
+    # a fallback-to-regex would produce "no-fsp-in-name", not the real label,
+    # so this distinguishes correct multi-hop resolution from a broken one.
+
+    def fake_query(tid):
+        if tid == "999":
+            return [primary_genome]
+        if tid == "171631":  # the species-complex taxon id
+            return [primary_genome, sibling_genome]
+        raise AssertionError(f"unexpected taxon id queried: {tid}")
+
+    master_ranks = {
+        "1": {"rank": "STRAIN", "name": "Test species StrainA", "parents": ["999"], "species_name": "Test species"},
+        "999": {"rank": "SPECIES", "name": "Test species", "parents": ["171631"], "species_name": "Test species"},
+        "171631": {"rank": "SPECIES_GROUP", "name": "Test species complex", "parents": [], "species_name": ""},
+        "2": {"rank": "STRAIN", "name": "Sibling species SiblingStrain", "parents": ["61366"], "species_name": "Sibling species"},
+        "61366": {"rank": "FORMA_SPECIALIS", "name": "Sibling species f. sp. siblinggroup", "parents": ["999"], "species_name": "Sibling species"},
+    }
+
+    def fake_fetch(ids):
+        return {i: master_ranks[i] for i in ids if i in master_ranks}
+
+    monkeypatch.setattr(nd, "resolve_taxon_id", lambda s: [{"taxon_id": "999", "scientific_name": s}])
+    monkeypatch.setattr(nd, "query_species_genomes", fake_query)
+    monkeypatch.setattr(nd, "fetch_taxonomy_ranks", fake_fetch)
+
+    nd.discover_species(
+        "Test species", study_dir,
+        ingroup_groups=None, outgroup_groups=None, auto=False, include_species_complex=True,
+    )
+
+    with open(study_dir / "species.csv", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    by_accession = {r["Protein_Accession"]: r for r in rows}
+    assert set(by_accession) == {"GCA_1", "GCA_2"}
+    # The sibling genome must be grouped via the real FORMA_SPECIALIS
+    # ancestor found through the multi-hop parent walk, not the fallback.
+    assert by_accession["GCA_2"]["TaxonGroup"] == "siblinggroup"
+    assert by_accession["GCA_2"]["TaxonGroup"] != "no-fsp-in-name"
+
+
+def test_pick_duplicate_group_representative_prefers_paired_accession():
+    group = [
+        {"accession": "GCA_1", "paired_accession": None, "busco_score": 99.0, "assembly_level": "Chromosome"},
+        {"accession": "GCA_2", "paired_accession": "GCF_2", "busco_score": 80.0, "assembly_level": "Scaffold"},
+    ]
+    kept = nd._pick_duplicate_group_representative(group)
+    assert kept["accession"] == "GCA_2"  # paired (RefSeq-backed) wins even with a lower BUSCO
+
+
+def test_pick_duplicate_group_representative_falls_back_to_busco_then_assembly_level():
+    group = [
+        {"accession": "GCA_1", "paired_accession": None, "busco_score": 70.0, "assembly_level": "Chromosome"},
+        {"accession": "GCA_2", "paired_accession": None, "busco_score": 95.0, "assembly_level": "Scaffold"},
+    ]
+    kept = nd._pick_duplicate_group_representative(group)
+    assert kept["accession"] == "GCA_2"  # neither paired -- higher BUSCO wins
+
+
+def test_build_report_names_kept_vs_merged_accession():
+    group = [
+        {"accession": "GCA_1", "paired_accession": None, "busco_score": 70.0, "assembly_level": "Scaffold", "strain": "Fo5176", "isolate": None, "_forma_group": "no-fsp-in-name"},
+        {"accession": "GCA_2", "paired_accession": "GCF_2", "busco_score": 90.0, "assembly_level": "Chromosome", "strain": "Fo5176", "isolate": None, "_forma_group": "no-fsp-in-name"},
+    ]
+    report = nd.build_report(group, {}, duplicate_groups=[group], species_complex=None, complex_genome_count=0)
+    assert "kept GCA_2" in report
+    assert "GCA_1" in report

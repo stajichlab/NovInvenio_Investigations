@@ -54,11 +54,19 @@ def main() -> int:
 
     if args.command == "discover":
         from ni_discover import discover_species
+
+        def _split_groups(raw: str | None) -> list[str] | None:
+            if not raw:
+                return None
+            tokens = [t.strip() for t in raw.split(",")]
+            tokens = [t for t in tokens if t]
+            return tokens or None
+
         discover_species(
             args.species,
             Path(args.study_dir),
-            ingroup_groups=args.ingroup_groups.split(",") if args.ingroup_groups else None,
-            outgroup_groups=args.outgroup_groups.split(",") if args.outgroup_groups else None,
+            ingroup_groups=_split_groups(args.ingroup_groups),
+            outgroup_groups=_split_groups(args.outgroup_groups),
             auto=args.auto,
             include_species_complex=args.include_species_complex,
         )

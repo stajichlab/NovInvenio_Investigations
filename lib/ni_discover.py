@@ -261,6 +261,31 @@ def detect_duplicate_groups(genomes: list[dict[str, Any]]) -> list[list[dict[str
     return list(groups.values())
 
 
+_ASSEMBLY_LEVEL_RANK = {"Complete Genome": 0, "Chromosome": 0, "Scaffold": 1, "Contig": 2}
+
+
+def _pick_duplicate_group_representative(group: list[dict[str, Any]]) -> dict[str, Any]:
+    """Choose which record in a duplicate group (per detect_duplicate_groups)
+    becomes the row written to species.csv -- never grp[0]'s arbitrary NCBI
+    listing order. Tie-break, in priority order: (1) a record that carries a
+    paired_accession (i.e. part of a GCA/GCF pair -- the RefSeq side of such
+    a pair is NCBI-curated/annotated, generally higher quality than a lone
+    GenBank submission of the same genome), (2) the highest busco_score
+    (more complete annotation), (3) the best (lowest-rank) assembly_level,
+    (4) NCBI's own first-listed order, as a final deterministic-but-arbitrary
+    tiebreak. Documented here, not left implicit, per the design spec's
+    "never merge silently" rule -- build_report reports which record this
+    function kept vs. which it merged away.
+    """
+    def sort_key(g: dict[str, Any]) -> tuple[int, float, int]:
+        has_pair = 0 if g.get("paired_accession") else 1
+        busco = -(g.get("busco_score") or 0.0)
+        level = _ASSEMBLY_LEVEL_RANK.get(g.get("assembly_level"), 3)
+        return (has_pair, busco, level)
+
+    return min(group, key=sort_key)
+
+
 def build_report(
     genomes: list[dict[str, Any]],
     rank_lookup: dict[str, dict[str, Any]],
@@ -304,15 +329,18 @@ def build_report(
             if assembly_levels:
                 lines.append(f"    Assembly levels: {', '.join(sorted(assembly_levels))}")
 
-    # Report duplicate groups (those with more than one genome)
+    # Report duplicate groups (those with more than one genome), naming
+    # which record was kept as the species.csv row vs. which were merged
+    # away -- never merge silently, per the design spec.
     multi_genome_groups = [g for g in duplicate_groups if len(g) > 1]
     if multi_genome_groups:
         if lines:
             lines.append("")
         lines.append("Duplicate/merged strains:")
         for group in multi_genome_groups:
-            accessions = ", ".join(g.get("accession", "?") for g in group)
-            lines.append(f"  Merged: {accessions}")
+            kept = _pick_duplicate_group_representative(group)
+            merged_away = ", ".join(g.get("accession", "?") for g in group if g is not kept)
+            lines.append(f"  Merged: {merged_away} -> kept {kept.get('accession', '?')}")
 
     # Report species complex if present
     if species_complex:
@@ -321,6 +349,79 @@ def build_report(
         lines.append("Species complex:")
         name = species_complex.get("name", "Unknown")
         lines.append(f"  {name} ({complex_genome_count} genomes)")
+
+    return "\n".join(lines)
+
+
+def build_auto_proposal(
+    genomes: list[dict[str, Any]],
+    rank_lookup: dict[str, dict[str, Any]],
+    duplicate_groups: list[list[dict[str, Any]]],
+    species_complex: dict[str, Any] | None,
+    primary_species_name: str,
+    include_species_complex: bool,
+) -> str:
+    """`--auto`'s extended proposal section, printed IN ADDITION to
+    build_report's group/count table -- never in place of it, and never
+    influencing what discover_species writes to species.csv (Group is
+    hard-coded to "" for every row in auto mode; see discover_species).
+
+    Reports, from data already computed by discover_species (no new NCBI
+    queries here):
+    - which forma-specialis group looks largest/best-sampled by genome
+      count -- a proxy for "most genomes available to build a tree from,"
+      not a claim about which is the true ingroup/outgroup (that scientific
+      call was exactly what the original --auto heuristic got wrong; see
+      the design spec's "Selection modes" section).
+    - which duplicate-strain groups (from detect_duplicate_groups) span more
+      than one forma-specialis group -- the same physical strain resolving
+      to two different group labels needs a human look before trusting
+      either grouping.
+    - which sibling species are present when --include-species-complex
+      pulled in the whole species complex, since that fact is easy to miss
+      buried in a long group/count table.
+    """
+    lines = ["", "--auto proposal (informational only -- Group is NOT set from this):"]
+
+    group_counts: dict[str, int] = {}
+    for g in genomes:
+        grp = g.get("_forma_group", "unknown")
+        group_counts[grp] = group_counts.get(grp, 0) + 1
+    if group_counts:
+        largest_group, largest_count = max(group_counts.items(), key=lambda kv: kv[1])
+        lines.append(f"  Largest/best-sampled group: {largest_group} ({largest_count} genomes)")
+
+    cross_group_dupes = [
+        grp for grp in duplicate_groups
+        if len(grp) > 1 and len({g.get("_forma_group") for g in grp}) > 1
+    ]
+    if cross_group_dupes:
+        lines.append("  Strains duplicated ACROSS forma-specialis groups (needs a human look):")
+        for grp in cross_group_dupes:
+            details = ", ".join(f"{g.get('accession', '?')} ({g.get('_forma_group')})" for g in grp)
+            lines.append(f"    {details}")
+    lines.append(
+        "  Known residual gap: a duplicate that is both a different strain "
+        "string AND registered under a different species name within a "
+        "species complex (e.g. 'II5' under F. oxysporum vs. 'NRRL 54006' "
+        "under F. odoratissimum) is not caught by detect_duplicate_groups -- "
+        "this duplicate list is not exhaustive."
+    )
+
+    if include_species_complex and species_complex:
+        sibling_names = sorted({
+            name for g in genomes
+            if (name := derive_species_name(g, rank_lookup)) and name != primary_species_name
+        })
+        if sibling_names:
+            lines.append(f"  Sibling species present in {species_complex['name']}:")
+            for name in sibling_names:
+                lines.append(f"    {name}")
+        else:
+            lines.append(
+                f"  No sibling species found distinct from {primary_species_name!r} "
+                f"in {species_complex['name']}."
+            )
 
     return "\n".join(lines)
 
@@ -364,6 +465,11 @@ def discover_species(
     """
     if (ingroup_groups or outgroup_groups) and auto:
         sys.exit("ERROR: --ingroup-groups/--outgroup-groups and --auto are mutually exclusive")
+    if auto:
+        # Hardens the --auto-never-writes-Group invariant locally, so it
+        # does not depend solely on the mutual-exclusivity guard above
+        # surviving a future refactor -- see the row-assembly loop below.
+        ingroup_groups = outgroup_groups = None
 
     species_csv = study_dir / "species.csv"
     if species_csv.exists():
@@ -387,6 +493,8 @@ def discover_species(
     if parent_ids:
         rank_lookup.update(fetch_taxonomy_ranks(parent_ids))
 
+    primary_species_name = rank_lookup.get(taxon_id, {}).get("species_name") or species
+
     species_complex = find_species_complex(taxon_id, rank_lookup)
     complex_genome_count = 0
     if species_complex:
@@ -395,6 +503,22 @@ def discover_species(
             extra_ids = sorted({g["record_taxon_id"] for g in genomes} - set(rank_lookup))
             if extra_ids:
                 rank_lookup.update(fetch_taxonomy_ranks(extra_ids))
+                # Third batched call: parents of the species-complex genomes'
+                # OWN taxa, mirroring the two-batch pattern above for the
+                # primary species. Without this, find_forma_specialis_group's
+                # parents[-1] walk breaks immediately for exactly the
+                # sibling-species records --include-species-complex exists to
+                # bring in -- they'd fall through to the organism_name regex
+                # or "no-fsp-in-name" instead of being correctly grouped.
+                extra_parent_ids = sorted({
+                    p for tid in extra_ids for p in rank_lookup.get(tid, {}).get("parents", [])
+                } - set(rank_lookup))
+                if extra_parent_ids:
+                    rank_lookup.update(fetch_taxonomy_ranks(extra_parent_ids))
+            # All genomes are now sourced from the complex-wide query -- the
+            # count of "how many complex genomes are in this study" is just
+            # the total already in hand, not a separate re-query.
+            complex_genome_count = len(genomes)
         else:
             all_complex_genomes = query_species_genomes(species_complex["taxon_id"])
             complex_genome_count = len(all_complex_genomes) - len(genomes)
@@ -407,8 +531,10 @@ def discover_species(
         )
 
     duplicate_groups = detect_duplicate_groups(genomes)
-    # One representative genome per duplicate group -- the rest are merged in.
-    representatives = [grp[0] for grp in duplicate_groups]
+    # One representative genome per duplicate group, chosen by a documented
+    # tie-break (see _pick_duplicate_group_representative) -- never an
+    # arbitrary grp[0] on whatever order NCBI happened to return.
+    representatives = [_pick_duplicate_group_representative(grp) for grp in duplicate_groups]
 
     available_group_labels = {g["_forma_group"] for g in representatives}
     for label in (ingroup_groups or []) + (outgroup_groups or []):
@@ -418,12 +544,16 @@ def discover_species(
     report = build_report(representatives, rank_lookup, duplicate_groups, species_complex, complex_genome_count)
     print(report)
     if auto:
+        print(build_auto_proposal(
+            representatives, rank_lookup, duplicate_groups, species_complex,
+            primary_species_name, include_species_complex,
+        ))
         print("\n--auto: this is a PROPOSAL to review, not a trusted grouping. "
               "Group is left blank for every row -- assign IN/OUT by hand.")
 
     rows = []
     used_shorts: set[str] = set()
-    species_abbrev = "".join(w[:2] for w in species.split()[:2]) or "Sp"
+    species_abbrev = "".join(w[:2] for w in primary_species_name.split()[:2]) or "Sp"
     for g in representatives:
         group_value = ""
         if ingroup_groups and g["_forma_group"] in ingroup_groups:
