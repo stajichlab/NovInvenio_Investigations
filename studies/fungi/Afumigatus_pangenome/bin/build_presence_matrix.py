@@ -41,10 +41,11 @@ Usage:
 
 3. **Columns = `config.csv`'s IN and OUT strains by default** (`--groups IN,OUT`).
    cooccurrence.py's gain/loss polarization reads outgroup columns out of this
-   same matrix -- an ingroup-only matrix (`--groups IN`) silently makes every
-   family's polarization "ambiguous" (cooccurrence.py now warns loudly when it
-   detects this rather than mis-reporting a confident gain/loss). Pass
-   `--groups IN` only for a study that genuinely has no outgroup.
+   same matrix -- an ingroup-only matrix (`--groups IN`) makes every family's
+   polarization "ambiguous" rather than a mis-reported confident gain/loss;
+   cooccurrence.py warns to stderr when it detects a matrix with no outgroup
+   columns present. Pass `--groups IN` only for a study that genuinely has no
+   outgroup.
 
 4. **`copy_number` = how many of that strain's proteins fall in that family.**
    Persisted alongside the matrix in `<output>.copy_number.tsv` (see
