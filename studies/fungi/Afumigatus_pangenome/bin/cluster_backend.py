@@ -12,6 +12,13 @@ Usage:
   cluster_backend.py mmseqs-tier2 --fasta tier1_rep_seq.fasta --out_prefix tier2
   cluster_backend.py diamond-tier1 --fasta all_ingroup.fa --out_prefix tier1
   cluster_backend.py diamond-tier2 --fasta tier1_rep_seq.fasta --out_prefix tier2
+
+Input FASTA requirement: `all_ingroup.fa` is every strain's (isoform-collapsed)
+proteome concatenated, with each header Short-PREFIXED as
+`><Short>|<original_protein_id>`. The cluster TSV carries nothing but sequence
+IDs, so that prefix is the only way build_presence_matrix.py can recover which
+strain a family member came from -- see that script's docstring for the exact
+convention and a worked prefixing one-liner.
 """
 from __future__ import annotations
 

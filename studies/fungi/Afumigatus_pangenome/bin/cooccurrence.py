@@ -24,6 +24,7 @@ from scipy.stats import fisher_exact, false_discovery_control
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from novinvenio_path import add_novinvenio_lib_to_path  # noqa: E402
 from pangenome_matrix import PresenceMatrix  # noqa: E402
+from strain_inventory import read_representative_shorts  # noqa: E402
 
 
 def presence_vector_within(matrix: PresenceMatrix, family: str, strains: list[str]) -> list[bool]:
@@ -168,11 +169,47 @@ def find_cooccurring_pairs(
     return results
 
 
+def unlabelled_clade_fraction(strains: list[str], clade_of_strain: dict[str, str]) -> float:
+    """Fraction of `strains` with no usable TaxonGroup label."""
+    if not strains:
+        return 0.0
+    unlabelled = sum(1 for s in strains if not (clade_of_strain.get(s) or "").strip())
+    return unlabelled / len(strains)
+
+
+def warn_if_unstratified(
+    strains: list[str], clade_of_strain: dict[str, str], threshold: float = 0.5
+) -> bool:
+    """The permutation null shuffles WITHIN clade, so strains with no
+    TaxonGroup all land in one "unknown" pool and are shuffled freely -- i.e.
+    unstratified. config.csv currently leaves TaxonGroup empty for most strains,
+    which would make the whole clade-stratified null silently meaningless, so
+    say so on stderr. Returns True when the warning fired."""
+    frac = unlabelled_clade_fraction(strains, clade_of_strain)
+    if frac <= threshold:
+        return False
+    print(
+        f"WARNING: {frac:.0%} of the {len(strains)} analysed strains have an empty "
+        "TaxonGroup in config.csv. Those strains all fall into a single 'unknown' "
+        "group, so the clade-stratified permutation null is effectively an "
+        "UNSTRATIFIED shuffle for them -- permutation_p does not control for "
+        "clonal-clade structure. Populate TaxonGroup (e.g. DAPC clade assignments) "
+        "before interpreting permutation_p as a phylogenetic control.",
+        file=sys.stderr,
+    )
+    return True
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--matrix", required=True)
     ap.add_argument("--frequency_table", required=True)
     ap.add_argument("--config", required=True)
+    ap.add_argument("--inventory",
+                    help="strain_inventory.tsv from dereplicate_strains.py; when "
+                         "given, the ingroup strain set is further restricted to "
+                         "is_representative == 1 strains (the spec's dereplicated "
+                         "frequency floor)")
     ap.add_argument("--min_strain_count", type=int, default=5)
     ap.add_argument("--fdr_alpha", type=float, default=0.05)
     ap.add_argument("--n_perms", type=int, default=1000)
@@ -186,6 +223,16 @@ def main() -> None:
     clade_of_strain = {s.short: s.taxon_group for s in samples}
     outgroup_shorts = [s.short for s in samples if s.group == "OUT"]
     ingroup_shorts = [s.short for s in samples if s.group == "IN"]
+    if args.inventory:
+        reps = set(read_representative_shorts(args.inventory))
+        ingroup_shorts = [s for s in ingroup_shorts if s in reps]
+        print(f"Dereplication: {len(ingroup_shorts)} representative ingroup strains",
+              file=sys.stderr)
+    if not ingroup_shorts:
+        print("ERROR: no ingroup strains left after --config/--inventory filtering",
+              file=sys.stderr)
+        sys.exit(1)
+    warn_if_unstratified(ingroup_shorts, clade_of_strain)
 
     matrix = PresenceMatrix.from_tsv(args.matrix)
     with open(args.frequency_table) as fh:

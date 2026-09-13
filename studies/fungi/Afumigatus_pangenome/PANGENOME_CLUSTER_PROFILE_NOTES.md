@@ -73,8 +73,57 @@ general design on 2026-09-13; see that design doc's "Review disposition" section
 for the full must-fix/should-consider list — most of it changes the method itself,
 not just this study's data, so it's recorded there rather than duplicated here.)*
 
+## Pipeline conventions (established by `bin/build_presence_matrix.py`)
+
+The scripts here form a chain; these are the contracts that hold it together.
+
+1. **Short-prefixed protein IDs.** The clustering input FASTA concatenates every
+   strain's isoform-collapsed proteome with headers rewritten to
+   `><Short>|<original_protein_id>`. The cluster TSV carries only sequence IDs,
+   so this prefix is the only way a family member can be traced back to a
+   strain. `bin/build_presence_matrix.py`'s docstring holds the prefixing
+   one-liner; `--id_sep` overrides the `|`.
+2. **Family ID = tier-1 cluster representative ID, verbatim.** Everything
+   downstream (`rescue_pass.py --matrix`, `cooccurrence.py`,
+   `hac_screen.py --hac_family_id/--haca_family_id`) keys on it.
+3. **Matrix columns.** `build_presence_matrix.py --groups` selects them;
+   `IN,OUT` is required if `cooccurrence.py`'s outgroup gain/loss polarization
+   is to work, since it reads the outgroup columns out of the same matrix.
+   Frequency and co-occurrence statistics themselves are always computed over
+   the ingroup only.
+4. **Copy numbers live in a sidecar**, `<matrix>.copy_number.tsv`, written and
+   read automatically by `PresenceMatrix.to_tsv`/`from_tsv`. The matrix file
+   itself stays a pure three-state table.
+5. **Dereplication is opt-in per run.** `frequency_bins.py --inventory` and
+   `cooccurrence.py --inventory` take `dereplicate_strains.py`'s
+   `strain_inventory.tsv` and count only `is_representative == 1` strains —
+   the spec's "frequency counts use dereplicated strains, not the raw 293".
+   Without `--inventory` both fall back to all ingroup strains.
+6. **`TaxonGroup` is currently empty for 285 of the 295 config rows**, so
+   `cooccurrence.py`'s clade-stratified permutation null degenerates to an
+   unstratified shuffle. The script now warns loudly on stderr when that is the
+   case; `permutation_p` is not a phylogenetic control until DAPC clade labels
+   are filled in.
+
+Run order:
+
+```
+collapse_isoforms (NovInvenio) -> Short-prefixed all_ingroup.fa
+  -> cluster_backend.py mmseqs-tier1|diamond-tier1
+  -> build_presence_matrix.py        (presence_matrix.tsv [+ .copy_number.tsv])
+  -> rescue_pass.py                  (presence_matrix.rescued.tsv)
+  -> frequency_bins.py               (frequency_table.tsv)
+  -> cooccurrence.py / synteny_windows.py / hac_screen.py
+```
+
+Scripts that read NovInvenio's `config_parser` locate the sibling checkout via
+`lib/novinvenio_path.py`; set `NOVINVENIO_ROOT` if it is not a sibling of this
+repo's parent directory.
+
 ## Open items
 
+- [ ] Fill in `config.csv`'s `TaxonGroup` (DAPC clades) so the co-occurrence
+      permutation null is genuinely clade-stratified.
 - [ ] Determine draft-vs-long-read assembly mix across the 293 strains.
 - [ ] Dereplicate strains (Mash/ANI) before any frequency count.
 - [ ] Run tier-1 clustering (~90% identity, per the revised design) plus the

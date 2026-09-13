@@ -6,7 +6,11 @@ platforms = ["linux-64"]
 version = "0.1.0"
 
 [tasks]
-test = "pytest tests/ -v"
+# Study-local suites (e.g. studies/fungi/Afumigatus_pangenome/tests/) are part
+# of the standard run -- keep `studies/` here so a new study's tests are never
+# left as an unlisted directory.
+test = "pytest tests/ studies/ -v"
+test-pangenome = "pytest studies/fungi/Afumigatus_pangenome/tests/ -v"
 
 [dependencies]
 python = "3.12.*"

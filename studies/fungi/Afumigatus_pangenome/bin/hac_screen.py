@@ -49,6 +49,25 @@ def main() -> None:
     args = ap.parse_args()
 
     matrix = PresenceMatrix.from_tsv(args.matrix)
+
+    # A stale or typo'd family ID would otherwise yield a perfectly plausible
+    # "absent in every strain" report with exit code 0 -- same hard-error
+    # rationale as rescue_pass.py's all-hits-skipped guard.
+    missing = [
+        (flag, fam)
+        for flag, fam in (("--hac_family_id", args.hac_family_id),
+                          ("--haca_family_id", args.haca_family_id))
+        if fam not in set(matrix.families)
+    ]
+    if missing:
+        for flag, fam in missing:
+            print(f"ERROR: {flag} {fam!r} is not a family in {args.matrix}",
+                  file=sys.stderr)
+        print(f"The matrix holds {len(matrix.families)} families; a family ID is the "
+              "tier-1 cluster representative ID exactly as build_presence_matrix.py "
+              "wrote it.", file=sys.stderr)
+        sys.exit(1)
+
     strain_to_starship: dict[str, str] = {}
     with open(args.strain_starship_map) as fh:
         next(fh, None)

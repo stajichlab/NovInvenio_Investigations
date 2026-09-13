@@ -136,3 +136,22 @@ def test_find_cooccurring_pairs_ignores_outgroup_strains_for_the_floor():
     )
     reported_families = {fam for p in pairs for fam in (p["family_a"], p["family_b"])}
     assert "famX" not in reported_families
+
+
+def test_warn_if_unstratified_fires_on_mostly_empty_taxon_groups(capsys):
+    from cooccurrence import warn_if_unstratified, unlabelled_clade_fraction
+
+    strains = ["s1", "s2", "s3", "s4"]
+    clades = {"s1": "cladeA", "s2": "", "s3": "", "s4": ""}
+    assert unlabelled_clade_fraction(strains, clades) == 0.75
+    assert warn_if_unstratified(strains, clades) is True
+    err = capsys.readouterr().err
+    assert "UNSTRATIFIED" in err
+
+
+def test_warn_if_unstratified_silent_when_clades_are_labelled(capsys):
+    from cooccurrence import warn_if_unstratified
+
+    clades = {"s1": "cladeA", "s2": "cladeB", "s3": "cladeA"}
+    assert warn_if_unstratified(["s1", "s2", "s3"], clades) is False
+    assert capsys.readouterr().err == ""

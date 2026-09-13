@@ -29,3 +29,36 @@ def test_compute_frequency_table():
     assert by_family["famCore"]["strain_count"] == 4
     assert by_family["famSingleton"]["bin"] == "singleton"
     assert by_family["famSingleton"]["strain_count"] == 1
+
+
+def test_compute_frequency_table_restricted_to_a_strain_subset():
+    """Outgroup (or dereplicated-away) strains must not enter the denominator:
+    a family in 2/2 ingroup strains is core, even though it is 2/4 overall."""
+    pm = PresenceMatrix(families=["famA"], strains=["in1", "in2", "out1", "dup_in1"])
+    pm.set_call("famA", "in1", PRESENT)
+    pm.set_call("famA", "in2", PRESENT)
+
+    all_strains = compute_frequency_table(pm)
+    assert all_strains[0]["strain_count"] == 2
+    assert all_strains[0]["frequency"] == 0.5
+    assert all_strains[0]["bin"] == "shell"
+
+    ingroup_only = compute_frequency_table(pm, strains=["in1", "in2"])
+    assert ingroup_only[0]["strain_count"] == 2
+    assert ingroup_only[0]["frequency"] == 1.0
+    assert ingroup_only[0]["bin"] == "core"
+
+
+def test_compute_frequency_table_dereplication_changes_the_denominator():
+    """A duplicate isolate inflates the count; dropping it (inventory
+    is_representative == 0) drops both numerator and denominator."""
+    pm = PresenceMatrix(families=["famA"], strains=["s1", "s1_dup", "s2", "s3"])
+    pm.set_call("famA", "s1", PRESENT)
+    pm.set_call("famA", "s1_dup", PRESENT)
+
+    raw = compute_frequency_table(pm, strains=["s1", "s1_dup", "s2", "s3"])
+    assert raw[0]["strain_count"] == 2 and raw[0]["frequency"] == 0.5
+
+    derep = compute_frequency_table(pm, strains=["s1", "s2", "s3"])
+    assert derep[0]["strain_count"] == 1
+    assert derep[0]["bin"] == "singleton"
