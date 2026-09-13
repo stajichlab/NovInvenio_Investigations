@@ -16,6 +16,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import sys
 
 
 def score_presence_recovery(predicted: dict[str, bool], truth: dict[str, bool]) -> dict:
@@ -66,6 +67,10 @@ def score_cargo_grouping(
 
 
 def main() -> None:
+    """STUB. The arguments below are the intended CLI shape for Task 10 Step 5;
+    none of them is read yet, and this entry point deliberately exits non-zero
+    so a stub run can never be mistaken for a completed scorecard. The scoring
+    functions above are real and unit-tested -- only the wiring is pending."""
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--crosswalk", required=True)
     ap.add_argument("--ground_truth_starships", required=True)
@@ -79,7 +84,10 @@ def main() -> None:
     # score_presence_recovery/score_cargo_grouping per control Starship;
     # see Task 10 Step 5 in the plan for the exact sequence, since it
     # depends on the crosswalk actually being populated first (Task 9).
-    print("See plan Task 10 Step 5 for the real-data scorecard run.", )
+    print("benchmark_scorecard.py is still a stub -- no scorecard written. "
+          "See plan Task 10 Step 5 for the real-data scorecard run.",
+          file=sys.stderr)
+    sys.exit(2)
 
 
 if __name__ == "__main__":

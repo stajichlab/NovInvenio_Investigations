@@ -88,8 +88,28 @@ def groups_to_shorts(
     """Translate mash's path-string dedup groups into config Short IDs.
 
     mash reports full FASTA file paths in its output, but we need to
-    translate them back to the Short identifiers from config.csv."""
-    return [{path_to_short[p] for p in group} for group in groups]
+    translate them back to the Short identifiers from config.csv.
+
+    Raises:
+        KeyError: with the offending path and an example of an expected one --
+            a bare KeyError here is almost always a path-spelling mismatch
+            between what was sketched and what config.csv resolves to.
+    """
+    out: list[set[str]] = []
+    for group in groups:
+        shorts = set()
+        for path in group:
+            if path not in path_to_short:
+                example = next(iter(path_to_short), "<none>")
+                raise KeyError(
+                    f"mash reported path {path!r}, which is not one of the "
+                    f"{len(path_to_short)} config.csv DNA paths (e.g. {example!r}). "
+                    "The sketched paths and the config-resolved paths must be "
+                    "spelled identically (absolute vs relative, symlinks)."
+                )
+            shorts.add(path_to_short[path])
+        out.append(shorts)
+    return out
 
 
 def choose_representatives(
