@@ -155,3 +155,63 @@ def test_warn_if_unstratified_silent_when_clades_are_labelled(capsys):
     clades = {"s1": "cladeA", "s2": "cladeB", "s3": "cladeA"}
     assert warn_if_unstratified(["s1", "s2", "s3"], clades) is False
     assert capsys.readouterr().err == ""
+
+
+def test_main_treats_outgroup_absent_from_matrix_as_ambiguous_not_gain(
+    monkeypatch, capsys, tmp_path
+):
+    """Regression test for the final-review fix-wave bug: when a matrix is
+    built ingroup-only (e.g. build_presence_matrix.py --groups IN), main()
+    must not compute outgroup_total from config.csv's full OUT-group list --
+    that made every family's polarize_direction(0, N) come back "loss" or
+    "gain" with total confidence, when the correct call is "ambiguous"
+    (no outgroup data is actually present to check)."""
+    from cooccurrence import main
+
+    ingroup = [f"s{i}" for i in range(1, 11)]
+    config_lines = ["GROUP,Species,Strain,Protein,DNA,Short,TaxonGroup"]
+    for i, s in enumerate(ingroup, start=1):
+        clade = "cladeA" if i % 2 else "cladeB"
+        config_lines.append(f"IN,Aspergillus fumigatus,{s},{s}.fa,{s}.dna.fa,{s},{clade}")
+    config_lines.append("OUT,Aspergillus lentulus,out1,out1.fa,out1.dna.fa,out1,")
+    config_file = tmp_path / "config.csv"
+    config_file.write_text("\n".join(config_lines) + "\n")
+
+    # Matrix built ingroup-only: no "out1" column at all. famA/famB co-occur
+    # in 8 of 10 strains (a large enough margin to clear Fisher/BH at N=10).
+    pm = PresenceMatrix(families=["famA", "famB"], strains=ingroup)
+    for s in ingroup[:8]:
+        pm.set_call("famA", s, PRESENT)
+        pm.set_call("famB", s, PRESENT)
+    matrix_file = tmp_path / "matrix.tsv"
+    pm.to_tsv(matrix_file)
+
+    freq_file = tmp_path / "frequency_table.tsv"
+    freq_file.write_text(
+        "family\tfrequency\tstrain_count\tbin\n"
+        "famA\t0.8000\t8\tshell\n"
+        "famB\t0.8000\t8\tshell\n"
+    )
+
+    output_file = tmp_path / "cooccurring_pairs.tsv"
+
+    monkeypatch.setattr(sys, "argv", [
+        "cooccurrence.py",
+        "--matrix", str(matrix_file),
+        "--frequency_table", str(freq_file),
+        "--config", str(config_file),
+        "--min_strain_count", "5",
+        "--n_perms", "50",
+        "--output", str(output_file),
+    ])
+    main()
+
+    err = capsys.readouterr().err
+    assert "none of config.csv's OUT-group strains are columns" in err
+
+    rows = output_file.read_text().splitlines()[1:]
+    assert rows, "expected the strongly co-occurring famA/famB pair to be reported"
+    direction = rows[0].split("\t")[6]
+    assert direction == "ambiguous", (
+        f"expected 'ambiguous' when the matrix has no outgroup columns, got {direction!r}"
+    )

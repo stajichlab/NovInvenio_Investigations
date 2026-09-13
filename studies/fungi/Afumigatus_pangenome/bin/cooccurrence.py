@@ -239,10 +239,25 @@ def main() -> None:
         header = fh.readline().rstrip("\n").split("\t")
         frequency_table = [dict(zip(header, line.rstrip("\n").split("\t"))) for line in fh]
 
-    outgroup_total = len(outgroup_shorts)
+    # Intersect with the matrix's own columns rather than trusting config.csv's
+    # full OUT-group list: a matrix built with --groups IN (or any other
+    # ingroup-only build) has no outgroup columns at all, and computing
+    # outgroup_total from config.csv alone would silently treat "not present
+    # in a column that doesn't exist" as "absent from the outgroup" --
+    # producing a confident, wrong "gain" call for every family instead of
+    # the "ambiguous" that a missing outgroup should produce.
+    outgroup_in_matrix = [s for s in outgroup_shorts if s in matrix.strains]
+    if outgroup_shorts and not outgroup_in_matrix:
+        print(
+            "WARNING: none of config.csv's OUT-group strains are columns in "
+            f"{args.matrix} (built with an ingroup-only --groups?) -- "
+            "gain/loss polarization will be 'ambiguous' for every family.",
+            file=sys.stderr,
+        )
+    outgroup_total = len(outgroup_in_matrix)
     outgroup_presence = {
         fam: (
-            sum(1 for s in outgroup_shorts if matrix.is_present(fam, s)),
+            sum(1 for s in outgroup_in_matrix if matrix.is_present(fam, s)),
             outgroup_total,
         )
         for fam in matrix.families

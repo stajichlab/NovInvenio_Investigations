@@ -39,10 +39,12 @@ Usage:
    assume the family ID is literally the representative sequence ID that mmseqs
    or diamond reported (Short prefix included).
 
-3. **Columns = the ingroup strains of `config.csv`** (`GROUP == IN`) by default,
-   matching cooccurrence.py's `ingroup_shorts`. Pass `--groups IN,OUT` to also
-   carry the outgroup columns -- required if cooccurrence.py's gain/loss
-   polarization (which reads outgroup columns out of the same matrix) is to work.
+3. **Columns = `config.csv`'s IN and OUT strains by default** (`--groups IN,OUT`).
+   cooccurrence.py's gain/loss polarization reads outgroup columns out of this
+   same matrix -- an ingroup-only matrix (`--groups IN`) silently makes every
+   family's polarization "ambiguous" (cooccurrence.py now warns loudly when it
+   detects this rather than mis-reporting a confident gain/loss). Pass
+   `--groups IN` only for a study that genuinely has no outgroup.
 
 4. **`copy_number` = how many of that strain's proteins fall in that family.**
    Persisted alongside the matrix in `<output>.copy_number.tsv` (see
@@ -135,10 +137,11 @@ def main() -> None:
     ap.add_argument("--cluster_tsv", required=True,
                     help="tier-1 cluster TSV (rep<TAB>member) from cluster_backend.py")
     ap.add_argument("--config", required=True, help="config.csv")
-    ap.add_argument("--groups", default="IN",
+    ap.add_argument("--groups", default="IN,OUT",
                     help="comma-separated GROUP values to use as matrix columns "
-                         "(default: IN; use 'IN,OUT' to keep outgroup columns for "
-                         "cooccurrence.py's gain/loss polarization)")
+                         "(default: IN,OUT -- cooccurrence.py's gain/loss polarization "
+                         "needs outgroup columns present; pass 'IN' to build an "
+                         "ingroup-only matrix, e.g. for a study with no outgroup use)")
     ap.add_argument("--id_sep", default=DEFAULT_ID_SEP,
                     help=f"Short-prefix separator in member IDs (default: {DEFAULT_ID_SEP!r})")
     ap.add_argument("--output", required=True)

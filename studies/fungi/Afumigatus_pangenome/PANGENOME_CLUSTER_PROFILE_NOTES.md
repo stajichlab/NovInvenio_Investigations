@@ -86,11 +86,16 @@ The scripts here form a chain; these are the contracts that hold it together.
 2. **Family ID = tier-1 cluster representative ID, verbatim.** Everything
    downstream (`rescue_pass.py --matrix`, `cooccurrence.py`,
    `hac_screen.py --hac_family_id/--haca_family_id`) keys on it.
-3. **Matrix columns.** `build_presence_matrix.py --groups` selects them;
-   `IN,OUT` is required if `cooccurrence.py`'s outgroup gain/loss polarization
-   is to work, since it reads the outgroup columns out of the same matrix.
-   Frequency and co-occurrence statistics themselves are always computed over
-   the ingroup only.
+3. **Matrix columns.** `build_presence_matrix.py --groups` selects them and now
+   **defaults to `IN,OUT`**, since `cooccurrence.py`'s outgroup gain/loss
+   polarization reads the outgroup columns out of this same matrix. If a
+   matrix is ever built ingroup-only (`--groups IN`), `cooccurrence.py`
+   detects the missing outgroup columns, warns loudly on stderr, and reports
+   every family's direction as `ambiguous` rather than silently mislabeling
+   everything `gain` (a real bug caught by the branch's final review and
+   fixed — see `notes/superpowers/plans/2026-09-13-pangenome-cluster-profile-plan.md`'s
+   SDD ledger). Frequency and co-occurrence statistics themselves are always
+   computed over the ingroup only.
 4. **Copy numbers live in a sidecar**, `<matrix>.copy_number.tsv`, written and
    read automatically by `PresenceMatrix.to_tsv`/`from_tsv`. The matrix file
    itself stays a pure three-state table.
