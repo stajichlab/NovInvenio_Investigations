@@ -162,13 +162,13 @@ That is worth testing (see Tier R below), but it is not free of risk:
   from ADA1/HAM5 (5 members, one per ingroup species, no duplication — Tier R
   should leave these two families untouched, matching the earlier
   prediction, now for the right reason). Species-duplication alone is too
-  broad on its own to call "ambiguous" (1803 of 7282 gain-side families have
+  broad on its own to call "ambiguous" (1803 of 7281 gain-side families have
   it — recent real lineage-specific gene duplication is common and mostly not
   a HEX1-style artifact); restricting to families that are otherwise
   novelty-candidate-shaped in Tier C+H's own `presence_matrix.tsv` — ingroup
   presence fraction `>= --ingroup-min-frac` **and** outgroup presence fraction
   `> --other-max-frac` (i.e. currently rejected *only* because of outgroup
-  presence) — narrows this to 1227 of 7282 families (~17%) on the gain side,
+  presence) — narrows this to 1227 of 7281 families (~17%) on the gain side,
   measured directly against the published `pezizo_set1_cluster` run. That is
   the definition of "ambiguous family" this investigation uses: **species-
   duplicated AND currently a near-miss novelty candidate**. ~17% of all
