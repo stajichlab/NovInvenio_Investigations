@@ -20,7 +20,13 @@ exactly does it lose it, and — going one step further than what either
 pathway currently offers — would raw mmseqs cluster membership *alone*, with
 no HMM step at all, be fast enough and accurate enough to serve as a
 first-pass prioritization filter ahead of the expensive pairwise pass, for
-both directions (novel gains and lineage-specific losses)?
+both directions (novel gains and lineage-specific losses)? And, since one of
+the root-caused failure modes below (HEX1) is specifically mmseqs merging
+true orthologs with a conserved paralog — could a *targeted* pairwise
+refinement step, scoped only to the small subset of families where that risk
+actually shows up, recover that failure mode without reintroducing the
+`O(N²)` genome-wide cost the whole investigation is trying to avoid, and
+without over-splitting families into spurious false-novelty fragments?
 
 ## Ground truth already on disk (not assumptions)
 
@@ -94,7 +100,29 @@ may out-perform the current intermediate tier on recall, not just on speed.
 That is the central hypothesis this investigation tests at scale rather than
 on a 4-control anecdote.
 
-## Three tiers under comparison
+### A fourth failure mode this investigation must also guard against
+
+Failure mode 1 (HEX1) suggests an obvious next move: run a pairwise
+diamond/phmmer search *within* a suspect family's small member set to split
+true orthologs from a merged-in ancient paralog — essentially OrthoFinder's
+own strategy (all-vs-all → normalized score graph → graph clustering, with
+tree-based splitting on top) applied only to the family, not the genome.
+That is worth testing (see Tier R below), but it is not free of risk:
+
+4. **Over-splitting / fragmentation-induced false novelty (new, not yet
+   observed — a risk to test for, not a confirmed failure).** A stricter
+   within-family cutoff can cut too deep: it can fragment a real, divergent
+   ortholog into its own singleton (worsening failure mode 3's problem for
+   genes like LAH), or split a genuinely broadly-conserved family into an
+   ingroup-only shard and an outgroup-only shard that then each look "novel"
+   on their own, inflating false-novelty calls that the 16-control set
+   cannot detect (the 10 BUSCO negatives are all tight single-copy conserved
+   genes, exactly the kind least likely to fragment — a clean `fp_rate=0.0`
+   on refinement would not prove refinement is safe). This is why Tier R
+   (below) is scored against genome-wide candidate counts (Analysis 2), not
+   just the curated controls.
+
+## Four tiers under comparison
 
 - **Tier P (pairwise)** — current default pathway (diamond all-vs-all +
   tblastn + per-genome paralog-cutoff filter). Slow; the sensitivity
@@ -109,6 +137,30 @@ on a 4-control anecdote.
   step. For the two existing runs this requires **zero new compute** — it is
   entirely derivable from `families/families_cluster.tsv` and
   `loss_families/families_cluster.tsv`, which already exist on disk.
+- **Tier R (refined clustering, new)** — Tier C, plus a targeted pairwise
+  refinement pass applied only to **ambiguous families**: those whose raw
+  mmseqs membership already spans both ingroup and outgroup (exactly the
+  families at risk of a HEX1-style false merge; families cleanly inside one
+  group need no refinement and are passed through unchanged). Within each
+  ambiguous family's small member set (bounded — `oversized_families.tsv`
+  already flags pathologically large clusters, which get excluded from
+  refinement rather than paying `O(k²)` on a family with hundreds of
+  members), run the pipeline's **existing, already-validated** diamond
+  `--very-sensitive` self-hit + e-value-cutoff paralog-separation method
+  (currently used per-genome in Tier P's `self_hits/*.paralog_cutoffs.tsv`
+  step) scoped to the family's members instead of a whole proteome, splitting
+  the family into subfamilies where the cutoff finds a clear score gap.
+  Recompute presence/absence per resulting subfamily.
+
+  Cost: `Σ (family_size choose 2)` over ambiguous, non-oversized families
+  only — a small fraction of all families, each with `family_size` typically
+  5-30 — versus Tier P's genome-wide `O(G²)` over the full proteome set `G`.
+  A graph-clustering alternative (MCL on the within-family score graph,
+  closer to OrthoFinder's own orthogroup-splitting step, more robust against
+  chains of 3+ progressively-diverging paralogs than a single pairwise
+  cutoff) is noted as a fallback if the simpler cutoff proves insufficient,
+  but is not part of the first pass — it adds a new dependency and an
+  inflation-parameter tuning knob the simpler method doesn't need.
 
 ## Analysis 1 — Tiered controls recall/FP (gains)
 
@@ -121,12 +173,22 @@ of reading `presence_matrix.tsv`, then reuse the existing `family_call()` /
 `summarize()` unchanged — same novelty predicate, same output contract, so
 the three tiers are scored identically.
 
-Run all three tiers against:
+Run all four tiers against:
 - `pezizo_set1.controls.csv` (16 controls, the set analyzed above).
 - `Agaricales.controls.csv` (spc14/spc33 fasta-anchor positive controls),
   against the existing `agaricomycetes_pairwise` and `agaricomycetes_mmseqs`
   result pairs — a second, independent ingroup/outgroup split, so findings
   aren't a one-clade artifact.
+
+For Tier R specifically: first build the ambiguous-family detector (a family
+is "ambiguous" iff its raw `families_cluster.tsv` membership includes at
+least one ingroup and one outgroup `source_proteome`), confirm HEX1's family
+is in that set (it should be — 6 members already spanning ingroup+outgroup)
+and that ADA1/HAM5's families are *not* in it (their mmseqs membership is
+already ingroup-only, so Tier R should leave them exactly as Tier C already
+scores them — Tier R is not expected to change ADA1/HAM5's outcome, only
+HEX1's), then run the within-family paralog-cutoff split on the ambiguous set
+and rescore.
 
 Also fix the `--busco-map` gap: all 5 currently-`unresolved` BUSCO negatives
 in *both* runs are unresolved because the map wasn't passed to this
@@ -147,7 +209,7 @@ and `loss_candidates.txt` (losses) as a provisional gold-standard proxy —
 explicitly caveated: Tier P scores 1.0 on the curated controls, but that is
 not the same claim as "Tier P is ground truth for every candidate it calls."
 
-For Tier C and Tier C+H, compute against that proxy:
+For Tier C, Tier C+H, and Tier R, compute against that proxy:
 - precision / recall / Jaccard overlap of the novelty (and separately, loss)
   candidate sets, mapping between pairwise per-protein candidates and
   cluster per-family candidates via shared cluster membership.
@@ -155,6 +217,16 @@ For Tier C and Tier C+H, compute against that proxy:
   anchor-tracing method as Analysis 1 (family membership vs. presence_matrix
   disagreement), so the genome-wide numbers are explained by the same two
   failure modes, not a new unexplained gap.
+- **for Tier R specifically, a candidate-count-inflation check**: compare the
+  total novelty (and loss) candidate count before vs. after refinement. A
+  large increase — more subfamilies calling "novel" than the ambiguous-family
+  count itself would predict — is the direct signature of failure mode 4
+  (over-splitting), and is the metric this tier is added to watch for, since
+  the curated controls cannot surface it (see the failure-mode-4 discussion
+  above). Also spot-check whether refinement changed the outcome for any
+  *already-resolved-correctly* family (it shouldn't, for non-ambiguous ones by
+  construction, but a bug in the ambiguous-family detector would show up
+  exactly as an unexpected change here).
 
 **Losses run the identical construction**, against `loss_candidates.txt` /
 `loss_presence_matrix.tsv` / `loss_families/families_cluster.tsv`. There are
@@ -175,22 +247,37 @@ mmseqs clustering step alone, already paid for by Tier C+H, so its marginal
 cost given a Tier C+H run is zero). Aggregate to CPU-hours per tier so the
 "how much compute do we save" question has a number, not just "faster."
 
+For Tier R, cost is not free like Tier C but should stay small: measure the
+actual wall-clock of the within-family diamond self-search step against the
+ambiguous-family count and total member count it covers, and report it as
+its own line rather than folding it into Tier C+H's cost — the point of Tier
+R is that this additional cost is a small fraction of Tier P's genome-wide
+`O(G²)` search, and that claim should be measured, not assumed.
+
 ## Analysis 4 — Decision framework
 
 Given each tier's recall/FP/cost profile from Analyses 1-3, define concrete
-candidate-prioritization logic, e.g.: run Tier C genome-wide as a cheap first
-pass; escalate to full Tier P confirmation anything Tier C flags, *plus*
-anything Tier C+H flags whose outgroup-presence fraction sits near the
-`other_max_frac` boundary (the exact pattern that broke ADA1/HAM5) rather than
-comfortably below it.
+candidate-prioritization logic, e.g.: run Tier R genome-wide as a cheap first
+pass (Tier C's speed plus the small, targeted refinement cost); escalate to
+full Tier P confirmation anything Tier R flags, *plus* anything it flags
+whose outgroup-presence fraction sits near the `other_max_frac` boundary
+(the exact pattern that broke ADA1/HAM5) rather than comfortably below it.
+Whether Tier R actually earns a place ahead of plain Tier C in that pipeline
+depends on Analyses 1-2: it only replaces Tier C if it recovers HEX1-style
+misses (Analysis 1) without a material candidate-count inflation (Analysis
+2's over-splitting check) — if Tier R's over-splitting risk turns out to be
+worse than its recall gain in practice, the recommendation should say so
+plainly rather than defaulting to "more refinement is always better."
 
 State explicitly what would invalidate this framework: if genome-wide
 concordance (Analysis 2) shows HEX1-style clustering-inherent paralog
-inflation is common rather than a one-off, no cheap tier recovers those
-misses — the framework would need a clustering-quality fix (e.g. a
-cluster-time paralog-competition filter analogous to the pairwise pipeline's
-per-genome self-hit cutoff), not just a different presence rule downstream of
-clustering.
+inflation is common rather than a one-off *and* Tier R's targeted refinement
+doesn't scale to that volume (e.g. too many families turn out ambiguous, or
+the simple pairwise cutoff fails on chains of 3+ paralogs and would need the
+heavier MCL fallback), no cheap tier recovers those misses — the framework
+would then need a clustering-quality fix upstream of all of this (e.g.
+building the paralog-competition filter into mmseqs clustering itself), not
+just a downstream refinement or presence rule.
 
 ## Scope and where code lives
 
@@ -202,6 +289,14 @@ clustering.
   not specific to pezizo_set1 → `NovInvenio_Investigations/bin/`, per this
   repo's placement rule for enrichment/comparison scripts that read a study's
   presence matrices.
+- Tier R's ambiguous-family detector and within-family paralog-cutoff split
+  are pipeline-adjacent logic (they read `families_cluster.tsv` and reuse the
+  existing diamond self-hit + e-value-cutoff paralog-separation method), so
+  they belong next to `score_controls.py` → `nf_NovInvenio/bin/`, as a new
+  script (e.g. `refine_ambiguous_families.py`) rather than folded into
+  `score_controls.py` itself, since its output (a refined `families_cluster`-
+  style membership table) is a general input any consumer of family
+  membership could use, not just controls scoring.
 - Output: a single markdown/TSV report (per-control table, per-tier summary,
   genome-wide concordance numbers, cost table, and the decision-framework
   recommendation) written to this study's directory
@@ -210,9 +305,15 @@ clustering.
 
 ## Explicitly out of scope
 
-- Fixing the mmseqs clustering paralog-inflation problem itself (HEX1-style)
-  — this investigation measures and classifies that failure mode, it does
-  not design its fix.
+- **A general, production-grade fix to mmseqs clustering itself** (e.g.
+  building a paralog-competition filter into the clustering step for every
+  family, or a full OrthoFinder-style all-orthogroups MCL+gene-tree
+  pipeline). Tier R is a scoped experiment — targeted refinement of only the
+  small ambiguous-family subset, using the pipeline's existing validated
+  paralog-cutoff method — not a redesign of clustering. If Tier R's results
+  show the simple cutoff is insufficient (chains of 3+ paralogs, or the
+  ambiguous set turns out too large to stay cheap), that redesign becomes its
+  own future spec, informed by what this investigation measures.
 - The 2026-09-12 resume run's loss-side task failures (101/123 chunks) — a
   separate pipeline-reliability bug, unrelated to the published results this
   investigation is built on.
