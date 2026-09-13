@@ -60,14 +60,32 @@ From `mbio.01092-25-s0002.xlsx`:
   interpreting a "missing" shell/cloud family call (including a missing HAC-family
   member) as a real loss, check whether that strain's assembly/annotation is
   markedly less complete than the panel median.
+- **Draft vs. long-read assembly mix.** Not yet determined how many of the 293 are
+  Illumina/short-read drafts vs. Nanopore/PacBio long-read assemblies (this
+  study's own 11 newly Nanopore-sequenced strains from Table S1 are one known
+  long-read subset). This directly affects how much the genome-level rescue pass
+  (fragmented/split gene models) and synteny contig-edge exclusion matter here.
+- **Strain dereplication.** Not yet run — check for the same isolate appearing
+  under two names/accessions (Mash/ANI) before computing any frequency.
+
+*(The three items above were raised by an independent bioinformatics review of the
+general design on 2026-09-13; see that design doc's "Review disposition" section
+for the full must-fix/should-consider list — most of it changes the method itself,
+not just this study's data, so it's recorded there rather than duplicated here.)*
 
 ## Open items
 
+- [ ] Determine draft-vs-long-read assembly mix across the 293 strains.
+- [ ] Dereplicate strains (Mash/ANI) before any frequency count.
+- [ ] Run tier-1 clustering (~90% identity, per the revised design) plus the
+      genome-level tblastn/miniprot rescue pass; isoform-collapse first.
 - [ ] Compute the real family-frequency histogram (component 1-2 of the general
-      design) before fixing core/soft-core/shell/cloud cutoffs.
+      design) before fixing core/soft-core/shell/cloud cutoffs — after excluding
+      low-completeness strains.
 - [ ] Build the ID crosswalk (paper IDs <-> this study's IDs).
 - [ ] Build the strain-overlap table (this study's 293 vs. the paper's populations).
-- [ ] Run the benchmark suite (Tables S6/S21/S12/S13/S7/S14-16) against whichever
-      strains overlap, scoring mmseqs vs. diamond before trusting either on novel
-      candidate clusters.
+- [ ] Run the benchmark suite (Tables S6/S21/S12/S13/S7/S14-16 as positive
+      controls, plus conserved non-mobile SM clusters and random family pairs as
+      negative controls) against whichever strains overlap, scoring mmseqs vs.
+      diamond before trusting either on novel candidate clusters.
 - [ ] Run the HAC/hacA targeted screen once the crosswalk exists.
