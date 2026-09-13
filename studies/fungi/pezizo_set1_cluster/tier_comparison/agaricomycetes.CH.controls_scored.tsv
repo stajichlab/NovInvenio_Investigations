@@ -1,0 +1,3 @@
+control_id	class	expected_call	anchor_type	resolved_family	actual_call	outcome	note
+POS_SPC33	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)
+POS_SPC14	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)

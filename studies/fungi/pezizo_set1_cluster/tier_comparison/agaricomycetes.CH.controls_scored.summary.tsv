@@ -1,0 +1,12 @@
+metric	value
+n_controls	2
+n_positive	2
+n_positive_resolved	0
+positive_hits	0
+recall	
+n_negative	0
+n_negative_resolved	0
+negative_fp	0
+fp_rate	
+n_unresolved	2
+n_placeholder_skipped	0

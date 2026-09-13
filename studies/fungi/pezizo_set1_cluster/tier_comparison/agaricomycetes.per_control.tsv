@@ -1,0 +1,9 @@
+control_id	class	expected_call	anchor_type	resolved_family	actual_call	outcome	note	tier
+POS_SPC33	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)	P
+POS_SPC14	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)	P
+POS_SPC33	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)	C+H
+POS_SPC14	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)	C+H
+POS_SPC33	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)	C
+POS_SPC14	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)	C
+POS_SPC33	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)	R
+POS_SPC14	positive	novel	fasta		unresolved	unresolved	no family hmmsearch hit (or hmmsearch unavailable)	R
