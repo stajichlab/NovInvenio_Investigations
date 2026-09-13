@@ -76,15 +76,40 @@ class PresenceMatrix:
             return 0.0
         return self.strain_count(family) / len(self.strains)
 
-    def to_tsv(self, path: str | Path) -> None:
+    def to_tsv(self, path: str | Path, write_copy_number: bool = True) -> None:
+        """Write the family x strain state matrix.
+
+        The main TSV holds ONLY the three-state call string per cell -- that
+        format is the stable contract every downstream script reads, so copy
+        numbers are persisted in a SIDECAR file (see `copy_number_path`)
+        rather than by changing what a cell looks like. The sidecar is written
+        only when this matrix actually carries copy numbers, so a state-only
+        matrix still produces exactly one output file, as before.
+        """
         with open(path, "w") as fh:
             fh.write("family\t" + "\t".join(self.strains) + "\n")
             for fam in self.families:
                 row = [self.call(fam, s) for s in self.strains]
                 fh.write(fam + "\t" + "\t".join(row) + "\n")
+        if write_copy_number and self.copy_number:
+            with open(copy_number_path(path), "w") as fh:
+                fh.write("family\tstrain\tcopies\n")
+                for (fam, strain), copies in sorted(self.copy_number.items()):
+                    fh.write(f"{fam}\t{strain}\t{copies}\n")
 
     @classmethod
-    def from_tsv(cls, path: str | Path) -> "PresenceMatrix":
+    def from_tsv(cls, path: str | Path, read_copy_number: bool = True) -> "PresenceMatrix":
+        """Load a matrix written by `to_tsv`.
+
+        The copy-number sidecar is loaded when it exists; its absence is never
+        an error (a matrix with no copy numbers, or one written before sidecars
+        existed, simply loads with every copy number 0).
+
+        Raises:
+            ValueError: if any cell holds a value that is not one of `STATES`
+                -- a corrupted or hand-edited matrix, which would otherwise
+                load silently and evaluate as "not present" everywhere.
+        """
         with open(path) as fh:
             header = fh.readline().rstrip("\n").split("\t")
             strains = header[1:]
@@ -98,7 +123,39 @@ class PresenceMatrix:
                 fam = parts[0]
                 families.append(fam)
                 for strain, state in zip(strains, parts[1:]):
+                    if state not in STATES:
+                        raise ValueError(
+                            f"{path}: invalid presence state {state!r} for family "
+                            f"{fam!r} / strain {strain!r}; must be one of {STATES}"
+                        )
                     calls[(fam, strain)] = state
         pm = cls(families=families, strains=strains)
         pm.calls = calls
+        if read_copy_number:
+            pm.copy_number = read_copy_number_sidecar(path)
         return pm
+
+
+def copy_number_path(matrix_path: str | Path) -> Path:
+    """The copy-number sidecar path for a given presence-matrix path."""
+    return Path(str(matrix_path) + ".copy_number.tsv")
+
+
+def read_copy_number_sidecar(matrix_path: str | Path) -> dict[tuple[str, str], int]:
+    """Load `<matrix>.copy_number.tsv` if it exists; return {} if it does not."""
+    sidecar = copy_number_path(matrix_path)
+    if not sidecar.exists():
+        return {}
+    copies: dict[tuple[str, str], int] = {}
+    with open(sidecar) as fh:
+        for i, line in enumerate(fh):
+            line = line.rstrip("\n")
+            if not line:
+                continue
+            if i == 0 and line.startswith("family\t"):
+                continue
+            parts = line.split("\t")
+            if len(parts) < 3:
+                continue
+            copies[(parts[0], parts[1])] = int(parts[2])
+    return copies

@@ -22,6 +22,7 @@ from pathlib import Path
 from scipy.stats import fisher_exact, false_discovery_control
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
+from novinvenio_path import add_novinvenio_lib_to_path  # noqa: E402
 from pangenome_matrix import PresenceMatrix  # noqa: E402
 
 
@@ -178,8 +179,7 @@ def main() -> None:
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
 
-    NOVINVENIO_LIB = Path(__file__).resolve().parents[4] / "NovInvenio" / "lib"
-    sys.path.insert(0, str(NOVINVENIO_LIB))
+    add_novinvenio_lib_to_path()
     from config_parser import parse_config  # noqa: E402
 
     samples = parse_config(args.config)

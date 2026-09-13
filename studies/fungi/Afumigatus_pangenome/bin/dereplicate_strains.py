@@ -117,9 +117,9 @@ def main() -> None:
 
     # Import config_parser only when main() is called (not at module import time)
     sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
-    NOVINVENIO_LIB = Path(__file__).resolve().parents[4] / "NovInvenio" / "lib"
-    if NOVINVENIO_LIB.exists():
-        sys.path.insert(0, str(NOVINVENIO_LIB))
+    from novinvenio_path import add_novinvenio_lib_to_path  # noqa: E402
+
+    add_novinvenio_lib_to_path()
     from config_parser import parse_config  # noqa: E402
 
     samples = parse_config(args.config)
