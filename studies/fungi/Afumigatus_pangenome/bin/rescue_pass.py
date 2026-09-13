@@ -89,7 +89,7 @@ def main() -> None:
     applied, skipped = apply_rescue(matrix, hits)
     print(f"Rescue: {applied} ABSENT→GENOME_ONLY, {skipped} skipped (unrecognized strain/family)", file=sys.stderr)
 
-    if hits and applied == 0:
+    if hits and skipped == len(hits):
         print(f"ERROR: All {len(hits)} parsed tblastn hits were skipped (likely wrong genome-DB naming)", file=sys.stderr)
         sys.exit(1)
 
