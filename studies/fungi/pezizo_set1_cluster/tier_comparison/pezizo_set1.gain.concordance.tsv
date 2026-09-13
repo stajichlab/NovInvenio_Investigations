@@ -1,0 +1,4 @@
+baseline_count_vs_C	delta_pct_vs_C	delta_vs_C	jaccard_vs_P	n_candidates	precision_vs_P	recall_vs_P	refined_count_vs_C	tier
+21258	-95.1	-20214	0.125	1044	0.4722	0.1453	1044	C+H
+			0.06	21258	0.0656	0.4111		C
+21258	-0.0	-7	0.06	21251	0.0656	0.4111	21251	R
