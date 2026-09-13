@@ -25,6 +25,16 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from pangenome_matrix import PresenceMatrix  # noqa: E402
 
 
+def presence_vector_within(matrix: PresenceMatrix, family: str, strains: list[str]) -> list[bool]:
+    """Like PresenceMatrix.presence_vector, but restricted to a strain
+    subset (e.g. ingroup-only) instead of always using matrix.strains."""
+    return [matrix.is_present(family, s) for s in strains]
+
+
+def strain_count_within(matrix: PresenceMatrix, family: str, strains: list[str]) -> int:
+    return sum(presence_vector_within(matrix, family, strains))
+
+
 def jaccard(a: list[bool], b: list[bool]) -> float:
     intersection = sum(1 for x, y in zip(a, b) if x and y)
     union = sum(1 for x, y in zip(a, b) if x or y)
@@ -46,11 +56,16 @@ def benjamini_hochberg(pvalues: list[float]) -> list[float]:
     return list(false_discovery_control(pvalues, method="bh"))
 
 
-def polarize_direction(present_in_outgroup: bool, freq_in_ingroup: float) -> str:
-    """A family present in the outgroup that most ingroup strains also
-    carry implies the strains lacking it lost it; a family absent from
-    the outgroup implies the strains carrying it gained it."""
-    if present_in_outgroup:
+def polarize_direction(outgroup_present_count: int, outgroup_total: int) -> str:
+    """A family present in EVERY outgroup strain implies the ingroup
+    strains lacking it lost it ("loss"); a family absent from every
+    outgroup strain implies the ingroup strains carrying it gained it
+    ("gain"). With no outgroup strains to check, or with outgroup
+    strains disagreeing (present in some but not all), the polarity
+    can't be called -- "ambiguous"."""
+    if outgroup_total == 0 or 0 < outgroup_present_count < outgroup_total:
+        return "ambiguous"
+    if outgroup_present_count == outgroup_total:
         return "loss"
     return "gain"
 
@@ -86,29 +101,45 @@ def permutation_null_pvalue(
                 b_perm[i] = v
         if fisher_pvalue(a, b_perm) <= observed:
             at_least_as_extreme += 1
-    return at_least_as_extreme / n_perms
+    # Phipson & Smyth (2010): never report a Monte-Carlo p-value of exactly
+    # 0.0 -- the true p-value is bounded below by 1/(n_perms+1), not 0.
+    return (at_least_as_extreme + 1) / (n_perms + 1)
 
 
 def find_cooccurring_pairs(
     matrix: PresenceMatrix,
     frequency_table: list[dict],
     clade_of_strain: dict[str, str],
-    outgroup_presence: dict[str, bool],
+    outgroup_presence: dict[str, tuple[int, int]],
     min_strain_count: int = 5,
     fdr_alpha: float = 0.05,
     n_perms: int = 1000,
     seed: int = 0,
+    strains: list[str] | None = None,
 ) -> list[dict]:
+    """`strains` restricts every ingroup statistic (the strain-count floor,
+    Fisher presence vectors, clade composition) to that subset -- callers
+    doing a real ingroup-vs-outgroup study MUST pass the ingroup-only strain
+    list here, or outgroup strains silently inflate strain counts and
+    contaminate clade composition. Defaults to matrix.strains for backward
+    compatibility with callers that have no outgroup (or already pre-filtered
+    the matrix). `outgroup_presence` maps family -> (outgroup_present_count,
+    outgroup_total), always computed over the FULL matrix (it needs to see
+    the outgroup strains) -- see polarize_direction for how the counts are
+    used."""
+    strains = matrix.strains if strains is None else strains
+
     eligible = [
         row["family"] for row in frequency_table
-        if row["bin"] in ("shell", "cloud") and matrix.strain_count(row["family"]) >= min_strain_count
+        if row["bin"] in ("shell", "cloud")
+        and strain_count_within(matrix, row["family"], strains) >= min_strain_count
     ]
-    clades = [clade_of_strain.get(s, "unknown") for s in matrix.strains]
+    clades = [clade_of_strain.get(s, "unknown") for s in strains]
 
     candidates = []
     for fam_a, fam_b in itertools.combinations(eligible, 2):
-        vec_a = matrix.presence_vector(fam_a)
-        vec_b = matrix.presence_vector(fam_b)
+        vec_a = presence_vector_within(matrix, fam_a, strains)
+        vec_b = presence_vector_within(matrix, fam_b, strains)
         p = fisher_pvalue(vec_a, vec_b)
         candidates.append((fam_a, fam_b, vec_a, vec_b, p))
 
@@ -121,7 +152,8 @@ def find_cooccurring_pairs(
     for (fam_a, fam_b, vec_a, vec_b, p), q in zip(candidates, qvalues):
         if q >= fdr_alpha:
             continue
-        strains_present_a = [s for s, present in zip(matrix.strains, vec_a) if present]
+        strains_present_a = [s for s, present in zip(strains, vec_a) if present]
+        out_count_a, out_total_a = outgroup_presence.get(fam_a, (0, 0))
         results.append({
             "family_a": fam_a,
             "family_b": fam_b,
@@ -129,7 +161,7 @@ def find_cooccurring_pairs(
             "fisher_p": p,
             "fdr_q": q,
             "permutation_p": permutation_null_pvalue(vec_a, vec_b, clades, n_perms, rng),
-            "direction_a": polarize_direction(outgroup_presence.get(fam_a, False), sum(vec_a) / len(vec_a)),
+            "direction_a": polarize_direction(out_count_a, out_total_a),
             "clade_composition": clade_composition(strains_present_a, clade_of_strain),
         })
     return results
@@ -152,20 +184,27 @@ def main() -> None:
 
     samples = parse_config(args.config)
     clade_of_strain = {s.short: s.taxon_group for s in samples}
-    outgroup_shorts = {s.short for s in samples if s.group == "OUT"}
+    outgroup_shorts = [s.short for s in samples if s.group == "OUT"]
+    ingroup_shorts = [s.short for s in samples if s.group == "IN"]
 
     matrix = PresenceMatrix.from_tsv(args.matrix)
     with open(args.frequency_table) as fh:
         header = fh.readline().rstrip("\n").split("\t")
         frequency_table = [dict(zip(header, line.rstrip("\n").split("\t"))) for line in fh]
 
+    outgroup_total = len(outgroup_shorts)
     outgroup_presence = {
-        fam: any(matrix.is_present(fam, s) for s in outgroup_shorts) for fam in matrix.families
+        fam: (
+            sum(1 for s in outgroup_shorts if matrix.is_present(fam, s)),
+            outgroup_total,
+        )
+        for fam in matrix.families
     }
 
     pairs = find_cooccurring_pairs(
         matrix, frequency_table, clade_of_strain, outgroup_presence,
         args.min_strain_count, args.fdr_alpha, args.n_perms,
+        strains=ingroup_shorts,
     )
     with open(args.output, "w") as fh:
         fh.write("family_a\tfamily_b\tjaccard\tfisher_p\tfdr_q\tpermutation_p\tdirection_a\tclade_composition\n")

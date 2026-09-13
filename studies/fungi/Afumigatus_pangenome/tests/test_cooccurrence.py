@@ -33,8 +33,16 @@ def test_benjamini_hochberg_orders_correctly():
 
 
 def test_polarize_direction():
-    assert polarize_direction(present_in_outgroup=True, freq_in_ingroup=0.6) == "loss"
-    assert polarize_direction(present_in_outgroup=False, freq_in_ingroup=0.6) == "gain"
+    assert polarize_direction(outgroup_present_count=2, outgroup_total=2) == "loss"
+    assert polarize_direction(outgroup_present_count=0, outgroup_total=2) == "gain"
+
+
+def test_polarize_direction_ambiguous_when_outgroup_strains_disagree():
+    # One outgroup strain carries the family, the other doesn't -- the
+    # outgroup itself is split, so polarity can't be called either way.
+    assert polarize_direction(outgroup_present_count=1, outgroup_total=2) == "ambiguous"
+    # No outgroup strains to check at all is likewise unpolarizable.
+    assert polarize_direction(outgroup_present_count=0, outgroup_total=0) == "ambiguous"
 
 
 def test_clade_composition_counts_per_clade():
@@ -55,6 +63,19 @@ def test_permutation_null_pvalue_high_when_confound_is_purely_clade():
     assert p > 0.05
 
 
+def test_permutation_null_pvalue_never_reports_exactly_zero():
+    # Phipson & Smyth (2010) correction: even a perfectly co-occurring pair
+    # that beats every single permutation must report (0+1)/(n_perms+1),
+    # never a false-precision 0.0.
+    a = [True, True, True, True, False, False, False, False]
+    b = list(a)
+    clades = ["Clade_1"] * 8
+    rng = random.Random(0)
+    p = permutation_null_pvalue(a, b, clades, n_perms=10, rng=rng)
+    assert p == 1 / 11
+    assert p > 0.0
+
+
 def test_find_cooccurring_pairs_applies_frequency_floor_and_fdr():
     strains = [f"s{i}" for i in range(10)]
     pm = PresenceMatrix(families=["famA", "famB", "famRare1", "famRare2"], strains=strains)
@@ -73,7 +94,9 @@ def test_find_cooccurring_pairs_applies_frequency_floor_and_fdr():
         {"family": "famRare1", "bin": "cloud"}, {"family": "famRare2", "bin": "cloud"},
     ]
     clade_of_strain = {s: "Clade_1" for s in strains}
-    outgroup_presence = {"famA": False, "famB": False, "famRare1": False, "famRare2": False}
+    outgroup_presence = {
+        "famA": (0, 0), "famB": (0, 0), "famRare1": (0, 0), "famRare2": (0, 0),
+    }
 
     pairs = find_cooccurring_pairs(
         pm, frequency_table, clade_of_strain, outgroup_presence,
@@ -82,3 +105,34 @@ def test_find_cooccurring_pairs_applies_frequency_floor_and_fdr():
     reported = {(p["family_a"], p["family_b"]) for p in pairs}
     assert ("famA", "famB") in reported or ("famB", "famA") in reported
     assert ("famRare1", "famRare2") not in reported and ("famRare2", "famRare1") not in reported
+
+
+def test_find_cooccurring_pairs_ignores_outgroup_strains_for_the_floor():
+    # 2 ingroup strains + 1 outgroup strain. famX is present in only 1
+    # ingroup strain plus the outgroup strain (3 total presences in the
+    # full matrix), but must be excluded by an ingroup-only floor of 2 --
+    # the outgroup strain's presence must not count toward the floor.
+    strains = ["in1", "in2", "out1"]
+    pm = PresenceMatrix(families=["famX", "famY"], strains=strains)
+    pm.set_call("famX", "in1", PRESENT)
+    pm.set_call("famX", "out1", PRESENT)
+    # famY clears the ingroup-only floor of 2 on its own (both ingroup
+    # strains carry it) so there's a valid partner for famX to be tested
+    # against if it wrongly qualified.
+    pm.set_call("famY", "in1", PRESENT)
+    pm.set_call("famY", "in2", PRESENT)
+
+    frequency_table = [
+        {"family": "famX", "bin": "shell"},
+        {"family": "famY", "bin": "shell"},
+    ]
+    clade_of_strain = {s: "Clade_1" for s in strains}
+    outgroup_presence = {"famX": (1, 1), "famY": (0, 1)}
+
+    pairs = find_cooccurring_pairs(
+        pm, frequency_table, clade_of_strain, outgroup_presence,
+        min_strain_count=2, fdr_alpha=0.05, n_perms=50, seed=0,
+        strains=["in1", "in2"],
+    )
+    reported_families = {fam for p in pairs for fam in (p["family_a"], p["family_b"])}
+    assert "famX" not in reported_families
