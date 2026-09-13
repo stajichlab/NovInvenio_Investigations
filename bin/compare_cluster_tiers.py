@@ -92,7 +92,12 @@ def main():
                            output=output, cluster_tsv=cfg['cluster_tsv'],
                            families=cfg['families'], presence_mode=cfg['presence_mode'],
                            busco_map=args.busco_map)
-        summary_path = output.with_suffix('').with_suffix('.summary.tsv')
+        # Mirrors score_controls.py's own convention exactly (str(Path(output).with_suffix(''))
+        # + '.summary.tsv'): a plain with_suffix('.summary.tsv') is wrong here because the
+        # output stem itself contains dots (e.g. 'pezizo_set1.P.controls_scored'), and
+        # pathlib's with_suffix() replaces only what follows the *last* dot -- it would
+        # produce 'pezizo_set1.P.summary.tsv' instead of the file score_controls.py wrote.
+        summary_path = Path(str(output.with_suffix('')) + '.summary.tsv')
         tier_summaries[tier] = parse_summary_tsv(summary_path)
         tier_per_control[tier] = parse_per_control_tsv(output)
 
