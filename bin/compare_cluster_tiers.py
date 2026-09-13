@@ -25,8 +25,9 @@ def parse_per_control_tsv(path):
         return list(csv.DictReader(fh, delimiter='\t'))
 
 
-def run_score_controls(*, matrix, controls, config, output, cluster_tsv=None,
-                       families=None, presence_mode='hmm', busco_map=None, cpus=1):
+def build_score_controls_cmd(*, matrix, controls, config, output, cluster_tsv=None,
+                              families=None, presence_mode='hmm', busco_map=None,
+                              profiles=None, cpus=1):
     cmd = [sys.executable, SCORE_CONTROLS, '--controls', controls, '--matrix', matrix,
            '--config', config, '--output', str(output), '--presence-mode', presence_mode,
            '--cpus', str(cpus)]
@@ -34,6 +35,18 @@ def run_score_controls(*, matrix, controls, config, output, cluster_tsv=None,
         cmd += ['--cluster-tsv', cluster_tsv, '--families', families]
     if busco_map:
         cmd += ['--busco-map', busco_map]
+    if profiles:
+        cmd += ['--profiles', profiles]
+    return cmd
+
+
+def run_score_controls(*, matrix, controls, config, output, cluster_tsv=None,
+                       families=None, presence_mode='hmm', busco_map=None,
+                       profiles=None, cpus=1):
+    cmd = build_score_controls_cmd(
+        matrix=matrix, controls=controls, config=config, output=output,
+        cluster_tsv=cluster_tsv, families=families, presence_mode=presence_mode,
+        busco_map=busco_map, profiles=profiles, cpus=cpus)
     subprocess.run(cmd, check=True)
 
 
@@ -68,6 +81,9 @@ def main():
     ap.add_argument('--refined-cluster-tsv', required=True, dest='refined_cluster_tsv')
     ap.add_argument('--refined-families', required=True, dest='refined_families')
     ap.add_argument('--busco-map', default=None, dest='busco_map')
+    ap.add_argument('--profiles-hmm', default=None, dest='profiles_hmm',
+                    help='original, unrefined family_profiles.hmm (used to resolve '
+                         'fasta-anchored controls in Tiers C+H/C/R)')
     ap.add_argument('--out-dir', required=True, dest='out_dir')
     ap.add_argument('--label', required=True, help='output filename prefix, e.g. pezizo_set1')
     args = ap.parse_args()
@@ -78,11 +94,13 @@ def main():
     tiers = {
         'P': dict(matrix=args.pairwise_matrix, cluster_tsv=None, families=None, presence_mode='hmm'),
         'C+H': dict(matrix=args.cluster_hmm_matrix, cluster_tsv=args.cluster_tsv,
-                    families=args.families, presence_mode='hmm'),
+                    families=args.families, presence_mode='hmm', profiles=args.profiles_hmm),
         'C': dict(matrix=args.cluster_hmm_matrix, cluster_tsv=args.cluster_tsv,
-                  families=args.families, presence_mode='cluster_membership'),
+                  families=args.families, presence_mode='cluster_membership',
+                  profiles=args.profiles_hmm),
         'R': dict(matrix=args.cluster_hmm_matrix, cluster_tsv=args.refined_cluster_tsv,
-                  families=args.refined_families, presence_mode='cluster_membership'),
+                  families=args.refined_families, presence_mode='cluster_membership',
+                  profiles=args.profiles_hmm),
     }
 
     tier_summaries, tier_per_control = {}, {}
@@ -91,7 +109,7 @@ def main():
         run_score_controls(matrix=cfg['matrix'], controls=args.controls, config=args.config,
                            output=output, cluster_tsv=cfg['cluster_tsv'],
                            families=cfg['families'], presence_mode=cfg['presence_mode'],
-                           busco_map=args.busco_map)
+                           busco_map=args.busco_map, profiles=cfg.get('profiles'))
         # Mirrors score_controls.py's own convention exactly (str(Path(output).with_suffix(''))
         # + '.summary.tsv'): a plain with_suffix('.summary.tsv') is wrong here because the
         # output stem itself contains dots (e.g. 'pezizo_set1.P.controls_scored'), and

@@ -26,3 +26,17 @@ def test_build_tier_comparison_tags_rows_with_tier():
     assert {'control_id': 'POS_HEX1', 'outcome': 'miss', 'tier': 'C+H'} in per_control
     assert {'tier': 'P', 'recall': '1.0', 'fp_rate': '0.0'} in summaries
     assert {'tier': 'C+H', 'recall': '0.4', 'fp_rate': '0.0'} in summaries
+
+
+def test_build_score_controls_cmd_includes_profiles_when_given():
+    cmd = cct.build_score_controls_cmd(
+        matrix='m.tsv', controls='c.csv', config='cfg.csv', output='out.tsv',
+        profiles='family_profiles.hmm')
+    assert '--profiles' in cmd
+    assert cmd[cmd.index('--profiles') + 1] == 'family_profiles.hmm'
+
+
+def test_build_score_controls_cmd_omits_profiles_when_not_given():
+    cmd = cct.build_score_controls_cmd(
+        matrix='m.tsv', controls='c.csv', config='cfg.csv', output='out.tsv')
+    assert '--profiles' not in cmd
