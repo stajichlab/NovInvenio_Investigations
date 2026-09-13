@@ -73,9 +73,10 @@ def test_local_faa_and_local_genome_row(tmp_path, monkeypatch):
 
 def test_local_faa_with_ncbi_genome_row(tmp_path, monkeypatch):
     # Arrange: protein already local, genome must be "fetched" -- mock the
-    # subprocess call and pre-seed the ncbi cache the way fetch_genome_assembly.py
-    # would, so we test build_study_config.py's own cache-reading logic, not the
-    # network fetch itself.
+    # subprocess call and pre-seed the ncbi cache the way
+    # fetch_genome_assemblies_batch.py's pre-pass batch call would, so we test
+    # build_study_config.py's own cache-reading logic, not the network fetch
+    # itself.
     study_dir = tmp_path / "studies" / "bacteria" / "toy_study2"
     study_dir.mkdir(parents=True)
     local_faa = tmp_path / "src" / "Sp2.faa"
@@ -112,7 +113,12 @@ def test_local_faa_with_ncbi_genome_row(tmp_path, monkeypatch):
     rc = bsc.main()
 
     assert rc == 0
-    assert any("fetch_genome_assembly.py" in str(c) for call in calls for c in call)
+    # The Genome_Source=ncbi accession is pulled by main()'s pre-pass batch
+    # call (fetch_genome_assemblies_batch.py), not a per-row
+    # fetch_genome_assembly.py call -- see build_study_config.py's batched
+    # pre-fetch and fetch_genome_assemblies_batch.py's own docstring for why.
+    assert any("fetch_genome_assemblies_batch.py" in str(c) for call in calls for c in call)
+    assert any("GCF_000000001.1" in str(c) for call in calls for c in call)
     config_csv = study_dir / "config.csv"
     with open(config_csv, newline="") as fh:
         row = next(csv.DictReader(fh))
