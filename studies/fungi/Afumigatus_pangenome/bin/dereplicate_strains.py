@@ -82,6 +82,16 @@ def parse_mash_dist(lines: list[str], threshold: float) -> list[set[str]]:
     return list(groups.values())
 
 
+def groups_to_shorts(
+    groups: list[set[str]], path_to_short: dict[str, str]
+) -> list[set[str]]:
+    """Translate mash's path-string dedup groups into config Short IDs.
+
+    mash reports full FASTA file paths in its output, but we need to
+    translate them back to the Short identifiers from config.csv."""
+    return [{path_to_short[p] for p in group} for group in groups]
+
+
 def choose_representatives(
     dedup_groups: list[set[str]], assembly_stats: dict[str, dict]
 ) -> dict[str, str]:
@@ -131,7 +141,7 @@ def main() -> None:
 
     # Translate groups from full paths (as reported by mash) to Short IDs
     path_to_short = {str(p): short for short, p in dna_paths.items()}
-    groups = [{path_to_short[p] for p in group} for group in groups]
+    groups = groups_to_shorts(groups, path_to_short)
 
     reps = choose_representatives(groups, stats)
     dedup_group_id = {}

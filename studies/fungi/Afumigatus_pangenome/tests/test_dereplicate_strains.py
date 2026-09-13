@@ -5,6 +5,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
 
 from dereplicate_strains import (
     compute_assembly_stats, parse_mash_dist, choose_representatives,
+    groups_to_shorts,
 )
 
 
@@ -75,3 +76,22 @@ def test_parse_mash_dist_transitivity():
     # With transitivity: A~B and B~C means all in same group
     assert len(groups) == 1
     assert {"A", "B", "C"} in groups
+
+
+def test_groups_to_shorts_translates_path_strings_to_short_ids():
+    # Simulate mash output: full paths in groups, map them to Short IDs
+    # This tests the critical translation that happens in main()
+    path_groups = [
+        {"/path/to/data/dna/s1.fa", "/path/to/data/dna/s2.fa"},
+        {"/path/to/data/dna/s3.fa"},
+    ]
+    path_to_short = {
+        "/path/to/data/dna/s1.fa": "s1",
+        "/path/to/data/dna/s2.fa": "s2",
+        "/path/to/data/dna/s3.fa": "s3",
+    }
+    short_groups = groups_to_shorts(path_groups, path_to_short)
+    # Should convert path strings back to Short IDs
+    assert {"s1", "s2"} in short_groups
+    assert {"s3"} in short_groups
+    assert len(short_groups) == 2
