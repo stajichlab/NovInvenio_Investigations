@@ -1,0 +1,17 @@
+control_id	class	expected_call	anchor_type	resolved_family	actual_call	outcome	note
+POS_HEX1	positive	novel	protein_id	tr|A0ACF5BXR3|A0ACF5BXR3_9PEZI	not_novel	miss	
+POS_LAH	positive	novel	protein_id		unresolved	unresolved	protein not in any profiled family
+POS_ADA1	positive	novel	protein_id	tr|A0ACF5CBF7|A0ACF5CBF7_9PEZI	not_novel	miss	
+POS_HAM5	positive	novel	protein_id	tr|V5IN79|V5IN79_NEUCR	not_novel	miss	
+POS_HAM8	positive	novel	protein_id	tr|J3K3I3|J3K3I3_COCIM	novel	hit	
+POS_SPA1	positive	novel	protein_id	tr|J3K8R1|J3K8R1_COCIM	novel	hit	
+NEG_BUSCO01	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family
+NEG_BUSCO02	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family
+NEG_BUSCO03	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family
+NEG_BUSCO04	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family
+NEG_BUSCO05	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family
+NEG_BUSCO06	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family
+NEG_BUSCO07	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family
+NEG_BUSCO08	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family
+NEG_BUSCO09	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family
+NEG_BUSCO10	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family

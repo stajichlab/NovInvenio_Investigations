@@ -1,0 +1,65 @@
+control_id	class	expected_call	anchor_type	resolved_family	actual_call	outcome	note	tier
+POS_HEX1	positive	novel	protein_id	sp|P87252|HEX1_NEUCR	novel	hit		P
+POS_LAH	positive	novel	protein_id	tr|V5IRA6|V5IRA6_NEUCR	novel	hit		P
+POS_ADA1	positive	novel	protein_id	tr|Q7SE74|Q7SE74_NEUCR	novel	hit		P
+POS_HAM5	positive	novel	protein_id	tr|V5IN79|V5IN79_NEUCR	novel	hit		P
+POS_HAM8	positive	novel	protein_id	tr|Q7SEK3|Q7SEK3_NEUCR	novel	hit		P
+POS_SPA1	positive	novel	protein_id	tr|Q7SI25|Q7SI25_NEUCR	novel	hit		P
+NEG_BUSCO01	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+NEG_BUSCO02	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+NEG_BUSCO03	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+NEG_BUSCO04	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+NEG_BUSCO05	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+NEG_BUSCO06	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+NEG_BUSCO07	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+NEG_BUSCO08	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+NEG_BUSCO09	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+NEG_BUSCO10	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	P
+POS_HEX1	positive	novel	protein_id	tr|A0ACF5BXR3|A0ACF5BXR3_9PEZI	not_novel	miss		C+H
+POS_LAH	positive	novel	protein_id		unresolved	unresolved	protein not in any profiled family	C+H
+POS_ADA1	positive	novel	protein_id	tr|A0ACF5CBF7|A0ACF5CBF7_9PEZI	not_novel	miss		C+H
+POS_HAM5	positive	novel	protein_id	tr|V5IN79|V5IN79_NEUCR	not_novel	miss		C+H
+POS_HAM8	positive	novel	protein_id	tr|J3K3I3|J3K3I3_COCIM	novel	hit		C+H
+POS_SPA1	positive	novel	protein_id	tr|J3K8R1|J3K8R1_COCIM	novel	hit		C+H
+NEG_BUSCO01	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+NEG_BUSCO02	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+NEG_BUSCO03	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+NEG_BUSCO04	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+NEG_BUSCO05	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+NEG_BUSCO06	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+NEG_BUSCO07	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+NEG_BUSCO08	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+NEG_BUSCO09	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+NEG_BUSCO10	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C+H
+POS_HEX1	positive	novel	protein_id	tr|A0ACF5BXR3|A0ACF5BXR3_9PEZI	novel	hit		C
+POS_LAH	positive	novel	protein_id		unresolved	unresolved	protein not in any profiled family	C
+POS_ADA1	positive	novel	protein_id	tr|A0ACF5CBF7|A0ACF5CBF7_9PEZI	novel	hit		C
+POS_HAM5	positive	novel	protein_id	tr|V5IN79|V5IN79_NEUCR	novel	hit		C
+POS_HAM8	positive	novel	protein_id	tr|J3K3I3|J3K3I3_COCIM	novel	hit		C
+POS_SPA1	positive	novel	protein_id	tr|J3K8R1|J3K8R1_COCIM	not_novel	miss		C
+NEG_BUSCO01	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+NEG_BUSCO02	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+NEG_BUSCO03	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+NEG_BUSCO04	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+NEG_BUSCO05	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+NEG_BUSCO06	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+NEG_BUSCO07	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+NEG_BUSCO08	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+NEG_BUSCO09	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+NEG_BUSCO10	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	C
+POS_HEX1	positive	novel	protein_id	tr|A0ACF5BXR3|A0ACF5BXR3_9PEZI	novel	hit		R
+POS_LAH	positive	novel	protein_id	tr|V5IRA6|V5IRA6_NEUCR	not_novel	miss		R
+POS_ADA1	positive	novel	protein_id	tr|A0ACF5CBF7|A0ACF5CBF7_9PEZI	novel	hit		R
+POS_HAM5	positive	novel	protein_id	tr|V5IN79|V5IN79_NEUCR	novel	hit		R
+POS_HAM8	positive	novel	protein_id	tr|J3K3I3|J3K3I3_COCIM	novel	hit		R
+POS_SPA1	positive	novel	protein_id	tr|J3K8R1|J3K8R1_COCIM	not_novel	miss		R
+NEG_BUSCO01	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
+NEG_BUSCO02	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
+NEG_BUSCO03	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
+NEG_BUSCO04	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
+NEG_BUSCO05	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
+NEG_BUSCO06	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
+NEG_BUSCO07	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
+NEG_BUSCO08	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
+NEG_BUSCO09	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
+NEG_BUSCO10	negative	core	busco		unresolved	unresolved	busco protein not in any profiled family	R
