@@ -1,6 +1,6 @@
 control_id	class	expected_call	anchor_type	resolved_family	actual_call	outcome	note
 POS_HEX1	positive	novel	protein_id	tr|A0ACF5BXR3|A0ACF5BXR3_9PEZI	novel	hit	
-POS_LAH	positive	novel	protein_id	tr|V5IRA6|V5IRA6_NEUCR	not_novel	miss	
+POS_LAH	positive	novel	protein_id		unresolved	unresolved	protein not in any profiled family
 POS_ADA1	positive	novel	protein_id	tr|A0ACF5CBF7|A0ACF5CBF7_9PEZI	novel	hit	
 POS_HAM5	positive	novel	protein_id	tr|V5IN79|V5IN79_NEUCR	novel	hit	
 POS_HAM8	positive	novel	protein_id	tr|J3K3I3|J3K3I3_COCIM	novel	hit	
