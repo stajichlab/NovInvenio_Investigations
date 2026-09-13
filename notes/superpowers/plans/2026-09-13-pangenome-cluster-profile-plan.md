@@ -751,8 +751,8 @@ per strain (see NovInvenio's CLAUDE.md "collapse_isoforms.py" entry) so
 per-strain copy counts reflect genes, not alternative transcripts:
 
   NovInvenio/bin/collapse_isoforms.py \\
-      --protein_fasta data_dir/pep/<Short>.pep.fa \\
-      --feature_table <Short>_feature_table.txt.gz \\
+      --protein-fasta data_dir/pep/<Short>.pep.fa \\
+      --feature-table <Short>_feature_table.txt.gz \\
       --output data_dir/pep_collapsed/<Short>.pep.fa
 """
 from __future__ import annotations
