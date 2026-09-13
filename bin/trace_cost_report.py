@@ -107,6 +107,16 @@ def main():
                     help="cluster+HMM run's nextflow_log/ directory (Tier R's own new "
                          "within-family diamond step is timed separately, not read "
                          "from this trace -- see --tier-r-diamond-seconds)")
+    ap.add_argument('--pairwise-trace-file', default=None, dest='pairwise_trace_file',
+                    help='Explicit trace file to use instead of the alphabetically-last '
+                         'one under --pairwise-trace-dir. Use this when the newest trace '
+                         "file in the directory is a later, unrelated/partial rerun that "
+                         "doesn't reflect the run whose published outputs you're costing "
+                         "(check output-file mtimes against each trace file's process set "
+                         'and status counts before trusting "latest" == "the run that '
+                         'matters" -- see task-8-report.md for a real case where this bit).')
+    ap.add_argument('--cluster-trace-file', default=None, dest='cluster_trace_file',
+                    help='Same override as --pairwise-trace-file, for the cluster+HMM run.')
     ap.add_argument('--tier-r-diamond-seconds', type=float, default=None,
                     dest='tier_r_diamond_seconds',
                     help='Wall-clock of the refine_ambiguous_families.py diamond step '
@@ -115,8 +125,10 @@ def main():
     ap.add_argument('--output', required=True)
     args = ap.parse_args()
 
-    pairwise_rows = load_trace(latest_trace(args.pairwise_trace_dir))
-    cluster_rows = load_trace(latest_trace(args.cluster_trace_dir))
+    pairwise_trace = args.pairwise_trace_file or latest_trace(args.pairwise_trace_dir)
+    cluster_trace = args.cluster_trace_file or latest_trace(args.cluster_trace_dir)
+    pairwise_rows = load_trace(pairwise_trace)
+    cluster_rows = load_trace(cluster_trace)
 
     # Tier P: the true all-vs-all DIAMOND_SEARCH/DIAMOND_MAKEDB cost is unmeasurable
     # (storeDir cache hit -> no trace row ever logged, confirmed absent from every
