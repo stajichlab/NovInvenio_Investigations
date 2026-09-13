@@ -22,7 +22,8 @@ def high_confidence_starships(table_s6: pd.DataFrame, table_s21: pd.DataFrame) -
     freq_by_name = dict(zip(table_s6["nameID"], table_s6["freq"]))
     for name_id, freq in freq_by_name.items():
         subset = table_s21[table_s21["nameID"] == name_id]
-        presence = dict(zip(subset["isolateID"], subset["presence/absence"].astype(bool)))
+        # Explicitly compare to 1 to avoid NaN→True coercion; NaN becomes False naturally
+        presence = dict(zip(subset["isolateID"], subset["presence/absence"] == 1))
         result[name_id] = {"population_freq": freq, "presence": presence}
     return result
 
