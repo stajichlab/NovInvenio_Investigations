@@ -303,6 +303,28 @@ just a downstream refinement or presence rule.
   (`studies/fungi/pezizo_set1_cluster/`), since it compares this study's two
   runs specifically; the underlying comparison script itself stays reusable.
 
+### Promotion path if Tier R validates
+
+Everything above is deliberately built as standalone scripts run against
+**already-published** results (`families_cluster.tsv`, `presence_matrix.tsv`,
+trace files already on disk) — nothing here is wired into a Nextflow process,
+and this investigation does not touch `nf_NovInvenio`'s DSL2 workflows. That
+is intentional: it lets Tier R get evaluated (Analyses 1-2) before any
+pipeline surface area is committed to it.
+
+If Analyses 1-2 show Tier R recovers HEX1-style misses without material
+candidate-count inflation, `refine_ambiguous_families.py`'s logic is the
+starting point for a **new Nextflow process** inside the
+`--cluster_tool mmseqs` pathway (`workflows/cluster.nf` /
+`workflows/profile_search.nf`), following the same per-chunk pattern already
+used by `BUILD_FAMILY_PROFILES:BUILD_CHUNK`, so refinement runs as a normal
+scheduled step rather than a manual script a user has to remember to invoke.
+It should land behind a new flag (e.g. `--refine_ambiguous_families`,
+defaulting off) so existing `--cluster_tool mmseqs` runs are unaffected until
+this is validated on more than one study. That Nextflow-integration work is
+its own follow-on plan, scoped after this investigation's results are in
+hand — not part of this spec's deliverable.
+
 ## Explicitly out of scope
 
 - **A general, production-grade fix to mmseqs clustering itself** (e.g.
@@ -319,3 +341,8 @@ just a downstream refinement or presence rule.
   investigation is built on.
 - Curating new loss-direction positive controls — noted as a follow-on, not
   part of this investigation's deliverable.
+- **Porting any validated tier into an `nf_NovInvenio` Nextflow process** —
+  see "Promotion path if Tier R validates" above. This spec's deliverable is
+  the standalone-script comparison and its recommendation; turning a
+  validated result into a first-class pipeline step (with its own flag,
+  process definition, and resource profile) is separate follow-on work.
