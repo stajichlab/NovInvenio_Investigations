@@ -60,6 +60,13 @@ For each species this:
 Re-running with --skip-fetch rebuilds config.csv/data_dir from whatever's already
 cached (uniprot/ncbi rows) without re-downloading; local_* rows are always
 re-copied (there's nothing to "skip" -- they were never fetched).
+
+Before the per-row loop, every Genome_Source=ncbi/Protein_Source=ncbi accession
+across the whole species.csv is pulled in one pre-pass via
+bin/fetch_genome_assemblies_batch.py, chunked at --fetch-batch-size (default 75)
+accessions per `datasets download` call -- a study with N NCBI rows no longer
+means N separate NCBI Datasets API round trips. Pass --no-batch-fetch to fall
+back to the original one-fetch_genome_assembly.py-call-per-row behavior.
 """
 import argparse
 import csv
@@ -104,8 +111,14 @@ def _local_copy_record(src: Path, dest: Path, license_: str) -> dict:
     )
 
 
-def resolve_protein(row, args, pep_dir, manifest_records):
-    """Returns (stem, protein_basename, dat_gz_path_or_None)."""
+def resolve_protein(row, args, pep_dir, manifest_records, batch_fetched=frozenset()):
+    """Returns (stem, protein_basename, dat_gz_path_or_None).
+
+    `batch_fetched`: accessions already pulled by a prior batched
+    fetch_genome_assemblies_batch.py call (see main()) -- skips the redundant
+    per-row fetch_genome_assembly.py call for those, but still does the same
+    copy-into-pep_dir/provenance-load logic against the now-populated cache.
+    """
     short = row["Short"]
     source = row["Protein_Source"]
     accession = row["Protein_Accession"]
@@ -133,7 +146,7 @@ def resolve_protein(row, args, pep_dir, manifest_records):
         return stem, pep_out.name, (dat_gz if dat_gz.exists() else None)
 
     if source == "ncbi":
-        if not args.skip_fetch:
+        if not args.skip_fetch and accession not in batch_fetched:
             run([
                 sys.executable, str(BIN / "fetch_genome_assembly.py"),
                 "--accession", accession, "--outdir", args.ncbi_cache, "--short", short,
@@ -167,8 +180,12 @@ def resolve_protein(row, args, pep_dir, manifest_records):
     sys.exit(f"[{short}] ERROR: unknown Protein_Source {source!r}")
 
 
-def resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records):
-    """Returns (dna_basename, gff3_basename) -- either may be ''."""
+def resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records, batch_fetched=frozenset()):
+    """Returns (dna_basename, gff3_basename) -- either may be ''.
+
+    `batch_fetched`: see resolve_protein's docstring -- same skip-the-redundant-
+    per-row-fetch behavior for accessions a prior batch call already pulled.
+    """
     short = row["Short"]
     gsource = row["Genome_Source"]
     gaccession = row["Genome_Accession"]
@@ -179,7 +196,7 @@ def resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records
     gff3_out_name = ""
 
     if gsource == "ncbi":
-        if not args.skip_fetch:
+        if not args.skip_fetch and gaccession not in batch_fetched:
             run([
                 sys.executable, str(BIN / "fetch_genome_assembly.py"),
                 "--accession", gaccession, "--outdir", args.ncbi_cache, "--short", short,
@@ -244,6 +261,16 @@ def main() -> int:
     ap.add_argument("--ncbi-cache", default="data/ncbi")
     ap.add_argument("--skip-fetch", action="store_true", help="Rebuild config/data_dir from an already-populated cache, no downloads")
     ap.add_argument("--local-license", default=LOCAL_LICENSE_DEFAULT)
+    ap.add_argument(
+        "--no-batch-fetch", action="store_true",
+        help=(
+            "Fetch each NCBI accession with its own datasets download call (one row at a "
+            "time), instead of the default single batched call for every Genome_Source=ncbi/"
+            "Protein_Source=ncbi accession up front. Slower for studies with many NCBI rows; "
+            "kept as an escape hatch in case a study's fetch needs to be retried per-row."
+        ),
+    )
+    ap.add_argument("--fetch-batch-size", type=int, default=75, help="Accessions per batched datasets download call (default: 75)")
     args = ap.parse_args()
 
     study_dir = Path(args.study_dir)
@@ -254,43 +281,71 @@ def main() -> int:
     link_dir = study_dir / "data_dir"
     pep_dir, dna_dir, gff3_dir = (link_dir / d for d in ("pep", "dna", "gff3"))
 
+    with open(species_csv, newline="") as fh:
+        rows = list(csv.DictReader(fh))
+
+    # Batched pre-fetch: one (or a few, chunked) datasets-CLI call(s) for every
+    # NCBI accession this study needs, instead of resolve_protein/
+    # resolve_genome_and_gff3's original one-`fetch_genome_assembly.py`-call-
+    # per-row behavior -- a study with N NCBI rows previously meant N separate
+    # `datasets download` round trips (293 for a pangenome study's worth of
+    # strains). See bin/fetch_genome_assemblies_batch.py's docstring for why
+    # this is a separate script rather than a change to
+    # fetch_genome_assembly.py's single-accession contract.
+    batch_fetched: set[str] = set()
+    if not args.skip_fetch and not args.no_batch_fetch:
+        ncbi_accessions = sorted({
+            row["Genome_Accession"] for row in rows if row["Genome_Source"] == "ncbi"
+        } | {
+            row["Protein_Accession"] for row in rows if row["Protein_Source"] == "ncbi"
+        })
+        need_protein = any(row["Protein_Source"] == "ncbi" for row in rows)
+        if ncbi_accessions:
+            run([
+                sys.executable, str(BIN / "fetch_genome_assemblies_batch.py"),
+                *[a for acc in ncbi_accessions for a in ("--accession", acc)],
+                "--outdir", args.ncbi_cache,
+                "--batch-size", str(args.fetch_batch_size),
+                *(["--include-protein"] if need_protein else []),
+            ])
+            batch_fetched = set(ncbi_accessions)
+
     config_rows = []
     manifest_records = []
     seen_stems: dict[str, str] = {}
 
-    with open(species_csv, newline="") as fh:
-        for row in csv.DictReader(fh):
-            short = row["Short"]
-            stem, protein_name, dat_gz = resolve_protein(row, args, pep_dir, manifest_records)
+    for row in rows:
+        short = row["Short"]
+        stem, protein_name, dat_gz = resolve_protein(row, args, pep_dir, manifest_records, batch_fetched)
 
-            if stem in seen_stems:
-                sys.exit(
-                    f"ERROR: {species_csv} resolves two rows to the same stem {stem!r} "
-                    f"(Short={seen_stems[stem]!r} and Short={short!r})"
-                )
-            seen_stems[stem] = short
+        if stem in seen_stems:
+            sys.exit(
+                f"ERROR: {species_csv} resolves two rows to the same stem {stem!r} "
+                f"(Short={seen_stems[stem]!r} and Short={short!r})"
+            )
+        seen_stems[stem] = short
 
-            dna_name, gff3_name = resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records)
+        dna_name, gff3_name = resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records, batch_fetched)
 
-            if row["Protein_Source"] == "uniprot" and dat_gz is not None:
-                annotations_dir = study_dir / "annotations"
-                annotations_dir.mkdir(parents=True, exist_ok=True)
-                run([
-                    sys.executable, str(BIN / "extract_dat_annotations.py"),
-                    "--dat-gz", str(dat_gz),
-                    "--output", str(annotations_dir / f"{row['Protein_Accession']}.tsv"),
-                ])
+        if row["Protein_Source"] == "uniprot" and dat_gz is not None:
+            annotations_dir = study_dir / "annotations"
+            annotations_dir.mkdir(parents=True, exist_ok=True)
+            run([
+                sys.executable, str(BIN / "extract_dat_annotations.py"),
+                "--dat-gz", str(dat_gz),
+                "--output", str(annotations_dir / f"{row['Protein_Accession']}.tsv"),
+            ])
 
-            config_rows.append({
-                "GROUP": row["Group"],
-                "Species": row["Species"],
-                "Strain": row["Strain"],
-                "Protein": protein_name,
-                "DNA": dna_name,
-                "GFF3": gff3_name,
-                "Short": short,
-                "TaxonGroup": row["TaxonGroup"],
-            })
+        config_rows.append({
+            "GROUP": row["Group"],
+            "Species": row["Species"],
+            "Strain": row["Strain"],
+            "Protein": protein_name,
+            "DNA": dna_name,
+            "GFF3": gff3_name,
+            "Short": short,
+            "TaxonGroup": row["TaxonGroup"],
+        })
 
     config_csv = study_dir / "config.csv"
     with open(config_csv, "w", newline="") as fh:
