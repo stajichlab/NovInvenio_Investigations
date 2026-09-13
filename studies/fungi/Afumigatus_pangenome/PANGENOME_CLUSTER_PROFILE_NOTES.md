@@ -254,11 +254,21 @@ The scripts here form a chain; these are the contracts that hold it together.
    partitions (`--max-concurrent-partitions`), which don't form below ~50
    genomes ("Too few genomes to run partitions of size >50. Running all
    genomes at once.") -- the actual MUM-search/LCB-alignment core ran
-   single-threaded regardless of `-p` and took 45+ CPU-minutes on just 17
-   ~30MB genomes. `run_parsnp_ingroup293.sh` (48h/8c/32gb, `highclock` queue,
+   single-threaded regardless of `-p`. **Final measured timing (job completed
+   2026-09-13 15:42, corrected from an earlier still-running 45+ CPU-minute
+   estimate):** 1.46h wall-clock (14:14:50 -> 15:42:26) for the 18-genome
+   alignment (17 strains + reference), ~1M core-genome SNPs called
+   (`parsnp.vcf`). `run_parsnp_ingroup293.sh` (48h/8c/32gb, `highclock` queue,
    `$SCRATCH`-staged) is written and ready for the full 293-strain run
    (outgroups excluded, same rationale as the Mash run above; reference =
-   `Asfu_Af293`) but not yet submitted.
+   `Asfu_Af293`) but **deliberately not submitted** -- 2026-09-13 decision:
+   Mash+PCoA's real concordance against 262 published labels (5/7 Barber
+   clusters 99-100% pure, see below) was judged sufficient for now, and 293
+   genomes already crosses the ~50-genome partition threshold the 17-strain
+   prototype never reached, so that prototype's timing does not directly
+   predict the 293-strain run's cost (see the design spec's Opus-review-revised
+   component 10 for the full scaling discussion). Revisit only if a specific
+   downstream result needs finer resolution than Mash provides.
 
 Run order:
 
@@ -285,8 +295,17 @@ repo's parent directory.
       produces a real SNP-based clade assignment to compare against.
 - [ ] Determine draft-vs-long-read assembly mix across the 293 strains.
 - [ ] Dereplicate strains (Mash/ANI) before any frequency count.
-- [ ] Run tier-1 clustering (~90% identity, per the revised design) plus the
-      genome-level tblastn/miniprot rescue pass; isoform-collapse first.
+- [x] Run tier-1 clustering (~90% identity, per the revised design). Done
+      2026-09-13: all 295 strains (293 IN + 2 OUT), no isoform collapse (checked
+      assumption -- spot-checked gene:mRNA ratios across 3 strains showed ~3% or
+      less excess, consistent with fungal biology's low alt-splicing rate; see
+      design spec's Opus-reviewed component 10 step 1), 2,788,402 proteins ->
+      47,983 tier-1 families in ~14 min wall-clock
+      (`results/full_293run/tier1_cluster.tsv`).
+- [ ] Genome-level tblastn/miniprot rescue pass -- still pending. Now known to be
+      a real, not theoretical, need: the HAC reference screen caught one
+      fragmented gene model (`Asfu_E165L4`'s hrmA split across two protein
+      records) by accident on a single locus.
 - [ ] Compute the real family-frequency histogram (component 1-2 of the general
       design) before fixing core/soft-core/shell/cloud cutoffs — after excluding
       low-completeness strains.
