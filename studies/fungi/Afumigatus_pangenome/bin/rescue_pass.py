@@ -34,24 +34,43 @@ def parse_tblastn_hits(
 ) -> set[tuple[str, str]]:
     """Parse tblastn outfmt6 lines (with a trailing qcovs column) into the
     set of (family_rep, strain) pairs with a qualifying genomic hit.
-    Subject IDs are expected as '<Short>|<contig>' (set via -subject_besthit
-    or a renamed genome DB, so the strain is recoverable from the hit)."""
+    Subject IDs are expected as '<Short>|<contig>' (via renamed genome FASTA
+    headers before makeblastdb, so the strain is recoverable from the hit)."""
     hits: set[tuple[str, str]] = set()
     for line in lines:
-        parts = line.rstrip("\n").split("\t")
-        family, subject, pident, qcovs = parts[0], parts[1], float(parts[2]), float(parts[-1])
+        line = line.rstrip("\n")
+        # Skip blank lines and comment lines
+        if not line or line.startswith("#"):
+            continue
+        parts = line.split("\t")
+        if len(parts) < 13:  # Minimum columns for outfmt6 with qcovs
+            continue
+        try:
+            family, subject, pident, qcovs = parts[0], parts[1], float(parts[2]), float(parts[-1])
+        except (ValueError, IndexError):
+            continue
         if pident >= min_pident and qcovs >= min_qcov:
             strain = subject.split("|", 1)[0]
             hits.add((family, strain))
     return hits
 
 
-def apply_rescue(matrix: PresenceMatrix, rescue_hits: set[tuple[str, str]]) -> None:
+def apply_rescue(matrix: PresenceMatrix, rescue_hits: set[tuple[str, str]]) -> tuple[int, int]:
     """Upgrade ABSENT calls to GENOME_ONLY wherever a qualifying rescue
-    hit exists. Never downgrades an existing PRESENT call."""
+    hit exists. Never downgrades an existing PRESENT call.
+
+    Returns: (num_applied, num_skipped) where skipped = hits with
+    unrecognized strain or family."""
+    applied = 0
+    skipped = 0
     for family, strain in rescue_hits:
+        if strain not in matrix.strains or family not in matrix.families:
+            skipped += 1
+            continue
         if matrix.call(family, strain) == ABSENT:
             matrix.set_call(family, strain, GENOME_ONLY)
+            applied += 1
+    return applied, skipped
 
 
 def main() -> None:
@@ -66,7 +85,14 @@ def main() -> None:
     matrix = PresenceMatrix.from_tsv(args.matrix)
     with open(args.tblastn_tsv) as fh:
         hits = parse_tblastn_hits(fh.readlines(), args.min_pident, args.min_qcov)
-    apply_rescue(matrix, hits)
+
+    applied, skipped = apply_rescue(matrix, hits)
+    print(f"Rescue: {applied} ABSENT→GENOME_ONLY, {skipped} skipped (unrecognized strain/family)", file=sys.stderr)
+
+    if hits and applied == 0:
+        print(f"ERROR: All {len(hits)} parsed tblastn hits were skipped (likely wrong genome-DB naming)", file=sys.stderr)
+        sys.exit(1)
+
     matrix.to_tsv(args.output)
 
 
