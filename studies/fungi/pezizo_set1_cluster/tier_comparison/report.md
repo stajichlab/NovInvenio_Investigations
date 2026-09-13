@@ -126,11 +126,13 @@ Both controls are `fasta`-anchored. Tier P's `n/a` here is not a biological miss
 
 **Bottom line (revised after review — see note below):** on the curated
 16-control set, dropping the HMM step (Tier C) does recover recall relative
-to Tier C+H (0.8 vs 0.4). But that result does not generalize: measured
-genome-wide against Tier P's own candidate lists, Tier C's recall is only
-0.41 (gains) / 0.23 (losses) — it misses the *majority* of what pairwise
-search actually finds, while flagging roughly 70% of the entire ingroup
-protein universe as candidates (21,258 of ~30,500 gain-side proteins). A
+to Tier C+H (0.8 vs 0.4 headline; +1, not +2, once HEX1's coincidental hit
+is discounted — see Analysis 1 below). But that result does not generalize:
+measured genome-wide against Tier P's own candidate lists, Tier C's recall
+is only 0.41 (gains) / 0.23 (losses) — it misses the *majority* of what
+pairwise search actually finds, while flagging roughly 70% of the entire
+ingroup protein universe as candidates (21,258 of 30,461 gain-side proteins
+in `presence_matrix.tsv`). A
 filter that drops most true positives while barely shrinking the search
 space is not a safe triage step. Tier C is not recommended as a pre-filter
 ahead of Tier P on this evidence. Tier R adds negligible cost (0.032 CPU-h)
@@ -205,7 +207,7 @@ open items below.)
 
 Tier C+H is conservative relative to Tier P (1,044 gain candidates,
 precision 0.47, recall 0.15). Tier C is the opposite: 21,258 gain candidates
-(20x more; roughly 70% of the ~30,500-protein ingroup universe the presence
+(20x more; roughly 70% of the 30,461-protein ingroup universe the presence
 matrix covers), recall rises to 0.41 (2.8x, not quite triple), but precision
 collapses to 0.066 — roughly 14 of every 15 Tier-C "novel" calls are not
 confirmed by Tier P. Losses show the same pattern, more extreme (precision
@@ -304,9 +306,13 @@ already paid for C+H," but this investigation did not isolate that number.
    is the rough bar at which "misses most of what pairwise finds" would stop
    being true, making a pre-filter role defensible. Separately, Tier R's
    status (recommendation 3) should be revisited if the fraction of
-   "ambiguous" families (species-duplicated *and* near-miss) — ~17% here —
-   climbs substantially in a future clade, since that is the population
-   Tier R's mechanism could plausibly matter for.
+   "ambiguous" families (species-duplicated *and* near-miss) roughly doubles
+   from the ~17% measured here, to somewhere near a third of all families —
+   a heuristic bar, not a derived one (this investigation has only one
+   clade's data point), chosen because Tier R's effect was already too
+   small to measure (Δ under 0.3%) at 17%, so "still too small to matter"
+   stops being a safe assumption to carry forward unexamined once the
+   ambiguous population roughly doubles in size.
 5. **Known open items for anyone extending this**: (a) the BUSCO negative
    -control identifier-namespace mismatch (Task 5's Finding 3) leaves
    `fp_rate` unmeasured for pezizo_set1 throughout — every `fp_rate` cell in
