@@ -45,6 +45,37 @@ def test_accessory_islands_finds_maximal_noncore_runs():
     assert [g[0] for g in islands[0]] == ["g2", "g3", "g4"]
 
 
+def test_accessory_islands_never_merges_across_contig_boundary():
+    # contig1: two consecutive non-core genes (an island)
+    # contig2: one non-core gene followed by a core gene (a one-gene island)
+    # contig3: one non-core gene, still "open" at the end of the list
+    gene_order = [
+        ("g1", "c1", 1, 10), ("g2", "c1", 20, 30),
+        ("g3", "c2", 1, 10), ("g4", "c2", 20, 30),
+        ("g5", "c3", 1, 10),
+    ]
+    is_core = {"g1": False, "g2": False, "g3": False, "g4": True, "g5": False}
+    islands = accessory_islands(gene_order, is_core)
+    gene_id_islands = [[g[0] for g in island] for island in islands]
+    assert gene_id_islands == [["g1", "g2"], ["g3"], ["g5"]]
+    # In particular: g2 (end of c1) and g3 (start of c2) must never be
+    # merged into one island, even though both are non-core and adjacent
+    # in gene_order.
+    assert not any("g2" in island and "g3" in island for island in gene_id_islands)
+
+
+def test_parse_gff3_gene_order_anchors_id_attribute(tmp_path):
+    # A decoy attribute ending in "ID=" before the real "ID=" must not be
+    # picked up by an unanchored regex search.
+    gff3 = tmp_path / "decoy.gff3"
+    gff3.write_text(
+        "##gff-version 3\n"
+        "contig1\tsrc\tgene\t100\t200\t.\t+\t.\torig_protein_ID=XP_1;ID=geneA\n"
+    )
+    order = parse_gff3_gene_order(gff3)
+    assert order == [("geneA", "contig1", 100, 200)]
+
+
 def test_linkage_fraction_measures_physical_proximity():
     gene_position = {
         "s1": {"famA": ("c1", 5), "famB": ("c1", 7)},   # 2 genes apart, within k

@@ -16,12 +16,17 @@ from __future__ import annotations
 import argparse
 import re
 import sys
+import warnings
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 
 
-_ID_RE = re.compile(r"ID=([^;\n]+)")
+# Anchored to the start of the attributes string or right after a ';' so a
+# decoy attribute like "orig_protein_ID=XP_1;ID=geneA" does not match on
+# "ID=" buried inside "orig_protein_ID=" -- unanchored .search() would
+# incorrectly return "XP_1" there.
+_ID_RE = re.compile(r"(?:^|;)ID=([^;\n]+)")
 
 
 def parse_gff3_gene_order(gff3_path: str | Path) -> list[tuple[str, str, int, int]]:
@@ -58,12 +63,32 @@ def accessory_islands(
     gene_order: list[tuple[str, str, int, int]], is_core: dict[str, bool]
 ) -> list[list[tuple]]:
     """Maximal runs of consecutive non-core genes, never crossing a
-    contig boundary."""
+    contig boundary.
+
+    A gene_id absent from `is_core` is treated as core (`is_core.get(gene_id,
+    True)`), i.e. it splits/ends any in-progress island rather than being
+    folded into one. This is deliberately conservative: an unrecognized gene
+    is more likely a family the clustering step never called ("core" is the
+    majority state, ~95%+ of genes in this pangenome) than a genuine, silent
+    accessory gene, so defaulting it to non-core would risk manufacturing
+    spurious islands out of noise. The real danger is the reverse failure
+    mode -- a systematic ID-format mismatch between the GFF3's `ID=` values
+    and the presence-matrix's protein IDs (e.g. `gene-X` vs `X-T1`) would
+    make *every* gene look "missing", silently collapsing every island to
+    nothing with no exception raised. To make that failure visible instead
+    of silent, this function warns (via `warnings.warn`) whenever more than
+    10% of the genes it sees are absent from `is_core` -- a real Step-5 run
+    should treat that warning as a hard stop, not proceed with degenerate
+    output.
+    """
     islands: list[list[tuple]] = []
     current: list[tuple] = []
     prev_contig = None
+    missing = 0
     for gene in gene_order:
         gene_id, contig = gene[0], gene[1]
+        if gene_id not in is_core:
+            missing += 1
         core = is_core.get(gene_id, True)
         if contig != prev_contig and current:
             islands.append(current)
@@ -76,6 +101,15 @@ def accessory_islands(
         prev_contig = contig
     if current:
         islands.append(current)
+    if gene_order and missing / len(gene_order) > 0.1:
+        warnings.warn(
+            f"accessory_islands: {missing}/{len(gene_order)} genes "
+            "("
+            f"{missing / len(gene_order):.0%}) were absent from is_core and "
+            "defaulted to core -- check for a GFF3 ID vs presence-matrix "
+            "protein ID format mismatch before trusting these islands.",
+            stacklevel=2,
+        )
     return islands
 
 
