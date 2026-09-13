@@ -138,29 +138,80 @@ That is worth testing (see Tier R below), but it is not free of risk:
   entirely derivable from `families/families_cluster.tsv` and
   `loss_families/families_cluster.tsv`, which already exist on disk.
 - **Tier R (refined clustering, new)** — Tier C, plus a targeted pairwise
-  refinement pass applied only to **ambiguous families**: those whose raw
-  mmseqs membership already spans both ingroup and outgroup (exactly the
-  families at risk of a HEX1-style false merge; families cleanly inside one
-  group need no refinement and are passed through unchanged). Within each
-  ambiguous family's small member set (bounded — `oversized_families.tsv`
-  already flags pathologically large clusters, which get excluded from
-  refinement rather than paying `O(k²)` on a family with hundreds of
-  members), run the pipeline's **existing, already-validated** diamond
-  `--very-sensitive` self-hit + e-value-cutoff paralog-separation method
-  (currently used per-genome in Tier P's `self_hits/*.paralog_cutoffs.tsv`
-  step) scoped to the family's members instead of a whole proteome, splitting
-  the family into subfamilies where the cutoff finds a clear score gap.
-  Recompute presence/absence per resulting subfamily.
+  refinement pass applied only to **ambiguous families**.
 
-  Cost: `Σ (family_size choose 2)` over ambiguous, non-oversized families
-  only — a small fraction of all families, each with `family_size` typically
-  5-30 — versus Tier P's genome-wide `O(G²)` over the full proteome set `G`.
+  **Correction (verified against real data while writing the implementation
+  plan, replacing an earlier wrong assumption in this section):** ADR-0002's
+  family construction clusters **only the ingroup** — mmseqs never sees
+  outgroup proteins, so no family's raw membership can "span ingroup and
+  outgroup" as originally stated here; every member of every family in
+  `families/families_cluster.tsv` carries an ingroup species suffix (verified
+  directly: the gain-side file's ~52k member rows resolve to exactly the 5
+  ingroup species suffixes, zero outgroup ones). The outgroup "presence" that
+  breaks a control (Mcir/Spom for ADA1/HAM5, all 6 outgroups for HEX1) is
+  entirely an HMM-search-stage phenomenon (Tier C+H only), or in HEX1's case,
+  a consequence of a *within-ingroup* paralog joining the family (see below)
+  whose own conservation then drives the HMM hit in every genome — not of the
+  paralog itself being an outgroup member.
+
+  The real, available-before-any-HMM signal for HEX1-style contamination is
+  **within-ingroup species duplication**: a family whose member count exceeds
+  the number of ingroup species means at least one species contributed ≥2
+  members — confirmed exactly on HEX1 (6 members over 5 ingroup species:
+  Ncra contributes both `HEX1_NEUCR` and `IF5A_NEUCR`) and correctly absent
+  from ADA1/HAM5 (5 members, one per ingroup species, no duplication — Tier R
+  should leave these two families untouched, matching the earlier
+  prediction, now for the right reason). Species-duplication alone is too
+  broad on its own to call "ambiguous" (1803 of 7282 gain-side families have
+  it — recent real lineage-specific gene duplication is common and mostly not
+  a HEX1-style artifact); restricting to families that are otherwise
+  novelty-candidate-shaped in Tier C+H's own `presence_matrix.tsv` — ingroup
+  presence fraction `>= --ingroup-min-frac` **and** outgroup presence fraction
+  `> --other-max-frac` (i.e. currently rejected *only* because of outgroup
+  presence) — narrows this to 1227 of 7282 families (~17%) on the gain side,
+  measured directly against the published `pezizo_set1_cluster` run. That is
+  the definition of "ambiguous family" this investigation uses: **species-
+  duplicated AND currently a near-miss novelty candidate**. ~17% of all
+  families is not the "small minority" earlier drafts of this section
+  assumed, but each family is small (typically 5-30 members), so the total
+  refinement cost (below) is still far below Tier P's genome-wide `O(G²)`.
+
+  Within each ambiguous family (bounded further — `oversized_families.tsv`
+  already flags pathologically large clusters, excluded from refinement
+  rather than paying `O(k²)` on a family with hundreds of members), run a
+  small **new** within-family diamond all-vs-all (not a reuse of Tier P's own
+  all-vs-all search results, even though those already exist for this study —
+  reusing them would not test whether Tier R is viable in a deployment where
+  Tier P never ran at all, which is the actual point of this tier), then
+  apply the pipeline's **existing, already-validated paralog-competition
+  test** (`nf_NovInvenio/bin/parse_self_hits.py` + `build_presence_matrix.py`'s
+  filter 2, `--paralog-competition-scope target`): for a family member `X`
+  from genome `A`, look up `X`'s own within-genome paralog `P` from that
+  genome's already-published `self_hits/<A>.paralog_cutoffs.tsv` (a cheap,
+  already-computed, per-genome self-search — no new self-search needed). If
+  `P` is *also* a member of the same family (the HEX1 case: `IF5A_NEUCR` is
+  `HEX1_NEUCR`'s registered paralog and a co-member), treat the `X`-`P` edge
+  as a forced split boundary and remove it from the within-family diamond
+  score graph before taking connected components — mirroring "keeps calls
+  where the paralog wins on a different gene" (the `target`-scope logic that
+  already rescues HEX1 in Tier P) but applied as a graph edit instead of a
+  per-hit disqualification, since Tier R's job is to split a family into
+  subfamilies, not filter individual presence calls. Recompute presence/
+  absence per resulting subfamily using Tier C's own rule (a subfamily is
+  present in a genome iff one of its members' `source_proteome` matches).
+  A family with no forced-split edge (no member's registered paralog is a
+  co-member) passes through unchanged — this is expected to be common even
+  within the 1227, since not every within-ingroup duplication pairs two
+  *registered* paralogs inside the same family.
+
   A graph-clustering alternative (MCL on the within-family score graph,
   closer to OrthoFinder's own orthogroup-splitting step, more robust against
-  chains of 3+ progressively-diverging paralogs than a single pairwise
-  cutoff) is noted as a fallback if the simpler cutoff proves insufficient,
-  but is not part of the first pass — it adds a new dependency and an
-  inflation-parameter tuning knob the simpler method doesn't need.
+  chains of 3+ progressively-diverging paralogs than a single forced-split
+  edge) is noted as a fallback if the simpler method proves insufficient
+  (e.g. a chain where no single pair is a registered paralog but three or
+  more members are each other's near-neighbors), but is not part of the first
+  pass — it adds a new dependency and an inflation-parameter tuning knob the
+  simpler method doesn't need.
 
 ## Analysis 1 — Tiered controls recall/FP (gains)
 
@@ -180,14 +231,14 @@ Run all four tiers against:
   result pairs — a second, independent ingroup/outgroup split, so findings
   aren't a one-clade artifact.
 
-For Tier R specifically: first build the ambiguous-family detector (a family
-is "ambiguous" iff its raw `families_cluster.tsv` membership includes at
-least one ingroup and one outgroup `source_proteome`), confirm HEX1's family
-is in that set (it should be — 6 members already spanning ingroup+outgroup)
-and that ADA1/HAM5's families are *not* in it (their mmseqs membership is
-already ingroup-only, so Tier R should leave them exactly as Tier C already
+For Tier R specifically: first build the ambiguous-family detector (species-
+duplicated **and** currently a near-miss novelty candidate in Tier C+H's own
+`presence_matrix.tsv` — see the corrected definition above), confirm HEX1's
+family is in that set (it should be — Ncra contributes 2 members) and that
+ADA1/HAM5's families are *not* in it (both are 5-member, one-per-species,
+non-duplicated families — Tier R should leave them exactly as Tier C already
 scores them — Tier R is not expected to change ADA1/HAM5's outcome, only
-HEX1's), then run the within-family paralog-cutoff split on the ambiguous set
+HEX1's), then run the within-family forced-split refinement on the ambiguous set
 and rescore.
 
 Also fix the `--busco-map` gap: all 5 currently-`unresolved` BUSCO negatives
