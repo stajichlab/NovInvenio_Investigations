@@ -49,6 +49,8 @@ def parse_mash_dist(lines: list[str], threshold: float) -> list[set[str]]:
     tab-separated, first row is '#query\\tref1\\tref2\\t...') into
     dereplication groups: strains whose pairwise mash distance is below
     `threshold` are grouped together (union-find over the threshold graph)."""
+    if not lines:
+        return []
     header = lines[0].lstrip("#").split("\t")
     names = header[1:]
     parent = {name: name for name in names}
@@ -88,7 +90,8 @@ def choose_representatives(
     fragmented assembly, per the review's fragmentation-risk concern)."""
     result: dict[str, str] = {}
     for group in dedup_groups:
-        rep = max(group, key=lambda s: assembly_stats[s]["n50"])
+        # Use deterministic tie-break on equal N50 (lexically last Short ID)
+        rep = max(group, key=lambda s: (assembly_stats[s]["n50"], s))
         for member in group:
             result[member] = rep
     return result
@@ -125,6 +128,11 @@ def main() -> None:
         check=True, capture_output=True, text=True,
     ).stdout
     groups = parse_mash_dist(dist_out.splitlines(), args.mash_threshold)
+
+    # Translate groups from full paths (as reported by mash) to Short IDs
+    path_to_short = {str(p): short for short, p in dna_paths.items()}
+    groups = [{path_to_short[p] for p in group} for group in groups]
+
     reps = choose_representatives(groups, stats)
     dedup_group_id = {}
     for i, group in enumerate(groups):
