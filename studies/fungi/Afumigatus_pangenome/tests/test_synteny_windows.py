@@ -78,9 +78,27 @@ def test_parse_gff3_gene_order_anchors_id_attribute(tmp_path):
 
 def test_linkage_fraction_measures_physical_proximity():
     gene_position = {
-        "s1": {"famA": ("c1", 5), "famB": ("c1", 7)},   # 2 genes apart, within k
-        "s2": {"famA": ("c1", 5), "famB": ("c1", 500)},  # far apart, same contig
-        "s3": {"famA": ("c1", 5)},                       # famB absent in s3
+        "s1": {"famA": [("c1", 5)], "famB": [("c1", 7)]},   # 2 genes apart, within k
+        "s2": {"famA": [("c1", 5)], "famB": [("c1", 500)]},  # far apart, same contig
+        "s3": {"famA": [("c1", 5)]},                         # famB absent in s3
     }
     frac = linkage_fraction("famA", "famB", gene_position, k=10)
     assert frac == 0.5  # only s1 of {s1, s2} (both-present strains) is within k
+
+
+def test_linkage_fraction_multi_copy_family_checks_all_copy_pairs():
+    # famA has 2 copies in s1: one far from famB, one close -- must count as
+    # linked because SOME copy pair is within k, not just the first stored.
+    gene_position = {
+        "s1": {"famA": [("c1", 5), ("c1", 900)], "famB": [("c1", 7)]},
+    }
+    frac = linkage_fraction("famA", "famB", gene_position, k=10)
+    assert frac == 1.0
+
+
+def test_linkage_fraction_multi_copy_family_still_zero_if_no_pair_is_close():
+    gene_position = {
+        "s1": {"famA": [("c1", 5), ("c1", 900)], "famB": [("c1", 500)]},
+    }
+    frac = linkage_fraction("famA", "famB", gene_position, k=10)
+    assert frac == 0.0

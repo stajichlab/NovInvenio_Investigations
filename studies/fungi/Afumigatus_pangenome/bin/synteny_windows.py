@@ -116,22 +116,36 @@ def accessory_islands(
 def linkage_fraction(
     family_a: str,
     family_b: str,
-    gene_position: dict[str, dict[str, tuple[str, int]]],
+    gene_position: dict[str, dict[str, list[tuple[str, int]]]],
     k: int = 10,
 ) -> float:
-    """Fraction of strains carrying BOTH families where their gene-order
-    positions are within k genes of each other on the same contig."""
+    """Fraction of strains carrying BOTH families where SOME copy of
+    family_a is within k genes of SOME copy of family_b on the same contig.
+
+    `gene_position[strain][family]` is a LIST of (contig, rank) positions,
+    not a single position -- design spec component 8 must-fix M4: this
+    study's own multi-copy families (PF11001 at 3-9 copies per strain in
+    every one of 295 strains, per the HAC screen) broke the original
+    single-position assumption, silently picking whichever copy happened to
+    be stored and mislabeling the pair's physical linkage. Checking the
+    MINIMUM distance over every copy-pair answers the right question ("is
+    ANY copy of family_a near ANY copy of family_b"), not "is the arbitrary
+    stored copy of each near the other"."""
     both_present = [
         s for s, positions in gene_position.items()
-        if family_a in positions and family_b in positions
+        if positions.get(family_a) and positions.get(family_b)
     ]
     if not both_present:
         return 0.0
     linked = 0
     for s in both_present:
-        contig_a, pos_a = gene_position[s][family_a]
-        contig_b, pos_b = gene_position[s][family_b]
-        if contig_a == contig_b and abs(pos_a - pos_b) <= k:
+        positions = gene_position[s]
+        is_linked = any(
+            contig_a == contig_b and abs(pos_a - pos_b) <= k
+            for contig_a, pos_a in positions[family_a]
+            for contig_b, pos_b in positions[family_b]
+        )
+        if is_linked:
             linked += 1
     return linked / len(both_present)
 
