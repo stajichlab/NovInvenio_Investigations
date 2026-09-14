@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-#SBATCH -p batch -c 1 --mem 32gb --time=1-00:00:00 --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/logs/cooccurrence_full293.log
+#SBATCH -p stajichlab -c 1 --mem 32gb --time=1-00:00:00 --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/logs/cooccurrence_full293.log
 
 # Co-occurrence (co-loss/co-gain) analysis across the real 295-strain
 # presence matrix and frequency table -- design spec component 4, scaled per
