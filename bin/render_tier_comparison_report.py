@@ -5,12 +5,38 @@ cluster-vs-pairwise-sensitivity-design.md.
 """
 import argparse
 import csv
+import sys
 from pathlib import Path
+
+
+PLACEHOLDER = '_Fill in by hand after reading the tables above'
 
 
 def read_tsv(path):
     with open(path) as fh:
         return list(csv.DictReader(fh, delimiter='\t'))
+
+
+def check_overwrite_guard(output_path, force):
+    """Refuse to clobber a hand-written report.
+
+    Returns None if it's safe to proceed (no existing file, existing file still
+    has the unfilled Analysis 4 placeholder, or --force was passed). Returns an
+    error message string if the write should be refused.
+    """
+    out = Path(output_path)
+    if force or not out.exists():
+        return None
+    existing = out.read_text()
+    if PLACEHOLDER in existing:
+        return None
+    return (
+        f'refusing to overwrite {output_path}: it already exists and does not '
+        f'contain the unfilled Analysis 4 placeholder ("{PLACEHOLDER}..."), so it '
+        'looks hand-edited (e.g. a filled-in Analysis 4 conclusion or a hand-merged '
+        'subsection). Pass --force to regenerate it anyway and discard those '
+        'hand edits.'
+    )
 
 
 def render_table(rows):
@@ -28,7 +54,17 @@ def main():
     ap.add_argument('--tier-comparison-dir', required=True, dest='dir')
     ap.add_argument('--label', default='pezizo_set1')
     ap.add_argument('--output', required=True)
+    ap.add_argument('--force', action='store_true',
+                     help='Overwrite --output even if it already exists and does not '
+                          'contain the unfilled Analysis 4 placeholder (i.e. it looks '
+                          'hand-edited). Without this, such an existing file is left '
+                          'untouched and the script exits with an error.')
     args = ap.parse_args()
+
+    guard_error = check_overwrite_guard(args.output, args.force)
+    if guard_error is not None:
+        print(guard_error, file=sys.stderr)
+        raise SystemExit(1)
 
     d = Path(args.dir)
     sections = []
@@ -50,7 +86,7 @@ def main():
 
     cost = d / f'{args.label}.cost.tsv'
     if cost.exists():
-        sections.append('\n## Analysis 3: real compute cost (CPU-hours)\n')
+        sections.append('\n## Analysis 3: real compute cost (wall-hours)\n')
         sections.append(render_table(read_tsv(cost)))
 
     sections.append('\n## Analysis 4: decision framework\n')
