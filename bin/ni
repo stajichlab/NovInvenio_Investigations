@@ -58,6 +58,17 @@ def main() -> int:
             "species queried."
         ),
     )
+    discover_ap.add_argument(
+        "--pick-representatives", action="store_true", dest="pick_representatives",
+        help=(
+            "Reduce the full enumeration to one best-assembled genome per (species, "
+            "forma-specialis group) pair, using the same BUSCO/assembly-level/GCA-GCF-pair "
+            "ranking already used to resolve detected duplicates -- for building a small, "
+            "curated species.csv (one representative per named group) instead of the full "
+            "population. Combinable with --ingroup-groups/--outgroup-groups; mutually "
+            "exclusive with --auto."
+        ),
+    )
 
     run_ap = sub.add_parser("run", help="Pass through to bin/run_study.sh (build if needed, then launch nextflow)")
     run_ap.add_argument("--study-dir", required=True)
@@ -92,6 +103,7 @@ def main() -> int:
             outgroup_groups=_split_groups(args.outgroup_groups),
             auto=args.auto,
             include_species_complex=args.include_species_complex,
+            pick_representatives=args.pick_representatives,
         )
         return 0
 

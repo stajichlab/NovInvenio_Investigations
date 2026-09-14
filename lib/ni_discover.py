@@ -336,6 +336,29 @@ def _pick_duplicate_group_representative(group: list[dict[str, Any]]) -> dict[st
     return min(group, key=sort_key)
 
 
+def pick_group_representatives(
+    representatives: list[dict[str, Any]], rank_lookup: dict[str, dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """One genome per (species name, forma-specialis group) pair, for
+    `--pick-representatives`. Reuses _pick_duplicate_group_representative's
+    quality tie-break unchanged -- its "labelled beats unlabelled" rule is a
+    no-op here since every member of one group already shares the same
+    `_forma_group` label, so the same ranking correctly reduces to "pick the
+    best-assembled genome" without a second implementation to keep in sync.
+
+    Grouped by species name too, not just the fsp label alone: a sibling
+    species pulled in by --include-species-complex (e.g. Fusarium
+    odoratissimum alongside F. oxysporum) would otherwise be silently
+    merged into the primary species' same-named fallback bucket (both
+    commonly land in "no-fsp-in-name") and lose its own representative.
+    """
+    groups: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for g in representatives:
+        key = (derive_species_name(g, rank_lookup), g["_forma_group"])
+        groups.setdefault(key, []).append(g)
+    return [_pick_duplicate_group_representative(groups[key]) for key in sorted(groups)]
+
+
 def _collapse_paired_with_partner_busco(genomes: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Wraps `_collapse_paired` (from `ni_resolve`, kept byte-for-byte
     unchanged -- a project constraint, no new GCA/GCF pair-preference rule)
@@ -560,6 +583,7 @@ def discover_species(
     outgroup_groups: list[str] | None,
     auto: bool,
     include_species_complex: bool,
+    pick_representatives: bool = False,
 ) -> None:
     """Full orchestration for `bin/ni discover`: resolve taxon, query
     genomes (+ species-complex genomes if `include_species_complex`), fetch
@@ -577,13 +601,26 @@ def discover_species(
     - --auto: REPORT-ONLY. Prints the same report plus an extra proposal
       note, but writes every row with Group="" exactly like the default
       mode -- --auto must NEVER write IN/OUT into species.csv.
+    - pick_representatives: reduces the full enumeration to one best
+      -assembled genome per (species name, forma-specialis group) pair
+      (see pick_group_representatives) before applying whichever of the
+      three modes above is active -- combinable with the default or
+      explicit-groups modes, NOT with --auto (mutually exclusive: --auto's
+      proposal analyzes the full enumeration, which this would have
+      already reduced away).
 
     --auto and explicit ingroup_groups/outgroup_groups are mutually
-    exclusive (sys.exit if both given). Refuses to run if species.csv
-    already exists (discover only seeds a brand-new study).
+    exclusive (sys.exit if both given), and so are --auto and
+    pick_representatives. Refuses to run if species.csv already exists
+    (discover only seeds a brand-new study).
     """
     if (ingroup_groups or outgroup_groups) and auto:
         sys.exit("ERROR: --ingroup-groups/--outgroup-groups and --auto are mutually exclusive")
+    if pick_representatives and auto:
+        sys.exit("ERROR: --pick-representatives and --auto are mutually exclusive "
+                 "-- --auto's proposal (largest group, cross-group duplicates) analyzes "
+                 "the full enumeration, which --pick-representatives would already have "
+                 "reduced to one row per group")
     if auto:
         # Hardens the --auto-never-writes-Group invariant locally, so it
         # does not depend solely on the mutual-exclusivity guard above
@@ -654,6 +691,13 @@ def discover_species(
     # tie-break (see _pick_duplicate_group_representative) -- never an
     # arbitrary grp[0] on whatever order NCBI happened to return.
     representatives = [_pick_duplicate_group_representative(grp) for grp in duplicate_groups]
+
+    if pick_representatives:
+        # Further reduce to one genome per (species, forma-specialis group) --
+        # e.g. for a --pick-representatives run, --ingroup-groups/--outgroup-groups
+        # then assign IN/OUT to these already-curated representatives, not the
+        # full enumeration.
+        representatives = pick_group_representatives(representatives, rank_lookup)
 
     available_group_labels = {g["_forma_group"] for g in representatives}
     for label in (ingroup_groups or []) + (outgroup_groups or []):

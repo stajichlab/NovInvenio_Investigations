@@ -709,3 +709,66 @@ def test_build_report_names_kept_vs_merged_accession():
     report = nd.build_report(group, {}, duplicate_groups=[group], species_complex=None, complex_genome_count=0)
     assert "kept GCA_2" in report
     assert "GCA_1" in report
+
+
+def test_pick_group_representatives_one_per_species_and_fsp_group():
+    rank_lookup = {
+        "999": {"rank": "SPECIES", "name": "Test species", "parents": [], "species_name": "Test species"},
+        "888": {"rank": "SPECIES", "name": "Sibling species", "parents": [], "species_name": "Sibling species"},
+    }
+    reps = [
+        {"accession": "GCA_1", "record_taxon_id": "999", "paired_accession": None,
+         "busco_score": 70.0, "assembly_level": "Scaffold", "_forma_group": "alpha"},
+        {"accession": "GCA_2", "record_taxon_id": "999", "paired_accession": None,
+         "busco_score": 95.0, "assembly_level": "Scaffold", "_forma_group": "alpha"},
+        {"accession": "GCA_3", "record_taxon_id": "888", "paired_accession": None,
+         "busco_score": 50.0, "assembly_level": "Contig", "_forma_group": "no-fsp-in-name"},
+    ]
+    for g in reps:
+        g["organism_name"] = rank_lookup[g["record_taxon_id"]]["name"]
+
+    picked = nd.pick_group_representatives(reps, rank_lookup)
+
+    assert len(picked) == 2  # (Test species, alpha) and (Sibling species, no-fsp-in-name)
+    accessions = {g["accession"] for g in picked}
+    assert accessions == {"GCA_2", "GCA_3"}  # GCA_2 wins alpha on BUSCO; GCA_3 is the only sibling
+
+
+def test_discover_species_pick_representatives_reduces_to_one_per_group(tmp_path, monkeypatch):
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover_reps"
+    genomes = [
+        _fake_genome("GCA_1", "1", "StrainA"),
+        _fake_genome("GCA_2", "2", "StrainB"),
+    ]
+    genomes[0]["busco_score"] = 70.0
+    genomes[1]["busco_score"] = 95.0
+    monkeypatch.setattr(nd, "resolve_taxon_id", lambda s: [{"taxon_id": "999", "scientific_name": s}])
+    monkeypatch.setattr(nd, "query_species_genomes", lambda tid: genomes)
+    monkeypatch.setattr(nd, "fetch_taxonomy_ranks", lambda ids: {
+        "1": {"rank": "STRAIN", "name": "Test species StrainA", "parents": ["999"], "species_name": "Test species"},
+        "2": {"rank": "STRAIN", "name": "Test species StrainB", "parents": ["999"], "species_name": "Test species"},
+        "999": {"rank": "SPECIES", "name": "Test species", "parents": [], "species_name": "Test species"},
+    })
+
+    nd.discover_species(
+        "Test species", study_dir, ingroup_groups=None, outgroup_groups=None,
+        auto=False, include_species_complex=False, pick_representatives=True,
+    )
+
+    with open(study_dir / "species.csv", newline="") as fh:
+        rows = list(csv.DictReader(fh))
+    assert len(rows) == 1  # both genomes share (Test species, no-fsp-in-name) -> one representative
+    assert rows[0]["Genome_Accession"] == "GCA_2"  # higher BUSCO wins
+    assert rows[0]["Group"] == ""  # still human-assigned, not auto-set
+
+
+def test_discover_species_pick_representatives_and_auto_mutually_exclusive(tmp_path, monkeypatch):
+    study_dir = tmp_path / "studies" / "fungi" / "toy_discover_reps2"
+    try:
+        nd.discover_species(
+            "Test species", study_dir, ingroup_groups=None, outgroup_groups=None,
+            auto=True, include_species_complex=False, pick_representatives=True,
+        )
+        assert False, "expected SystemExit"
+    except SystemExit as e:
+        assert "pick-representatives" in str(e) or "pick_representatives" in str(e)
