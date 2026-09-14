@@ -261,7 +261,12 @@ def find_cooccurring_pairs(
         f"cooccurrence: {len(eligible)} eligible families, {total_m} candidate "
         f"pairs to screen", file=sys.stderr,
     )
-    survivors = []  # (fam_a, fam_b, both, a_only, b_only, neither, p)
+    # Deliberately only (fam_a, fam_b, p) here, NOT the four 2x2 counts too --
+    # peak memory during screening is what OOM-killed a real 293-strain run
+    # under a tight (8GB) job memory cgroup (the counts are trivially
+    # recomputed from `family_bits` for the much smaller FDR-survivor set
+    # below, so there is no reason to hold them for every screen-survivor).
+    survivors = []  # (fam_a, fam_b, p)
     progress_every = max(1, total_m // 20)  # ~20 progress lines regardless of scale
     for i, (fam_a, fam_b) in enumerate(itertools.combinations(eligible, 2), start=1):
         both, a_only, b_only, neither = fisher_counts_from_bits(
@@ -270,7 +275,7 @@ def find_cooccurring_pairs(
         if quick_screen_pvalue(both, a_only, b_only, neither) > screen_alpha:
             continue
         p = fisher_pvalue_from_counts(both, a_only, b_only, neither)
-        survivors.append((fam_a, fam_b, both, a_only, b_only, neither, p))
+        survivors.append((fam_a, fam_b, p))
         if i % progress_every == 0:
             print(
                 f"cooccurrence: screened {i}/{total_m} pairs "
@@ -279,14 +284,23 @@ def find_cooccurring_pairs(
 
     if not survivors:
         return []
-    qvalues = benjamini_hochberg_sparse([s[6] for s in survivors], total_m)
+    qvalues = benjamini_hochberg_sparse([s[2] for s in survivors], total_m)
+
+    fdr_survivors = [
+        (fam_a, fam_b, p, q) for (fam_a, fam_b, p), q in zip(survivors, qvalues) if q < fdr_alpha
+    ]
+    print(
+        f"cooccurrence: {len(survivors)} pairs cleared the prefilter, "
+        f"{len(fdr_survivors)} clear FDR ({fdr_alpha}) -- running permutation "
+        f"tests ({n_perms} perms each)", file=sys.stderr,
+    )
+    perm_progress_every = max(1, len(fdr_survivors) // 20)
 
     rng = random.Random(seed)
     results = []
-    for (fam_a, fam_b, both, a_only, b_only, neither, p), q in zip(survivors, qvalues):
-        if q >= fdr_alpha:
-            continue
+    for j, (fam_a, fam_b, p, q) in enumerate(fdr_survivors, start=1):
         a_bits, b_bits = family_bits[fam_a], family_bits[fam_b]
+        both, a_only, b_only, neither = fisher_counts_from_bits(a_bits, b_bits, n)
         vec_a = [bool((a_bits >> i) & 1) for i in range(n)]
         vec_b = [bool((b_bits >> i) & 1) for i in range(n)]
         strains_present_a = [s for s, present in zip(strains, vec_a) if present]
@@ -302,6 +316,11 @@ def find_cooccurring_pairs(
             "direction_a": polarize_direction(out_count_a, out_total_a),
             "clade_composition": clade_composition(strains_present_a, clade_of_strain),
         })
+        if j % perm_progress_every == 0:
+            print(
+                f"cooccurrence: permutation-tested {j}/{len(fdr_survivors)} "
+                "FDR-significant pairs", file=sys.stderr,
+            )
     return results
 
 
