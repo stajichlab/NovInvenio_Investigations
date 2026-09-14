@@ -9,6 +9,8 @@ from pangenome_matrix import PresenceMatrix, PRESENT
 from cooccurrence import (
     jaccard, fisher_pvalue, benjamini_hochberg, polarize_direction,
     clade_composition, permutation_null_pvalue, find_cooccurring_pairs,
+    presence_bitset, fisher_counts_from_bits, fisher_pvalue_from_counts,
+    quick_screen_pvalue, benjamini_hochberg_sparse,
 )
 
 
@@ -155,6 +157,146 @@ def test_warn_if_unstratified_silent_when_clades_are_labelled(capsys):
     clades = {"s1": "cladeA", "s2": "cladeB", "s3": "cladeA"}
     assert warn_if_unstratified(["s1", "s2", "s3"], clades) is False
     assert capsys.readouterr().err == ""
+
+
+def test_presence_bitset_matches_presence_vector_within():
+    strains = [f"s{i}" for i in range(6)]
+    pm = PresenceMatrix(families=["famA"], strains=strains)
+    for s in ["s1", "s3", "s5"]:
+        pm.set_call("famA", s, PRESENT)
+    from cooccurrence import presence_vector_within
+
+    bits = presence_bitset(pm, "famA", strains)
+    vec = presence_vector_within(pm, "famA", strains)
+    assert [bool((bits >> i) & 1) for i in range(len(strains))] == vec
+
+
+def test_fisher_counts_from_bits_matches_naive_list_counts():
+    # a: strains 0,1,2 present; b: strains 1,2,3 present (over 5 strains)
+    a_bits = 0b00111
+    b_bits = 0b01110
+    both, a_only, b_only, neither = fisher_counts_from_bits(a_bits, b_bits, n=5)
+    # both = {1,2} -> 2; a_only = {0} -> 1; b_only = {3} -> 1; neither = {4} -> 1
+    assert (both, a_only, b_only, neither) == (2, 1, 1, 1)
+
+
+def test_fisher_pvalue_from_counts_matches_list_based_fisher_pvalue():
+    a = [True, True, True, True, False, False, False, False]
+    b = [True, True, True, True, False, False, False, False]
+    both, a_only, b_only, neither = fisher_counts_from_bits(0b00001111, 0b00001111, n=8)
+    p_from_counts = fisher_pvalue_from_counts(both, a_only, b_only, neither)
+    p_from_lists = fisher_pvalue(a, b)
+    assert p_from_counts == p_from_lists
+
+
+def test_quick_screen_pvalue_never_screens_out_a_clearly_significant_table():
+    # Perfect co-occurrence in 6 of 10 strains -- the real find_cooccurring_pairs
+    # regression fixture below; must clear a generous screen_alpha comfortably.
+    both, a_only, b_only, neither = 6, 0, 0, 4
+    screen_p = quick_screen_pvalue(both, a_only, b_only, neither)
+    exact_p = fisher_pvalue_from_counts(both, a_only, b_only, neither)
+    assert screen_p < 0.2
+    assert exact_p < 0.05
+
+
+def test_quick_screen_pvalue_screens_out_a_clearly_random_table():
+    # Roughly independent presence (both ~ expected under independence) --
+    # should screen out well above any reasonable screen_alpha.
+    both, a_only, b_only, neither = 3, 3, 3, 3
+    assert quick_screen_pvalue(both, a_only, b_only, neither) > 0.2
+
+
+def test_quick_screen_pvalue_handles_degenerate_zero_margin():
+    assert quick_screen_pvalue(0, 0, 0, 10) == 1.0
+    assert quick_screen_pvalue(10, 0, 0, 0) == 1.0
+
+
+def test_benjamini_hochberg_sparse_matches_dense_when_total_m_equals_len():
+    pvals = [0.001, 0.01, 0.02, 0.5, 0.9]
+    dense = benjamini_hochberg(pvals)
+    sparse = benjamini_hochberg_sparse(pvals, total_m=len(pvals))
+    for d, s in zip(dense, sparse):
+        assert abs(d - s) < 1e-9
+
+
+def test_benjamini_hochberg_sparse_is_more_conservative_with_larger_total_m():
+    # Same small p-values, but told there were many more (screened-out, p=1)
+    # hypotheses in the true test space -- q-values must not get SMALLER.
+    pvals = [0.001, 0.002, 0.003]
+    q_small_m = benjamini_hochberg_sparse(pvals, total_m=3)
+    q_large_m = benjamini_hochberg_sparse(pvals, total_m=1_000_000)
+    for small, large in zip(q_small_m, q_large_m):
+        assert large >= small
+
+
+def test_benjamini_hochberg_sparse_rejects_total_m_smaller_than_survivor_count():
+    try:
+        benjamini_hochberg_sparse([0.01, 0.02], total_m=1)
+        assert False, "expected ValueError"
+    except ValueError:
+        pass
+
+
+def test_find_cooccurring_pairs_scaling_rewrite_matches_expected_calls():
+    """Same fixture as test_find_cooccurring_pairs_applies_frequency_floor_and_fdr,
+    re-run with a tight screen_alpha to confirm the prefilter doesn't discard
+    a real signal, and with screening effectively disabled (screen_alpha=1.0)
+    to confirm both code paths agree."""
+    strains = [f"s{i}" for i in range(10)]
+    pm = PresenceMatrix(families=["famA", "famB", "famRare1", "famRare2"], strains=strains)
+    for s in strains[:6]:
+        pm.set_call("famA", s, PRESENT)
+        pm.set_call("famB", s, PRESENT)
+    pm.set_call("famRare1", "s0", PRESENT)
+    pm.set_call("famRare1", "s1", PRESENT)
+    pm.set_call("famRare2", "s0", PRESENT)
+    pm.set_call("famRare2", "s1", PRESENT)
+
+    frequency_table = [
+        {"family": "famA", "bin": "shell"}, {"family": "famB", "bin": "shell"},
+        {"family": "famRare1", "bin": "cloud"}, {"family": "famRare2", "bin": "cloud"},
+    ]
+    clade_of_strain = {s: "Clade_1" for s in strains}
+    outgroup_presence = {
+        "famA": (0, 0), "famB": (0, 0), "famRare1": (0, 0), "famRare2": (0, 0),
+    }
+
+    for screen_alpha in (0.05, 1.0):
+        pairs = find_cooccurring_pairs(
+            pm, frequency_table, clade_of_strain, outgroup_presence,
+            min_strain_count=5, fdr_alpha=0.05, n_perms=100, seed=0,
+            screen_alpha=screen_alpha,
+        )
+        reported = {(p["family_a"], p["family_b"]) for p in pairs}
+        assert ("famA", "famB") in reported or ("famB", "famA") in reported, (
+            f"screen_alpha={screen_alpha} wrongly discarded the real signal"
+        )
+
+
+def test_find_cooccurring_pairs_screen_alpha_never_tighter_than_fdr_alpha():
+    """Regression test: at tiny sample sizes (n=3) the normal-approximation
+    screen is a poor approximation and can wrongly discard a pair a
+    permissive fdr_alpha would otherwise keep -- caught by the pipeline
+    integration test's fdr_alpha=1.0 ("keep everything") fixture. The screen
+    must auto-widen to at least fdr_alpha regardless of its own default."""
+    strains = ["s1", "s2", "s3"]
+    pm = PresenceMatrix(families=["famA", "famB"], strains=strains)
+    for s in ["s1", "s2"]:
+        pm.set_call("famA", s, PRESENT)
+        pm.set_call("famB", s, PRESENT)
+    frequency_table = [
+        {"family": "famA", "bin": "shell"}, {"family": "famB", "bin": "shell"},
+    ]
+    clade_of_strain = {s: "cladeX" for s in strains}
+    outgroup_presence = {"famA": (0, 0), "famB": (0, 0)}
+
+    pairs = find_cooccurring_pairs(
+        pm, frequency_table, clade_of_strain, outgroup_presence,
+        min_strain_count=2, fdr_alpha=1.0, n_perms=20, strains=strains,
+        screen_alpha=0.2,  # the default -- would wrongly discard this pair
+    )
+    reported = {(p["family_a"], p["family_b"]) for p in pairs}
+    assert ("famA", "famB") in reported or ("famB", "famA") in reported
 
 
 def test_main_treats_outgroup_absent_from_matrix_as_ambiguous_not_gain(

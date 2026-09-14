@@ -15,10 +15,12 @@ from __future__ import annotations
 
 import argparse
 import itertools
+import math
 import random
 import sys
 from pathlib import Path
 
+import numpy as np
 from scipy.stats import fisher_exact, false_discovery_control
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
@@ -37,6 +39,69 @@ def strain_count_within(matrix: PresenceMatrix, family: str, strains: list[str])
     return sum(presence_vector_within(matrix, family, strains))
 
 
+def presence_bitset(matrix: PresenceMatrix, family: str, strains: list[str]) -> int:
+    """Pack a family's presence/absence over `strains` into a single Python
+    int (bit i = strains[i]) -- scaling fix (design spec component 10 step 7,
+    must-fix M8): `find_cooccurring_pairs` used to recompute a fresh O(strains)
+    Python bool list for every PAIR (via `presence_vector_within`), an
+    O(pairs x strains) cost on top of the O(pairs) Fisher test itself. Every
+    family's bitset is now built exactly once and reused for every pair via
+    O(1)-ish bitwise ops (`fisher_counts_from_bits`) -- Python's arbitrary-
+    precision ints give a free, dependency-free popcount via `int.bit_count()`
+    (3.10+), no numpy array needed for this part."""
+    bits = 0
+    for i, s in enumerate(strains):
+        if matrix.is_present(family, s):
+            bits |= 1 << i
+    return bits
+
+
+def fisher_counts_from_bits(a_bits: int, b_bits: int, n: int) -> tuple[int, int, int, int]:
+    """(both, a_only, b_only, neither) 2x2-table counts for two presence
+    bitsets over `n` strains, via bitwise AND/OR/XOR + `.bit_count()`."""
+    full = (1 << n) - 1
+    both = (a_bits & b_bits).bit_count()
+    a_only = (a_bits & (full ^ b_bits)).bit_count()
+    b_only = (b_bits & (full ^ a_bits)).bit_count()
+    neither = (full ^ (a_bits | b_bits)).bit_count()
+    return both, a_only, b_only, neither
+
+
+def fisher_pvalue_from_counts(both: int, a_only: int, b_only: int, neither: int) -> float:
+    _, p = fisher_exact([[both, a_only], [b_only, neither]], alternative="greater")
+    return p
+
+
+def quick_screen_pvalue(both: int, a_only: int, b_only: int, neither: int) -> float:
+    """Fast, deliberately GENEROUS continuity-corrected normal approximation
+    to the one-sided Fisher exact test -- used ONLY to decide whether a pair
+    is worth an actual `scipy.fisher_exact` call (design spec component 10
+    step 7, must-fix M8: an analytic prefilter before the exact test, since
+    an all-pairs exact-Fisher pass over tens of thousands of families is the
+    real O(n^2) scaling cliff). The continuity correction (-0.5) biases the
+    result toward LARGER p-values than the true one-sided exact test would
+    give -- i.e. toward keeping a borderline pair for the exact test rather
+    than discarding it -- so this must NEVER be used as the reported
+    statistic, only as a pre-filter with a threshold looser than the real
+    significance level (see `screen_alpha` in `find_cooccurring_pairs`, well
+    above `fdr_alpha`). Returns 1.0 (never significant, always screened out)
+    for a degenerate table with a zero margin, matching what the exact test
+    would also report."""
+    n = both + a_only + b_only + neither
+    row1 = both + a_only
+    col1 = both + b_only
+    if n == 0 or row1 == 0 or col1 == 0 or row1 == n or col1 == n:
+        return 1.0
+    expected_both = row1 * col1 / n
+    var = row1 * col1 * (n - row1) * (n - col1) / (n * n * (n - 1))
+    if var <= 0:
+        return 1.0
+    z = (both - expected_both - 0.5) / math.sqrt(var)
+    if z <= 0:
+        return 1.0
+    return 0.5 * math.erfc(z / math.sqrt(2))
+
+
 def jaccard(a: list[bool], b: list[bool]) -> float:
     intersection = sum(1 for x, y in zip(a, b) if x and y)
     union = sum(1 for x, y in zip(a, b) if x or y)
@@ -48,14 +113,36 @@ def fisher_pvalue(a: list[bool], b: list[bool]) -> float:
     a_only = sum(1 for x, y in zip(a, b) if x and not y)
     b_only = sum(1 for x, y in zip(a, b) if y and not x)
     neither = sum(1 for x, y in zip(a, b) if not x and not y)
-    _, p = fisher_exact([[both, a_only], [b_only, neither]], alternative="greater")
-    return p
+    return fisher_pvalue_from_counts(both, a_only, b_only, neither)
 
 
 def benjamini_hochberg(pvalues: list[float]) -> list[float]:
     if not pvalues:
         return []
     return list(false_discovery_control(pvalues, method="bh"))
+
+
+def benjamini_hochberg_sparse(pvalues: list[float], total_m: int) -> list[float]:
+    """BH-FDR q-values for a SPARSE subset of hypotheses that already survived
+    `quick_screen_pvalue` -- design spec component 10 step 7, must-fix M8's
+    "streaming two-pass BH" requirement. Every hypothesis NOT in `pvalues` is
+    treated as having p == 1.0 (the maximum possible value): the prefilter is
+    built to never underestimate a survivor's true significance, so nothing
+    it screens out could ever outrank a kept p-value in the full sort BH's
+    procedure depends on. `total_m` is the TRUE total hypothesis count (e.g.
+    `len(eligible) choose 2`, not `len(pvalues)`) -- using `len(pvalues)` as m
+    would under-correct, silently inflating the false-discovery rate. Reuses
+    scipy's own BH implementation (by padding with p=1.0 placeholders) rather
+    than hand-rolling the rank/tie logic, which is where a bespoke
+    implementation most often goes subtly wrong."""
+    k = len(pvalues)
+    if k == 0:
+        return []
+    if total_m < k:
+        raise ValueError(f"total_m ({total_m}) must be >= number of tested pairs ({k})")
+    padded = np.concatenate([np.asarray(pvalues, dtype=np.float64), np.ones(total_m - k)])
+    q_padded = false_discovery_control(padded, method="bh")
+    return [float(x) for x in q_padded[:k]]
 
 
 def polarize_direction(outgroup_present_count: int, outgroup_total: int) -> str:
@@ -118,6 +205,7 @@ def find_cooccurring_pairs(
     n_perms: int = 1000,
     seed: int = 0,
     strains: list[str] | None = None,
+    screen_alpha: float = 0.2,
 ) -> list[dict]:
     """`strains` restricts every ingroup statistic (the strain-count floor,
     Fisher presence vectors, clade composition) to that subset -- callers
@@ -128,38 +216,86 @@ def find_cooccurring_pairs(
     the matrix). `outgroup_presence` maps family -> (outgroup_present_count,
     outgroup_total), always computed over the FULL matrix (it needs to see
     the outgroup strains) -- see polarize_direction for how the counts are
-    used."""
-    strains = matrix.strains if strains is None else strains
+    used.
 
-    eligible = [
-        row["family"] for row in frequency_table
-        if row["bin"] in ("shell", "cloud")
-        and strain_count_within(matrix, row["family"], strains) >= min_strain_count
-    ]
+    Scaling rewrite (design spec component 10 step 7, must-fix M8): the
+    all-pairs enumeration over shell/cloud families is O(n^2) in family count
+    and was previously ALSO O(strains) per pair (recomputing each family's
+    presence vector from scratch for every pair it appeared in), a real
+    scaling cliff at real-study family counts (tens of thousands). Every
+    family's presence is now packed into a bitset exactly once
+    (`presence_bitset`); each pair's 2x2 table comes from O(1)-ish bitwise
+    ops (`fisher_counts_from_bits`); a fast analytic prefilter
+    (`quick_screen_pvalue`, deliberately looser than `fdr_alpha`) skips the
+    expensive exact `scipy.fisher_exact` call for the vast majority of
+    clearly-non-significant pairs; only lightweight (family_a, family_b,
+    counts, p) tuples are kept for screen survivors rather than materializing
+    every pair's full presence vectors; and BH-FDR correction
+    (`benjamini_hochberg_sparse`) is applied against the TRUE total pair
+    count, not just the survivor count, so screening never under-corrects.
+    Permutation testing (the slowest per-pair step) still runs only on
+    FDR-survivors, as before.
+
+    Invariant: the prefilter must NEVER be tighter than the caller's actual
+    significance threshold -- a real bug caught by this rewrite's own
+    integration test (`test_pipeline_integration.py`, which deliberately
+    passes `fdr_alpha=1.0` to mean "keep every tested pair" on a 3-strain
+    fixture; the normal-approximation screen, calibrated for realistic
+    sample sizes, is a poor approximation at n=3 and screened that pair out
+    before it ever reached the exact test or the fdr_alpha check). Fixed by
+    clamping `screen_alpha` up to at least `fdr_alpha`, so a permissive
+    `fdr_alpha` always implies an equally permissive screen -- the prefilter
+    is purely a performance optimization and must never change what a given
+    `fdr_alpha` would otherwise have kept."""
+    screen_alpha = max(screen_alpha, fdr_alpha)
+    strains = matrix.strains if strains is None else strains
+    n = len(strains)
+
+    shell_cloud_families = [row["family"] for row in frequency_table if row["bin"] in ("shell", "cloud")]
+    family_bits = {fam: presence_bitset(matrix, fam, strains) for fam in shell_cloud_families}
+    eligible = [fam for fam in shell_cloud_families if family_bits[fam].bit_count() >= min_strain_count]
     clades = [clade_of_strain.get(s, "unknown") for s in strains]
 
-    candidates = []
-    for fam_a, fam_b in itertools.combinations(eligible, 2):
-        vec_a = presence_vector_within(matrix, fam_a, strains)
-        vec_b = presence_vector_within(matrix, fam_b, strains)
-        p = fisher_pvalue(vec_a, vec_b)
-        candidates.append((fam_a, fam_b, vec_a, vec_b, p))
+    total_m = len(eligible) * (len(eligible) - 1) // 2
+    print(
+        f"cooccurrence: {len(eligible)} eligible families, {total_m} candidate "
+        f"pairs to screen", file=sys.stderr,
+    )
+    survivors = []  # (fam_a, fam_b, both, a_only, b_only, neither, p)
+    progress_every = max(1, total_m // 20)  # ~20 progress lines regardless of scale
+    for i, (fam_a, fam_b) in enumerate(itertools.combinations(eligible, 2), start=1):
+        both, a_only, b_only, neither = fisher_counts_from_bits(
+            family_bits[fam_a], family_bits[fam_b], n
+        )
+        if quick_screen_pvalue(both, a_only, b_only, neither) > screen_alpha:
+            continue
+        p = fisher_pvalue_from_counts(both, a_only, b_only, neither)
+        survivors.append((fam_a, fam_b, both, a_only, b_only, neither, p))
+        if i % progress_every == 0:
+            print(
+                f"cooccurrence: screened {i}/{total_m} pairs "
+                f"({len(survivors)} survivors so far)", file=sys.stderr,
+            )
 
-    if not candidates:
+    if not survivors:
         return []
-    qvalues = benjamini_hochberg([c[4] for c in candidates])
+    qvalues = benjamini_hochberg_sparse([s[6] for s in survivors], total_m)
 
     rng = random.Random(seed)
     results = []
-    for (fam_a, fam_b, vec_a, vec_b, p), q in zip(candidates, qvalues):
+    for (fam_a, fam_b, both, a_only, b_only, neither, p), q in zip(survivors, qvalues):
         if q >= fdr_alpha:
             continue
+        a_bits, b_bits = family_bits[fam_a], family_bits[fam_b]
+        vec_a = [bool((a_bits >> i) & 1) for i in range(n)]
+        vec_b = [bool((b_bits >> i) & 1) for i in range(n)]
         strains_present_a = [s for s, present in zip(strains, vec_a) if present]
         out_count_a, out_total_a = outgroup_presence.get(fam_a, (0, 0))
+        union = both + a_only + b_only
         results.append({
             "family_a": fam_a,
             "family_b": fam_b,
-            "jaccard": jaccard(vec_a, vec_b),
+            "jaccard": both / union if union else 0.0,
             "fisher_p": p,
             "fdr_q": q,
             "permutation_p": permutation_null_pvalue(vec_a, vec_b, clades, n_perms, rng),
@@ -213,6 +349,12 @@ def main() -> None:
     ap.add_argument("--min_strain_count", type=int, default=5)
     ap.add_argument("--fdr_alpha", type=float, default=0.05)
     ap.add_argument("--n_perms", type=int, default=1000)
+    ap.add_argument(
+        "--screen_alpha", type=float, default=0.2,
+        help="analytic-prefilter threshold (must stay looser than --fdr_alpha) "
+        "-- a pair only gets the expensive exact Fisher test if the fast "
+        "normal-approximation screen clears this; see quick_screen_pvalue",
+    )
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
 
@@ -266,7 +408,7 @@ def main() -> None:
     pairs = find_cooccurring_pairs(
         matrix, frequency_table, clade_of_strain, outgroup_presence,
         args.min_strain_count, args.fdr_alpha, args.n_perms,
-        strains=ingroup_shorts,
+        strains=ingroup_shorts, screen_alpha=args.screen_alpha,
     )
     with open(args.output, "w") as fh:
         fh.write("family_a\tfamily_b\tjaccard\tfisher_p\tfdr_q\tpermutation_p\tdirection_a\tclade_composition\n")
