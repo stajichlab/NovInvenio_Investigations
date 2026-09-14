@@ -328,3 +328,80 @@ repo's parent directory.
       clustering run (a separate open item above). See "HAC/hacA
       reference-sequence screen -- results" section above for the actual
       finding (hacA universal, true hrmA ortholog in only 8/293 strains).
+
+## Component 8 (pair classification) -- real results (2026-09-14)
+
+Full pipeline run against real 295-strain data, in dependency order:
+
+1. Tier-1 clustering (2026-09-13): 2,788,402 proteins -> 47,983 families
+   (~14 min).
+2. Presence matrix, strain dereplication (123/295 reps), frequency binning:
+   6,600 core / 582 soft-core / 3,943 shell / 9,238 cloud / 27,620 singleton.
+3. Co-occurrence (`bin/cooccurrence.py`, rewritten for scale -- bitset
+   presence vectors, an analytic prefilter, sparse BH-FDR; see the design
+   spec's component 10 step 7): 25,765,431 candidate pairs screened ->
+   1,259,432 clear FDR (0.05). First attempt was OOM-killed by the
+   interactive session's 8GB job memory cgroup after ~10h (confirmed via
+   `dmesg`, not a host-wide OOM or an algorithm bug); fixed (smaller
+   survivor tuples, permutation-phase progress logging) and resubmitted as
+   a real SLURM batch job (`run_cooccurrence_full293.sh`, `-p stajichlab`,
+   32gb) -- finished in well under an hour once given real memory.
+   **Sanity check on the 1.26M "significant" pairs**: only 547,553 (43.5%)
+   also clear the clade-stratified permutation null -- the majority get
+   correctly knocked back down, exactly the behavior the design's
+   permutation-null safeguard was built for, not a sign of trouble.
+4. `bin/build_gene_positions.py` (new): per-strain protein_id -> genomic
+   position from each strain's own GFF3 CDS `protein_id=` attribute (not
+   gene ID -- family membership is already keyed on protein ID, so this
+   sidesteps the gene-ID-vs-protein-ID crosswalk problem entirely).
+   2,788,389 positions across all 295 strains.
+5. `bin/build_family_positions.py` (new): joins gene_positions.tsv with
+   `tier1_cluster.tsv` into per-strain, per-family RANK positions (multi-
+   copy families get a list of positions, not one -- fixes
+   `synteny_windows.py`'s `linkage_fraction`, which previously assumed a
+   single position per family per strain and would have silently
+   mislabeled physical linkage for exactly the multi-copy families this
+   study's own HAC finding showed matter most). 2,758,017 (strain, family,
+   copy) positions.
+6. DUF3435 (Starship captain gene, the real evidence source component 8's
+   M1 fix required) `hmmsearch` against all 295 strains: 2,248 hits, every
+   one of the 295 strains has at least one (median ~6-8 per strain) --
+   biologically plausible for this Starship-rich species.
+7. `bin/pair_classification.py` (new): classified all 1,259,432 FDR-
+   significant pairs (~4.5 min real runtime, no SLURM job needed).
+
+**Final classification** (all 1,259,432 pairs):
+
+| Label | Count | |
+|---|---|---|
+| `trans_unconfirmed` | 649,996 | non-physical, fails the permutation/clade gate |
+| `trans` | 522,933 | non-physical, statistically robust -- interaction/co-evolution candidates |
+| `insufficient_data` | 75,816 | <5 co-carrying strains with a resolvable position |
+| `unexplained_physical` | **5,242** | physically clustered, no Starship captain nearby -- the "other patterns" this component exists to surface |
+| `ambiguous_linkage` | 3,029 | partial physical linkage |
+| `starship_explained` | 2,416 | physically clustered AND near a captain gene -- the expected mechanism |
+
+Physical linkage (`starship_explained` + `unexplained_physical` +
+`ambiguous_linkage` = 10,687, 0.85%) is genuinely rare among FDR-significant
+pairs, as expected -- most co-occurrence signal is not physical, which is
+exactly the distinction component 8 was built to make visible rather than
+leave conflated.
+
+**Known partial-implementation caveats** (documented in
+`pair_classification.py`'s own module docstring, not hidden): rank-window
+linkage only (component 5's original "within k genes" statistic; the fuller
+must-fix M3 ask -- an additional same-accessory-island check and a real
+bp-distance window sized to an actual Starship footprint -- is not yet
+implemented); no `taxon_scheme` restriction (must-fix M5's fix for
+`TaxonGroup` mixing three incompatible clustering schemes -- `trans` calls
+should be treated as provisional until that's added); no Table S5/S21
+paper-coordinate cross-reference (DUF3435-hit-adjacency only).
+
+**Genome-level tblastn rescue pass** (component 1b): submitted as a
+separate SLURM batch job (`run_rescue_pass_tblastn.sh`, job 28371098,
+`-p stajichlab`, 32c/64gb/4 days) -- one indexed tblastn run (47,983 tier-1
+family reps vs. an 8GB combined genome database covering all 295 strains,
+260,375 contigs) rather than 295 separate per-strain searches. Still
+running as of this writing; not yet folded back into the presence matrix
+(so nothing above yet reflects the rescue pass's fixes for fragmented gene
+models like the `Asfu_E165L4` hrmA case).
