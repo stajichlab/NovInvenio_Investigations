@@ -62,7 +62,7 @@ def load_trace(path):
     return rows
 
 
-def cpu_hours_by_process_group(rows, groups):
+def wall_hours_by_process_group(rows, groups):
     totals = {name: 0.0 for name in groups}
     for row in rows:
         if row['status'] not in ('COMPLETED', 'CACHED'):
@@ -74,8 +74,8 @@ def cpu_hours_by_process_group(rows, groups):
     return {k: round(v, 3) for k, v in totals.items()}
 
 
-def cpu_hours_by_prefix(rows, prefix):
-    """Sum CPU-hours for every COMPLETED/CACHED row whose name starts with `prefix`.
+def wall_hours_by_prefix(rows, prefix):
+    """Sum wall-clock hours for every COMPLETED/CACHED row whose name starts with `prefix`.
 
     Used instead of a substring list for Tier C+H's cost: every real process name
     under the gain-side family-profile pathway (MMSEQS_FAMILY_CLUSTER,
@@ -139,35 +139,35 @@ def main():
         'search_partial': ['DIAMOND_SELF', 'PARSE_HITS', 'PARSE_SELF_HITS',
                            'TBLASTN_MAKEDB', 'TBLASTN', 'BUILD_PRESENCE_MATRIX'],
     }
-    p_cost = cpu_hours_by_process_group(pairwise_rows, pairwise_groups)
+    p_cost = wall_hours_by_process_group(pairwise_rows, pairwise_groups)
 
     # Tier C+H: prefix match on 'PROFILE_SEARCH:' captures the entire gain-side
     # family-profile pathway in one robust check (see module docstring point 2).
-    ch_cost = cpu_hours_by_prefix(cluster_rows, 'PROFILE_SEARCH:')
+    ch_cost = wall_hours_by_prefix(cluster_rows, 'PROFILE_SEARCH:')
     # Loss-side equivalent, reported for completeness (not required, but consistent).
-    loss_cost = cpu_hours_by_prefix(cluster_rows, 'PROFILE_LOSS_SEARCH:')
+    loss_cost = wall_hours_by_prefix(cluster_rows, 'PROFILE_LOSS_SEARCH:')
 
     rows = [
-        {'tier': 'P', 'cpu_hours': p_cost['search_partial'],
+        {'tier': 'P', 'wall_hours': p_cost['search_partial'],
          'note': ('PARTIAL/lower-bound only -- true all-vs-all DIAMOND_SEARCH cost is '
                    'unmeasurable: storeDir cache hit means Nextflow never logs a trace '
                    'row for it (unlike ordinary -resume CACHED rows). This total covers '
                    'only DIAMOND_SELF, PARSE_HITS, PARSE_SELF_HITS, TBLASTN(+MAKEDB), '
                    'BUILD_PRESENCE_MATRIX -- do NOT read this as Tier P\'s full cost.')},
-        {'tier': 'C+H', 'cpu_hours': ch_cost,
+        {'tier': 'C+H', 'wall_hours': ch_cost,
          'note': 'PROFILE_SEARCH:* (gain-side family-profile pathway), measured directly.'},
-        {'tier': 'C+H_loss', 'cpu_hours': loss_cost,
+        {'tier': 'C+H_loss', 'wall_hours': loss_cost,
          'note': 'PROFILE_LOSS_SEARCH:* (loss-side equivalent), measured directly.'},
-        {'tier': 'C', 'cpu_hours': 0.0,
+        {'tier': 'C', 'wall_hours': 0.0,
          'note': 'Free byproduct of Tier C+H\'s own clustering step.'},
-        {'tier': 'R', 'cpu_hours': round((args.tier_r_diamond_seconds or 0.0) / 3600, 3),
+        {'tier': 'R', 'wall_hours': round((args.tier_r_diamond_seconds or 0.0) / 3600, 3),
          'note': ('Measured directly with `time` around refine_ambiguous_families.py\'s '
                   'diamond step -- not read from any trace file (plain subprocess call, '
                   'no trace row).' if args.tier_r_diamond_seconds is not None
                   else 'No --tier-r-diamond-seconds given; reported as 0.0, not measured.')},
     ]
     with open(args.output, 'w', newline='') as fh:
-        w = csv.DictWriter(fh, fieldnames=['tier', 'cpu_hours', 'note'], delimiter='\t',
+        w = csv.DictWriter(fh, fieldnames=['tier', 'wall_hours', 'note'], delimiter='\t',
                             lineterminator='\n')
         w.writeheader()
         w.writerows(rows)

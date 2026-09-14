@@ -36,12 +36,12 @@ def test_load_trace(tmp_path):
     ]
 
 
-def test_cpu_hours_by_process_group_excludes_failed():
+def test_wall_hours_by_process_group_excludes_failed():
     rows = [
         {'name': 'DIAMOND_SEARCH (x)', 'status': 'COMPLETED', 'realtime_seconds': 3600.0},
         {'name': 'DIAMOND_SEARCH (y)', 'status': 'FAILED', 'realtime_seconds': 3600.0},
         {'name': 'HMMSEARCH (z)', 'status': 'CACHED', 'realtime_seconds': 1800.0},
     ]
     groups = {'diamond': ['DIAMOND_SEARCH'], 'hmm': ['HMMSEARCH']}
-    result = tcr.cpu_hours_by_process_group(rows, groups)
+    result = tcr.wall_hours_by_process_group(rows, groups)
     assert result == {'diamond': 1.0, 'hmm': 0.5}

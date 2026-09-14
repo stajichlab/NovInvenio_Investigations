@@ -111,9 +111,9 @@ Both controls are `fasta`-anchored. Tier P's `n/a` here is not a biological miss
 | 9901 | -0.2 | -15 | 0.0029 | 9886 | 0.0029 | 0.2283 | 9886 | R |
 
 
-## Analysis 3: real compute cost (CPU-hours)
+## Analysis 3: real compute cost (wall-hours)
 
-| tier | cpu_hours | note |
+| tier | wall_hours | note |
 |---|---|---|
 | P | 0.116 | PARTIAL/lower-bound only -- true all-vs-all DIAMOND_SEARCH cost is unmeasurable: storeDir cache hit means Nextflow never logs a trace row for it (unlike ordinary -resume CACHED rows). This total covers only DIAMOND_SELF, PARSE_HITS, PARSE_SELF_HITS, TBLASTN(+MAKEDB), BUILD_PRESENCE_MATRIX -- do NOT read this as Tier P's full cost. |
 | C+H | 42.707 | PROFILE_SEARCH:* (gain-side family-profile pathway), measured directly. |
@@ -135,7 +135,7 @@ ingroup protein universe as candidates (21,258 of 30,461 gain-side proteins
 in `presence_matrix.tsv`). A
 filter that drops most true positives while barely shrinking the search
 space is not a safe triage step. Tier C is not recommended as a pre-filter
-ahead of Tier P on this evidence. Tier R adds negligible cost (0.032 CPU-h)
+ahead of Tier P on this evidence. Tier R adds negligible cost (0.032 wall-h)
 on top of Tier C but produced no measurable improvement over it, either on
 controls or genome-wide.
 
@@ -249,16 +249,16 @@ evidence it does much of anything.
 
 ### What the real cost data tells us (Analysis 3)
 
-Tier C+H's fully-measured cost — 42.7 CPU-h gain-side + 35.4 CPU-h loss-side,
-~78 CPU-h total — is the reliable baseline here. Tier C is a free byproduct
-of that same run (0 CPU-h marginal cost) and Tier R adds essentially nothing
-on top (0.032 CPU-h, under two minutes). Tier P's true all-vs-all diamond
+Tier C+H's fully-measured cost — 42.7 wall-h gain-side + 35.4 wall-h loss-side,
+~78 wall-h total — is the reliable baseline here. Tier C is a free byproduct
+of that same run (0 wall-h marginal cost) and Tier R adds essentially nothing
+on top (0.032 wall-h, under two minutes). Tier P's true all-vs-all diamond
 cost could not be measured at all (its results were `storeDir`-cached before
 any trace history this investigation has access to begins) — the 0.116
-CPU-h reported is a small fragment (self-search, hit-parsing, tblastn) that
+wall-h reported is a small fragment (self-search, hit-parsing, tblastn) that
 excludes the O(N²) search this whole investigation exists to avoid, so the
 central "how much compute do we save" question only has an indirect answer.
-Tier C+H's own 42.7/35.4 CPU-h totals also bundle mmseqs clustering together
+Tier C+H's own 42.7/35.4 wall-h totals also bundle mmseqs clustering together
 with the HMM search step (`PROFILE_SEARCH:*` was measured as one prefix,
 not broken into its `MMSEQS_FAMILY_CLUSTER` vs. `FAMILY_HMMSEARCH:*`
 sub-costs) — Tier C's *own* marginal cost, if run without ever building the
