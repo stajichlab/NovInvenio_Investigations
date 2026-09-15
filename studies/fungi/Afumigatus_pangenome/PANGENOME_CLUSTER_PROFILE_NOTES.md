@@ -319,10 +319,14 @@ repo's parent directory.
       design spec's Opus-reviewed component 10 step 1), 2,788,402 proteins ->
       47,983 tier-1 families in ~14 min wall-clock
       (`results/full_293run/tier1_cluster.tsv`).
-- [ ] Genome-level tblastn/miniprot rescue pass -- still pending. Now known to be
-      a real, not theoretical, need: the HAC reference screen caught one
-      fragmented gene model (`Asfu_E165L4`'s hrmA split across two protein
-      records) by accident on a single locus.
+- [~] Genome-level tblastn/miniprot rescue pass -- a real, not theoretical,
+      need (the HAC reference screen caught one fragmented gene model,
+      `Asfu_E165L4`'s hrmA split across two protein records, by accident on
+      a single locus). Run once (2026-09-15) with a correctness bug
+      (`-max_target_seqs 5` truncated across strains, not per strain --
+      see the "Rescue pass CORRECTNESS BUG" section below); redone with a
+      per-strain-database redesign, job 28399806 in progress as of this
+      writing. Not closed out until that job's results are folded back in.
 - [ ] Compute the real family-frequency histogram (component 1-2 of the general
       design) before fixing core/soft-core/shell/cloud cutoffs — after excluding
       low-completeness strains.
@@ -430,6 +434,76 @@ pass` and `Afumigatus_pangenome: rescue pass folded in, real result +
 re-running downstream`. This paragraph is left as-written for its own
 history; the current rescue-pass method/result is whatever that later
 session documented, not this one.)*
+
+**Rescue pass CORRECTNESS BUG found and fixed, full redo in progress
+(2026-09-15, later same day).** The "100,952 ABSENT -> GENOME_ONLY,
+singleton fraction 57.6%->30.7%" result above (the `bf15230` commit) is
+**known wrong (an undercount) and superseded** -- do not cite those numbers.
+
+- **Root cause**: `run_rescue_pass_tblastn.sh` / `_chunked.sh` used
+  `-max_target_seqs 5` against ONE combined genome database covering all
+  295 strains. That flag caps distinct subject sequences **across the
+  whole combined database, per query** -- not 5 per strain. Verified
+  directly against the completed run's own output: of 23,747 queries with
+  any hit, 21,223 (89.4%) hit **exactly** 5 distinct strains, the
+  signature of systematic truncation. Any family genuinely present in more
+  than a handful of strains (i.e. most shell/core families -- the common
+  case, not an edge case) had its true rescue candidates silently dropped
+  once the first 5 strains it happened to encounter filled the budget.
+  The comment justifying the flag ("capping hits per query keeps output
+  size sane without changing the presence/absence call itself") was
+  incorrect.
+- **Fix, not a patch**: redesigned from one combined-genome-DB search to a
+  per-strain search (`bin/extract_absent_family_queries.py` +
+  `run_rescue_pass_per_strain.sh`, replacing
+  `run_rescue_pass_tblastn.sh`/`_chunked.sh`) -- each strain gets its own
+  tiny genome database and is searched only against the families currently
+  `ABSENT` in that strain (11,372,509 (family, strain) entries across 295
+  strains, ~80% of all cells, matching the earlier-measured ABSENT
+  fraction). This removes the cross-strain competition for hits entirely
+  (no more shared budget to exhaust), and `-max_target_seqs 200` per
+  strain is now cheap since each database is ~1/295th the size -- 200 is
+  generous headroom over any observed intra-genome copy number (e.g. the
+  DUF3435 captain gene's median 6-8 copies/strain). 24-way SLURM array job
+  (strains dealt round-robin by descending query count for load balance),
+  each task's database build + tblastn run staged on `$SCRATCH`
+  (node-local) with output zstd-compressed as it's produced, only the
+  final `.tsv.zst` copied back to shared storage. Submitted as job
+  28399806. The prior (wrong) `results/rescue_pass/chunks/*.tsv.zst`
+  outputs were moved to `results/rescue_pass/chunks_pre_fix_backup/`, not
+  deleted.
+- **Downstream consequence**: job 28392739 (the co-occurrence re-run
+  against the wrong rescued matrix) was killed before completion once this
+  was found. `presence_matrix.rescued.tsv`, `frequency_table.rescued.tsv`,
+  and everything computed from them (the 30.7% singleton figure) must be
+  regenerated once job 28399806's per-strain tblastn results are folded
+  back in via `bin/rescue_pass.py` (unchanged -- it already accepts
+  repeated `--tblastn_tsv` regardless of how the search was partitioned).
+- Found by an independent Fable-model pipeline review requested in
+  preparation for the eventual Nextflow migration (see the migration
+  section below), then verified directly against the run's own tblastn
+  output before acting on it.
+
+**Separately, `cooccurrence.py`'s within-clade permutation null was
+replaced with an exact closed-form test (2026-09-15).** The Monte Carlo
+implementation (`permutation_null_pvalue`, 200 permutations/pair) was
+projected to take ~30-90h single-core at the real rescued-matrix scale
+(3.3M FDR-significant pairs). An external review found that the
+within-clade shuffle keeps every margin fixed, so the null distribution of
+the overlap count is exactly a sum of independent per-clade
+Hypergeometric draws -- no sampling needed. `exact_stratified_pvalue`
+(same file) computes this via cached hypergeometric PMFs + `np.convolve`;
+benchmarked ~460x faster (0.19h vs ~90h projected for 3.3M pairs) and
+verified against brute-force enumeration and independent scipy references
+by a separate Opus-model review (six findings, all addressed: bounded the
+PMF cache size, clamped the return value to <=1.0, and added edge-case
+tests for saturated/degenerate clades and >2 unequal clades). The
+`permutation_p` output column name is unchanged -- same statistical
+target (a within-clade-stratified association test), computed exactly
+instead of by sampling. `--n_perms` is still accepted on the CLI for
+backward compatibility but no longer consumed. All 150 study tests pass.
+This change is independent of the rescue-pass bug above and stays correct
+regardless of which rescued matrix eventually feeds it.
 
 ## Assembly/annotation completeness (BUSCO) -- results (2026-09-15)
 
