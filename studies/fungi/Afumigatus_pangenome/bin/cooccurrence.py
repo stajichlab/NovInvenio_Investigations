@@ -18,10 +18,11 @@ import itertools
 import math
 import random
 import sys
+from functools import lru_cache
 from pathlib import Path
 
 import numpy as np
-from scipy.stats import fisher_exact, false_discovery_control
+from scipy.stats import fisher_exact, false_discovery_control, hypergeom
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from novinvenio_path import add_novinvenio_lib_to_path  # noqa: E402
@@ -195,6 +196,65 @@ def permutation_null_pvalue(
     return (at_least_as_extreme + 1) / (n_perms + 1)
 
 
+@lru_cache(maxsize=200_000)
+def _hypergeom_pmf_vector(n_c: int, k_c: int, m_c: int) -> tuple[float, ...]:
+    """PMF of Hypergeom(N=n_c, K=k_c, n=m_c) over its support 0..min(k_c, m_c),
+    as a hashable tuple so `exact_stratified_pvalue` below can cache it --
+    n_c/k_c/m_c (a clade's strain count and family A/B counts within it)
+    repeat across many family pairs in a real run, and the PMF itself is
+    cheap to look up but not free to compute (scipy.stats.hypergeom.pmf).
+    `maxsize` is bounded (external review, 2026-09-15): distinct
+    (n_c, k_c, m_c) keys scale roughly as sum_c (n_c+1)^2 for an uneven
+    clade split, which at real-study scale (293 strains, several clades)
+    is plausibly O(1e5) cached tuples -- this module was previously
+    OOM-killed once already under a tight SLURM memory cgroup (see
+    find_cooccurring_pairs' docstring / the study's run_*.sh comments), so
+    an unbounded cache here is a real, not theoretical, risk to repeat
+    that failure mode."""
+    xs = np.arange(0, min(k_c, m_c) + 1)
+    return tuple(hypergeom.pmf(xs, n_c, k_c, m_c))
+
+
+def exact_stratified_pvalue(a: list[bool], b: list[bool], clades: list[str]) -> float:
+    """Exact replacement for `permutation_null_pvalue`'s Monte Carlo
+    within-clade shuffle (external review, 2026-09-15 -- see
+    notes/superpowers/research/ for the full writeup). Shuffling `b` WITHIN
+    each clade group keeps every margin fixed: |a|, |b|, n, and each clade's
+    own |a_c|, |b_c|, n_c. With every margin fixed, the one-sided
+    (`greater`) Fisher/CMH statistic reduces to the overlap count ("both"),
+    which under that shuffle is EXACTLY a sum of independent
+    Hypergeom(n_c, |a_c|, |b_c|) draws, one per clade -- no simulation
+    needed. p = P(sum_c X_c >= both_observed), the convolution of the
+    per-clade PMFs. Same statistical target as permutation_null_pvalue (a
+    stratified/CMH-style association test controlling for clade structure),
+    computed exactly instead of by sampling -- replaces up to `n_perms`
+    (typically 200) scipy.fisher_exact calls per pair with a handful of
+    cached hypergeometric PMF lookups plus one np.convolve. A clade with
+    |a_c| == 0 or |b_c| == 0 contributes X_c == 0 with probability 1 (that
+    clade can supply no overlap either way) and is skipped -- convolving
+    with a point mass at 0 is a no-op."""
+    both_observed = sum(1 for x, y in zip(a, b) if x and y)
+    indices_by_clade: dict[str, list[int]] = {}
+    for i, clade in enumerate(clades):
+        indices_by_clade.setdefault(clade, []).append(i)
+
+    dist = np.array([1.0])
+    for indices in indices_by_clade.values():
+        n_c = len(indices)
+        k_c = sum(1 for i in indices if a[i])
+        m_c = sum(1 for i in indices if b[i])
+        if k_c == 0 or m_c == 0:
+            continue
+        dist = np.convolve(dist, np.array(_hypergeom_pmf_vector(n_c, k_c, m_c)))
+
+    support = np.arange(len(dist))
+    # min(1.0, ...): float64 summation over the convolved PMF's tail can
+    # round fractionally above 1.0 when both_observed sits at or below the
+    # support floor (external review, 2026-09-15) -- a p-value must never
+    # be reported > 1.0.
+    return min(1.0, float(dist[support >= both_observed].sum()))
+
+
 def find_cooccurring_pairs(
     matrix: PresenceMatrix,
     frequency_table: list[dict],
@@ -296,7 +356,12 @@ def find_cooccurring_pairs(
     )
     perm_progress_every = max(1, len(fdr_survivors) // 20)
 
-    rng = random.Random(seed)
+    # `n_perms` is no longer consumed here (kept as a CLI/API parameter for
+    # backward compatibility -- see main()'s --n_perms): the within-clade
+    # permutation null is now computed EXACTLY via exact_stratified_pvalue
+    # instead of Monte Carlo sampling (see its docstring), so there is no
+    # sampling-count knob left to honor.
+    del n_perms, seed
     results = []
     for j, (fam_a, fam_b, p, q) in enumerate(fdr_survivors, start=1):
         a_bits, b_bits = family_bits[fam_a], family_bits[fam_b]
@@ -312,13 +377,13 @@ def find_cooccurring_pairs(
             "jaccard": both / union if union else 0.0,
             "fisher_p": p,
             "fdr_q": q,
-            "permutation_p": permutation_null_pvalue(vec_a, vec_b, clades, n_perms, rng),
+            "permutation_p": exact_stratified_pvalue(vec_a, vec_b, clades),
             "direction_a": polarize_direction(out_count_a, out_total_a),
             "clade_composition": clade_composition(strains_present_a, clade_of_strain),
         })
         if j % perm_progress_every == 0:
             print(
-                f"cooccurrence: permutation-tested {j}/{len(fdr_survivors)} "
+                f"cooccurrence: exact stratified test on {j}/{len(fdr_survivors)} "
                 "FDR-significant pairs", file=sys.stderr,
             )
     return results

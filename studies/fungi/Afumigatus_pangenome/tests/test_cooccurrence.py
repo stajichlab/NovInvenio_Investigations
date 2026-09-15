@@ -2,6 +2,10 @@ import random
 import sys
 from pathlib import Path
 
+import numpy as np
+import pytest
+from scipy.stats import hypergeom
+
 sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 
@@ -10,7 +14,7 @@ from cooccurrence import (
     jaccard, fisher_pvalue, benjamini_hochberg, polarize_direction,
     clade_composition, permutation_null_pvalue, find_cooccurring_pairs,
     presence_bitset, fisher_counts_from_bits, fisher_pvalue_from_counts,
-    quick_screen_pvalue, benjamini_hochberg_sparse,
+    quick_screen_pvalue, benjamini_hochberg_sparse, exact_stratified_pvalue,
 )
 
 
@@ -357,3 +361,188 @@ def test_main_treats_outgroup_absent_from_matrix_as_ambiguous_not_gain(
     assert direction == "ambiguous", (
         f"expected 'ambiguous' when the matrix has no outgroup columns, got {direction!r}"
     )
+
+
+# --- exact_stratified_pvalue: correctness of the exact-vs-Monte-Carlo swap ---
+#
+# 2026-09-15: permutation_null_pvalue's Monte Carlo shuffle was replaced in
+# find_cooccurring_pairs by exact_stratified_pvalue (a closed-form
+# hypergeometric-convolution p-value -- see its docstring), because the
+# real 293-strain co-occurrence re-run was projected to need ~30h of
+# single-core Monte Carlo sampling. These tests independently verify the
+# exact function actually computes what permutation_null_pvalue was
+# estimating, not just that it runs.
+
+def test_exact_stratified_pvalue_single_clade_matches_scipy_hypergeom_sf():
+    # With only one clade, the within-clade shuffle is just an unrestricted
+    # shuffle, so the exact answer is the textbook one-sided hypergeometric
+    # tail probability -- computable directly from scipy as an independent
+    # reference, without going through this module's own convolution code.
+    rng = random.Random(42)
+    n = 40
+    a = [rng.random() < 0.4 for _ in range(n)]
+    b = [rng.random() < 0.5 for _ in range(n)]
+    clades = ["only_clade"] * n
+
+    both_observed = sum(1 for x, y in zip(a, b) if x and y)
+    k = sum(a)  # |a|
+    m = sum(b)  # |b|, the "draw size" in the hypergeometric framing
+    expected = hypergeom.sf(both_observed - 1, n, k, m)  # P(X >= both_observed)
+
+    got = exact_stratified_pvalue(a, b, clades)
+    assert got == pytest.approx(expected, abs=1e-9)
+
+
+def test_exact_stratified_pvalue_three_unequal_clades_matches_scipy_convolution_reference():
+    # 3 clades of genuinely UNEQUAL size (5, 4, 7 strains -- production runs
+    # have up to ~7 TaxonGroup clades, so 2 same-size clades under-covers
+    # this) -- build the reference answer independently via numpy/scipy (not
+    # by calling this module's own _hypergeom_pmf_vector helper) to avoid the
+    # test just re-deriving the implementation under test.
+    rng = random.Random(99)
+    clade_sizes = [5, 4, 7]
+    clades: list[str] = []
+    for i, size in enumerate(clade_sizes):
+        clades += [f"c{i}"] * size
+    n = len(clades)
+    a = [rng.random() < 0.5 for _ in range(n)]
+    b = [rng.random() < 0.5 for _ in range(n)]
+
+    both_observed = sum(1 for x, y in zip(a, b) if x and y)
+
+    def clade_pmf(vals_a, vals_b):
+        n_c, k_c, m_c = len(vals_a), sum(vals_a), sum(vals_b)
+        xs = np.arange(0, min(k_c, m_c) + 1)
+        return hypergeom.pmf(xs, n_c, k_c, m_c)
+
+    offsets = [0, 5, 9]
+    conv = np.array([1.0])
+    for off, size in zip(offsets, clade_sizes):
+        conv = np.convolve(conv, clade_pmf(a[off:off + size], b[off:off + size]))
+    support = np.arange(len(conv))
+    expected = float(conv[support >= both_observed].sum())
+
+    got = exact_stratified_pvalue(a, b, clades)
+    assert got == pytest.approx(expected, abs=1e-9)
+
+
+def test_exact_stratified_pvalue_clade_fully_saturated_matches_hand_computed_value():
+    # k_c == n_c (family A present in EVERY member of a clade) is the one
+    # branch NOT covered by the k_c==0/m_c==0 skip guard -- a real case for
+    # a shell family inside a small clade. Single clade, n=5: family A
+    # present in all 5 (k_c=n_c=5). Drawing m_c items without replacement
+    # from an urn where every item is a "success" is DETERMINISTIC -- it
+    # always yields exactly m_c successes, so X_c is a point mass at m_c
+    # regardless of which m_c strains carry family B, and both_observed
+    # (computed directly from a & b) always equals that same m_c. So
+    # p = P(X_c >= both_observed) is forced to exactly 1.0 for ANY b here --
+    # verified for two different b vectors (m_c = 3 and m_c = 4) to confirm
+    # it's not an accident of one particular b.
+    a = [True, True, True, True, True]
+    clades = ["c1"] * 5
+    for b in ([True, True, True, False, False], [True, True, True, True, False]):
+        p = exact_stratified_pvalue(a, b, clades)
+        assert p == pytest.approx(1.0, abs=1e-9), f"b={b} -> p={p}"
+
+
+def test_exact_stratified_pvalue_matches_large_sample_monte_carlo():
+    # Cross-check against the ORIGINAL (pre-replacement) Monte Carlo
+    # implementation at a large enough n_perms that sampling noise is tight
+    # -- if the closed-form rewrite and the Monte Carlo estimator disagree by
+    # more than sampling error can explain, something in the exact math is
+    # wrong, not just imprecise.
+    rng_data = random.Random(7)
+    n = 60
+    a = [rng_data.random() < 0.35 for _ in range(n)]
+    b = [rng_data.random() < 0.45 for _ in range(n)]
+    clades = [f"clade_{i % 4}" for i in range(n)]  # 4 clades, 15 strains each
+
+    exact = exact_stratified_pvalue(a, b, clades)
+
+    n_perms = 20_000
+    mc = permutation_null_pvalue(a, b, clades, n_perms, random.Random(123))
+
+    # Monte Carlo standard error for a proportion p at n_perms draws is
+    # sqrt(p(1-p)/n_perms); use a generous 6-sigma-equivalent absolute
+    # tolerance (plus a small floor) so this isn't a flaky test while still
+    # being tight enough to catch a real bug in the exact formula.
+    se = (exact * (1 - exact) / n_perms) ** 0.5
+    tol = max(6 * se, 0.01)
+    assert abs(exact - mc) < tol, (
+        f"exact={exact:.5f} vs Monte Carlo={mc:.5f} (n_perms={n_perms}, tol={tol:.5f})"
+    )
+
+
+def test_exact_stratified_pvalue_perfect_cooccurrence_matches_hand_computed_value():
+    # Sanity floor: unlike the Monte Carlo version, the exact test is not
+    # bounded below by 1/(n_perms+1) == 1/201 (the floor 200 Monte Carlo
+    # permutations would have imposed). Here the only way to draw 6 of 6
+    # "True" positions out of 12 (hypergeometric, N=12, K=6, n=6) and hit
+    # the observed both=6 is the single arrangement that recovers the
+    # original labeling exactly, so the exact answer is 1/C(12,6) = 1/924 --
+    # asserted to the hand-computed value, not just "small".
+    a = [True, True, True, True, True, True, False, False, False, False, False, False]
+    b = list(a)
+    clades = ["c1"] * 12
+    p = exact_stratified_pvalue(a, b, clades)
+    assert p == pytest.approx(1 / 924, abs=1e-12)
+    assert p < 1 / 201, "should beat the old Monte Carlo (n_perms=200) floor"
+
+
+def test_exact_stratified_pvalue_high_when_confound_is_purely_clade():
+    # Same scenario as test_permutation_null_pvalue_high_when_confound_is_
+    # purely_clade above, re-run against the exact replacement to confirm
+    # it preserves that property: co-occurrence fully explained by clade
+    # membership must NOT look significant under the within-clade null.
+    clade_of_strain = {f"s{i}": ("Clade_1" if i < 4 else "Clade_2") for i in range(8)}
+    a = [clade_of_strain[f"s{i}"] == "Clade_1" for i in range(8)]
+    b = list(a)
+    clades = [clade_of_strain[f"s{i}"] for i in range(8)]
+    p = exact_stratified_pvalue(a, b, clades)
+    assert p > 0.05
+
+
+def test_exact_stratified_pvalue_degenerate_clade_is_skipped_not_a_crash():
+    # A clade where family A is absent from every member (k_c == 0)
+    # contributes X_c == 0 with probability 1 and must not raise (e.g. from
+    # hypergeom.pmf with a zero-size support) or distort the other clade's
+    # contribution -- asserted against the exact single-clade reference
+    # (the degenerate clade excluded, not just "still a valid probability",
+    # since a wrong implementation that mishandles the skip -- e.g. by
+    # including a spurious contribution or dropping the real clade instead
+    # -- could still land in [0, 1] by accident).
+    a = [False, False, False, True, True, False]
+    b = [False, False, False, True, False, True]
+    clades = ["empty_clade"] * 3 + ["real_clade"] * 3
+    p = exact_stratified_pvalue(a, b, clades)
+
+    both_observed = sum(1 for x, y in zip(a, b) if x and y)  # from the real_clade half only
+    expected = float(hypergeom.sf(both_observed - 1, 3, sum(a[3:]), sum(b[3:])))
+    assert p == pytest.approx(expected, abs=1e-9)
+
+
+def test_find_cooccurring_pairs_permutation_p_column_is_exact_not_monte_carlo():
+    # End-to-end: find_cooccurring_pairs' "permutation_p" field must come
+    # from exact_stratified_pvalue, not permutation_null_pvalue -- guards
+    # against a future refactor silently reverting to sampling. Uses the
+    # perfect-cooccurrence property above: the exact test can report well
+    # below 1/(n_perms+1), which the old Monte Carlo path could never do.
+    strains = [f"s{i}" for i in range(12)]
+    pm = PresenceMatrix(families=["famA", "famB"], strains=strains)
+    for s in strains[:6]:
+        pm.set_call("famA", s, PRESENT)
+        pm.set_call("famB", s, PRESENT)
+    frequency_table = [
+        {"family": "famA", "bin": "shell"}, {"family": "famB", "bin": "shell"},
+    ]
+    clade_of_strain = {s: "Clade_1" for s in strains}
+    outgroup_presence = {"famA": (0, 0), "famB": (0, 0)}
+
+    pairs = find_cooccurring_pairs(
+        pm, frequency_table, clade_of_strain, outgroup_presence,
+        min_strain_count=5, fdr_alpha=0.05, n_perms=200, seed=0,
+    )
+    assert len(pairs) == 1
+    # 1/(200+1) == 0.004975..., the Monte Carlo floor this pair would have
+    # been stuck at under the old implementation.
+    assert pairs[0]["permutation_p"] < 1 / 201
