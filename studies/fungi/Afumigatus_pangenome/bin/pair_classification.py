@@ -68,6 +68,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from pangenome_matrix import read_cluster_tsv  # noqa: E402
+from compressed_io import open_maybe_compressed  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).parent))
 from synteny_windows import linkage_fraction  # noqa: E402
@@ -82,7 +83,7 @@ DEFAULT_MIN_CLADES = 2
 
 def load_family_positions(path: str) -> dict[str, dict[str, list[tuple[str, int]]]]:
     gene_position: dict[str, dict[str, list[tuple[str, int]]]] = {}
-    with open(path) as fh:
+    with open_maybe_compressed(path) as fh:
         next(fh, None)
         for line in fh:
             parts = line.rstrip("\n").split("\t")
@@ -101,7 +102,7 @@ def load_captain_families(
     family -- every captain-hit protein was part of the same all-strains
     clustering input, so it always has a family assignment already."""
     captain_families: dict[str, set[str]] = {}
-    with open(tblout_path) as fh:
+    with open_maybe_compressed(tblout_path) as fh:
         for line in fh:
             if line.startswith("#") or not line.strip():
                 continue
@@ -208,7 +209,7 @@ def main() -> None:
         f"assignments across {len(captain_families)} strains", file=sys.stderr,
     )
 
-    with open(args.cooccurring_pairs) as fh, open(args.output, "w") as out:
+    with open_maybe_compressed(args.cooccurring_pairs) as fh, open(args.output, "w") as out:
         header = fh.readline().rstrip("\n").split("\t")
         idx = {name: i for i, name in enumerate(header)}
         out.write(

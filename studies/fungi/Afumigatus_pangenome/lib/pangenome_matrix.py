@@ -144,12 +144,15 @@ def copy_number_path(matrix_path: str | Path) -> Path:
 
 
 def read_copy_number_sidecar(matrix_path: str | Path) -> dict[tuple[str, str], int]:
-    """Load `<matrix>.copy_number.tsv` if it exists; return {} if it does not."""
+    """Load `<matrix>.copy_number.tsv` (plain, `.gz`, or `.zst`) if it
+    exists; return {} if it does not."""
     sidecar = copy_number_path(matrix_path)
-    if not sidecar.exists():
+    candidates = [sidecar, Path(str(sidecar) + ".gz"), Path(str(sidecar) + ".zst")]
+    sidecar = next((c for c in candidates if c.exists()), None)
+    if sidecar is None:
         return {}
     copies: dict[tuple[str, str], int] = {}
-    with open(sidecar) as fh:
+    with open_maybe_compressed(sidecar) as fh:
         for i, line in enumerate(fh):
             line = line.rstrip("\n")
             if not line:
