@@ -11,6 +11,8 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
+from compressed_io import open_maybe_compressed
+
 PRESENT = "present"
 GENOME_ONLY = "genome_only"
 ABSENT = "absent"
@@ -21,7 +23,7 @@ def read_cluster_tsv(path: str | Path) -> dict[str, str]:
     """Parse an mmseqs/diamond cluster TSV (rep\tmember per line) into
     {member_id: rep_id}."""
     member_to_rep: dict[str, str] = {}
-    with open(path) as fh:
+    with open_maybe_compressed(path) as fh:
         for line in fh:
             line = line.rstrip("\n")
             if not line:
@@ -110,7 +112,7 @@ class PresenceMatrix:
                 -- a corrupted or hand-edited matrix, which would otherwise
                 load silently and evaluate as "not present" everywhere.
         """
-        with open(path) as fh:
+        with open_maybe_compressed(path) as fh:
             header = fh.readline().rstrip("\n").split("\t")
             strains = header[1:]
             families: list[str] = []

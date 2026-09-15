@@ -9,6 +9,11 @@ Usage:
   rescue_pass.py --matrix presence_matrix.tsv --tblastn_tsv all_vs_all.tblastn.tsv \
       --output presence_matrix.rescued.tsv
 
+`--tblastn_tsv` accepts a plain, `.gz`, or `.zst` file, and may be repeated
+to read several chunked tblastn outputs (e.g. from
+run_rescue_pass_tblastn_chunked.sh's per-array-task .tsv.zst files)
+without concatenating them first.
+
 Upstream isoform collapse: before building the protein FASTA fed into
 Task 4's clustering, run NovInvenio's existing bin/collapse_isoforms.py
 per strain (see NovInvenio's CLAUDE.md "collapse_isoforms.py" entry) so
@@ -27,6 +32,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from pangenome_matrix import ABSENT, GENOME_ONLY, PresenceMatrix  # noqa: E402
+from compressed_io import open_maybe_compressed  # noqa: E402
 
 
 def parse_tblastn_hits(
@@ -76,15 +82,22 @@ def apply_rescue(matrix: PresenceMatrix, rescue_hits: set[tuple[str, str]]) -> t
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--matrix", required=True)
-    ap.add_argument("--tblastn_tsv", required=True)
+    ap.add_argument(
+        "--tblastn_tsv", required=True, action="append",
+        help="plain, .gz, or .zst tblastn outfmt6+qcovs file; repeat to read "
+        "several chunked outputs (e.g. run_rescue_pass_tblastn_chunked.sh's "
+        "per-array-task files) without concatenating them first",
+    )
     ap.add_argument("--min_pident", type=float, default=90.0)
     ap.add_argument("--min_qcov", type=float, default=80.0)
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
 
     matrix = PresenceMatrix.from_tsv(args.matrix)
-    with open(args.tblastn_tsv) as fh:
-        hits = parse_tblastn_hits(fh.readlines(), args.min_pident, args.min_qcov)
+    hits: set[tuple[str, str]] = set()
+    for tblastn_path in args.tblastn_tsv:
+        with open_maybe_compressed(tblastn_path) as fh:
+            hits |= parse_tblastn_hits(fh.readlines(), args.min_pident, args.min_qcov)
 
     applied, skipped = apply_rescue(matrix, hits)
     print(f"Rescue: {applied} ABSENT→GENOME_ONLY, {skipped} skipped (unrecognized strain/family)", file=sys.stderr)
