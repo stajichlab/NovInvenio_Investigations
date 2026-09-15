@@ -146,16 +146,20 @@ all, so no Starship data exists for them. Results in
   the 11 newly Nanopore-sequenced strains) to determine which of the 293 strains
   here actually appear in the paper's population — the benchmark suite (Tables
   S6/S21/S7) can only be scored against strains present in both.
-- **Assembly/annotation completeness.** No completeness metric (e.g. BUSCO) is
-  currently attached per strain in `config.csv`/`DATA_MANIFEST.yaml`. Before
-  interpreting a "missing" shell/cloud family call (including a missing HAC-family
-  member) as a real loss, check whether that strain's assembly/annotation is
-  markedly less complete than the panel median.
-- **Draft vs. long-read assembly mix.** Not yet determined how many of the 293 are
-  Illumina/short-read drafts vs. Nanopore/PacBio long-read assemblies (this
-  study's own 11 newly Nanopore-sequenced strains from Table S1 are one known
-  long-read subset). This directly affects how much the genome-level rescue pass
-  (fragmented/split gene models) and synteny contig-edge exclusion matter here.
+- **Assembly/annotation completeness -- done 2026-09-15, see results section below.**
+  Genome-level BUSCO (fungi_odb12) pulled from the lab's precomputed BFD archive
+  for all 295 strains, not re-run. Completeness is uniformly high (96.7-99.4%
+  complete, median 98.8%) -- the panel is NOT a completeness confound; a "missing"
+  shell/cloud family call can't be waved away as a low-quality-assembly artifact
+  for any of these 295 strains.
+- **Draft vs. long-read assembly mix -- partial answer, byproduct of the BUSCO pull.**
+  The same BFD BUSCO summaries carry scaffold/contig counts: 279/295 strains have
+  >100 contigs (consistent with short-read/draft assemblies), only 13 have <=20
+  (consistent with long-read/near-chromosome-level). This is a contig-count
+  heuristic, not a confirmed sequencing-technology determination (no read-type
+  metadata cross-referenced) -- good enough to flag which strains warrant more
+  caution for the rescue pass's fragmented-gene-model logic and synteny's
+  contig-edge exclusion, not a final answer to the open item.
 - **Strain dereplication.** Not yet run — check for the same isolate appearing
   under two names/accessions (Mash/ANI) before computing any frequency.
 
@@ -293,8 +297,21 @@ repo's parent directory.
       section item 6 above for the method and concordance check. Revisit if/
       when the full 293-strain ParSNP run (`run_parsnp_ingroup293.sh`)
       produces a real SNP-based clade assignment to compare against.
-- [ ] Determine draft-vs-long-read assembly mix across the 293 strains.
-- [ ] Dereplicate strains (Mash/ANI) before any frequency count.
+- [x] Assembly/annotation completeness (BUSCO). Done 2026-09-15: matched all 295
+      strains' `Genome_Accession` (2 needed a manual GCA->GCF crosswalk -- see
+      results section below) against the lab's precomputed BFD archive
+      (`/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs`, genome-level
+      `BUSCO_genome`, fungi_odb12 lineage) instead of re-running BUSCO. See
+      "Assembly/annotation completeness (BUSCO) -- results" section below.
+- [~] Determine draft-vs-long-read assembly mix across the 293 strains. Partial:
+      a contig-count heuristic came free from the BUSCO pull above (279/295
+      >100 contigs, 13 <=20) -- not a confirmed sequencing-technology call, real
+      read-type metadata still needed to close this out.
+- [ ] Dereplicate strains (Mash/ANI) before any frequency count. Note: component
+      8's real run (below) already used a 123/295-representative dereplication
+      via `dereplicate_strains.py` -- this checkbox describes the general open
+      item, not evidence that step never happened; reconcile wording next time
+      this file is touched.
 - [x] Run tier-1 clustering (~90% identity, per the revised design). Done
       2026-09-13: all 295 strains (293 IN + 2 OUT), no isoform collapse (checked
       assumption -- spot-checked gene:mRNA ratios across 3 strains showed ~3% or
@@ -405,3 +422,67 @@ family reps vs. an 8GB combined genome database covering all 295 strains,
 running as of this writing; not yet folded back into the presence matrix
 (so nothing above yet reflects the rescue pass's fixes for fragmented gene
 models like the `Asfu_E165L4` hrmA case).
+
+*(Note, 2026-09-15: job 28371098 was subsequently cancelled and replaced by a
+chunked/compressed rescue-pass implementation run in a separate session
+-- see `git log` for `Afumigatus_pangenome: chunked/compressed tblastn rescue
+pass` and `Afumigatus_pangenome: rescue pass folded in, real result +
+re-running downstream`. This paragraph is left as-written for its own
+history; the current rescue-pass method/result is whatever that later
+session documented, not this one.)*
+
+## Assembly/annotation completeness (BUSCO) -- results (2026-09-15)
+
+Ran against the design doc's open "Assembly/annotation completeness" control
+(component 10 gate, "assembly-quality checks before the full run"). Per-strain
+BUSCO was **not re-run** -- pulled from the lab's existing precomputed archive
+instead, since it already covers this exact strain set.
+
+**Source and method:**
+- `/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/results/genome_stats/BUSCO_genome/`
+  (genome-mode BUSCO, `fungi_odb12` lineage, 1,122 BUSCOs, BUSCO v6.0.0,
+  `miniprot` gene predictor) -- sharded by hash prefix, files named by the
+  full NCBI assembly accession (`<GCA|GCF>_<version>_<assembly_name>`).
+- Matched by `species.csv`'s `Genome_Accession` column against the BFD run's
+  own `samples.csv` `ASMID` column (accession prefix match, ignoring the
+  assembly-name suffix): **293/295 matched directly on the `GCA_*` accession
+  this study uses.**
+- **2 strains needed a manual crosswalk**, both reference genomes where BFD's
+  archive holds the RefSeq (`GCF_*`) record instead of the GenBank (`GCA_*`)
+  one this study's `species.csv` points to, and (for `Asfu_Af293`) the version
+  suffix also differs:
+  - `Neofi_ref` (*A. fischeri* outgroup): study uses `GCA_000149645.4`,
+    matched to BFD's `GCF_000149645.3_ASM14964v4` -- same underlying assembly
+    (`ASM14964v4`), GenBank/RefSeq pair, no real version conflict.
+  - `Asfu_Af293`: study uses `GCA_000002655.1`, matched to BFD's
+    `GCF_000002655.1_ASM265v1` -- same assembly, GenBank/RefSeq pair.
+  Both are simple GCA<->GCF crosswalks of the identical assembly (confirmed
+  by matching assembly-name suffix, e.g. `ASM265v1`), not a different genome
+  version -- not a red flag, just BFD's own accession-source convention for
+  these two well-known reference strains.
+- **Result: 295/295 strains matched, zero left needing a fresh BUSCO run.**
+  Summary files copied verbatim into `results/busco_genome/<Short>.BUSCO_summary.fungi_odb12.txt`
+  (gitignored, per `results/` convention) and parsed into
+  `results/busco_genome/busco_completeness_summary.tsv` (Complete/Single/
+  Duplicated/Fragmented/Missing %, n_BUSCOs, scaffold/contig counts, total
+  length, percent gaps -- one row per strain).
+
+**Finding: completeness is uniformly high, not a confound for this panel.**
+Complete BUSCO% across all 295 strains: min 96.7%, median 98.8%, max 99.4% --
+a narrow, high range. **This directly answers the open control's question**:
+a "missing" shell/cloud family call (including a missing HAC-family member)
+for any of these 295 strains is very unlikely to be an assembly-completeness
+artifact -- the panel doesn't contain any markedly-incomplete outlier
+assemblies. Lowest-completeness strains, for reference: `Asfu_E175s2`
+(96.7%), `Asfu_C172L1` (97.3%), `Asfu_CNMCM8714`/`Asfu_CNMCM8812` (97.4-97.7%)
+-- still high in absolute terms, not a quality gate concern.
+
+**Bonus, not the primary ask: a contig-count heuristic for draft-vs-long-read.**
+The same summaries carry scaffold/contig counts, which partially answers the
+still-open "draft vs. long-read assembly mix" item: 279/295 strains have >100
+contigs (consistent with short-read/draft assemblies, median 534 contigs
+across the panel), only 13 have <=20 contigs (consistent with long-read/
+near-chromosome-level assembly), 3 in between. This is a contig-count proxy,
+not a confirmed sequencing-technology determination (no read-type metadata
+cross-referenced) -- real signal, but the open item isn't fully closed by
+this alone.
