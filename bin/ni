@@ -120,7 +120,7 @@ def main() -> int:
                 file=sys.stderr,
             )
             return 1
-        cmd = [str(repo_root / "run_study.sh"), str(study_rel)]
+        cmd = [str(BIN / "run_study.sh"), str(study_rel)]
         cmd.extend(a for a in args.extra_args if a != "--")
         result = subprocess.run(cmd)
         return result.returncode
