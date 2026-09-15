@@ -86,7 +86,6 @@ IN,Calothrix membranacea,FACHB-236,No_FACHB236.pep.fa,No_FACHB236.dna.fa,No_FACH
 IN,Calothrix parasitica,NIES-267,No_NIES267.pep.fa,No_NIES267.dna.fa,No_NIES267.gff3,No_NIES267,no-fsp-in-name
 IN,Calothrix parietina,FACHB-288,No_FACHB288.pep.fa,No_FACHB288.dna.fa,No_FACHB288.gff3,No_FACHB288,no-fsp-in-name
 IN,Calothrix rhizosoleniae,1,No_1.pep.fa,No_1.dna.fa,No_1.gff3,No_1,no-fsp-in-name
-IN,Calothrix sp.,MAG-385,No_MAG385.pep.fa,No_MAG385.dna.fa,No_MAG385.gff3,No_MAG385,no-fsp-in-name
 IN,Calothrix sp. 336/3,336/3,No_3363.pep.fa,No_3363.dna.fa,No_3363.gff3,No_3363,no-fsp-in-name
 IN,Calothrix sp. C42_A2020_038,C42_A2020_038,No_C42_A2020_038.pep.fa,No_C42_A2020_038.dna.fa,No_C42_A2020_038.gff3,No_C42_A2020_038,no-fsp-in-name
 IN,Calothrix sp. CBUCES-K 9914,CBUCES-K 9914,No_CBUCESK_9914.pep.fa,No_CBUCESK_9914.dna.fa,No_CBUCESK_9914.gff3,No_CBUCESK_9914,no-fsp-in-name
@@ -130,7 +129,6 @@ IN,Cylindrospermum sp. NIES-4074,NIES-4074,No_NIES4074.pep.fa,No_NIES4074.dna.fa
 IN,Cylindrospermum stagnale,PCC 7417,No_PCC_7417.pep.fa,No_PCC_7417.dna.fa,No_PCC_7417.gff3,No_PCC_7417,no-fsp-in-name
 IN,Dendronalium phyllosphericum,CENA369,No_CENA369.pep.fa,No_CENA369.dna.fa,No_CENA369.gff3,No_CENA369,no-fsp-in-name
 IN,Dendronalium sp. ChiSLP03b,ChiSLP03b,No_ChiSLP03b.pep.fa,No_ChiSLP03b.dna.fa,No_ChiSLP03b.gff3,No_ChiSLP03b,no-fsp-in-name
-IN,Desmonostoc geniculatum,MAG-149,No_MAG149.pep.fa,No_MAG149.dna.fa,No_MAG149.gff3,No_MAG149,no-fsp-in-name
 IN,Desmonostoc muscorum,CCALA 125,No_CCALA_125.pep.fa,No_CCALA_125.dna.fa,No_CCALA_125.gff3,No_CCALA_125,no-fsp-in-name
 IN,Desmonostoc sp.,MAG-31,No_MAG31.pep.fa,No_MAG31.dna.fa,No_MAG31.gff3,No_MAG31,no-fsp-in-name
 IN,Desmonostoc vinosum,MAG-72,No_MAG72.pep.fa,No_MAG72.dna.fa,No_MAG72.gff3,No_MAG72,no-fsp-in-name
@@ -207,7 +205,6 @@ IN,Hassallia sp.,MAG-395,No_MAG395.pep.fa,No_MAG395.dna.fa,No_MAG395.gff3,No_MAG
 IN,Hassallia sp. WJT32-NPBG1,WJT32-NPBG1,No_WJT32NPBG1.pep.fa,No_WJT32NPBG1.dna.fa,No_WJT32NPBG1.gff3,No_WJT32NPBG1,no-fsp-in-name
 IN,Heteroscytonema crispum,UTEX LB 1556,No_UTEX_LB_1556.pep.fa,No_UTEX_LB_1556.dna.fa,No_UTEX_LB_1556.gff3,No_UTEX_LB_1556,no-fsp-in-name
 IN,Iningainema tapete,BLCC-T55,No_BLCCT55.pep.fa,No_BLCCT55.dna.fa,No_BLCCT55.gff3,No_BLCCT55,no-fsp-in-name
-IN,Iphinoe sp. (in: cyanobacteria),MAG-6,No_MAG6.pep.fa,No_MAG6.dna.fa,No_MAG6.gff3,No_MAG6,no-fsp-in-name
 IN,Iphinoe sp. HA4291-MV1,HA4291-MV1,No_HA4291MV1.pep.fa,No_HA4291MV1.dna.fa,No_HA4291MV1.gff3,No_HA4291MV1,no-fsp-in-name
 IN,Kaarinaea lacus,SNW_BASALT_bin2941,No_SNW_BASALT_bin2941.pep.fa,No_SNW_BASALT_bin2941.dna.fa,No_SNW_BASALT_bin2941.gff3,No_SNW_BASALT_bin2941,no-fsp-in-name
 IN,Kalymmatonema gypsitolerans,NIES-4073,No_NIES4073.pep.fa,No_NIES4073.dna.fa,No_NIES4073.gff3,No_NIES4073,no-fsp-in-name
@@ -434,7 +431,6 @@ IN,Rivularia sp. MS3,MS3,No_MS3.pep.fa,No_MS3.dna.fa,No_MS3.gff3,No_MS3,no-fsp-i
 IN,Rivularia sp. PCC 7116,PCC 7116,No_PCC_7116.pep.fa,No_PCC_7116.dna.fa,No_PCC_7116.gff3,No_PCC_7116,no-fsp-in-name
 IN,Rivularia sp. T60_A2020_040,T60_A2020_040,No_T60_A2020_040.pep.fa,No_T60_A2020_040.dna.fa,No_T60_A2020_040.gff3,No_T60_A2020_040,no-fsp-in-name
 IN,Rivularia sp. UHCC 0363,UHCC 0363,No_UHCC_0363.pep.fa,No_UHCC_0363.dna.fa,No_UHCC_0363.gff3,No_UHCC_0363,no-fsp-in-name
-IN,Roholtiella mojaviensis,MAG-96,No_MAG96.pep.fa,No_MAG96.dna.fa,No_MAG96.gff3,No_MAG96,no-fsp-in-name
 IN,Scytonema hankhaensis,NUACC26,No_NUACC26.pep.fa,No_NUACC26.dna.fa,No_NUACC26.gff3,No_NUACC26,no-fsp-in-name
 IN,Scytonema hofmannii,PCC 7110,No_PCC_7110.pep.fa,No_PCC_7110.dna.fa,No_PCC_7110.gff3,No_PCC_7110,no-fsp-in-name
 IN,Scytonema millei,VB511283,No_VB511283.pep.fa,No_VB511283.dna.fa,No_VB511283.gff3,No_VB511283,no-fsp-in-name
@@ -448,7 +444,6 @@ IN,Scytonema sp. PRP1,PRP1,No_PRP1.pep.fa,No_PRP1.dna.fa,No_PRP1.gff3,No_PRP1,no
 IN,Scytonema sp. RU_4_4,RU_4_4,No_RU_4_4.pep.fa,No_RU_4_4.dna.fa,No_RU_4_4.gff3,No_RU_4_4,no-fsp-in-name
 IN,Scytonema sp. UIC 10036,UIC 10036,No_UIC_10036.pep.fa,No_UIC_10036.dna.fa,No_UIC_10036.gff3,No_UIC_10036,no-fsp-in-name
 IN,Scytonema tolypothrichoides,VB-61278,No_VB61278.pep.fa,No_VB61278.dna.fa,No_VB61278.gff3,No_VB61278,no-fsp-in-name
-IN,Scytonematopsis contorta,MAG-425,No_MAG425.pep.fa,No_MAG425.dna.fa,No_MAG425.gff3,No_MAG425,no-fsp-in-name
 IN,Sphaerospermopsis aphanizomenoides,BCCUSP55,No_BCCUSP55.pep.fa,No_BCCUSP55.dna.fa,No_BCCUSP55.gff3,No_BCCUSP55,no-fsp-in-name
 IN,Sphaerospermopsis kisseleviana,NIES-73,No_NIES73.pep.fa,No_NIES73.dna.fa,No_NIES73.gff3,No_NIES73,no-fsp-in-name
 IN,Sphaerospermopsis reniformis,NIES-1949,No_NIES1949.pep.fa,No_NIES1949.dna.fa,No_NIES1949.gff3,No_NIES1949,no-fsp-in-name
@@ -465,7 +460,6 @@ IN,Stigonema ocellatum,JP211,No_JP211.pep.fa,No_JP211.dna.fa,No_JP211.gff3,No_JP
 IN,Tolypothrix bouteillei,VB521301,No_VB521301.pep.fa,No_VB521301.dna.fa,No_VB521301.gff3,No_VB521301,no-fsp-in-name
 IN,Tolypothrix brevis,GSE-NOS-MK-07-07A,No_GSENOSMK0707A.pep.fa,No_GSENOSMK0707A.dna.fa,No_GSENOSMK0707A.gff3,No_GSENOSMK0707A,no-fsp-in-name
 IN,Tolypothrix campylonemoides,VB511288,No_VB511288.pep.fa,No_VB511288.dna.fa,No_VB511288.gff3,No_VB511288,no-fsp-in-name
-IN,Tolypothrix carrinoi,MAG-65,No_MAG65.pep.fa,No_MAG65.dna.fa,No_MAG65.gff3,No_MAG65,no-fsp-in-name
 IN,Tolypothrix sp. Co-bin9,Co-bin9,No_Cobin9.pep.fa,No_Cobin9.dna.fa,No_Cobin9.gff3,No_Cobin9,no-fsp-in-name
 IN,Tolypothrix sp. FACHB-123,FACHB-123,No_FACHB123.pep.fa,No_FACHB123.dna.fa,No_FACHB123.gff3,No_FACHB123,no-fsp-in-name
 IN,Tolypothrix sp. LEGE 11397,LEGE 11397,No_LEGE_11397.pep.fa,No_LEGE_11397.dna.fa,No_LEGE_11397.gff3,No_LEGE_11397,no-fsp-in-name

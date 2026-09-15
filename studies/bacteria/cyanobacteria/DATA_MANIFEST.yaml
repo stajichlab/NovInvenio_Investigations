@@ -2608,36 +2608,6 @@
   pulled_with: fetch_genome_assemblies_batch.py on r11
   kind: gff3
   accession: GCF_900185595.1
-- local_path: data/ncbi/GCA_059505945.1/extracted/ncbi_dataset/data/GCA_059505945.1/protein.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505945.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505945.1'
-  access_date: '2026-09-15T04:50:38Z'
-  checksum_sha256: cf9969b1910bb23cb4807e0d26ce2cd60ef8d85ff3288be98561055c0f4127f3
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: protein
-  accession: GCA_059505945.1
-- local_path: data/ncbi/GCA_059505945.1/extracted/ncbi_dataset/data/GCA_059505945.1/GCA_059505945.1_ASM5950594v1_genomic.fna
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505945.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505945.1'
-  access_date: '2026-09-15T04:50:38Z'
-  checksum_sha256: a276fe77515dc7a0876264db2f4bbc17beeb0f80c25880883f524557bbfaed84
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: genome
-  accession: GCA_059505945.1
-- local_path: data/ncbi/GCA_059505945.1/extracted/ncbi_dataset/data/GCA_059505945.1/genomic.gff
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505945.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505945.1'
-  access_date: '2026-09-15T04:50:38Z'
-  checksum_sha256: d9682c95fdd55519fed9986cd1053a627091bed435036288c5c1abc0f84eeaa9
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: gff3
-  accession: GCA_059505945.1
 - local_path: data/ncbi/GCA_000734895.2/extracted/ncbi_dataset/data/GCA_000734895.2/protein.faa
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000734895.2/
   source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000734895.2'
@@ -3928,36 +3898,6 @@
   pulled_with: fetch_genome_assemblies_batch.py on r11
   kind: gff3
   accession: GCA_034531165.2
-- local_path: data/ncbi/GCA_059505225.1/extracted/ncbi_dataset/data/GCA_059505225.1/protein.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505225.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505225.1'
-  access_date: '2026-09-15T04:50:37Z'
-  checksum_sha256: c826291836075aa2486e17e5f56a779276954780acce6dd5866df920b020f674
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: protein
-  accession: GCA_059505225.1
-- local_path: data/ncbi/GCA_059505225.1/extracted/ncbi_dataset/data/GCA_059505225.1/GCA_059505225.1_ASM5950522v1_genomic.fna
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505225.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505225.1'
-  access_date: '2026-09-15T04:50:37Z'
-  checksum_sha256: 7bc77e2f120094508902a05da9b1580242ac60c7c027353347068920645fbd06
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: genome
-  accession: GCA_059505225.1
-- local_path: data/ncbi/GCA_059505225.1/extracted/ncbi_dataset/data/GCA_059505225.1/genomic.gff
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505225.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505225.1'
-  access_date: '2026-09-15T04:50:37Z'
-  checksum_sha256: 7e1f9b5cbf5f7aa93615fa51f310f6082ce0f0d6ee8b554a017fb149327f2537
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: gff3
-  accession: GCA_059505225.1
 - local_path: data/ncbi/GCA_019734875.1/extracted/ncbi_dataset/data/GCA_019734875.1/protein.faa
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_019734875.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_019734875.1'
@@ -6238,36 +6178,6 @@
   pulled_with: fetch_genome_assemblies_batch.py on r11
   kind: gff3
   accession: GCA_014698965.1
-- local_path: data/ncbi/GCA_059505805.1/extracted/ncbi_dataset/data/GCA_059505805.1/protein.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505805.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505805.1'
-  access_date: '2026-09-15T04:50:38Z'
-  checksum_sha256: aa465bdb2d9eabf6abbd333f1c821ca1ad7dce1166122d14eb5daaf394ddb798
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: protein
-  accession: GCA_059505805.1
-- local_path: data/ncbi/GCA_059505805.1/extracted/ncbi_dataset/data/GCA_059505805.1/GCA_059505805.1_ASM5950580v1_genomic.fna
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505805.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505805.1'
-  access_date: '2026-09-15T04:50:38Z'
-  checksum_sha256: 5173ba7adadfd613c938a9af80700631242746c70f3867be0c3a8b31319df519
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: genome
-  accession: GCA_059505805.1
-- local_path: data/ncbi/GCA_059505805.1/extracted/ncbi_dataset/data/GCA_059505805.1/genomic.gff
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505805.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505805.1'
-  access_date: '2026-09-15T04:50:38Z'
-  checksum_sha256: 331a70b4ea322b84cd3b678382fdd426217f7e2dfa70009869696f4a289dcb5d
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: gff3
-  accession: GCA_059505805.1
 - local_path: data/ncbi/GCA_019359415.1/extracted/ncbi_dataset/data/GCA_019359415.1/protein.faa
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_019359415.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_019359415.1'
@@ -13048,36 +12958,6 @@
   pulled_with: fetch_genome_assemblies_batch.py on r11
   kind: gff3
   accession: GCA_034931125.1
-- local_path: data/ncbi/GCA_059505305.1/extracted/ncbi_dataset/data/GCA_059505305.1/protein.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505305.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505305.1'
-  access_date: '2026-09-15T04:50:37Z'
-  checksum_sha256: b3f17949d57871429ed2623224358db7761500a1f6a5119d2627f850061224e5
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: protein
-  accession: GCA_059505305.1
-- local_path: data/ncbi/GCA_059505305.1/extracted/ncbi_dataset/data/GCA_059505305.1/GCA_059505305.1_ASM5950530v1_genomic.fna
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505305.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505305.1'
-  access_date: '2026-09-15T04:50:37Z'
-  checksum_sha256: b3516a37f283d1e983eca183c2fa669943c5a0383454797f0e94583e0eef3342
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: genome
-  accession: GCA_059505305.1
-- local_path: data/ncbi/GCA_059505305.1/extracted/ncbi_dataset/data/GCA_059505305.1/genomic.gff
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505305.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505305.1'
-  access_date: '2026-09-15T04:50:37Z'
-  checksum_sha256: a858035bda653412e551b99c4ccbd9074eb796129f4188f98932f3ba6ade03ca
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: gff3
-  accession: GCA_059505305.1
 - local_path: data/ncbi/GCA_045865695.1/extracted/ncbi_dataset/data/GCA_045865695.1/protein.faa
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_045865695.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_045865695.1'
@@ -13468,36 +13348,6 @@
   pulled_with: fetch_genome_assemblies_batch.py on r11
   kind: gff3
   accession: GCA_000828085.3
-- local_path: data/ncbi/GCA_059505625.1/extracted/ncbi_dataset/data/GCA_059505625.1/protein.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505625.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505625.1'
-  access_date: '2026-09-15T04:50:38Z'
-  checksum_sha256: f6825397525fc391b724cfaa5961b9a8cb48f7bbb8ab048964b7733a5b32b41b
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: protein
-  accession: GCA_059505625.1
-- local_path: data/ncbi/GCA_059505625.1/extracted/ncbi_dataset/data/GCA_059505625.1/GCA_059505625.1_ASM5950562v1_genomic.fna
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505625.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505625.1'
-  access_date: '2026-09-15T04:50:38Z'
-  checksum_sha256: 68a03c3d4da5f88a5c543d6fd467481c33985b93f2345c6cd85567704bdd884a
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: genome
-  accession: GCA_059505625.1
-- local_path: data/ncbi/GCA_059505625.1/extracted/ncbi_dataset/data/GCA_059505625.1/genomic.gff
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505625.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505625.1'
-  access_date: '2026-09-15T04:50:38Z'
-  checksum_sha256: e1931c72ab875de619fd212899d7ce09d938144f84ccd97626702c5acba9f3b4
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: gff3
-  accession: GCA_059505625.1
 - local_path: data/ncbi/GCA_001586785.2/extracted/ncbi_dataset/data/GCA_001586785.2/protein.faa
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001586785.2/
   source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001586785.2'
@@ -13978,36 +13828,6 @@
   pulled_with: fetch_genome_assemblies_batch.py on r11
   kind: gff3
   accession: GCA_000828075.3
-- local_path: data/ncbi/GCA_059505425.1/extracted/ncbi_dataset/data/GCA_059505425.1/protein.faa
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505425.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505425.1'
-  access_date: '2026-09-15T04:50:37Z'
-  checksum_sha256: 933f64b1a850f8c4fb501a33d37de6944b11c08e35f6213982b596bd416af750
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: protein
-  accession: GCA_059505425.1
-- local_path: data/ncbi/GCA_059505425.1/extracted/ncbi_dataset/data/GCA_059505425.1/GCA_059505425.1_ASM5950542v1_genomic.fna
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505425.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505425.1'
-  access_date: '2026-09-15T04:50:37Z'
-  checksum_sha256: ebb5c656306c627d4582fd304457737bd05d6240a666d53775d57d8f1ca4e6e5
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: genome
-  accession: GCA_059505425.1
-- local_path: data/ncbi/GCA_059505425.1/extracted/ncbi_dataset/data/GCA_059505425.1/genomic.gff
-  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_059505425.1/
-  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_059505425.1'
-  access_date: '2026-09-15T04:50:37Z'
-  checksum_sha256: 0deb661c040aed2d5664b4dc08db76607d73066c04c13c12923b1c9684226665
-  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
-  derived_by: null
-  pulled_with: fetch_genome_assemblies_batch.py on r11
-  kind: gff3
-  accession: GCA_059505425.1
 - local_path: data/ncbi/GCA_014534005.1/extracted/ncbi_dataset/data/GCA_014534005.1/protein.faa
   source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_014534005.1/
   source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_014534005.1'
@@ -16501,8 +16321,8 @@
 - local_path: studies/bacteria/cyanobacteria/config.csv
   source_url: (derived, no external source)
   source_release: n/a
-  access_date: '2026-09-15T04:52:04Z'
-  checksum_sha256: 1340254878da22329fa2831e5f9d79129ad59ca4da91d90f8c6f1328a447f8cc
+  access_date: '2026-09-15T05:13:49Z'
+  checksum_sha256: a5e32fd51ca24b963cd72b9a4c898cee8695ff874bc1c5cf064aa13c3ae9d3c7
   license: n/a
   derived_by: bin/build_study_config.py --study-dir studies/bacteria/cyanobacteria
   pulled_with: build_study_config.py on r11
