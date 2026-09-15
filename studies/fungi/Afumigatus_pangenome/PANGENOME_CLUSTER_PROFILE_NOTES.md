@@ -461,11 +461,21 @@ instead, since it already covers this exact strain set.
   version -- not a red flag, just BFD's own accession-source convention for
   these two well-known reference strains.
 - **Result: 295/295 strains matched, zero left needing a fresh BUSCO run.**
-  Summary files copied verbatim into `results/busco_genome/<Short>.BUSCO_summary.fungi_odb12.txt`
-  (gitignored, per `results/` convention) and parsed into
-  `results/busco_genome/busco_completeness_summary.tsv` (Complete/Single/
-  Duplicated/Fragmented/Missing %, n_BUSCOs, scaffold/contig counts, total
-  length, percent gaps -- one row per strain).
+  Raw summary files copied verbatim into
+  `results/busco_genome/<Short>.BUSCO_summary.fungi_odb12.txt` (gitignored,
+  per `results/` convention -- regenerable from BFD + this method) and parsed
+  into a consolidated table (Complete/Single/Duplicated/Fragmented/Missing %,
+  n_BUSCOs, scaffold/contig counts, total length, percent gaps -- one row per
+  strain), also written to `results/busco_genome/busco_completeness_summary.tsv`.
+  **The consolidated table is additionally committed at the study root**,
+  `busco_completeness_summary.tsv` (same tier as `config.csv`/
+  `DATA_MANIFEST.yaml` -- small, doesn't scale with candidate/sequence count,
+  so it's kept tracked outside the `results/` ignore rule). Provenance: derived
+  2026-09-15 by matching `species.csv`'s `Genome_Accession` against
+  `/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs`'s `samples.csv`
+  `ASMID` + `results/genome_stats/BUSCO_genome/` (fungi_odb12, BUSCO v6.0.0,
+  miniprot) exactly as described above -- no checked-in script yet, this
+  section is the derivation record until one exists.
 
 **Finding: completeness is uniformly high, not a confound for this panel.**
 Complete BUSCO% across all 295 strains: min 96.7%, median 98.8%, max 99.4% --
