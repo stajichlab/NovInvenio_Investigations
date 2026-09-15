@@ -160,6 +160,42 @@ def test_fetch_taxonomy_ranks_empty_input_makes_no_call():
     mock_run.assert_not_called()
 
 
+def test_fetch_taxonomy_ranks_chunks_large_id_lists():
+    # `datasets summary taxonomy taxon <id1> <id2> ...` is a GET request with
+    # every id in the URL/query -- live-verified 2026-09-14 against a real
+    # large phylum (Cyanobacteriota, ~3900 taxa) that an unchunked call fails
+    # with a gateway error (400/431) somewhere around 800-900 ids. This test
+    # locks in the fix: fetch_taxonomy_ranks must split into
+    # _TAXONOMY_BATCH_SIZE-sized chunks, never one unbounded call, regardless
+    # of how many ids are requested.
+    ids = [str(i) for i in range(1000, 1000 + nd._TAXONOMY_BATCH_SIZE * 2 + 50)]  # 3 chunks
+
+    def fake_run(cmd, capture_output, text, check):
+        chunk_ids = cmd[4:]
+        assert len(chunk_ids) <= nd._TAXONOMY_BATCH_SIZE
+        reports = [
+            {
+                "query": [tid],
+                "taxonomy": {
+                    "tax_id": int(tid),
+                    "rank": "SPECIES",
+                    "current_scientific_name": {"name": f"Taxon {tid}"},
+                    "classification": {},
+                    "parents": [1],
+                },
+            }
+            for tid in chunk_ids
+        ]
+        return MagicMock(stdout=json.dumps({"reports": reports, "total_count": len(reports)}))
+
+    with patch("subprocess.run", side_effect=fake_run) as mock_run:
+        result = nd.fetch_taxonomy_ranks(ids)
+
+    assert mock_run.call_count == 3
+    assert set(result.keys()) == set(ids)
+    assert result[ids[0]]["rank"] == "SPECIES"
+
+
 def test_find_forma_specialis_group_walks_rank_lookup():
     # cubense race 1 (taxid 1229664) -> parent 61366 "Fusarium oxysporum f.
     # sp. cubense" (rank FORMA_SPECIALIS) -- live-verified in the design

@@ -89,33 +89,49 @@ def query_species_genomes(taxon_id: str) -> list[dict[str, Any]]:
     return genomes
 
 
+# `datasets summary taxonomy taxon <id1> <id2> ...` is a GET request with every
+# id in the URL/query -- live-verified 2026-09-14 against a large real phylum
+# (Cyanobacteriota, ~3900 taxa) that this fails with a gateway error above a
+# few hundred ids: 800 ids succeeds, 900 fails with
+# "431 Request Header Fields Too Large", and the original unchunked call (3863
+# ids) failed with "400 Bad Request". 300 leaves comfortable margin below the
+# empirically-found ~800-900 boundary (which itself depends on each id's own
+# digit-count, not a fixed count) without adding many extra round trips for a
+# study of any realistic size.
+_TAXONOMY_BATCH_SIZE = 300
+
+
 def fetch_taxonomy_ranks(taxon_ids: list[str]) -> dict[str, dict[str, Any]]:
-    """One batched `datasets summary taxonomy taxon <id1> <id2> ...` call.
+    """Chunked `datasets summary taxonomy taxon <id1> <id2> ...` calls (see
+    _TAXONOMY_BATCH_SIZE's docstring for why this must be chunked at all, not
+    one unbounded call).
 
     Returns `{taxon_id: {"rank": str, "name": str, "parents": list[str],
-    "species_name": str}}`. The real response is a single JSON object
+    "species_name": str}}`. Each chunk's response is a single JSON object
     `{"reports": [...]}`, one report per requested id (in the order given),
     each shaped `{"query": ["<id>"], "taxonomy": {...}}` -- see the module
     docstring for the exact field paths this pulls from `taxonomy`.
     """
     if not taxon_ids:
         return {}
-    cmd = ["datasets", "summary", "taxonomy", "taxon", *taxon_ids]
-    result = subprocess.run(cmd, capture_output=True, text=True, check=True)
-    payload = json.loads(result.stdout)
     ranks: dict[str, dict[str, Any]] = {}
-    for report in payload.get("reports", []):
-        t = report.get("taxonomy", {})
-        tax_id = str(t.get("tax_id", ""))
-        if not tax_id:
-            continue
-        species = t.get("classification", {}).get("species")
-        ranks[tax_id] = {
-            "rank": t.get("rank", ""),
-            "name": t.get("current_scientific_name", {}).get("name", ""),
-            "parents": [str(p) for p in t.get("parents", [])],
-            "species_name": species["name"] if species else "",
-        }
+    for i in range(0, len(taxon_ids), _TAXONOMY_BATCH_SIZE):
+        chunk = taxon_ids[i : i + _TAXONOMY_BATCH_SIZE]
+        cmd = ["datasets", "summary", "taxonomy", "taxon", *chunk]
+        result = subprocess.run(cmd, capture_output=True, text=True, check=True)
+        payload = json.loads(result.stdout)
+        for report in payload.get("reports", []):
+            t = report.get("taxonomy", {})
+            tax_id = str(t.get("tax_id", ""))
+            if not tax_id:
+                continue
+            species = t.get("classification", {}).get("species")
+            ranks[tax_id] = {
+                "rank": t.get("rank", ""),
+                "name": t.get("current_scientific_name", {}).get("name", ""),
+                "parents": [str(p) for p in t.get("parents", [])],
+                "species_name": species["name"] if species else "",
+            }
     return ranks
 
 
