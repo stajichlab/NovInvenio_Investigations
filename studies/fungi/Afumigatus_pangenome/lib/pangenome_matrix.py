@@ -11,7 +11,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from pathlib import Path
 
-from compressed_io import open_maybe_compressed
+from compressed_io import open_maybe_compressed, open_maybe_compressed_write
 
 PRESENT = "present"
 GENOME_ONLY = "genome_only"
@@ -87,14 +87,21 @@ class PresenceMatrix:
         rather than by changing what a cell looks like. The sidecar is written
         only when this matrix actually carries copy numbers, so a state-only
         matrix still produces exactly one output file, as before.
+
+        `path` may end in `.gz`/`.zst` to write compressed output -- the
+        sidecar path (`copy_number_path`) preserves whatever suffix `path`
+        ends in, so a compressed matrix gets a compressed sidecar too, per
+        this workspace's storage-compression convention for large TSV
+        intermediates (a full family x strain matrix at pangenome scale is
+        exactly the kind of file that convention targets).
         """
-        with open(path, "w") as fh:
+        with open_maybe_compressed_write(path) as fh:
             fh.write("family\t" + "\t".join(self.strains) + "\n")
             for fam in self.families:
                 row = [self.call(fam, s) for s in self.strains]
                 fh.write(fam + "\t" + "\t".join(row) + "\n")
         if write_copy_number and self.copy_number:
-            with open(copy_number_path(path), "w") as fh:
+            with open_maybe_compressed_write(copy_number_path(path)) as fh:
                 fh.write("family\tstrain\tcopies\n")
                 for (fam, strain), copies in sorted(self.copy_number.items()):
                     fh.write(f"{fam}\t{strain}\t{copies}\n")
@@ -138,14 +145,34 @@ class PresenceMatrix:
         return pm
 
 
+_COMPRESSION_SUFFIXES = (".gz", ".zst")
+
+
 def copy_number_path(matrix_path: str | Path) -> Path:
-    """The copy-number sidecar path for a given presence-matrix path."""
-    return Path(str(matrix_path) + ".copy_number.tsv")
+    """The copy-number sidecar path for a given presence-matrix path.
+
+    A compressed matrix path (`matrix.tsv.zst`) gets a compressed sidecar
+    path too (`matrix.copy_number.tsv.zst`), not `matrix.tsv.zst.copy_number.tsv`
+    -- the compression suffix must stay LAST so `open_maybe_compressed`/
+    `open_maybe_compressed_write`'s extension check still recognizes it.
+    """
+    matrix_path = str(matrix_path)
+    for suffix in _COMPRESSION_SUFFIXES:
+        if matrix_path.endswith(suffix):
+            return Path(matrix_path[: -len(suffix)] + ".copy_number.tsv" + suffix)
+    return Path(matrix_path + ".copy_number.tsv")
 
 
 def read_copy_number_sidecar(matrix_path: str | Path) -> dict[tuple[str, str], int]:
-    """Load `<matrix>.copy_number.tsv` (plain, `.gz`, or `.zst`) if it
-    exists; return {} if it does not."""
+    """Load the copy-number sidecar (see `copy_number_path`) if it exists;
+    return {} if it does not.
+
+    Tries `copy_number_path(matrix_path)` itself first (already
+    compression-suffixed to match `matrix_path`, e.g. `.copy_number.tsv.zst`
+    for a `.zst` matrix -- what `PresenceMatrix.to_tsv` actually writes),
+    then that same path with an extra `.gz`/`.zst` appended -- a defensive
+    fallback for a sidecar that was compressed after the fact without its
+    name being recomputed, not the shape `to_tsv` itself produces."""
     sidecar = copy_number_path(matrix_path)
     candidates = [sidecar, Path(str(sidecar) + ".gz"), Path(str(sidecar) + ".zst")]
     sidecar = next((c for c in candidates if c.exists()), None)
