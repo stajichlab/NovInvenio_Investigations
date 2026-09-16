@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-#SBATCH -p stajichlab -c 1 --mem 32gb --time=12:00:00 --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/logs/post_rescue_pipeline.log
+#SBATCH -p stajichlab -c 8 --mem 32gb --time=4:00:00 --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/logs/post_rescue_pipeline.log
 
 # Fold the corrected per-strain tblastn rescue results (job 28399806, see
 # run_rescue_pass_per_strain.sh) back into the presence matrix and rerun
@@ -13,17 +13,30 @@
 # touch protein clustering or genomic coordinates -- so those inputs are
 # reused as-is, not regenerated.
 #
-# --mem 32gb / --time 12h, not the old rescued-matrix run's 64gb/48h: that
-# estimate was sized for cooccurrence.py's Monte Carlo permutation null
+# --mem 32gb / --time 4h / -c 8, not the old rescued-matrix run's 64gb/48h:
+# that estimate was sized for cooccurrence.py's Monte Carlo permutation null
 # (2026-09-15 commit f7726e4 replaced it with an exact closed-form test,
 # benchmarked ~460x faster). Real measured timing from the first full run
 # (2026-09-15): steps 1-3 (fold-back through co-occurrence) ~48 min total;
 # step 4 (extract_rescue_positions.py, re-parsing all 295 per-strain tblastn
-# outputs) ~68 min, single-threaded (a real parallelization opportunity for
-# next time -- each file's parsing is independent); step 6
-# (pair_classification.py against the ~3x-larger merged family_positions)
-# ~40 min. 12h is comfortable headroom over that ~2.5h real total, not a
-# tight fit; revise down once a second real run confirms this is stable.
+# outputs) ~68 min; step 6 (pair_classification.py against the ~3x-larger
+# merged family_positions) ~40 min.
+#
+# Step 4's 68 minutes was NOT actually I/O or file-parsing cost (raw zstd
+# decompression of all 295 files takes seconds) -- profiling found the real
+# cost was `family not in matrix.families`, an O(47,983) linear scan on a
+# LIST executed once per entry in the hit-position map (hundreds of
+# thousands to millions of times). Fixed by converting to a set inside
+# extract_rescue_positions.py (~7.7x speedup measured on a 20-file subset:
+# 290s -> 38s, identical output) -- ALWAYS worth checking for this pattern
+# before reaching for multiprocessing, since it fixes the actual bottleneck
+# instead of parallelizing something that wasn't the real cost. Added
+# `--processes` multiprocessing on top of that (parses independent files
+# concurrently) for a further, smaller, genuine win once the real bottleneck
+# was gone (~1.2x further on the same subset) -- `-c 8` here matches the
+# `--processes 8` passed to extract_rescue_positions.py below. 4h is
+# generous headroom over the (now much shorter) expected total; revise once
+# a second real run at full 295-strain scale confirms a new number.
 #
 # Steps 4/5 (added after the first real run of this script, 2026-09-15):
 # pair_classification.py can't resolve physical linkage for a rescue-pass
@@ -84,6 +97,7 @@ echo "Step 4/7: extracting genomic positions for GENOME_ONLY (rescue) calls..."
 pixi run python3 "$STUDY/bin/extract_rescue_positions.py" \
     --matrix "$RUN/presence_matrix.rescued.tsv" \
     "${TBLASTN_ARGS[@]}" \
+    --processes 8 \
     --output "$RUN/rescue_positions.tsv"
 
 echo "Step 5/7: rebuilding family_positions.tsv with rescue positions merged in..."

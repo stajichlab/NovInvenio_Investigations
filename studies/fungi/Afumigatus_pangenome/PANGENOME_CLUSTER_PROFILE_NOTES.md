@@ -543,17 +543,36 @@ every physically-resolvable category in absolute terms too:
 Canonical, current files (in `results/full_293run/`):
 `presence_matrix.rescued.tsv`, `frequency_table.rescued.tsv`,
 `cooccurring_pairs.rescued.tsv`, `family_positions.rescued.tsv`,
-`pair_classification.rescued.tsv` (this is the position-complete v2; the
-position-incomplete intermediate is kept as
-`pair_classification.rescued_positions_incomplete.tsv` for the record, not
-for use). Full aggregated report: `results/SUMMARY.md`
-(`bin/build_summary_report.py`). Figures: `results/figures/`.
+`pair_classification.rescued.tsv` (this is the position-complete v2 --
+the position-incomplete intermediate was deleted after its numbers were
+recorded in the table above, not kept as a standing file; `rescue_positions.tsv`
+is likewise deleted once merged into `family_positions.rescued.tsv`, since
+both are fully regenerable from the tblastn chunks in
+`results/rescue_pass/per_strain_chunks/`). Full aggregated report:
+`results/SUMMARY.md` (`bin/build_summary_report.py`). Figures: `results/figures/`.
 
 *(Both fixes found by checking real numbers against a specific, verifiable
 hypothesis before trusting them -- not by assuming a plausible-looking
 result was correct. See `run_rescue_pass_per_strain.sh` and
 `extract_rescue_positions.py`'s own module docstrings for the full technical
 detail of each.)*
+
+**Third finding, same day: `extract_rescue_positions.py`'s 68-minute runtime
+was an algorithmic bug, not a workload that genuinely needed
+multiprocessing.** Initially parallelized the per-file tblastn parsing
+(`--processes`, multiprocessing.Pool) expecting that to be the win. Real
+profiling showed parsing all 295 files takes only ~17s of CPU time even
+sequentially -- the actual 68 minutes came from `family not in
+matrix.families`, an O(47,983) linear scan on a plain Python list, executed
+once per entry in the hit-position map (hundreds of thousands to millions of
+times at real scale). Converting `matrix.families`/`matrix.strains` to sets
+once before that loop gave a measured **~7.7x speedup on a 20-file subset
+(290s -> 38s), identical output**. The `--processes` multiprocessing was
+kept on top of that fix (a genuine, smaller further win -- ~1.2x on the same
+subset -- once the real bottleneck was gone), but the lesson for next time:
+profile before parallelizing, since the obvious "big loop over many files"
+shape can hide an unrelated O(N*F) bug that parallelism only ever masks a
+fraction of, never fixes.
 
 **Separately, `cooccurrence.py`'s within-clade permutation null was
 replaced with an exact closed-form test (2026-09-15).** The Monte Carlo

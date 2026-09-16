@@ -29,9 +29,21 @@ synteny" limitation `pair_classification.py`'s own module docstring
 already documents as a known partial-implementation gap, not a new one
 introduced here.
 
+2026-09-15, later same day: parsing all 295 per-strain files sequentially
+took ~68 minutes single-threaded on the real dataset (measured in
+run_post_rescue_pipeline.sh's own timing comment) -- each file's parsing is
+completely independent (its own dict of (family, strain) -> best hit,
+merged with every other file's only by max-bitscore comparison at the
+end), so this is now farmed out to a process pool via `--processes`
+instead of a plain sequential loop. Default `--processes 1` keeps the
+original sequential behavior (and identical results -- the merge is a
+simple max-bitscore reduction, order-independent) for anyone who doesn't
+pass it.
+
 Usage:
   extract_rescue_positions.py --matrix presence_matrix.rescued.tsv \\
       --tblastn_tsv results/rescue_pass/per_strain_chunks/*.tblastn.tsv.zst \\
+      --processes 16 \\
       --output rescue_positions.tsv
   # Short<TAB>family<TAB>contig<TAB>start -- feed into
   # build_family_positions.py's --rescue_positions
@@ -39,6 +51,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import multiprocessing as mp
 import sys
 from pathlib import Path
 
@@ -85,6 +98,32 @@ def parse_tblastn_best_hit_positions(
     return best
 
 
+def _parse_one_file(
+    args: tuple[str, float, float],
+) -> dict[tuple[str, str], tuple[str, int, float]]:
+    """Pool worker: parse a single tblastn file in isolation. A top-level
+    (not nested) function so it's picklable for `multiprocessing.Pool`."""
+    tblastn_path, min_pident, min_qcov = args
+    with open_maybe_compressed(tblastn_path) as fh:
+        return parse_tblastn_best_hit_positions(fh.readlines(), min_pident, min_qcov)
+
+
+def merge_best_hits(
+    per_file_hits: list[dict[tuple[str, str], tuple[str, int, float]]],
+) -> dict[tuple[str, str], tuple[str, int, float]]:
+    """Reduce several files' {(family, strain): (contig, start, bitscore)}
+    dicts into one, keeping the highest-bitscore hit per key -- a simple
+    associative/commutative max reduction, so the result doesn't depend on
+    what order the per-file dicts arrive in (parallel-safe)."""
+    merged: dict[tuple[str, str], tuple[str, int, float]] = {}
+    for hits in per_file_hits:
+        for key, (contig, start, bitscore) in hits.items():
+            existing = merged.get(key)
+            if existing is None or bitscore > existing[2]:
+                merged[key] = (contig, start, bitscore)
+    return merged
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--matrix", required=True)
@@ -95,25 +134,41 @@ def main() -> None:
     )
     ap.add_argument("--min_pident", type=float, default=90.0)
     ap.add_argument("--min_qcov", type=float, default=80.0)
+    ap.add_argument(
+        "--processes", type=int, default=1,
+        help="parse this many tblastn files in parallel (each file's parsing "
+        "is independent -- see the module docstring). 1 (default) parses "
+        "sequentially in-process, identical to the original behavior.",
+    )
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
 
     matrix = PresenceMatrix.from_tsv(args.matrix)
 
-    best: dict[tuple[str, str], tuple[str, int, float]] = {}
-    for tblastn_path in args.tblastn_tsv:
-        with open_maybe_compressed(tblastn_path) as fh:
-            hits = parse_tblastn_best_hit_positions(fh.readlines(), args.min_pident, args.min_qcov)
-        for key, (contig, start, bitscore) in hits.items():
-            existing = best.get(key)
-            if existing is None or bitscore > existing[2]:
-                best[key] = (contig, start, bitscore)
+    tasks = [(path, args.min_pident, args.min_qcov) for path in args.tblastn_tsv]
+    if args.processes <= 1:
+        per_file_hits = [_parse_one_file(task) for task in tasks]
+    else:
+        with mp.Pool(processes=args.processes) as pool:
+            per_file_hits = pool.map(_parse_one_file, tasks)
+    best = merge_best_hits(per_file_hits)
+
+    # Sets, not the underlying lists: `family in matrix.families` on a
+    # 47,983-element LIST is an O(F) linear scan, and this membership check
+    # runs once per entry in `best` (hundreds of thousands to millions of
+    # entries at real scale) -- an O(N*F) cost that was found (2026-09-15)
+    # to be the actual dominant cost of this whole script (~68 minutes on
+    # the real dataset), dwarfing the per-file parsing step multiprocessing
+    # was added to speed up. Converting to sets here makes each check O(1)
+    # without changing PresenceMatrix's own list-based public fields.
+    strain_set = set(matrix.strains)
+    family_set = set(matrix.families)
 
     n_written, n_not_genome_only = 0, 0
     with open(args.output, "w") as out:
         out.write("Short\tfamily\tcontig\tstart\n")
         for (family, strain), (contig, start, _bitscore) in sorted(best.items()):
-            if strain not in matrix.strains or family not in matrix.families:
+            if strain not in strain_set or family not in family_set:
                 continue
             if matrix.call(family, strain) != GENOME_ONLY:
                 n_not_genome_only += 1
