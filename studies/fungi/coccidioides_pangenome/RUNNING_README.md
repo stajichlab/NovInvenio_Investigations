@@ -294,12 +294,37 @@ processes — `FREQUENCY_BINS`, `FAMILY_POSITIONS`, `COOCCURRENCE`,
   downstream figure/report work is out of scope for this onboarding plan
   (see "Explicitly not in scope" in the spec).
 
-## Next: immitis and posadasii sub-runs
+## Full run: immitis — completed 2026-09-16
 
-Same `run_pangenome.sh`/`stajichlab_queue.config`, different samplesheet
-(`config_immitis.csv` / `config_posadasii.csv`), same `data_dir` (169 / 360
-strains respectively — smaller than the 529-strain whole-set, so the same
-OOM gaps may or may not reproduce at this scale; watched for, not assumed).
+`results/mmseqs_immitis/` (169 *C. immitis* strains only, `config_immitis.csv`).
+
+Ran end-to-end in **one pass, no OOMs, no retries needed**: `[SUCCESS]
+completed=693 failed=0 cached=0` — the three memory fixes from the whole-set
+run (`EXTRACT_ABSENT_QUERIES`/`RESCUE_PASS`/`FREQUENCY_BINS`, all in
+`stajichlab_queue.config` before this run started) covered this smaller
+scale with no new gaps. Confirms those fixes generalize, not just a fix for
+the 529-strain case specifically.
+
+**Output** (`results/mmseqs_immitis/output/pangenome/`):
+- `presence_matrix.tsv` / `frequency_table.tsv`: 25,810 tier-1 gene families.
+  Bin breakdown: 9,602 singleton (37.2%), 6,199 cloud (24.0%), 3,151 shell
+  (12.2%), 6,360 core (24.6%), 498 soft_core (1.9%) — noticeably **more
+  core/less open** than the whole-set's 12.4% core, which makes biological
+  sense: 169 strains of one species share more core genome than 529 strains
+  spanning two species.
+- `gene_positions.tsv` / `family_positions.tsv`: 1,453,886 rows each.
+- `cooccurring_pairs.tsv` / `pair_classification.tsv`: 63,268 candidate
+  pairs — 57,162 `trans_unconfirmed`, 3,293 `unexplained_physical`, 1,506
+  `insufficient_data`, 1,307 `ambiguous_linkage`. No pair reached the full
+  `trans`-confirmed classification at this strain count/clade-composition
+  (plausible — `min_clades` and similar statistical minimums are stricter
+  relative to a single-species set than the two-species whole-set run).
+
+## Next: posadasii sub-run
+
+Same `run_pangenome.sh`/`stajichlab_queue.config`, `config_posadasii.csv`
+(360 strains — the largest sub-run, closer to the whole-set's scale than
+immitis, so still worth watching for OOMs even though immitis passed clean).
 
 See `notes/superpowers/plans/2026-09-15-coccidioides-pangenome-onboarding.md`
 for the full task-by-task detail.
