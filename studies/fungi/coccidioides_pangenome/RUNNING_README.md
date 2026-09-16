@@ -245,19 +245,61 @@ c13301d coccidioides_pangenome: generate per-species config.csv variants
 88888ad coccidioides_pangenome: add pangenome.nf run script (wholeset/immitis/posadasii)
 ```
 
-## Next steps (once the upstream fix lands)
+## Full run: whole-set — completed 2026-09-16
 
-1. Direct parser validation against all 529 real GFF3+FASTA pairs (no
-   Nextflow) — pass criterion is `gene_positions.tsv` row count per strain
-   equal to that strain's protein count, not any downstream pipeline stage
-   output.
-2. A 5-10 strain Nextflow smoke test under an interactive SLURM allocation
-   (pipeline-wiring check, not the correctness check).
-3. Resource sizing for the full-scale mmseqs clustering step (~4.6M total
-   proteins across 529 strains — real scale, not the smoke-test scale), via a
-   study-specific `stajichlab_queue.config` routing the heaviest processes to
-   the `stajichlab` SLURM partition.
-4. Full runs: whole-set, then immitis, then posadasii.
+`results/mmseqs_wholeset/` (529 strains, all species together).
+
+**Three real resource-sizing gaps found and fixed during this run** (all the
+same class: a process reading/aggregating the full 529-strain
+presence-matrix scale — 182 MB, 47,743 tier-1 families × 529 strains — OOM-killed
+at its inherited `label 'low_cpu'` 4GB default; none of these had a
+scaling override anywhere in `nf_NovInvenio`, unlike `COOCCURRENCE`, which
+already did from the Afumigatus study):
+
+1. `EXTRACT_ABSENT_QUERIES` — OOM at 4GB. Fixed: `16GB * task.attempt`.
+2. `RESCUE_PASS` — OOM at 4GB (aggregates the matrix + 860MB of compressed
+   per-strain tblastn output). Fixed: `32GB * task.attempt`.
+3. `FREQUENCY_BINS` — OOM at 4GB (reads `presence_matrix.rescued.tsv`, same
+   182MB scale). Fixed: `32GB * task.attempt`.
+
+Each fix was applied to `stajichlab_queue.config`, committed, and the run
+resumed with `-resume` (Nextflow's cache correctly skipped every
+already-completed stage each time — confirmed via `[skipping] Stored
+process` log lines, never a re-run of `PREFIX_*`/`CLUSTER_TIER1`/
+`TBLASTN_PER_STRAIN` etc.). One operational snag: relaunching immediately
+after a failure can hit "Unable to acquire lock on session" if the prior
+Nextflow process is still mid-cleanup ("Execution cancelled -- Finishing
+pending tasks before exit" can take a few minutes) — wait for
+`ps -ef | grep pangenome.nf` to return nothing before relaunching.
+
+**Final result**: `[SUCCESS] completed=4 failed=0 cached=1600` (the 1600
+cached processes are every stage from earlier resumed attempts; only 4 new
+processes — `FREQUENCY_BINS`, `FAMILY_POSITIONS`, `COOCCURRENCE`,
+`PAIR_CLASSIFICATION` — needed to actually run on the last, successful pass).
+
+**Real biological output** (`results/mmseqs_wholeset/output/pangenome/`):
+- `presence_matrix.tsv` / `frequency_table.tsv`: 47,743 tier-1 gene families.
+  Frequency-bin breakdown: 19,858 singleton (41.6%), 16,996 cloud (35.6%),
+  4,977 shell (10.4%), 5,458 core (11.4%), 453 soft_core (0.9%) — a
+  classically open pangenome shape (>75% accessory/singleton), consistent
+  with a genuinely diverse 529-strain wild-collection set.
+- `gene_positions.tsv` / `family_positions.tsv`: 4,504,704 rows each (one
+  per annotated protein across all 529 strains).
+- `cooccurring_pairs.tsv` / `pair_classification.tsv`: 12,870,023 candidate
+  family pairs classified — 956,589 `trans` (confirmed non-physically-linked
+  co-occurrence), 11,585,869 `trans_unconfirmed`, 277,213
+  `insufficient_data`, 33,836 `unexplained_physical`, 16,515
+  `ambiguous_linkage`. This is real signal for README goals 3-5 (co-gain/
+  co-loss family detection, candidate gene clusters, correlated gain/loss) —
+  downstream figure/report work is out of scope for this onboarding plan
+  (see "Explicitly not in scope" in the spec).
+
+## Next: immitis and posadasii sub-runs
+
+Same `run_pangenome.sh`/`stajichlab_queue.config`, different samplesheet
+(`config_immitis.csv` / `config_posadasii.csv`), same `data_dir` (169 / 360
+strains respectively — smaller than the 529-strain whole-set, so the same
+OOM gaps may or may not reproduce at this scale; watched for, not assumed).
 
 See `notes/superpowers/plans/2026-09-15-coccidioides-pangenome-onboarding.md`
 for the full task-by-task detail.
