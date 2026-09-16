@@ -197,9 +197,42 @@ suite still passes (471 passed, 3 skipped, `pixi run pytest`). Also updated
 `Afumigatus_pangenome/NEXTFLOW_MIGRATION_NOTES.md` to mark this resolved,
 since that's where the gap was originally flagged.
 
-Next: Task 6's small-subset validation (direct parser check against all 529
-real GFF3+FASTA pairs, then a 5-10 strain Nextflow smoke test under an
-interactive SLURM allocation) — not yet run.
+## Small-subset validation — passed 2026-09-15
+
+**Direct parser check (no Nextflow) against all 529 real GFF3+FASTA pairs**:
+```bash
+python3 bin/pangenome_build_gene_positions.py \
+    --config studies/fungi/coccidioides_pangenome/config.csv \
+    --gff3_dir studies/fungi/coccidioides_pangenome/data_dir/gff3 \
+    --protein_dir studies/fungi/coccidioides_pangenome/data_dir/pep \
+    --groups IN --output <output.tsv>
+```
+`build_gene_positions: 529 strains parsed, 0 skipped (no GFF3)` — **zero
+warnings, zero hard errors**: every strain's `Parent=` fallback resolved and
+matched its own protein FASTA cleanly. Row-count-vs-protein-count check
+(grouping the output by `Short`): **0/529 strains with a mismatch** — the
+pass criterion from the spec, met exactly.
+
+**10-strain Nextflow smoke test** (5 *C. immitis* + 5 *C. posadasii*, run
+directly on a compute node already inside a SLURM allocation — no separate
+`srun` needed since the session itself was already running under the
+`stajichlab` partition, not the login node): **57/57 processes completed, 0
+failed.** `gene_positions.tsv` and `family_positions.tsv` both fully
+populated (85,850 rows each, exactly matching — confirms
+`pangenome_build_family_positions.py`'s downstream join really is
+dialect-agnostic, as predicted from code inspection before this fix). Row
+count for strain `1M0` (8655) matches the direct-check count exactly.
+`pair_classification.tsv` correctly has 0 candidate pairs at this sample
+size — expected (statistical minimums like `min_co_carrying`/`min_clades`
+can't be met with only 10 strains), not a failure signal, per the spec.
+The all-`IN`/no-`OUT` samplesheet (this study has no ingroup/outgroup
+design) ran through `MASH_SKETCH_INGROUP`/`ASSIGN_CLADES` without incident,
+resolving the one previously-unverified assumption from the spec.
+
+Next: resource sizing for the full-scale mmseqs clustering step (~4.6M
+total proteins across 529 strains, not the 10-strain smoke-test scale), a
+study-specific `stajichlab_queue.config`, then the three full runs
+(whole-set, immitis, posadasii).
 
 ## Commits so far
 
