@@ -9,6 +9,13 @@ See `DESIGN.md` for the full design record and `CLAUDE.md` for the operational
 ruleset (data provenance rules, where new code goes). This file is a practical
 quick start for onboarding a new study.
 
+**Bootstrapping a brand-new NII-style repo from scratch** (rather than adding a
+study to this existing one) is a separate, earlier stage handled by a different
+tool: `NovInvenio`'s `bin/ni-init` (previously named `bin/ni` until 2026-09-16,
+renamed to stop colliding with this repo's own `bin/ni` below -- that tool has
+to run before an NII-style repo exists, so it can't live inside one). Once a
+repo exists, everything below is this repo's own `bin/ni`.
+
 ## Quick start
 
 Every study goes through the same four stages: **generate** a `species.csv`
