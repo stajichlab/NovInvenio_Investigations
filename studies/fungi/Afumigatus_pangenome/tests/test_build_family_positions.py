@@ -58,5 +58,30 @@ def test_build_family_positions_separates_strains():
     member_to_rep = {"s1|P1.1": "famA", "s2|P1.1": "famA"}
     result = build_family_positions(rows, member_to_rep)
     assert set(result.keys()) == {"s1", "s2"}
+
+
+def test_build_family_positions_merges_rescue_positions_interleaved_by_coordinate():
+    # 2026-09-15 fix: a rescue-pass (GENOME_ONLY) hit has no protein_id, so
+    # its family is already resolved directly -- it must still be
+    # interleaved into the SAME per-strain rank ordering by genomic
+    # coordinate, not appended after all annotated genes, or the rank
+    # wouldn't reflect true physical distance for linkage_fraction.
+    gene_rows = [
+        ("s1", "P1.1", "contig1", 100, 200),   # rank 0
+        ("s1", "P2.1", "contig1", 500, 600),   # rank 2 (rescue entry sits between)
+    ]
+    member_to_rep = {"s1|P1.1": "famA", "s1|P2.1": "famB"}
+    rescue_rows = [("s1", "famRescued", "contig1", 300)]  # rank 1, between famA and famB
+
+    result = build_family_positions(gene_rows, member_to_rep, rescue_position_rows=rescue_rows)
     assert result["s1"]["famA"] == [("contig1", 0)]
-    assert result["s2"]["famA"] == [("contig1", 0)]
+    assert result["s1"]["famRescued"] == [("contig1", 1)]
+    assert result["s1"]["famB"] == [("contig1", 2)]
+
+
+def test_build_family_positions_rescue_positions_default_to_none_unchanged():
+    # Backward compatibility: omitting rescue_position_rows entirely must
+    # behave exactly as before (existing callers/tests pass no such arg).
+    rows = [("s1", "P1.1", "contig1", 100, 200)]
+    member_to_rep = {"s1|P1.1": "famA"}
+    assert build_family_positions(rows, member_to_rep) == {"s1": {"famA": [("contig1", 0)]}}

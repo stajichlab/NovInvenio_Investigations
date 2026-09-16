@@ -319,15 +319,16 @@ repo's parent directory.
       design spec's Opus-reviewed component 10 step 1), 2,788,402 proteins ->
       47,983 tier-1 families in ~14 min wall-clock
       (`results/full_293run/tier1_cluster.tsv`).
-- [~] Genome-level tblastn/miniprot rescue pass -- a real, not theoretical,
+- [x] Genome-level tblastn/miniprot rescue pass -- a real, not theoretical,
       need (the HAC reference screen caught one fragmented gene model,
       `Asfu_E165L4`'s hrmA split across two protein records, by accident on
-      a single locus). Run once (2026-09-15) with a correctness bug
-      (`-max_target_seqs 5` truncated across strains, not per strain --
-      see the "Rescue pass CORRECTNESS BUG" section below); redone with a
-      per-strain-database redesign, job 28399806 in progress as of this
-      writing. Not closed out until that job's results are folded back in.
-- [ ] Compute the real family-frequency histogram (component 1-2 of the general
+      a single locus). Done 2026-09-15, after two real bugs found and fixed
+      the same day: (1) `-max_target_seqs 5` truncated across strains, not
+      per strain (fixed with a per-strain-database redesign, job 28399806);
+      (2) rescue-pass presence calls had no resolvable genomic position for
+      `pair_classification.py` (fixed with `extract_rescue_positions.py`).
+      See "Rescue pass redo COMPLETE" below for the full corrected numbers.
+- [x] Compute the real family-frequency histogram (component 1-2 of the general
       design) before fixing core/soft-core/shell/cloud cutoffs — after excluding
       low-completeness strains.
 - [ ] Build the ID crosswalk (paper IDs <-> this study's IDs).
@@ -483,6 +484,76 @@ singleton fraction 57.6%->30.7%" result above (the `bf15230` commit) is
   preparation for the eventual Nextflow migration (see the migration
   section below), then verified directly against the run's own tblastn
   output before acting on it.
+
+**Rescue pass redo COMPLETE and folded through the full chain (2026-09-15,
+later same day).** Job 28399806 (per-strain tblastn) finished cleanly (295/295
+strains, all array tasks COMPLETED). `run_post_rescue_pipeline.sh` (job
+28409589) then folded it back through frequency binning, co-occurrence, pair
+classification, and figures -- **47m54s total wall-clock** for the whole
+chain (vs. the ~30-90h the old Monte Carlo co-occurrence step alone would
+have needed).
+
+**Real, now-trustworthy composition result:**
+
+| Bin | Pre-rescue (wrong, bf15230) | Post-rescue (corrected) |
+|---|---:|---:|
+| core | 13.8% (6,600) | **53.0% (25,436)** |
+| soft_core | 1.2% (582) | 1.3% (643) |
+| shell | 8.2% (3,943) | 14.6% (6,998) |
+| cloud | 19.3% (9,238) | 8.4% (4,054) |
+| singleton | 57.6% (27,620) | **22.6% (10,852)** |
+
+Singleton fraction more than halved, core more than tripled -- a far
+stronger correction than the earlier (also-buggy) rescue attempt's
+57.6%->30.7% claim suggested, confirming the annotation/coverage-artifact
+concern (Opus review must-fix M6) was real and substantial, not marginal.
+
+**Second bug found and fixed the same day: `pair_classification.py` couldn't
+resolve most of the newly-significant pairs.** `insufficient_data` jumped
+from 6.0% (pre-rescue) to 96.2% of FDR-significant pairs immediately after
+the corrected co-occurrence rerun -- traced to a real cause: `classify_pair()`
+only counts a strain as "co-carrying with a resolvable position" via
+`family_positions.tsv`, which was built purely from GFF3-annotated
+`protein_id=` positions. A rescue-pass `GENOME_ONLY` call is a raw tblastn
+genomic hit with no annotated protein, so it had no position at all --
+correctly detected as present by the rescue fix, but invisible to the
+physical-linkage classifier. Fixed with a new script,
+`bin/extract_rescue_positions.py` (re-parses the same per-strain tblastn
+output already produced, keeping the single highest-bitscore qualifying hit's
+own genomic coordinates -- contig + start/end -- for every (family, strain)
+pair the final matrix calls GENOME_ONLY; 5,871,769 positions recovered this
+way), plus a `build_family_positions.py` change (`--rescue_positions`,
+merges these directly into the SAME per-strain rank ordering by genomic
+coordinate, interleaved with real annotated genes, not appended after them).
+Rerunning `pair_classification.py` against the corrected
+`family_positions.rescued.tsv` (8,629,786 total positions, up from
+2,758,017) dropped `insufficient_data` to **0.3% (13,643 pairs)** and grew
+every physically-resolvable category in absolute terms too:
+
+| Classification | Pre-rescue | Post-rescue, positions bug | Post-rescue, FULLY corrected |
+|---|---:|---:|---:|
+| trans | 522,933 | 81,500 | **2,613,303** |
+| trans_unconfirmed | 649,996 | 71,950 | 1,533,331 |
+| unexplained_physical | 5,242 | 2,221 | 44,576 |
+| ambiguous_linkage | 3,029 | 4,208 | 29,949 |
+| starship_explained | 2,416 | 3,327 | 8,890 |
+| insufficient_data | 75,816 | 4,080,486 | 13,643 |
+| **Total FDR-significant pairs** | 1,259,432 | 4,243,692 | 4,243,692 |
+
+Canonical, current files (in `results/full_293run/`):
+`presence_matrix.rescued.tsv`, `frequency_table.rescued.tsv`,
+`cooccurring_pairs.rescued.tsv`, `family_positions.rescued.tsv`,
+`pair_classification.rescued.tsv` (this is the position-complete v2; the
+position-incomplete intermediate is kept as
+`pair_classification.rescued_positions_incomplete.tsv` for the record, not
+for use). Full aggregated report: `results/SUMMARY.md`
+(`bin/build_summary_report.py`). Figures: `results/figures/`.
+
+*(Both fixes found by checking real numbers against a specific, verifiable
+hypothesis before trusting them -- not by assuming a plausible-looking
+result was correct. See `run_rescue_pass_per_strain.sh` and
+`extract_rescue_positions.py`'s own module docstrings for the full technical
+detail of each.)*
 
 **Separately, `cooccurrence.py`'s within-clade permutation null was
 replaced with an exact closed-form test (2026-09-15).** The Monte Carlo

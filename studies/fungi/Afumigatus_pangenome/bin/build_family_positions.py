@@ -30,29 +30,49 @@ from pangenome_matrix import read_cluster_tsv  # noqa: E402
 def build_family_positions(
     gene_position_rows: list[tuple[str, str, str, int, int]],
     member_to_rep: dict[str, str],
+    rescue_position_rows: list[tuple[str, str, str, int]] | None = None,
     id_sep: str = "|",
 ) -> dict[str, dict[str, list[tuple[str, int]]]]:
-    """`gene_position_rows`: [(Short, protein_id, contig, start, end), ...].
-    Returns {Short: {family_id: [(contig, rank), ...]}}.
+    """`gene_position_rows`: [(Short, protein_id, contig, start, end), ...],
+    resolved to a family via `member_to_rep` (GFF3-annotated genes).
+    `rescue_position_rows`: [(Short, family, contig, start), ...] -- the
+    family is already known directly (a genome-level tblastn rescue hit has
+    no protein_id/gene model to look up; see
+    `bin/extract_rescue_positions.py`), so these skip the `member_to_rep`
+    join entirely. Returns {Short: {family_id: [(contig, rank), ...]}}.
 
     A protein_id with no cluster membership (e.g. a rare gene filtered out
     before clustering) is silently skipped -- not every protein needs to be
-    in a family for this to work, only ones that are."""
-    # First pass: per-strain ordered (protein_id, contig, start) list, sorted
-    # by contig then start, so a running index gives contig-relative rank
-    # (a jump in the running index at a contig boundary is harmless --
-    # linkage_fraction only ever compares positions when contig_a == contig_b).
-    per_strain_ordered: dict[str, list[tuple[str, str, int]]] = {}
+    in a family for this to work, only ones that are.
+
+    2026-09-15: merging rescue positions into the SAME per-strain ordered
+    list (not appending them separately after rank assignment) is the
+    point -- a rescued family's rank must be interleaved with real
+    annotated genes by genomic coordinate, not tacked on at the end, or
+    `linkage_fraction`'s "within k genes" adjacency check would compare
+    ranks that don't reflect real physical distance."""
+    # First pass: per-strain ordered (contig, start, protein_id_or_None,
+    # family_or_None) list, sorted by contig then start, so a running index
+    # gives contig-relative rank (a jump in the running index at a contig
+    # boundary is harmless -- linkage_fraction only ever compares positions
+    # when contig_a == contig_b). Exactly one of protein_id/family is set
+    # per entry -- protein_id defers its family lookup to the second pass
+    # (so ranks fall out inclusive of skipped/unclustered proteins in their
+    # true genomic order), family is already resolved for a rescue entry.
+    per_strain_ordered: dict[str, list[tuple[str, int, str | None, str | None]]] = {}
     for short, protein_id, contig, start, _end in gene_position_rows:
-        per_strain_ordered.setdefault(short, []).append((protein_id, contig, start))
+        per_strain_ordered.setdefault(short, []).append((contig, start, protein_id, None))
+    for short, family, contig, start in (rescue_position_rows or []):
+        per_strain_ordered.setdefault(short, []).append((contig, start, None, family))
 
     result: dict[str, dict[str, list[tuple[str, int]]]] = {}
     for short, ordered in per_strain_ordered.items():
-        ordered.sort(key=lambda row: (row[1], row[2]))
+        ordered.sort(key=lambda row: (row[0], row[1]))
         family_positions: dict[str, list[tuple[str, int]]] = {}
-        for rank, (protein_id, contig, _start) in enumerate(ordered):
-            member_id = f"{short}{id_sep}{protein_id}"
-            family = member_to_rep.get(member_id)
+        for rank, (contig, _start, protein_id, family) in enumerate(ordered):
+            if family is None:
+                member_id = f"{short}{id_sep}{protein_id}"
+                family = member_to_rep.get(member_id)
             if family is None:
                 continue
             family_positions.setdefault(family, []).append((contig, rank))
@@ -64,6 +84,13 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--gene_positions", required=True)
     ap.add_argument("--cluster_tsv", required=True)
+    ap.add_argument(
+        "--rescue_positions",
+        help="optional Short/family/contig/start TSV from "
+        "extract_rescue_positions.py -- genomic positions for GENOME_ONLY "
+        "(rescue-pass) presence calls, which have no GFF3-annotated "
+        "protein_id to resolve via --gene_positions/--cluster_tsv",
+    )
     ap.add_argument("--id_sep", default="|")
     ap.add_argument("--output", required=True)
     args = ap.parse_args()
@@ -80,7 +107,20 @@ def main() -> None:
             short, protein_id, contig, start, end = parts
             rows.append((short, protein_id, contig, int(start), int(end)))
 
-    positions = build_family_positions(rows, member_to_rep, id_sep=args.id_sep)
+    rescue_rows = []
+    if args.rescue_positions:
+        with open(args.rescue_positions) as fh:
+            next(fh, None)
+            for line in fh:
+                parts = line.rstrip("\n").split("\t")
+                if len(parts) < 4:
+                    continue
+                short, family, contig, start = parts
+                rescue_rows.append((short, family, contig, int(start)))
+
+    positions = build_family_positions(
+        rows, member_to_rep, rescue_position_rows=rescue_rows, id_sep=args.id_sep,
+    )
 
     n_rows = 0
     with open(args.output, "w") as out:
