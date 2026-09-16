@@ -1027,3 +1027,83 @@ flagged above.
 - **starfish**: not installed/run (see above) -- would be the real path to
   extending positive-control coverage to the 15 non-AF293 named
   Starships.
+
+## Accessory islands: real physical clustering beyond Starships (2026-09-15)
+
+Answers a direct question: are the 44,576 `unexplained_physical` +
+8,890 `starship_explained` + 29,949 `ambiguous_linkage` co-occurring pairs
+(83,415 total, all statistically robust FDR<0.05 physically-linked calls)
+part of REAL, larger multi-gene genomic islands, or just isolated
+two-gene adjacencies? Ran `bin/synteny_windows.py`'s `accessory_islands()`
+(built 2026-09-13, tested, never previously run against real data) against
+all 295 strains, using `family_positions.rescued.tsv`'s already-computed
+per-strain gene order directly (no GFF3 re-parsing needed) via a new
+script, `bin/find_accessory_islands.py`.
+
+**Real performance finding, fixed before trusting any output**: the first
+implementation looped over all 83,415 significant pairs for every island
+found (`accessory_islands()` returns thousands of non-core runs across
+295 strains) -- an O(islands x pairs) blowup, killed after 12+ minutes
+with zero output. Fixed with a `family -> [(pair, classification), ...]`
+index (`build_pair_index`) so each island only checks pairs touching its
+own member families. Fable-model review confirmed the fix is correct
+(verified no misses/double-counts against the naive semantics) and
+empirically safe at this dataset's actual scale (max hub-family degree
+103, median 23, out of 7,645 families touching any significant pair --
+no pathological hub case here). Real run after the fix: **2 minutes**
+(down from 12+ minutes and not finished).
+
+**Real results**: 70,665 significant islands found across all 295
+strains, deduplicated by (member-family-set, classification-set) to
+**12,861 distinct islands**. Island size ranges 2-837 genes (median 7,
+p90=56, p99=221) -- the largest ones are very likely extended
+subtelomeric/repeat-rich accessory regions, not compact biosynthetic gene
+clusters, and should not be over-interpreted as single functional units
+without further checking; realistic candidate secondary-metabolite gene
+clusters are more plausibly found restricting to the 3-30-gene range
+(typical fungal BGC size).
+
+Cross-referenced each island's member families against the DUF3435
+(Starship captain) hmmsearch results already on hand, plus a NEW
+hmmsearch of two secondary-metabolite backbone Pfam domains (PKS
+ketosynthase, `PF00109`/`ketoacyl-synt`; NRPS condensation domain,
+`PF00668`/`Condensation`) run against the same all-strains proteome
+(`results/sm_backbone/SM_backbone_vs_study.tblout`, 11,342 raw hits,
+92s runtime):
+
+| has_captain_gene | has_sm_backbone_gene | Distinct islands |
+|---|---|---:|
+| N | N | 11,741 (91.3%) |
+| Y | N | 904 (7.0%) |
+| N | Y | 151 (1.2%) |
+| Y | Y | 65 (0.5%) |
+
+**The large majority (91.3%) of significant physical-linkage islands have
+NEITHER a Starship captain gene NOR a PKS/NRPS backbone gene anywhere in
+the cohort** -- real, adjacency-confirmed multi-gene co-loss/co-gain
+blocks with no mechanism identified by either check this study has run.
+This is a genuinely open target for follow-up (candidate: a different
+mobile-element family, or a distinct secondary-metabolite backbone class
+not covered by the two Pfam domains checked here).
+
+**A concrete, checkable example** (restricting to the 3-30-gene range):
+a 30-family island in strain `Asfu_G2141`, supported by 246 significant
+pairs (`ambiguous_linkage`+`unexplained_physical`), contains the reviewed
+Swiss-Prot entry `Asfu_Af293|sp|Q4WKX2|FGND_ASPFU`, has a PKS/NRPS
+backbone hit (`has_sm_backbone_gene=Y`) but no captain gene -- a real
+candidate secondary-metabolite-associated accessory island independent
+of Starship mobilization, worth targeted follow-up (full gene list:
+`results/accessory_islands/significant_islands.tsv`).
+
+**Caveats (both from the Fable review, real not hypothetical)**:
+1. `has_captain_gene`/`has_sm_backbone_gene` are cohort-level flags (any
+   copy of that family, in any of the 295 strains, anywhere) -- a "Y"
+   does NOT mean the specific copy inside that specific island in that
+   specific strain carries the domain. Treat as "this family is known to
+   carry this domain somewhere in the population," not a per-instance
+   confirmation.
+2. The dedup-by-member-set step can report a nested/partial island (one
+   strain's larger island containing another strain's smaller one as a
+   proper subset) as two separate "distinct islands" -- read the
+   12,861 count as "distinct exact member sets," not a claim that there
+   are 12,861 non-overlapping biological loci.

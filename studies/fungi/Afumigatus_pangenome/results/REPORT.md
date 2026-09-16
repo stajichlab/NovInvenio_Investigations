@@ -141,6 +141,49 @@ loss/gain," but could reflect shared selective pressure, epistasis, or an unmode
 confound. It is the largest category by far and not explored further by this pipeline
 version.
 
+### Are the physically-linked pairs part of real, larger multi-gene islands?
+
+Yes — and most of them are unexplained by either mechanism this study checked. Ran
+`bin/synteny_windows.py`'s `accessory_islands()` (tested during design, never
+previously run on real data) against all 295 strains via a new script,
+`bin/find_accessory_islands.py`, merging maximal runs of consecutive non-core genes
+into islands, then keeping only islands that contain a statistically significant
+physically-linked pair (not just any non-core run). Cross-referenced each island
+against the existing Starship captain-gene (DUF3435) screen and a new secondary-
+metabolite backbone screen (PKS ketosynthase `PF00109`, NRPS condensation domain
+`PF00668`; `results/sm_backbone/`).
+
+**Result: 12,861 distinct significant islands** (2–837 genes, median 7 — the largest
+are very likely extended subtelomeric/repeat-rich regions, not compact gene clusters;
+realistic biosynthetic-gene-cluster candidates sit in the 3–30 gene range).
+
+| Captain gene (Starship) | SM backbone gene (PKS/NRPS) | Distinct islands |
+|---|---|---:|
+| No | No | 11,741 (91.3%) |
+| Yes | No | 904 (7.0%) |
+| No | Yes | 151 (1.2%) |
+| Yes | Yes | 65 (0.5%) |
+
+**91.3% of significant physical-linkage islands have neither mechanism identified.**
+One concrete, checkable example in the realistic size range: a 30-family island in
+strain `Asfu_G2141` (246 supporting pairs) contains the reviewed Swiss-Prot entry
+`Asfu_Af293|sp|Q4WKX2|FGND_ASPFU`, carries a PKS/NRPS backbone hit, and has **no**
+Starship captain gene — a real candidate secondary-metabolite-associated accessory
+island independent of Starship mobilization. Full list:
+`results/accessory_islands/significant_islands.tsv`.
+
+*Caveats*: the captain-gene/SM-backbone flags are cohort-level (any strain, any copy
+of that family) — a "Yes" doesn't confirm the specific copy in that specific island
+carries the domain. The 12,861 count is "distinct exact member sets," not
+non-overlapping loci — a larger island in one strain and a smaller nested subset in
+another both count separately.
+
+*Performance note*: the naive version of this cross-reference (checking all 83,415
+significant pairs against every island) was killed after 12+ minutes with zero
+output — an O(islands × pairs) blowup. Fixed with a family-indexed lookup
+(Fable-reviewed, confirmed correct and empirically safe at this dataset's scale);
+the real run then took 2 minutes.
+
 ### Trans-network module structure (Leiden community detection)
 
 Collapsing all 2,613,303 `trans`-classified pairs into communities (Leiden, resolution
