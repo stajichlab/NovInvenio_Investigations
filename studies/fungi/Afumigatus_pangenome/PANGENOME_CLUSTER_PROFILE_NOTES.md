@@ -1107,3 +1107,67 @@ of Starship mobilization, worth targeted follow-up (full gene list:
    proper subset) as two separate "distinct islands" -- read the
    12,861 count as "distinct exact member sets," not a claim that there
    are 12,861 non-overlapping biological loci.
+
+## Functional (Pfam domain) enrichment of significant islands (2026-09-15)
+
+Direct follow-up: what functions are enriched among the significant-island
+member families, vs. the correct background (all 11,052 families actually
+eligible for co-occurrence testing -- shell+cloud bins, `cooccurrence.py`'s
+own selection -- never the whole genome, since core genes were never
+eligible for testing and would spuriously inflate "accessory-typical"
+domain enrichment regardless of which island is tested)?
+
+**New script, real run**: `bin/summarize_island_functions.py`. Ran a real
+Pfam-A hmmscan (30,134 profiles, pressed database) against the 9,224
+unique island-member family representative sequences
+(`run_island_pfam_scan.sh`, job 28438315, 1h44m/16c) plus the 2,620
+additional eligible-background families not already covered
+(`run_background_pfam_scan.sh`, job 28438374, 25min/8c) -- together, full
+Pfam coverage of all 11,052 eligible families, not just the 9,224 subset
+in islands. 5,944 of 11,052 families (53.8%) have >=1 Pfam domain hit
+(E<=1e-3 at both the sequence and domain level).
+
+**Real bug caught by a test before running on real data**: island-member
+families include singleton-bin families (`accessory_islands()` merges any
+non-core run: shell, cloud, OR singleton), but the eligible background is
+shell+cloud only -- a singleton family was never eligible for
+co-occurrence testing and can't sensibly count as "in" or "out" of a
+population it was never part of. A test constructing exactly this case
+(`test_domain_enrichment_warns_when_island_members_not_subset_of_
+background`) caught scipy crashing on a resulting negative 2x2-table cell
+before the real run. Fixed by intersecting island-member families with the
+eligible background before testing (792 excluded on the real data, 8,432
+remain) -- documented as an expected, reported occurrence, not silently
+dropped.
+
+**Real result: 901 domains tested, 71 significant at FDR<0.05** (one-sided
+Fisher's exact, BH-corrected). Top hits, all biologically plausible, not
+noise:
+
+| Domain | In islands / background | Notes |
+|---|---:|---|
+| DUF3435 | 199/205 | The Starship captain-gene domain itself -- expected, an internal-consistency check (this domain directly defines `starship_explained`) |
+| DUF3723 | 109/109 | Increasingly documented in the literature as part of the broader Starship "backbone" beyond the captain gene alone -- suggests some of the "unexplained" islands below may still be Starship-associated via a signal this study's narrower DUF3435-only screen didn't check |
+| Ank / Ank_2-5 (ankyrin repeat) | up to 215/231 | Documented Starship-cargo-associated domain family in other fungi |
+| DDE_1 (DDE transposase) | 68/68 | **Independent evidence of a different mobile-element family** driving some physically-linked co-occurrence -- direct support for the "different TE, not Starships" hypothesis raised when the 91.3%-unexplained finding was first reported |
+| NACHT | 70/73 | Fungal heterokaryon-incompatibility / innate-immune-like gene family -- classic accessory-genome functional category |
+| Glyco_hydro_71, Patatin | ~55 each | Secreted, cell-wall-modifying/lipase enzymes -- another classic horizontally-variable fungal accessory-genome category |
+
+Full table: `results/accessory_islands/domain_enrichment.tsv`. Per-island
+domain annotations (for browsing, sorted by island size descending):
+`results/accessory_islands/significant_islands.with_domains.tsv`.
+
+**A real methodological nuance found while spot-checking, not a bug**: an
+island's own annotated Pfam domains and the specific reason one of its
+member pairs was classified `starship_explained` by `pair_classification
+.py` don't always overlap -- e.g. a real 15-family island
+(`Asfu_C169L1`, domains `Beta-prop_ATRN-LZTR1,Beta-prop_FBX42,DDE_1,
+Glyco_transf_90,Kelch_HCF,Kelch_KLHDC2_KLHL20_DRC7`) contains a
+`starship_explained` pair despite none of its own annotated members being
+DUF3435. This is because `pair_classification.py`'s captain-gene check
+uses a fixed rank-window AROUND THE PAIR (k=10 genes), which is not the
+same region as `accessory_islands()`'s merged non-core run -- the captain
+gene can sit just outside the island boundary while still being "nearby"
+by the pair-level window definition. Not a contradiction, but a reminder
+that "island" and "pair-adjacency window" are two different, only
+partially overlapping notions of physical proximity in this analysis.

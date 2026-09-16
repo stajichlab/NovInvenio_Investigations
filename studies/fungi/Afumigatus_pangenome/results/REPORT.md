@@ -184,6 +184,33 @@ output — an O(islands × pairs) blowup. Fixed with a family-indexed lookup
 (Fable-reviewed, confirmed correct and empirically safe at this dataset's scale);
 the real run then took 2 minutes.
 
+### What functions are these islands enriched for?
+
+Ran a real Pfam-A hmmscan (30,134 profiles) against all 11,052 families eligible for
+co-occurrence testing (the 9,224 in significant islands plus the 2,620 additional
+eligible families needed for a correctly-scoped background), then tested each Pfam
+domain for enrichment among island-member families vs. that background (one-sided
+Fisher's exact, BH-FDR corrected) — **901 domains tested, 71 significant at FDR<0.05**.
+
+| Domain | Islands / background | Interpretation |
+|---|---:|---|
+| DUF3435 | 199/205 | The Starship captain domain itself — internal-consistency check |
+| DUF3723 | 109/109 | Documented as part of the broader Starship "backbone" beyond the captain gene — some of the "unexplained" islands may still be Starship-associated via a signal outside this study's narrower DUF3435-only screen |
+| Ank / Ank_2–5 (ankyrin repeat) | up to 215/231 | Documented Starship-cargo-associated domain family in other fungi |
+| **DDE_1 (DDE transposase)** | 68/68 | **Independent evidence of a different mobile-element family** — direct support for the hypothesis that some unexplained_physical islands reflect a non-Starship transposon |
+| NACHT | 70/73 | Fungal heterokaryon-incompatibility/innate-immune-like genes — classic accessory-genome category |
+| Glyco_hydro_71, Patatin | ~55 each | Secreted cell-wall-modifying/lipase enzymes — another classic horizontally-variable category |
+
+Full tables: `results/accessory_islands/domain_enrichment.tsv` (all 901 domains) and
+`results/accessory_islands/significant_islands.with_domains.tsv` (per-island Pfam
+annotations, sorted by island size descending).
+
+*Caveat found while spot-checking real output, not a bug*: an island's own Pfam
+domains and why one of its pairs was called `starship_explained` don't always
+overlap — `pair_classification.py`'s captain-gene check uses a fixed window around
+the *pair*, not the island's own boundary, so a captain gene can be "nearby" by the
+pair-level definition while sitting just outside the island itself.
+
 ### Trans-network module structure (Leiden community detection)
 
 Collapsing all 2,613,303 `trans`-classified pairs into communities (Leiden, resolution
