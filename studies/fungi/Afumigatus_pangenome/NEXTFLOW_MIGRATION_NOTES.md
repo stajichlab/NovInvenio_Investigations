@@ -158,10 +158,23 @@ classification ~4.5 min once its inputs exist.
   must be optional/swappable per dataset, not hardcoded) and `params.pfam_hmm` path.
 - `params.pair_class.{k, physical_threshold, trans_threshold, min_co_carrying,
   perm_alpha, min_clades}`.
-- `params.collapse_isoforms` (bool). The GFF3 `protein_id=` CDS attribute is assumed
-  (NCBI style) by the gene-positions step — should add a hard error/warning when more
-  than some threshold fraction of proteins lack resolvable positions, rather than
-  letting those calls silently collapse to `insufficient_data` downstream.
+- `params.collapse_isoforms` (bool).
+- ~~The GFF3 `protein_id=` CDS attribute is assumed (NCBI style) by the
+  gene-positions step — should add a hard error/warning...~~ **RESOLVED
+  2026-09-15** (`nf_NovInvenio` `bin/pangenome_build_gene_positions.py`,
+  branch `pangenome-profiling-module`): the gene-positions parser now prefers
+  `protein_id=` when present, falls back to CDS `Parent=` (split on comma for
+  the rare multi-transcript-shared-CDS case) when it isn't, and cross-checks
+  every resolved ID against that strain's actual protein FASTA headers
+  (`--protein_dir`, newly required) rather than trusting attribute presence
+  alone. Hard-errors below 50% resolved-and-FASTA-matching (genuine dialect
+  mismatch), warns above 2% unresolved. Found and fixed against this exact
+  study's sibling: the Coccidioides pangenome study's funannotate GFF3s have
+  0/535 `protein_id=` attributes, all `Parent=` instead — this fix is what
+  unblocks that study's small-subset validation (its own
+  `RUNNING_README.md`/onboarding spec in
+  `studies/fungi/coccidioides_pangenome/` has the full diagnosis). Covered by
+  7 new tests in `nf_NovInvenio`'s `tests/test_pangenome_build_gene_positions.py`.
 
 ## Open questions for whoever picks this up
 
