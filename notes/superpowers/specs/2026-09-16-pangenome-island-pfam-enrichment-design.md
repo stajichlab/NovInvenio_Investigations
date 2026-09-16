@@ -131,9 +131,12 @@ Nextflow modules and workflow wiring.
 
 Six new modules in `modules/pangenome/`, wired into `workflows/pangenome_profile.nf`
 after the existing `GENE_POSITIONS`/`FAMILY_POSITIONS`/`PAIR_CLASSIFICATION` steps,
-all flag-gated behind a new required param `--pangenome_pfam_hmm` (reusing that
-param name from the existing novelty/loss workflow for consistency — off by
-default, matching the existing `--pangenome_captain_hmm` optional-branch pattern).
+all flag-gated behind a new, distinct required param `--pangenome_island_pfam_hmm`
+(off by default, matching the existing `--pangenome_captain_hmm` optional-branch
+pattern — **not** the same param as the pre-existing `--pangenome_pfam_hmm`,
+which stays load-bearing for the captain-by-name branch only; reusing that
+name was this design's own original mistake, caught during implementation
+planning — see the corrected `MARKER_HMMSEARCH` section below).
 
 ```
 FAMILY_POSITIONS.out ─┐
@@ -146,7 +149,7 @@ CLUSTER_TIER1.out (tier1_rep_seq.fasta) ─┐                               │
 FREQUENCY_BINS.out ───────────────────────┼─▶ SELECT_BACKGROUND_REPS      │
                                           │    ──▶ background_reps.fa    │
                                           │         │                    │
-                          --pangenome_pfam_hmm ──▶ FAMILY_PFAM_SCAN      │
+                          --pangenome_island_pfam_hmm ──▶ FAMILY_PFAM_SCAN      │
                                                      ──▶ pfam.domtblout   │
                                                               │          │
                                                               ▼          ▼
@@ -194,12 +197,22 @@ from `BUILD_ISLANDS` entirely (they run in parallel) and matches
   island_size, member_families, n_supporting_pairs, classifications,
   has_<marker_name>` (one column per named marker passed in, zero if none)
 
-**`MARKER_HMMSEARCH`** (0+ instances, one per named marker set)
-- Reuses the *existing* `HMMFETCH_CAPTAIN`/`CAPTAIN_HMMSEARCH` modules
-  (`modules/pangenome/captain.nf`) as-is — already generic (fetch-by-Pfam-name or
-  direct HMM path, `hmmsearch` vs. the full concatenated proteome). No new module
-  code; this is a wiring/aliasing change (one call per entry in a new params list),
-  not new pipeline logic.
+**`MARKER_HMMSEARCH`** (0+ named markers, ONE process invocation over a
+channel of all of them — not one process instance per marker)
+- **Correction (caught during implementation planning, Opus review):**
+  the original idea here — reusing the existing `HMMFETCH_CAPTAIN`/
+  `CAPTAIN_HMMSEARCH` modules (`modules/pangenome/captain.nf`) via an alias,
+  invoked once per named marker inside a loop — is **illegal Nextflow
+  DSL2** (a process/alias can only be invoked once per workflow; a
+  second call raises "Process 'X' has been already used"). `CAPTAIN_HMMSEARCH`'s
+  output filename is also hardcoded (`captain_vs_study.tblout`), not
+  parameterized by marker name, so it couldn't have preserved per-marker
+  identity even if the repeated-invocation problem didn't exist. Fixed with
+  a small, genuinely new process (`MARKER_HMMSEARCH`, `tuple val(name),
+  path(hmm)` input/output) invoked ONCE against a `Channel.fromList` of all
+  configured markers — ordinary Nextflow channel-based multiplicity runs one
+  task per marker automatically, and the name-templated output filename
+  fixes the collision too. Does not touch `modules/pangenome/captain.nf`.
 - Params: `--pangenome_marker_names` (comma list, e.g. `captain,sm_backbone`),
   `--pangenome_marker_hmm_paths` (parallel comma list of HMM file paths, matched by
   position — same comma-list convention already used elsewhere in this pipeline,
@@ -221,7 +234,7 @@ from `BUILD_ISLANDS` entirely (they run in parallel) and matches
 
 **`FAMILY_PFAM_SCAN`**
 - One `hmmscan --domtblout ... -E {--pangenome_pfam_domain_evalue, default 1e-3}`
-  call against `background_reps.fa`, using `--pangenome_pfam_hmm`
+  call against `background_reps.fa`, using `--pangenome_island_pfam_hmm`
 - Output: `pfam.domtblout` (one file, not two)
 
 **`DOMAIN_ENRICHMENT`**
@@ -234,30 +247,43 @@ from `BUILD_ISLANDS` entirely (they run in parallel) and matches
 - Output: `island_pfam_enrichment.tsv` — columns `pfam_domain, n_island,
   n_background, odds_ratio, fisher_p, fdr_q`
 
+**Addendum (Opus report-completeness review, during implementation planning):
+adds `per_strain_summary.tsv` (`REPORT_TABLES`) and a Heaps'-law openness fit
++ core-genome-decay fit (`REPORT_RENDER`) beyond this spec's original scope**
+— genuine upgrades over the Afumigatus precedent (which found its one
+per-strain accessory-count outlier by hand, and only asserted pangenome
+openness from the accumulation curve's visual shape, with no fitted
+statistic). Both are cheap to add from data already on hand
+(`presence_matrix.tsv`, already a required input) and directly serve this
+spec's original goal of a comprehensive, reusable report.
+
 **`REPORT_TABLES`**
 - Script: `bin/pangenome_report_tables.py` (new, ports
-  `annotate_islands_with_enrichment.py`'s join logic)
+  `annotate_islands_with_enrichment.py`'s join logic, plus new
+  `per_strain_summary` per the addendum above)
 - Inputs: `significant_islands.tsv`, `island_pfam_enrichment.tsv`,
-  `frequency_table.tsv`, `pair_classification.tsv`
+  `frequency_table.tsv`, `pair_classification.tsv`, `presence_matrix.tsv`
 - Output: tidy, testable-without-matplotlib TSVs (islands joined to their enriched
-  domains, island-size distribution, classification counts) — also independently
-  useful to this repo's `docs/` publishing pipeline, not just the report step
+  domains, island-size distribution, classification counts, per-strain gene/bin
+  summary) — also independently useful to this repo's `docs/` publishing
+  pipeline, not just the report step
 
 **`REPORT_RENDER`**
 - Script: `bin/pangenome_report_render.py` (new, ports `plot_pangenome_summary.py`'s
   matplotlib figure generation — frequency histogram, core/shell/cloud pie,
   presence/absence raster, rarefaction curve, classification bar chart, **plus**
   new figures for island-size distribution and top enriched domains — and a
-  templated Markdown generator, fully automated, no hand-written narrative)
+  templated Markdown generator, fully automated, no hand-written narrative;
+  plus a Heaps'-law fit + core-genome asymptote fit per the addendum above)
 - Inputs: `REPORT_TABLES`'s output, `presence_matrix.tsv`
-- Output: `report.md`, `figures/*.png`, `figures_pdf/*.pdf` (both formats per figure,
-  matching Afumigatus's convention)
+- Output: `report.md`, `pangenome_openness.tsv`, `figures/*.png`,
+  `figures_pdf/*.pdf` (both formats per figure, matching Afumigatus's convention)
 
 ## Params summary (new)
 
 | Param | Type | Default | Purpose |
 |---|---|---|---|
-| `--pangenome_pfam_hmm` | path | none (branch off) | Enables the whole island+Pfam step |
+| `--pangenome_island_pfam_hmm` | path | none (branch off) | Enables the whole island+Pfam step |
 | `--pangenome_island_min_size` | int | 2 | Minimum island size to report |
 | `--pangenome_pfam_domain_evalue` | float | 1e-3 | hmmscan domain-level E-value cutoff |
 | `--pangenome_marker_names` | comma list | empty | Named marker searches (e.g. `captain,sm_backbone`) |
