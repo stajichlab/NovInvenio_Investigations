@@ -171,21 +171,35 @@ the study README's own request. The script logs the pipeline's exact git
 commit hash on every invocation, since `nf_NovInvenio` is a live branch
 (`pangenome-profiling-module`) another agent may still be committing to.
 
-## Blocked, not yet run
+## Upstream pipeline fix — landed 2026-09-15
 
-**The pipeline's GFF3 gene-position parser only handles `protein_id=`
+**The pipeline's GFF3 gene-position parser only handled `protein_id=`
 (NCBI-style GFF3).** This study's funannotate GFF3s have **no `protein_id=`
 attribute at all** — every CDS row uses `Parent=` instead (verified: 0/535
 GFF3s carry `protein_id=`; all carry `Parent=`; for one spot-checked strain,
 the `Parent=` ID set matches the protein FASTA header set exactly, 8655/8655).
 Unfixed, this doesn't error — it silently produces empty gene-position tables
 for every strain, which cascades to empty family-position data and collapses
-every co-gain/co-loss candidate to `insufficient_data` downstream. This is
-being fixed by another agent on `nf_NovInvenio`'s `pangenome-profiling-module`
-branch (a separate, external repo this study doesn't own) — as of this
-writing, **not yet landed**. Nothing past this point (small-subset validation,
-full run) proceeds until that fix is confirmed landed and its own test
-fixtures pass.
+every co-gain/co-loss candidate to `insufficient_data` downstream.
+
+Fixed directly in `nf_NovInvenio` (branch `pangenome-profiling-module`,
+commit `9b7e39e`): `bin/pangenome_build_gene_positions.py` now prefers
+`protein_id=` when present, falls back to CDS `Parent=` (split on comma for
+the rare multi-transcript-shared-CDS case) otherwise, and cross-checks every
+resolved ID against that strain's actual protein FASTA headers (new required
+`--protein_dir` arg, wired through `modules/pangenome/positions.nf` and
+`workflows/pangenome_profile.nf` as `"<data_dir_abs>/pep"`) rather than
+trusting attribute presence alone. Hard-errors below 50%
+resolved-and-FASTA-matching (genuine dialect mismatch); warns above 2%
+unresolved. 7 new tests added
+(`nf_NovInvenio/tests/test_pangenome_build_gene_positions.py`); full pipeline
+suite still passes (471 passed, 3 skipped, `pixi run pytest`). Also updated
+`Afumigatus_pangenome/NEXTFLOW_MIGRATION_NOTES.md` to mark this resolved,
+since that's where the gap was originally flagged.
+
+Next: Task 6's small-subset validation (direct parser check against all 529
+real GFF3+FASTA pairs, then a 5-10 strain Nextflow smoke test under an
+interactive SLURM allocation) — not yet run.
 
 ## Commits so far
 
