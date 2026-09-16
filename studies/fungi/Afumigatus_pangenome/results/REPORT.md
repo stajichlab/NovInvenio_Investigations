@@ -275,7 +275,7 @@ confirm the Pfam-only interpretation above, not just repeat it:
 
 | Island | Pfam signal | SwissProt homolog | GO term |
 |---|---|---|---|
-| `Asfu_HMR_AF_270`, 8 genes (187 strains) | NACHT | **Phomopsin biosynthesis cluster protein D** | — |
+| `Asfu_HMR_AF_270`, 8 genes (187 strains) | NACHT | ~~Phomopsin biosynthesis cluster protein D~~ **retracted, see below** | — |
 | `Asfu_CNMCM8686`, 6 genes (170 strains) | Patatin | **Phospholipase A I** | lipid metabolic process |
 | `Asfu_niveus`, 3 genes (158 strains) | NPHP3_N/NACHT | **NLR (nucleotide-binding leucine-rich-repeat) protein** | — |
 | `Asfu_HMR_AF_270`, 4 genes (132 strains) | Ank_2/Ank_4/Ank_5 | **NLR protein** (same as above) | protein binding |
@@ -284,10 +284,31 @@ confirm the Pfam-only interpretation above, not just repeat it:
 The NACHT/NPHP3_N islands independently hitting bona fide NLR (nucleotide-binding
 leucine-rich-repeat) proteins is a real, meaningful confirmation — NLR/NACHT genes
 are the well-documented fungal non-self-recognition (heterokaryon incompatibility)
-gene family, not a coincidental domain match. `Asfu_HMR_AF_270`'s 187-strain island
-hitting a **named secondary-metabolite cluster gene** (Phomopsin biosynthesis) is a
-genuinely new, specific lead — worth a manual literature check on whether *A.
-fumigatus* has ever been reported to carry Phomopsin-pathway homologs. Full tables
+gene family, not a coincidental domain match.
+
+**The "Phomopsin biosynthesis cluster" lead was tested directly (2026-09-16) and
+retracted — it does not hold up.** A single SwissProt best-hit name is not, by
+itself, evidence of real pathway homology: a genuine horizontally-shared or
+orthologous biosynthetic gene cluster is defined by co-inheritance of *multiple*
+genes together, so a real hit should show several of the island's genes matching
+several different genes of the reference cluster, not one coincidental match. Built
+a reusable test (`bin/cluster_homology_test.py`, 7 unit tests) for exactly this
+question, then ran it for real: extracted the actual Phomopsin biosynthetic gene
+cluster from *Diaporthe leptostromiformis* (Ding et al. 2016, PNAS 113:3527 —
+30 SwissProt entries, `GN=phom*`: the precursor peptide phomA plus ~14 tailoring
+enzymes/transporters/regulators) as the reference set, and blasted all 8 of the
+island's genes against it. **Result: 0/8 query genes pass even a permissive bar
+(E≤1e-5, ≥50% query coverage) — verdict `NOT_SUPPORTED`.** The one SwissProt hit
+this island had (`Asfu_AfB6|KAM0113048.1` vs. phomC/PHOC1_DIALO, 45.6% identity,
+E=3.6e-44) covers only 33% of the query length (158/482 aa), and that aligned
+region corresponds to the query's own annotated **Cupin_2** domain (residues
+384–445) — a common, structurally simple β-barrel fold found across huge numbers
+of unrelated oxidoreductase/isomerase enzymes in both fungi and bacteria. This is a
+textbook shared-promiscuous-domain coincidence, not cluster homology. **Correction
+applied to the table above and to the open-items list**; this island's real
+identity (NACHT/NB-ARC/WHD_GPIID domains) is most likely another instance of the
+same fungal NLR/heterokaryon-incompatibility family the other rows in this table
+independently converge on, not a secondary-metabolite lead. Full tables
 (with FDR, Pfam links, GO terms, and SwissProt names together):
 `results/accessory_islands/significant_islands.full_annotation.tsv` and
 `results/accessory_islands/domain_enrichment.with_go.tsv`.
@@ -406,10 +427,13 @@ explain.
 - **Investigated (2026-09-15/16), real progress, not fully closed**: the 44,576
   `unexplained_physical` pairs turned out to be real, larger multi-gene islands (see
   the genomic-islands section above) with independent Pfam + SwissProt + GO evidence
-  for at least two real, non-Starship functional categories (NLR/heterokaryon-
-  incompatibility genes; a possible secondary-metabolite cluster homolog). Manual
-  literature follow-up on the strongest specific leads (Phomopsin-cluster homolog,
-  the NLR-hitting islands) is the natural next step, not another automated pass.
+  for one real, non-Starship functional category (NLR/heterokaryon-incompatibility
+  genes, recurring across 116–187 strains). The other candidate lead (a possible
+  Phomopsin secondary-metabolite cluster homolog) was tested directly with a new
+  multi-gene homology check (`bin/cluster_homology_test.py`) and **retracted** — see
+  the QC correction in the genomic-islands section above; it was a single
+  shared-domain coincidence (Cupin_2), not real cluster homology. Manual literature
+  follow-up on the NLR-hitting islands remains the natural next step.
 - Extend the benchmark scorecard past the single AF293-anchored control. **starbase**
   (starbase.serve.scilifelab.se, built partly from this same reference paper's
   519-strain population plus a 19,863-genome de novo Starship survey) is the real,

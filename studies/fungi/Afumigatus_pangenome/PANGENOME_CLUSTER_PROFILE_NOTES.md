@@ -1369,3 +1369,75 @@ track either (checked, zero tier2/superfamily references there). A real, scoped,
 ready-to-pick-up task if anyone wants it: add a `CLUSTER_TIER2` process calling the
 existing script's `mmseqs-tier2`/`diamond-tier2` subcommand on
 `CLUSTER_TIER1.out.rep_fasta`, wire its output alongside `PRESENCE_MATRIX`.
+
+## Island locus identifiers (2026-09-16)
+
+Significant islands previously had no citable identifier -- only an arbitrary-order
+comma-joined `member_families` list. Built `bin/add_island_locus.py` (8 tests,
+`tests/test_add_island_locus.py`) to add a stable `chrom:start-end` locus string
+using the island's own `example_strain` occurrence as the reference coordinate, e.g.
+`Asfu_Z5:KQ087364.1:307392-536921`.
+
+Resolves real bp coordinates without re-parsing any GFF3, using two files the
+pipeline already produces: `tier1_cluster.tsv` (inverted to find which of the
+example_strain's own proteins belongs to each member family -- a family ID is the
+REP protein's ID, usually from a different strain, so it can't be looked up against
+gene_positions.tsv directly) and `gene_positions.tsv` (the actual bp coordinates for
+that resolved protein). A family member with no resolvable protein in the
+example_strain (most often a rescue-pass GENOME_ONLY call, which only has a
+family-level tblastn position, not an annotated protein_id) is excluded from the
+span rather than crashing or silently producing a wrong one, and reported via
+`n_members_with_coordinates` vs. the island's total member count.
+
+Real run: 9,749/12,861 islands (75.8%) got at least a partial locus; 95 (0.7%) got
+a fully-resolved locus (every member had a coordinate) -- most large islands only
+partially resolve because a meaningful fraction of their members are rescue-pass
+calls specific to that exact strain occurrence, which is expected, not a bug. 457
+islands were flagged with members resolving to >1 contig (`n_contigs_in_locus`),
+most likely because a family has multiple paralogous copies in the example_strain
+and the wrong copy's position got pulled in -- a known, documented limitation (not
+silently masked): `compute_locus()` reports `n_contigs` rather than picking one
+arbitrarily or averaging across contigs. Output:
+`results/accessory_islands/significant_islands.with_locus.tsv`.
+
+## Phomopsin biosynthesis cluster lead: tested and retracted (2026-09-16)
+
+The `Asfu_HMR_AF_270` 8-gene island's SwissProt best-hit ("Phomopsin biosynthesis
+cluster protein D", UniProt A0A8J9R8G6/PHOC1_DIALO) was flagged in the REPORT.md
+cross-validation section as "a genuinely new, specific lead." User asked directly:
+can we test whether these are actually homologs of the real Phomopsin cluster, not
+just a name-level coincidence? Built `bin/cluster_homology_test.py` (7 unit tests,
+`tests/test_cluster_homology_test.py`) as a reusable check for exactly this
+question -- a real horizontally-shared or orthologous biosynthetic gene cluster is
+defined by co-inheritance of MULTIPLE genes together, so a genuine hit should show
+several of an island's genes matching several different genes of the reference
+cluster, not one single best-hit name taken at face value.
+
+**Reference cluster**: found and extracted the real Phomopsin biosynthetic gene
+cluster from the local SwissProt database -- 30 entries (`GN=phom*`, organism
+*Diaporthe leptostromiformis*, matching Ding et al. 2016 PNAS 113:3527's
+description of a ribosomally-synthesized, prenylated cyclic peptide toxin pathway):
+precursor peptide `phomA`, transcription factors `phomD`/`phomR`, tailoring enzymes
+(`phomB`, `phomC` -- the one hit -- `phomE` FAD monooxygenase, `phomF` SDR, `phomG`
+oligopeptidase, `phomM` methyltransferase, `phomP1`/`phomP2` peptidases, `phomQ`
+tyrosinase-like, `phomY` UstYa-family oxidases a-e), plus transporters (`phomO`
+ABC-type, `phomT` MFS-type).
+
+**Test result: 0/8 query genes qualify (E<=1e-5, >=50% query coverage) --
+verdict NOT_SUPPORTED.** The one hit this island had
+(`Asfu_AfB6|KAM0113048.1` vs. phomC, 45.6% identity, E=3.6e-44) only covers 33% of
+the query length (158/482 aa) -- checked against this same query's own Pfam
+domtblout hits and confirmed the aligned region (residues 310-466) falls exactly on
+its annotated **Cupin_2** domain (residues 384-445), not any of its ankyrin
+repeats. Cupin_2 is a common, structurally simple beta-barrel fold found across
+huge numbers of unrelated oxidoreductase/isomerase enzymes in both fungi and
+bacteria -- a textbook shared-promiscuous-domain coincidence, exactly the failure
+mode this test was built to catch, not evidence of real cluster homology.
+
+**Conclusion: retracted.** This island's real identity is most likely just another
+instance of the same NACHT/NB-ARC/WHD_GPIID fungal NLR/heterokaryon-incompatibility
+family the OTHER rows in the same cross-validation table independently converge on
+-- not a secondary-metabolite lead. REPORT.md's cross-validation table and open-items
+section corrected accordingly. `bin/cluster_homology_test.py` is intentionally
+generic (takes any query/reference FASTA pair), not Phomopsin-specific, so it's
+reusable for the next named-cluster lead without re-deriving this logic.
