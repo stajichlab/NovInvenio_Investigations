@@ -320,11 +320,51 @@ the 529-strain case specifically.
   (plausible — `min_clades` and similar statistical minimums are stricter
   relative to a single-species set than the two-species whole-set run).
 
-## Next: posadasii sub-run
+## Full run: posadasii — completed 2026-09-16
 
-Same `run_pangenome.sh`/`stajichlab_queue.config`, `config_posadasii.csv`
-(360 strains — the largest sub-run, closer to the whole-set's scale than
-immitis, so still worth watching for OOMs even though immitis passed clean).
+`results/mmseqs_posadasii/` (360 *C. posadasii* strains only,
+`config_posadasii.csv`).
+
+Ran end-to-end in **one pass, no OOMs, no retries needed**:
+`[SUCCESS] completed=1457 failed=0 cached=0` — same clean result as immitis;
+the whole-set's three memory fixes held at this scale too (360 strains,
+closer to the whole-set's 529 than immitis's 169).
+
+**Output** (`results/mmseqs_posadasii/output/pangenome/`):
+- `presence_matrix.tsv` / `frequency_table.tsv`: 34,765 tier-1 gene families.
+  Bin breakdown: 13,854 singleton (39.9%), 10,879 cloud (31.3%), 3,601 shell
+  (10.4%), 5,902 core (17.0%), 529 soft_core (1.5%) — core fraction (18.5%
+  combined) sits between immitis's 26.5% and the whole-set's 12.3%, which
+  makes sense: more strains of one species than immitis (360 vs. 169) means
+  more chances for genuine accessory variation to show up against the same
+  95%-presence core cutoff, but still more conserved than the two-species
+  whole-set comparison.
+- `gene_positions.tsv` / `family_positions.tsv`: 3,050,818 rows each.
+- `cooccurring_pairs.tsv` / `pair_classification.tsv`: 120,657 candidate
+  pairs — 108,752 `trans_unconfirmed`, 7,153 `unexplained_physical`, 2,894
+  `ambiguous_linkage`, 1,858 `insufficient_data`. Like immitis, no pair
+  reached full `trans` confirmation at single-species scale.
+
+## Onboarding plan complete (2026-09-16)
+
+All of `notes/superpowers/plans/2026-09-15-coccidioides-pangenome-onboarding.md`'s
+tasks are done: local-input onboarding (Tasks 2-5, 7), the upstream
+`nf_NovInvenio` GFF3 `Parent=` fallback fix (Task 1, landed on
+`pangenome-profiling-module`), small-subset validation (Task 6, 0/529
+mismatches), and all three full runs (Task 8 — whole-set, immitis,
+posadasii), each documented above with real output statistics. Three
+real resource-sizing gaps were found and fixed live during the whole-set
+run (`EXTRACT_ABSENT_QUERIES`/`RESCUE_PASS`/`FREQUENCY_BINS`, all in
+`stajichlab_queue.config`) and confirmed to generalize cleanly to both
+smaller sub-runs with zero new OOMs.
+
+**Explicitly out of scope for this onboarding** (per the spec): downstream
+figures/reports (open/closed pangenome plots, co-occurrence visualizations),
+Starship/starfish cluster analysis, and diamond-backend validation — all
+README goals 2-5 work that builds on this now-complete, correct pangenome
+data.
 
 See `notes/superpowers/plans/2026-09-15-coccidioides-pangenome-onboarding.md`
-for the full task-by-task detail.
+for the full task-by-task detail and
+`notes/superpowers/specs/2026-09-15-coccidioides-pangenome-local-input.md`
+for the design rationale.
