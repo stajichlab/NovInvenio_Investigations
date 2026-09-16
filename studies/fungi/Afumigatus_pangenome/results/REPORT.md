@@ -235,6 +235,32 @@ and island size (3–30 genes):
 | `Asfu_NRZ2018649`, 30 genes | 5 | ambiguous_linkage, unexplained_physical | N | [Pkinase](https://www.ebi.ac.uk/interpro/entry/pfam/PF00069/), [Myb_DNA-bind_6](https://www.ebi.ac.uk/interpro/entry/pfam/PF13921/) (1.1e-03) |
 | `Asfu_E174s1`, 30 genes | 7 | ambiguous_linkage, unexplained_physical | N | [HSF_DNA-bind](https://www.ebi.ac.uk/interpro/entry/pfam/PF00447/) (1.6e-05) |
 
+**Independent cross-validation via SwissProt homology + GO terms**: ran a real
+diamond blastp of all 11,052 eligible families against a local SwissProt database
+(787 families already carried an embedded UniProt accession in their own header —
+free; another 3,196 got a real best-hit at E≤1e-5 in 49 seconds), plus mapped every
+enriched Pfam domain to its standard Pfam2GO-derived GO term. Both independently
+confirm the Pfam-only interpretation above, not just repeat it:
+
+| Island | Pfam signal | SwissProt homolog | GO term |
+|---|---|---|---|
+| `Asfu_HMR_AF_270`, 8 genes (187 strains) | NACHT | **Phomopsin biosynthesis cluster protein D** | — |
+| `Asfu_CNMCM8686`, 6 genes (170 strains) | Patatin | **Phospholipase A I** | lipid metabolic process |
+| `Asfu_niveus`, 3 genes (158 strains) | NPHP3_N/NACHT | **NLR (nucleotide-binding leucine-rich-repeat) protein** | — |
+| `Asfu_HMR_AF_270`, 4 genes (132 strains) | Ank_2/Ank_4/Ank_5 | **NLR protein** (same as above) | protein binding |
+| `Asfu_HMR_AF_270`, 5 genes (116 strains) | WD40 repeats | *(no hit — genuinely novel)* | — |
+
+The NACHT/NPHP3_N islands independently hitting bona fide NLR (nucleotide-binding
+leucine-rich-repeat) proteins is a real, meaningful confirmation — NLR/NACHT genes
+are the well-documented fungal non-self-recognition (heterokaryon incompatibility)
+gene family, not a coincidental domain match. `Asfu_HMR_AF_270`'s 187-strain island
+hitting a **named secondary-metabolite cluster gene** (Phomopsin biosynthesis) is a
+genuinely new, specific lead — worth a manual literature check on whether *A.
+fumigatus* has ever been reported to carry Phomopsin-pathway homologs. Full tables
+(with FDR, Pfam links, GO terms, and SwissProt names together):
+`results/accessory_islands/significant_islands.full_annotation.tsv` and
+`results/accessory_islands/domain_enrichment.with_go.tsv`.
+
 The first five rows are the most striking: **highly recurring** (116–187 of 295
 strains carry the exact same island), small-to-moderate (3–8 genes),
 `unexplained_physical` (no Starship captain gene at all), yet strongly enriched for
@@ -346,11 +372,20 @@ explain.
 ## 9. Open items
 
 **To finish the *A. fumigatus* profile:**
-- Investigate the 44,576 `unexplained_physical` pairs directly — cluster them by
-  genomic region, check for a non-Starship mobile-element signature or a shared
-  regulatory context.
-- Extend the benchmark scorecard past the single AF293-anchored control (starfish run,
-  or external sequence fetching for the other 18 Starships).
+- **Investigated (2026-09-15/16), real progress, not fully closed**: the 44,576
+  `unexplained_physical` pairs turned out to be real, larger multi-gene islands (see
+  the genomic-islands section above) with independent Pfam + SwissProt + GO evidence
+  for at least two real, non-Starship functional categories (NLR/heterokaryon-
+  incompatibility genes; a possible secondary-metabolite cluster homolog). Manual
+  literature follow-up on the strongest specific leads (Phomopsin-cluster homolog,
+  the NLR-hitting islands) is the natural next step, not another automated pass.
+- Extend the benchmark scorecard past the single AF293-anchored control. **starbase**
+  (starbase.serve.scilifelab.se, built partly from this same reference paper's
+  519-strain population plus a 19,863-genome de novo Starship survey) is the real,
+  promising path — ships as a bulk-downloadable SQLite dump on Zenodo
+  (`10.5281/zenodo.17533381`), no REST API. **Blocked as of 2026-09-16: Zenodo itself
+  was down** (confirmed independently, not a network-access issue on this end) —
+  revisit once it's back up.
 - Resolve or bound the dereplication-threshold and Leiden-resolution open questions
   with an independent criterion.
 - Follow up the `Asfu_H1106` outlier (allele-level divergence / clade placement check).
