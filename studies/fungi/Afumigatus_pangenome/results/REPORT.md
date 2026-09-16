@@ -72,12 +72,43 @@ plateaued at n=295 — both are still moving in the same direction they started 
 Completeness is uniformly high and narrow — not a confound for any "missing family"
 call in this panel.
 
-**One unresolved outlier**: `Asfu_H1106` (strain `H-1-10-6`, `GCA_020501995.1`) shows an
-elevated shell/cloud/singleton family count (6,197 vs. panel median 3,591). Traced to
-protein-level annotation (not the rescue pass). BUSCO (98.7%), contig count (678,
+**Resolved outlier**: `Asfu_H1106` (strain `H-1-10-6`, `GCA_020501995.1`) shows an
+elevated shell/cloud/singleton family count (6,197 vs. panel median 3,591), traced to
+protein-level annotation, not the rescue pass. BUSCO (98.7%), contig count (678,
 non-extreme), total protein count (10,961, normal range), and annotation source (NCBI,
-same as 292/295 strains) were all checked and ruled out as explanations. **Kept in the
-panel** — no positive evidence of a technical artifact. Flagged as an open QC item.
+same as 292/295 strains) were checked first and ruled out.
+
+Follow-up with `mash dist` against all 295 sketches (2026-09-16) answers the two
+remaining questions directly:
+
+- **Not a different species.** `Asfu_H1106`'s nearest-neighbor Mash distance is
+  0.00116 (nearest neighbor `Asfu_K18L3`), squarely inside the panel's normal
+  intra-*A. fumigatus* range (median nearest-neighbor distance across all 295 strains:
+  0.00061; the most divergent *bona fide* ingroup strain, `Asfu_eAF1436`, sits at
+  0.00385). Its distance to the two outgroups (*A. fischeri* 0.0669, *A. lentulus*
+  0.0932) is 40-60x larger. It nests normally inside the ingroup — no support for
+  cryptic species or a sample mix-up.
+- **The excess is concentrated almost entirely in singleton families**, not shell,
+  cloud, or genome-only calls: 1,430 strain-private singleton families vs. a panel
+  median of 11 (stdev 91; z ≈ 15.6 — by far the most extreme value of any strain, next
+  highest is 376). Shell (z ≈ 1.5) and cloud (z ≈ 1.0) counts are only mildly elevated.
+  These 1,430 private families sit on 1,320 distinct contigs of this assembly (1,920
+  gene-bearing contigs total), and disproportionately on small, gene-sparse contigs —
+  many contigs carry only 1-2 genes total, of which all or most are one of these
+  singletons. Their representative-protein length is also shorter than typical (median
+  164 aa vs. 262 aa panel-wide).
+
+**Conclusion: assembly-fragmentation artifact, not novel accessory biology and not a
+different species.** The pattern (genetically unremarkable placement + private genes
+concentrated on tiny orphan contigs + shorter-than-typical protein length) matches
+genes split or truncated across contig breaks in this particular assembly, producing
+protein fragments that fail to cluster with their true ortholog family and get counted
+as spurious "new" singleton families. **Decision: kept in the panel for
+core/soft-core/shell/cloud-based analyses** (those bins are unaffected — normal
+values), **but its 1,430 private singleton calls should not be read as evidence of
+real unique accessory gene content for this strain**, and any singleton-count-based
+per-strain comparison should treat `Asfu_H1106` as an assembly-quality-driven outlier
+rather than a biological one.
 
 ---
 
@@ -388,7 +419,11 @@ explain.
   revisit once it's back up.
 - Resolve or bound the dereplication-threshold and Leiden-resolution open questions
   with an independent criterion.
-- Follow up the `Asfu_H1106` outlier (allele-level divergence / clade placement check).
+- ~~Follow up the `Asfu_H1106` outlier~~ **Resolved 2026-09-16** (see BUSCO/QC
+  section above): Mash placement is normal (nests inside the ingroup, not near
+  either outgroup), and the elevated family count is an assembly-fragmentation
+  artifact concentrated in 1,430 private singleton calls on small, gene-sparse
+  contigs — not real accessory biology, not a different species.
 
 **To generalize into an NI Nextflow module** (parallel track, `NovInvenio` repo,
 branch `pangenome-profiling-module`, not yet merged):

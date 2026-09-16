@@ -749,17 +749,64 @@ tblastn rescue redesign as the cause.
   source used by 292/295 strains (only 3 use `uniprot`) -- not an
   annotation-pipeline-difference explanation either.
 
-**Decision: kept in the panel, not excluded.** No positive evidence of a
+**Decision (initial pass): kept in the panel, not excluded.** No positive evidence of a
 technical artifact was found despite checking the obvious candidates
 (assembly completeness, fragmentation, gene-calling volume, annotation
 source) -- excluding a real strain on an unexplained-but-not-clearly-wrong
 pattern would be an unjustified data-driven exclusion. Flagged as an open
 QC item for further investigation if it recurs or matters to a specific
-downstream claim (e.g. check allele-level divergence/clade placement for
-this strain specifically, or whether it carries an unusually high real
-count of divergent gene copies that split into shell/cloud families at the
-tier-1 clustering identity threshold rather than staying in their true
-core family).
+downstream claim.
+
+### Follow-up (2026-09-16): resolved via Mash placement + presence-call breakdown
+
+Ran `mash dist` on the existing 295-strain sketch
+(`results/clade_assignment/clade_sketches.msh`, k=21) all-vs-all, and broke the
+elevated family count down by frequency bin and call type using
+`presence_matrix.rescued.tsv` + `frequency_table.rescued.tsv`.
+
+**Not a different species / not mislabeled.** `Asfu_H1106`'s nearest-neighbor Mash
+distance is 0.00116 (nearest neighbor `Asfu_K18L3`) -- inside the normal
+intra-*A. fumigatus* range (panel median nearest-neighbor distance 0.00061; the most
+divergent bona fide ingroup strain, `Asfu_eAF1436`, sits at 0.00385). Distance to the
+two outgroups (*A. fischeri* 0.0669, *A. lentulus* 0.0932) is 40-60x larger by
+comparison. It nests normally and unremarkably inside the ingroup clade.
+
+**The excess is almost entirely singleton-family calls, not shell/cloud/genome_only.**
+Per-strain breakdown by frequency bin (fixed a bug in the first version of this check --
+the call-value filter needs to match the actual lowercase `present`/`genome_only`/
+`absent` strings used in `presence_matrix.rescued.tsv`, not `PRESENT`/`ABSENT`):
+
+| Bin | Panel median | Panel stdev | `Asfu_H1106` | z |
+|---|---:|---:|---:|---:|
+| shell | 3,350 | 760 | 4,475 | 1.48 |
+| cloud | 140 | 151 | 292 | 1.01 |
+| singleton | 11 | 91 | 1,430 | **15.58** |
+
+1,430 vs. a median of 11 is the single most extreme value of any strain in the panel
+by a wide margin (next highest: `Asfu_I1493` at 376).
+
+**Those 1,430 private singleton families are concentrated on small, gene-sparse
+contigs.** Cross-referencing against `family_positions.rescued.tsv`: they sit on 1,320
+distinct contigs (of 1,920 gene-bearing contigs total for this strain), and
+disproportionately on contigs carrying very few genes overall -- e.g. contigs with
+only 1-2 total annotated genes are frequently 67-100% singleton-family. Their
+representative-protein length (from `tier1_rep_seq.fasta`) is also shorter than
+typical: median 164 aa vs. 262 aa panel-wide.
+
+**Conclusion: assembly-fragmentation artifact, not novel accessory biology and not a
+different species.** Genes split or truncated across contig breaks in this
+particular assembly (`GCA_020501995.1`, JAIBVV01 WGS accession) most plausibly produce
+protein fragments too divergent from their true ortholog's full-length representative
+to cluster into the correct family at the tier-1 identity threshold, so they get
+counted as spurious "new" singleton families instead. Core/soft_core/shell/cloud
+counts are all normal for this strain -- the artifact is confined to the singleton
+bin specifically.
+
+**Final decision: kept in the panel** for all core/soft_core/shell/cloud-based
+analyses (unaffected). **Its singleton-family calls should be treated as an
+assembly-quality artifact, not real biology** -- exclude `Asfu_H1106` (or flag it
+explicitly) in any analysis that leans on per-strain singleton-family counts as a
+proxy for real strain-specific/accessory gene content. Resolved; REPORT.md updated.
 
 ## Dereplication threshold sensitivity check (2026-09-15)
 
