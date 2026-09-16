@@ -31,7 +31,20 @@ work/
 # figures (class 2 per CLAUDE.md's data-provenance rules -- fixed-size aggregate
 # artifacts, not per-candidate/per-sequence output) can be explicitly un-ignored
 # below; git cannot re-include a file whose parent directory is itself excluded.
-results/*
+#
+# Two patterns, not one: a pattern containing a non-trailing slash (like
+# `results/*`) is anchored to the .gitignore's own location (the repo root),
+# so it only ever matched a root-level results/ (used by bin/run_study.sh's
+# main.nf-based `--outdir "$REPO_ROOT/results"` convention) -- it silently
+# never covered a per-study `studies/<domain>/<set>/results/` (used by
+# pangenome.nf-based studies' own run scripts), which is exactly the class-3
+# per-candidate-scaling data this rule was meant to catch. Caught 2026-09-16
+# when coccidioides_pangenome's results/ (20GB) and Afumigatus_pangenome's
+# (14GB, pre-existing) both showed up untracked instead of ignored -- the
+# `!studies/fungi/Afumigatus_pangenome/results/...` allowlist lines below
+# were themselves dead no-ops until this fix, for the same reason.
+/results/*
+studies/*/*/results/*
 view/
 !studies/fungi/Afumigatus_pangenome/results/REPORT.md
 !studies/fungi/Afumigatus_pangenome/results/SUMMARY.md
