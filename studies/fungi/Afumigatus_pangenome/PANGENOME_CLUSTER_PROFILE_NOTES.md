@@ -331,7 +331,11 @@ repo's parent directory.
 - [x] Compute the real family-frequency histogram (component 1-2 of the general
       design) before fixing core/soft-core/shell/cloud cutoffs — after excluding
       low-completeness strains.
-- [ ] Build the ID crosswalk (paper IDs <-> this study's IDs).
+- [x] Build the ID crosswalk (paper IDs <-> this study's IDs). Done
+      2026-09-15 -- see "ID crosswalk + benchmark scorecard -- real results"
+      below. 614/616 requested AF293 RefSeq accessions (Tables S19/S5/S13)
+      resolved via NCBI efetch + diamond blastp against this study's own
+      2.79M-protein proteome.
 - [x] Build the strain-overlap table (this study's 293 vs. the paper's
       populations). Done 2026-09-13 as a side effect of the TaxonGroup fill:
       254/293 IN strains matched Table S21's isolateID/originalID (name
@@ -339,10 +343,22 @@ repo's parent directory.
       `results/clade_assignment/s21_matches.tsv`. This is a NAME-based
       overlap only, not the sequence-based ID crosswalk the next item still
       needs for actual gene-list lookups (Tables S12/S13/S19).
-- [ ] Run the benchmark suite (Tables S6/S21/S12/S13/S7/S14-16 as positive
+- [~] Run the benchmark suite (Tables S6/S21/S12/S13/S7/S14-16 as positive
       controls, plus conserved non-mobile SM clusters and random family pairs as
       negative controls) against whichever strains overlap, scoring mmseqs vs.
-      diamond before trusting either on novel candidate clusters.
+      diamond before trusting either on novel candidate clusters. Partial:
+      done 2026-09-15 for positive controls (S6/S21/S13) and one negative
+      control (S19 conserved SM/virulence genes), scored against BOTH a real
+      mmseqs run (rescued matrix) and a real diamond-tier1 run (raw,
+      unrescued matrix) -- see "ID crosswalk + benchmark scorecard -- real
+      results" below. NOT done: S12/S7/S14-16 (13-reference-strain and
+      manual-annotation tables -- most of those strains' gene IDs are the
+      paper's own internal locus numbering with no public accession, so they
+      are not sequence-crosswalkable without the paper's own genome
+      annotations, which are not in this supplement) and the random-family-
+      pair negative control (deferred -- `cooccurring_pairs.rescued.tsv` is
+      1.3GB, sampling it for a fair matched-frequency negative-control draw
+      needs more than a quick grep and was not attempted this session).
 - [x] Run the HAC/hacA targeted screen. Done 2026-09-13 via direct
       reference-sequence diamond/hmmsearch against all 293 proteomes
       (`bin/hac_reference_screen.py`), not the family-ID/matrix route
@@ -660,3 +676,354 @@ near-chromosome-level assembly), 3 in between. This is a contig-count proxy,
 not a confirmed sequencing-technology determination (no read-type metadata
 cross-referenced) -- real signal, but the open item isn't fully closed by
 this alone.
+
+## Leiden module rerun on the corrected trans network (2026-09-15)
+
+Rerun of `bin/detect_trans_modules.py` against `pair_classification.rescued.tsv`
+(the fully-corrected file, both rescue bugs fixed) -- the previous run
+(commit `d021c58`) used the pre-rescue 522,933-edge network and is now stale;
+its output was moved to `results/full_293run/modules_preview_prerescue_stale/`
+for the record, not for use.
+
+**New network is ~5x larger**: 2,613,303 `trans` edges (up from 522,933),
+8,902 nodes (families with at least one `trans`-classified edge, up from
+7,064). Same resolution sweep (0.5/1.0/2.0/5.0/10.0), same seed=0, all
+finishing in 20-27s each (igraph+leidenalg scales fine at this size,
+comfortably interactive -- no SLURM job needed):
+
+| Resolution | Modules | Largest module | Singleton modules | Singleton % |
+|---|---:|---:|---:|---:|
+| 0.5 | 6 | 3,288 | 0 | 0% |
+| 1.0 | 10 | 2,105 | 0 | 0% |
+| 2.0 | 27 | 1,595 | 5 | 18.5% |
+| 5.0 | 724 | 1,405 | 569 | 78.6% |
+| 10.0 | 1,537 | 1,140 | 1,359 | 88.4% |
+
+Same qualitative pattern as the pre-rescue run (module count and singleton
+fraction both grow steeply with resolution; the pre-rescue sweep found
+5->806 modules and 0%->74% singletons) -- now confirmed on a network with
+5x the edges and real, corrected classifications, not just the earlier
+smaller/wrong one. Strengthens rather than changes the earlier
+interpretation: this looks like a genuinely persistent, densely-
+interconnected core trans-co-occurrence structure across resolutions,
+not an artifact of the smaller stale network. The same open question
+remains unresolved: whether that persistent core reflects real biology
+(e.g. a shared regulatory/selective-pressure network) or a residual
+population-structure confound not fully caught by the clade-stratified
+permutation null -- still no obviously "right" resolution value to pick,
+and no published pangenome-specific precedent to set one from. Not
+resolved this session; flagged for whoever writes the final interpretation.
+
+## Presence/absence matrix outlier: Asfu_H1106 (2026-09-15)
+
+The regenerated `presence_absence_matrix.png` shows one visible vertical
+streak of extra presence calls, distinct from the general core/shell/cloud/
+singleton banding. Investigated before deciding whether to exclude the
+strain from the profile.
+
+**Identity, for the record**: `Asfu_H1106` (this study's Short name) =
+strain `H-1-10-6` (species.csv `Strain` column), assembly accession
+`GCA_020501995.1` (both `Genome_Accession` and `Protein_Accession` --
+NCBI-sourced for both), NCBI Taxon ID `746128`, `TaxonGroup` =
+`Barber_cluster5`.
+
+**Finding**: `Asfu_H1106` has 6,197 shell+cloud+singleton family presences
+vs. a panel median of 3,591 (stdev 856 -- roughly 3 standard deviations
+above median), the single most extreme strain by this measure. Breaking
+that down by call type: 2,195 of those are protein-level `PRESENT` calls
+(vs. a panel median of 640 -- ~3.4x median) while only 4,002 are
+rescue-pass `GENOME_ONLY` calls (vs. a panel median of 2,926 -- ~1.4x
+median, much less extreme). **The elevation is concentrated in the
+original protein-level annotation, not the rescue pass** -- ruling out the
+tblastn rescue redesign as the cause.
+
+**Checked and ruled out as explanations:**
+- BUSCO completeness: 98.7% (Complete) -- normal, not a low-quality
+  assembly.
+- Contig count: 678 -- above the panel median (534) but not in the
+  extreme/fragmented tail (279/295 strains already have >100 contigs).
+- Total annotated protein count: 10,961 -- within the normal range for
+  this dataset (compared strains range ~8,800-11,100), not an
+  over-permissive/over-fragmented gene-calling artifact by this measure.
+- Annotation source: `ncbi` (species.csv `Protein_Source`), the same
+  source used by 292/295 strains (only 3 use `uniprot`) -- not an
+  annotation-pipeline-difference explanation either.
+
+**Decision: kept in the panel, not excluded.** No positive evidence of a
+technical artifact was found despite checking the obvious candidates
+(assembly completeness, fragmentation, gene-calling volume, annotation
+source) -- excluding a real strain on an unexplained-but-not-clearly-wrong
+pattern would be an unjustified data-driven exclusion. Flagged as an open
+QC item for further investigation if it recurs or matters to a specific
+downstream claim (e.g. check allele-level divergence/clade placement for
+this strain specifically, or whether it carries an unusually high real
+count of divergent gene copies that split into shell/cloud families at the
+tier-1 clustering identity threshold rather than staying in their true
+core family).
+
+## Dereplication threshold sensitivity check (2026-09-15)
+
+Ran `bin/dereplicate_strains.py` at 4 Mash thresholds (0.0005, 0.001
+[default, already used for the real 123/295-representative run], 0.002,
+0.005) to check how sensitive the representative-strain count is to this
+choice -- previously only the default had been tried.
+
+| Mash threshold | Representative strains (of 295) |
+|---|---:|
+| 0.0005 | 207 |
+| 0.001 (default, used in the real run) | 123 |
+| 0.002 | 14 |
+| 0.005 | 3 |
+
+**Real finding: extreme sensitivity, and the default sits in the steep
+part of the curve, not a stable plateau.** Halving the threshold
+(0.001->0.0005) nearly doubles the representative count (123->207);
+doubling it (0.001->0.002) collapses it by an order of magnitude
+(123->14). This is not "the default is wrong" -- 123/295 (41.7%) is a
+plausible representative fraction for a species with this much clonal/
+outbreak-cluster structure -- but it does mean the dereplicated-strain
+count (and therefore `frequency_bins.py --inventory`'s dereplicated
+frequency counts) should be reported as threshold-dependent, not as a
+fixed, robust number, and any downstream claim that specifically leans on
+"123 representative strains" should note this sensitivity rather than
+treat 123 as self-evidently the right cutoff. Not resolved further this
+session (would need an independent criterion -- e.g. a known outbreak/
+clonal-cluster ground truth from the reference paper's own population
+structure -- to pick a threshold on grounds other than "the value used so
+far").
+
+## ID crosswalk + benchmark scorecard -- real results (2026-09-15)
+
+Closes out the two remaining component-6 open items above, with real data
+end to end -- no synthetic/placeholder inputs. New scripts:
+`bin/fetch_paper_reference_proteins.py`, `bin/build_ground_truth_tables.py`;
+`bin/id_crosswalk.py` and `bin/benchmark_scorecard.py` were already written
+and unit-tested (the latter's `main()` was a deliberate stub -- now wired
+up for real, see below). All outputs in `results/id_crosswalk/`
+(gitignored, regenerable).
+
+### What was actually crosswalkable, and what was not
+
+Inspected the real columns of Tables S6/S7/S12/S13/S19/S21 before assuming
+the general design spec's description matched (it mostly did, with one
+correction): S12/S13's `geneID` column is **not** a public accession for
+most of the paper's 13 "reference-quality" strains -- it's the paper's own
+internal per-strain locus numbering (e.g. `47-10_000766`, `F7763_000019`),
+tied to genome annotations that exist only in the paper's own (unpublished
+alongside this supplement) analysis, not NCBI. Of the 552 Table S13
+cargo-gene rows (17 named Starships), only the 40 rows for strain `AF293`
+use a real NCBI accession (spelled `AF293_XP-<digits>.<version>` in the
+table, one dash-for-underscore edit away from the real `XP_<digits>.
+<version>` RefSeq accession). Table S19 (the virulence/SM-cluster gene
+catalog) is much more usable: 647 of 802 rows carry a real `XP_*`
+accession (798 loci are `Afu*g*` AF293 gene IDs; the other 4 are `AFUB_*`
+A1163 ones). Table S5's `featureID` column has some `AF293_XP-*`-style
+rows too. **616 unique real accessions total** were pulled from these
+three tables' AF293-attributable rows; 2 of them turned out to be literal
+placeholder text (`"AspGD only"` / `"Only available on AspGD"`) in Table
+S19's `accession` column, not real accessions -- a data artifact in the
+paper's own table, not a fetch failure.
+
+**Consequence for benchmark coverage, stated plainly rather than papered
+over**: the crosswalk (and everything built on it) is effectively an
+**AF293-anchored crosswalk**. Of the 20 high-confidence Starships (Table
+S6/S21), only 2 (`Nebuchadnezzar-h1`, `Nebuchadnezzar-h2`, both carrying
+the previously-characterized hrmA/HAC paralog) have any crosswalked cargo
+gene at all, because those are the only ones with an AF293 instance in
+Table S13. The other 15 named Starships' cargo lists are 100% non-AF293
+paper-internal locus tags with no path to a real sequence from this
+supplement alone -- genuinely not resolvable without either (a) the
+paper's own raw genome annotations (not published in this supplement) or
+(b) running `starfish` (see below) directly against this study's own
+assemblies for those strains, which sidesteps the paper's IDs entirely by
+detecting Starships independently rather than crosswalking to the paper's
+naming.
+
+### starfish (considered, not run)
+
+The user flagged mid-task that `starfish` (Gluck-Thaler's own Starship
+caller, github.com/egluckthaler/starfish) is not installed here and could
+independently call Starships on this study's own genomes rather than
+relying on the paper's supplement tables. Not used this session: the
+AF293-anchored crosswalk above already gave a real, resolvable,
+sequence-verified positive control (Nebuchadnezzar-h1/h2, scored below),
+and installing + validating a new tool + running it on even a handful of
+genomes is a materially bigger addition than what was needed to produce a
+real scorecard result. It would be the right next step specifically to
+extend cargo-grouping/presence-recovery coverage to the other 15 named
+Starships (whose paper-internal gene IDs are otherwise a dead end) -- left
+as an explicit, real, not-yet-attempted option, not silently dropped.
+
+### Fetch, crosswalk, and clustering — what ran
+
+- **NCBI efetch**: this environment DOES have outbound internet access
+  (verified with a live test fetch before committing to this approach) --
+  614/616 accessions fetched cleanly in 4 batches
+  (`results/id_crosswalk/paper_reference_proteins.fa`), provenance recorded
+  in `DATA_MANIFEST.yaml`.
+- **Diamond blastp crosswalk**: built a diamond db from the same
+  Short-prefixed `results/full_293run/all_strains.fa` (already existed,
+  2,788,402 proteins, 295 strains -- no rebuild needed) and blasted the 614
+  paper reference sequences against it (`--more-sensitive
+  --max-target-seqs 25`, ~9 min wall-clock on 4 threads). **614/614 queries
+  got at least one hit** (`results/id_crosswalk/paper_vs_study.tsv`, 14,905
+  hit lines); `id_crosswalk.py`'s existing (already-tested)
+  `parse_diamond_blastp_besthits` reduced this to one best-hit crosswalk
+  row per paper accession (`results/id_crosswalk/crosswalk.tsv`). No bug
+  found in `id_crosswalk.py` -- used as-is, per the task's own instruction
+  not to add code there without a real reason. Sanity check: median hit
+  identity across all 14,905 lines is 100% (mostly near-identical
+  cross-strain orthologs, as expected for this species), and 199/614 best
+  hits land on this study's own `Asfu_Af293` (the same strain the query
+  sequences came from) -- the rest landing on other strains' equally-close
+  paralogs/orthologs is plausible at >98%-identical intraspecific distance
+  and not a red flag.
+- **Diamond-backend tier-1 clustering, attempted and completed for real**
+  (the task's "possibly multi-hour" open question): submitted as SLURM job
+  28425696 (`run_diamond_tier1_cluster.sh`, `-p stajichlab`, 16c/64gb) against
+  the same `all_strains.fa` used for the real mmseqs-tier1 run. **Finished
+  in 3 minutes wall-clock** -- far faster than mmseqs's own ~14 minutes on
+  the identical input, not slower as the "could be slower" framing in the
+  task worried. Result: **66,108 tier-1 families** (vs. mmseqs's 47,983 at
+  the same nominal 90%-identity/80%-coverage operating point) --
+  `results/full_293run/tier1_diamond_cluster.tsv`. Diamond's clustering
+  splits families ~38% more finely than mmseqs at the same nominal
+  threshold; not investigated further here (a real, reportable backend
+  difference, but explaining *why* -- different seed/extension heuristics,
+  different effective coverage handling -- is future work, not needed for
+  the scorecard itself). One minor code change made in support of this run:
+  `bin/cluster_backend.py`'s `run_diamond_cluster`/CLI gained an optional
+  `--threads` passthrough (previously silently used diamond's own thread
+  auto-detection, which does not respect a SLURM cgroup's CPU allocation)
+  -- covered by the existing `test_cluster_backend.py` (still passes
+  unchanged; that test only covers `two_tier_families`, not this function).
+- **Diamond presence matrix**: built from `tier1_diamond_cluster.tsv` via
+  the existing `build_presence_matrix.py` (unchanged, ~1 min) ->
+  `results/full_293run/presence_matrix.diamond.tsv`. **This is the RAW,
+  UNRESCUED matrix** -- no genome-level tblastn rescue pass was run for the
+  diamond backend (that is a genuinely separate, multi-hour, 295-strain
+  SLURM array job per strain, not a rerunnable-in-minutes step like
+  clustering turned out to be) -- stated explicitly here and in every
+  comparison below so the mmseqs-vs-diamond scorecard numbers are not
+  mistaken for an apples-to-apples clustering-only comparison; the mmseqs
+  side benefits from the rescue pass's ~2x core-fraction correction and the
+  diamond side does not.
+
+### `benchmark_scorecard.py` -- wired up for real, no longer a stub
+
+Rewrote `main()` (the stub deliberately exited non-zero) with real I/O:
+`load_crosswalk`/`load_cargo_by_name`/`load_starships_by_short`/
+`build_protein_to_family` (thin wrappers, mostly reusing
+`lib/pangenome_matrix.py`'s existing `read_cluster_tsv`), and
+`score_backend`/`score_negative_control`, which call the pre-existing,
+already-unit-tested `score_presence_recovery`/`score_cargo_grouping`
+functions unchanged. New CLI args beyond the original stub's placeholder
+shape: `--negative_control_genes`, `--tier1_cluster_mmseqs`/
+`--tier1_cluster_diamond` (needed to map a crosswalked protein ID to its
+tier-1 family -- the matrix alone doesn't carry per-protein family
+membership). `--tier1_cluster_diamond`/`--matrix_diamond` are optional: if
+omitted, the scorecard runs mmseqs-only rather than refusing to run, per
+the task's explicit "score mmseqs alone rather than block" guidance. 8 new
+unit tests added (`tests/test_benchmark_scorecard.py`,
+`tests/test_build_ground_truth_tables.py`); all 179 study tests pass
+(`pixi run pytest studies/fungi/Afumigatus_pangenome/tests/ -q`), no
+regressions.
+
+Also found and fixed one real ID-format mismatch while wiring this up (not
+a pre-existing bug in tested code, a bug in the same-session ground-truth
+builder): Table S13's AF293 geneIDs are spelled `AF293_XP-<digits>.<v>`,
+but the crosswalk is keyed on the plain `XP_<digits>.<v>` accession
+actually fetched/blasted -- without normalizing, EVERY cargo-grouping
+control silently scored 0/0 (looked like "no crosswalk," not a format
+bug). Added `normalize_geneid_for_crosswalk` to
+`build_ground_truth_tables.py` (converts only the AF293-prefixed form;
+other strains' internal locus tags are left untouched since there is
+nothing to normalize them to) plus 2 unit tests, then reran.
+
+### Real scorecard numbers
+
+**Positive control -- cargo grouping** (Table S13, nameID-grouped): of the
+20 named Starships, only `Nebuchadnezzar-h1`/`Nebuchadnezzar-h2` have any
+crosswalked cargo gene (20/20 genes crosswalked for each -- see coverage
+caveat above). Identical for both backends: **purity 1.0, completeness
+0.05**. This is NOT a clustering failure -- purity 1.0 means every member
+of the predicted family that captured the best overlap is a true cargo
+gene (no contamination), and completeness 0.05 (1 of 20) means the 20
+PF11001-family paralogs correctly split across ~20 different tier-1
+families rather than collapsing into one. That is exactly the intended
+behavior of the two-tier 90%-identity clustering scheme (component 1's
+whole reason for existing was to keep this study's own previously-found
+PF11001 paralogs from over-merging) -- a real, if unintuitive-sounding,
+validation rather than a negative result. The other 18 Starships:
+`n_crosswalked_genes = 0`, correctly reported as "no crosswalk hit," not
+silently scored as a failure.
+
+**Positive control -- presence recovery** (Table S6/S21, re-keyed to this
+study's own `Short` via a 261/295-strain normalized-name match against
+Table S21's `isolateID`/`originalID` -- slightly more than the
+2026-09-13 TaxonGroup fill's 254/293 because this includes the 2 OUT
+strains and uses `config.csv`'s current, corrected content): only
+`Nebuchadnezzar-h1`/`Nebuchadnezzar-h2` have a resolvable diagnostic
+family (same coverage limit as above). Real numbers, both backends nearly
+identical despite picking different diagnostic strains as their top
+crosswalk hit (`Asfu_niveus`/`Asfu_W72310` for mmseqs/diamond on h1,
+`Asfu_Af293`/`Asfu_ATCC_46645` on h2 -- expected, since many strains carry
+near-identical copies and the "best hit" is a coin flip among near-ties):
+
+| Starship | Backend | n strains scored | TP | FP | TN | FN | Accuracy | Jaccard |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| Nebuchadnezzar-h1 | mmseqs | 261 | 3 | 1 | 256 | 1 | 0.992 | 0.600 |
+| Nebuchadnezzar-h1 | diamond | 261 | 3 | 1 | 256 | 1 | 0.992 | 0.600 |
+| Nebuchadnezzar-h2 | mmseqs | 261 | 1 | 0 | 260 | 0 | 1.000 | 1.000 |
+| Nebuchadnezzar-h2 | diamond | 261 | 1 | 0 | 260 | 0 | 1.000 | 1.000 |
+
+Small numerator (this Starship is genuinely rare in the overlapping
+population, matching the earlier hrmA reference screen's own finding of
+only 8/293 strains hrmA-positive) but a real, correctly-recovered signal
+either way -- both backends agree exactly on this control, giving no
+basis (from this one control) to prefer one over the other.
+
+**Negative control -- conserved SM/virulence genes** (Table S19, 645
+genes with a real accession, expected to be broadly core/soft-core rather
+than showing Starship-style presence/absence variability): **100%
+crosswalk coverage** (645/645, since these accessions came from the same
+fetch/blast pool).
+
+| Backend | Matrix | core | soft_core | shell | cloud | singleton | mean freq |
+|---|---|---:|---:|---:|---:|---:|---:|
+| mmseqs | rescued | 554 (85.9%) | 9 (1.4%) | 54 (8.4%) | 25 (3.9%) | 3 (0.5%) | 0.916 |
+| diamond | raw/unrescued | 513 (79.5%) | 14 (2.2%) | 57 (8.8%) | 48 (7.4%) | 13 (2.0%) | 0.867 |
+
+Both backends correctly call the large majority of conserved SM/virulence
+genes core/soft-core (as expected -- this is the sanity check the negative
+control exists for), and both do markedly better on this gene set than the
+whole-genome baseline (mmseqs's own genome-wide rescued composition is
+53.0% core -- these 645 conserved genes land core at 85.9%, a real,
+expected enrichment). mmseqs's higher core fraction and lower cloud/
+singleton tail here is very plausibly the tblastn rescue pass at work
+(exactly what it was built to fix -- coverage-based false absences turning
+a truly-core gene into an apparent cloud/singleton), not necessarily a
+mmseqs-vs-diamond clustering-quality difference -- **this comparison is
+confounded by the rescue-pass gap, not a clean backend comparison**, as
+flagged above.
+
+### What's still open after this session
+
+- **S12/S7/S14-16 as additional positive controls**: not attempted --
+  S12 (13-reference-strain BLAST recovery) has the same paper-internal-ID
+  problem as S13 for 12 of its 13 strains; S7 (manual 3-strain annotation)
+  and S14-16 (segregating insertion regions) were not inspected this
+  session at all. Real, available next step if broader benchmark coverage
+  is wanted.
+- **Random-family-pair negative control**: not attempted (see Open items
+  checklist above) -- `cooccurring_pairs.rescued.tsv` is 1.3GB and a fair
+  matched-frequency sampling needs more care than a quick pass.
+- **mmseqs-vs-diamond comparison is not yet apples-to-apples**: would need
+  a full tblastn rescue pass run against the diamond clustering (a
+  genuinely separate multi-hour SLURM array job, not attempted this
+  session) before the negative-control frequency-bin numbers above are a
+  clean backend comparison rather than a backend-plus-rescue-status
+  comparison.
+- **starfish**: not installed/run (see above) -- would be the real path to
+  extending positive-control coverage to the 15 non-AF293 named
+  Starships.

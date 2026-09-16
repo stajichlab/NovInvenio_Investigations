@@ -8946,3 +8946,20 @@
   access_note: Article page and supplementary-file URL are behind a Cloudflare bot-check
     (HTTP 403) for automated fetch; user downloaded manually with institutional access
     on 2026-09-13. License/citation confirmed via CrossRef API (api.crossref.org/works/10.1128/mbio.01092-25).
+- local_path: studies/fungi/Afumigatus_pangenome/results/id_crosswalk/paper_reference_proteins.fa
+  source_url: https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=protein&rettype=fasta&retmode=text
+  source_release: NCBI Protein database, live efetch pull 2026-09-15 (RefSeq XP_*
+    accessions for A. fumigatus Af293, GCF_000002655.1)
+  access_date: '2026-09-16T01:46:43Z'
+  checksum_sha256: 2953a6baa003506225bfe92a076e096200428acc0b2c710f112f63fb8abb6e61
+  license: US Government Work / NCBI public domain (RefSeq)
+  derived_by: studies/fungi/Afumigatus_pangenome/bin/fetch_paper_reference_proteins.py
+    --accessions results/id_crosswalk/accessions_to_fetch.txt --output results/id_crosswalk/paper_reference_proteins.fa;
+    accession list itself derived from mbio.01092-25-s0002.xlsx Tables S19 (accession
+    column), S5 and S13 (AF293_XP-* -prefixed featureID/geneID rows) -- see PANGENOME_CLUSTER_PROFILE_NOTES.md
+    ID-crosswalk section
+  pulled_with: -c on c09
+  kind: derived_reference_sequences
+  content: 614 of 616 requested AF293 RefSeq protein accessions cited in the mBio
+    paper supplement (2 rows had literal non-accession text "AspGD only"/"Only available
+    on AspGD" in Table S19s accession column, not a fetch failure -- see study notes).

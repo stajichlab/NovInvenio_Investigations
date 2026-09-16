@@ -44,11 +44,15 @@ def run_mmseqs_cluster(
     return Path(f"{out_prefix}_cluster.tsv")
 
 
-def run_diamond_cluster(fasta: Path, out_prefix: str, approx_id: float, member_cover: float) -> Path:
+def run_diamond_cluster(
+    fasta: Path, out_prefix: str, approx_id: float, member_cover: float, threads: int | None = None
+) -> Path:
     cmd = [
         "diamond", "cluster", "-d", str(fasta), "-o", f"{out_prefix}_cluster.tsv",
         "--approx-id", str(approx_id), "--member-cover", str(member_cover),
     ]
+    if threads:
+        cmd += ["--threads", str(threads)]
     subprocess.run(cmd, check=True)
     return Path(f"{out_prefix}_cluster.tsv")
 
@@ -75,6 +79,8 @@ def main() -> None:
         p = sub.add_parser(name)
         p.add_argument("--fasta", required=True, type=Path)
         p.add_argument("--out_prefix", required=True)
+        if name.startswith("diamond"):
+            p.add_argument("--threads", type=int, default=None)
     args = ap.parse_args()
 
     if args.command == "mmseqs-tier1":
@@ -82,9 +88,9 @@ def main() -> None:
     elif args.command == "mmseqs-tier2":
         run_mmseqs_cluster(args.fasta, args.out_prefix, min_seq_id=0.4, cov=0.8, cluster_reassign=False)
     elif args.command == "diamond-tier1":
-        run_diamond_cluster(args.fasta, args.out_prefix, approx_id=90, member_cover=80)
+        run_diamond_cluster(args.fasta, args.out_prefix, approx_id=90, member_cover=80, threads=args.threads)
     elif args.command == "diamond-tier2":
-        run_diamond_cluster(args.fasta, args.out_prefix, approx_id=40, member_cover=80)
+        run_diamond_cluster(args.fasta, args.out_prefix, approx_id=40, member_cover=80, threads=args.threads)
 
 
 if __name__ == "__main__":
