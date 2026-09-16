@@ -194,12 +194,12 @@ Fisher's exact, BH-FDR corrected) — **901 domains tested, 71 significant at FD
 
 | Domain | Islands / background | Interpretation |
 |---|---:|---|
-| DUF3435 | 199/205 | The Starship captain domain itself — internal-consistency check |
-| DUF3723 | 109/109 | Documented as part of the broader Starship "backbone" beyond the captain gene — some of the "unexplained" islands may still be Starship-associated via a signal outside this study's narrower DUF3435-only screen |
-| Ank / Ank_2–5 (ankyrin repeat) | up to 215/231 | Documented Starship-cargo-associated domain family in other fungi |
-| **DDE_1 (DDE transposase)** | 68/68 | **Independent evidence of a different mobile-element family** — direct support for the hypothesis that some unexplained_physical islands reflect a non-Starship transposon |
-| NACHT | 70/73 | Fungal heterokaryon-incompatibility/innate-immune-like genes — classic accessory-genome category |
-| Glyco_hydro_71, Patatin | ~55 each | Secreted cell-wall-modifying/lipase enzymes — another classic horizontally-variable category |
+| [DUF3435](https://www.ebi.ac.uk/interpro/entry/pfam/PF11917/) | 199/205 | The Starship captain domain itself — internal-consistency check |
+| [DUF3723](https://www.ebi.ac.uk/interpro/entry/pfam/PF12520/) | 109/109 | Documented as part of the broader Starship "backbone" beyond the captain gene — some of the "unexplained" islands may still be Starship-associated via a signal outside this study's narrower DUF3435-only screen |
+| [Ank](https://www.ebi.ac.uk/interpro/entry/pfam/PF00023/) / [Ank_2](https://www.ebi.ac.uk/interpro/entry/pfam/PF12796/)–[Ank_5](https://www.ebi.ac.uk/interpro/entry/pfam/PF13857/) (ankyrin repeat) | up to 215/231 | Documented Starship-cargo-associated domain family in other fungi |
+| **[DDE_1](https://www.ebi.ac.uk/interpro/entry/pfam/PF03184/) (DDE transposase)** | 68/68 | **Independent evidence of a different mobile-element family** — direct support for the hypothesis that some unexplained_physical islands reflect a non-Starship transposon |
+| [NACHT](https://www.ebi.ac.uk/interpro/entry/pfam/PF05729/) | 70/73 | Fungal heterokaryon-incompatibility/innate-immune-like genes — classic accessory-genome category |
+| [Glyco_hydro_71](https://www.ebi.ac.uk/interpro/entry/pfam/PF03659/), [Patatin](https://www.ebi.ac.uk/interpro/entry/pfam/PF01734/) | ~55 each | Secreted cell-wall-modifying/lipase enzymes — another classic horizontally-variable category |
 
 ![Top enriched domains](figures/island_domain_enrichment.png)
 
@@ -210,25 +210,30 @@ those domains clear FDR<0.05, and each one's q-value
 (`bin/annotate_islands_with_enrichment.py`, joining `significant_islands.with_domains
 .tsv`'s per-island domain lists against `domain_enrichment.tsv`'s per-domain q-values
 — neither source file alone has both). **5,712 of 12,861 islands (44.4%) carry at
-least one FDR-significant domain.**
+least one FDR-significant domain.** For direct hotlinks, use
+`results/accessory_islands/domain_enrichment.with_urls.tsv` instead of the plain
+`domain_enrichment.tsv` — same 901-domain table plus `pfam_accession`/`pfam_url`
+columns (`bin/add_pfam_urls.py`, canonical `https://www.ebi.ac.uk/interpro/entry/
+pfam/<ACCESSION>/` links — Pfam is now hosted under InterPro, pfam.xfam.org is
+retired).
 
 **12 concrete examples**, spanning the full range of strain support (1–187 strains)
 and island size (3–30 genes):
 
 | Island (strain, size) | Strains supporting | Classification(s) | Captain gene | Top domains (FDR q) |
 |---|---:|---|:---:|---|
-| `Asfu_HMR_AF_270`, 8 genes | 187 | unexplained_physical | N | NPHP3_N (2.2e-06), WHD_GPIID, NACHT, NB-ARC |
-| `Asfu_CNMCM8686`, 6 genes | 170 | unexplained_physical | N | Patatin (1.9e-04) |
-| `Asfu_niveus`, 3 genes | 158 | unexplained_physical | N | NPHP3_N (2.2e-06) |
-| `Asfu_HMR_AF_270`, 4 genes | 132 | unexplained_physical | N | Ank_2, Ank_4, NPHP3_N, Ank_5, WHD_GPIID, PNP_UDP_1 (2.7e-09) |
-| `Asfu_HMR_AF_270`, 5 genes | 116 | unexplained_physical | N | WD40_CDC20-Fz, WD40_Prp19 (2.7e-04) |
-| `Asfu_NRZ2018236`, 30 genes | 1 | ambiguous_linkage, starship_explained, unexplained_physical | Y | DUF3435, DUF3723, Ank×3, NPHP3_N, NACHT +5 more (4.4e-14) |
-| `Asfu_B170s1`, 30 genes | 2 | ambiguous_linkage, unexplained_physical | N | Ank_2, Ank, Ank_4, Ank_5, Ank_3, Myb_DNA-bind_6 (2.7e-09) |
-| `Asfu_NRZ2017339`, 30 genes | 2 | ambiguous_linkage, unexplained_physical | N | Helicase_C, DEAD, GloB_C, Pkinase (1.8e-08) |
-| `Asfu_E12510`, 30 genes | 3 | ambiguous_linkage, starship_explained, unexplained_physical | N | NPHP3_N, HSF_DNA-bind, WHD_GPIID, NACHT, APH (2.2e-06) |
-| `Asfu_E166s1`, 30 genes | 5 | ambiguous_linkage, starship_explained, unexplained_physical | Y | DUF3435, GloB_C, APH (4.4e-14) |
-| `Asfu_NRZ2018649`, 30 genes | 5 | ambiguous_linkage, unexplained_physical | N | Pkinase, Myb_DNA-bind_6 (1.1e-03) |
-| `Asfu_E174s1`, 30 genes | 7 | ambiguous_linkage, unexplained_physical | N | HSF_DNA-bind (1.6e-05) |
+| `Asfu_HMR_AF_270`, 8 genes | 187 | unexplained_physical | N | [NPHP3_N](https://www.ebi.ac.uk/interpro/entry/pfam/PF24883/) (2.2e-06), [WHD_GPIID](https://www.ebi.ac.uk/interpro/entry/pfam/PF22939/), [NACHT](https://www.ebi.ac.uk/interpro/entry/pfam/PF05729/), [NB-ARC](https://www.ebi.ac.uk/interpro/entry/pfam/PF00931/) |
+| `Asfu_CNMCM8686`, 6 genes | 170 | unexplained_physical | N | [Patatin](https://www.ebi.ac.uk/interpro/entry/pfam/PF01734/) (1.9e-04) |
+| `Asfu_niveus`, 3 genes | 158 | unexplained_physical | N | [NPHP3_N](https://www.ebi.ac.uk/interpro/entry/pfam/PF24883/) (2.2e-06) |
+| `Asfu_HMR_AF_270`, 4 genes | 132 | unexplained_physical | N | [Ank_2](https://www.ebi.ac.uk/interpro/entry/pfam/PF12796/), [Ank_4](https://www.ebi.ac.uk/interpro/entry/pfam/PF13637/), [NPHP3_N](https://www.ebi.ac.uk/interpro/entry/pfam/PF24883/), [Ank_5](https://www.ebi.ac.uk/interpro/entry/pfam/PF13857/), [WHD_GPIID](https://www.ebi.ac.uk/interpro/entry/pfam/PF22939/), [PNP_UDP_1](https://www.ebi.ac.uk/interpro/entry/pfam/PF01048/) (2.7e-09) |
+| `Asfu_HMR_AF_270`, 5 genes | 116 | unexplained_physical | N | [WD40_CDC20-Fz](https://www.ebi.ac.uk/interpro/entry/pfam/PF24807/), [WD40_Prp19](https://www.ebi.ac.uk/interpro/entry/pfam/PF24814/) (2.7e-04) |
+| `Asfu_NRZ2018236`, 30 genes | 1 | ambiguous_linkage, starship_explained, unexplained_physical | Y | [DUF3435](https://www.ebi.ac.uk/interpro/entry/pfam/PF11917/), [DUF3723](https://www.ebi.ac.uk/interpro/entry/pfam/PF12520/), Ank×3, [NPHP3_N](https://www.ebi.ac.uk/interpro/entry/pfam/PF24883/), [NACHT](https://www.ebi.ac.uk/interpro/entry/pfam/PF05729/) +5 more (4.4e-14) |
+| `Asfu_B170s1`, 30 genes | 2 | ambiguous_linkage, unexplained_physical | N | [Ank_2](https://www.ebi.ac.uk/interpro/entry/pfam/PF12796/), [Ank](https://www.ebi.ac.uk/interpro/entry/pfam/PF00023/), [Ank_4](https://www.ebi.ac.uk/interpro/entry/pfam/PF13637/), [Ank_5](https://www.ebi.ac.uk/interpro/entry/pfam/PF13857/), [Ank_3](https://www.ebi.ac.uk/interpro/entry/pfam/PF13606/), [Myb_DNA-bind_6](https://www.ebi.ac.uk/interpro/entry/pfam/PF13921/) (2.7e-09) |
+| `Asfu_NRZ2017339`, 30 genes | 2 | ambiguous_linkage, unexplained_physical | N | [Helicase_C](https://www.ebi.ac.uk/interpro/entry/pfam/PF00271/), [DEAD](https://www.ebi.ac.uk/interpro/entry/pfam/PF00270/), [GloB_C](https://www.ebi.ac.uk/interpro/entry/pfam/PF28402/), [Pkinase](https://www.ebi.ac.uk/interpro/entry/pfam/PF00069/) (1.8e-08) |
+| `Asfu_E12510`, 30 genes | 3 | ambiguous_linkage, starship_explained, unexplained_physical | N | [NPHP3_N](https://www.ebi.ac.uk/interpro/entry/pfam/PF24883/), [HSF_DNA-bind](https://www.ebi.ac.uk/interpro/entry/pfam/PF00447/), [WHD_GPIID](https://www.ebi.ac.uk/interpro/entry/pfam/PF22939/), [NACHT](https://www.ebi.ac.uk/interpro/entry/pfam/PF05729/), [APH](https://www.ebi.ac.uk/interpro/entry/pfam/PF01636/) (2.2e-06) |
+| `Asfu_E166s1`, 30 genes | 5 | ambiguous_linkage, starship_explained, unexplained_physical | Y | [DUF3435](https://www.ebi.ac.uk/interpro/entry/pfam/PF11917/), [GloB_C](https://www.ebi.ac.uk/interpro/entry/pfam/PF28402/), [APH](https://www.ebi.ac.uk/interpro/entry/pfam/PF01636/) (4.4e-14) |
+| `Asfu_NRZ2018649`, 30 genes | 5 | ambiguous_linkage, unexplained_physical | N | [Pkinase](https://www.ebi.ac.uk/interpro/entry/pfam/PF00069/), [Myb_DNA-bind_6](https://www.ebi.ac.uk/interpro/entry/pfam/PF13921/) (1.1e-03) |
+| `Asfu_E174s1`, 30 genes | 7 | ambiguous_linkage, unexplained_physical | N | [HSF_DNA-bind](https://www.ebi.ac.uk/interpro/entry/pfam/PF00447/) (1.6e-05) |
 
 The first five rows are the most striking: **highly recurring** (116–187 of 295
 strains carry the exact same island), small-to-moderate (3–8 genes),
