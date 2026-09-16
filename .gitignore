@@ -26,9 +26,17 @@ work/
 .nf_launch/
 
 # results/view of pipeline runs -- regenerated fresh per DESIGN.md Sec 9, not archived
-# except via docs/*/archive/ (small derived compressed TSVs, published deliberately)
-results/
+# except via docs/*/archive/ (small derived compressed TSVs, published deliberately).
+# `results/*` (not `results/`) so a study's small, non-scaling summary report and
+# figures (class 2 per CLAUDE.md's data-provenance rules -- fixed-size aggregate
+# artifacts, not per-candidate/per-sequence output) can be explicitly un-ignored
+# below; git cannot re-include a file whose parent directory is itself excluded.
+results/*
 view/
+!studies/fungi/Afumigatus_pangenome/results/REPORT.md
+!studies/fungi/Afumigatus_pangenome/results/SUMMARY.md
+!studies/fungi/Afumigatus_pangenome/results/figures/
+!studies/fungi/Afumigatus_pangenome/results/figures_pdf/
 
 # TBLASTN alignment shards (nf_NovInvenio issue #73's BUILD_ALIGNMENT_SHARDS,
 # relocated into the two-tier gallery path by bin/sync_reports.sh, issue #5) --
