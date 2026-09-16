@@ -6,15 +6,20 @@
 functional-enrichment scripts into a permanent, flag-gated step in
 `nf_NovInvenio`'s `pangenome_profile.nf` subworkflow.
 
-**Architecture:** Six new modules (`BUILD_ISLANDS`, 0+ `MARKER_HMMSEARCH` via the
-existing `CAPTAIN_HMMSEARCH` machinery, `SELECT_BACKGROUND_REPS`,
+**Architecture:** Seven new modules (`BUILD_ISLANDS`, a new `MARKER_HMMSEARCH`
+process for 0+ named marker searches, `SELECT_BACKGROUND_REPS`,
 `FAMILY_PFAM_SCAN`, `DOMAIN_ENRICHMENT`, `REPORT_TABLES`, `REPORT_RENDER`), all in
 `nf_NovInvenio`'s shared `bin/`/`modules/pangenome/` (pipeline code, not
-study-specific), gated behind `--pangenome_pfam_hmm`. All new scripts port
-proven, real algorithms from `studies/fungi/Afumigatus_pangenome/bin/` verbatim
-where the logic is already correct, with the two real design fixes from Fable
-review: one Pfam scan (not two, split at enrichment time) and named marker
-columns (not one collapsing `has_marker_gene` column).
+study-specific), gated behind a new, distinct `--pangenome_island_pfam_hmm`
+param (not the pre-existing `--pangenome_pfam_hmm`, which stays load-bearing
+for the captain-by-name branch only). All new scripts port proven, real
+algorithms from `studies/fungi/Afumigatus_pangenome/bin/` verbatim where the
+logic is already correct, with fixes from two rounds of Fable review and two
+rounds of Opus review folded in: one Pfam scan (not two, split at enrichment
+time), named marker columns (not one collapsing `has_marker_gene` column), a
+dedicated `MARKER_HMMSEARCH` process (not an illegal repeated invocation of
+the existing captain-gene modules), and all five of the spec's required
+report figures restored (an earlier draft silently dropped three of them).
 
 **Tech Stack:** Python 3 (stdlib `csv`/`argparse`, `numpy`, `scipy.stats` for
 Fisher exact + BH correction, `matplotlib` `Agg` backend for figures), Nextflow
