@@ -714,6 +714,52 @@ permutation null -- still no obviously "right" resolution value to pick,
 and no published pangenome-specific precedent to set one from. Not
 resolved this session; flagged for whoever writes the final interpretation.
 
+### Follow-up (2026-09-16): seed-stability scan via `bin/leiden_stability.py`
+
+Built `bin/leiden_stability.py` (4 tests, `tests/test_leiden_stability.py`, all
+passing) to test whether Adjusted Mutual Information (AMI) across random seeds could
+identify which resolution reflects real, reproducible community structure vs.
+noise-driven fragmentation -- the natural complement to the ARI-vs-ground-truth check
+that worked well for the dereplication threshold (see above). Extracted the real
+`trans`-classified edges once from `pair_classification.rescued.tsv` into a cached
+edge list (2,613,303 edges, matching the notes above) to avoid re-scanning the 1.4GB
+source file for every seed/resolution combination, then ran the same 5 resolutions
+(0.5/1.0/2.0/5.0/10.0) at 10 random seeds each (50 Leiden runs total, ~25s each on
+the full 8,902-node graph -- no SLURM job needed):
+
+| Resolution | Mean pairwise AMI (10 seeds) | Std | Median modules | Median singleton % |
+|---|---:|---:|---:|---:|
+| 0.5 | 0.9417 | 0.0622 | 6 | 0% |
+| 1.0 | 0.8795 | 0.0395 | 10 | 0% |
+| 2.0 | 0.9387 | 0.0281 | 27 | 22.2% |
+| 5.0 | 0.9631 | 0.0092 | 722.5 | 78.3% |
+| 10.0 | 0.9372 | 0.0094 | 1,539 | 88.4% |
+
+**Real finding, and it's a null result for this specific test: seed-stability does
+NOT discriminate resolution choice here.** All five resolutions show high (0.88-0.96)
+AMI across seeds, including the highest-singleton-fraction resolutions (5.0, 10.0)
+that were the main suspects for "arbitrary tie-breaking among near-degenerate
+partitions." This contradicts the working hypothesis going in. The likely
+explanation: Leiden's optimization at this network's scale is simply quite
+deterministic regardless of resolution, and the heavy fragmentation at high
+resolution is itself a *reproducible* function of network topology (many families
+genuinely sit in weakly-connected positions that reliably peel off as singleton
+"modules" every run), not noise. **Seed-stability alone cannot be used to pick a
+resolution for this dataset** -- it's high everywhere, so it doesn't separate
+"real, informative community structure" from "real, but uninformative, near-total
+fragmentation."
+
+**What this means for the open question:** the two proposed empirical tests are not
+interchangeable, and only one of the two produced a usable signal so far. The
+remaining path -- external biological cross-validation (checking whether Leiden
+modules at a given resolution keep already-known functionally/physically linked gene
+sets together, e.g. the Starship captain-gene pairs and the significant
+accessory-island member sets already computed) -- is still untried and is now the
+main lead for resolving this, since seed-stability turned out not to help. Not run
+this session (would need to join `family_modules_r*.tsv` against
+`significant_islands.with_enrichment.tsv` and the HAC/Starship screen and measure
+within-module co-membership rates for known-linked pairs, at each resolution).
+
 ## Presence/absence matrix outlier: Asfu_H1106 (2026-09-15)
 
 The regenerated `presence_absence_matrix.png` shows one visible vertical
@@ -838,6 +884,68 @@ session (would need an independent criterion -- e.g. a known outbreak/
 clonal-cluster ground truth from the reference paper's own population
 structure -- to pick a threshold on grounds other than "the value used so
 far").
+
+### Follow-up (2026-09-16): empirical resolution via `bin/dereplication_stability.py`
+
+Built `bin/dereplication_stability.py` (8 tests, `tests/test_dereplication_stability.py`,
+all passing) to answer the "would need an independent criterion" gap noted above,
+using ground truth that turned out to already be sitting in the repo:
+`results/clade_assignment/s21_matches.tsv` carries the *source paper's own* published
+population-cluster labels (`S21_groupID`, 7 clusters) for 254/295 strains (86%
+coverage) -- I hadn't connected this to the dereplication-threshold question until
+now. Ran the real all-vs-all Mash distance matrix (`mash dist` on
+`results/clade_assignment/clade_sketches.msh`, k=21, 86,730 pairwise distances) at 10
+thresholds (0.0002 through 0.005), scoring against S21 clusters via Adjusted Rand
+Index (ARI, `sklearn.metrics.adjusted_rand_score`), and also reran the same sweep with
+complete- and average-linkage (`scipy.cluster.hierarchy`) alongside the pipeline's own
+single-linkage (union-find) method, to test whether single-linkage's known "chaining"
+behavior (a run of pairwise-close strains transitively merges even if the endpoints
+are far apart) is the specific cause of the earlier "no stable plateau" finding.
+
+| Threshold | single: groups / ARI | average: groups / ARI | complete: groups / ARI |
+|---|---:|---:|---:|
+| 0.0002 | 250 / 0.017 | 254 / 0.014 | 256 / 0.013 |
+| 0.0004 | 219 / 0.038 | 225 / 0.031 | 227 / 0.029 |
+| 0.0006 | 188 / 0.097 | 202 / 0.050 | 206 / 0.040 |
+| 0.0008 | 156 / 0.350 | 180 / 0.100 | 189 / 0.051 |
+| **0.001 (default)** | **123 / 0.541** | 154 / 0.141 | 166 / 0.070 |
+| 0.0012 | 89 / 0.426 | 124 / 0.197 | 145 / 0.115 |
+| 0.0015 | 44 / 0.080 | 88 / 0.539 | 107 / 0.186 |
+| 0.002 | 14 / 0.052 | 40 / 0.626 | 59 / 0.381 |
+| 0.003 | 5 / 0.043 | 12 / 0.240 | 19 / 0.664 |
+| 0.005 | 3 / 0.000 | 4 / 0.043 | 6 / 0.206 |
+
+**Two real findings, one supporting the current default and one refining the original
+hypothesis:**
+
+1. **The current default (single-linkage, threshold=0.001) sits exactly at its
+   method's ARI peak (0.541) against the published population clusters** -- this is
+   real, independent evidence the existing choice is defensible, not an arbitrary
+   round number. This directly answers the open question: yes, 0.001 recovers the
+   reference paper's own clonal/population structure better than any other threshold
+   tried for this method.
+2. **The "chaining" hypothesis is only partly right.** All three linkage methods show
+   the *same qualitative shape* -- a single narrow ARI peak with a steep falloff on
+   both sides, not a broad plateau anywhere -- so the instability is not purely a
+   single-linkage artifact; it looks like a real property of how finely-spaced
+   population clusters sit relative to Mash-distance resolution at this dataset's
+   scale (7 published clusters, 86% ground-truth coverage, is itself a coarse
+   reference). What linkage method *does* change is **where** the peak falls and how
+   good it gets: complete-linkage's best ARI (0.664 at threshold 0.003, 19 groups) and
+   average-linkage's best (0.626 at threshold 0.002, 40 groups) both exceed
+   single-linkage's peak (0.541) -- worth considering for any future rerun that
+   prioritizes best possible agreement with known population structure over keeping
+   the currently-used method unchanged.
+
+**Practical takeaway:** the current single-linkage/0.001 choice is validated, not
+arbitrary, but it sits on a narrow, fragile peak -- a small increase to 0.0015
+collapses ARI from 0.541 to 0.080. If the strain panel is ever revised (strains
+added/removed), this threshold should be re-validated rather than assumed stable,
+since the peak's exact location is dataset-dependent. Resolved to the extent
+achievable with existing ground truth; a finer-grained sweep near each method's peak
+(e.g. every 0.0001) would sharpen the exact optimal value further but was not run
+this session (diminishing returns given the ground truth itself is only 86% complete
+and paper-cluster-resolution, not per-strain).
 
 ## ID crosswalk + benchmark scorecard -- real results (2026-09-15)
 
@@ -1218,3 +1326,46 @@ gene can sit just outside the island boundary while still being "nearby"
 by the pair-level window definition. Not a contradiction, but a reminder
 that "island" and "pair-adjacency window" are two different, only
 partially overlapping notions of physical proximity in this analysis.
+
+## Cross-repo coordination: Nextflow port status check (2026-09-16)
+
+Checked in on the `NovInvenio` repo's `pangenome-profiling-module` branch (the
+parallel Nextflow-generalization track) and the concurrent `coccidioides_pangenome`
+testing session ("genome-data-migration-spec"), to keep the two tracks from silently
+diverging. Three findings:
+
+1. **The coccidioides-testing agent's GFF3 `Parent=` fallback fix landed cleanly**
+   (`NovInvenio` commit `9b7e39e`, 2026-09-15) and work has continued on top of it
+   since (`0d1df39` island construction, `ddc60b6` Pfam-eligible background
+   selection, `0f64d79` Pfam domain enrichment) -- no coordination action needed,
+   this is the expected/desired flow of that track.
+2. **`NovInvenio/bin/pangenome_domain_enrichment.py`** (that track's Task 3, Fisher
+   exact + BH-FDR domain enrichment) is a **verbatim, correctly-attributed port** of
+   this study's `bin/summarize_island_functions.py::domain_enrichment()` -- its own
+   docstring says so explicitly, and it carries over the singleton-exclusion fix
+   this study found via a pre-real-data test (see the Functional enrichment section
+   above). Checked the actual file content, not just the docstring's claim: no
+   divergence, no reconciliation needed.
+3. **Mash-sketch-once (an earlier open item, #7)**: already fixed in the Nextflow
+   port, not actually open. `bin/assign_clades.py` and `bin/dereplicate_strains.py`
+   in this study each independently shell out to `mash sketch`/`mash dist` (two
+   separate subprocess calls) -- the Nextflow port collapsed this into one shared
+   `MASH_SKETCH` process (`modules/pangenome/mash.nf:21`), invoked twice
+   (`MASH_SKETCH_ALL`/`MASH_SKETCH_INGROUP`) only because dereplication needs the
+   full strain set while clade assignment needs ingroup-only distances (mixing in
+   an outgroup collapses the within-species clade signal) -- a real, deliberate,
+   already-reviewed distinction, not redundant sketching. Real-cost check: one
+   `mash sketch` on a ~30Mb genome takes ~2.5s (mostly env overhead); this was never
+   a meaningful bottleneck at this scale even before the fix.
+
+**Tier-2 clustering (open item #6) status, for the record:** implemented as tested,
+working capability in both repos (`bin/cluster_backend.py` here,
+`bin/pangenome_cluster_backend.py` in NovInvenio -- `mmseqs-tier2`/`diamond-tier2`
+subcommands plus a `two_tier_families()` combiner), but never run in this study
+(no `results/*tier2*` output anywhere) and not wired into the Nextflow subworkflow
+(`modules/pangenome/prefix_and_cluster.nf:68-71` has an explicit comment noting it's
+"never used for this subworkflow today"). Not being worked on by the coccidioides
+track either (checked, zero tier2/superfamily references there). A real, scoped,
+ready-to-pick-up task if anyone wants it: add a `CLUSTER_TIER2` process calling the
+existing script's `mmseqs-tier2`/`diamond-tier2` subcommand on
+`CLUSTER_TIER1.out.rep_fasta`, wire its output alongside `PRESENCE_MATRIX`.

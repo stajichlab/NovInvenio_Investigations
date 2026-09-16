@@ -417,8 +417,30 @@ explain.
   (`10.5281/zenodo.17533381`), no REST API. **Blocked as of 2026-09-16: Zenodo itself
   was down** (confirmed independently, not a network-access issue on this end) —
   revisit once it's back up.
-- Resolve or bound the dereplication-threshold and Leiden-resolution open questions
-  with an independent criterion.
+- **Dereplication threshold: resolved 2026-09-16.** Scored the Mash-threshold sweep
+  against the reference paper's own published population clusters
+  (`results/clade_assignment/s21_matches.tsv`, 254/295 strains, 86% coverage) via
+  Adjusted Rand Index. **The current default (single-linkage, threshold=0.001) sits
+  exactly at its method's ARI peak (0.541)** — real, independent evidence the
+  existing choice is defensible, not an arbitrary round number. It's also a narrow
+  peak (ARI collapses to 0.080 at threshold=0.0015), so it should be re-validated
+  if the strain panel is ever revised. Complete-/average-linkage (tested for
+  comparison) reach somewhat higher peak ARI (0.664, 0.626) at different
+  thresholds — worth considering for a future rerun that prioritizes best possible
+  agreement with known population structure. See `bin/dereplication_stability.py`
+  and `PANGENOME_CLUSTER_PROFILE_NOTES.md`'s 2026-09-16 follow-up for the full
+  10-threshold × 3-method table.
+- **Leiden resolution: partially resolved 2026-09-16 — one test tried, came back
+  null, one test still open.** Ran a seed-stability scan (`bin/leiden_stability.py`,
+  10 seeds × 5 resolutions, Adjusted Mutual Information) to check whether some
+  resolutions reflect reproducible structure and others reflect noise-driven
+  fragmentation. **Result: all resolutions show high (0.88–0.96) seed-to-seed AMI,
+  including the highest-singleton-fraction ones — seed-stability does not
+  discriminate resolution choice for this network.** The remaining, untried path is
+  external biological cross-validation (do modules at a given resolution keep
+  already-known linked gene sets — Starship captain-gene pairs, significant
+  accessory islands — together, or split them apart?); that's the next concrete
+  step, not another automated seed sweep.
 - ~~Follow up the `Asfu_H1106` outlier~~ **Resolved 2026-09-16** (see BUSCO/QC
   section above): Mash placement is normal (nests inside the ingroup, not near
   either outgroup), and the elevated family count is an assembly-fragmentation
