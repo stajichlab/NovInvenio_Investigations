@@ -201,9 +201,45 @@ Fisher's exact, BH-FDR corrected) — **901 domains tested, 71 significant at FD
 | NACHT | 70/73 | Fungal heterokaryon-incompatibility/innate-immune-like genes — classic accessory-genome category |
 | Glyco_hydro_71, Patatin | ~55 each | Secreted cell-wall-modifying/lipase enzymes — another classic horizontally-variable category |
 
-Full tables: `results/accessory_islands/domain_enrichment.tsv` (all 901 domains) and
-`results/accessory_islands/significant_islands.with_domains.tsv` (per-island Pfam
-annotations, sorted by island size descending).
+![Top enriched domains](figures/island_domain_enrichment.png)
+
+**Full data file, with FDR included, sorted by island size**:
+`results/accessory_islands/significant_islands.with_enrichment.tsv` — every distinct
+significant island, sorted largest-first, with its full Pfam domain list, which of
+those domains clear FDR<0.05, and each one's q-value
+(`bin/annotate_islands_with_enrichment.py`, joining `significant_islands.with_domains
+.tsv`'s per-island domain lists against `domain_enrichment.tsv`'s per-domain q-values
+— neither source file alone has both). **5,712 of 12,861 islands (44.4%) carry at
+least one FDR-significant domain.**
+
+**12 concrete examples**, spanning the full range of strain support (1–187 strains)
+and island size (3–30 genes):
+
+| Island (strain, size) | Strains supporting | Classification(s) | Captain gene | Top domains (FDR q) |
+|---|---:|---|:---:|---|
+| `Asfu_HMR_AF_270`, 8 genes | 187 | unexplained_physical | N | NPHP3_N (2.2e-06), WHD_GPIID, NACHT, NB-ARC |
+| `Asfu_CNMCM8686`, 6 genes | 170 | unexplained_physical | N | Patatin (1.9e-04) |
+| `Asfu_niveus`, 3 genes | 158 | unexplained_physical | N | NPHP3_N (2.2e-06) |
+| `Asfu_HMR_AF_270`, 4 genes | 132 | unexplained_physical | N | Ank_2, Ank_4, NPHP3_N, Ank_5, WHD_GPIID, PNP_UDP_1 (2.7e-09) |
+| `Asfu_HMR_AF_270`, 5 genes | 116 | unexplained_physical | N | WD40_CDC20-Fz, WD40_Prp19 (2.7e-04) |
+| `Asfu_NRZ2018236`, 30 genes | 1 | ambiguous_linkage, starship_explained, unexplained_physical | Y | DUF3435, DUF3723, Ank×3, NPHP3_N, NACHT +5 more (4.4e-14) |
+| `Asfu_B170s1`, 30 genes | 2 | ambiguous_linkage, unexplained_physical | N | Ank_2, Ank, Ank_4, Ank_5, Ank_3, Myb_DNA-bind_6 (2.7e-09) |
+| `Asfu_NRZ2017339`, 30 genes | 2 | ambiguous_linkage, unexplained_physical | N | Helicase_C, DEAD, GloB_C, Pkinase (1.8e-08) |
+| `Asfu_E12510`, 30 genes | 3 | ambiguous_linkage, starship_explained, unexplained_physical | N | NPHP3_N, HSF_DNA-bind, WHD_GPIID, NACHT, APH (2.2e-06) |
+| `Asfu_E166s1`, 30 genes | 5 | ambiguous_linkage, starship_explained, unexplained_physical | Y | DUF3435, GloB_C, APH (4.4e-14) |
+| `Asfu_NRZ2018649`, 30 genes | 5 | ambiguous_linkage, unexplained_physical | N | Pkinase, Myb_DNA-bind_6 (1.1e-03) |
+| `Asfu_E174s1`, 30 genes | 7 | ambiguous_linkage, unexplained_physical | N | HSF_DNA-bind (1.6e-05) |
+
+The first five rows are the most striking: **highly recurring** (116–187 of 295
+strains carry the exact same island), small-to-moderate (3–8 genes),
+`unexplained_physical` (no Starship captain gene at all), yet strongly enriched for
+specific, interpretable domains — NPHP3_N and NACHT (both linked to fungal
+non-self-recognition/heterokaryon-incompatibility systems), ankyrin repeats, WD40
+repeats, and Patatin (secreted lipase). These read as real, conserved,
+non-Starship-driven accessory gene modules, not one-off noise. `Asfu_NRZ2018236`
+(row 6) is the richest single example — captain gene, DUF3723, ankyrin repeats, and
+NACHT all in the same 30-gene island in one strain, a genuine candidate for a hybrid
+or compound accessory locus worth manual inspection.
 
 *Caveat found while spot-checking real output, not a bug*: an island's own Pfam
 domains and why one of its pairs was called `starship_explained` don't always
