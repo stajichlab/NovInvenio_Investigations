@@ -88,11 +88,24 @@ def hac_table_markdown(hac_rows: list[dict]) -> str:
     return "\n".join(lines)
 
 
-def pair_classification_table_markdown(pc_rows: list[dict]) -> str:
+def pair_classification_counts(path: str) -> dict[str, int]:
+    """Stream `classification` column counts without materializing the whole
+    table -- this file can run into the tens of millions of rows (e.g.
+    12.87M for the coccidioides wholeset run), and csv.DictReader-into-a-list
+    at that scale costs multiple GB of Python dict overhead for a plain
+    tabulation."""
     counts: dict[str, int] = {}
-    for row in pc_rows:
-        label = row["classification"]
-        counts[label] = counts.get(label, 0) + 1
+    with open(path, newline="") as fh:
+        reader = csv.reader(fh, delimiter="\t")
+        header = next(reader)
+        idx = header.index("classification")
+        for row in reader:
+            label = row[idx]
+            counts[label] = counts.get(label, 0) + 1
+    return counts
+
+
+def pair_classification_table_markdown(counts: dict[str, int]) -> str:
     total = sum(counts.values())
     lines = ["| Classification | Pairs | % of total |", "|---|---:|---:|"]
     for label, n in sorted(counts.items(), key=lambda kv: -kv[1]):
@@ -106,7 +119,7 @@ def build_report(
     frequency_table: list[dict],
     busco_rows: list[dict] | None,
     hac_rows: list[dict] | None,
-    pair_classification_rows: list[dict] | None,
+    pair_classification_counts_: dict[str, int] | None,
     label: str,
 ) -> str:
     sections = [f"# Pangenome summary -- {label}\n"]
@@ -122,9 +135,9 @@ def build_report(
         sections.append("\n## HAC / hacA targeted screen\n")
         sections.append(hac_table_markdown(hac_rows))
 
-    if pair_classification_rows is not None:
+    if pair_classification_counts_ is not None:
         sections.append("\n## Co-occurring pair classification\n")
-        sections.append(pair_classification_table_markdown(pair_classification_rows))
+        sections.append(pair_classification_table_markdown(pair_classification_counts_))
 
     return "\n".join(sections) + "\n"
 
@@ -142,9 +155,9 @@ def main() -> None:
     frequency_table = read_tsv(args.frequency_table)
     busco_rows = read_tsv(args.busco_summary) if args.busco_summary else None
     hac_rows = read_tsv(args.hac_screen) if args.hac_screen else None
-    pair_classification_rows = read_tsv(args.pair_classification) if args.pair_classification else None
+    pair_counts = pair_classification_counts(args.pair_classification) if args.pair_classification else None
 
-    report = build_report(frequency_table, busco_rows, hac_rows, pair_classification_rows, args.label)
+    report = build_report(frequency_table, busco_rows, hac_rows, pair_counts, args.label)
     Path(args.output).write_text(report)
     print(f"Wrote {args.output}", file=sys.stderr)
 

@@ -5,7 +5,8 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
 
 from build_summary_report import (
     band_counts, band_table_markdown, busco_table_markdown,
-    hac_table_markdown, pair_classification_table_markdown, build_report,
+    hac_table_markdown, pair_classification_counts,
+    pair_classification_table_markdown, build_report,
 )
 
 
@@ -60,12 +61,20 @@ def test_hac_table_markdown_computes_presence_fractions():
     assert "1/3" in md  # hrmA present in 1
 
 
+def test_pair_classification_counts_streams_without_loading_all_rows(tmp_path):
+    tsv = tmp_path / "pair_classification.tsv"
+    tsv.write_text(
+        "family_a\tfamily_b\tclassification\n"
+        "f1\tf2\ttrans\n"
+        "f1\tf3\ttrans\n"
+        "f2\tf3\tstarship_explained\n"
+    )
+    assert pair_classification_counts(str(tsv)) == {"trans": 2, "starship_explained": 1}
+
+
 def test_pair_classification_table_markdown_sorts_by_count_descending():
-    rows = [
-        {"classification": "trans"}, {"classification": "trans"},
-        {"classification": "starship_explained"},
-    ]
-    md = pair_classification_table_markdown(rows)
+    counts = {"trans": 2, "starship_explained": 1}
+    md = pair_classification_table_markdown(counts)
     trans_line = [l for l in md.splitlines() if l.startswith("| trans ")][0]
     starship_line = [l for l in md.splitlines() if l.startswith("| starship_explained ")][0]
     assert md.index(trans_line) < md.index(starship_line)
@@ -86,8 +95,8 @@ def test_build_report_includes_all_sections_when_given():
     freq_table = [{"family": "f1", "bin": "core"}]
     busco_rows = [{"Complete_pct": "99.0", "Contigs": "50"}]
     hac_rows = [{"hacA_present": "Y", "hrmA_present": "N"}]
-    pc_rows = [{"classification": "trans"}]
-    report = build_report(freq_table, busco_rows, hac_rows, pc_rows, "full test")
+    pc_counts = {"trans": 1}
+    report = build_report(freq_table, busco_rows, hac_rows, pc_counts, "full test")
     assert "BUSCO" in report
     assert "HAC" in report
     assert "Co-occurring pair classification" in report
