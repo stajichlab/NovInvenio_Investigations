@@ -434,13 +434,29 @@ explain.
   the QC correction in the genomic-islands section above; it was a single
   shared-domain coincidence (Cupin_2), not real cluster homology. Manual literature
   follow-up on the NLR-hitting islands remains the natural next step.
-- Extend the benchmark scorecard past the single AF293-anchored control. **starbase**
-  (starbase.serve.scilifelab.se, built partly from this same reference paper's
-  519-strain population plus a 19,863-genome de novo Starship survey) is the real,
-  promising path — ships as a bulk-downloadable SQLite dump on Zenodo
-  (`10.5281/zenodo.17533381`), no REST API. **Blocked as of 2026-09-16: Zenodo itself
-  was down** (confirmed independently, not a network-access issue on this end) —
-  revisit once it's back up.
+- **Extend the benchmark scorecard past the single AF293-anchored control: partial
+  progress 2026-09-17, panel-wide coverage still blocked.** Zenodo came back up;
+  downloaded starbase's reference database (`10.5281/zenodo.17533381`, 382MB
+  SQLite, checksum-verified). **Strain/accession overlap with our 293-strain panel
+  is thin** (3/207 strain names, 1/9 GCA-accession genomes) — the two panels were
+  independently assembled from different *A. fumigatus* genome subsets, so this
+  does not extend panel-wide presence/absence coverage. **But Af293 gives an
+  exact, base-pair-resolvable cross-validation**, since both this study's and
+  starbase's Af293 records use the same real GenBank chromosome accessions
+  (`CM000169.1`-`CM000176.1`). Built `bin/starbase_crossvalidation.py` (8 tests)
+  to tblastn this study's own DUF3435 captain-gene hits against the Af293 genome
+  and check span-containment against starbase's curated Starship boundaries.
+  **Real result: 3 of starbase's 4 curated Af293 Starships (Galactica, Hephaestus,
+  and one unlabeled family) are independently recovered by this study's own
+  screen at the exact same genomic loci** — real, positive, independent validation
+  of the captain-gene detection methodology from two unrelated pipelines. One miss
+  (the Enterprise-family captain) and one methodological gap this surfaced: this
+  study's `load_captain_families()` applies no e-value cutoff, so a
+  weak/uncharacterized hit (E=1.7e-05) is currently weighted equally to the 3
+  confirmed true positives downstream — a concrete follow-up, not fixed this
+  session. Full writeup and coordinate table:
+  `PANGENOME_CLUSTER_PROFILE_NOTES.md`'s 2026-09-17 entry,
+  `results/id_crosswalk/starbase_af293_crossvalidation.tsv`.
 - **Dereplication threshold: resolved 2026-09-16.** Scored the Mash-threshold sweep
   against the reference paper's own published population clusters
   (`results/clade_assignment/s21_matches.tsv`, 254/295 strains, 86% coverage) via

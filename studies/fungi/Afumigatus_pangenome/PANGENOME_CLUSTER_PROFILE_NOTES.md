@@ -1441,3 +1441,109 @@ family the OTHER rows in the same cross-validation table independently converge 
 section corrected accordingly. `bin/cluster_homology_test.py` is intentionally
 generic (takes any query/reference FASTA pair), not Phomopsin-specific, so it's
 reusable for the next named-cluster lead without re-deriving this logic.
+
+## Benchmark scorecard extension via starbase: real cross-validation on Af293 (2026-09-17)
+
+Zenodo came back up (confirmed via its own API returning real record metadata, not
+an error) -- unblocking the "extend the benchmark scorecard past the single
+AF293-anchored control" open item flagged 2026-09-15/16.
+
+**Download.** `bin/fetch_starbase_reference.py` (4 tests,
+`tests/test_fetch_starbase_reference.py`) pulls starbase's Zenodo-archived
+reference database (DOI `10.5281/zenodo.17533381`, Forsythe/Gluck-Thaler/Vogan
+2025, v0.1.0-pre, CC-BY-4.0) into this study's `data/starbase/` -- checksum-verified
+against the record's own published MD5s (`starbase_v0.1.0-pre.sqlite`,
+382,242,816 bytes, `fc946b8e5ac8c7487f04a85db4a7b1c1`; `starship-scan.py`, 20,212
+bytes, `6f476c360073c5753405d6efde773a73`). **Caught and fixed a real gitignore
+gap while doing this**: `studies/fungi/Afumigatus_pangenome/data/` was NOT actually
+covered by any existing pattern (root `.gitignore`'s `/data/` is root-anchored only,
+same class of bug as the earlier `results/` gap another concurrent session fixed) --
+added `studies/*/*/data/` to the root `.gitignore` before this ~365MB file could
+ever be accidentally staged.
+
+**Strain-level overlap with our own 293-strain panel is thin.** starbase's
+`taxonomy` table has 554 *A. fumigatus* entries / 961 Starship records
+(`joined_ships`), largely drawn from the same underlying 519-strain population
+survey our panel partly derives from -- but strain-name matching (exact and
+normalized) found only 3/207 starbase strain names overlapping our panel's Strain
+column (`Af293`, `A1163`, `Z5`), and GCA-accession matching found only 1/9
+starbase genomes with a real GCA accession overlapping our panel
+(`GCA_020500845`) -- most starbase genome records reference a bulk Zenodo assembly
+archive DOI rather than per-strain GCA accessions. **Not a data problem, a real
+population-non-overlap finding**: the two panels were independently assembled
+from different subsets of available *A. fumigatus* genomes.
+
+**Af293 is the one strain with an exact, base-pair-resolvable cross-validation
+opportunity.** Both this study's own Af293 genome (`GCA_000002655.1`) and
+starbase's curated Af293 Starship records use the SAME real GenBank chromosome
+accessions (`CM000169.1`-`CM000176.1`) -- confirmed directly against this study's
+own `data_dir/dna/*330879*.dna.fa` FASTA headers. starbase's `starship_features`
+table (9,274 rows total) carries real `contigID`/`elementBegin`/`elementEnd`
+coordinates (two contigID conventions co-exist across curation passes -- a real
+GenBank accession like `aspfum5_CM000171.1`, or a human-readable
+`aspfum3_ChrNAfumigatusAf293` label -- both resolved to the same chromosome
+accession).
+
+**The ID-space bridge problem, and how it was solved.** This study's own DUF3435
+captain-gene hmmsearch screen (`results/captain_gene/DUF3435_vs_study.tblout`) was
+run against Af293's UniProt reference proteome (tr|Q4WXXX accessions, since
+`Protein_Source=uniprot` for this strain), but `family_positions.rescued.tsv`'s
+genomic positions for Af293 are keyed by NCBI GenBank protein IDs (from
+`Genome_Source=ncbi`'s own, independently-called GFF3 gene models) -- two
+different ID spaces for the same genome, with no existing crosswalk between them
+(the existing `crosswalk.tsv` maps a different pair: paper RefSeq XP_ IDs to
+study UniProt IDs). Bridged this directly rather than via ID matching: extracted
+the 8 UniProt sequences behind Af293's DUF3435 hits and tblastn'd them against
+the Af293 genome FASTA to get real genomic coordinates, comparable directly to
+starbase's coordinates on the same chromosome accessions.
+
+**Built `bin/starbase_crossvalidation.py`** (8 tests,
+`tests/test_starbase_crossvalidation.py`) to do this comparison properly: a
+captain "matches" a starbase Starship when its own genomic span falls within the
+Starship's curated boundary on the same contig (containment, not exact-coordinate
+equality). A real methodological subtlety caught by testing against the actual
+tblastn output before trusting it (not by inspection): one query
+(`tr|Q4WFD9|Q4WFD9_ASPFU`) had a tight, >80%-identity HSP cluster at one locus and
+a second, distant (~445kb away), 42-49%-identity HSP cluster on the SAME contig --
+a naive min/max-across-all-same-contig-HSPs span would have silently merged these
+into one bogus 445kb-wide span that matched nothing. Fixed with gap-based HSP
+clustering (`max_gap=20,000` bp): keep only the cluster containing the single
+lowest-evalue HSP, since Starship-associated tyrosine recombinases genuinely occur
+as multiple divergent copies genome-wide (this IS the biology, not noise).
+
+**Real result: 3/4 starbase-curated Af293 Starships independently recovered by
+this study's own screen, at exact genomic coordinates:**
+
+| starbase Starship | Family | Coordinates (Af293) | Recovered by our screen? |
+|---|---|---|---|
+| `aspfum5_s01199` | Galactica | CM000171.1:639099-688505 | **Yes** (`Q4WFD9`, span 639573-642085) |
+| `aspfum3_s01168` | Hephaestus | CM000169.1:4343061-4400403 | **Yes** (`Q4WRI6`, span 4397258-4399952) |
+| `aspfum3_s01174` | (unlabeled) | CM000173.1:3842374-3895493 | **Yes** (`Q4WWB1`, span 3892341-3895035) |
+| `aspfum3_s01172` | Enterprise | CM000171.1:1012508-1089695 | **No** -- our screen's only nearby hit (`Q4WFD9`, secondary HSP cluster) is a distant, low-identity (42-49%) cross-hit, not a real match |
+
+**This is real, positive, independent validation of the core detection
+methodology**: two completely independent pipelines (starbase's own curation vs.
+this study's DUF3435 hmmsearch screen), run on completely independent evidence
+(starbase's own genome annotation/synteny methods vs. a domain-based protein
+search), converge on the SAME three genomic loci as real Starship captains. This
+is a stronger validation than the existing presence/absence benchmark scorecard
+provides (which validates family-level clustering across strains, not spatial/
+positional accuracy of individual captain-gene calls).
+
+**One real miss, worth noting honestly, not hidden**: the `aspfum3_s01172`
+(Enterprise family) captain, `aspfum3_tyr1365` in starbase's own naming, was not
+independently recovered by our screen at that exact locus. Since `pair_classification.py`'s
+`load_captain_families()` applies NO e-value filter beyond hmmsearch's own default
+reporting threshold (checked directly, `bin/pair_classification.py:97-116`), this
+also means a genuinely weak/false-positive DUF3435 hit like Af293's own
+`tr|Q4WH41|Q4WH41_ASPFU` (E=1.7e-05, the weakest of the 8, uncharacterized protein,
+no starbase match anywhere) is currently being used downstream as real captain-gene
+evidence with equal weight to the 3 confirmed true positives -- a real, concrete
+argument for adding an e-value cutoff to `load_captain_families()` in a future
+pass, not evaluated further this session.
+
+**What this does NOT resolve**: extending the benchmark scorecard's population
+COVERAGE (beyond the single Af293 strain) remains blocked by the thin strain/
+accession overlap found above -- this result strengthens confidence in the
+detection *method* at one well-characterized locus, not the panel-wide presence/
+absence calls. Real output: `results/id_crosswalk/starbase_af293_crossvalidation.tsv`.

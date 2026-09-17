@@ -3,6 +3,13 @@
 /data/
 /logs/
 
+# Same rule, per-study: a study's own data/ (e.g. a large reference database
+# pull like Afumigatus_pangenome/data/starbase/*.sqlite) is class-1 ephemeral
+# too, but /data/ above is root-anchored only and doesn't match nested paths
+# -- caught 2026-09-17 before a ~365MB sqlite file was ever staged, same class
+# of gap as studies/*/*/data_dir above.
+studies/*/*/data/
+
 # Per-study materialized inputs (decompressed FASTA/GFF3 built from data/ by
 # bin/build_study_config.py) -- regenerable from species.csv + the cache above,
 # not source. config.csv and DATA_MANIFEST.yaml (the actual tracked outputs of that
