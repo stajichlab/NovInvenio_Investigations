@@ -1,9 +1,13 @@
 # Afumigatus_pangenome — full corrected results report
 
 **295 genomes (293 *Aspergillus fumigatus* ingroup + 2 outgroup: *A. lentulus*, *A. fischeri*)**
-**Status: corrected, 2026-09-15.** Two real bugs found and fixed the same day (tblastn
-truncation, missing rescue-pass positions) — see "Correction history" below before citing
-any number in this report against an earlier version of the pipeline's output.
+**Status: corrected, 2026-09-15; extended 2026-09-17.** Two real bugs found and
+fixed the same day (tblastn truncation, missing rescue-pass positions) — see
+"Correction history" below before citing any number in this report against an
+earlier version of the pipeline's output. 2026-09-17 additions: starbase Starship
+boundary cross-validation (§10 Open Items), trans-network-module functional
+annotation, and a hetA-E heterokaryon-incompatibility locus cross-reference
+(§9, detail in `GENE_CLUSTER.md`).
 
 Figures referenced below are in `figures/*.png` (raster, for viewing) and
 `figures_pdf/*.pdf` (vector, for print/manuscript use — identical content). Full
@@ -330,6 +334,44 @@ overlap — `pair_classification.py`'s captain-gene check uses a fixed window ar
 the *pair*, not the island's own boundary, so a captain gene can be "nearby" by the
 pair-level definition while sitting just outside the island itself.
 
+### How much of the 61.6% `trans` bucket is really this k=10 window artifact? (2026-09-17)
+
+A worked example (module rooted at `Asfu_08190230|KAK9559653.1`, 22 families,
+jaccard=1.0 across 53/295 strains) showed this k=10-gene physical-linkage window is
+sometimes too narrow for a real block: those 22 families sit contiguously on ONE
+contig in a real carrier strain (`Asfu_UD1`, ranks 16514-16567, a 53-gene span) —
+already recovered as a single significant island — yet many of that block's own
+internal pairs were still labeled `trans` pairwise. `bin/k_sensitivity_sweep.py`
+quantified how general this is: it recomputes physical linkage at k=20/30/50/100/
+200/500 for every `trans`/`trans_unconfirmed`/`ambiguous_linkage` pair (4,176,583
+candidates) without rerunning the full pipeline (`results/full_293run/
+k_sensitivity_sweep.tsv`).
+
+| k | Reclassified as physical | % of 4,176,583 candidates | → unexplained_physical | → starship_explained |
+|---:|---:|---:|---:|---:|
+| 20 | 39,462 | 0.94% | 27,647 | 11,815 |
+| 30 | 70,327 | 1.68% | 42,708 | 27,619 |
+| 50 | 115,147 | 2.76% | 57,028 (peak) | 58,119 |
+| 100 | 172,323 | 4.13% | 44,796 | 127,527 |
+| 200 | 204,564 | 4.90% | 22,567 | 181,997 |
+| 500 | 208,552 | 5.00% | 10,126 | 198,426 |
+
+**The window-cutoff effect is real but small in aggregate**: even at k=500 (50x
+the default), only ~5% of the trans-labeled population reclassifies as physical —
+the `Asfu_08190230` module is a genuine case, but not representative of the bulk
+of `trans` calls. The 61.6% `trans` figure above is not primarily a window
+artifact.
+
+**A real confound in this specific sweep, not in the underlying data**:
+`unexplained_physical` peaks at k=50 (57,028) then *falls* as k grows further
+(10,126 by k=500), while `starship_explained` keeps climbing — because
+`has_captain_evidence()` reuses the same swept k for the captain-gene proximity
+check, so at k=500 a captain gene anywhere within 500 genes counts as "nearby,"
+likely over-attributing pairs to Starship mechanism. A cleaner version would
+decouple the physical-linkage window from the captain-evidence window; not done
+here since it wasn't the question being asked, but a real caveat on the
+`starship_explained` growth curve above, not on the `trans`-bucket conclusion.
+
 ### Trans-network module structure (Leiden community detection)
 
 Collapsing all 2,613,303 `trans`-classified pairs into communities (Leiden, resolution
@@ -421,7 +463,58 @@ explain.
 
 ---
 
-## 9. Open items
+## 9. Candidate NLR / heterokaryon-incompatibility (HET) gene clusters
+
+Full classification, all significant domains (not just a curated top-N), and the
+external cross-reference detail: **`GENE_CLUSTER.md`**.
+
+The single strongest, most reproducible non-Starship signal in this dataset (the
+NACHT/Ankyrin/NPHP3_N/WHD_GPIID/Patatin/PNP_UDP domain combination already flagged
+in §5's genomic-islands section) is the canonical domain architecture of fungal
+**NLR (nucleotide-binding, repeat-containing) innate-immune genes** (Uehling et al.
+2017, PMC5658179) — the same broader gene family vegetative/heterokaryon
+incompatibility (HET) systems are built from. Cross-referencing against Auxier
+et al. 2024 (MBE, doi:10.1093/molbev/msae079), which defines five *A. fumigatus*
+het loci (hetA-hetE) by chromosome and domain content:
+
+| Locus | Chromosome | Domain signature | Found in our data? | **Chromosome-matched**? | Verdict |
+|---|:---:|---|:---:|:---:|---|
+| hetA | 2 | PNP_UDP + NB-ARC | Yes | No | Not confirmed |
+| hetB | 5 | CHAT protease | Yes | No | Not confirmed |
+| hetC | 6 | Patatin-like | Yes | No (chr8 family found, not chr6) | Not confirmed |
+| hetD | 8 | PNP_UDP | Yes | No | Not confirmed |
+| **hetE** | **6** | **NACHT + Ankyrin**, boi1 (`AFUA_6G07020`) adjacent | Yes | **Yes** | **Confirmed at the locus level** |
+
+**hetE is a real, verified locus-level match, not a domain-name coincidence.**
+Auxier et al. place the boi1 ortholog `AFUA_6G07020` (UniProt `Q4WNA7`, chromosome
+6, GenBank contig `AAHF01000006`) immediately adjacent to the hetE candidate
+region. Our own significant-island member `Asfu_Af293|tr|Q4WNA9|Q4WNA9_ASPFU`
+(`AFUA_6G07000`, the very next annotated gene, same contig) is a member of *both*
+the 57-60-gene physically-clustered NACHT/Ankyrin island already described in §5
+*and* an independently-detected Leiden trans-co-occurrence module (module 25,
+r5.0) — two different detection methods (physical adjacency, trans co-occurrence)
+independently placing a large NACHT/Ankyrin accessory block at the exact
+chromosome-6 locus the reference paper calls hetE.
+
+**hetA/B/C/D are honestly unconfirmed, not false positives.** Their domain
+signatures (PNP_UDP+NB-ARC, CHAT, Patatin) do occur in our data — almost
+certainly as other members of the same expanded NLR paralog family — but none of
+the specific Af293-anchored family instances carrying those domains sits on the
+chromosome the paper assigns to that locus. The paper's main text gives no AFUA_
+locus tags or coordinates for these four loci (only for hetE's boi1 neighbor);
+confirming them would need the paper's supplementary tables S1-S4 (not accessible
+via this session's fetch) or an independent fine-mapping/synteny check against
+those four intervals directly.
+
+Also flagged in `GENE_CLUSTER.md`, unrelated to HET biology: a distinct
+**Spok-like meiotic-drive element** signature (SPOK2_N, a well-documented fungal
+selfish spore-killer gene family), and confirmation that the "unexplained_physical"
+non-Starship transposase signal (DDE_1/HTH_Tnp_Tc5, §5) also recurs independently
+among the largest trans-co-occurrence modules.
+
+---
+
+## 10. Open items
 
 **To finish the *A. fumigatus* profile:**
 - **Investigated (2026-09-15/16), real progress, not fully closed**: the 44,576
@@ -501,17 +594,20 @@ branch `pangenome-profiling-module`, not yet merged):
 
 ---
 
-## 10. File manifest
+## 11. File manifest
 
 | File | Contents |
 |---|---|
 | `figures/*.png`, `figures_pdf/*.pdf` | The 5 summary figures (raster + vector) |
 | `SUMMARY.md` | Machine-generated aggregate tables (subset of this report) |
+| `GENE_CLUSTER.md` | Full functional classification of every significant accessory-island/trans-module domain, plus the hetA-E cross-reference detail (§9) |
 | `full_293run/presence_matrix.rescued.tsv` | Corrected presence/absence/genome-only calls, 47,983 × 295 |
 | `full_293run/frequency_table.rescued.tsv` | Per-family bin + frequency |
 | `full_293run/cooccurring_pairs.rescued.tsv` | 4,243,692 FDR-significant pairs (exact test) |
 | `full_293run/pair_classification.rescued.tsv` | Same pairs + physical-linkage classification |
+| `full_293run/k_sensitivity_sweep.tsv` | How many trans/trans_unconfirmed/ambiguous_linkage pairs reclassify as the physical-linkage window `k` grows past the default 10 genes (§5 caveat) |
 | `full_293run/modules_preview/` | Leiden trans-network modules, resolution sweep |
+| `trans_modules/family_modules_r5.0.full_annotation.tsv` | Per-trans-module Pfam/SwissProt annotation + domain-enrichment FDR, mirroring `significant_islands.full_annotation.tsv` (§9) |
 | `id_crosswalk/` | Paper ID crosswalk, ground-truth tables, benchmark scorecard |
 | `busco_genome/busco_completeness_summary.tsv` | Per-strain BUSCO stats |
 | `hac_crosswalk/hac_reference_screen.tsv` | Per-strain hacA/hrmA screen |
