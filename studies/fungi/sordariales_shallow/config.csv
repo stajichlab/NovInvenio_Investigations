@@ -1,0 +1,13 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Chaetomium globosum,CBS 148.51,UP000001056_306901.pep.fa,UP000001056_306901.dna.fa,UP000001056_306901.gff3,Chaeglob,Sordariales
+IN,Neurospora crassa,OR74A,UP000001805_367110.pep.fa,UP000001805_367110.dna.fa,UP000001805_367110.gff3,Neurcras,Sordariales
+IN,Podospora anserina,S mat+,UP000001197_515849.pep.fa,UP000001197_515849.dna.fa,UP000001197_515849.gff3,Podoanse,Sordariales
+IN,Sordaria macrospora,k-hell,UP000001881_771870.pep.fa,UP000001881_771870.dna.fa,UP000001881_771870.gff3,Sordmacr,Sordariales
+OUT,Clonostachys rosea,IK726,UP000836387_1349383.pep.fa,UP000836387_1349383.dna.fa,UP000836387_1349383.gff3,Clonrose,Hypocreales
+OUT,Colletotrichum higginsianum,IMI 349063,UP000092177_759273.pep.fa,UP000092177_759273.dna.fa,UP000092177_759273.gff3,Collhigg,Glomerellales
+OUT,Coniochaeta ligniaria,CBS 111746,UP000182658_1408157.pep.fa,UP000182658_1408157.dna.fa,UP000182658_1408157.gff3,Conilign,Coniochaetales
+OUT,Cordyceps militaris,CM01,UP000001610_983644.pep.fa,UP000001610_983644.dna.fa,UP000001610_983644.gff3,Cordmili,Hypocreales
+OUT,Cryphonectria parasitica,EP155,UP000803844_660469.pep.fa,UP000803844_660469.dna.fa,UP000803844_660469.gff3,Cryppara,Diaporthales
+OUT,Eutypa lata,UCREL1,UP000012174_1287681.pep.fa,UP000012174_1287681.dna.fa,UP000012174_1287681.gff3,Eutylata,Xylariales
+OUT,Metarhizium anisopliae,ARSEF 23,UP000054544_1291518.pep.fa,UP000054544_1291518.dna.fa,UP000054544_1291518.gff3,Metaanis,Hypocreales
+OUT,Verticillium dahliae,JR2,UP000001611_498257.pep.fa,UP000001611_498257.dna.fa,UP000001611_498257.gff3,Vertdahl,Glomerellales

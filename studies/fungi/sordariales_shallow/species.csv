@@ -1,0 +1,13 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Chaeglob,Chaetomium globosum,CBS 148.51,IN,Sordariales,uniprot,UP000001056,306901,ncbi,GCA_000143365.1,,
+Neurcras,Neurospora crassa,OR74A,IN,Sordariales,uniprot,UP000001805,367110,ncbi,GCA_000182925.2,,
+Podoanse,Podospora anserina,S mat+,IN,Sordariales,uniprot,UP000001197,515849,ncbi,GCF_000226545.1,,
+Sordmacr,Sordaria macrospora,k-hell,IN,Sordariales,uniprot,UP000001881,771870,ncbi,GCA_000182805.2,,
+Clonrose,Clonostachys rosea,IK726,OUT,Hypocreales,uniprot,UP000836387,1349383,ncbi,GCA_902827195.2,,
+Collhigg,Colletotrichum higginsianum,IMI 349063,OUT,Glomerellales,uniprot,UP000092177,759273,ncbi,GCA_001672515.1,,
+Conilign,Coniochaeta ligniaria,CBS 111746,OUT,Coniochaetales,uniprot,UP000182658,1408157,ncbi,GCA_001879275.1,,
+Cordmili,Cordyceps militaris,CM01,OUT,Hypocreales,uniprot,UP000001610,983644,ncbi,GCA_000225605.1,,
+Cryppara,Cryphonectria parasitica,EP155,OUT,Diaporthales,uniprot,UP000803844,660469,ncbi,GCA_011745365.1,,
+Eutylata,Eutypa lata,UCREL1,OUT,Xylariales,uniprot,UP000012174,1287681,ncbi,GCA_000349385.1,,
+Metaanis,Metarhizium anisopliae,ARSEF 23,OUT,Hypocreales,uniprot,UP000054544,1291518,ncbi,GCA_000426965.1,,
+Vertdahl,Verticillium dahliae,JR2,OUT,Glomerellales,uniprot,UP000001611,498257,ncbi,GCA_000150675.2,,
