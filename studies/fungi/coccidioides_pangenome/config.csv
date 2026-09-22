@@ -8,7 +8,7 @@ IN,Coccidioides posadasii,409B-0_L_OLD_CPA0011,409B-0_L_OLD_CPA0011.pep.fa,409B-
 IN,Coccidioides posadasii,409B-0_S_OLD_CPA0012,409B-0_S_OLD_CPA0012.pep.fa,409B-0_S_OLD_CPA0012.dna.fa,409B-0_S_OLD_CPA0012.gff3,409B-0_S_OLD_CPA0012,Coccidioides posadasii
 IN,Coccidioides posadasii,4545-MICE,4545-MICE.pep.fa,4545-MICE.dna.fa,4545-MICE.gff3,4545-MICE,Coccidioides posadasii
 IN,Coccidioides posadasii,485B-0_S_OLD_CPA0021,485B-0_S_OLD_CPA0021.pep.fa,485B-0_S_OLD_CPA0021.dna.fa,485B-0_S_OLD_CPA0021.gff3,485B-0_S_OLD_CPA0021,Coccidioides posadasii
-IN,Coccidioides immitis,485B-1_L_OLD_CPA0023,485B-1_L_OLD_CPA0023.pep.fa,485B-1_L_OLD_CPA0023.dna.fa,485B-1_L_OLD_CPA0023.gff3,485B-1_L_OLD_CPA0023,Coccidioides immitis
+IN,Coccidioides posadasii,485B-1_L_OLD_CPA0023,485B-1_L_OLD_CPA0023.pep.fa,485B-1_L_OLD_CPA0023.dna.fa,485B-1_L_OLD_CPA0023.gff3,485B-1_L_OLD_CPA0023,Coccidioides posadasii
 IN,Coccidioides posadasii,485B-4_S_NEW_CPA0029,485B-4_S_NEW_CPA0029.pep.fa,485B-4_S_NEW_CPA0029.dna.fa,485B-4_S_NEW_CPA0029.gff3,485B-4_S_NEW_CPA0029,Coccidioides posadasii
 IN,Coccidioides immitis,4M3,4M3.pep.fa,4M3.dna.fa,4M3.gff3,4M3,Coccidioides immitis
 IN,Coccidioides immitis,4SD,4SD.pep.fa,4SD.dna.fa,4SD.gff3,4SD,Coccidioides immitis
@@ -169,7 +169,7 @@ IN,Coccidioides posadasii,B3439,B3439.pep.fa,B3439.dna.fa,B3439.gff3,B3439,Cocci
 IN,Coccidioides posadasii,B3440,B3440.pep.fa,B3440.dna.fa,B3440.gff3,B3440,Coccidioides posadasii
 IN,Coccidioides posadasii,B3453,B3453.pep.fa,B3453.dna.fa,B3453.gff3,B3453,Coccidioides posadasii
 IN,Coccidioides posadasii,B3457,B3457.pep.fa,B3457.dna.fa,B3457.gff3,B3457,Coccidioides posadasii
-IN,Coccidioides posadasii,B3476,B3476.pep.fa,B3476.dna.fa,B3476.gff3,B3476,Coccidioides posadasii
+IN,Coccidioides immitis,B3476,B3476.pep.fa,B3476.dna.fa,B3476.gff3,B3476,Coccidioides immitis
 IN,Coccidioides posadasii,B3482,B3482.pep.fa,B3482.dna.fa,B3482.gff3,B3482,Coccidioides posadasii
 IN,Coccidioides posadasii,B3489,B3489.pep.fa,B3489.dna.fa,B3489.gff3,B3489,Coccidioides posadasii
 IN,Coccidioides posadasii,B3491,B3491.pep.fa,B3491.dna.fa,B3491.gff3,B3491,Coccidioides posadasii

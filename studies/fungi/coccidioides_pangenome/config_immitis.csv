@@ -2,7 +2,6 @@ GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
 IN,Coccidioides immitis,1M0,1M0.pep.fa,1M0.dna.fa,1M0.gff3,1M0,Coccidioides immitis
 IN,Coccidioides immitis,21SD,21SD.pep.fa,21SD.dna.fa,21SD.gff3,21SD,Coccidioides immitis
 IN,Coccidioides immitis,3M3,3M3.pep.fa,3M3.dna.fa,3M3.gff3,3M3,Coccidioides immitis
-IN,Coccidioides immitis,485B-1_L_OLD_CPA0023,485B-1_L_OLD_CPA0023.pep.fa,485B-1_L_OLD_CPA0023.dna.fa,485B-1_L_OLD_CPA0023.gff3,485B-1_L_OLD_CPA0023,Coccidioides immitis
 IN,Coccidioides immitis,4M3,4M3.pep.fa,4M3.dna.fa,4M3.gff3,4M3,Coccidioides immitis
 IN,Coccidioides immitis,4SD,4SD.pep.fa,4SD.dna.fa,4SD.gff3,4SD,Coccidioides immitis
 IN,Coccidioides immitis,5SD,5SD.pep.fa,5SD.dna.fa,5SD.gff3,5SD,Coccidioides immitis
@@ -168,3 +167,4 @@ IN,Coccidioides immitis,WA_211,WA_211.pep.fa,WA_211.dna.fa,WA_211.gff3,WA_211,Co
 IN,Coccidioides immitis,WA_221,WA_221.pep.fa,WA_221.dna.fa,WA_221.gff3,WA_221,Coccidioides immitis
 IN,Coccidioides immitis,Washington_1,Washington_1.pep.fa,Washington_1.dna.fa,Washington_1.gff3,Washington_1,Coccidioides immitis
 IN,Coccidioides immitis,h5384,h5384.pep.fa,h5384.dna.fa,h5384.gff3,h5384,Coccidioides immitis
+IN,Coccidioides immitis,B3476,B3476.pep.fa,B3476.dna.fa,B3476.gff3,B3476,Coccidioides immitis
