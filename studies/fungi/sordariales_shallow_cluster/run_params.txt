@@ -1,0 +1,25 @@
+# Extra nextflow params for this study, applied by bin/run_study.sh before any
+# args passed on the command line (so a command-line arg can still override one
+# of these). One flag/value per line; '#' starts a comment; blank lines ignored.
+
+# Same config.csv/data_dir as studies/fungi/sordariales_shallow/ (symlinked) --
+# this study exists to compare --cluster_tool mmseqs (Tier C+H, the
+# family-profile pathway, ADR-0002) against sordariales_shallow's own
+# --cluster_tool pairwise (default, Tier P) run, matching pezizo_set1_cluster's
+# and agaricomycetes_mmseqs's own setup for this same investigation.
+
+# diamond over phmmer for pairwise search + self-search -- carried over from
+# sordariales_shallow/run_discovery.sh for the same reason (turnaround over
+# sensitivity); mmseqs/PROFILE_SEARCH still uses --run_tool for its
+# self-search paralog lookup even though the main presence-matrix search is
+# mmseqs2-based.
+--run_tool diamond
+
+--cluster_tool mmseqs
+
+# hmm_presence_cov 0.3 + a min_residues floor of 100 residues -- the pairing
+# already validated as the new intended default on pezizo_set1_cluster/
+# agaricomycetes_mmseqs (see those studies' own run_params.txt for the full
+# rationale); carried over unchanged for a fair like-for-like tier comparison.
+--hmm_presence_cov 0.3
+--hmm_presence_min_residues 100
