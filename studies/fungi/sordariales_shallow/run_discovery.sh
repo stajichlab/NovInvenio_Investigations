@@ -7,15 +7,17 @@
 #
 # Submit with: sbatch studies/fungi/sordariales_shallow/run_discovery.sh
 #
-# Head process runs on 'epyc' (long time limit, light footprint) -- NOT
-# 'preempt' -- since a preempted head would kill the whole run's coordination.
-# Per-task worker processes route to 'preempt' via conf_preempt.config (a
-# study-specific override, not a change to the shared
+# Head process runs on 'stajichlab' (lab-owned, long time limit, light
+# footprint, and far less contended than 'epyc' -- 650+ of the user's own
+# unrelated jobs were queued ahead of an epyc submission when this was first
+# tried) -- NOT 'preempt', since a preempted head would kill the whole run's
+# coordination. Per-task worker processes route to 'preempt' via
+# conf_preempt.config (a study-specific override, not a change to the shared
 # conf/ucr_hpcc_slurm.config) -- this is a cheap, retry-tolerant exploratory
 # run, not a production study, so preemption risk on individual tasks is
 # acceptable.
 
-#SBATCH -p epyc
+#SBATCH -p stajichlab
 #SBATCH -N 1
 #SBATCH -n 2
 #SBATCH --mem 8G
