@@ -96,7 +96,7 @@ rename actually happens.
 | Shared Python logic | `lib/` |
 | A new study | `studies/<domain>/<set_name>/species.csv`, then `bin/build_study_config.py --study-dir studies/<domain>/<set_name>` |
 | A script specific to one study (custom `species.csv` schema, hardcoded accession lists, a one-off model-organism pull, etc.) | `studies/<domain>/<set_name>/bin/`, not `bin/` — see "Study-specific vs. shared scripts" below |
-| Enrichment/analysis scripts (GO/Pfam/InterPro ORA) | `bin/`, reading a study's annotated presence matrix — not yet built, see `DESIGN.md` Sec 7 |
+| Enrichment/analysis scripts (GO/Pfam/InterPro ORA) | `bin/go_enrichment.py` (GO, via goatools) + `bin/domain_enrichment.py` (Pfam/InterPro, custom hypergeometric) — both built, hypergeometric + BH-FDR, per the design in `DESIGN.md` Sec 7. Standalone CLI tools (candidates/background accession lists + `extract_dat_annotations.py` output as input) — not yet wired into `bin/run_study.sh`/`bin/sync_reports.sh` for automatic per-study invocation, and no dedicated `tests/test_go_enrichment.py`/`tests/test_domain_enrichment.py` yet |
 | Site generation | `docs/` — release-asset published, never committed; see `DESIGN.md` Sec 8 |
 
 ### Study-specific vs. shared scripts
