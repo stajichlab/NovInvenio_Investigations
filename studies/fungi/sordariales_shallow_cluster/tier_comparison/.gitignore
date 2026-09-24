@@ -1,0 +1,8 @@
+# Class 3 data (CLAUDE.md "Data provenance & tracking"): candidate/sequence-bearing
+# intermediates that scale with candidate/family count. Regenerable by rerunning
+# refine_ambiguous_families.py / the inline candidate-building scripts documented in
+# the Task 7 report. Never committed, regardless of size.
+*.refined_cluster.tsv
+*.refined_families.tsv
+*.C.candidates.txt
+*.R.candidates.txt

@@ -1,0 +1,7 @@
+tier	component	n_tasks	task_realtime_hours	cpu_hours	source	note
+P	SEARCH:DIAMOND_SEARCH+MAKEDB (gain)	16	0.027	0.642	results/sordariales_shallow/nextflow_log/sordariales_shallow-20260922_101317-trace.txt	Fresh full all-vs-all run (not storeDir-cached), so unlike pezizo_set1/agaricomycetes this cost IS measurable. trace_cost_report.py still hard-codes it as unmeasurable and omits it from its P row.
+P	LOSS_SEARCH:DIAMOND_SEARCH+MAKEDB (loss)	20	0.064	1.601	same trace	The resumed second run (20260922_220343) re-executed the 8 loss-side DIAMOND_SEARCH tasks (0.063 h / 1.215 cpu-h) rather than reusing them; counted once here, not summed.
+C+H	BUILD_FAMILY_PROFILES:BUILD_CHUNK (gain+loss, completed)	402	107.57	3244.77	results/sordariales_shallow_cluster/nextflow_log/sordariales_shallow_cluster-20260923_103407-trace.txt	famsa+hmmbuild; dominates C+H cost. Plus 3.96 realtime-h of preempted/OOM failed attempts not counted in cost.tsv.
+C+H	FAMILY_HMMSEARCH:HMMSEARCH_CHUNK (gain+loss, completed)	60	19.78	59.60	same trace	
+R	refine_ambiguous_families.py (gain)	1	0.011		time(1), wall	Whole script, 838/8191 families ambiguous. Same measurement method as pezizo_set1.
+R	refine_ambiguous_families.py (loss)	1	0.102		time(1), wall	Whole script, 2926/11895 families ambiguous; run with a role-swapped (IN<->OUT) config, see decisions.

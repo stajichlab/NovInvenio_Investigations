@@ -1,0 +1,10 @@
+control_id	class	expected_call	anchor_type	resolved_family	actual_call	outcome	note
+POS_EAS	positive	novel	protein_id	tr|B2B0H0|B2B0H0_PODAN	novel	hit	
+NEG_BUSCO01	negative	core	busco	tr|Q2H025|Q2H025_CHAGB	novel	fp	
+NEG_BUSCO02	negative	core	busco	sp|Q7SC06|RS25_NEUCR	novel	fp	
+NEG_BUSCO03	negative	core	busco	tr|B2AEZ4|B2AEZ4_PODAN	novel	fp	
+NEG_BUSCO04	negative	core	busco	tr|F7VS92|F7VS92_SORMK	novel	fp	
+NEG_BUSCO05	negative	core	busco	tr|F7W1A4|F7W1A4_SORMK	novel	fp	
+NEG_BUSCO06	negative	core	busco	tr|B2AT65|B2AT65_PODAN	novel	fp	
+NEG_BUSCO07	negative	core	busco	tr|Q7SH99|Q7SH99_NEUCR	novel	fp	
+NEG_BUSCO08	negative	core	busco	tr|Q1K5V9|Q1K5V9_NEUCR	novel	fp	

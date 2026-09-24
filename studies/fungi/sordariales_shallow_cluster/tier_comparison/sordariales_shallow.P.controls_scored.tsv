@@ -1,0 +1,10 @@
+control_id	class	expected_call	anchor_type	resolved_family	actual_call	outcome	note
+POS_EAS	positive	novel	protein_id	sp|Q04571|RODL_NEUCR	novel	hit	
+NEG_BUSCO01	negative	core	busco	tr|V5IP41|V5IP41_NEUCR	not_novel	tn	
+NEG_BUSCO02	negative	core	busco	sp|Q7SC06|RS25_NEUCR	not_novel	tn	
+NEG_BUSCO03	negative	core	busco	tr|Q7RY29|Q7RY29_NEUCR	not_novel	tn	
+NEG_BUSCO04	negative	core	busco	tr|Q7RWT5|Q7RWT5_NEUCR	not_novel	tn	
+NEG_BUSCO05	negative	core	busco	tr|Q7SCW2|Q7SCW2_NEUCR	not_novel	tn	
+NEG_BUSCO06	negative	core	busco	tr|Q7SI31|Q7SI31_NEUCR	not_novel	tn	
+NEG_BUSCO07	negative	core	busco	tr|Q7SH99|Q7SH99_NEUCR	not_novel	tn	
+NEG_BUSCO08	negative	core	busco	tr|Q1K5V9|Q1K5V9_NEUCR	not_novel	tn	

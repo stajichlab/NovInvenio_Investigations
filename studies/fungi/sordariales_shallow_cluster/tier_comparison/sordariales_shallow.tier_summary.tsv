@@ -1,0 +1,5 @@
+tier	n_controls	n_positive	n_positive_resolved	positive_hits	recall	n_negative	n_negative_resolved	negative_fp	fp_rate	n_unresolved	n_placeholder_skipped
+P	9	1	1	1	1.0	8	8	0	0.0	0	0
+C+H	9	1	1	1	1.0	8	8	0	0.0	0	0
+C	9	1	1	1	1.0	8	8	8	1.0	0	0
+R	9	1	1	1	1.0	8	8	8	1.0	0	0

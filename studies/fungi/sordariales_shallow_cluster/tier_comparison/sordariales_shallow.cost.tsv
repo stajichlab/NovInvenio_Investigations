@@ -1,0 +1,6 @@
+tier	wall_hours	note
+P	0.101	PARTIAL/lower-bound only -- true all-vs-all DIAMOND_SEARCH cost is unmeasurable: storeDir cache hit means Nextflow never logs a trace row for it (unlike ordinary -resume CACHED rows). This total covers only DIAMOND_SELF, PARSE_HITS, PARSE_SELF_HITS, TBLASTN(+MAKEDB), BUILD_PRESENCE_MATRIX -- do NOT read this as Tier P's full cost.
+C+H	31.287	PROFILE_SEARCH:* (gain-side family-profile pathway), measured directly.
+C+H_loss	96.206	PROFILE_LOSS_SEARCH:* (loss-side equivalent), measured directly.
+C	0.0	Free byproduct of Tier C+H's own clustering step.
+R	0.011	Measured directly with `time` around refine_ambiguous_families.py's diamond step -- not read from any trace file (plain subprocess call, no trace row).
