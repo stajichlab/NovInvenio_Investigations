@@ -43,6 +43,9 @@ def main() -> None:
     ap.add_argument("--min_strains", type=int, default=2)
     ap.add_argument("--sort", choices=["size", "strains"], default="size",
                     help="rank qualifying islands by island_size (the page's order) or n_strains")
+    ap.add_argument("--per_locus", type=Path, default=None,
+                    help="write per-locus counts (TSV), incl. species split, for ranking comparisons")
+    ap.add_argument("--config", type=Path, default=None, help="samplesheet with Short,Species for --per_locus")
     ap.add_argument("--empty_frac", type=float, default=1.0,
                     help="island block counts as an empty site when >= this fraction of its "
                     "columns are absent (1.0 = all absent)")
@@ -133,6 +136,12 @@ def main() -> None:
     with open(R / "presence_matrix.rescued.tsv") as fh:
         strains = fh.readline().rstrip("\n").split("\t")[1:]
 
+    species = {}
+    if a.config:
+        with open(a.config, newline="") as fh:
+            for r in csv.DictReader(fh):
+                species[r["Short"]] = r["Species"]
+    per_locus_rows = []
     states = collections.Counter()
     anchored = []  # per island: strains with intact flanks, and among them island-block states
     indel_like = []
@@ -141,6 +150,7 @@ def main() -> None:
         n_anch = 0
         n_anch_island_all_absent = 0
         n_anch_island_all_syn = 0
+        by_sp = collections.Counter()
         for s in strains:
             st = []
             for i, f in enumerate(cols):
@@ -185,12 +195,26 @@ def main() -> None:
             if ok:
                 n_anch += 1
                 block = st[len(left):len(left) + len(isl)]
+                sp = species.get(s, "?")
                 if block and sum(x == "absent" for x in block) / len(block) >= a.empty_frac:
                     n_anch_island_all_absent += 1
-                if all(x == "syntenic" for x in block):
+                    by_sp[(sp, "empty")] += 1
+                elif all(x == "syntenic" for x in block):
                     n_anch_island_all_syn += 1
+                    by_sp[(sp, "full")] += 1
+                else:
+                    by_sp[(sp, "partial")] += 1
         anchored.append(n_anch)
         indel_like.append((n_anch_island_all_absent, n_anch_island_all_syn))
+        per_locus_rows.append({"locus": loc, "n_cols": len(isl), "anchored": n_anch,
+                               "empty": n_anch_island_all_absent, "full": n_anch_island_all_syn,
+                               **{f"{sp.split()[-1]}_{c}": v for (sp, c), v in by_sp.items()}})
+    if a.per_locus:
+        keys = sorted({k for r in per_locus_rows for k in r})
+        with open(a.per_locus, "w") as fh:
+            w = csv.DictWriter(fh, fieldnames=keys, delimiter="\t", restval=0)
+            w.writeheader()
+            w.writerows(per_locus_rows)
     tot = sum(states.values())
     print(f"M3 island-column cell states over {len(columns)} islands x {len(strains)} strains: " +
           ", ".join(f"{k} {v} ({v / tot * 100:.1f}%)" for k, v in states.most_common()))
