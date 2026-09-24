@@ -47,7 +47,7 @@ For each species this:
   1. Resolves Protein (fetch or local copy).
   2. Resolves Genome+GFF3 (fetch or local copy/copies).
   3. If Protein_Source == "uniprot", runs bin/extract_dat_annotations.py against
-     the cached .dat.gz, writing <study-dir>/annotations/<Protein_Accession>.tsv
+     the cached .dat.gz, writing <study-dir>/annotations/<Protein_Accession>.tsv.gz
      (gitignored, regenerable, produced unconditionally -- even with --skip-fetch
      -- so bin/run_study.sh's post-run report sync always has current annotation
      to merge). Rows sourced any other way get no annotation file (unchanged from
@@ -333,7 +333,7 @@ def main() -> int:
             run([
                 sys.executable, str(BIN / "extract_dat_annotations.py"),
                 "--dat-gz", str(dat_gz),
-                "--output", str(annotations_dir / f"{row['Protein_Accession']}.tsv"),
+                "--output", str(annotations_dir / f"{row['Protein_Accession']}.tsv.gz"),
             ])
 
         config_rows.append({

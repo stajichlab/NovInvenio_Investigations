@@ -41,10 +41,12 @@ pfam_names, interpro_ids, ec_numbers, alphafold_id, xrefs
 """
 import argparse
 import csv
-import gzip
 import re
 import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
+from compressed_io import open_text  # noqa: E402
 
 AC_RE = re.compile(r"^AC\s+([A-Z0-9]+)")
 OX_RE = re.compile(r"NCBI_TaxID=(\d+)")
@@ -125,8 +127,7 @@ def parse_dat_gz(path: Path):
         xrefs = []
         xref_seen_dbs = set()
 
-    opener = gzip.open if path.suffix == ".gz" else open
-    with opener(path, "rt", encoding="utf-8", errors="replace") as fh:
+    with open_text(path, "rt", encoding="utf-8", errors="replace") as fh:
         for line in fh:
             if line.startswith("//"):
                 if accession:
@@ -213,12 +214,12 @@ def parse_dat_gz(path: Path):
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dat-gz", required=True, type=Path, help="Path to a UniProt {Proteome}_{taxid}.dat.gz")
-    ap.add_argument("--output", required=True, type=Path, help="Output TSV path")
+    ap.add_argument("--output", required=True, type=Path, help="Output TSV path (.tsv.gz writes gzip-compressed)")
     args = ap.parse_args()
 
     n = 0
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    with open(args.output, "w", newline="") as fh:
+    with open_text(args.output, "wt", newline="") as fh:
         w = csv.DictWriter(fh, fieldnames=["accession", "taxon_id", "gene_name", "description", "go_ids", "pfam_ids", "pfam_names", "interpro_ids", "ec_numbers", "alphafold_id", "xrefs"], delimiter="\t")
         w.writeheader()
         for rec in parse_dat_gz(args.dat_gz):

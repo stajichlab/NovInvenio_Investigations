@@ -27,13 +27,14 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
+from compressed_io import open_text  # noqa: E402
 from uniprot_ids import bare_accession  # noqa: E402
 
 
 def load_annotations(paths: list[Path]) -> dict[str, dict]:
     out: dict[str, dict] = {}
     for p in paths:
-        with open(p, newline="") as fh:
+        with open_text(p, "rt", newline="") as fh:
             for row in csv.DictReader(fh, delimiter="\t"):
                 out[row["accession"]] = row
     return out

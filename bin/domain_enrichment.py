@@ -31,15 +31,17 @@ from pathlib import Path
 from scipy.stats import hypergeom
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
+from compressed_io import open_text  # noqa: E402
 from stats_util import bh_fdr  # noqa: E402
 from uniprot_ids import bare_accession  # noqa: E402
 
 
 def load_annotations(paths: list[Path], field: str) -> dict[str, set[str]]:
-    """accession -> set of domain IDs (Pfam or InterPro) from one or more TSVs."""
+    """accession -> set of domain IDs (Pfam or InterPro) from one or more TSVs
+    (extract_dat_annotations.py output, plain .tsv or gzip .tsv.gz)."""
     out: dict[str, set[str]] = {}
     for p in paths:
-        with open(p, newline="") as fh:
+        with open_text(p, "rt", newline="") as fh:
             for row in csv.DictReader(fh, delimiter="\t"):
                 ids = {x for x in row[field].split("|") if x}
                 if ids:

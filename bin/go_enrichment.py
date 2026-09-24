@@ -26,6 +26,7 @@ from goatools.obo_parser import GODag
 from goatools.go_enrichment import GOEnrichmentStudy
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
+from compressed_io import open_text  # noqa: E402
 from stats_util import bh_fdr  # noqa: E402
 from uniprot_ids import bare_accession  # noqa: E402
 
@@ -33,7 +34,7 @@ from uniprot_ids import bare_accession  # noqa: E402
 def load_go_assoc(paths: list[Path], exclude_iea: bool) -> dict[str, set[str]]:
     assoc: dict[str, set[str]] = {}
     for p in paths:
-        with open(p, newline="") as fh:
+        with open_text(p, "rt", newline="") as fh:
             for row in csv.DictReader(fh, delimiter="\t"):
                 terms = set()
                 for entry in row["go_ids"].split("|"):
