@@ -56,8 +56,10 @@ islands/captain/report stages.
 **Output dir**: `studies/fungi/coccidioides_pangenome/results/rescue_structural_genus_vs_ureesii/output/pangenome/`
 **Resubmit if needed** (same launch dir, `-resume` reuses everything already
 completed): `sbatch /rhome/jstajich/.claude/jobs/a404179f/tmp/submit_nextflow_head.sh`
-— **this script lives in a job-scratch tmp dir, not the repo; copy it somewhere
-durable if this session's job gets cleaned up before the run finishes.**
+— this script lived in a job-scratch tmp dir. **Update (later 2026-09-23):
+a durable copy is now at `studies/fungi/coccidioides_pangenome/.nf_launch/
+genus_vs_ureesii_rescue_structural/submit_nextflow_head.sh`; resubmit with that
+path.**
 
 **The number that matters once it finishes**: the gain:loss ratio. Prior
 (unrescued, broken) run: 99.3% gain / 0.7% loss (143:1). A. fumigatus, where
@@ -66,6 +68,12 @@ run's ratio moves from 143:1 toward ~7:1 with non-zero ambiguous, the whole
 diagnosis is confirmed. If it doesn't, something else is still wrong — go back
 to `2026-09-21-state-of-the-analysis.md`'s section 5 before assuming the fix
 failed; check the rescue funnel stats first (now in `diagnostics.tsv` per #134).
+**Correction (later 2026-09-23):** this run is pinned at `3277bdb`, which
+predates #154 (`ASSEMBLY_QUALITY_QC`) and #155 (`DIAGNOSTICS`). It will NOT
+write `diagnostics.tsv` or the `assembly_quality_*` tables. Get the rescue
+funnel counts from the `RESCUE_PASS` task's `.command.err` in the launch dir's
+`work/` instead, or run `pangenome_diagnostics.py` / the QC script by hand on
+this run's outputs.
 
 ### Failed attempts 1-4, for context if this recurs
 1. Job 28984843: failed when `stajichlab` was stopped mid-run, 439 tblastn tasks
@@ -98,8 +106,10 @@ exact same commit AND never re-checked-out.
   explicit go-ahead given the compute cost, ideally after the corrected numbers
   from job 29026388 are in hand.
 - **Wiring #130's real assembly-quality-QC output into #134's diagnostics
-  framework** — currently a stub (`not_computed`), same for `clade_structure_
-  validity` and `gain_loss_skew`.
+  framework** — done in NovInvenio PR #167 (open, not merged, 2026-09-23):
+  `assembly_quality_confound` is now computed from
+  `assembly_quality_correlations.tsv`. `clade_structure_validity` and
+  `gain_loss_skew` are still `not_computed`. Not yet exercised on real data.
 - **HET/Starship/co-gain-loss report needs regenerating** — `detect_trans_
   modules.py` is a standalone post-hoc script (not a Nextflow step), last run
   2026-09-18 against the *unrescued* matrix
