@@ -115,7 +115,7 @@ PIPEPY() { pixi run --manifest-path "$NOVINVENIO_ROOT/pixi.toml" python "$NOVINV
 
 if [ "$HAS_ANNOTATIONS" -eq 1 ]; then
     shopt -s nullglob
-    ANNOT_TSVS=("$STUDY_DIR"/annotations/*.tsv)
+    ANNOT_TSVS=("$STUDY_DIR"/annotations/*.tsv "$STUDY_DIR"/annotations/*.tsv.gz)
     shopt -u nullglob
 
     echo "== merging UniProt annotation into $RESULTS_DIR presence matrices ==" >&2
