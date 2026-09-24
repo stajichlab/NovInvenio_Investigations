@@ -1,0 +1,19 @@
+metric	value
+APH_genes_domain_GA	27437
+APH_genes_per_strain_median	52.0
+HrmA_genes_with_adjacent_APH	1839/2168
+other_nonAPH_genes_with_adjacent_APH	46276/4475098
+fisher_OR	535.0
+fisher_p	0.0
+APH_genes_adjacent_to_HrmA	1840/27437
+HAC6_genes	1180
+HAC6_genes_on_contig_with_HrmA	92
+HAC6_within_10_genes	4
+HAC6_within_20_genes	87
+Coccidioides immitis_PF28515_per_strain_median	6.0
+Coccidioides immitis_PF28515_range	4-8
+Coccidioides immitis_spearman_vs_n_contigs	SignificanceResult(statistic=np.float64(-0.059335454207153436), pvalue=np.float64(0.44349094105334697))
+Coccidioides posadasii_PF28515_per_strain_median	3.0
+Coccidioides posadasii_PF28515_range	1-7
+Coccidioides posadasii_spearman_vs_n_contigs	SignificanceResult(statistic=np.float64(0.06475928590482254), pvalue=np.float64(0.2202984830041778))
+mannwhitney_Ci_vs_Cp	MannwhitneyuResult(statistic=np.float64(58775.0), pvalue=np.float64(1.7983058291710943e-69))

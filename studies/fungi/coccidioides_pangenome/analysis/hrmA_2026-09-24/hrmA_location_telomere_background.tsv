@@ -1,0 +1,3 @@
+set	n	frac_le20kb	frac_le50kb	frac_nearest_end_telomeric	frac_le50kb_and_telomeric
+all_genes	4504703	0.4007	0.6504	0.0001	0.0001
+HrmA_hit_genes	2168	0.4193	0.6914	0.0005	0.0005

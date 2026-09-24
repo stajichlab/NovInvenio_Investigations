@@ -14325,7 +14325,8 @@
     1704
   access_date: '2026-09-24T07:22:20Z'
   checksum_sha256: 0ff525de0d706e2d7a56f07638e468803b7596d432ada8bfa623a88365bee9f2
-  license: 'NCBI places no restrictions on use or distribution of RefSeq/INSDC data; original submitters may claim rights (https://www.ncbi.nlm.nih.gov/home/about/policies/)'
+  license: NCBI places no restrictions on use or distribution of RefSeq/INSDC data;
+    original submitters may claim rights (https://www.ncbi.nlm.nih.gov/home/about/policies/)
   derived_by: 'symlink to /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Uncinocarpus_reesii_1704/predict_results/Uncinocarpus_reesii_1704.scaffolds.fa
     (funannotate predict input genome). Checked 2026-09-24 against a fresh `datasets
     download genome accession GCF_000003515.1`: 7 sequences, all identical to their
@@ -14352,4 +14353,366 @@
   derived_by: rows 1-529 = config.csv unchanged (all GROUP=IN); one appended OUT row
     for Uncinocarpus reesii UAMH1704 (Short Uree) pointing at the three data_dir files
     above. Verified 2026-09-24; the script that first wrote it is not recorded
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/af293_hac_region_hits_annotated.tsv
+  source_url: FungiDB release 68, FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta
+    (Afu5g14850-Afu5g14950, Afu1g00700-Afu1g00800; local copy /bigdata/stajichlab/shared/projects/Afumigatus_RefStrains/prior_ref/FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta, sha256 df4efd777e5f4aa85c8b17a36e8dfb50896481bf38e639345356fea2c6f227d2; the 23 extracted proteins verified identical 2026-09-24),
+    searched against this run's tier-1 reps
+  source_release: FungiDB release 68 + NovInvenio pangenome.nf run (pipeline 91e3157)
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 0161941f594274ca14837f7f8d8b02317fa8c52b4a8ed50ac2ca68d4e97bd4a3
+  license: FungiDB/VEuPathDB public data (cite FungiDB); derived table internal
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/af293_hac_region_vs_reps.tsv
+  source_url: FungiDB release 68, FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta
+    (Afu5g14850-Afu5g14950, Afu1g00700-Afu1g00800; local copy /bigdata/stajichlab/shared/projects/Afumigatus_RefStrains/prior_ref/FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta, sha256 df4efd777e5f4aa85c8b17a36e8dfb50896481bf38e639345356fea2c6f227d2; the 23 extracted proteins verified identical 2026-09-24),
+    searched against this run's tier-1 reps
+  source_release: FungiDB release 68 + NovInvenio pangenome.nf run (pipeline 91e3157)
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 6b651c577c842dd13d5683ca94396f3913f1b36f5fb4685d6cbd601b05640e74
+  license: FungiDB/VEuPathDB public data (cite FungiDB); derived table internal
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hac6_to_hrmA_distance.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 55453ab7063ad8c33a6d1cb1c1cdedf9be11dd7f6e6ce3a6600a887e18a9aa9b
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hit_families_members.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 320655c647f72a239818226d9529aadf711a48c1d8a2edbde3fc0642cba87bd0
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_APH_adjacency.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 038d450445fe1443624fd2a9eb0dea1539050ef1c650d61ae32441c16536e9e9
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_aph_hac6_summary.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 54a357b5b2e504c43d8a9aed50fcac292230731283fd34ab03bc2bf8ce223f3e
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_exemplar_neighbourhoods.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 2c0e27735ebc537d3340e5ddd8a65b8127f7b4e263148da8fb075563730f2e96
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_family_census.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 97b758ba07861a07a9dfd8a703fd5f9c1fbe73362db82832f3caf951db6796d9
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_family_locations.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 0aaa124226293a1381a59c6a2d5b381cdf1c9e11854a2ffa20fa1d5234c8c2fc
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_family_rep_pairwise.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 806e1ac97cd2077e3ae8469f40ee333d745eb9dacc8a8fd7aa02e120861647bb
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_gene_locations.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: ce7ac223b4c0a990ee9b5715d76c5fbf2d303d5712b6f63e30b0ee13cac8d95a
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_genes_per_strain.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: ffe005b8ad4a574011f926e183a11c07a6ed08bf4038aaca6646253f13ec5cc3
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_in_pair_table.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: d81848ae5c9987fa5022f303c7464a4fd84ffbaf093956d5818541f1dbf2e8ed
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_island_membership.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 057f3ea8180b0bbc20186b117d77bc0879a5db2c8c2ec2ab51778888a4742fee
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_location_telomere_background.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 05296fe4f2381a166c9be4be07777b7db28bdfa115c2ba66f5fe729d0da694fa
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_location_tests.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 9a511256c54fe1995db0ee416f3f86b273021cacae20ecae2fdabb98b6d99597
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_location_vs_background.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 53793ba64106f78ebe03649182a4d0e7465f28822205817ef54848dfb8ffd2c2
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_loci.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: d038be51b4b6bee7302dc0a98f9bd0f58641167b88bd7cd87587fd7999bfa887
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_locus_occupancy.tsv.gz
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 8acfefc6f2c7c355769edc7d0c035203e709df73770d52c619986cdcf1cc90c2
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_neighbourhood_conservation.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 1d33b4581647737283985029461fac9db11378407e0b5d92aa0661a0a2c1d593
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_neighbourhoods.tsv.gz
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 7e87e412f0e26743cf75393748b6fde30f6e4977bfef626469325161de450de6
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_pairs.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 0bc7333cbc6786f9c679cf56857d8aa269956fc9fd00445f14d18f5ee0296cef
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_presence_matrix.tsv.gz
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 63f3c63be1e24f86c8b3e6f00e6f1ea2412f9bb54a0edde25db287e16ef62299
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_reps_vs_allreps.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 9d1dea18e0a19b3a36a7af124746cb5b496d2be18ad61d773411c30a85aecd93
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_rescue_overlap.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 7f83723ff0b9f425750725d02a1302c9b100833fb6a7e5c8a3951a3ae9656b39
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_top_neighbours.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 7a753245d4d9072209abf5e602715b2d5cd07598473529bcae3da24d3f56fa58
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/telomere_end_summary.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: 643cc1a14ad01123d177eddb2b7029632b17e8a951f5da1fb916f71ea55461f1
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/telomeric_ends_per_strain.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-24T20:08:32Z'
+  checksum_sha256: c80b9bca9eab8785b9f51fc2064bf3e52822da9f5ddc0379a3cc60201f0669aa
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
+    scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
+    HrmA analysis
   pulled_with: '- on c05'

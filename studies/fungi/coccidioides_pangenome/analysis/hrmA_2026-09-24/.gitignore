@@ -1,0 +1,23 @@
+# Regenerable intermediates (re-run the step scripts against the run dir and
+# Pfam-A 38.2); not committed per CLAUDE.md data classes. Sequence files are
+# excluded too; af293_hac_region.fa = 23 proteins from /bigdata/stajichlab/shared/projects/Afumigatus_RefStrains/prior_ref/FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta
+allprot.domtblout
+allprot.tblout
+allprot.nseq
+aph_hac6_allprot.domtblout.gz
+aph_hac6_allprot.tblout.gz
+aph_hac6.nseq
+aph_hac6_models.hmm
+hrmA_models.hmm
+neighbour_reps_pfam.domtblout
+contig_lengths.tsv.gz
+contig_telomere_ends.tsv.gz
+reps.domtblout
+reps.tblout
+af293.domtblout
+af293_hac_region_pfam.domtblout
+af293_hac_region.fa
+hrmA_family_reps.fa
+neighbour_families.txt
+hit_reps.txt
+*.log
