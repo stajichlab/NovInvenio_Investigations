@@ -229,7 +229,7 @@ The judge is independent genome evidence: the fraction of candidates that have a
 (The E-value columns apply to the very-sensitive run.)
 
 **Results:**
-- A stricter other-group E-value makes the candidate sets worse by this measure in every clade and direction, and the candidate counts grow 1.5–6×. The weak other-group hits that very-sensitive finds are mostly real: removing them brings back candidates that TBLASTN contradicts. **The stricter-E-value follow-up does not warrant a change.**
+- A stricter other-group E-value makes the candidate sets worse by this measure in every clade and direction, and the candidate counts grow sharply (at 1e-30: 1.7× for agaricomycetes gains up to 27× for pezizo_set1 losses, 141 → 3751). The weak other-group hits that very-sensitive finds are mostly real: removing them brings back candidates that TBLASTN contradicts. **The stricter-E-value follow-up does not warrant a change.**
 - `--very-sensitive` at the standard 1e-5 cuts the TBLASTN-contradicted fraction by 2–4× against default mode (29–69% → 9–33%).
 - The coverage floor (qcov 15) adds little on top.
 - Default-mode candidate lists: 29–69% of candidates have an other-group TBLASTN hit. The pipeline reports but does not filter on TBLASTN (`--skip_tblastn_filter`). This measures how many default-mode candidates are likely false.
