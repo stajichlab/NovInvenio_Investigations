@@ -72,7 +72,8 @@ jobs:
             fi
             domain=$(jq -r '.domain' "$extract_dir/manifest.json")
             set_name=$(jq -r '.set' "$extract_dir/manifest.json")
-            dest="docs/$domain/$set_name"
+            run_name=$(jq -r '.run // empty' "$extract_dir/manifest.json")
+            dest="docs/$domain/$set_name${run_name:+/$run_name}"
             mkdir -p "$dest"
             # alignments-* assets: whole directories, replaced wholesale.
             [ -d "$extract_dir/alignments" ] && rm -rf "$dest/alignments" && cp -r "$extract_dir/alignments" "$dest/alignments"
@@ -80,8 +81,12 @@ jobs:
             # reports-* assets: individual files, overwritten in place -- these
             # may already exist in the git checkout (committed historically);
             # this release's copy always wins since it's the freshly rebuilt one.
-            for f in novelties.html core.html losses.html summary.pdf; do
+            for f in novelties.html core.html losses.html summary.pdf island_synteny.html assembly_quality.html; do
               [ -f "$extract_dir/$f" ] && cp -f "$extract_dir/$f" "$dest/$f"
+            done
+            # pangenome.nf run assets (bin/sync_pangenome_report.py)
+            for d in figures figures_pdf archive; do
+              [ -d "$extract_dir/$d" ] && rm -rf "$dest/$d" && cp -r "$extract_dir/$d" "$dest/$d"
             done
             echo "merged $tag -> $dest"
           done

@@ -52,6 +52,10 @@ committed across ~200 commits before anyone decided that shouldn't happen).
    `archive/*.tsv.gz` (small derived tables) and the two gallery `index.html` levels
    are also class 2. See `DESIGN.md` Sec 8's 2026-09-11 update for the full mechanism
    and the exact dividing line (grows with candidate/sequence count, or doesn't).
+   pangenome.nf runs (`docs/<domain>/<set>/<run>/`, staged by
+   `bin/sync_pangenome_report.py`): only the run's `report.html` + `run.json` are
+   committed; `figures/`, `figures_pdf/`, `archive/`, `island_synteny.html`,
+   `assembly_quality.html` are release-asset only (DESIGN.md Sec 8, 2026-09-24).
 
 **No agent (Claude Code or otherwise) commits a new or changed tracked data file
 without a provenance record for it.** If source URL/version/date is unknown, stop and
