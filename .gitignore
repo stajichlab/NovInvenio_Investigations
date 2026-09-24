@@ -81,6 +81,17 @@ docs/*/*/core.html
 docs/*/*/losses.html
 docs/*/*/summary.pdf
 
+# pangenome.nf runs publish one page per run at docs/<domain>/<set>/<run>/
+# (bin/sync_pangenome_report.py). Only that run's report.html and run.json are
+# committed. Figures are regenerated binaries; the tables and the synteny
+# viewer grow with family/island count. All ship in the reports-* release
+# asset and are merged into docs/ at Pages-deploy time (static.yml).
+docs/*/*/*/figures/
+docs/*/*/*/figures_pdf/
+docs/*/*/*/archive/
+docs/*/*/*/island_synteny.html
+docs/*/*/*/assembly_quality.html
+
 # pixi
 .pixi/*
 !.pixi/config.toml

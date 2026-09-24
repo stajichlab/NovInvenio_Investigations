@@ -359,6 +359,22 @@ The dividing line is "does this file's size scale with candidate/sequence count,
 "is this file under `docs/`" — a landing page and a viewer shell don't, a report table
 with embedded protein sequences does.
 
+**2026-09-24 update — pangenome.nf runs.** `pangenome.nf` writes `report/report.md`
+plus figures, not the novelties/core/losses set. `bin/sync_pangenome_report.py
+--study <domain>/<set> --run <run>` stages one run into `docs/<domain>/<set>/<run>/`
+and rebuilds `docs/<domain>/<set>/report.html` as a list of every staged run (one
+page per run: a pangenome study has several runs, e.g. per parameter or input set).
+Committed: the run's `report.html` (rendered from `report.md`, raw HTML disabled)
+and `run.json` (source dir, sha256 of `report.md`, family/strain counts), plus the
+study-level run list. Release asset only: the run's `figures/`, `figures_pdf/`,
+`archive/*.tsv.gz` (fixed allowlist of aggregate/per-island tables; per-gene and
+per-pair tables are not published), `island_synteny.html`, `assembly_quality.html`.
+Figures do not scale with candidate count, but they are regenerated binaries, so
+they stay out of git to keep reruns from adding blobs. Publish with
+`bin/publish_report_release.sh <domain>/<set>/<run>` (tag
+`reports-<domain>-<set>--<run>`, manifest carries `run`, `static.yml` merges into the
+run dir).
+
 **Required one-time repo setting, not captured anywhere in code — GitHub Pages
 "Build and deployment" source must be `GitHub Actions`, not `Deploy from a branch`.**
 `.github/workflows/static.yml`'s `actions/deploy-pages` step only actually serves

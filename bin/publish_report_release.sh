@@ -7,6 +7,13 @@
 # the report HTML/PDF files themselves.
 #
 # Usage: bin/publish_report_release.sh <domain>/<set_name>
+#        bin/publish_report_release.sh <domain>/<set_name>/<run>
+#
+# The 3-part form publishes one pangenome.nf run's release-only files
+# (docs/<domain>/<set>/<run>/{figures,figures_pdf,archive}/, island_synteny.html,
+# assembly_quality.html -- staged by bin/sync_pangenome_report.py). Tag:
+# reports-<domain>-<set>--<run>; manifest.json then also carries "run", and
+# static.yml merges the files into docs/<domain>/<set>/<run>/.
 #
 # Tag: reports-<domain>-<set> (one release per study, overwritten in place on
 # every rerun via --clobber -- matches how alignments-<domain>-<set> and
@@ -36,31 +43,45 @@
 
 set -euo pipefail
 
-STUDY="${1:?Usage: bin/publish_report_release.sh <domain>/<set_name>}"
+STUDY="${1:?Usage: bin/publish_report_release.sh <domain>/<set_name>[/<run>]}"
 REPO_ROOT="$(cd "$(dirname "${0}")/.." && pwd)"
 cd "$REPO_ROOT"  # so `gh`'s repo auto-detection (git remote) works regardless of caller's cwd
 
-SET_NAME="$(basename "$STUDY")"
-DOMAIN="$(dirname "$STUDY")"
+IFS=/ read -r DOMAIN SET_NAME RUN EXTRA <<< "$STUDY"
+if [ -z "$DOMAIN" ] || [ -z "$SET_NAME" ] || [ -n "${EXTRA:-}" ]; then
+    echo "ERROR: expected <domain>/<set_name>[/<run>], got '$STUDY'" >&2
+    exit 1
+fi
 DOCS_DIR="$REPO_ROOT/docs/$STUDY"
 
 REPORT_FILES=()
-for f in novelties.html core.html losses.html summary.pdf; do
-    [ -f "$DOCS_DIR/$f" ] && REPORT_FILES+=("$f")
-done
+if [ -n "$RUN" ]; then
+    for f in figures figures_pdf archive island_synteny.html assembly_quality.html; do
+        [ -e "$DOCS_DIR/$f" ] && REPORT_FILES+=("$f")
+    done
+else
+    for f in novelties.html core.html losses.html summary.pdf; do
+        [ -f "$DOCS_DIR/$f" ] && REPORT_FILES+=("$f")
+    done
+fi
 
 if [ ${#REPORT_FILES[@]} -eq 0 ]; then
     echo "== no report files found at $DOCS_DIR -- nothing to publish ==" >&2
     exit 0
 fi
 
-TAG="reports-${DOMAIN}-${SET_NAME}"
 WORKDIR="$(mktemp -d)"
 trap 'rm -rf "$WORKDIR"' EXIT
 
-printf '{"domain": "%s", "set": "%s"}\n' "$DOMAIN" "$SET_NAME" > "$WORKDIR/manifest.json"
-
-TARBALL="$WORKDIR/${SET_NAME}-reports.tar.gz"
+if [ -n "$RUN" ]; then
+    TAG="reports-${DOMAIN}-${SET_NAME}--${RUN}"
+    printf '{"domain": "%s", "set": "%s", "run": "%s"}\n' "$DOMAIN" "$SET_NAME" "$RUN" > "$WORKDIR/manifest.json"
+    TARBALL="$WORKDIR/${SET_NAME}--${RUN}-reports.tar.gz"
+else
+    TAG="reports-${DOMAIN}-${SET_NAME}"
+    printf '{"domain": "%s", "set": "%s"}\n' "$DOMAIN" "$SET_NAME" > "$WORKDIR/manifest.json"
+    TARBALL="$WORKDIR/${SET_NAME}-reports.tar.gz"
+fi
 TAR_ARGS=(-czf "$TARBALL" -C "$WORKDIR" manifest.json -C "$DOCS_DIR" "${REPORT_FILES[@]}")
 tar "${TAR_ARGS[@]}"
 
