@@ -166,3 +166,83 @@ Options (not decided; each needs its own test):
 - Identity test: `diamond makedb --in RS.pep.fa`; `diamond blastp -k 1
   --outfmt 6 qseqid sseqid pident qcovhsp scovhsp` for each query; first hit per
   query; pass = pident ≥ 90 and qcovhsp ≥ 80.
+
+## 6. Reciprocal runs: C. immitis vs C. posadasii (added later 2026-09-24)
+
+The PI's main comparison is reciprocal *C. immitis* vs *C. posadasii*; *U. reesii*
+is too divergent to be a useful outgroup (sections 4-5). Both directions were
+re-run on NovInvenio `91e3157` (merge of #174: outgroup-frequency polarity;
+includes the #133 rescue fix, #130 assembly QC, #134 diagnostics), with the
+2026-09-21 strain corrections. Configs: `config_immitis_in_posadasii_out.csv`
+(169 IN / 360 OUT) and `config_posadasii_in_immitis_out.csv` (360 IN / 169 OUT),
+built by `studies/fungi/coccidioides_pangenome/bin/build_reciprocal_configs.py`.
+Outputs: `results/rescue_freqpol_{immitis_in_posadasii_out,posadasii_in_immitis_out}/`.
+
+Three failures on the way, all fixed with `-resume` (no finished task re-run):
+
+1. `CLUSTER_TIER1`: mmseqs SIGILL on c01 (AMD abu_dhabi, no AVX2). The study's
+   `stajichlab_queue.config` override had dropped the pipeline's
+   `-C ryzen|broadwell|cascade` constraint (fixed `e1677c7`).
+2. `ASSEMBLY_QUALITY_QC`: `Permission denied` (exit 126). The script (and
+   `pangenome_diagnostics.py`) were committed without the exec bit (NovInvenio PR #177).
+3. `ASSEMBLY_QUALITY_QC`: OOM at `low_cpu`'s 4 GB (exit 137); a hand run peaks at
+   5.4 GB. Set to 16 GB x attempt (study config `1a9d2fe`; also in PR #177).
+
+### Polarity: the frequency rule works with a many-strain outgroup
+
+`direction_a` = strict rule (loss only if every outgroup strain carries the
+family). `direction_a_freq` = loss if >= 0.9 of outgroup strains carry it, gain
+if <= 0.1, ambiguous otherwise. Counted from `cooccurring_pairs.tsv.zst`.
+
+| run | method | rule | n | gain | loss | ambiguous | gain:loss |
+|---|---|---|---|---|---|---|---|
+| immitis in / posadasii out | families | strict | 4,184 | 37.2% | 0.3% | 62.5% | 130:1 |
+| immitis in / posadasii out | families | freq | 4,184 | 65.2% | 8.4% | 26.5% | 7.8:1 |
+| immitis in / posadasii out | pair rows | strict | 75,849 | 27.9% | 0.2% | 71.9% | 145:1 |
+| immitis in / posadasii out | pair rows | freq | 75,849 | 57.2% | 9.5% | 33.3% | 6.0:1 |
+| posadasii in / immitis out | families | strict | 7,628 | 47.5% | 1.1% | 51.4% | 42:1 |
+| posadasii in / immitis out | families | freq | 7,628 | 72.9% | 8.7% | 18.4% | 8.4:1 |
+| posadasii in / immitis out | pair rows | strict | 157,454 | 35.1% | 0.9% | 64.0% | 39:1 |
+| posadasii in / immitis out | pair rows | freq | 157,454 | 68.6% | 9.1% | 22.2% | 7.5:1 |
+
+With the frequency rule, both directions give gain:loss 6.0-8.4:1 with an
+18-33% ambiguous fraction. Under the strict rule loss stays at 0.2-1.1%, as
+predicted from the all-or-none requirement.
+
+What this does **not** show: that 6-8:1 is the biologically correct ratio. It
+shows the polarity call is no longer set by the rule's structure. The gain side
+still depends on the uncalibrated `gain_max = 0.1`, and accessory content is
+still confounded by assembly quality (below).
+
+### The 0.9 threshold, re-measured on these matrices
+
+Families present (present or genome_only) in >= 99% of one species' strains,
+frequency in the other species. Same result as on the genus matrix (section
+"Outgroup-frequency polarity" in `docs/pangenome-assumptions.md`):
+
+| run | reference -> other | n | reach >= 0.90 | in all strains |
+|---|---|---|---|---|
+| immitis in | immitis -> posadasii | 4,059 | 90.0% | 10.8% |
+| immitis in | posadasii -> immitis | 4,254 | 94.2% | 32.6% |
+| posadasii in | immitis -> posadasii | 4,073 | 90.0% | 10.8% |
+| posadasii in | posadasii -> immitis | 4,251 | 94.2% | 32.5% |
+
+### Diagnostics (written by the pipeline this time)
+
+| run | assembly_quality_confound | rescue_redundancy |
+|---|---|---|
+| immitis in (n = 169) | triggered: max \|rho\| 0.44 (accessory vs N50, partial) | triggered: 77.5% (15,183,898 / 19,580,657) |
+| posadasii in (n = 360) | triggered: max \|rho\| 0.41 (accessory vs n_contigs, partial) | triggered: 77.5% (15,124,757 / 19,522,195) |
+
+Spearman rho, raw / partial (total_length):
+
+| run | accessory vs n_contigs | accessory vs N50 | core_missing vs n_contigs | core_missing vs N50 |
+|---|---|---|---|---|
+| immitis in | 0.359 / 0.427 | -0.367 / -0.436 | 0.065 / 0.018 | -0.186 / -0.150 |
+| posadasii in | 0.344 / 0.410 | -0.306 / -0.374 | 0.025 / 0.006 | -0.203 / -0.191 |
+
+Strain-private proteins within 1 kb of a contig end: 44.75% vs 7.09% genome-wide
+(immitis in, n = 5,790 / 1,453,758); 35.25% vs 5.35% (posadasii in, n = 9,089 /
+3,050,945). The fragmentation confound is present within each species on its own.
+
+Families: 47,745 (immitis in) and 47,719 (posadasii in).

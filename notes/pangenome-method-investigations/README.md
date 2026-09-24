@@ -15,7 +15,7 @@ these notes are the evidence behind them.
 | `2026-09-20-rescue-pass-characterisation.md` | What the TBLASTN rescue pass is actually rescuing |
 | `2026-09-20-design-decisions.md` | The seven design decisions agreed with the PI, with the evidence for each |
 | `2026-09-20-fragmentation-vs-content.png` | Assembly quality vs pangenome content, 529 strains |
-| `2026-09-24-rescued-rerun-and-outgroup-polarity.md` | The #133 re-run result: gain:loss 144:1 → 138:1 (not fixed); the skew comes from outgroup divergence (*U. reesii* median 77.4% identity) against the 90% cutoffs |
+| `2026-09-24-rescued-rerun-and-outgroup-polarity.md` | The #133 re-run result: gain:loss 144:1 → 138:1 (not fixed); the skew comes from outgroup divergence (*U. reesii* median 77.4% identity) against the 90% cutoffs. Section 6: reciprocal immitis/posadasii runs with outgroup-frequency polarity give gain:loss 6.0-8.4:1 (strict rule 39-145:1) |
 
 ## The finding that ties them together
 
