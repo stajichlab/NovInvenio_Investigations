@@ -1,0 +1,19 @@
+label	direction	p_raw_evidence	n	frac
+pezizo_set1	gain	a: no raw hit	1285	0.744
+pezizo_set1	gain	b: E<1e-5	273	0.158
+pezizo_set1	gain	c: 1e-5<=E<1e-2	168	0.097
+pezizo_set1	loss	a: no raw hit	35	0.515
+pezizo_set1	loss	b: E<1e-5	29	0.426
+pezizo_set1	loss	c: 1e-5<=E<1e-2	4	0.059
+agaricomycetes	gain	a: no raw hit	2875	0.784
+agaricomycetes	gain	b: E<1e-5	564	0.154
+agaricomycetes	gain	c: 1e-5<=E<1e-2	226	0.062
+agaricomycetes	loss	a: no raw hit	55	0.611
+agaricomycetes	loss	b: E<1e-5	29	0.322
+agaricomycetes	loss	c: 1e-5<=E<1e-2	6	0.067
+sordariales_shallow	gain	a: no raw hit	184	0.811
+sordariales_shallow	gain	b: E<1e-5	22	0.097
+sordariales_shallow	gain	c: 1e-5<=E<1e-2	21	0.093
+sordariales_shallow	loss	a: no raw hit	771	0.782
+sordariales_shallow	loss	b: E<1e-5	94	0.095
+sordariales_shallow	loss	c: 1e-5<=E<1e-2	121	0.123

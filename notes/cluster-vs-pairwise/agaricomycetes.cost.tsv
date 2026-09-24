@@ -1,0 +1,6 @@
+tier	wall_hours	cpu_hours	note
+P	0.12	1.89	COMPLETE: all-vs-all search measured from 56 *_SEARCH/*_MAKEDB trace rows (0.031 wall-h, 0.649 cpu-h), plus DIAMOND_SELF, PARSE_HITS, PARSE_SELF_HITS, TBLASTN(+MAKEDB), BUILD_PRESENCE_MATRIX.
+C+H	27.924	689.546	PROFILE_SEARCH:* (gain-side family-profile pathway), measured directly.
+C+H_loss	9.467	188.622	PROFILE_LOSS_SEARCH:* (loss-side equivalent), measured directly.
+C	0.0	0.0	Free byproduct of Tier C+H's own clustering step.
+R	0.0		No gain Tier R time given; reported as 0.0, not measured.

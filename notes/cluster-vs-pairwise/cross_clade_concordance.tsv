@@ -1,0 +1,7 @@
+label	direction	n_p	n_ch	n_shared	precision_vs_P	recall_vs_P	n_miss	miss_clustering	miss_hmm	miss_hmm_outgroup_paralog	miss_hmm_outgroup_other	miss_unprofiled	n_extra	extra_p_no_hits	extra_p_query_short	extra_p_other_presence
+agaricomycetes	gain	8553	5344	2425	0.4538	0.2835	6128	2463	3665	1379	2286	2429	2919	1718	1157	44
+agaricomycetes	loss	234	88	25	0.2841	0.1068	209	119	90	31	59	119	63	23	37	3
+pezizo_set1	gain	3393	1400	731	0.5221	0.2154	2662	936	1726	235	1491	932	669	125	486	58
+pezizo_set1	loss	127	39	13	0.3333	0.1024	114	46	68	33	35	45	26	10	13	3
+sordariales_shallow	gain	568	208	110	0.5288	0.1937	458	231	227	21	206	218	98	7	73	18
+sordariales_shallow	loss	1620	749	343	0.4579	0.2117	1277	291	986	411	575	282	406	22	362	22

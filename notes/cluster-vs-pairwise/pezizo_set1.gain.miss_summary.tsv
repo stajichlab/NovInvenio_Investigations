@@ -1,0 +1,8 @@
+label	direction	set	level	class	n	frac_of_set	n_p_candidates	n_ch_candidates	n_shared
+pezizo_set1	gain	extra	pairwise	p_query_short	486	0.7265	3393	1400	731
+pezizo_set1	gain	extra	pairwise	p_no_hits	125	0.1868	3393	1400	731
+pezizo_set1	gain	extra	pairwise	p_other_presence	58	0.0867	3393	1400	731
+pezizo_set1	gain	miss	hmm	hmm_outgroup_other	1491	0.5601	3393	1400	731
+pezizo_set1	gain	miss	clustering	unprofiled_family	932	0.3501	3393	1400	731
+pezizo_set1	gain	miss	hmm	hmm_outgroup_paralog	235	0.0883	3393	1400	731
+pezizo_set1	gain	miss	clustering	cluster_fragmentation	4	0.0015	3393	1400	731

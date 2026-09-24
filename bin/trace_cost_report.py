@@ -5,16 +5,15 @@ pairwise-sensitivity-design.md.
 
 Two important caveats discovered while building this report (see task-8-report.md):
 
-1. Tier P's all-vs-all diamond search (DIAMOND_SEARCH / DIAMOND_MAKEDB) uses
-   Nextflow's `storeDir` directive, not ordinary resume-caching. A storeDir cache hit
-   means Nextflow skips the task so completely it never logs a trace row for it at
-   all (unlike -resume, which still logs CACHED). None of pezizo_set1's trace files
-   contain any DIAMOND_SEARCH/DIAMOND_MAKEDB row, because the all-vs-all search was
-   already cached in search_cache/ before any trace history we have begins. That
-   true cost is therefore UNMEASURABLE from any available trace file. What IS
-   measurable for Tier P (DIAMOND_SELF, PARSE_HITS, PARSE_SELF_HITS, TBLASTN,
-   TBLASTN_MAKEDB, BUILD_PRESENCE_MATRIX) is reported as a labeled partial /
-   lower-bound cost, not the true total -- see the `note` column in the output TSV.
+1. Tier P's all-vs-all search (DIAMOND_SEARCH / DIAMOND_MAKEDB, or the BLAST/PHMMER
+   equivalents) uses Nextflow's `storeDir` directive, not ordinary resume-caching. A
+   storeDir cache hit skips the task so completely that Nextflow logs no trace row for
+   it (unlike -resume, which still logs CACHED). If the search was already in
+   search_cache/ before the trace began (pezizo_set1), its cost is UNMEASURABLE from
+   that trace, and the P row is a labeled partial / lower bound. If the search ran in
+   the traced run (sordariales_shallow, 2026-09-22), its rows ARE in the trace, and
+   the P row is the complete cost. main() checks which case applies from the trace
+   rows themselves; it does not assume either one.
 
 2. Tier C+H's real cost is not well captured by a short substring list (the plan's
    original suggestion of ['MMSEQS', 'BUILD_FAMILY_PROFILES', 'HMMSEARCH',
@@ -49,6 +48,20 @@ def parse_duration(s):
     return total
 
 
+def parse_cpu_pct(s):
+    """'2400.5%' -> 24.005 (cores used on average). Missing/'-' -> 0.0."""
+    s = (s or '').strip().rstrip('%')
+    if s in ('', '-'):
+        return 0.0
+    return float(s) / 100
+
+
+# Tier P's all-vs-all search processes: <SEARCH|LOSS_SEARCH>:<TOOL>_<SEARCH|MAKEDB>.
+# DIAMOND_SELF (the self-search) is deliberately excluded -- it is already in the
+# partial group below.
+PAIRWISE_SEARCH_RE = re.compile(r'^(?:LOSS_)?SEARCH:(?:DIAMOND|BLAST|PHMMER)_(?:SEARCH|MAKEDB)\b')
+
+
 def load_trace(path):
     rows = []
     with open(path) as fh:
@@ -58,6 +71,7 @@ def load_trace(path):
                 'name': row['name'],
                 'status': row['status'],
                 'realtime_seconds': parse_duration(row['realtime']),
+                'cpu_fraction': parse_cpu_pct(row.get('%cpu', '')),
             })
     return rows
 
@@ -92,6 +106,20 @@ def wall_hours_by_prefix(rows, prefix):
     return round(total, 3)
 
 
+def cost_of(rows, predicate):
+    """(wall_hours, cpu_hours, n_rows) over COMPLETED/CACHED rows matching predicate.
+    cpu_hours = realtime * average cores used (%cpu / 100)."""
+    wall = cpu = 0.0
+    n = 0
+    for row in rows:
+        if row['status'] not in ('COMPLETED', 'CACHED') or not predicate(row['name']):
+            continue
+        wall += row['realtime_seconds'] / 3600
+        cpu += row['realtime_seconds'] * row.get('cpu_fraction', 0.0) / 3600
+        n += 1
+    return round(wall, 3), round(cpu, 3), n
+
+
 def latest_trace(nextflow_log_dir):
     traces = sorted(glob.glob(f'{nextflow_log_dir}/*-trace.txt'))
     if not traces:
@@ -122,6 +150,10 @@ def main():
                     help='Wall-clock of the refine_ambiguous_families.py diamond step '
                          '(time it separately with `time` when running Task 5/6 Step 6 '
                          '-- there is no trace file for a plain subprocess call)')
+    ap.add_argument('--tier-r-loss-seconds', type=float, default=None,
+                    dest='tier_r_loss_seconds',
+                    help='Same as --tier-r-diamond-seconds, for the loss-direction '
+                         'refine_ambiguous_families.py run (--query-group OUT)')
     ap.add_argument('--output', required=True)
     args = ap.parse_args()
 
@@ -130,44 +162,55 @@ def main():
     pairwise_rows = load_trace(pairwise_trace)
     cluster_rows = load_trace(cluster_trace)
 
-    # Tier P: the true all-vs-all DIAMOND_SEARCH/DIAMOND_MAKEDB cost is unmeasurable
-    # (storeDir cache hit -> no trace row ever logged, confirmed absent from every
-    # pezizo_set1 trace file including the earliest). What we report here is a
-    # labeled partial/lower-bound: everything else in Tier P's pipeline that DOES
-    # appear in the trace.
-    pairwise_groups = {
-        'search_partial': ['DIAMOND_SELF', 'PARSE_HITS', 'PARSE_SELF_HITS',
-                           'TBLASTN_MAKEDB', 'TBLASTN', 'BUILD_PRESENCE_MATRIX'],
-    }
-    p_cost = wall_hours_by_process_group(pairwise_rows, pairwise_groups)
+    partial_subs = ['DIAMOND_SELF', 'PARSE_HITS', 'PARSE_SELF_HITS',
+                    'TBLASTN_MAKEDB', 'TBLASTN', 'BUILD_PRESENCE_MATRIX']
+    p_part_wall, p_part_cpu, _ = cost_of(
+        pairwise_rows,
+        lambda n: not PAIRWISE_SEARCH_RE.match(n) and any(sub in n for sub in partial_subs))
+    p_search_wall, p_search_cpu, n_search = cost_of(
+        pairwise_rows, lambda n: bool(PAIRWISE_SEARCH_RE.match(n)))
+    if n_search:
+        p_note = (f'COMPLETE: all-vs-all search measured from {n_search} '
+                  f'*_SEARCH/*_MAKEDB trace rows ({p_search_wall} wall-h, '
+                  f'{p_search_cpu} cpu-h), plus DIAMOND_SELF, PARSE_HITS, PARSE_SELF_HITS, '
+                  'TBLASTN(+MAKEDB), BUILD_PRESENCE_MATRIX.')
+    else:
+        p_note = ('PARTIAL/lower-bound only -- this trace has no *_SEARCH/*_MAKEDB rows '
+                  '(storeDir cache hit: Nextflow logs no trace row for it, unlike ordinary '
+                  '-resume CACHED rows), so the all-vs-all search cost is unmeasurable '
+                  'from this trace. This total covers only DIAMOND_SELF, PARSE_HITS, '
+                  "PARSE_SELF_HITS, TBLASTN(+MAKEDB), BUILD_PRESENCE_MATRIX -- do NOT read "
+                  "this as Tier P's full cost.")
 
-    # Tier C+H: prefix match on 'PROFILE_SEARCH:' captures the entire gain-side
-    # family-profile pathway in one robust check (see module docstring point 2).
-    ch_cost = wall_hours_by_prefix(cluster_rows, 'PROFILE_SEARCH:')
-    # Loss-side equivalent, reported for completeness (not required, but consistent).
-    loss_cost = wall_hours_by_prefix(cluster_rows, 'PROFILE_LOSS_SEARCH:')
+    # Tier C+H: prefix match captures each direction's whole family-profile pathway
+    # (see module docstring point 2).
+    ch_wall, ch_cpu, _ = cost_of(cluster_rows, lambda n: n.startswith('PROFILE_SEARCH:'))
+    loss_wall, loss_cpu, _ = cost_of(cluster_rows, lambda n: n.startswith('PROFILE_LOSS_SEARCH:'))
+
+    def r_row(tier, seconds, direction):
+        if seconds is None:
+            return {'tier': tier, 'wall_hours': 0.0, 'cpu_hours': '',
+                    'note': f'No {direction} Tier R time given; reported as 0.0, not measured.'}
+        return {'tier': tier, 'wall_hours': round(seconds / 3600, 3), 'cpu_hours': '',
+                'note': ("Measured directly with `time` around refine_ambiguous_families.py "
+                         f"({direction}) -- not read from any trace file (plain subprocess "
+                         'call, no trace row). cpu_hours not measured.')}
 
     rows = [
-        {'tier': 'P', 'wall_hours': p_cost['search_partial'],
-         'note': ('PARTIAL/lower-bound only -- true all-vs-all DIAMOND_SEARCH cost is '
-                   'unmeasurable: storeDir cache hit means Nextflow never logs a trace '
-                   'row for it (unlike ordinary -resume CACHED rows). This total covers '
-                   'only DIAMOND_SELF, PARSE_HITS, PARSE_SELF_HITS, TBLASTN(+MAKEDB), '
-                   'BUILD_PRESENCE_MATRIX -- do NOT read this as Tier P\'s full cost.')},
-        {'tier': 'C+H', 'wall_hours': ch_cost,
+        {'tier': 'P', 'wall_hours': round(p_part_wall + p_search_wall, 3),
+         'cpu_hours': round(p_part_cpu + p_search_cpu, 3), 'note': p_note},
+        {'tier': 'C+H', 'wall_hours': ch_wall, 'cpu_hours': ch_cpu,
          'note': 'PROFILE_SEARCH:* (gain-side family-profile pathway), measured directly.'},
-        {'tier': 'C+H_loss', 'wall_hours': loss_cost,
+        {'tier': 'C+H_loss', 'wall_hours': loss_wall, 'cpu_hours': loss_cpu,
          'note': 'PROFILE_LOSS_SEARCH:* (loss-side equivalent), measured directly.'},
-        {'tier': 'C', 'wall_hours': 0.0,
+        {'tier': 'C', 'wall_hours': 0.0, 'cpu_hours': 0.0,
          'note': 'Free byproduct of Tier C+H\'s own clustering step.'},
-        {'tier': 'R', 'wall_hours': round((args.tier_r_diamond_seconds or 0.0) / 3600, 3),
-         'note': ('Measured directly with `time` around refine_ambiguous_families.py\'s '
-                  'diamond step -- not read from any trace file (plain subprocess call, '
-                  'no trace row).' if args.tier_r_diamond_seconds is not None
-                  else 'No --tier-r-diamond-seconds given; reported as 0.0, not measured.')},
+        r_row('R', args.tier_r_diamond_seconds, 'gain'),
     ]
+    if args.tier_r_loss_seconds is not None:
+        rows.append(r_row('R_loss', args.tier_r_loss_seconds, 'loss'))
     with open(args.output, 'w', newline='') as fh:
-        w = csv.DictWriter(fh, fieldnames=['tier', 'wall_hours', 'note'], delimiter='\t',
+        w = csv.DictWriter(fh, fieldnames=['tier', 'wall_hours', 'cpu_hours', 'note'], delimiter='\t',
                             lineterminator='\n')
         w.writeheader()
         w.writerows(rows)

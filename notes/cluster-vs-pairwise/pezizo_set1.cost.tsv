@@ -1,0 +1,6 @@
+tier	wall_hours	cpu_hours	note
+P	0.116	1.015	PARTIAL/lower-bound only -- this trace has no *_SEARCH/*_MAKEDB rows (storeDir cache hit: Nextflow logs no trace row for it, unlike ordinary -resume CACHED rows), so the all-vs-all search cost is unmeasurable from this trace. This total covers only DIAMOND_SELF, PARSE_HITS, PARSE_SELF_HITS, TBLASTN(+MAKEDB), BUILD_PRESENCE_MATRIX -- do NOT read this as Tier P's full cost.
+C+H	60.559	1667.308	PROFILE_SEARCH:* (gain-side family-profile pathway), measured directly.
+C+H_loss	29.18	740.396	PROFILE_LOSS_SEARCH:* (loss-side equivalent), measured directly.
+C	0.0	0.0	Free byproduct of Tier C+H's own clustering step.
+R	0.032		Measured directly with `time` around refine_ambiguous_families.py (gain) -- not read from any trace file (plain subprocess call, no trace row). cpu_hours not measured.

@@ -1,0 +1,7 @@
+label	direction	set	level	class	n	frac_of_set	n_p_candidates	n_ch_candidates	n_shared
+agaricomycetes	loss	extra	pairwise	p_query_short	37	0.5873	234	88	25
+agaricomycetes	loss	extra	pairwise	p_no_hits	23	0.3651	234	88	25
+agaricomycetes	loss	extra	pairwise	p_other_presence	3	0.0476	234	88	25
+agaricomycetes	loss	miss	clustering	unprofiled_family	119	0.5694	234	88	25
+agaricomycetes	loss	miss	hmm	hmm_outgroup_other	59	0.2823	234	88	25
+agaricomycetes	loss	miss	hmm	hmm_outgroup_paralog	31	0.1483	234	88	25

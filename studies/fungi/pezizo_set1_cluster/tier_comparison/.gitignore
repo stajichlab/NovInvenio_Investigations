@@ -6,3 +6,4 @@
 *.refined_families.tsv
 *.C.candidates.txt
 *.R.candidates.txt
+*.miss_detail.tsv

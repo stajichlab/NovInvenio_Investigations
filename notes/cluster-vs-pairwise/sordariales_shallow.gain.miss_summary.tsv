@@ -1,0 +1,8 @@
+label	direction	set	level	class	n	frac_of_set	n_p_candidates	n_ch_candidates	n_shared
+sordariales_shallow	gain	extra	pairwise	p_query_short	73	0.7449	568	208	110
+sordariales_shallow	gain	extra	pairwise	p_other_presence	18	0.1837	568	208	110
+sordariales_shallow	gain	extra	pairwise	p_no_hits	7	0.0714	568	208	110
+sordariales_shallow	gain	miss	clustering	unprofiled_family	218	0.476	568	208	110
+sordariales_shallow	gain	miss	hmm	hmm_outgroup_other	206	0.4498	568	208	110
+sordariales_shallow	gain	miss	hmm	hmm_outgroup_paralog	21	0.0459	568	208	110
+sordariales_shallow	gain	miss	clustering	cluster_fragmentation	13	0.0284	568	208	110
