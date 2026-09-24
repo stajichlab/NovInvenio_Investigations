@@ -1,8 +1,12 @@
 # Study/run site layout — design (2026-09-24)
 
-Status: **approved 2026-09-24**; code and local migration implemented on branch
-`study-run-layout` (see "Implementation notes" at the end). Release re-tagging
-and old-tag deletion (Migration steps 3-5) not done. Nothing below is implemented yet except the
+Status: **implemented and live 2026-09-24.** Code merged (`c63a094`, `954a0ae`).
+Migration steps 1-5 done: 25 run-level releases uploaded from the migrated local
+files (checked identical to the old releases first: 0 files differ), pushed,
+live site checked (111 new URLs 200; 70 old URLs serve redirect stubs), the 25
+old flat tags deleted. The release upload re-published local files, so no
+re-tag script was needed. Also fixed: `static.yml` listed only 30 releases
+(`gh release list` default) -- now `--limit 1000` (`719286c`). Nothing below is implemented yet except the
 pangenome.nf half of step 1 (`bin/sync_pangenome_report.py`, merged `a4a5222`).
 
 ## Goal
