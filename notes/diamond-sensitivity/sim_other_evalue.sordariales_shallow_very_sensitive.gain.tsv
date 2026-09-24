@@ -1,0 +1,5 @@
+label	direction	other_evalue	n_candidates	tblastn_other_hit	tblastn_no_hit	tblastn_unknown	tblastn_hit_frac_of_known	shared_default
+sordariales_shallow_very_sensitive	gain	1e-05	509	127	382	0	0.2495	280
+sordariales_shallow_very_sensitive	gain	1e-10	881	179	418	284	0.2998	368
+sordariales_shallow_very_sensitive	gain	1e-20	1712	270	426	1016	0.3879	467
+sordariales_shallow_very_sensitive	gain	1e-30	2791	319	426	2046	0.4282	516

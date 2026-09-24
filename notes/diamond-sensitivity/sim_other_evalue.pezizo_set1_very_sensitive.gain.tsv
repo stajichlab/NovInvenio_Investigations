@@ -1,0 +1,5 @@
+label	direction	other_evalue	n_candidates	tblastn_other_hit	tblastn_no_hit	tblastn_unknown	tblastn_hit_frac_of_known	shared_default
+pezizo_set1_very_sensitive	gain	1e-05	3193	439	2754	0	0.1375	1755
+pezizo_set1_very_sensitive	gain	1e-10	4794	714	2998	1082	0.1923	2274
+pezizo_set1_very_sensitive	gain	1e-20	7403	1141	3115	3147	0.2681	2818
+pezizo_set1_very_sensitive	gain	1e-30	10130	1470	3138	5522	0.319	3170

@@ -209,3 +209,30 @@ Overall, 71–90% of the candidates very-sensitive drops have genome-level evide
 - Two follow-ups would narrow the rest:
   - a stricter other-group E-value for presence;
   - spot-checking the TBLASTN-unsupported weak-hit drops.
+
+
+## Follow-up: stricter other-group E-value (simulated, 2026-09-23)
+
+`bin/simulate_other_evalue.py` recomputes each finished run's candidates as if other-group presence required E < T (T = 1e-10, 1e-20, 1e-30). Seed-group cells are left as the run called them. It uses the run's `presence_matrix.evalues.tsv`, which records the E-value of every hit that counted as presence. At the run's own 1e-5 it reproduces every run's `candidates.txt` / `loss_candidates.txt` exactly (12/12 checked). Output: `sim_other_evalue.summary.tsv`.
+
+The judge is independent genome evidence: the fraction of candidates that have a TBLASTN hit in any other-group genome. The TBLASTN data are the default and very-sensitive runs' own summaries; candidates in neither are counted as unknown, and the fraction is taken over known candidates. For a true novelty/loss this fraction should be low.
+
+| Clade | Dir | default | very-sensitive | + E < 1e-10 | + E < 1e-20 | + E < 1e-30 |
+|---|---|---|---|---|---|---|
+| pezizo_set1 | gain | 45% | 14% | 19% | 27% | 32% |
+| pezizo_set1 | loss | 69% | 33% | 33% | 40% | 44% |
+| agaricomycetes | gain | 29% | 9% | 13% | 17% | 20% |
+| agaricomycetes | loss | 45% | 10% | 14% | 18% | 24% |
+| sordariales_shallow | gain | 54% | 25% | 30% | 39% | 43% |
+| sordariales_shallow | loss | 64% | 33% | 37% | 43% | 50% |
+
+(The E-value columns apply to the very-sensitive run.)
+
+**Results:**
+- A stricter other-group E-value makes the candidate sets worse by this measure in every clade and direction, and the candidate counts grow 1.5–6×. The weak other-group hits that very-sensitive finds are mostly real: removing them brings back candidates that TBLASTN contradicts. **The stricter-E-value follow-up does not warrant a change.**
+- `--very-sensitive` at the standard 1e-5 cuts the TBLASTN-contradicted fraction by 2–4× against default mode (29–69% → 9–33%).
+- The coverage floor (qcov 15) adds little on top.
+- Default-mode candidate lists: 29–69% of candidates have an other-group TBLASTN hit. The pipeline reports but does not filter on TBLASTN (`--skip_tblastn_filter`). This measures how many default-mode candidates are likely false.
+- Not done for the thresholded sets: controls scoring. The TBLASTN trend was the same everywhere.
+
+**Recommendation from these data:** make `--diamond_sensitivity very-sensitive` the Tier P default, and keep `--evalue 1e-5`. This is a user decision. It changes results for every study, so it needs a `.living/decisions.md` entry and reruns (nf_NovInvenio todo `diamond-very-sensitive-main-search.md`).

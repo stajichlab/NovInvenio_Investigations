@@ -1,0 +1,5 @@
+label	direction	other_evalue	n_candidates	tblastn_other_hit	tblastn_no_hit	tblastn_unknown	tblastn_hit_frac_of_known	shared_default
+pezizo_set1_default	loss	1e-05	101	70	31	0	0.6931	101
+pezizo_set1_default	loss	1e-10	173	70	31	72	0.6931	101
+pezizo_set1_default	loss	1e-20	498	72	31	395	0.699	101
+pezizo_set1_default	loss	1e-30	1263	72	31	1160	0.699	101

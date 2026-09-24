@@ -1,0 +1,5 @@
+label	direction	other_evalue	n_candidates	tblastn_other_hit	tblastn_no_hit	tblastn_unknown	tblastn_hit_frac_of_known	shared_default
+sordariales_shallow_default	loss	1e-05	1620	1031	589	0	0.6364	1620
+sordariales_shallow_default	loss	1e-10	2126	1037	592	497	0.6366	1620
+sordariales_shallow_default	loss	1e-20	3433	1049	592	1792	0.6392	1620
+sordariales_shallow_default	loss	1e-30	5618	1049	592	3977	0.6392	1620

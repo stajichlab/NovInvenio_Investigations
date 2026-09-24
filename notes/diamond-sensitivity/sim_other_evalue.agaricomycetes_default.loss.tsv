@@ -1,0 +1,5 @@
+label	direction	other_evalue	n_candidates	tblastn_other_hit	tblastn_no_hit	tblastn_unknown	tblastn_hit_frac_of_known	shared_default
+agaricomycetes_default	loss	1e-05	215	96	119	0	0.4465	215
+agaricomycetes_default	loss	1e-10	277	96	119	62	0.4465	215
+agaricomycetes_default	loss	1e-20	515	96	120	299	0.4444	215
+agaricomycetes_default	loss	1e-30	973	96	120	757	0.4444	215

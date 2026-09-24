@@ -1,0 +1,5 @@
+label	direction	other_evalue	n_candidates	tblastn_other_hit	tblastn_no_hit	tblastn_unknown	tblastn_hit_frac_of_known	shared_default
+agaricomycetes_very_sensitive	gain	1e-05	9961	908	9053	0	0.0912	6553
+agaricomycetes_very_sensitive	gain	1e-10	11687	1372	9577	738	0.1253	7541
+agaricomycetes_very_sensitive	gain	1e-20	14018	1999	9819	2200	0.1691	8410
+agaricomycetes_very_sensitive	gain	1e-30	16489	2495	9875	4119	0.2017	8962

@@ -1,0 +1,5 @@
+label	direction	other_evalue	n_candidates	tblastn_other_hit	tblastn_no_hit	tblastn_unknown	tblastn_hit_frac_of_known	shared_default
+agaricomycetes_default	gain	1e-05	9441	2707	6734	0	0.2867	9441
+agaricomycetes_default	gain	1e-10	10104	2734	6743	627	0.2885	9441
+agaricomycetes_default	gain	1e-20	11448	2753	6747	1948	0.2898	9441
+agaricomycetes_default	gain	1e-30	13226	2753	6747	3726	0.2898	9441
