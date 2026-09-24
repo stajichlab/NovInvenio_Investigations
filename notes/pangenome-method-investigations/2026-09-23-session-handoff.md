@@ -75,6 +75,17 @@ funnel counts from the `RESCUE_PASS` task's `.command.err` in the launch dir's
 `work/` instead, or run `pangenome_diagnostics.py` / the QC script by hand on
 this run's outputs.
 
+Funnel counts from that `.command.err` (task `40/e82441`, cached):
+530 files, 131,025,237 hit rows parsed, 20,005,269 passed identity/coverage.
+Structural filter rejected 15,604,028 (78.0%) as overlapping a different
+family's gene, 3,180,585 (15.9%) as query rep < 150 aa, and 475,558 (2.4%) as
+repeat-hotspot. 745,098 rows (3.7%) remained, which gave 572,880 unique
+(family, strain) ABSENT→GENOME_ONLY cells. Under #134's rule (overlap/passed
+> 0.5), `rescue_redundancy` would be TRIGGERED for this run. The filter did
+remove those hits; the trigger says most rescuable hits were double-counts,
+not that they reached the matrix. Whether 572,880 applied cells is a correct
+number is not yet tested -- the gain:loss ratio is the test.
+
 ### Failed attempts 1-4, for context if this recurs
 1. Job 28984843: failed when `stajichlab` was stopped mid-run, 439 tblastn tasks
    exhausted retries → prompted the `preempt` queue reroute.
