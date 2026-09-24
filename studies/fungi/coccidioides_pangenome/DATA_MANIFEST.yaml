@@ -14289,3 +14289,23 @@
   license: n/a
   derived_by: bin/build_study_config.py --study-dir studies/fungi/coccidioides_pangenome
   pulled_with: build_study_config.py on r11
+- local_path: studies/fungi/coccidioides_pangenome/config_immitis_in_posadasii_out.csv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/config.csv, sha256
+    ba3ebdc6ddac56fafcf2dcdc7a1c6e0bcca1f700623455c53c335d4f860b7c40)
+  source_release: derived from this study's config.csv
+  access_date: '2026-09-24T06:53:23Z'
+  checksum_sha256: 3271745e3783d0d2207d3675b4bba5465e29d8a0513589122ea9c7c9ca587456
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: 'studies/fungi/coccidioides_pangenome/bin/build_reciprocal_configs.py:
+    GROUP set by Species (Coccidioides immitis -> IN, Coccidioides posadasii -> OUT)'
+  pulled_with: build_reciprocal_configs.py on c05
+- local_path: studies/fungi/coccidioides_pangenome/config_posadasii_in_immitis_out.csv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/config.csv, sha256
+    ba3ebdc6ddac56fafcf2dcdc7a1c6e0bcca1f700623455c53c335d4f860b7c40)
+  source_release: derived from this study's config.csv
+  access_date: '2026-09-24T06:53:23Z'
+  checksum_sha256: 7b1553dae019b67221e4726e1f5b37472c39b7ec6b6e63787b47e37b21b4eeee
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: 'studies/fungi/coccidioides_pangenome/bin/build_reciprocal_configs.py:
+    GROUP set by Species (Coccidioides posadasii -> IN, Coccidioides immitis -> OUT)'
+  pulled_with: build_reciprocal_configs.py on c05
