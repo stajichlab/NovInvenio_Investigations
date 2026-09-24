@@ -24,6 +24,8 @@ h1 { font-size: 1.6rem; margin-bottom: 0.2rem; }
 .card:hover { border-color: #888; }
 .card.empty { opacity: 0.5; border-style: dashed; pointer-events: none; }
 .card h2 { font-size: 1.1rem; margin: 0 0 0.3rem; overflow-wrap: anywhere; }
+div.card h2 a { color: inherit; text-decoration: none; }
+div.card h2 a:hover { text-decoration: underline; }
 .card .desc { font-size: 0.9rem; color: #555; margin: 0 0 0.5rem; }
 .card .meta { font-size: 0.8rem; color: #888; }
 footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
@@ -38,68 +40,43 @@ footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
 <a class="card empty" href="#">
   <h2>Afumigatus pangenome</h2>
   <p class="desc">DAPC_Clade_1, DAPC_Clade_3, DAPC_Clade_2</p>
-  <p class="meta">0 ingroup &middot; 0 outgroup &mdash; data staged, pipeline not yet run</p>
+  <p class="meta">0 ingroup &middot; 0 outgroup &mdash; not yet started (no data pulled)</p>
 </a>
-<a class="card" href="agaricomycetes_mmseqs/report.html">
-  <h2>agaricomycetes mmseqs</h2>
+<div class="card">
+  <h2><a href="agaricomycetes/pairwise-diamond/report.html">agaricomycetes</a></h2>
   <p class="desc">Agaricales, Tremellomycetes, Ustilaginomycotina, Pucciniomycotina</p>
-  <p class="meta">4 ingroup &middot; 3 outgroup</p>
-</a>
-<a class="card" href="agaricomycetes_novelty_discovery/report.html">
-  <h2>agaricomycetes novelty discovery</h2>
-  <p class="desc">Agaricales, Tremellomycetes, Ustilaginomycotina, Pucciniomycotina, Pezizomycotina</p>
-  <p class="meta">0 ingroup &middot; 0 outgroup</p>
-</a>
-<a class="card" href="agaricomycetes_pairwise/report.html">
-  <h2>agaricomycetes pairwise</h2>
-  <p class="desc">Agaricales, Tremellomycetes, Ustilaginomycotina, Pucciniomycotina</p>
-  <p class="meta">4 ingroup &middot; 3 outgroup</p>
-</a>
+  <p class="meta">4 ingroup &middot; 3 outgroup &middot; <a href="agaricomycetes/report.html">3 runs</a></p>
+</div>
 <a class="card empty" href="#">
   <h2>coccidioides pangenome</h2>
   <p class="desc">Coccidioides immitis, Coccidioides posadasii</p>
-  <p class="meta">529 ingroup &middot; 0 outgroup &mdash; data staged, pipeline not yet run</p>
+  <p class="meta">529 ingroup &middot; 0 outgroup &mdash; not yet started (no data pulled)</p>
 </a>
-<a class="card empty" href="#">
-  <h2>fusarium FOXY</h2>
-  <p class="desc">no-fsp-in-name, albedinis, cepae, conglutinans, cubense, lycopersici, matthiolae, melonis, mori, narcissi, phaseoli, pisi, radicis-cucumerinum, radicis-lycopersici, rapae, raphani, vasinfectum, zingiberi</p>
-  <p class="meta">19 ingroup &middot; 4 outgroup &mdash; not yet started (no data pulled)</p>
-</a>
-<a class="card" href="mushrooms_tremella/report.html">
-  <h2>mushrooms tremella</h2>
+<div class="card">
+  <h2><a href="mushrooms_tremella/pairwise-diamond/report.html">mushrooms tremella</a></h2>
   <p class="desc">Agaricomycotina, Tremellomycetes</p>
-  <p class="meta">2 ingroup &middot; 2 outgroup</p>
-</a>
-<a class="card" href="pezizo_set1/report.html">
-  <h2>pezizo set1</h2>
+  <p class="meta">2 ingroup &middot; 2 outgroup &middot; <a href="mushrooms_tremella/report.html">1 run</a></p>
+</div>
+<div class="card">
+  <h2><a href="pezizo_set1/pairwise-diamond/report.html">pezizo set1</a></h2>
   <p class="desc">Taphrinomycotina, Basidiomycota, Mucoromycotina, Saccharomycotina, Pezizomycotina</p>
-  <p class="meta">5 ingroup &middot; 6 outgroup</p>
-</a>
-<a class="card" href="pezizo_set1_cluster/report.html">
-  <h2>pezizo set1 cluster</h2>
-  <p class="desc">Taphrinomycotina, Basidiomycota, Mucoromycotina, Saccharomycotina, Pezizomycotina</p>
-  <p class="meta">5 ingroup &middot; 6 outgroup</p>
-</a>
-<a class="card" href="sordariales_shallow/report.html">
-  <h2>sordariales shallow</h2>
+  <p class="meta">5 ingroup &middot; 6 outgroup &middot; <a href="pezizo_set1/report.html">2 runs</a></p>
+</div>
+<div class="card">
+  <h2><a href="sordariales_shallow/pairwise-diamond/report.html">sordariales shallow</a></h2>
   <p class="desc">Sordariales, Hypocreales, Glomerellales, Coniochaetales, Diaporthales, Xylariales</p>
-  <p class="meta">4 ingroup &middot; 8 outgroup</p>
-</a>
-<a class="card" href="sordariales_shallow_cluster/report.html">
-  <h2>sordariales shallow cluster</h2>
-  <p class="desc">Sordariales, Hypocreales, Glomerellales, Coniochaetales, Diaporthales, Xylariales</p>
-  <p class="meta">4 ingroup &middot; 8 outgroup</p>
-</a>
-<a class="card" href="yeast_filamentous/report.html">
-  <h2>yeast filamentous</h2>
+  <p class="meta">4 ingroup &middot; 8 outgroup &middot; <a href="sordariales_shallow/report.html">2 runs</a></p>
+</div>
+<div class="card">
+  <h2><a href="yeast_filamentous/pairwise-diamond/report.html">yeast filamentous</a></h2>
   <p class="desc">Saccharomycotina, Taphrinomycotina, Pezizomycotina</p>
-  <p class="meta">4 ingroup &middot; 4 outgroup</p>
-</a>
-<a class="card" href="zoosporic_dikarya/report.html">
-  <h2>zoosporic dikarya</h2>
+  <p class="meta">4 ingroup &middot; 4 outgroup &middot; <a href="yeast_filamentous/report.html">1 run</a></p>
+</div>
+<div class="card">
+  <h2><a href="zoosporic_dikarya/pairwise-diamond/report.html">zoosporic dikarya</a></h2>
   <p class="desc">Zoosporic, Dikarya</p>
-  <p class="meta">4 ingroup &middot; 5 outgroup</p>
-</a></div>
+  <p class="meta">4 ingroup &middot; 5 outgroup &middot; <a href="zoosporic_dikarya/report.html">1 run</a></p>
+</div></div>
 
 <footer>Includes data from UniProt (https://www.uniprot.org) and the Gene Ontology Consortium (http://geneontology.org), CC BY 4.0.</footer>
 </body>

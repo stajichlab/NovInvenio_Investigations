@@ -1,0 +1,14 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-09-11",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/agaricomycetes_pairwise",
+  "source_dir": "results/agaricomycetes_pairwise",
+  "params": [
+    "--cluster_tool pairwise",
+    "--run_tool diamond"
+  ],
+  "n_species": 7,
+  "report_sha256": "b55d275d51144d143c1191353c34f3ea51c6a64709742991531b93b4ff353409",
+  "note": "migrated from docs/fungi/agaricomycetes_pairwise/ on 2026-09-24; params read from run_params.txt at migration time"
+}

@@ -52,6 +52,11 @@ committed across ~200 commits before anyone decided that shouldn't happen).
    `archive/*.tsv.gz` (small derived tables) and the two gallery `index.html` levels
    are also class 2. See `DESIGN.md` Sec 8's 2026-09-11 update for the full mechanism
    and the exact dividing line (grows with candidate/sequence count, or doesn't).
+   **Since 2026-09-24 every study publishes per run, at `docs/<domain>/<study>/<run>/`**
+   (spec `notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md`);
+   a folder is published only if it has `studies/<domain>/<folder>/publish.yaml`.
+   The class 2/3 split above applies one level down. Set-level
+   `novelties/core/losses.html` may only be committed as old-URL redirect stubs.
    pangenome.nf runs (`docs/<domain>/<set>/<run>/`, staged by
    `bin/sync_pangenome_report.py`): only the run's `report.html` + `run.json` are
    committed; `figures/`, `figures_pdf/`, `archive/`, `island_synteny.html`,

@@ -1,0 +1,17 @@
+{
+  "run": "mmseqs-cov0.3",
+  "published": "2026-09-11",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/agaricomycetes_mmseqs",
+  "source_dir": "results/agaricomycetes_mmseqs",
+  "params": [
+    "--run_tool diamond",
+    "--cluster_tool mmseqs",
+    "--hmm_presence_cov 0.3",
+    "--hmm_presence_min_residues 100",
+    "--hmm_presence_domain_evalue 0.01"
+  ],
+  "n_species": 7,
+  "report_sha256": "24696a4aa70f90470e0e0f912fcf4d76038f3652ab402f241173860f0fb764dd",
+  "note": "migrated from docs/fungi/agaricomycetes_mmseqs/ on 2026-09-24; params read from run_params.txt at migration time"
+}

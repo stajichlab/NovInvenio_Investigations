@@ -1,0 +1,13 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-09-07",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/zoosporic_dikarya",
+  "source_dir": "results/zoosporic_dikarya",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 9,
+  "report_sha256": "bae2448a8b8bba8627ef5d85fb0fc9aba88cba9b9e249769632aed24b5ed1e3a",
+  "note": "migrated from docs/fungi/zoosporic_dikarya/ on 2026-09-24; params read from run_params.txt at migration time"
+}

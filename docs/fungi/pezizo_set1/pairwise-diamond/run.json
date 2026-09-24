@@ -1,0 +1,13 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-09-07",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/pezizo_set1",
+  "source_dir": "results/pezizo_set1",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 11,
+  "report_sha256": "f8b684129c7f321bb58a8e240f7d618b2befb9477cfaf69ba0dc02aa208532e3",
+  "note": "migrated from docs/fungi/pezizo_set1/ on 2026-09-24; params read from run_params.txt at migration time"
+}

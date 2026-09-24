@@ -1,6 +1,8 @@
 # Study/run site layout — design (2026-09-24)
 
-Status: **approved 2026-09-24** (open questions answered below). Nothing below is implemented yet except the
+Status: **approved 2026-09-24**; code and local migration implemented on branch
+`study-run-layout` (see "Implementation notes" at the end). Release re-tagging
+and old-tag deletion (Migration steps 3-5) not done. Nothing below is implemented yet except the
 pangenome.nf half of step 1 (`bin/sync_pangenome_report.py`, merged `a4a5222`).
 
 ## Goal
@@ -161,3 +163,36 @@ Migration order (each step is visible; steps 3 and 5 change the live site):
    old run; likely removed later).
 3. Folder without `publish.yaml`: not published. The sync step asks for one
    and skips.
+
+## Implementation notes (2026-09-24)
+
+Changes from the design above, found while implementing:
+
+- `set-current` is `bin/study_pages.py set-current <domain>/<study> <run>`, not a
+  separate `bin/set_current_run.py`. The same CLI has `target`, `record-run`,
+  and `rebuild`.
+- **Set-level `.gitignore` rules are kept**, not moved. Run-level copies were
+  added. Reason: old flat folders and the temporary `*_dmnd_*` folders still
+  hold real `novelties.html` etc. at set level; un-ignoring those names would
+  let an `git add -A` commit them. The redirect stubs are force-added
+  (`git add -f`) by `bin/migrate_docs_to_runs.py`, and
+  `tests/test_study_runs.py` checks every tracked set-level
+  `novelties/core/losses.html` is a stub.
+- **Old-URL stubs point at the migrated run**, not the current run. An old URL
+  meant that specific result, and the stub then never needs rewriting when the
+  current run changes.
+- A complete gallery card is a `<div>` with two links (title -> current run,
+  "N runs" -> run list), not an `<a>`: links cannot nest, and main.nf report
+  pages have no link back to the study, so the run list needs its own link.
+- **Folders without `publish.yaml` get no gallery card at all** (before, every
+  `studies/` folder with `species.csv` got a pending/staged card). Cards that
+  disappear with this change: `fusarium_FOXY`, `cyanobacteria` (and the
+  variant/test folders, which are now runs or unpublished). Add a
+  `publish.yaml` to bring a card back.
+- `run.json` for a migrated run: `published` = date of the last commit that
+  touched the old `report.html`; `note` says it was migrated and that `params`
+  come from `run_params.txt` at migration time.
+- The migration is re-runnable. In a checkout that received the committed
+  migration by merge, a second `--apply` moves the leftover gitignored files
+  (`novelties.html`, `alignments/`, ...) into the run folders and writes and
+  force-adds their old-URL stubs.

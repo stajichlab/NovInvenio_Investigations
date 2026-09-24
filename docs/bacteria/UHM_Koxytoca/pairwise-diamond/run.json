@@ -1,0 +1,17 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-09-07",
+  "pipeline": "main.nf",
+  "folder": "studies/bacteria/UHM_Koxytoca",
+  "source_dir": "results/UHM_Koxytoca",
+  "params": [
+    "--run_tool diamond",
+    "--cluster_tool pairwise",
+    "--pfam_hmm /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/38.2/Pfam-A.hmm",
+    "--swissprot_dmnd /bigdata/stajichlab/jstajich/projects/NovInvenio/db/uniprot/uniprot_sprot.fasta.dmnd",
+    "--modelorgs_config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/modelorgs.yaml"
+  ],
+  "n_species": 34,
+  "report_sha256": "37e25dfce18da747fb72a9380336e60c9d1da9a03d2594a57abebdb4273de23d",
+  "note": "migrated from docs/bacteria/UHM_Koxytoca/ on 2026-09-24; params read from run_params.txt at migration time"
+}

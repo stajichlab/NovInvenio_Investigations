@@ -15,14 +15,11 @@
 # study's release(s) with NII_SKIP_DEPLOY_TRIGGER=1 (see both scripts' own
 # headers) and triggers the workflow itself, once, after the loop.
 #
-# Discovers studies by the presence of docs/<domain>/<set>/report.html (the same
-# "this is a real published gallery entry" signal bin/sync_reports.sh's own
-# domain/set index generation uses) -- not studies/*/*/, which also contains
-# comparison/dev studies with no docs/ entry at all, and not raw docs/*/*/
-# existence, which would also catch non-study directories (docs/ no longer
-# has any such directories -- Mycelium artifacts like superpowers notes live
-# under notes/superpowers/ instead -- but the same reasoning applies to any
-# future non-study docs/ entry with no report.html).
+# Discovers runs by docs/<domain>/<study>/<run>/run.json (study/run layout,
+# notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md). run.json
+# is written only by the sync scripts for a folder that has a publish.yaml, so
+# unpublished comparison/dev folders and old flat docs/<domain>/<set>/ folders
+# are never picked up.
 #
 # Usage: bin/publish_all_studies.sh [--dry-run]
 #   --dry-run  list which studies would be published, upload nothing, trigger nothing.
@@ -39,14 +36,17 @@ cd "$REPO_ROOT"
 
 published_any=0
 
-for report in docs/*/*/report.html; do
-    [ -e "$report" ] || continue
-    study_dir="$(dirname "$report")"                  # docs/<domain>/<set>
-    study="${study_dir#docs/}"                          # <domain>/<set>
+# Study/run layout: one release pair per run (docs/<domain>/<study>/<run>/run.json).
+# Old flat docs/<domain>/<set>/ folders without run.json are not published here.
+for meta in docs/*/*/*/run.json; do
+    [ -e "$meta" ] || continue
+    run_dir="$(dirname "$meta")"                       # docs/<domain>/<study>/<run>
+    study="${run_dir#docs/}"                           # <domain>/<study>/<run>
+    IFS=/ read -r d s r <<< "$study"
 
     echo "== $study =="
     if [ "$DRY_RUN" -eq 1 ]; then
-        echo "  (dry-run: would publish alignments-${study//\//-} and reports-${study//\//-})"
+        echo "  (dry-run: would publish alignments-$d-$s--$r and reports-$d-$s--$r)"
         continue
     fi
 
@@ -60,7 +60,7 @@ if [ "$DRY_RUN" -eq 1 ]; then
 fi
 
 if [ "$published_any" -eq 0 ]; then
-    echo "== no studies with docs/<domain>/<set>/report.html found -- nothing published, no deploy triggered =="
+    echo "== no runs with docs/<domain>/<study>/<run>/run.json found -- nothing published, no deploy triggered =="
     exit 0
 fi
 

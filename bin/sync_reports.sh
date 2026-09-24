@@ -41,6 +41,13 @@
 # come from an actual nextflow run's docs/<project>/ output; this script just
 # relocates them).
 #
+# Study/run layout (notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md):
+# the folder's publish.yaml names the study and run it publishes as, and the
+# reports land in docs/<domain>/<study>/<run>/, not docs/<domain>/<folder>/.
+# A folder with no publish.yaml is not published: this script says so and
+# exits 0 before doing anything. After copying, it writes the run's run.json
+# and rebuilds the study pages (bin/study_pages.py record-run).
+#
 # Usage: NOVINVENIO_ROOT=/path/to/local/NovInvenio bin/sync_reports.sh <domain>/<set_name>
 #   NOVINVENIO_ROOT must point at a local nf_NovInvenio/NovInvenio checkout (its
 #   bin/make_report.py etc. are invoked directly here, not through nextflow) --
@@ -65,9 +72,9 @@ NOVINVENIO_ROOT="${NOVINVENIO_ROOT:?Set NOVINVENIO_ROOT to a local nf_NovInvenio
 
 REPO_ROOT="$(cd "$(dirname "${0}")/.." && pwd)"
 SET_NAME="$(basename "$STUDY")"
+DOMAIN="$(dirname "$STUDY")"
 STUDY_DIR="$REPO_ROOT/studies/$STUDY"
 RESULTS_DIR="$REPO_ROOT/results/$SET_NAME"
-DOCS_DIR="$REPO_ROOT/docs/$STUDY"
 # nf_NovInvenio's own hardcoded publishDir for report.html/summary.pdf/
 # alignment.html/alignments//loss_alignments/ -- see the module docstring above
 # (Helpers.docsDir()). Not ours; just where it lands.
@@ -78,17 +85,37 @@ if [ ! -f "$RESULTS_DIR/presence_matrix.function.tsv" ]; then
     exit 0
 fi
 
+NIIPY() { pixi run --manifest-path "$REPO_ROOT/pixi.toml" python "$REPO_ROOT/bin/$1" "${@:2}"; }
+
+# Where this folder publishes (publish.yaml). Exit 3 = no publish.yaml.
+set +e
+PUB_TARGET="$(NIIPY study_pages.py target "$STUDY")"
+PUB_RC=$?
+set -e
+if [ "$PUB_RC" -eq 3 ]; then
+    echo "== $STUDY_DIR/publish.yaml not found -- this folder is not published. Add one" >&2
+    echo "   (study: <study>, run: <run>) to publish it; skipping report sync ==" >&2
+    exit 0
+elif [ "$PUB_RC" -eq 4 ]; then
+    echo "== ERROR: $STUDY_DIR/publish.yaml has no 'run:' -- main.nf folders need one ==" >&2
+    exit 1
+elif [ "$PUB_RC" -ne 0 ]; then
+    echo "== ERROR: could not read $STUDY_DIR/publish.yaml (exit $PUB_RC) ==" >&2
+    exit 1
+fi
+read -r PUB_STUDY PUB_RUN <<< "$PUB_TARGET"
+DOCS_DIR="$REPO_ROOT/docs/$DOMAIN/$PUB_STUDY/$PUB_RUN"
+
 HAS_ANNOTATIONS=0
 if [ -d "$STUDY_DIR/annotations" ] && [ -n "$(ls -A "$STUDY_DIR/annotations" 2>/dev/null)" ]; then
     HAS_ANNOTATIONS=1
 fi
 
-NIIPY() { pixi run --manifest-path "$REPO_ROOT/pixi.toml" python "$REPO_ROOT/bin/$1" "${@:2}"; }
 PIPEPY() { pixi run --manifest-path "$NOVINVENIO_ROOT/pixi.toml" python "$NOVINVENIO_ROOT/bin/$1" "${@:2}"; }
 
 if [ "$HAS_ANNOTATIONS" -eq 1 ]; then
     shopt -s nullglob
-    ANNOT_TSVS=("$STUDY_DIR"/annotations/*.tsv)
+    ANNOT_TSVS=("$STUDY_DIR"/annotations/*.tsv "$STUDY_DIR"/annotations/*.tsv.gz)
     shopt -u nullglob
 
     echo "== merging UniProt annotation into $RESULTS_DIR presence matrices ==" >&2
@@ -190,6 +217,13 @@ if [ -d "$PIPELINE_DOCS_DIR" ]; then
         [ -d "$PIPELINE_DOCS_DIR/$d" ] && rm -rf "$DOCS_DIR/$d" && rsync -r "$PIPELINE_DOCS_DIR/$d" "$DOCS_DIR/"
     done
     rm -rf "$PIPELINE_DOCS_DIR"
+fi
+
+if [ -f "$DOCS_DIR/report.html" ]; then
+    echo "== recording run $DOMAIN/$PUB_STUDY/$PUB_RUN ==" >&2
+    NIIPY study_pages.py record-run "$STUDY" --report "$DOCS_DIR/report.html"
+else
+    echo "== WARNING: $DOCS_DIR/report.html not found -- run.json not written, run not listed ==" >&2
 fi
 
 echo "== refreshing docs/ gallery ==" >&2

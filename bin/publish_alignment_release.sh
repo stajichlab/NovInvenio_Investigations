@@ -39,12 +39,19 @@
 
 set -euo pipefail
 
-STUDY="${1:?Usage: bin/publish_alignment_release.sh <domain>/<set_name>}"
+# Also accepts <domain>/<study>/<run> (study/run layout, see
+# notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md): tag
+# alignments-<domain>-<study>--<run>, manifest.json carries "run", and
+# static.yml merges the shards into docs/<domain>/<study>/<run>/.
+STUDY="${1:?Usage: bin/publish_alignment_release.sh <domain>/<set_name>[/<run>]}"
 REPO_ROOT="$(cd "$(dirname "${0}")/.." && pwd)"
 cd "$REPO_ROOT"  # so `gh`'s repo auto-detection (git remote) works regardless of caller's cwd
 
-SET_NAME="$(basename "$STUDY")"
-DOMAIN="$(dirname "$STUDY")"
+IFS=/ read -r DOMAIN SET_NAME RUN EXTRA <<< "$STUDY"
+if [ -z "$DOMAIN" ] || [ -z "$SET_NAME" ] || [ -n "${EXTRA:-}" ]; then
+    echo "ERROR: expected <domain>/<set_name>[/<run>], got '$STUDY'" >&2
+    exit 1
+fi
 DOCS_DIR="$REPO_ROOT/docs/$STUDY"
 
 if [ ! -d "$DOCS_DIR/alignments" ] && [ ! -d "$DOCS_DIR/loss_alignments" ]; then
@@ -52,13 +59,18 @@ if [ ! -d "$DOCS_DIR/alignments" ] && [ ! -d "$DOCS_DIR/loss_alignments" ]; then
     exit 0
 fi
 
-TAG="alignments-${DOMAIN}-${SET_NAME}"
 WORKDIR="$(mktemp -d)"
 trap 'rm -rf "$WORKDIR"' EXIT
 
-printf '{"domain": "%s", "set": "%s"}\n' "$DOMAIN" "$SET_NAME" > "$WORKDIR/manifest.json"
-
-TARBALL="$WORKDIR/${SET_NAME}-alignments.tar.gz"
+if [ -n "$RUN" ]; then
+    TAG="alignments-${DOMAIN}-${SET_NAME}--${RUN}"
+    printf '{"domain": "%s", "set": "%s", "run": "%s"}\n' "$DOMAIN" "$SET_NAME" "$RUN" > "$WORKDIR/manifest.json"
+    TARBALL="$WORKDIR/${SET_NAME}--${RUN}-alignments.tar.gz"
+else
+    TAG="alignments-${DOMAIN}-${SET_NAME}"
+    printf '{"domain": "%s", "set": "%s"}\n' "$DOMAIN" "$SET_NAME" > "$WORKDIR/manifest.json"
+    TARBALL="$WORKDIR/${SET_NAME}-alignments.tar.gz"
+fi
 TAR_ARGS=(-czf "$TARBALL" -C "$WORKDIR" manifest.json)
 [ -d "$DOCS_DIR/alignments" ] && TAR_ARGS+=(-C "$DOCS_DIR" alignments)
 [ -d "$DOCS_DIR/loss_alignments" ] && TAR_ARGS+=(-C "$DOCS_DIR" loss_alignments)

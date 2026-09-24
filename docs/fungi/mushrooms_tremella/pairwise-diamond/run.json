@@ -1,0 +1,13 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-09-07",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/mushrooms_tremella",
+  "source_dir": "results/mushrooms_tremella",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 4,
+  "report_sha256": "6f56dbfdba0cc517cb9dc4fe4f399557606361b1f26e26749db9a50f6c9edd3f",
+  "note": "migrated from docs/fungi/mushrooms_tremella/ on 2026-09-24; params read from run_params.txt at migration time"
+}

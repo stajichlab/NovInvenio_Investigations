@@ -48,6 +48,8 @@ h1 { font-size: 1.6rem; margin-bottom: 0.2rem; }
 .card:hover { border-color: #888; }
 .card.empty { opacity: 0.5; border-style: dashed; pointer-events: none; }
 .card h2 { font-size: 1.1rem; margin: 0 0 0.3rem; overflow-wrap: anywhere; }
+div.card h2 a { color: inherit; text-decoration: none; }
+div.card h2 a:hover { text-decoration: underline; }
 .card .desc { font-size: 0.9rem; color: #555; margin: 0 0 0.5rem; }
 .card .meta { font-size: 0.8rem; color: #888; }
 footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
@@ -142,7 +144,9 @@ _STATUS_TEXT = {
 def render_domain_index(
     domain_name: str, studies: list[dict], site_name: str = "NovInvenio Investigations"
 ) -> str:
-    """studies: [{name, slug, hypothesis, n_ingroup, n_outgroup, status, updated}]
+    """studies: [{name, slug, hypothesis, n_ingroup, n_outgroup, status,
+    href, n_runs}] -- href is the card link (the current run's report.html,
+    see bin/generate_docs.py); n_runs is the number of published runs.
 
     site_name: see render_top_level()'s docstring -- same parameterization,
     same default.
@@ -151,12 +155,25 @@ def render_domain_index(
     for s in studies:
         complete = s["status"] == "complete"
         cls = "card" if complete else "card empty"
-        href = f"{s['slug']}/report.html" if complete else "#"
+        href = (s.get("href") or f"{s['slug']}/report.html") if complete else "#"
         meta = (
             f"{s['n_ingroup']} ingroup &middot; {s['n_outgroup']} outgroup"
             if s.get("n_ingroup") is not None else ""
         )
         status_bit = _STATUS_TEXT.get(s["status"], "")
+        if complete:
+            # A div, not an <a>: it holds two links (current run, run list),
+            # and links cannot nest.
+            n_runs = s.get("n_runs") or 0
+            runs_link = (f'<a href="{escape(s["slug"])}/report.html">'
+                         f'{n_runs} run{"s" if n_runs != 1 else ""}</a>')
+            cards.append(f"""
+<div class="card">
+  <h2><a href="{escape(href)}">{escape(s['name'].replace('_', ' '))}</a></h2>
+  <p class="desc">{escape(s.get('hypothesis', ''))}</p>
+  <p class="meta">{meta}{' &middot; ' if meta else ''}{runs_link}</p>
+</div>""")
+            continue
         cards.append(f"""
 <a class="{cls}" href="{escape(href)}">
   <h2>{escape(s['name'].replace('_', ' '))}</h2>

@@ -359,6 +359,14 @@ The dividing line is "does this file's size scale with candidate/sequence count,
 "is this file under `docs/`" — a landing page and a viewer shell don't, a report table
 with embedded protein sequences does.
 
+**2026-09-24 update — study/run layout for every study.** All studies now publish
+as `docs/<domain>/<study>/<run>/`, one folder per run, with a run list at
+`docs/<domain>/<study>/report.html` and a current run in `study.json`. A
+`studies/<domain>/<folder>/publish.yaml` (`study:`, `run:`) opts a folder in; a
+folder without one is not published. The class rules below apply unchanged, one
+level down. Full design, migration and the old-URL redirect stubs:
+`notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md`.
+
 **2026-09-24 update — pangenome.nf runs.** `pangenome.nf` writes `report/report.md`
 plus figures, not the novelties/core/losses set. `bin/sync_pangenome_report.py
 --study <domain>/<set> --run <run>` stages one run into `docs/<domain>/<set>/<run>/`
