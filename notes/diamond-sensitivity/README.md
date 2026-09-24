@@ -200,7 +200,7 @@ The earlier reading was that the drops come from low-coverage (shared-domain) hi
 | sordariales_shallow | gain | 86/86 (100%) | 144/184 (78%) |
 | sordariales_shallow | loss | 527/527 (100%) | 307/422 (73%) |
 
-Overall, 71–90% of the candidates very-sensitive drops have genome-level evidence that the gene is present in the other group. So most drops remove false novelties/losses. TBLASTN is not ground truth, since it can also hit shared domains, but it is a separate method on separate data. The part without support is 22–44% of the weak-hit drops. That is about 7–29% of all drops (for example 332 of 1640 for pezizo_set1 gains).
+Overall, 71–90% of the candidates very-sensitive drops have genome-level evidence that the gene is present in the other group. So most drops remove false novelties/losses. TBLASTN is not ground truth, since it can also hit shared domains, but it is a separate method on separate data. The part without support is 22–44% of the weak-hit drops. That is 10–26% of all drops (for example 332 of 1640 for pezizo_set1 gains).
 
 **Where this leaves the decision (not made here):**
 - The pre-stated rule (a full-length majority) is not met.
