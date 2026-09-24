@@ -1,0 +1,9 @@
+# Diamond-sensitivity benchmark (notes/diamond-sensitivity/README.md).
+# Same config.csv/data_dir as studies/fungi/agaricomycetes_pairwise/ (symlinked). Tier P
+# (--cluster_tool pairwise); the only parameter that varies across the
+# agaricomycetes_dmnd_{default,sensitive,very_sensitive} studies is
+# --diamond_sensitivity. No Pfam/SwissProt/modelorgs annotation: it does not
+# change candidates.txt / loss_candidates.txt and would only add cost.
+--run_tool diamond
+--cluster_tool pairwise
+--diamond_sensitivity very-sensitive
