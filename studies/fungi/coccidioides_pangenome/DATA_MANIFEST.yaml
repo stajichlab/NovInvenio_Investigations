@@ -14309,3 +14309,47 @@
   derived_by: 'studies/fungi/coccidioides_pangenome/bin/build_reciprocal_configs.py:
     GROUP set by Species (Coccidioides posadasii -> IN, Coccidioides immitis -> OUT)'
   pulled_with: build_reciprocal_configs.py on c05
+- local_path: studies/fungi/coccidioides_pangenome/data_dir/pep/Uncinocarpus_reesii_1704.proteins.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Uncinocarpus_reesii_1704/predict_results/Uncinocarpus_reesii_1704.proteins.fa)
+  source_release: Fungi_5k gene prediction (funannotate predict), per PI 2026-09-24;
+    not independently versioned
+  access_date: '2026-09-24T07:22:19Z'
+  checksum_sha256: 14a467e6489a2d402f9018f781ccba547046f10c6b086e69afdf4942ee2bc860
+  license: Internal / unpublished annotation (not yet released outside this project)
+  derived_by: symlink to /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Uncinocarpus_reesii_1704/predict_results/Uncinocarpus_reesii_1704.proteins.fa
+    (via BFD/Fungi_BFD/function_neurospora/input/pep/); 7,397 proteins, IDs F4EA5946_*
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/data_dir/dna/Uncinocarpus_reesii_1704.scaffolds.fa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000003515.1/
+  source_release: NCBI RefSeq assembly GCF_000003515.1 (ASM351v2), Uncinocarpus reesii
+    1704
+  access_date: '2026-09-24T07:22:20Z'
+  checksum_sha256: 0ff525de0d706e2d7a56f07638e468803b7596d432ada8bfa623a88365bee9f2
+  license: 'NCBI places no restrictions on use or distribution of RefSeq/INSDC data; original submitters may claim rights (https://www.ncbi.nlm.nih.gov/home/about/policies/)'
+  derived_by: 'symlink to /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Uncinocarpus_reesii_1704/predict_results/Uncinocarpus_reesii_1704.scaffolds.fa
+    (funannotate predict input genome). Checked 2026-09-24 against a fresh `datasets
+    download genome accession GCF_000003515.1`: 7 sequences, all identical to their
+    NCBI records (the 7 largest, 22,302,048 of 22,349,738 bp = 99.79%); the other
+    38 NCBI sequences (all < 2 kb, 47,690 bp) are not in this file'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/data_dir/gff3/Uncinocarpus_reesii_1704.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Uncinocarpus_reesii_1704/predict_results/Uncinocarpus_reesii_1704.gff3)
+  source_release: Fungi_5k gene prediction (funannotate predict), same run as the
+    proteins; not independently versioned
+  access_date: '2026-09-24T07:22:20Z'
+  checksum_sha256: 84c44093c3def05e988bd84b0c3108d9c9cf406974d4dfcac0d9e8a8c201071f
+  license: Internal / unpublished annotation (not yet released outside this project)
+  derived_by: symlink to /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Uncinocarpus_reesii_1704/predict_results/Uncinocarpus_reesii_1704.gff3;
+    7,397 mRNA features, source column funannotate, IDs F4EA5946_* (match the proteins)
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/config_genus_vs_ureesii.csv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/config.csv, sha256
+    ba3ebdc6ddac56fafcf2dcdc7a1c6e0bcca1f700623455c53c335d4f860b7c40)
+  source_release: derived from this study's config.csv
+  access_date: '2026-09-24T07:22:20Z'
+  checksum_sha256: 950b9217e26509c806c706369a1e74ab7d7b5d33aa2b68a6851c55a20adbe0c5
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: rows 1-529 = config.csv unchanged (all GROUP=IN); one appended OUT row
+    for Uncinocarpus reesii UAMH1704 (Short Uree) pointing at the three data_dir files
+    above. Verified 2026-09-24; the script that first wrote it is not recorded
+  pulled_with: '- on c05'
