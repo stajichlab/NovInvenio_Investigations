@@ -1,0 +1,37 @@
+label	direction	mode	n_lost	evalue_bin	qcov_bin	n	frac
+sordariales_shallow	gain	sensitive	264	1e-20<=E<1e-5	30<=qcov<60	61	0.2311
+sordariales_shallow	gain	sensitive	264	1e-20<=E<1e-5	qcov<30	59	0.2235
+sordariales_shallow	gain	sensitive	264	1e-20<=E<1e-5	qcov>=60	53	0.2008
+sordariales_shallow	gain	sensitive	264	1e-50<=E<1e-20	30<=qcov<60	26	0.0985
+sordariales_shallow	gain	sensitive	264	1e-50<=E<1e-20	qcov<30	6	0.0227
+sordariales_shallow	gain	sensitive	264	1e-50<=E<1e-20	qcov>=60	45	0.1705
+sordariales_shallow	gain	sensitive	264	E<1e-50	30<=qcov<60	3	0.0114
+sordariales_shallow	gain	sensitive	264	E<1e-50	qcov>=60	5	0.0189
+sordariales_shallow	gain	sensitive	264	no significant raw hit		6	0.0227
+sordariales_shallow	gain	very_sensitive	288	1e-20<=E<1e-5	30<=qcov<60	65	0.2257
+sordariales_shallow	gain	very_sensitive	288	1e-20<=E<1e-5	qcov<30	68	0.2361
+sordariales_shallow	gain	very_sensitive	288	1e-20<=E<1e-5	qcov>=60	64	0.2222
+sordariales_shallow	gain	very_sensitive	288	1e-50<=E<1e-20	30<=qcov<60	26	0.0903
+sordariales_shallow	gain	very_sensitive	288	1e-50<=E<1e-20	qcov<30	5	0.0174
+sordariales_shallow	gain	very_sensitive	288	1e-50<=E<1e-20	qcov>=60	47	0.1632
+sordariales_shallow	gain	very_sensitive	288	E<1e-50	30<=qcov<60	3	0.0104
+sordariales_shallow	gain	very_sensitive	288	E<1e-50	qcov>=60	5	0.0174
+sordariales_shallow	gain	very_sensitive	288	no significant raw hit		5	0.0174
+sordariales_shallow	loss	sensitive	915	1e-20<=E<1e-5	30<=qcov<60	134	0.1464
+sordariales_shallow	loss	sensitive	915	1e-20<=E<1e-5	qcov<30	75	0.082
+sordariales_shallow	loss	sensitive	915	1e-20<=E<1e-5	qcov>=60	183	0.2
+sordariales_shallow	loss	sensitive	915	1e-50<=E<1e-20	30<=qcov<60	63	0.0689
+sordariales_shallow	loss	sensitive	915	1e-50<=E<1e-20	qcov<30	4	0.0044
+sordariales_shallow	loss	sensitive	915	1e-50<=E<1e-20	qcov>=60	368	0.4022
+sordariales_shallow	loss	sensitive	915	E<1e-50	30<=qcov<60	1	0.0011
+sordariales_shallow	loss	sensitive	915	E<1e-50	qcov>=60	81	0.0885
+sordariales_shallow	loss	sensitive	915	no significant raw hit		6	0.0066
+sordariales_shallow	loss	very_sensitive	972	1e-20<=E<1e-5	30<=qcov<60	158	0.1626
+sordariales_shallow	loss	very_sensitive	972	1e-20<=E<1e-5	qcov<30	79	0.0813
+sordariales_shallow	loss	very_sensitive	972	1e-20<=E<1e-5	qcov>=60	202	0.2078
+sordariales_shallow	loss	very_sensitive	972	1e-50<=E<1e-20	30<=qcov<60	65	0.0669
+sordariales_shallow	loss	very_sensitive	972	1e-50<=E<1e-20	qcov<30	4	0.0041
+sordariales_shallow	loss	very_sensitive	972	1e-50<=E<1e-20	qcov>=60	376	0.3868
+sordariales_shallow	loss	very_sensitive	972	E<1e-50	30<=qcov<60	1	0.001
+sordariales_shallow	loss	very_sensitive	972	E<1e-50	qcov>=60	81	0.0833
+sordariales_shallow	loss	very_sensitive	972	no significant raw hit		6	0.0062

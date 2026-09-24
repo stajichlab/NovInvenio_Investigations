@@ -1,0 +1,4 @@
+label	mode	trace	n_search_rows	search_wall_h	search_cpu_h	self_wall_h	self_cpu_h	tier_p_wall_h	tier_p_cpu_h
+agaricomycetes	default	agaricomycetes_dmnd_default-20260923_192837-trace.txt	21	0.026	0.567	0.008	0.176	0.114	1.716
+agaricomycetes	sensitive	agaricomycetes_dmnd_sensitive-20260923_192837-trace.txt	21	0.051	0.701	0.01	0.186	0.168	2.079
+agaricomycetes	very_sensitive	agaricomycetes_dmnd_very_sensitive-20260923_192838-trace.txt	21	0.039	0.73	0.011	0.187	0.143	1.889

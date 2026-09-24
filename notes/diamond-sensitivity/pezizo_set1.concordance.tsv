@@ -1,0 +1,7 @@
+label	direction	mode	n_candidates	shared_with_default	gained_vs_default	lost_vs_default	jaccard_vs_default	n_ch	ch_precision_vs_mode	ch_recall_vs_mode	jaccard_vs_ch	n_ch_extras_vs_default	ch_extras_recovered	n_ch_misses_vs_default	ch_misses_resolved
+pezizo_set1	gain	default	3515	3515	0	0	1.0	1400	0.5757	0.2293	0.1962	594	0.0	2709	0.0
+pezizo_set1	gain	sensitive	3222	1874	1348	1641	0.3854	1400	0.7521	0.3268	0.295	594	0.4832	2709	0.591
+pezizo_set1	gain	very_sensitive	3193	1755	1438	1760	0.3543	1400	0.7743	0.3395	0.3089	594	0.5387	2709	0.6342
+pezizo_set1	loss	default	101	101	0	0	1.0	39	0.3333	0.1287	0.1024	26	0.0	88	0.0
+pezizo_set1	loss	sensitive	122	29	93	72	0.1495	39	0.4359	0.1393	0.1181	26	0.1538	88	0.8182
+pezizo_set1	loss	very_sensitive	141	28	113	73	0.1308	39	0.4359	0.1206	0.1043	26	0.1538	88	0.8295

@@ -1,6 +1,6 @@
 # Diamond sensitivity benchmark for Tier P
 
-Date: 2026-09-23. Status: constructed, not yet run.
+Date: 2026-09-23. Status: run and analysed 2026-09-23 (results below).
 
 Follows on from `notes/cluster-vs-pairwise/README.md` and the nf_NovInvenio todo `diamond-very-sensitive-main-search.md`.
 
@@ -96,3 +96,61 @@ This candidate shows the failure the benchmark targets. It was reported by the u
   Conilign, Cryppara and Eutylata have TBLASTN hits but no protein hit in either mode. Their gene models may be missing or split there. This was not checked.
 
 This is a false novelty in Tier C+H. Tier P rejected it, but on a single outgroup hit. The `tblastn_outgroup_hits` column already flags it in the report, because `MAKE_NOVELTIES` runs with `--skip_tblastn_filter`. The benchmark should show whether `--very-sensitive` catches this class of protein, conserved-domain proteins with long low-complexity regions, across whole proteomes.
+
+
+## Results (2026-09-23)
+
+All 9 runs completed on pipeline commit `a8b68df`, with the diamond steps on `-C milan`. The two sordariales sensitive-mode runs were first OOM-killed in the loss-direction `BUILD_PRESENCE_MATRIX` step (exit 137; default mode peaked at 2.7 GB). They were resumed with 16 GB for that step. Their searches had already completed, so costs are read from the first trace (`--trace`, chosen by the most COMPLETED `DIAMOND_SEARCH` rows).
+
+**Cost** (search = `DIAMOND_SEARCH`+`MAKEDB`; `<clade>.cost.tsv`):
+
+| Clade | default search cpu-h | sensitive | very-sensitive |
+|---|---|---|---|
+| pezizo_set1 | 1.54 | 1.56 | 1.54 |
+| agaricomycetes | 0.57 | 0.70 | 0.73 |
+| sordariales_shallow | 1.94 | 2.71 | 3.25 |
+
+The search cost rises at most 1.7×. `--very-sensitive` returns about 2.4× more raw hits (Amega vs Afum: 17,248 → 41,705 lines), but each 32-thread query-vs-all task takes about 25 s instead of 18 s. Even the largest value is about 1000× below Tier C+H (878–3305 cpu-h).
+
+**Candidates** (`<clade>.concordance.tsv`; gained/lost are against default mode):
+
+| Clade | Dir | default | sensitive (gained/lost) | very-sensitive (gained/lost) |
+|---|---|---|---|---|
+| pezizo_set1 | gain | 3515 | 3222 (+1348/−1641) | 3193 (+1438/−1760) |
+| pezizo_set1 | loss | 101 | 122 (+93/−72) | 141 (+113/−73) |
+| agaricomycetes | gain | 9441 | 9933 (+3095/−2603) | 9961 (+3408/−2888) |
+| agaricomycetes | loss | 215 | 242 (+148/−121) | 241 (+149/−123) |
+| sordariales_shallow | gain | 568 | 531 (+227/−264) | 509 (+229/−288) |
+| sordariales_shallow | loss | 1620 | 1363 (+658/−915) | 1330 (+682/−972) |
+
+The candidate sets change a lot. A more sensitive search removes candidates (new other-group hits) and also adds them (new seed-group hits lift proteins over the 75% seed-group threshold).
+
+**Agreement with Tier C+H.** The more sensitive modes move Tier P toward Tier C+H in every clade and direction:
+- `ch_extras_recovered`: of the C+H candidates that default P rejects, sensitive modes now call 15–54%. For losses in pezizo_set1 this is 15%. Every other clade/direction is 41–54%.
+- `ch_misses_resolved`: of the default-P candidates that C+H rejects, the sensitive modes also drop 38–83%.
+
+**Controls** (`<clade>.<mode>.controls_summary.tsv`): identical in all three modes.
+- pezizo_set1: 6/6 positives; negatives not resolved.
+- agaricomycetes: positives not resolved in Tier P; 0/5 negatives false positive.
+- sordariales_shallow: 1/1 positive; 0/8 false positive.
+
+**Evidence behind lost candidates** (`<clade>.lost_evidence.tsv`): the best new other-group hit of each candidate a mode loses.
+
+| Clade | Dir | Mode | Lost | qcov ≥ 60 and E < 1e-20 | qcov < 30 |
+|---|---|---|---|---|---|
+| pezizo_set1 | gain | sensitive | 1641 | 30% | 20% |
+| pezizo_set1 | gain | very-sensitive | 1760 | 29% | 19% |
+| agaricomycetes | gain | sensitive | 2603 | 27% | 20% |
+| agaricomycetes | gain | very-sensitive | 2888 | 25% | 20% |
+| sordariales_shallow | gain | sensitive | 264 | 19% | 25% |
+| sordariales_shallow | gain | very-sensitive | 288 | 18% | 25% |
+| sordariales_shallow | loss | very-sensitive | 972 | 47% | 9% |
+
+The loss rows for pezizo_set1 and agaricomycetes are 36–37% full-length and 12–16% qcov < 30.
+
+**Decision, by the rule stated before the runs:**
+- The controls are no worse, so the first condition holds.
+- The lost candidates are not mostly supported by full-length hits. Only 18–49% are, and 9–25% rest on hits covering less than 30% of the query. The second condition fails.
+- The rule's action for this outcome is to pair the sensitive mode with the other-group coverage floor (`--other_coverage_floor_qcov 15`, issue #158) and re-measure.
+- The step to run next: `--diamond_sensitivity very-sensitive --other_coverage_floor_qcov 15`, on the same three clades.
+- Adoption as the default is not decided yet.

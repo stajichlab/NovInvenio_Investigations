@@ -1,0 +1,4 @@
+label	mode	trace	n_search_rows	search_wall_h	search_cpu_h	self_wall_h	self_cpu_h	tier_p_wall_h	tier_p_cpu_h
+sordariales_shallow	default	sordariales_shallow_dmnd_default-20260923_192837-trace.txt	36	0.1	1.935	0.02	0.363	0.277	2.982
+sordariales_shallow	sensitive	sordariales_shallow_dmnd_sensitive-20260923_192837-trace.txt	36	0.171	2.713	0.019	0.353	0.324	3.377
+sordariales_shallow	very_sensitive	sordariales_shallow_dmnd_very_sensitive-20260923_192836-trace.txt	36	0.152	3.247	0.018	0.35	0.283	3.786

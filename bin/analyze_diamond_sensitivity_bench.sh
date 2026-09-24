@@ -21,6 +21,18 @@ CLADES=(
   "sordariales_shallow|sordariales_shallow|results/sordariales_shallow_cluster|legacy/novinvenio_configs/controls/sordariales_shallow.controls.csv|studies/fungi/sordariales_shallow/busco_map.tsv"
 )
 
+# Trace holding a mode's search: the one with the most COMPLETED DIAMOND_SEARCH rows.
+# A resumed run (e.g. after an OOM retry) writes a later trace whose search rows are
+# CACHED or absent, so "newest trace" would under-count the search cost.
+search_trace() {
+    local best="" bestn=-1 t n
+    for t in "$1"/nextflow_log/*-trace.txt; do
+        n=$(awk -F'\t' '$4 ~ /DIAMOND_SEARCH/ && $5 == "COMPLETED"' "$t" | wc -l)
+        if [ "$n" -gt "$bestn" ]; then best=$t; bestn=$n; fi
+    done
+    echo "$best"
+}
+
 for spec in "${CLADES[@]}"; do
     IFS='|' read -r label cstudy chdir controls busco <<< "$spec"
     cfg="studies/fungi/$cstudy/config.csv"
@@ -28,6 +40,9 @@ for spec in "${CLADES[@]}"; do
         --mode default "results/${label}_dmnd_default" \
         --mode sensitive "results/${label}_dmnd_sensitive" \
         --mode very_sensitive "results/${label}_dmnd_very_sensitive" \
+        --trace default "$(search_trace "results/${label}_dmnd_default")" \
+        --trace sensitive "$(search_trace "results/${label}_dmnd_sensitive")" \
+        --trace very_sensitive "$(search_trace "results/${label}_dmnd_very_sensitive")" \
         --ch-dir "$chdir" \
         --output-prefix "$OUT/$label" \
         --output-lost-detail "$DETAIL/$label.lost_detail.tsv"

@@ -134,6 +134,11 @@ def search_cost(results_dir, trace_file=None):
             'tier_p_wall_h': tot_wall, 'tier_p_cpu_h': tot_cpu}
 
 
+def parse_trace_overrides(pairs):
+    """[[mode, trace_file], ...] from --trace -> {mode: trace_file}."""
+    return {m: t for m, t in (pairs or [])}
+
+
 def write_tsv(path, rows):
     if not rows:
         return
@@ -152,6 +157,10 @@ def main():
     ap.add_argument('--mode', action='append', nargs=2, metavar=('NAME', 'RESULTS_DIR'),
                     required=True, dest='modes',
                     help='Repeatable. The first --mode is the baseline (default diamond).')
+    ap.add_argument('--trace', action='append', nargs=2, metavar=('NAME', 'TRACE_FILE'),
+                    dest='traces', help='Repeatable. Trace file to cost a mode from, instead of '
+                    'the newest one in its nextflow_log/ (use when a resumed run left a '
+                    'later, partial trace).')
     ap.add_argument('--ch-dir', required=True, dest='ch_dir', help="Tier C+H run's results dir")
     ap.add_argument('--evalue', type=float, default=1e-5,
                     help='Significance cutoff used by the runs (for lost-candidate evidence)')
@@ -165,8 +174,9 @@ def main():
     base_name, base_dir = args.modes[0]
 
     cost_rows, conc_rows, ev_rows, detail = [], [], [], []
+    traces = parse_trace_overrides(args.traces)
     for name, rdir in args.modes:
-        c = search_cost(rdir)
+        c = search_cost(rdir, traces.get(name))
         cost_rows.append({'label': args.label, 'mode': name, **c})
 
     for direction, fname in DIRECTIONS.items():

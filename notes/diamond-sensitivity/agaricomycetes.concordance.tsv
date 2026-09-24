@@ -1,0 +1,7 @@
+label	direction	mode	n_candidates	shared_with_default	gained_vs_default	lost_vs_default	jaccard_vs_default	n_ch	ch_precision_vs_mode	ch_recall_vs_mode	jaccard_vs_ch	n_ch_extras_vs_default	ch_extras_recovered	n_ch_misses_vs_default	ch_misses_resolved
+agaricomycetes	gain	default	9441	9441	0	0	1.0	5344	0.5161	0.2921	0.2293	2586	0.0	6683	0.0
+agaricomycetes	gain	sensitive	9933	6838	3095	2603	0.5455	5344	0.7302	0.3928	0.343	2586	0.4644	6683	0.381
+agaricomycetes	gain	very_sensitive	9961	6553	3408	2888	0.51	5344	0.7498	0.4023	0.3547	2586	0.5101	6683	0.4217
+agaricomycetes	loss	default	215	215	0	0	1.0	88	0.3068	0.1256	0.0978	61	0.0	188	0.0
+agaricomycetes	loss	sensitive	242	94	148	121	0.259	88	0.6477	0.2355	0.2088	61	0.5082	188	0.6383
+agaricomycetes	loss	very_sensitive	241	92	149	123	0.2527	88	0.6591	0.2407	0.214	61	0.5246	188	0.6489

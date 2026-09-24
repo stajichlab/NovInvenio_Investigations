@@ -52,3 +52,8 @@ def test_best_other_hits(tmp_path):
         fh.writelines(rows[3:])
     best = dsr.best_other_hits(tmp_path, {'A': {'p1'}}, {'X', 'Y'}, 1e-5)
     assert best == {'p1': (1e-30, 25.0, 'X')}
+
+
+def test_trace_override_parses():
+    assert dsr.parse_trace_overrides([['sensitive', '/x/t1.txt']]) == {'sensitive': '/x/t1.txt'}
+    assert dsr.parse_trace_overrides(None) == {}
