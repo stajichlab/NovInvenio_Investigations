@@ -50,7 +50,16 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          tags=$(gh release list --repo "${{ github.repository }}" --json tagName -q '.[].tagName' | grep -E '^(alignments|reports)-' || true)
+          # --limit: gh release list returns only 30 releases by default, so
+          # without it any release past the 30 newest was silently not merged
+          # (seen 2026-09-24: 50 releases, 20 skipped, deploy still "success").
+          all_tags=$(gh release list --repo "${{ github.repository }}" --limit 1000 --json tagName -q '.[].tagName')
+          if [ "$(printf '%s\n' "$all_tags" | grep -c .)" -ge 1000 ]; then
+            echo "::error::1000+ releases -- raise --limit in static.yml or some will be skipped"
+            exit 1
+          fi
+          tags=$(printf '%s\n' "$all_tags" | grep -E '^(alignments|reports)-' || true)
+          echo "found $(printf '%s\n' "$tags" | grep -c . || true) alignments-*/reports-* releases"
           if [ -z "$tags" ]; then
             echo "No alignments-*/reports-* releases found -- nothing to merge."
             exit 0
