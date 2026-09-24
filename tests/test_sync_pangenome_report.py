@@ -9,7 +9,8 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 
-from pangenome_site import render_markdown, render_run_index  # noqa: E402
+from pangenome_site import render_markdown  # noqa: E402
+from study_runs import render_run_index  # noqa: E402
 from sync_pangenome_report import main  # noqa: E402
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -32,10 +33,13 @@ Total families: 3
 """
 
 
-def _fake_study(root: Path, run: str = "run_a", with_optional: bool = True) -> Path:
+def _fake_study(root: Path, run: str = "run_a", with_optional: bool = True,
+                publish: bool = True) -> Path:
     study = root / "studies" / "fungi" / "demo_pangenome"
     study.mkdir(parents=True)
     (study / "species.csv").write_text("Short,Group\ns1,IN\ns2,IN\nout,OUT\n")
+    if publish:
+        (study / "publish.yaml").write_text("study: demo_pangenome\n")
     pg = study / "results" / run / "output" / "pangenome"
     (pg / "report" / "figures").mkdir(parents=True)
     (pg / "report" / "figures_pdf").mkdir()
@@ -161,10 +165,38 @@ def test_render_markdown_disables_raw_html():
 
 
 def test_render_run_index_empty_and_counts():
-    assert "No runs published yet" in render_run_index("fungi", "s", [])
+    assert "No runs published yet" in render_run_index("fungi", "s", [], None)
     html = render_run_index("fungi", "s", [{"run": "r", "published": "2026-09-23",
-                                            "n_families": 54421, "n_strains": 530}])
+                                            "n_families": 54421, "n_strains": 530}], "r")
     assert "54,421" in html and "530" in html
+
+
+def test_missing_publish_yaml_skips_without_error(tmp_path, capsys):
+    _fake_study(tmp_path, publish=False)
+    assert _run(tmp_path, "--run", "run_a") == 0
+    assert not (tmp_path / "docs").exists()
+    assert "publish.yaml not found" in capsys.readouterr().err
+
+
+def test_publish_yaml_study_name_sets_docs_dir(tmp_path):
+    study = _fake_study(tmp_path)
+    (study / "publish.yaml").write_text("study: cocci\n")
+    _run(tmp_path, "--run", "run_a")
+    assert (tmp_path / "docs" / "fungi" / "cocci" / "run_a" / "report.html").exists()
+
+
+def test_single_run_becomes_current_and_index_redirects(tmp_path):
+    _fake_study(tmp_path)
+    _run(tmp_path, "--run", "run_a")
+    study_docs = tmp_path / "docs" / "fungi" / "demo_pangenome"
+    assert json.loads((study_docs / "study.json").read_text()) == {"current": "run_a"}
+    assert 'url=run_a/report.html' in (study_docs / "index.html").read_text()
+
+
+def test_bad_run_name_rejected(tmp_path):
+    _fake_study(tmp_path)
+    with pytest.raises(SystemExit, match="not a valid name"):
+        _run(tmp_path, "--run", "bad name")
 
 
 @pytest.mark.parametrize("path,ignored", [

@@ -1,0 +1,15 @@
+{
+  "run": "novelty-discovery",
+  "published": "2026-09-11",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/agaricomycetes_novelty_discovery",
+  "source_dir": "results/agaricomycetes_novelty_discovery",
+  "params": [
+    "--run_tool diamond",
+    "--cluster_tool novelty_discovery",
+    "--hmm_presence_domain_evalue 0.01"
+  ],
+  "n_species": 8,
+  "report_sha256": "fd4198efdfaba56c43cd2f4500774f458239df57574c851e7d9f4bcdca9452e1",
+  "note": "migrated from docs/fungi/agaricomycetes_novelty_discovery/ on 2026-09-24; params read from run_params.txt at migration time"
+}

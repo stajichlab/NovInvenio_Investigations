@@ -81,6 +81,19 @@ docs/*/*/core.html
 docs/*/*/losses.html
 docs/*/*/summary.pdf
 
+# Study/run layout (notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md):
+# the same release-asset-only files one level down, in docs/<domain>/<study>/<run>/.
+# The set-level rules above stay: old flat folders (and the temporary *_dmnd_*
+# test folders) still hold real reports there. The only files committed at set
+# level under these names are redirect stubs for old URLs, force-added by
+# bin/migrate_docs_to_runs.py; tests/test_study_runs.py checks each one is a stub.
+docs/*/*/*/novelties.html
+docs/*/*/*/core.html
+docs/*/*/*/losses.html
+docs/*/*/*/summary.pdf
+docs/*/*/*/alignments/
+docs/*/*/*/loss_alignments/
+
 # pangenome.nf runs publish one page per run at docs/<domain>/<set>/<run>/
 # (bin/sync_pangenome_report.py). Only that run's report.html and run.json are
 # committed. Figures are regenerated binaries; the tables and the synteny

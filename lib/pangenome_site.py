@@ -3,7 +3,7 @@
 A pangenome study can have several runs (studies/<domain>/<set>/results/<run>/).
 Each run gets its own page, and the study page lists the runs:
 
-  docs/<domain>/<set>/report.html          study landing: run list (committed)
+  docs/<domain>/<set>/report.html          study run list (lib/study_runs.py)
   docs/<domain>/<set>/<run>/report.html    run report, rendered from the
                                            pipeline's report/report.md (committed)
   docs/<domain>/<set>/<run>/run.json       run metadata + source checksum (committed)
@@ -39,8 +39,6 @@ _REPORT_CSS = """
 .report td { overflow-wrap: anywhere; }
 .crumbs { font-size: 0.85rem; margin-bottom: 1rem; }
 .downloads li { margin: 0.2rem 0; }
-.runs { border-collapse: collapse; margin-top: 1rem; }
-.runs th, .runs td { border: 1px solid #ccc; padding: 0.4rem 0.7rem; text-align: left; }
 </style>
 """
 
@@ -91,37 +89,3 @@ def render_run_report(
     body.append(render_markdown(md_text))
     body.append("</div>")
     return _page(f"{set_name} / {run}", "\n".join(body))
-
-
-def render_run_index(domain: str, set_name: str, runs: list[dict]) -> str:
-    """The study landing page: docs/<domain>/<set>/report.html, one row per
-    published run. Each run dict has: run, published, n_families (int or
-    None), n_strains (int or None)."""
-    body = [_REPORT_CSS, '<div class="report">']
-    body.append(_crumbs([
-        ("gallery", "../../index.html"),
-        (domain, "../index.html"),
-        (set_name, None),
-    ]))
-    body.append(f"<h1>{escape(set_name)}</h1>")
-    body.append(
-        "<p>Pangenome study. Each row is one pipeline run (a parameter set "
-        "or input set). Runs are listed newest first by publish date.</p>"
-    )
-    if not runs:
-        body.append("<p>No runs published yet.</p>")
-    else:
-        body.append(
-            '<table class="runs"><thead><tr><th>Run</th><th>Families</th>'
-            "<th>Strains</th><th>Published</th></tr></thead><tbody>"
-        )
-        for r in sorted(runs, key=lambda r: (r.get("published") or "", r["run"]), reverse=True):
-            fam = "" if r.get("n_families") is None else f"{r['n_families']:,}"
-            strains = "" if r.get("n_strains") is None else f"{r['n_strains']:,}"
-            body.append(
-                f'<tr><td><a href="{escape(r["run"])}/report.html">{escape(r["run"])}</a></td>'
-                f"<td>{fam}</td><td>{strains}</td><td>{escape(r.get('published') or '')}</td></tr>"
-            )
-        body.append("</tbody></table>")
-    body.append("</div>")
-    return _page(set_name, "\n".join(body))

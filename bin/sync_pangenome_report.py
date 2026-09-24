@@ -5,7 +5,12 @@ pangenome.nf writes report/report.md + figures, not the novelties/core/losses
 HTML set that bin/sync_reports.sh handles. This script is the pangenome
 counterpart. Layout and data classes: see lib/pangenome_site.py's docstring.
 
-Steps, for --study <domain>/<set> --run <run>:
+The folder must have a publish.yaml naming its study (spec:
+notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md); without
+one the run is not published. The run name is --run (one folder holds several
+runs under results/).
+
+Steps, for --study <domain>/<folder> --run <run>:
   1. Find the run's pangenome output dir:
      studies/<domain>/<set>/results/<run>/*/pangenome/ (the `*` is the
      pipeline's --outdir project subdir). Exactly one match is required;
@@ -15,8 +20,8 @@ Steps, for --study <domain>/<set> --run <run>:
      These are gitignored (release asset only).
   3. Render docs/<domain>/<set>/<run>/report.html from report/report.md, and
      write run.json (source path, sha256 of report.md, counts).
-  4. Rebuild docs/<domain>/<set>/report.html (the run list) from every
-     docs/<domain>/<set>/*/run.json.
+  4. Rebuild the study pages (run list, index redirect, study.json) from
+     every docs/<domain>/<study>/*/run.json. --current marks this run current.
 
 It does not publish anything. Run bin/generate_docs.py after it to refresh the
 gallery, then bin/publish_report_release.sh <domain>/<set>/<run> to upload the
@@ -29,7 +34,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import csv
 import datetime
 import gzip
 import hashlib
@@ -39,8 +43,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "lib"))
-from pangenome_site import render_markdown, render_run_index, render_run_report  # noqa: E402
+from pangenome_site import render_markdown, render_run_report  # noqa: E402
 from site_pages import _page, render_report_redirect  # noqa: E402
+from study_runs import load_publish_target, rebuild_study_pages, set_current, validate_slug  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -152,6 +157,7 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
     meta = {
         "run": run,
         "published": today,
+        "pipeline": "pangenome.nf",
         "source_dir": source_label,
         "report_md_sha256": sha256_of(report_md),
         "n_families": count_data_rows(pangenome_dir / "frequency_table.tsv"),
@@ -161,31 +167,32 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
     return meta
 
 
-def rebuild_study_index(study_docs: Path, domain: str, set_name: str) -> list[dict]:
-    runs = []
-    for meta_path in sorted(study_docs.glob("*/run.json")):
-        with open(meta_path) as fh:
-            runs.append(json.load(fh))
-    (study_docs / "report.html").write_text(render_run_index(domain, set_name, runs))
-    return runs
-
-
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--study", required=True, help="<domain>/<set_name>, e.g. fungi/coccidioides_pangenome")
-    ap.add_argument("--run", required=True, help="run name under studies/<domain>/<set>/results/")
+    ap.add_argument("--study", required=True, help="<domain>/<folder>, e.g. fungi/coccidioides_pangenome")
+    ap.add_argument("--run", required=True, help="run name under studies/<domain>/<folder>/results/")
+    ap.add_argument("--current", action="store_true", help="mark this run as the study's current run")
     ap.add_argument("--pangenome-dir", type=Path, default=None,
                     help="override the auto-detected <run>/*/pangenome/ dir")
     ap.add_argument("--repo-root", type=Path, default=REPO_ROOT, help=argparse.SUPPRESS)
     args = ap.parse_args(argv)
 
-    domain, _, set_name = args.study.partition("/")
-    if not domain or not set_name or "/" in set_name or "/" in args.run:
-        raise SystemExit(f"ERROR: --study must be <domain>/<set> and --run a single name "
-                         f"(got {args.study!r}, {args.run!r})")
-    study_dir = args.repo_root / "studies" / domain / set_name
+    domain, _, folder = args.study.partition("/")
+    if not domain or not folder or "/" in folder:
+        raise SystemExit(f"ERROR: --study must be <domain>/<folder> (got {args.study!r})")
+    try:
+        validate_slug(args.run, "--run")
+    except ValueError as e:
+        raise SystemExit(f"ERROR: {e}")
+    study_dir = args.repo_root / "studies" / domain / folder
     if not (study_dir / "species.csv").exists():
         raise SystemExit(f"ERROR: {study_dir}/species.csv not found -- not a defined study")
+    target = load_publish_target(study_dir)
+    if target is None:
+        print(f"== {study_dir}/publish.yaml not found -- not published. Add one "
+              "(study: <name>) to publish this folder. ==", file=sys.stderr)
+        return 0
+    set_name = target.study
 
     pangenome_dir = args.pangenome_dir or find_pangenome_dir(study_dir, args.run)
     if not (pangenome_dir / "report" / "report.md").is_file():
@@ -200,7 +207,9 @@ def main(argv: list[str] | None = None) -> int:
     today = datetime.datetime.now(datetime.UTC).date().isoformat()
     meta = stage_run(pangenome_dir, study_docs / args.run, domain, set_name, args.run,
                      source_label, today)
-    runs = rebuild_study_index(study_docs, domain, set_name)
+    if args.current:
+        set_current(study_docs, args.run)
+    runs = rebuild_study_pages(study_docs, domain, set_name)
     print(f"staged {args.study}/{args.run} from {source_label} "
           f"({meta['n_families']} families, {meta['n_strains']} strains); "
           f"study index lists {len(runs)} run(s)", file=sys.stderr)

@@ -1,0 +1,16 @@
+{
+  "run": "mmseqs-cov0.3",
+  "published": "2026-09-09",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/pezizo_set1_cluster",
+  "source_dir": "results/pezizo_set1_cluster",
+  "params": [
+    "--run_tool diamond",
+    "--cluster_tool mmseqs",
+    "--hmm_presence_cov 0.3",
+    "--hmm_presence_min_residues 100"
+  ],
+  "n_species": 11,
+  "report_sha256": "a16ede4e43a10b5e6849fcd490697309758d3faca0e12ddbe64ea1f7dd4ad47e",
+  "note": "migrated from docs/fungi/pezizo_set1_cluster/ on 2026-09-24; params read from run_params.txt at migration time"
+}
