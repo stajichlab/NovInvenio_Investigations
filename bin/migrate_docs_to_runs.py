@@ -91,7 +91,7 @@ def plan(root: Path) -> list[dict]:
         if not entries or (not leftover and "report.html" not in entries):
             continue
         unknown = sorted(p.name for p in old.iterdir()
-                         if p.name not in KNOWN_ENTRIES and p.name != "index.html"
+                         if p.name not in KNOWN_ENTRIES and p.name not in ("index.html", "study.json")
                          and not (p.is_dir() and (p / "run.json").exists()))
         items.append({"domain": domain, "folder": folder, "study": target.study,
                       "run": target.run, "old": old, "new": new,
