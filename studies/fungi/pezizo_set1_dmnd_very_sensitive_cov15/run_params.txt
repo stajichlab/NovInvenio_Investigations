@@ -1,0 +1,8 @@
+# Diamond-sensitivity benchmark, follow-up (notes/diamond-sensitivity/README.md,
+# "Decision"): --very-sensitive plus the other-group coverage floor (issue #158,
+# qcov 15), to test whether the floor removes the low-coverage hits behind the
+# candidates that --very-sensitive alone drops. Same inputs as studies/fungi/pezizo_set1/.
+--run_tool diamond
+--cluster_tool pairwise
+--diamond_sensitivity very-sensitive
+--other_coverage_floor_qcov 15
