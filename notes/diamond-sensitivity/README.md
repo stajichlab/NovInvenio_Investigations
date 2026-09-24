@@ -154,3 +154,58 @@ The loss rows for pezizo_set1 and agaricomycetes are 36–37% full-length and 12
 - The rule's action for this outcome is to pair the sensitive mode with the other-group coverage floor (`--other_coverage_floor_qcov 15`, issue #158) and re-measure.
 - The step to run next: `--diamond_sensitivity very-sensitive --other_coverage_floor_qcov 15`, on the same three clades.
 - Adoption as the default is not decided yet.
+
+
+## Follow-up: very-sensitive + coverage floor qcov 15 (2026-09-23)
+
+Studies `<clade>_dmnd_very_sensitive_cov15`, run as `--diamond_sensitivity very-sensitive --other_coverage_floor_qcov 15`, on the same pinned pipeline and hardware. All three completed (14–15 min each). The tables above were regenerated with this as a fourth mode.
+
+**Effect of the floor.** The floor rejected 8,947–45,248 other-group hits per direction (`*.coverage_floor_rejections.tsv`). Because low-coverage hits no longer count as presence, it adds candidates:
+
+| Clade | Dir | default | very-sensitive | very-sensitive + qcov 15 |
+|---|---|---|---|---|
+| pezizo_set1 | gain | 3515 | 3193 | 3625 |
+| pezizo_set1 | loss | 101 | 141 | 281 |
+| agaricomycetes | gain | 9441 | 9961 | 10452 |
+| agaricomycetes | loss | 215 | 241 | 394 |
+| sordariales_shallow | gain | 568 | 509 | 598 |
+| sordariales_shallow | loss | 1620 | 1330 | 1501 |
+
+- Controls: unchanged (pezizo_set1 6/6 positives; agaricomycetes 0/5 negatives false positive; sordariales 1/1 positive, 0/8 negatives false positive).
+- Search cost: 0.86–3.37 cpu-h.
+
+**What the dropped candidates rest on** (candidates in default mode that very-sensitive + qcov 15 drops; best other-group raw hit):
+
+| Clade | Dir | Dropped | E < 1e-20, qcov ≥ 60 | E < 1e-20, qcov 30–60 | E < 1e-20, qcov < 30 | 1e-20 ≤ E < 1e-5 |
+|---|---|---|---|---|---|---|
+| pezizo_set1 | gain | 1647 | 31% | 9% | 1% | 58% |
+| pezizo_set1 | loss | 71 | 38% | 17% | 1% | 42% |
+| agaricomycetes | gain | 2701 | 26% | 7% | 2% | 62% |
+| agaricomycetes | loss | 117 | 39% | 13% | 2% | 44% |
+| sordariales_shallow | gain | 275 | 19% | 11% | 2% | 67% |
+| sordariales_shallow | loss | 955 | 48% | 7% | 0% | 44% |
+
+The pre-stated full-length condition still fails: 19–48% are full-length.
+
+The earlier reading was that the drops come from low-coverage (shared-domain) hits. That reading was wrong. Strong hits with qcov < 30 are at most 2% of drops. The largest group, 42–67%, is **weak E-value** hits. A coverage floor cannot address those, which is why it changed little.
+
+**Independent check: TBLASTN.** The default runs' `tblastn_summary.tsv` / `loss_tblastn_summary.tsv` hold, for every default-mode candidate, whether TBLASTN found it in any other-group genome. For the dropped candidates:
+
+| Clade | Dir | strong-hit drops with a TBLASTN hit | weak-hit drops with a TBLASTN hit |
+|---|---|---|---|
+| pezizo_set1 | gain | 644/678 (95%) | 630/962 (65%) |
+| pezizo_set1 | loss | 40/40 (100%) | 23/30 (77%) |
+| agaricomycetes | gain | 897/960 (93%) | 988/1687 (59%) |
+| agaricomycetes | loss | 55/63 (87%) | 29/52 (56%) |
+| sordariales_shallow | gain | 86/86 (100%) | 144/184 (78%) |
+| sordariales_shallow | loss | 527/527 (100%) | 307/422 (73%) |
+
+Overall, 71–90% of the candidates very-sensitive drops have genome-level evidence that the gene is present in the other group. So most drops remove false novelties/losses. TBLASTN is not ground truth, since it can also hit shared domains, but it is a separate method on separate data. The part without support is 22–44% of the weak-hit drops. That is about 7–29% of all drops (for example 332 of 1640 for pezizo_set1 gains).
+
+**Where this leaves the decision (not made here):**
+- The pre-stated rule (a full-length majority) is not met.
+- The rule's proxy looks wrong: the drops are mostly weak-E-value hits, and those are mostly corroborated by TBLASTN.
+- `--very-sensitive` changes results substantially and mostly in the direction independent evidence supports. The coverage floor at qcov 15 adds little on top.
+- Two follow-ups would narrow the rest:
+  - a stricter other-group E-value for presence;
+  - spot-checking the TBLASTN-unsupported weak-hit drops.

@@ -17,6 +17,15 @@ sordariales_shallow	gain	very_sensitive	288	1e-50<=E<1e-20	qcov>=60	47	0.1632
 sordariales_shallow	gain	very_sensitive	288	E<1e-50	30<=qcov<60	3	0.0104
 sordariales_shallow	gain	very_sensitive	288	E<1e-50	qcov>=60	5	0.0174
 sordariales_shallow	gain	very_sensitive	288	no significant raw hit		5	0.0174
+sordariales_shallow	gain	very_sensitive_cov15	275	1e-20<=E<1e-5	30<=qcov<60	65	0.2364
+sordariales_shallow	gain	very_sensitive_cov15	275	1e-20<=E<1e-5	qcov<30	55	0.2
+sordariales_shallow	gain	very_sensitive_cov15	275	1e-20<=E<1e-5	qcov>=60	64	0.2327
+sordariales_shallow	gain	very_sensitive_cov15	275	1e-50<=E<1e-20	30<=qcov<60	26	0.0945
+sordariales_shallow	gain	very_sensitive_cov15	275	1e-50<=E<1e-20	qcov<30	5	0.0182
+sordariales_shallow	gain	very_sensitive_cov15	275	1e-50<=E<1e-20	qcov>=60	47	0.1709
+sordariales_shallow	gain	very_sensitive_cov15	275	E<1e-50	30<=qcov<60	3	0.0109
+sordariales_shallow	gain	very_sensitive_cov15	275	E<1e-50	qcov>=60	5	0.0182
+sordariales_shallow	gain	very_sensitive_cov15	275	no significant raw hit		5	0.0182
 sordariales_shallow	loss	sensitive	915	1e-20<=E<1e-5	30<=qcov<60	134	0.1464
 sordariales_shallow	loss	sensitive	915	1e-20<=E<1e-5	qcov<30	75	0.082
 sordariales_shallow	loss	sensitive	915	1e-20<=E<1e-5	qcov>=60	183	0.2
@@ -35,3 +44,12 @@ sordariales_shallow	loss	very_sensitive	972	1e-50<=E<1e-20	qcov>=60	376	0.3868
 sordariales_shallow	loss	very_sensitive	972	E<1e-50	30<=qcov<60	1	0.001
 sordariales_shallow	loss	very_sensitive	972	E<1e-50	qcov>=60	81	0.0833
 sordariales_shallow	loss	very_sensitive	972	no significant raw hit		6	0.0062
+sordariales_shallow	loss	very_sensitive_cov15	955	1e-20<=E<1e-5	30<=qcov<60	158	0.1654
+sordariales_shallow	loss	very_sensitive_cov15	955	1e-20<=E<1e-5	qcov<30	66	0.0691
+sordariales_shallow	loss	very_sensitive_cov15	955	1e-20<=E<1e-5	qcov>=60	198	0.2073
+sordariales_shallow	loss	very_sensitive_cov15	955	1e-50<=E<1e-20	30<=qcov<60	65	0.0681
+sordariales_shallow	loss	very_sensitive_cov15	955	1e-50<=E<1e-20	qcov<30	4	0.0042
+sordariales_shallow	loss	very_sensitive_cov15	955	1e-50<=E<1e-20	qcov>=60	376	0.3937
+sordariales_shallow	loss	very_sensitive_cov15	955	E<1e-50	30<=qcov<60	1	0.001
+sordariales_shallow	loss	very_sensitive_cov15	955	E<1e-50	qcov>=60	81	0.0848
+sordariales_shallow	loss	very_sensitive_cov15	955	no significant raw hit		6	0.0063

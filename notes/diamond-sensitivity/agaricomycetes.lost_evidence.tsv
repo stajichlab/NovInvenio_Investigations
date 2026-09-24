@@ -2,9 +2,9 @@ label	direction	mode	n_lost	evalue_bin	qcov_bin	n	frac
 agaricomycetes	gain	sensitive	2603	1e-20<=E<1e-5	30<=qcov<60	536	0.2059
 agaricomycetes	gain	sensitive	2603	1e-20<=E<1e-5	qcov<30	468	0.1798
 agaricomycetes	gain	sensitive	2603	1e-20<=E<1e-5	qcov>=60	605	0.2324
-agaricomycetes	gain	sensitive	2603	1e-50<=E<1e-20	30<=qcov<60	193	0.0741
+agaricomycetes	gain	sensitive	2603	1e-50<=E<1e-20	30<=qcov<60	192	0.0738
 agaricomycetes	gain	sensitive	2603	1e-50<=E<1e-20	qcov<30	48	0.0184
-agaricomycetes	gain	sensitive	2603	1e-50<=E<1e-20	qcov>=60	607	0.2332
+agaricomycetes	gain	sensitive	2603	1e-50<=E<1e-20	qcov>=60	608	0.2336
 agaricomycetes	gain	sensitive	2603	E<1e-50	30<=qcov<60	4	0.0015
 agaricomycetes	gain	sensitive	2603	E<1e-50	qcov>=60	85	0.0327
 agaricomycetes	gain	sensitive	2603	no significant raw hit		57	0.0219
@@ -17,6 +17,15 @@ agaricomycetes	gain	very_sensitive	2888	1e-50<=E<1e-20	qcov>=60	630	0.2181
 agaricomycetes	gain	very_sensitive	2888	E<1e-50	30<=qcov<60	4	0.0014
 agaricomycetes	gain	very_sensitive	2888	E<1e-50	qcov>=60	85	0.0294
 agaricomycetes	gain	very_sensitive	2888	no significant raw hit		54	0.0187
+agaricomycetes	gain	very_sensitive_cov15	2701	1e-20<=E<1e-5	30<=qcov<60	590	0.2184
+agaricomycetes	gain	very_sensitive_cov15	2701	1e-20<=E<1e-5	qcov<30	354	0.1311
+agaricomycetes	gain	very_sensitive_cov15	2701	1e-20<=E<1e-5	qcov>=60	743	0.2751
+agaricomycetes	gain	very_sensitive_cov15	2701	1e-50<=E<1e-20	30<=qcov<60	198	0.0733
+agaricomycetes	gain	very_sensitive_cov15	2701	1e-50<=E<1e-20	qcov<30	43	0.0159
+agaricomycetes	gain	very_sensitive_cov15	2701	1e-50<=E<1e-20	qcov>=60	630	0.2332
+agaricomycetes	gain	very_sensitive_cov15	2701	E<1e-50	30<=qcov<60	4	0.0015
+agaricomycetes	gain	very_sensitive_cov15	2701	E<1e-50	qcov>=60	85	0.0315
+agaricomycetes	gain	very_sensitive_cov15	2701	no significant raw hit		54	0.02
 agaricomycetes	loss	sensitive	121	1e-20<=E<1e-5	30<=qcov<60	23	0.1901
 agaricomycetes	loss	sensitive	121	1e-20<=E<1e-5	qcov<30	17	0.1405
 agaricomycetes	loss	sensitive	121	1e-20<=E<1e-5	qcov>=60	16	0.1322
@@ -35,3 +44,12 @@ agaricomycetes	loss	very_sensitive	123	1e-50<=E<1e-20	qcov>=60	39	0.3171
 agaricomycetes	loss	very_sensitive	123	E<1e-50	30<=qcov<60	1	0.0081
 agaricomycetes	loss	very_sensitive	123	E<1e-50	qcov>=60	7	0.0569
 agaricomycetes	loss	very_sensitive	123	no significant raw hit		2	0.0163
+agaricomycetes	loss	very_sensitive_cov15	117	1e-20<=E<1e-5	30<=qcov<60	22	0.188
+agaricomycetes	loss	very_sensitive_cov15	117	1e-20<=E<1e-5	qcov<30	10	0.0855
+agaricomycetes	loss	very_sensitive_cov15	117	1e-20<=E<1e-5	qcov>=60	20	0.1709
+agaricomycetes	loss	very_sensitive_cov15	117	1e-50<=E<1e-20	30<=qcov<60	14	0.1197
+agaricomycetes	loss	very_sensitive_cov15	117	1e-50<=E<1e-20	qcov<30	2	0.0171
+agaricomycetes	loss	very_sensitive_cov15	117	1e-50<=E<1e-20	qcov>=60	39	0.3333
+agaricomycetes	loss	very_sensitive_cov15	117	E<1e-50	30<=qcov<60	1	0.0085
+agaricomycetes	loss	very_sensitive_cov15	117	E<1e-50	qcov>=60	7	0.0598
+agaricomycetes	loss	very_sensitive_cov15	117	no significant raw hit		2	0.0171

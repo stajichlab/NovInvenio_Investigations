@@ -2,3 +2,4 @@ label	mode	trace	n_search_rows	search_wall_h	search_cpu_h	self_wall_h	self_cpu_h
 pezizo_set1	default	pezizo_set1_dmnd_default-20260923_192837-trace.txt	33	0.077	1.544	0.013	0.239	0.196	2.524
 pezizo_set1	sensitive	pezizo_set1_dmnd_sensitive-20260923_192837-trace.txt	33	0.107	1.558	0.015	0.25	0.225	2.431
 pezizo_set1	very_sensitive	pezizo_set1_dmnd_very_sensitive-20260923_192838-trace.txt	33	0.076	1.543	0.011	0.225	0.202	2.578
+pezizo_set1	very_sensitive_cov15	pezizo_set1_dmnd_very_sensitive_cov15-20260923_212856-trace.txt	33	0.129	1.905	0.019	0.251	0.31	3.535

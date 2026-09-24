@@ -2,6 +2,8 @@ label	direction	mode	n_candidates	shared_with_default	gained_vs_default	lost_vs_
 sordariales_shallow	gain	default	568	568	0	0	1.0	208	0.5288	0.1937	0.1652	98	0.0	458	0.0
 sordariales_shallow	gain	sensitive	531	304	227	264	0.3824	208	0.7452	0.2919	0.2654	98	0.5102	458	0.5655
 sordariales_shallow	gain	very_sensitive	509	280	229	288	0.3513	208	0.7404	0.3026	0.2735	98	0.5408	458	0.6092
+sordariales_shallow	gain	very_sensitive_cov15	598	293	305	275	0.3356	208	0.7644	0.2659	0.2457	98	0.5714	458	0.5852
 sordariales_shallow	loss	default	1620	1620	0	0	1.0	749	0.4579	0.2117	0.1693	406	0.0	1277	0.0
 sordariales_shallow	loss	sensitive	1363	705	658	915	0.3095	749	0.6689	0.3676	0.311	406	0.4089	1277	0.7103
 sordariales_shallow	loss	very_sensitive	1330	648	682	972	0.2815	749	0.6876	0.3872	0.3293	406	0.4483	1277	0.7533
+sordariales_shallow	loss	very_sensitive_cov15	1501	665	836	955	0.2708	749	0.6969	0.3478	0.3021	406	0.4655	1277	0.74
