@@ -33,4 +33,5 @@ echo "== pipeline commit: $(git -C "$NOVINVENIO_ROOT" rev-parse HEAD) =="
 "$NII_ROOT/bin/run_study.sh" fungi/fusarium_FOXY \
     -profile slurm \
     -c "$NOVINVENIO_ROOT/conf/ucr_hpcc_slurm.config" \
+    -c "$NII_ROOT/studies/fungi/fusarium_FOXY/foxy_resources.config" \
     -resume
