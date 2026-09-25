@@ -1,0 +1,7 @@
+# IQ-TREE intermediates (regenerable with the command in each .iqtree / .log header)
+*.ckp.gz
+*.clipkit.log
+*.clipkit.mldist
+*.clipkit.model.gz
+*.clipkit.bionj
+*.clipkit.splits.nex

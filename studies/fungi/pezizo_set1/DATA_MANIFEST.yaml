@@ -582,3 +582,150 @@
   license: n/a
   derived_by: bin/build_study_config.py --study-dir studies/fungal/pezizo_set1
   pulled_with: build_study_config.py on i29
+- local_path: studies/fungi/pezizo_set1/analysis/CorA_family_A7UWR3.aln
+  source_url: (internal -- 15 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 9f248d876486e88faa3b2160aa9dec7df8e8603118395f2ccaf216c075b4dad7
+  license: UniProt CC BY 4.0
+  derived_by: 'CorA_family_A7UWR3: multiple alignment (aligner not recorded); see
+    analysis/CorA*.md where present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/CorA_family_A7UWR3.aln.clipkit
+  source_url: (internal -- 15 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: ef60d3ec45ec2620e18e5a6fbdd2388fdb3de900f0bdb648d44dbff7adc6e382
+  license: UniProt CC BY 4.0
+  derived_by: 'CorA_family_A7UWR3: ClipKIT trimming of the .aln (version/mode not
+    recorded); see analysis/CorA*.md where present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/CorA_family_A7UWR3.aln.clipkit.contree
+  source_url: (internal -- 15 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 1bf577f15412c28b5b0b01f5283fb8a3ff99f9ff137dfd1f5c4ca448019b37c6
+  license: UniProt CC BY 4.0
+  derived_by: 'CorA_family_A7UWR3: IQ-TREE: iqtree3 -nt AUTO -s CorA_family_A7UWR3.aln.clipkit
+    -B 1000 (IQ-TREE 3.0.1; best-fit Q.YEAST+F+I+G4, BIC); see analysis/CorA*.md where
+    present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/CorA_family_A7UWR3.aln.clipkit.iqtree
+  source_url: (internal -- 15 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 9c11e7a7ae9df89e519d116c5b837f615c4236c89c3d8c7c8485b71fcec3a65a
+  license: UniProt CC BY 4.0
+  derived_by: 'CorA_family_A7UWR3: IQ-TREE: iqtree3 -nt AUTO -s CorA_family_A7UWR3.aln.clipkit
+    -B 1000 (IQ-TREE 3.0.1; best-fit Q.YEAST+F+I+G4, BIC); see analysis/CorA*.md where
+    present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/CorA_family_A7UWR3.aln.clipkit.treefile
+  source_url: (internal -- 15 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 2cda4f71771606b42931352dc201e3606a9d763cc1acaa6c11649d6fe1f9b62d
+  license: UniProt CC BY 4.0
+  derived_by: 'CorA_family_A7UWR3: IQ-TREE: iqtree3 -nt AUTO -s CorA_family_A7UWR3.aln.clipkit
+    -B 1000 (IQ-TREE 3.0.1; best-fit Q.YEAST+F+I+G4, BIC); see analysis/CorA*.md where
+    present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/CorA_family_A7UWR3.fa
+  source_url: (internal -- 15 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 4f6fd62717eb3f7b49f62c37db117e892515e53c96799efb59f3e772ccd30f1c
+  license: UniProt CC BY 4.0
+  derived_by: 'CorA_family_A7UWR3: sequence extraction; see analysis/CorA*.md where
+    present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/HEX1_eIF5A_family.aln
+  source_url: (internal -- 19 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 8e987e775c61c968da802002dec44d1c1739c7c002f1ad9d73652e80244f53cb
+  license: UniProt CC BY 4.0
+  derived_by: 'HEX1_eIF5A_family: multiple alignment (aligner not recorded); see analysis/HEX1*.md
+    where present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/HEX1_eIF5A_family.aln.clipkit
+  source_url: (internal -- 19 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 613373e19921b4c84c40b03863e39c752de6cbf60cd27f6e8f9e580bfd1e586f
+  license: UniProt CC BY 4.0
+  derived_by: 'HEX1_eIF5A_family: ClipKIT trimming of the .aln (version/mode not recorded);
+    see analysis/HEX1*.md where present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/HEX1_eIF5A_family.aln.clipkit.contree
+  source_url: (internal -- 19 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 1666b4d21b74acc383596edba35ba5ab546047a2e430a75aa7cfd8b033089023
+  license: UniProt CC BY 4.0
+  derived_by: 'HEX1_eIF5A_family: IQ-TREE: iqtree3 -s HEX1_eIF5A_family.aln.clipkit
+    -B 1000 (IQ-TREE 3.0.1; best-fit LG+G4, BIC); see analysis/HEX1*.md where present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/HEX1_eIF5A_family.aln.clipkit.iqtree
+  source_url: (internal -- 19 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 4eeea56b5c2aa07c3730cb4ec920f7caf5a420f3d09170a0c49c79f65d264f41
+  license: UniProt CC BY 4.0
+  derived_by: 'HEX1_eIF5A_family: IQ-TREE: iqtree3 -s HEX1_eIF5A_family.aln.clipkit
+    -B 1000 (IQ-TREE 3.0.1; best-fit LG+G4, BIC); see analysis/HEX1*.md where present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/HEX1_eIF5A_family.aln.clipkit.treefile
+  source_url: (internal -- 19 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: ecfa00eb7e7aee034a7162040e0f2e39169c2ef484aca3e5a848c503ab4390a2
+  license: UniProt CC BY 4.0
+  derived_by: 'HEX1_eIF5A_family: IQ-TREE: iqtree3 -s HEX1_eIF5A_family.aln.clipkit
+    -B 1000 (IQ-TREE 3.0.1; best-fit LG+G4, BIC); see analysis/HEX1*.md where present'
+  pulled_with: '- on c05'
+- local_path: studies/fungi/pezizo_set1/analysis/HEX1_eIF5A_family.fa
+  source_url: (internal -- 19 proteins from studies/fungi/pezizo_set1/data_dir/pep,
+    i.e. the study's UniProt reference proteomes; sequences verified identical to
+    data_dir/pep entries 2026-09-25)
+  source_release: UniProt reference proteomes release 2026_02 (as recorded for this
+    study's proteomes in DATA_MANIFEST.yaml)
+  access_date: '2026-09-25T14:41:55Z'
+  checksum_sha256: 35238910a5f7fc486306e69664600a0870f1721adfcdf54a3fbbae7269251549
+  license: UniProt CC BY 4.0
+  derived_by: 'HEX1_eIF5A_family: sequence extraction; see analysis/HEX1*.md where
+    present'
+  pulled_with: '- on c05'

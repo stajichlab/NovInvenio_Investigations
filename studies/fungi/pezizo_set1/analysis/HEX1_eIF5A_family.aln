@@ -1,0 +1,190 @@
+>tr|Q4WK14|Q4WK14_ASPFU Eukaryotic translation initiation factor eIF-5A OS=Aspergillus fumigatus (strain ATCC MYA-4609 / CBS 101355 / FGSC A1100 / Af293) OX=330879 GN=AFUA_1G04070 PE=3 SV=1
+MH---M--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------SPLLLHTSTIERPSYNCLQLSSYSGWALSTDICS-FQ
+HET--------------------------------------------------------FE-SADAGASATYPMQCSALR
+KNGHVVIKGRPCKIVDMSTS-KTGKHGHAKVHIVALD--IFTGKKLEDL------SPST--HNMDVPNVTRREYQL----
+----------LDVTDDGFLSLMDEAGNT-KDDVKL-PEGEVGERIQKMFNEEGK-DCNVTILTAMGEQACMDVKEAP---
+-K
+>tr|A0A1U7LWG5|A0A1U7LWG5_NEOID Eukaryotic translation initiation factor 5A OS=Neolecta irregularis (strain DAH-3) OX=1198029 GN=NEOLI_000035 PE=3 SV=1
+MH---S--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------E--------------------------------D-EH
+TLD--------------------------------------------------------FG-TGGAGASLTYPLQCSALR
+KSGHVVIKGRPCKIVEISVS-KTGKHGHAKVHLIAIDVGIFTQKKLEDL------SPST--HNMDVPHVKRVDWNLVCRS
+FERKNVQRFKVNI-DDGYLNLLSPEGNEQKDDVKL-PESDLGKEIEAAFE-DGR-DLIVTIVSAMGEEHCLAYKDAPK--
+GS
+>tr|A0ACF5BXR3|A0ACF5BXR3_9PEZI Eukaryotic translation initiation factor 5A OS=Arthrobotrys megalospora OX=2528406 GN=TIF51 PE=4 SV=1
+MA---D--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+---------------------------------------N---D--------------------------------EQHE
+QHT--------------------------------------------------------FE-QSGSGASLTYPMQCSALR
+KNGHVVIKGRPCKIVDMSTS-KTGKHGHAKVHLVAID--IFTGKKLEDL------SPST--HNMDVPNVVRNEYQL----
+----------IDI-DDGYLNLMTSEGTP-KDDVKL-PEGDLGKEIQNAFD-EGR-DLIVTIVSAMGEEQALAYKDAPK--
+-N
+>sp|P23301|IF5A1_YEAST Eukaryotic translation initiation factor 5A-1 OS=Saccharomyces cerevisiae (strain ATCC 204508 / S288c) OX=559292 GN=HYP2 PE=1 SV=3
+MS---D--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------E------------------------------------
+EHT--------------------------------------------------------FE-TADAGSSATYPMQCSALR
+KNGFVVIKSRPCKIVDMSTS-KTGKHGHAKVHLVAID--IFTGKKLEDL------SPST--HNMEVPVVKRNEYQL----
+----------LDI-DDGFLSLMNMDGDT-KDDVKA-PEGELGDSLQTAFD-EGK-DLMVTIISAMGEEAAISFKEAAR--
+TD
+>sp|P19211|IF5A2_YEAST Eukaryotic translation initiation factor 5A-2 OS=Saccharomyces cerevisiae (strain ATCC 204508 / S288c) OX=559292 GN=ANB1 PE=1 SV=3
+MS---D--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------E------------------------------------
+EHT--------------------------------------------------------FE-NADAGASATYPMQCSALR
+KNGFVVIKGRPCKIVDMSTS-KTGKHGHAKVHLVTLD--IFTGKKLEDL------SPST--HNLEVPFVKRSEYQL----
+----------LDI-DDGYLSLMTMDGET-KDDVKA-PEGELGDSMQAAFD-EGK-DLMVTIISAMGEEAAISFKEAPR--
+SD
+>sp|P38672|IF5A_NEUCR Eukaryotic translation initiation factor 5A OS=Neurospora crassa (strain ATCC 24698 / 74-OR23-1A / CBS 708.71 / DSM 1257 / FGSC 987) OX=367110 GN=tif-51 PE=2 SV=2
+MSAAHD--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------D--------------------------------A-QH
+EHT--------------------------------------------------------FD-SVDAGASATYPMQCSALR
+KGGHVVIKNRPCKIVDMSTS-KTGKHGHAKVHLVAID--IFTGKKLEDL------CPST--HNMDVPNVKRTDYQF----
+----------SYI-DEDFLVLIDSNGEE-KRDVKM-PEGELAKRIEKLEE-EGK-DFFVGVQTAMGEEAAIDVKEASN--
+KD
+>tr|A8NJF7|A8NJF7_COPC7 Eukaryotic translation initiation factor 5A OS=Coprinopsis cinerea (strain Okayama-7 / 130 / ATCC MYA-4618 / FGSC 9003) OX=240176 GN=CC1G_09714 PE=3 SV=1
+MS---D--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------D--------------------------------E-QH
+QHD--------------------------------------------------------FQ-QAGAGASLTYPMQCSALR
+KNGHVVIKGRPCKIVDMSTS-KTGKHGHAKVHLVAID--IFTGKKLEDI------SPST--HNMDVPNVSRTEYQL----
+----------VNI-DDGFLNLMTNDGTP-KDDVRV-PEGDIGKEIQDAFD-EGK-DLLVTIVSAMGEEQAISWKEAPK--
+GS
+>tr|S2K710|S2K710_MUCC1 Eukaryotic translation initiation factor 5A OS=Mucor circinelloides f. circinelloides (strain 1006PhL) OX=1220926 GN=HMPREF1544_05272 PE=3 SV=1
+MS---D--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------D--------------------------------H-HE
+QHT--------------------------------------------------------FE-TADAGASLTFPMQCSALR
+KNGHVVIKGRPCKIIDMSTS-KTGKHGHAKVHLVGTD--IFTGRKYEDL------SPST--HNMDVPNVSRQEYAL----
+----------LNI-DDGFLSLMLADGSM-KDDVKL-PEGELGEKLEEEFE-EGK-ELIVTVVSSMGEEHALAYKEAPK--
+-S
+>tr|J9VQ24|J9VQ24_CRYN9 Eukaryotic translation initiation factor 5A OS=Cryptococcus neoformans (strain H99 / ATCC 208821 / CBS 10515 / FGSC 9487) OX=235443 GN=CNAG_01428 PE=3 SV=1
+MA---E--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------E--------------------------------E-H-
+HET--------------------------------------------------------FE-ATGAGASKTFPMQCSALR
+KNGHVVIKGRPCKIVDMSTS-KTGKHGHAKVHLVAID--IFTGKKLEDI------SPST--HNMDVPNVRRQEFQL----
+----------LDI-QDGFLNLMDSDGGS-KDDVKV-PETEIGQQITADFE-AGK-DLMVTIISAMDEEQAISYKEAPA--
+-N
+>sp|P56289|IF5A1_SCHPO Eukaryotic translation initiation factor 5A-1 OS=Schizosaccharomyces pombe (strain 972 / ATCC 24843) OX=284812 GN=tif51a PE=1 SV=1
+MA---E--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------E--------------------------------E-H-
+-VD--------------------------------------------------------FE-GGEAGASLTFPMQCSALR
+KNGHVVIKGRPCKIVDMSTS-KTGKHGHAKVHIVALD--IFNGRKYEDM------SPST--HNMDVPVVKRDEYQL----
+----------VNI-DDGYLNLMTTDGTT-KDDVRL-PEGELGNEIEEGFD-EGR-DLIITVVSAMGEETALACRDAPS--
+-S
+>sp|Q9UST4|IF5A2_SCHPO Eukaryotic translation initiation factor 5A-2 OS=Schizosaccharomyces pombe (strain 972 / ATCC 24843) OX=284812 GN=tif51b PE=3 SV=3
+MA---E--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------E--------------------------------E-H-
+-VD--------------------------------------------------------FE-GGEAGASLTFPMQCSALR
+KNGHVVIKGRPCKIVDMSTS-KTGKHGHAKVHIVALD--IFNGRKYEDM------SPST--HNMDVPVVKRDEYQL----
+----------VNI-DDGYLNLMTTDGTT-KDDVRL-PEGELGNEIEEGFE-EGK-DLIITVVSAMGEEIALACRDAPS--
+-A
+>tr|S2K2D9|S2K2D9_MUCC1 Eukaryotic translation initiation factor 5A OS=Mucor circinelloides f. circinelloides (strain 1006PhL) OX=1220926 GN=HMPREF1544_03872 PE=3 SV=1
+MS---A--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+---------------------------------------A---D--------------------------------H-DN
+DHT--------------------------------------------------------FE-SADAGASLTYPMQCSALR
+KNGHVVIKGRPCKIIEMTTS-KTGKHGHAKVHLVATD--IFTNKKLEDL------SPST--HNMNVPNVTRMDYNL----
+----------IDIDEDGFLSLMTAEGGT-KEDVKL-PEGELGEKLQEDFD-EGK-DLMVSVVSAMGEEHCLAYKEAP---
+-K
+>tr|F9XLE1|F9XLE1_ZYMTI Eukaryotic translation initiation factor 5A OS=Zymoseptoria tritici (strain CBS 115943 / IPO323) OX=336722 GN=MYCGRDRAFT_76399 PE=3 SV=1
+MA---D--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+---------------------------------------ATNND--------------------------------A-QH
+EVS--------------------------------------------------------FD-SADAGASTTFPMQCSALR
+KNGHVVIKNRPCKIVDMSTS-KTGKHGHAKVHLVAID--IFTSKKYEDL------CPST--HNMDVPNVSRREFQL----
+----------LDITDDGFLSLMNDNGDT-KDDVKV-PDGEVGDKINKLFKEEEK-DTNVIILTAMGEEAAIDAKEAPK--
+GA
+>tr|J3KEP1|J3KEP1_COCIM Eukaryotic translation initiation factor 5A OS=Coccidioides immitis (strain RS) OX=246410 GN=CIMG_04996 PE=3 SV=2
+MA---D--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+-------------------------------------------D--------------------------------A-QH
+EHT--------------------------------------------------------FE-SADAGASATYPMQCSALR
+KNGFVVIKNRPCKIVEMSTS-KTGKHGHAKVHLVAID--IFTGKKLEDL------SPST--HNMEVPHVSRKEYQL----
+----------IDISEDGFLSLMADDGST-KDDVKL-PDGEVGDKINKLFRVEDK-DINVVVLTAMGEEVAMDAKEAP---
+-K
+>sp|Q4WUL0|HEXA_ASPFU Woronin body major protein hexA OS=Aspergillus fumigatus (strain ATCC MYA-4609 / CBS 101355 / FGSC A1100 / Af293) OX=330879 GN=hexA PE=1 SV=2
+MY---SVE--SK-----------------------------FERDSRRDAQRTANLDFDARVPIPFSVFPSSYRSDAVPE
+TTLTRVEGEVNLDRT-SHVEREDTRTSAPLPDPRVYGREEVDIHISKDRLHAPSR--KGDDFQVIYEDRAHKDSRVPEVE
+LSRERWKRSENNAKQNKNKNNTSTRRSGDVLKAVSAKKVAPQAQTRADEKASYQLTQKARYRESTSRYEPLPPKPVYDQA
+LESQLDITEREYRRRTDPTYDVNLSYGRHQAPVDSYQAYQPQQTSDVSLHRSKTEIDVSYDKAYTPKPLETRKGDSFSRS
+ELTVESVPSRPSSASSISQVKVLKPYTAIDQPPARKMGYYD--D--------------------------------D-GN
+YHSFRRGVERAVDRITHPFHHHH------HHHDREEVVIADERGPVRYRDGVRED-VRIVEPRASKTTAESVPIPCHFIR
+IGDILILQGRPCQVIRISVSPQTGQHRYL-----GVD--LFTRQLQEESSFVSNPSPSVVVQTMLGPV--YKTYRI----
+----------LDLHEDGTITAMTETGDV-KQALPVVTQGQLFRKIRDAFS-EGRGSVRALVINDGGRELVVDYKVIHGS-
+RL
+>tr|F9X534|F9X534_ZYMTI Uncharacterized protein OS=Zymoseptoria tritici (strain CBS 115943 / IPO323) OX=336722 GN=MYCGRDRAFT_103731 PE=3 SV=1
+MG---Y--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+---------------------------------------YD--E--------------------------------D-GH
+YHSLRHGLHRAAEKIRHPFEGTSHHGHEHIHVEREEDVVVRDQEVSMSAPRYTEE-R--RS-ARPAGPPNTITIPCHHIR
+IGDLLILQGRPCQVIRITTSAQTGQHRYL-----GVD--LFSKQLHEESSFVSNPSPSVVVQNMIGPV--FKQYRV----
+----------LDIREDGRVVAMTETGDV-KQGLPVLDQSGLLSRLADSFN-NGRGSVRVLVISDEGRELAVDYKVVHGS-
+RL
+>tr|A0A0E1S226|A0A0E1S226_COCIM Woronin body major protein OS=Coccidioides immitis (strain RS) OX=246410 GN=CIMG_06738 PE=4 SV=1
+MG---LESVGLSLKRSSVVYRAVAKGKSINKAAVDRPGGFSGGRHSRKDAQRTVNLDFDARVPIPFSVFPSSYRSDAVSE
+TTHTRVEGEVKLAGTASHVGREDTRYEGPLRDPRAYAREEVDTRHVESSEYRPVRTHTRDDFQV-YEERPAPPDRYPEVE
+LARERYYGTSSSSNTHERK------------------------------------------------------------G
+FQAQLDVTEQEYRRRTDPNYAVQYETVR------------PY-------SNQTRDIDVSYDRVN--ESVETYKPRT----
+--QVREIEYDTSSSRYDTHIEVNTDRRPVYDAPKPKMGYYD--D--------------------------------D-GQ
+YHSFRRGVERAADRILHPFHHKD--------------EVADERGPSRVREGVRES-VRVVQ-PRGGRPSDTITIPCHFIR
+IGDLLILQGRPCQVIRVSVSSQTGQHRYL-----GVD--LFTGQLHEESSFISNPSPSVVVQSMLGPV--YKTYRI----
+----------LDLRDDGRITAMTETGDI-KQGIRVIDQGGLWNRISDAFS-DGRGSVRALVINDGGRELVVDYKVIHGS-
+RL
+>sp|P87252|HEX1_NEUCR Woronin body major protein OS=Neurospora crassa (strain ATCC 24698 / 74-OR23-1A / CBS 708.71 / DSM 1257 / FGSC 987) OX=367110 GN=hex-1 PE=1 SV=1
+MG---Y--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+---------------------------------------YD--D--------------------------------D-AH
+GHVEADAAPRA---------------------------------------------T--TG-TGTGSASQTVTIPCHHIR
+LGDILILQGRPCQVIRISTSAATGQHRYL-----GVD--LFTKQLHEESSFVSNPAPSVVVQTMLGPV--FKQYRV----
+----------LDM-QDGSIVAMTETGDV-KQNLPVIDQSSLWNRLQKAFE-SGRGSVRVLVVSDHGREMAVDMKVVHGS-
+RL
+>tr|A0ACF5C2F1|A0ACF5C2F1_9PEZI Uncharacterized protein OS=Arthrobotrys megalospora OX=2528406 GN=TWF281_009413 PE=4 SV=1
+MS---E--------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+---------------------------------------HS--T--------------------------------R-HH
+HHAEYFG--RKVDEFFHPIETAKANIAKSYYAKSKKAYSLPDVDITVSKKVVAPKPK--PV-VAVAAVSTDFTIPCHHIR
+VGDLVILQKRPCQIIRITTSAATGQHRYL-----GVD--LFTHKLVEENCIVTHPSPSVVLHNMVTPS--FKQYKV----
+----------INAGEDSTLVTVTDSGEI-KSGIAVVAQGGLAKKINEAYV-ASPGAVRVLVISDGDKELIVDFKKAHGDF
+KL
