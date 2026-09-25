@@ -121,3 +121,8 @@ __pycache__/
 
 # Local git worktrees (superpowers:using-git-worktrees)
 .worktrees/
+
+# BUSCO run output (regenerable; sordariales_shallow/busco/ is 3.9 GB, 28,908 files)
+studies/*/*/busco/
+# Tool logs from study scripts
+studies/fungi/Afumigatus_pangenome/logs/

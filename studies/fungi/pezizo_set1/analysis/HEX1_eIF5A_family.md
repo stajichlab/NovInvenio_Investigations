@@ -2,7 +2,7 @@
 
 Source: pezizo_set1 diamond search results (`results/pezizo_set1/presence_matrix.targets.tsv`,
 `results/pezizo_set1/self_hits/*.paralog_cutoffs.tsv`). Query protein: HEX1_NEUCR (P87252,
-NCU08726 in FungiDB terms) and its in-genome paralog eIF5A (P38672).
+NCU08332 in FungiDB terms (corrected 2026-09-20: NCU08726 is fl, the C6 zinc-finger regulator fluffy -- NCU08332 is the 176aa woronin body major protein, exact length match to UniProt P87252, confirmed against db/modelorgs/Neurospora_crassa_gene_names_FungiDB.csv)) and its in-genome paralog eIF5A (P38672).
 
 HEX1 (Woronin body major protein) is a lineage-specific duplicate of the universal translation
 factor eIF5A, restricted to Pezizomycotina. Its presence-matrix row is 0 across every outgroup —
