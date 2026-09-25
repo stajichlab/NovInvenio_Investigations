@@ -126,3 +126,5 @@ __pycache__/
 studies/*/*/busco/
 # Tool logs from study scripts
 studies/fungi/Afumigatus_pangenome/logs/
+# Old flat pipeline docs/ output kept on disk after the study/run migration (not published)
+studies/*/*/old_flat_docs_*/
