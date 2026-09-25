@@ -1,0 +1,22 @@
+# Extra nextflow params for this study, applied by bin/run_study.sh before any
+# args passed on the command line (so a command-line arg can still override one
+# of these). One flag/value per line; '#' starts a comment; blank lines ignored.
+
+# Question (PI, 2026-09-25): what is generally novel in the F. oxysporum species
+# complex (FOXY)? Ingroup = 19 FOXY genomes, one per forma specialis (17 f. sp.
+# plus Fo47 and F. odoratissimum 54006). Outgroup = 4 other Fusarium lineages
+# (F. solani SB1 -- the only FSSC genome --, F. fujikuroi, F. graminearum,
+# F. equiseti). With one genome per f. sp., this run finds FOXY-lineage
+# novelties, not f. sp.-specific genes.
+
+# Pairwise DIAMOND search (pipeline default sensitivity, very-sensitive), same
+# setup as the UHM bacterial studies.
+--run_tool diamond
+--cluster_tool pairwise
+
+# Functional annotation of candidates.
+--pfam_hmm /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/38.2/Pfam-A.hmm
+--swissprot_dmnd /bigdata/stajichlab/jstajich/projects/NovInvenio/db/uniprot/uniprot_sprot.fasta.dmnd
+
+# ingroup_min_frac is left at the pipeline default (0.75): a candidate must be
+# in >= 15 of the 19 FOXY genomes.
