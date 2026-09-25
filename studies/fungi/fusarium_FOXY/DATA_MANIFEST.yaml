@@ -4,18 +4,21 @@
     dated 2026-08-26) + NCBI GenBank
   source_release: BFD Fungi_BFD samples.csv (ASMID column) and NCBI Assembly, checked
     2026-09-25
-  access_date: '2026-09-25T17:37:51Z'
-  checksum_sha256: f069f5c8a2ac1facc8e1ca85cc7c32138eec2d150494bd7191bd2ecddc601959
+  access_date: '2026-09-25T17:41:01Z'
+  checksum_sha256: 514e3d9782fd4ad37ef3389c2d0dbac25cfe00a0bdf37cc896ef8975f414ada8
   license: 'Assembly accessions/metadata: NCBI places no restrictions on use (https://www.ncbi.nlm.nih.gov/home/about/policies/);
     curated list internal'
   derived_by: 'Curated by the PI from BFD samples.csv (23 Fusarium rows). Compared
-    2026-09-25: 15 rows match an ASMID accession+version exactly; 6 use the GenBank
-    GCA_ twin of a RefSeq GCF_ entry in samples.csv (3 with a different version: Fuox_54006,
-    Fuox_4287, Fugr_PH1_NRRL_31084); 1 uses a newer GenBank version (Fuox_TwR11 GCA_053754955.2
-    vs .1); 1 (Fuox_Fo5176, GCA_014154955.1, SMRT_HiC_Fo5176, PRJNA644771, chromosome
-    level, no RefSeq pair) was taken from GenBank directly -- samples.csv carries
-    a different Fo5176 assembly, GCA_025331925.1 (ASM2533192v1, PRJNA631157). NCBI
-    datasets summary 2026-09-25: all 23 accessions current (9 Chromosome, 9 Scaffold,
-    3 Contig, 2 Complete Genome), 6 with a RefSeq pair. Genome/protein data not yet
-    pulled (BFD local copies can be used).'
+    2026-09-25: 16 rows match an ASMID accession+version exactly (including Fuox_Fo5176,
+    see below); 6 use the GenBank GCA_ twin of a RefSeq GCF_ entry in samples.csv
+    (3 with a different version: Fuox_54006, Fuox_4287, Fugr_PH1_NRRL_31084); 1 uses
+    a newer GenBank version (Fuox_TwR11 GCA_053754955.2 vs .1); Fuox_Fo5176 uses GCA_025331925.1
+    (ASM2533192v1, PRJNA631157, 2022, chromosome level, NCBI taxid 5507, annotation
+    21,391 protein-coding genes) -- the Fo5176 assembly in samples.csv, chosen by
+    the PI 2026-09-25 over GCA_014154955.1 (SMRT_HiC_Fo5176, 2020, taxid 100902),
+    which was removed; Taxon_ID follows NCBI''s record for the new assembly, TaxonGroup
+    kept as conglutinans (same strain). NCBI datasets summary 2026-09-25: all 23 accessions
+    current (9 Chromosome, 9 Scaffold, 3 Contig, 2 Complete Genome), 6 with a RefSeq
+    pair; the replacement GCA_025331925.1 was checked the same day (current, Chromosome,
+    no RefSeq pair). Genome/protein data not yet pulled (BFD local copies can be used).'
   pulled_with: '- on c05'
