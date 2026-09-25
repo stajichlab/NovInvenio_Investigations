@@ -4,8 +4,8 @@
     dated 2026-08-26) + NCBI GenBank
   source_release: BFD Fungi_BFD samples.csv (ASMID column) and NCBI Assembly, checked
     2026-09-25
-  access_date: '2026-09-25T17:41:01Z'
-  checksum_sha256: 514e3d9782fd4ad37ef3389c2d0dbac25cfe00a0bdf37cc896ef8975f414ada8
+  access_date: '2026-09-25T18:14:22Z'
+  checksum_sha256: d93ad3291ec82209f553bdfdb386e47ee25874ebc0a25a925190a1c35ebdb74b
   license: 'Assembly accessions/metadata: NCBI places no restrictions on use (https://www.ncbi.nlm.nih.gov/home/about/policies/);
     curated list internal'
   derived_by: 'Curated by the PI from BFD samples.csv (23 Fusarium rows). Compared
@@ -20,5 +20,652 @@
     kept as conglutinans (same strain). NCBI datasets summary 2026-09-25: all 23 accessions
     current (9 Chromosome, 9 Scaffold, 3 Contig, 2 Complete Genome), 6 with a RefSeq
     pair; the replacement GCA_025331925.1 was checked the same day (current, Chromosome,
-    no RefSeq pair). Genome/protein data not yet pulled (BFD local copies can be used).'
+    no RefSeq pair). 2026-09-25 (PI: use the 1KFG/2026 NCBI mirror to avoid re-downloading):
+    19 rows switched to local_faa/local_genome/local_gff3 pointing at /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/<accession>_<asm>/
+    (1KFG/2026 -> 2023 -> 2021); 15 of those are the same GenBank accession+version,
+    4 use the same-version RefSeq twin files (Fo47 GCF_013085055.1, SB1 GCF_023522795.1,
+    IMI 58289 GCF_900079805.1, PH-1 GCF_000240135.3). 4 rows stay ncbi because the
+    mirror has no matching annotated copy: RF12 (mirror copy unannotated), TwR11 (.2;
+    mirror has .1), 54006 (GCA .2; mirror GCF .1), 4287 (GCA .2; mirror GCF .1).'
   pulled_with: '- on c05'
+- local_path: data/ncbi/GCA_000260195.2/extracted/ncbi_dataset/data/GCA_000260195.2/protein.faa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000260195.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000260195.2'
+  access_date: '2026-09-25T18:12:56Z'
+  checksum_sha256: 5c3933aaebd1ce373576ac9fc047b8311abd555f00510f68afab8847cf13037f
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: protein
+  accession: GCA_000260195.2
+- local_path: data/ncbi/GCA_000260195.2/extracted/ncbi_dataset/data/GCA_000260195.2/GCA_000260195.2_FO_II5_V1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000260195.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000260195.2'
+  access_date: '2026-09-25T18:12:55Z'
+  checksum_sha256: 8ae626516ba6fc61bee82717d479f27433271d82fe92338362ef83785664eca9
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: genome
+  accession: GCA_000260195.2
+- local_path: data/ncbi/GCA_000260195.2/extracted/ncbi_dataset/data/GCA_000260195.2/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000260195.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000260195.2'
+  access_date: '2026-09-25T18:12:56Z'
+  checksum_sha256: f52d9f0f72e60f7b6f910548d183445359f0137fe8a07b608aa52180f51e0d56
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: gff3
+  accession: GCA_000260195.2
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_Foa_44.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_032206225.1_FOAM13_A1/GCA_032206225.1_FOAM13_A1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:12:58Z'
+  checksum_sha256: ecad1c50e59c076a4838dd8deccef19524f05c7f11d690e4f77abc8e840e4942
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_032206225.1_FOAM13_A1/GCA_032206225.1_FOAM13_A1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_Foa_44.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_032206225.1_FOAM13_A1/GCA_032206225.1_FOAM13_A1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:12:59Z'
+  checksum_sha256: c94085f007adaeafb0323fbdde717f4fd1841a447aeb6808f8c9f4dccbcbd5d4
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_032206225.1_FOAM13_A1/GCA_032206225.1_FOAM13_A1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_Foa_44.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_032206225.1_FOAM13_A1/GCA_032206225.1_FOAM13_A1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:12:59Z'
+  checksum_sha256: c89c8b1064222a606dd7588d91d0dc0faf96eaee92cc8c143eef1107037e1b83
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_032206225.1_FOAM13_A1/GCA_032206225.1_FOAM13_A1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_FoC_Fus2.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_003615085.1_FoC_Fus2_v1/GCA_003615085.1_FoC_Fus2_v1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:00Z'
+  checksum_sha256: 65e93193a6e8b3170c4136ac1581d8fd60c4739f2e3e3ab9d294ccf288adf73d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_003615085.1_FoC_Fus2_v1/GCA_003615085.1_FoC_Fus2_v1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_FoC_Fus2.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_003615085.1_FoC_Fus2_v1/GCA_003615085.1_FoC_Fus2_v1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:00Z'
+  checksum_sha256: 4ed99196592d7e59f31f75d26df5ad83ae9fdab26bcc6655764d040dbfc26e52
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_003615085.1_FoC_Fus2_v1/GCA_003615085.1_FoC_Fus2_v1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_FoC_Fus2.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_003615085.1_FoC_Fus2_v1/GCA_003615085.1_FoC_Fus2_v1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:01Z'
+  checksum_sha256: f3745e1d944e552f1c5709922521a3bbc019a92baa2f3848f7567b2d9c0d24e3
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_003615085.1_FoC_Fus2_v1/GCA_003615085.1_FoC_Fus2_v1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_Fo5176.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_025331925.1_ASM2533192v1/GCA_025331925.1_ASM2533192v1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:01Z'
+  checksum_sha256: 5885a47807bc9f3f7a22951a1231ee6d465bb71128ea87e5d23de78b99bd1853
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_025331925.1_ASM2533192v1/GCA_025331925.1_ASM2533192v1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_Fo5176.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_025331925.1_ASM2533192v1/GCA_025331925.1_ASM2533192v1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:02Z'
+  checksum_sha256: 3796bf29725348b8c829ed54cd6c04d4314812a0ff21d6e1ad58b9aa493bda32
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_025331925.1_ASM2533192v1/GCA_025331925.1_ASM2533192v1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_Fo5176.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_025331925.1_ASM2533192v1/GCA_025331925.1_ASM2533192v1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:03Z'
+  checksum_sha256: 470c09d222cab3e9fcf36a688cc34d5439f4ee0b637d107ec7c18340b79a93eb
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_025331925.1_ASM2533192v1/GCA_025331925.1_ASM2533192v1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: data/ncbi/GCA_053754955.2/extracted/ncbi_dataset/data/GCA_053754955.2/protein.faa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_053754955.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_053754955.2'
+  access_date: '2026-09-25T18:12:57Z'
+  checksum_sha256: 0fed36bc535c5281bf469086e5d653b38d93ec56d7e15486980d04f48b882693
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: protein
+  accession: GCA_053754955.2
+- local_path: data/ncbi/GCA_053754955.2/extracted/ncbi_dataset/data/GCA_053754955.2/GCA_053754955.2_ASM5375495v2_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_053754955.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_053754955.2'
+  access_date: '2026-09-25T18:12:57Z'
+  checksum_sha256: e7ec5503565aaf05f9f60279331ff599489d9d4729a123deeacc5d65295dc18a
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: genome
+  accession: GCA_053754955.2
+- local_path: data/ncbi/GCA_053754955.2/extracted/ncbi_dataset/data/GCA_053754955.2/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_053754955.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_053754955.2'
+  access_date: '2026-09-25T18:12:57Z'
+  checksum_sha256: 742f11fea6c713a6c59490301987827665df0c6662fc9e088ec3529970308a09
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: gff3
+  accession: GCA_053754955.2
+- local_path: data/ncbi/GCA_000149955.2/extracted/ncbi_dataset/data/GCA_000149955.2/protein.faa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149955.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000149955.2'
+  access_date: '2026-09-25T18:12:55Z'
+  checksum_sha256: 9f7154fa875d48227c5201ec66a87fffc8526b5818089cc03a59de0e092eddfd
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: protein
+  accession: GCA_000149955.2
+- local_path: data/ncbi/GCA_000149955.2/extracted/ncbi_dataset/data/GCA_000149955.2/GCA_000149955.2_ASM14995v2_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149955.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000149955.2'
+  access_date: '2026-09-25T18:12:55Z'
+  checksum_sha256: 05bd6604148062eed6148b38bc8cdc363306b49d1317dd80f3debfb83fd64943
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: genome
+  accession: GCA_000149955.2
+- local_path: data/ncbi/GCA_000149955.2/extracted/ncbi_dataset/data/GCA_000149955.2/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149955.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000149955.2'
+  access_date: '2026-09-25T18:12:55Z'
+  checksum_sha256: a96766f917da45cba52c76d8ff97d5dc73a18199a90c0f699994eeeb8504fb55
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: gff3
+  accession: GCA_000149955.2
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_Stocks4.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_020796175.1_ASM2079617v1/GCA_020796175.1_ASM2079617v1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:04Z'
+  checksum_sha256: 6f829b4a0756b6178270415065ef0eb4e18e141764d8c67c713a4f5f9c88fa2a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_020796175.1_ASM2079617v1/GCA_020796175.1_ASM2079617v1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_Stocks4.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_020796175.1_ASM2079617v1/GCA_020796175.1_ASM2079617v1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:05Z'
+  checksum_sha256: 5a13e22f7517ca50add6ac77638955ab37376f43147be6ddb5739aed2d527b3f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_020796175.1_ASM2079617v1/GCA_020796175.1_ASM2079617v1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_Stocks4.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_020796175.1_ASM2079617v1/GCA_020796175.1_ASM2079617v1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:06Z'
+  checksum_sha256: 911289b302bb74a4ca78a2ddc9870f3108c6fd635b560a4e7bc00fa61a143109
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_020796175.1_ASM2079617v1/GCA_020796175.1_ASM2079617v1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_26406.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260495.2_FO_melonis_V1/GCA_000260495.2_FO_melonis_V1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:06Z'
+  checksum_sha256: 598b672c4fc7cf8849e7cec626d4eecb17e8546a86e5dbf2a5a70b31a055746a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260495.2_FO_melonis_V1/GCA_000260495.2_FO_melonis_V1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_26406.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260495.2_FO_melonis_V1/GCA_000260495.2_FO_melonis_V1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:07Z'
+  checksum_sha256: 740fddeaf90f40a9db58ac1b1a58b3d0c1bec69e906c4e3ecc2f1d64d6f509cd
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260495.2_FO_melonis_V1/GCA_000260495.2_FO_melonis_V1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_26406.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260495.2_FO_melonis_V1/GCA_000260495.2_FO_melonis_V1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:07Z'
+  checksum_sha256: 70f6a759f0dea956e11706864ce1a9faf22bf94c3d144b373548b3aa0807365c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260495.2_FO_melonis_V1/GCA_000260495.2_FO_melonis_V1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: data/ncbi/GCA_051622415.1/extracted/ncbi_dataset/data/GCA_051622415.1/protein.faa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_051622415.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_051622415.1'
+  access_date: '2026-09-25T18:12:56Z'
+  checksum_sha256: 4862eff3ab6190b20e8089d6b1196099ff9d9e90ac00e88a40895db47de01db2
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: protein
+  accession: GCA_051622415.1
+- local_path: data/ncbi/GCA_051622415.1/extracted/ncbi_dataset/data/GCA_051622415.1/GCA_051622415.1_ASM5162241v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_051622415.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_051622415.1'
+  access_date: '2026-09-25T18:12:56Z'
+  checksum_sha256: 3f3e9c71c877fa8690c9fa945559b4e02d876420418e6393c58d5987e6f08ea0
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: genome
+  accession: GCA_051622415.1
+- local_path: data/ncbi/GCA_051622415.1/extracted/ncbi_dataset/data/GCA_051622415.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_051622415.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_051622415.1'
+  access_date: '2026-09-25T18:12:56Z'
+  checksum_sha256: 9330b62488991b637c58befdac36f2f85f7579bdbf2eb783a7771d2b3012b8be
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c05
+  kind: gff3
+  accession: GCA_051622415.1
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_N139.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_004141715.1_FoN_N139_v1/GCA_004141715.1_FoN_N139_v1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:08Z'
+  checksum_sha256: 6f00b5d7758689a1d086bc22784afc5d8af9348e9aa6ea3a9261cbf5027ab2cb
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_004141715.1_FoN_N139_v1/GCA_004141715.1_FoN_N139_v1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_N139.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_004141715.1_FoN_N139_v1/GCA_004141715.1_FoN_N139_v1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:09Z'
+  checksum_sha256: 649ebbc3cf07aac48353c33b7ee05fcfbab2cc378b9ee4f871d437238d035140
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_004141715.1_FoN_N139_v1/GCA_004141715.1_FoN_N139_v1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_N139.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_004141715.1_FoN_N139_v1/GCA_004141715.1_FoN_N139_v1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:09Z'
+  checksum_sha256: baa173de0b13301b5fc2fd4fe4b38eaad710a0fb4b1863278457b486b375ad55
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_004141715.1_FoN_N139_v1/GCA_004141715.1_FoN_N139_v1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_Fo47.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_013085055.1_ASM1308505v1/GCF_013085055.1_ASM1308505v1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:10Z'
+  checksum_sha256: bd2aecc05a3d557551eba5a424339a80cee03f982d4a3d28d67672f6a0d5f9e8
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_013085055.1_ASM1308505v1/GCF_013085055.1_ASM1308505v1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_Fo47.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_013085055.1_ASM1308505v1/GCF_013085055.1_ASM1308505v1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:11Z'
+  checksum_sha256: 29015fa7892c9e437a015eb35d5ce8ab288acb846b358d0ddf453c7f6697d298
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_013085055.1_ASM1308505v1/GCF_013085055.1_ASM1308505v1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_Fo47.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_013085055.1_ASM1308505v1/GCF_013085055.1_ASM1308505v1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:11Z'
+  checksum_sha256: 576ac459b5c9f19b3bf15eabe61959744f73ae9f7583cb05ab50f537e4375df8
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_013085055.1_ASM1308505v1/GCF_013085055.1_ASM1308505v1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_FOPSP1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_054130785.1_ASM5413078v1/GCA_054130785.1_ASM5413078v1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:12Z'
+  checksum_sha256: 5899af014322b97fac0bb45a8f2fe77dc0ed34934f235775fa4ecc06b32cfa0d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_054130785.1_ASM5413078v1/GCA_054130785.1_ASM5413078v1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_FOPSP1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_054130785.1_ASM5413078v1/GCA_054130785.1_ASM5413078v1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:13Z'
+  checksum_sha256: f8c9ac1219bc22d11dd0fd9e0af52237ced075d076e76f0e110bf21503ef6b69
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_054130785.1_ASM5413078v1/GCA_054130785.1_ASM5413078v1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_FOPSP1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_054130785.1_ASM5413078v1/GCA_054130785.1_ASM5413078v1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:14Z'
+  checksum_sha256: c5629485c0e285057d1970f56abbd86a541441686a0c12f67d8db9a4fbc85d9c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_054130785.1_ASM5413078v1/GCA_054130785.1_ASM5413078v1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_HDV247.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260075.2_FO_HDV247_V1/GCA_000260075.2_FO_HDV247_V1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:14Z'
+  checksum_sha256: fd0ec69922ccd32d64fa7551040e53d0d38aa89989b7b331cafdea3a8d2ef87a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260075.2_FO_HDV247_V1/GCA_000260075.2_FO_HDV247_V1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_HDV247.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260075.2_FO_HDV247_V1/GCA_000260075.2_FO_HDV247_V1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:16Z'
+  checksum_sha256: b99c62b3a9f4677d324456d4b4fb0995520dcf18d3fd3992372b5f67f60206f1
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260075.2_FO_HDV247_V1/GCA_000260075.2_FO_HDV247_V1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_HDV247.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260075.2_FO_HDV247_V1/GCA_000260075.2_FO_HDV247_V1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:16Z'
+  checksum_sha256: f006c7fa45c842614bcb639b5b3c2e60e7c9466fb1a1a1286212bc8fbd6b78a6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260075.2_FO_HDV247_V1/GCA_000260075.2_FO_HDV247_V1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_Forc016.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_001702695.2_ASM170269v2/GCA_001702695.2_ASM170269v2_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:17Z'
+  checksum_sha256: 74c20a394e4fce2bab893c60a2393f18bb44b97b68bed671ccf2f7040aab2659
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_001702695.2_ASM170269v2/GCA_001702695.2_ASM170269v2_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_Forc016.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_001702695.2_ASM170269v2/GCA_001702695.2_ASM170269v2_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:18Z'
+  checksum_sha256: de8e81ba246424fe5ff7bfb156862eba8748dd99a2d9d4a4429c4dc5d49335fe
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_001702695.2_ASM170269v2/GCA_001702695.2_ASM170269v2_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_Forc016.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_001702695.2_ASM170269v2/GCA_001702695.2_ASM170269v2_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:18Z'
+  checksum_sha256: e13a946075006786d4a9e59bfdc70c2fa3b8e045d71eb38e0eb79a810f2dfc4e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_001702695.2_ASM170269v2/GCA_001702695.2_ASM170269v2_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_26381.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260155.3_FO_CL57_V1/GCA_000260155.3_FO_CL57_V1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:19Z'
+  checksum_sha256: 13c3653dc34a2fe905ef2c0bd63d456779ddcada3651c62e6a64dd13fe0417bc
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260155.3_FO_CL57_V1/GCA_000260155.3_FO_CL57_V1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_26381.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260155.3_FO_CL57_V1/GCA_000260155.3_FO_CL57_V1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:19Z'
+  checksum_sha256: 1559c9cd984dcaa69233c7a514eecff5e4d83a07a79456688c9d2374a813888d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260155.3_FO_CL57_V1/GCA_000260155.3_FO_CL57_V1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_26381.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260155.3_FO_CL57_V1/GCA_000260155.3_FO_CL57_V1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:20Z'
+  checksum_sha256: 916fdaeffc684a5612fd9673299cc081a4dbd6abe2331d5882120db7824e4b9f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260155.3_FO_CL57_V1/GCA_000260155.3_FO_CL57_V1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_F38.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_057814765.1_ASM5781476v1/protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:20Z'
+  checksum_sha256: 7e841a4f8509f5eecdbeea76e42ce09029a39b8570a0528a756c1ed5e027289a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_057814765.1_ASM5781476v1/protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_F38.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_057814765.1_ASM5781476v1/GCA_057814765.1_ASM5781476v1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:21Z'
+  checksum_sha256: 2f02c343d50996e18b5d8488ffb8f2d37f6677cdc958ea1b12b09dbe1051e0ba
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_057814765.1_ASM5781476v1/GCA_057814765.1_ASM5781476v1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_F38.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_057814765.1_ASM5781476v1/genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:22Z'
+  checksum_sha256: 8367cdc73cdecbd36c118bde314f010b2d5effa1214e99b6060201965a9326f2
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_057814765.1_ASM5781476v1/genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_54005.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260235.2_FO_PHW815_V1/GCA_000260235.2_FO_PHW815_V1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:22Z'
+  checksum_sha256: f400efcb69d9266512df8c10e4e449b3e9e57b1ee24bf7fa2ea7e58c6dd4d72d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260235.2_FO_PHW815_V1/GCA_000260235.2_FO_PHW815_V1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_54005.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260235.2_FO_PHW815_V1/GCA_000260235.2_FO_PHW815_V1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:23Z'
+  checksum_sha256: 849995eef008f375196fbcfe812140a4d2e5dc46e4c791cccf4fd1e708bc1fe2
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260235.2_FO_PHW815_V1/GCA_000260235.2_FO_PHW815_V1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_54005.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260235.2_FO_PHW815_V1/GCA_000260235.2_FO_PHW815_V1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:23Z'
+  checksum_sha256: 26becc02aa71290f6b12178182b1a02a28e3b0416c7a4daedad223a567c84e6d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260235.2_FO_PHW815_V1/GCA_000260235.2_FO_PHW815_V1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_ME23.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_030719095.1_ASM3071909v1/GCA_030719095.1_ASM3071909v1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:24Z'
+  checksum_sha256: 21c7ac46be8a330cc080ddf7bbf772844799768ee70b72bc4a7361eff63f923e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_030719095.1_ASM3071909v1/GCA_030719095.1_ASM3071909v1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_ME23.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_030719095.1_ASM3071909v1/GCA_030719095.1_ASM3071909v1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:24Z'
+  checksum_sha256: 846aed82e5224c2b90b20f1292cb604064350c18df5dba7bff22a05022c3ced5
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_030719095.1_ASM3071909v1/GCA_030719095.1_ASM3071909v1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_ME23.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_030719095.1_ASM3071909v1/GCA_030719095.1_ASM3071909v1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:25Z'
+  checksum_sha256: 125781a633bf52ad62fc3f70e8a4bef8dfa0a19da06909c97e295b630087d7ea
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_030719095.1_ASM3071909v1/GCA_030719095.1_ASM3071909v1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuox_pin22.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_051624415.1_ASM5162441v1/GCA_051624415.1_ASM5162441v1_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:25Z'
+  checksum_sha256: 33e9d955dc8df5668e7fc1e63a0e3d60a8e779a9dcdcb18e9a623e4c82ea0e54
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_051624415.1_ASM5162441v1/GCA_051624415.1_ASM5162441v1_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuox_pin22.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_051624415.1_ASM5162441v1/GCA_051624415.1_ASM5162441v1_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:25Z'
+  checksum_sha256: c3a94ead38a360b61778c1e761b20e964cb35a8846eb65860182d89d47bd6e91
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_051624415.1_ASM5162441v1/GCA_051624415.1_ASM5162441v1_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuox_pin22.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_051624415.1_ASM5162441v1/GCA_051624415.1_ASM5162441v1_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:26Z'
+  checksum_sha256: ecdabf8d145662ffa4917b0fe4324bf0d03f7a55d7afefcdc5b0774e8db3a56f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_051624415.1_ASM5162441v1/GCA_051624415.1_ASM5162441v1_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuso_SB1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_023522795.1_NDSU_Fsol_1.0/GCF_023522795.1_NDSU_Fsol_1.0_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:26Z'
+  checksum_sha256: bd4ff546f1b55925fed7c9ed2036f9090c73ef1c7560771e0304eb253f061a68
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_023522795.1_NDSU_Fsol_1.0/GCF_023522795.1_NDSU_Fsol_1.0_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuso_SB1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_023522795.1_NDSU_Fsol_1.0/GCF_023522795.1_NDSU_Fsol_1.0_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:27Z'
+  checksum_sha256: c8edad44a92e79192f2057ac06862d6a13d016617245a4e3839a7b09a7a15fd8
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_023522795.1_NDSU_Fsol_1.0/GCF_023522795.1_NDSU_Fsol_1.0_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuso_SB1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_023522795.1_NDSU_Fsol_1.0/GCF_023522795.1_NDSU_Fsol_1.0_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:27Z'
+  checksum_sha256: 463fdfce1d408f210643c68f7900b1b01c7c67aeadecd9352351c350e9048e5f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_023522795.1_NDSU_Fsol_1.0/GCF_023522795.1_NDSU_Fsol_1.0_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fufu_IMI_58289.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:28Z'
+  checksum_sha256: 54ec86228ec01d406f9c4d1cba7f3d1c2ea3eee20a28ef308e1474bdb6578787
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fufu_IMI_58289.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:28Z'
+  checksum_sha256: 60d6dd0d6efd1d4e3ece3668c76bc1f423bff9ba390cf8e922ef225b97a90a5f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fufu_IMI_58289.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:29Z'
+  checksum_sha256: 836e5d6ccbc1ea5d2e2fd7c72765ede679037ef5f1d23b7c14857d7b203f520c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2/GCF_900079805.1_Fusarium_fujikuroi_IMI58289_V2_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fugr_PH1_NRRL_31084.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_000240135.3_ASM24013v3/GCF_000240135.3_ASM24013v3_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:29Z'
+  checksum_sha256: f526c3e22437b7b60d9589a1cce7cfa27ae56e66cfa63ce1c770297da1e9ee5d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_000240135.3_ASM24013v3/GCF_000240135.3_ASM24013v3_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fugr_PH1_NRRL_31084.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_000240135.3_ASM24013v3/GCF_000240135.3_ASM24013v3_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:29Z'
+  checksum_sha256: 0ab992a7e4c3945deddc7f6c4a20553214e06ed91b373d87edfc40d20ec25953
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_000240135.3_ASM24013v3/GCF_000240135.3_ASM24013v3_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fugr_PH1_NRRL_31084.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_000240135.3_ASM24013v3/GCF_000240135.3_ASM24013v3_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:30Z'
+  checksum_sha256: 1f7f76fc2223fe9a771fbfc337d267da54be9115139f413a1a36e1077011e969
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_000240135.3_ASM24013v3/GCF_000240135.3_ASM24013v3_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/pep/Fuin_CF00095.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_027945365.1_F_inc_CF00095/GCA_027945365.1_F_inc_CF00095_protein.faa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:30Z'
+  checksum_sha256: c34436e155a22468fc0f231d4213c7952fea0d9bab06bcad00f72f08c2f8b55e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_027945365.1_F_inc_CF00095/GCA_027945365.1_F_inc_CF00095_protein.faa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/dna/Fuin_CF00095.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_027945365.1_F_inc_CF00095/GCA_027945365.1_F_inc_CF00095_genomic.fna.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:30Z'
+  checksum_sha256: 1b842d14c5dd494dcd4db1727acc97232e5efb905b1937c07db60f7575bc5a8a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_027945365.1_F_inc_CF00095/GCA_027945365.1_F_inc_CF00095_genomic.fna.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/data_dir/gff3/Fuin_CF00095.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_027945365.1_F_inc_CF00095/GCA_027945365.1_F_inc_CF00095_genomic.gff.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-25T18:13:31Z'
+  checksum_sha256: 09d13593ee58aab9aa43cfa3c9c58b1cc1ebe4185334b74b61770c3fc47eba83
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_027945365.1_F_inc_CF00095/GCA_027945365.1_F_inc_CF00095_genomic.gff.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c05
+- local_path: studies/fungi/fusarium_FOXY/config.csv
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-25T18:13:31Z'
+  checksum_sha256: f7fe0ed1849d741be2d4dd218b2d42913abae936c293e2a6b392aee2e715d255
+  license: n/a
+  derived_by: bin/build_study_config.py --study-dir studies/fungi/fusarium_FOXY
+  pulled_with: build_study_config.py on c05

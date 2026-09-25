@@ -384,3 +384,37 @@ def test_uniprot_sourced_protein(tmp_path, monkeypatch):
     assert (study_dir / "data_dir" / "pep" / f"{stem}.pep.fa").read_text() == ">seq\nMAAA\n"
     assert row["DNA"] == f"{stem}.dna.fa"
     assert (study_dir / "data_dir" / "dna" / f"{stem}.dna.fa").read_text() == ">contig6\nGATC\n"
+
+
+def test_local_sources_gz_are_decompressed(tmp_path, monkeypatch):
+    # local_faa / local_genome / local_gff3 paths ending in .gz (e.g. NCBI
+    # package files mirrored under 1KFG) are gunzipped into data_dir, not
+    # copied compressed under an uncompressed name.
+    study_dir = tmp_path / "studies" / "fungi" / "toy_gz"
+    study_dir.mkdir(parents=True)
+    src = tmp_path / "src"
+    src.mkdir()
+    for name, text in (("p.faa.gz", ">seq1\nMAAA\n"), ("g.fna.gz", ">contig1\nACGT\n"),
+                       ("a.gff.gz", "##gff-version 3\ncontig1\tsrc\tgene\t1\t4\t.\t+\t.\tID=g1\n")):
+        with gzip.open(src / name, "wt") as fh:
+            fh.write(text)
+    _write_species_csv(study_dir / "species.csv", [{
+        "Short": "Sp1", "Species": "Test species", "Strain": "T1",
+        "Group": "IN", "TaxonGroup": "TestGroup",
+        "Protein_Source": "local_faa", "Protein_Accession": str(src / "p.faa.gz"),
+        "Taxon_ID": "",
+        "Genome_Source": "local_genome", "Genome_Accession": str(src / "g.fna.gz"),
+        "GFF3_Source": "local_gff3", "GFF3_Accession": str(src / "a.gff.gz"),
+    }])
+    monkeypatch.setattr(sys, "argv", [
+        "build_study_config.py", "--study-dir", str(study_dir),
+        "--uniprot-cache", str(tmp_path / "data/uniprot"),
+        "--ncbi-cache", str(tmp_path / "data/ncbi"),
+    ])
+    assert bsc.main() == 0
+    dd = study_dir / "data_dir"
+    assert (dd / "pep" / "Sp1.pep.fa").read_text() == ">seq1\nMAAA\n"
+    assert (dd / "dna" / "Sp1.dna.fa").read_text() == ">contig1\nACGT\n"
+    assert (dd / "gff3" / "Sp1.gff3").read_text().startswith("##gff-version 3")
+    manifest = (study_dir / "DATA_MANIFEST.yaml").read_text()
+    assert "gunzipped from" in manifest

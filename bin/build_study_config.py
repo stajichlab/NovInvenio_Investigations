@@ -21,7 +21,8 @@ FASTA paired with a genome that still needs an NCBI fetch). Recognized values:
                   included in the same NCBI Datasets genome package (fetched via
                   fetch_genome_assembly.py --include-protein), with provenance record.
     local_faa  -- Protein_Accession = path to an existing protein FASTA. Copied in
-                  directly, with a provenance record (no fetch).
+                  directly (gunzipped if the path ends in .gz), with a provenance
+                  record (no fetch). Same for local_genome / local_gff3.
 
   Genome_Source:
     ncbi          -- Genome_Accession = GCA/GCF assembly accession. Fetched via
@@ -100,14 +101,24 @@ def load_provenance(sidecar: Path) -> dict:
         return yaml.safe_load(fh)
 
 
+def _copy_local(src: Path, dest: Path) -> None:
+    """Copy a local_* source into data_dir; a .gz source (e.g. an NCBI package
+    file mirrored under 1KFG) is gunzipped, since data_dir files are plain."""
+    if src.suffix == ".gz":
+        gunzip_to(src, dest)
+    else:
+        shutil.copyfile(src, dest)
+
+
 def _local_copy_record(src: Path, dest: Path, license_: str) -> dict:
+    how = "gunzipped from" if src.suffix == ".gz" else "copied from"
     return build_record(
         source_url=f"(internal -- {src})",
         source_release="local file, not independently versioned",
         license=license_,
         local_path=dest,
         checksum=sha256_of(dest),
-        derived_by=f"copied from {src} via bin/build_study_config.py",
+        derived_by=f"{how} {src} via bin/build_study_config.py",
     )
 
 
@@ -173,7 +184,7 @@ def resolve_protein(row, args, pep_dir, manifest_records, batch_fetched=frozense
         stem = short
         pep_dir.mkdir(parents=True, exist_ok=True)
         pep_out = pep_dir / f"{stem}.pep.fa"
-        shutil.copyfile(src, pep_out)
+        _copy_local(src, pep_out)
         manifest_records.append(_local_copy_record(src, pep_out, args.local_license))
         return stem, pep_out.name, None
 
@@ -231,7 +242,7 @@ def resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records
             sys.exit(f"[{short}] ERROR: expected local genome FASTA {src} not found")
         dna_dir.mkdir(parents=True, exist_ok=True)
         dna_out = dna_dir / f"{stem}.dna.fa"
-        shutil.copyfile(src, dna_out)
+        _copy_local(src, dna_out)
         dna_out_name = dna_out.name
         manifest_records.append(_local_copy_record(src, dna_out, args.local_license))
     elif gsource == "":
@@ -245,7 +256,7 @@ def resolve_genome_and_gff3(row, args, stem, dna_dir, gff3_dir, manifest_records
             sys.exit(f"[{short}] ERROR: expected local GFF3 {src} not found")
         gff3_dir.mkdir(parents=True, exist_ok=True)
         gff3_out = gff3_dir / f"{stem}.gff3"
-        shutil.copyfile(src, gff3_out)
+        _copy_local(src, gff3_out)
         gff3_out_name = gff3_out.name
         manifest_records.append(_local_copy_record(src, gff3_out, args.local_license))
     elif gffsource not in ("", "none"):

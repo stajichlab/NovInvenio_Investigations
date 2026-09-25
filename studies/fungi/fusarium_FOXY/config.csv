@@ -1,0 +1,24 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Fusarium odoratissimum,54006,Fuox_54006.pep.fa,Fuox_54006.dna.fa,Fuox_54006.gff3,Fuox_54006,no-fsp-in-name
+IN,Fusarium oxysporum,Foa 44,Fuox_Foa_44.pep.fa,Fuox_Foa_44.dna.fa,Fuox_Foa_44.gff3,Fuox_Foa_44,albedinis
+IN,Fusarium oxysporum,FoC_Fus2,Fuox_FoC_Fus2.pep.fa,Fuox_FoC_Fus2.dna.fa,Fuox_FoC_Fus2.gff3,Fuox_FoC_Fus2,cepae
+IN,Fusarium oxysporum,Fo5176,Fuox_Fo5176.pep.fa,Fuox_Fo5176.dna.fa,Fuox_Fo5176.gff3,Fuox_Fo5176,conglutinans
+IN,Fusarium oxysporum,Tw-R1-1,Fuox_TwR11.pep.fa,Fuox_TwR11.dna.fa,Fuox_TwR11.gff3,Fuox_TwR11,cubense
+IN,Fusarium oxysporum,4287,Fuox_4287.pep.fa,Fuox_4287.dna.fa,Fuox_4287.gff3,Fuox_4287,lycopersici
+IN,Fusarium oxysporum,Stocks4,Fuox_Stocks4.pep.fa,Fuox_Stocks4.dna.fa,Fuox_Stocks4.gff3,Fuox_Stocks4,matthiolae
+IN,Fusarium oxysporum,26406,Fuox_26406.pep.fa,Fuox_26406.dna.fa,Fuox_26406.gff3,Fuox_26406,melonis
+IN,Fusarium oxysporum,RF12,Fuox_RF12.pep.fa,Fuox_RF12.dna.fa,Fuox_RF12.gff3,Fuox_RF12,mori
+IN,Fusarium oxysporum,N139,Fuox_N139.pep.fa,Fuox_N139.dna.fa,Fuox_N139.gff3,Fuox_N139,narcissi
+IN,Fusarium oxysporum,Fo47,Fuox_Fo47.pep.fa,Fuox_Fo47.dna.fa,Fuox_Fo47.gff3,Fuox_Fo47,no-fsp-in-name
+IN,Fusarium oxysporum,FOP-SP1,Fuox_FOPSP1.pep.fa,Fuox_FOPSP1.dna.fa,Fuox_FOPSP1.gff3,Fuox_FOPSP1,phaseoli
+IN,Fusarium oxysporum,HDV247,Fuox_HDV247.pep.fa,Fuox_HDV247.dna.fa,Fuox_HDV247.gff3,Fuox_HDV247,pisi
+IN,Fusarium oxysporum,Forc016,Fuox_Forc016.pep.fa,Fuox_Forc016.dna.fa,Fuox_Forc016.gff3,Fuox_Forc016,radicis-cucumerinum
+IN,Fusarium oxysporum,26381,Fuox_26381.pep.fa,Fuox_26381.dna.fa,Fuox_26381.gff3,Fuox_26381,radicis-lycopersici
+IN,Fusarium oxysporum,F38,Fuox_F38.pep.fa,Fuox_F38.dna.fa,Fuox_F38.gff3,Fuox_F38,rapae
+IN,Fusarium oxysporum,54005,Fuox_54005.pep.fa,Fuox_54005.dna.fa,Fuox_54005.gff3,Fuox_54005,raphani
+IN,Fusarium oxysporum,ME23,Fuox_ME23.pep.fa,Fuox_ME23.dna.fa,Fuox_ME23.gff3,Fuox_ME23,vasinfectum
+IN,Fusarium oxysporum,pin22,Fuox_pin22.pep.fa,Fuox_pin22.dna.fa,Fuox_pin22.gff3,Fuox_pin22,zingiberi
+OUT,Fusarium solani,SB1,Fuso_SB1.pep.fa,Fuso_SB1.dna.fa,Fuso_SB1.gff3,Fuso_SB1,no-fsp-in-name
+OUT,Fusarium fujikuroi,IMI 58289,Fufu_IMI_58289.pep.fa,Fufu_IMI_58289.dna.fa,Fufu_IMI_58289.gff3,Fufu_IMI_58289,no-fsp-in-name
+OUT,Fusarium graminearum,PH-1; NRRL 31084,Fugr_PH1_NRRL_31084.pep.fa,Fugr_PH1_NRRL_31084.dna.fa,Fugr_PH1_NRRL_31084.gff3,Fugr_PH1_NRRL_31084,no-fsp-in-name
+OUT,Fusarium equiseti,CF00095,Fuin_CF00095.pep.fa,Fuin_CF00095.dna.fa,Fuin_CF00095.gff3,Fuin_CF00095,no-fsp-in-name
