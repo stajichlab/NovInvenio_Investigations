@@ -334,3 +334,119 @@ def test_run_record_and_record_exit(tmp_path):
     path.write_text(json.dumps(rec))
     nip.record_exit(str(path), 3)
     assert json.loads(path.read_text())["exit_status"] == 3
+
+
+import io
+
+
+class FakeRunner:
+    """Records commands. nextflow pull creates the clone; sbatch returns a job id."""
+
+    def __init__(self, assets_root, *, sbatch_rc=0, sbatch_out="12345\n", pull_rc=0):
+        self.calls, self.assets_root = [], assets_root
+        self.sbatch_rc, self.sbatch_out, self.pull_rc = sbatch_rc, sbatch_out, pull_rc
+
+    def __call__(self, cmd, **kwargs):
+        self.calls.append(cmd)
+
+        class R:
+            returncode, stdout = 0, ""
+        r = R()
+        if cmd[:2] == ["nextflow", "pull"]:
+            r.returncode = self.pull_rc
+            clone = self.assets_root / ".repos" / "stajichlab" / "NovInvenio" / "clones" / cmd[-1]
+            (clone / "conf").mkdir(parents=True, exist_ok=True)
+            (clone / "pixi.lock").write_text("lock-v1\n")
+        elif cmd[0] == "sbatch":
+            r.returncode, r.stdout = self.sbatch_rc, self.sbatch_out
+        elif cmd[0] == "du":
+            r.stdout = "9.1G\t/x\n"
+        return r
+
+    def names(self):
+        return [c[0] if c[0] != "nextflow" else "nextflow " + c[1] for c in self.calls]
+
+
+def ready_spec(tmp_path, **run_overrides):
+    study = make_study(tmp_path, **run_overrides)
+    return nip.load_runs_file(study)["r1"]
+
+
+def test_run_order_pull_install_write_submit(tmp_path):
+    spec = ready_spec(tmp_path)
+    fr = FakeRunner(tmp_path / "assets")
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          runner=fr, now="2026-09-26T00:00:00Z", out=io.StringIO())
+    assert rc == 0
+    assert fr.names() == ["nextflow pull", "pixi", "du", "sbatch"]
+    launch = spec.study_dir / ".nf_launch" / "r1"
+    rec = json.loads((launch / nip.RUN_RECORD).read_text())
+    assert rec["slurm_job_id"] == "12345"
+    assert (launch / "params.yaml").is_file()
+    script = launch / "submit_nextflow_head.sh"
+    assert script.is_file() and script.stat().st_mode & 0o111
+
+
+def test_install_skipped_when_marker_matches(tmp_path):
+    spec = ready_spec(tmp_path)
+    assets = tmp_path / "assets"
+    fr = FakeRunner(assets)
+    nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=assets, runner=fr,
+                     out=io.StringIO())
+    fr2 = FakeRunner(assets)
+    nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=assets, runner=fr2,
+                     out=io.StringIO())
+    assert "pixi" not in fr2.names()
+
+
+def test_dry_run_calls_nothing_and_writes_nothing(tmp_path):
+    spec = ready_spec(tmp_path)
+    fr = FakeRunner(tmp_path / "assets")
+    out = io.StringIO()
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          dry_run=True, runner=fr, out=out)
+    assert rc == 0 and fr.calls == []
+    assert not (spec.study_dir / ".nf_launch").exists()
+    assert "pangenome_samplesheet" in out.getvalue() and "nextflow run" in out.getvalue()
+
+
+def test_foreground_runs_bash_not_sbatch(tmp_path):
+    spec = ready_spec(tmp_path)
+    fr = FakeRunner(tmp_path / "assets")
+    nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                     foreground=True, runner=fr, out=io.StringIO())
+    assert "sbatch" not in fr.names() and fr.calls[-1][0] == "bash"
+
+
+def test_check_failure_stops_before_any_command(tmp_path):
+    spec = ready_spec(tmp_path, pipeline_commit="0dddb42")
+    fr = FakeRunner(tmp_path / "assets")
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          runner=fr, out=io.StringIO())
+    assert rc == 1 and fr.calls == []
+
+
+def test_pull_failure_stops(tmp_path):
+    spec = ready_spec(tmp_path)
+    fr = FakeRunner(tmp_path / "assets", pull_rc=1)
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          runner=fr, out=io.StringIO())
+    assert rc == 1 and fr.names() == ["nextflow pull"]
+
+
+def test_sbatch_failure_leaves_job_id_null(tmp_path):
+    spec = ready_spec(tmp_path)
+    fr = FakeRunner(tmp_path / "assets", sbatch_rc=1, sbatch_out="")
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          runner=fr, out=io.StringIO())
+    assert rc != 0
+    rec = json.loads((spec.study_dir / ".nf_launch" / "r1" / nip.RUN_RECORD).read_text())
+    assert rec["slurm_job_id"] is None
+
+
+def test_sbatch_garbage_output_is_failure(tmp_path):
+    spec = ready_spec(tmp_path)
+    fr = FakeRunner(tmp_path / "assets", sbatch_out="Submitted batch job\n")
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          runner=fr, out=io.StringIO())
+    assert rc != 0

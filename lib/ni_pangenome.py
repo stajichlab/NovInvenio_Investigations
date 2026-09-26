@@ -6,10 +6,14 @@ A study declares its runs in studies/<domain>/<set>/pangenome_runs.yaml.
 from __future__ import annotations
 
 import csv
+import datetime
 import hashlib
 import json
 import re
 import shlex
+import subprocess
+import sys
+import time
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -318,3 +322,74 @@ def record_exit(record_path: str, status: int) -> None:
     rec = json.loads(p.read_text())
     rec["exit_status"] = int(status)
     p.write_text(json.dumps(rec, indent=2) + "\n")
+
+
+PROVISION_MARKER = ".ni_provisioned"
+
+
+def _now_utc() -> str:
+    return datetime.datetime.now(datetime.UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def run_pipeline(spec: RunSpec, *, nii_root: Path, extra_args: list[str], assets_root: Path,
+                 dry_run: bool = False, foreground: bool = False, runner=subprocess.run,
+                 now: str | None = None, out=sys.stdout) -> int:
+    errors, warnings = check_run(spec, assets_root=assets_root)
+    for w in warnings:
+        print(f"WARNING: {w}", file=out)
+    if errors:
+        for e in errors:
+            print(f"ERROR: {e}", file=out)
+        return 1
+
+    clone = clone_path(spec, assets_root)
+    params_text = render_params_yaml(spec)
+    script_text = render_head_job(spec, clone=clone, nii_root=nii_root, extra_args=extra_args)
+    if dry_run:
+        print(f"== params.yaml ==\n{params_text}\n== submit_nextflow_head.sh ==\n{script_text}",
+              file=out)
+        return 0
+
+    pull = runner(["nextflow", "pull", spec.pipeline, "-r", spec.pipeline_commit])
+    if pull.returncode != 0:
+        print(f"ERROR: nextflow pull of {spec.pipeline_commit} failed "
+              "(is the commit pushed to GitHub?)", file=out)
+        return pull.returncode
+
+    lock = clone / "pixi.lock"
+    lock_sha = _sha256_bytes(lock.read_bytes()) if lock.is_file() else "no-lock"
+    marker = clone / PROVISION_MARKER
+    if not (marker.is_file() and marker.read_text().strip() == lock_sha):
+        t0 = time.monotonic()
+        inst = runner(["pixi", "install", "--frozen", "--manifest-path", str(clone / "pixi.toml")])
+        if inst.returncode != 0:
+            print("ERROR: pixi install failed in the pipeline clone", file=out)
+            return inst.returncode
+        size = runner(["du", "-sh", str(clone / ".pixi")], capture_output=True, text=True)
+        print(f"== pixi install: {time.monotonic() - t0:.0f} s; env size "
+              f"{(size.stdout or '?').split()[0] if size.stdout else '?'} ==", file=out)
+        marker.write_text(lock_sha + "\n")
+
+    L = launch_dir(spec)
+    L.mkdir(parents=True, exist_ok=True)
+    (L / "params.yaml").write_text(params_text)
+    script = L / "submit_nextflow_head.sh"
+    script.write_text(script_text)
+    script.chmod(0o755)
+    record = build_run_record(spec, clone=clone, params_text=params_text,
+                              submitted_at=now or _now_utc())
+    record_path = L / RUN_RECORD
+    record_path.write_text(json.dumps(record, indent=2) + "\n")
+
+    if foreground:
+        return runner(["bash", str(script)]).returncode
+
+    sub = runner(["sbatch", "--parsable", str(script)], capture_output=True, text=True)
+    job_id = (sub.stdout or "").strip().split(";")[0]
+    if sub.returncode != 0 or not job_id.isdigit():
+        print(f"ERROR: sbatch failed (rc={sub.returncode}, output={sub.stdout!r})", file=out)
+        return sub.returncode or 1
+    record["slurm_job_id"] = job_id
+    record_path.write_text(json.dumps(record, indent=2) + "\n")
+    print(f"== submitted {spec.name} as job {job_id}; log {L}/slurm-{job_id}.out ==", file=out)
+    return 0
