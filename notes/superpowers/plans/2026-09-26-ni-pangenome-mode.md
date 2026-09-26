@@ -21,7 +21,7 @@
 - Run names must match `^[A-Za-z0-9._-]+$` (reuse `study_runs.validate_slug`).
 - Default `pipeline`: `stajichlab/NovInvenio`. Default `data_dir`: `data_dir`. Default `head_job`: `{partition: stajichlab, account: null, time: 30-00:00:00, mem: 8G, cpus: 1}`.
 - Clone path: `~/.nextflow/assets/.repos/<org>/<repo>/clones/<sha>/`.
-- Outputs: `results/<run>/output/pangenome/` (no `--pangenome_project`). Launch dir: `studies/<d>/<s>/.nf_launch/<run>/`.
+- Outputs: `results/<run>/<samplesheet stem>/pangenome/` at 0dddb42 (no `--pangenome_project`; older runs used `output/`). Launch dir: `studies/<d>/<s>/.nf_launch/<run>/`.
 - `publish` is never called by any other command. Staging never publishes.
 - Commit messages end with `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`. Commit to `main` (repo practice); do not push (the controller pushes).
 
