@@ -36,9 +36,10 @@ hand-written `submit_nextflow_head.sh` files.
   and takes `--study`, `--run`, `--current`, `--pangenome-dir`.
 - Boolean params given on the CLI arrived as strings before #191 (fixed in
   NovInvenio `3ac3919`). The Fusarium studies pass params by YAML file.
-- `bin/ni` has `#!/usr/bin/env python3`. On UCR HPCC that is Python 3.9.
-  `bin/ni` needs 3.10+ (`str | None` annotations). Run it with
-  `/usr/bin/python3.12`.
+- `bin/ni` needs Python 3.10+ (`str | None` annotations). UCR HPCC's default
+  `python3` is 3.9. Since 2026-09-26 `bin/ni` has `#!/usr/bin/env python3.12`
+  and exits with an error under < 3.10. The generated head job calls
+  `/usr/bin/python3.12` by absolute path.
 
 ## Decisions
 

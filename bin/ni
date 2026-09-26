@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python3.12
 """ni: dataset resolution and config assembly for a new NII study.
 
 See notes/superpowers/specs/2026-09-11-ni-dataset-resolution-design.md.
@@ -15,6 +15,11 @@ import argparse
 import subprocess
 import sys
 from pathlib import Path
+
+# UCR HPCC's default python3 is 3.9; this CLI and lib/ni_*.py need 3.10+.
+if sys.version_info < (3, 10):
+    sys.exit(f"ERROR: bin/ni needs Python >= 3.10 (got {sys.version.split()[0]}). "
+             "Run it as bin/ni or with /usr/bin/python3.12.")
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from ni_resolve import resolve_species_csv  # noqa: E402
