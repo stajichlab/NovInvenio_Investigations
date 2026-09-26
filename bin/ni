@@ -10,6 +10,11 @@ Usage:
                   [--ingroup-groups G1,G2] [--outgroup-groups G3] [--auto]
                   [--include-species-complex]
   bin/ni run      --study-dir studies/<domain>/<set> [-- extra nextflow args]
+  bin/ni pangenome list    --study-dir studies/<domain>/<set>
+  bin/ni pangenome check   --study-dir studies/<domain>/<set> --run <run>
+  bin/ni pangenome run     --study-dir studies/<domain>/<set> --run <run> [--dry-run] [--foreground] [-- extra nextflow args]
+  bin/ni pangenome stage   --study-dir studies/<domain>/<set> --run <run>
+  bin/ni pangenome publish --study-dir studies/<domain>/<set> --run <run>
 """
 import argparse
 import subprocess
@@ -25,6 +30,53 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from ni_resolve import resolve_species_csv  # noqa: E402
 
 BIN = Path(__file__).parent
+
+
+def _pangenome(args) -> int:
+    import ni_pangenome as nip
+
+    repo_root = BIN.parent
+    assets_root = Path.home() / ".nextflow" / "assets"
+    try:
+        specs = nip.load_runs_file(Path(args.study_dir).resolve())
+    except nip.RunsFileError as e:
+        print(f"ERROR: {e}")
+        return 1
+    if args.pg_command == "list":
+        for spec in specs.values():
+            n = "?"
+            if spec.samplesheet.is_file():
+                n = str(max(sum(1 for _ in open(spec.samplesheet)) - 1, 0))
+            print(f"{spec.name}\t{spec.pipeline_commit[:7]}\t{n} rows\t"
+                  f"{nip.run_state(spec, repo_root)}")
+        return 0
+    spec = specs.get(args.run)
+    if spec is None:
+        print(f"ERROR: run {args.run!r} not in {nip.RUNS_FILE} (have: {sorted(specs)})")
+        return 1
+    try:
+        if args.pg_command == "check":
+            errors, warnings = nip.check_run(spec, assets_root=assets_root)
+            for w in warnings:
+                print(f"WARNING: {w}")
+            for e in errors:
+                print(f"ERROR: {e}")
+            if not errors:
+                print(f"OK: {spec.name}")
+            return 1 if errors else 0
+        if args.pg_command == "run":
+            extra = [a for a in args.extra_args if a != "--"]
+            return nip.run_pipeline(spec, nii_root=repo_root, extra_args=extra,
+                                    assets_root=assets_root, dry_run=args.dry_run,
+                                    foreground=args.foreground, out=sys.stdout)
+        if args.pg_command == "stage":
+            return subprocess.run(nip.stage_command(spec, repo_root)).returncode
+        if args.pg_command == "publish":
+            return subprocess.run(nip.publish_command(spec, repo_root)).returncode
+    except nip.RunsFileError as e:
+        print(f"ERROR: {e}")
+        return 1
+    return 1
 
 
 def main() -> int:
@@ -79,6 +131,18 @@ def main() -> int:
     run_ap.add_argument("--study-dir", required=True)
     run_ap.add_argument("extra_args", nargs=argparse.REMAINDER)
 
+    pg_ap = sub.add_parser("pangenome", help="Run pangenome.nf for a study by run name")
+    pg_sub = pg_ap.add_subparsers(dest="pg_command", required=True)
+    for name in ("list", "check", "run", "stage", "publish"):
+        p = pg_sub.add_parser(name)
+        p.add_argument("--study-dir", required=True)
+        if name != "list":
+            p.add_argument("--run", required=True)
+        if name == "run":
+            p.add_argument("--dry-run", action="store_true")
+            p.add_argument("--foreground", action="store_true")
+            p.add_argument("extra_args", nargs=argparse.REMAINDER)
+
     args = ap.parse_args()
 
     if args.command == "resolve":
@@ -129,6 +193,9 @@ def main() -> int:
         cmd.extend(a for a in args.extra_args if a != "--")
         result = subprocess.run(cmd)
         return result.returncode
+
+    if args.command == "pangenome":
+        return _pangenome(args)
 
     return 1
 

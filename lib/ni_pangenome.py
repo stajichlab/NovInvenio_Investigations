@@ -393,3 +393,58 @@ def run_pipeline(spec: RunSpec, *, nii_root: Path, extra_args: list[str], assets
     record_path.write_text(json.dumps(record, indent=2) + "\n")
     print(f"== submitted {spec.name} as job {job_id}; log {L}/slurm-{job_id}.out ==", file=out)
     return 0
+
+
+def _study_rel(spec: RunSpec, repo_root: Path) -> str:
+    try:
+        return str(spec.study_dir.resolve().relative_to((repo_root / "studies").resolve()))
+    except ValueError:
+        raise RunsFileError(f"{spec.study_dir} is not under {repo_root}/studies") from None
+
+
+def _run_docs(spec: RunSpec, repo_root: Path) -> Path | None:
+    target = load_publish_target(spec.study_dir)
+    if target is None:
+        return None
+    try:
+        domain = _study_rel(spec, repo_root).split("/", 1)[0]
+    except RunsFileError:
+        return None  # study outside repo_root/studies: it cannot have site pages
+    return repo_root / "docs" / domain / target.study / spec.name
+
+
+def run_state(spec: RunSpec, repo_root: Path) -> str:
+    docs = _run_docs(spec, repo_root)
+    if docs is not None and (docs / "run.json").is_file():
+        return "staged"
+    record = launch_dir(spec) / RUN_RECORD
+    if not record.is_file():
+        return "not started"
+    rec = json.loads(record.read_text())
+    status = rec.get("exit_status")
+    if status is None:
+        return f"submitted {rec.get('slurm_job_id')}"
+    return "done" if status == 0 else f"failed (exit {status})"
+
+
+def stage_command(spec: RunSpec, repo_root: Path) -> list[str]:
+    cmd = [PYTHON, str(repo_root / "bin" / "sync_pangenome_report.py"),
+           "--study", _study_rel(spec, repo_root), "--run", spec.name]
+    if spec.current:
+        cmd.append("--current")
+    return cmd
+
+
+def publish_command(spec: RunSpec, repo_root: Path) -> list[str]:
+    if not spec.publish:
+        raise RunsFileError(f"run {spec.name} does not set publish: true")
+    docs = _run_docs(spec, repo_root)
+    if docs is None:
+        raise RunsFileError(f"{spec.study_dir}/publish.yaml not found")
+    if not (docs / "run.json").is_file():
+        raise RunsFileError(f"run {spec.name} is not staged ({docs}/run.json missing); "
+                            "run `ni pangenome stage` first")
+    domain = _study_rel(spec, repo_root).split("/", 1)[0]
+    target = load_publish_target(spec.study_dir)
+    return [str(repo_root / "bin" / "publish_report_release.sh"),
+            f"{domain}/{target.study}/{spec.name}"]

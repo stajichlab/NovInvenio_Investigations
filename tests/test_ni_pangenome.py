@@ -450,3 +450,105 @@ def test_sbatch_garbage_output_is_failure(tmp_path):
     rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
                           runner=fr, out=io.StringIO())
     assert rc != 0
+
+
+import importlib.machinery
+import importlib.util
+
+
+def load_ni_cli():
+    loader = importlib.machinery.SourceFileLoader("ni_cli", str(REPO / "bin" / "ni"))
+    spec = importlib.util.spec_from_file_location("ni_cli", REPO / "bin" / "ni", loader=loader)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def repo_study(tmp_path, **kw):
+    """make_study puts the study at <tmp>/studies/fungi/s1, so <tmp> acts as repo root."""
+    study = make_study(tmp_path, **kw)
+    return tmp_path, nip.load_runs_file(study)["r1"]
+
+
+def test_stage_command(tmp_path):
+    root, spec = repo_study(tmp_path, current=True)
+    cmd = nip.stage_command(spec, root)
+    assert cmd == [nip.PYTHON, str(root / "bin" / "sync_pangenome_report.py"),
+                   "--study", "fungi/s1", "--run", "r1", "--current"]
+
+
+def test_publish_refuses_unstaged_and_unpublishable(tmp_path):
+    root, spec = repo_study(tmp_path, publish=True)
+    with pytest.raises(nip.RunsFileError, match="stage"):
+        nip.publish_command(spec, root)
+    root2, spec2 = repo_study(tmp_path / "b", publish=False)
+    with pytest.raises(nip.RunsFileError, match="publish: true"):
+        nip.publish_command(spec2, root2)
+
+
+def test_publish_command_when_staged(tmp_path):
+    root, spec = repo_study(tmp_path, publish=True)
+    run_docs = root / "docs" / "fungi" / "s1" / "r1"
+    run_docs.mkdir(parents=True)
+    (run_docs / "run.json").write_text("{}")
+    assert nip.publish_command(spec, root) == [
+        str(root / "bin" / "publish_report_release.sh"), "fungi/s1/r1"]
+
+
+def test_run_state(tmp_path):
+    root, spec = repo_study(tmp_path, publish=True)
+    assert nip.run_state(spec, root) == "not started"
+    launch = spec.study_dir / ".nf_launch" / "r1"
+    launch.mkdir(parents=True)
+    rec = {"pipeline_commit": SHA, "slurm_job_id": "77", "exit_status": None}
+    (launch / nip.RUN_RECORD).write_text(json.dumps(rec))
+    assert nip.run_state(spec, root) == "submitted 77"
+    rec["exit_status"] = 2
+    (launch / nip.RUN_RECORD).write_text(json.dumps(rec))
+    assert nip.run_state(spec, root) == "failed (exit 2)"
+    rec["exit_status"] = 0
+    (launch / nip.RUN_RECORD).write_text(json.dumps(rec))
+    assert nip.run_state(spec, root) == "done"
+    (root / "docs" / "fungi" / "s1" / "r1").mkdir(parents=True)
+    (root / "docs" / "fungi" / "s1" / "r1" / "run.json").write_text("{}")
+    assert nip.run_state(spec, root) == "staged"
+
+
+def test_cli_check_exit_codes(tmp_path, monkeypatch, capsys):
+    ni = load_ni_cli()
+    root, spec = repo_study(tmp_path)
+    monkeypatch.setattr(sys, "argv", ["ni", "pangenome", "check", "--study-dir",
+                                      str(spec.study_dir), "--run", "r1"])
+    assert ni.main() == 0
+    (spec.study_dir / "queue.config").unlink()
+    assert ni.main() == 1
+    assert "queue_config" in capsys.readouterr().out
+
+
+def test_cli_list(tmp_path, monkeypatch, capsys):
+    ni = load_ni_cli()
+    root, spec = repo_study(tmp_path)
+    monkeypatch.setattr(sys, "argv", ["ni", "pangenome", "list", "--study-dir",
+                                      str(spec.study_dir)])
+    assert ni.main() == 0
+    out = capsys.readouterr().out
+    assert "r1" in out and SHA[:7] in out and "not started" in out
+
+
+def test_cli_run_dry_run_forwards_extra_args(tmp_path, monkeypatch, capsys):
+    ni = load_ni_cli()
+    root, spec = repo_study(tmp_path)
+    monkeypatch.setattr(sys, "argv", ["ni", "pangenome", "run", "--study-dir",
+                                      str(spec.study_dir), "--run", "r1", "--dry-run",
+                                      "--", "-stub"])
+    assert ni.main() == 0
+    assert "-resume -stub" in capsys.readouterr().out
+
+
+def test_cli_unknown_run(tmp_path, monkeypatch, capsys):
+    ni = load_ni_cli()
+    root, spec = repo_study(tmp_path)
+    monkeypatch.setattr(sys, "argv", ["ni", "pangenome", "check", "--study-dir",
+                                      str(spec.study_dir), "--run", "nope"])
+    assert ni.main() == 1
+    assert "nope" in capsys.readouterr().out
