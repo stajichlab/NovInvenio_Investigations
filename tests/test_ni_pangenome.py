@@ -266,3 +266,71 @@ def test_publish_true_needs_publish_yaml(tmp_path):
     study = make_study(tmp_path, publish_yaml=False, publish=True)
     errors, _ = check(study, tmp_path)
     assert any("publish.yaml" in e for e in errors)
+
+
+import dataclasses
+
+GOLDEN = REPO / "tests" / "data" / "ni_pangenome" / "expected_head_job.sh"
+
+
+def fake_spec(**changes) -> nip.RunSpec:
+    spec = nip.RunSpec(
+        name="r1", study_dir=Path("/S"), pipeline="stajichlab/NovInvenio",
+        pipeline_commit=SHA, samplesheet=Path("/S/config.csv"), data_dir=Path("/S/data_dir"),
+        pfam_hmm=Path("/P/Pfam-A.hmm"), queue_config=Path("/S/queue.config"),
+        species_tree=None, head_job=dict(nip.DEFAULT_HEAD_JOB),
+        params={"pangenome_rescue_enable": False, "pangenome_cluster_backend": "mmseqs"},
+        publish=True, current=False,
+    )
+    return dataclasses.replace(spec, **changes)
+
+
+def test_clone_path():
+    assert nip.clone_path(fake_spec(), Path("/home/u/.nextflow/assets")) == Path(
+        f"/home/u/.nextflow/assets/.repos/stajichlab/NovInvenio/clones/{SHA}")
+
+
+def test_params_yaml_keeps_booleans_and_absolute_paths():
+    data = yaml.safe_load(nip.render_params_yaml(fake_spec(species_tree=Path("/S/t.nwk"))))
+    assert data["pangenome_rescue_enable"] is False
+    assert data["pangenome_samplesheet"] == "/S/config.csv"
+    assert data["pangenome_data_dir"] == "/S/data_dir"
+    assert data["outdir"] == "/S/results/r1"
+    assert data["pangenome_island_pfam_hmm"] == "/P/Pfam-A.hmm"
+    assert data["pangenome_species_tree"] == "/S/t.nwk"
+    assert "pangenome_project" not in data
+
+
+def test_params_yaml_omits_unset_pfam_and_tree():
+    data = yaml.safe_load(nip.render_params_yaml(fake_spec(pfam_hmm=None)))
+    assert "pangenome_island_pfam_hmm" not in data and "pangenome_species_tree" not in data
+
+
+def test_head_job_matches_golden():
+    text = nip.render_head_job(fake_spec(), clone=Path(f"/A/clones/{SHA}"),
+                               nii_root=Path("/N"), extra_args=[])
+    assert text == GOLDEN.read_text()
+
+
+def test_head_job_rules():
+    text = nip.render_head_job(fake_spec(publish=False, head_job={**nip.DEFAULT_HEAD_JOB,
+                                                                  "account": "exfab"}),
+                               clone=Path("/A/c"), nii_root=Path("/N"),
+                               extra_args=["-stub", "--x", "a b"])
+    assert "BASH_SOURCE" not in text
+    assert "#SBATCH -A exfab" in text
+    assert "pangenome stage" not in text          # publish: false -> no auto-stage
+    assert "-resume -stub --x 'a b' || rc=$?" in text
+
+
+def test_run_record_and_record_exit(tmp_path):
+    ss = tmp_path / "config.csv"
+    ss.write_text("Short\nA\n")
+    rec = nip.build_run_record(fake_spec(samplesheet=ss), clone=Path("/A/c"),
+                               params_text="a: 1\n", submitted_at="2026-09-26T00:00:00Z")
+    assert rec["pipeline_commit"] == SHA and rec["slurm_job_id"] is None
+    assert rec["exit_status"] is None and len(rec["samplesheet_sha256"]) == 64
+    path = tmp_path / nip.RUN_RECORD
+    path.write_text(json.dumps(rec))
+    nip.record_exit(str(path), 3)
+    assert json.loads(path.read_text())["exit_status"] == 3
