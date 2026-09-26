@@ -1,0 +1,29 @@
+# pangenome.nf runs for coccidioides_pangenome, launched with `bin/ni pangenome run`.
+# Spec: notes/superpowers/specs/2026-09-26-ni-pangenome-mode-design.md
+# New runs only. The published rescue_freqpol_* runs (pipeline 91e3157) predate ni.
+# pipeline_commit is bumped to the NovInvenio commit with the island locus view
+# before these runs are submitted.
+defaults:
+  pipeline_commit: 0dddb421720e0eb0a3045231608b27b113d49be6
+  pfam_hmm: /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/Pfam-A.hmm
+  queue_config: stajichlab_queue.config
+  head_job: {partition: exfab, account: exfab, time: 30-00:00:00, mem: 8G, cpus: 1}
+  params:
+    pangenome_cluster_backend: mmseqs
+    pangenome_rescue_enable: true
+runs:
+  immitis_in_posadasii_out_v2:
+    samplesheet: config_immitis_in_posadasii_out.csv
+    species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
+    publish: true
+    current: true
+  posadasii_in_immitis_out_v2:
+    samplesheet: config_posadasii_in_immitis_out.csv
+    species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
+    publish: true
+  immitis_only_v2:
+    samplesheet: config_immitis.csv
+    publish: true
+  posadasii_only_v2:
+    samplesheet: config_posadasii.csv
+    publish: true

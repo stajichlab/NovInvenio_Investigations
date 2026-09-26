@@ -1,0 +1,17 @@
+# pangenome.nf runs for fusarium_FOL, launched with `bin/ni pangenome run`.
+# Spec: notes/superpowers/specs/2026-09-26-ni-pangenome-mode-design.md
+# Head job partition/account and params copied from the pre-ni run
+# (.nf_launch/mmseqs_norescue/submit_nextflow_head.sh, params_norescue.yaml).
+defaults:
+  pipeline_commit: 0dddb421720e0eb0a3045231608b27b113d49be6
+  pfam_hmm: /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/Pfam-A.hmm
+  queue_config: stajichlab_queue.config
+  head_job: {partition: exfab, account: exfab, time: 30-00:00:00, mem: 8G, cpus: 1}
+  params:
+    pangenome_cluster_backend: mmseqs
+    pangenome_pfam_chunk_size: 2000
+    pangenome_mash_threshold: 0.0005
+runs:
+  ni_smoke_norescue:
+    samplesheet: config.csv
+    params: {pangenome_rescue_enable: false}
