@@ -144,13 +144,11 @@ so errors appear before any job is queued.
 3. **Write `.nf_launch/<run>/params.yaml`.** Content: the merged `params`, plus
    `pangenome_samplesheet`, `pangenome_data_dir`, `outdir: <study>/results/<run>`,
    and `pangenome_island_pfam_hmm` / `pangenome_species_tree` when set. All paths
-   absolute. YAML booleans stay booleans. `--pangenome_project` is not set.
-   At NovInvenio 0dddb42, `pangenome.nf` (lines 195-201) then uses the
-   samplesheet file name without extension as the project, with a warning, so
-   outputs land in `results/<run>/<samplesheet stem>/pangenome/`. Older runs used
-   `results/<run>/output/pangenome/`. `sync_pangenome_report.py` finds either
-   through its `*/pangenome/` glob. (Corrected 2026-09-26 after the final code
-   review; the first version of this line said `output/`.)
+   absolute. YAML booleans stay booleans. `--pangenome_project` is not set, so
+   outputs land in `results/<run>/output/pangenome/` (NovInvenio #194: publishDir
+   ignores the project name pangenome.nf derives). Verified by the FOL smoke run
+   at 0dddb42 (2026-09-26). A 2026-09-26 correction to "<samplesheet stem>/" was
+   wrong and is reverted. `sync_pangenome_report.py` finds `*/pangenome/` either way.
 4. **Write `.nf_launch/<run>/submit_nextflow_head.sh`** from a template in
    `lib/ni_pangenome.py`:
    - `#SBATCH` lines from `head_job`: `-J nf-<study>-<run>`, `-p`, `-A` (only
