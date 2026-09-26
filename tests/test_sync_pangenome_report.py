@@ -212,3 +212,23 @@ def test_bad_run_name_rejected(tmp_path):
 def test_gitignore_matches_data_classes(path, ignored):
     r = subprocess.run(["git", "check-ignore", "-q", "--no-index", path], cwd=REPO_ROOT)
     assert (r.returncode == 0) == ignored, path
+
+
+def test_run_json_gets_pipeline_commit_from_ni_run_record(tmp_path):
+    study = _fake_study(tmp_path)
+    launch = study / ".nf_launch" / "run_a"
+    launch.mkdir(parents=True)
+    (launch / "ni_run.json").write_text(json.dumps(
+        {"pipeline": "stajichlab/NovInvenio", "pipeline_commit": "a" * 40}))
+    assert _run(tmp_path, "--run", "run_a") == 0
+    meta = json.loads((tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a" / "run.json").read_text())
+    assert meta["pipeline"] == "pangenome.nf"
+    assert meta["pipeline_repo"] == "stajichlab/NovInvenio"
+    assert meta["pipeline_commit"] == "a" * 40
+
+
+def test_run_json_without_ni_run_record_is_unchanged(tmp_path):
+    _fake_study(tmp_path)
+    assert _run(tmp_path, "--run", "run_a") == 0
+    meta = json.loads((tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a" / "run.json").read_text())
+    assert "pipeline_commit" not in meta and "pipeline_repo" not in meta

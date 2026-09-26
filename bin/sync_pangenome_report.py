@@ -111,7 +111,7 @@ def count_data_rows(path: Path) -> int | None:
 
 
 def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, run: str,
-              source_label: str, today: str) -> dict:
+              source_label: str, today: str, run_record: Path | None = None) -> dict:
     run_docs.mkdir(parents=True, exist_ok=True)
     for name in RELEASE_ONLY:
         target = run_docs / name
@@ -163,6 +163,10 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
         "n_families": count_data_rows(pangenome_dir / "frequency_table.tsv"),
         "n_strains": count_data_rows(pangenome_dir / "report_tables" / "per_strain_summary.tsv"),
     }
+    if run_record is not None and run_record.is_file():
+        rec = json.loads(run_record.read_text())
+        meta["pipeline_repo"] = rec.get("pipeline")
+        meta["pipeline_commit"] = rec.get("pipeline_commit")
     (run_docs / "run.json").write_text(json.dumps(meta, indent=2) + "\n")
     return meta
 
@@ -206,7 +210,8 @@ def main(argv: list[str] | None = None) -> int:
     study_docs = args.repo_root / "docs" / domain / set_name
     today = datetime.datetime.now(datetime.UTC).date().isoformat()
     meta = stage_run(pangenome_dir, study_docs / args.run, domain, set_name, args.run,
-                     source_label, today)
+                     source_label, today,
+                     run_record=study_dir / ".nf_launch" / args.run / "ni_run.json")
     if args.current:
         set_current(study_docs, args.run)
     runs = rebuild_study_pages(study_docs, domain, set_name)
