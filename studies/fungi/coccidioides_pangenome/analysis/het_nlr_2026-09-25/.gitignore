@@ -1,0 +1,16 @@
+# Regenerable intermediates (re-run run_allprot.sh, het_extract_seqs.py,
+# run_small_scans.sh and het_step1..5 against the run dir and Pfam-A 38.2);
+# not committed per CLAUDE.md data classes.
+allprot.domtblout.gz
+allprot.tblout.gz
+allprot.nseq
+het_nlr_models.hmm
+het_prots_nod_relaxed.domtblout.gz
+reps_pfam.domtblout.gz
+het_rep_pairwise.tsv
+kinase_partner_pairwise.tsv
+neighbour_families.txt
+het_protein_domains.tsv.gz
+het_neighbourhoods.tsv.gz
+seqlevel_only_nod_hits.tsv.gz
+*.log

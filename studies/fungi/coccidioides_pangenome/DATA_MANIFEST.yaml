@@ -14356,8 +14356,10 @@
   pulled_with: '- on c05'
 - local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/af293_hac_region_hits_annotated.tsv
   source_url: FungiDB release 68, FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta
-    (Afu5g14850-Afu5g14950, Afu1g00700-Afu1g00800; local copy /bigdata/stajichlab/shared/projects/Afumigatus_RefStrains/prior_ref/FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta, sha256 df4efd777e5f4aa85c8b17a36e8dfb50896481bf38e639345356fea2c6f227d2; the 23 extracted proteins verified identical 2026-09-24),
-    searched against this run's tier-1 reps
+    (Afu5g14850-Afu5g14950, Afu1g00700-Afu1g00800; local copy /bigdata/stajichlab/shared/projects/Afumigatus_RefStrains/prior_ref/FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta,
+    sha256 df4efd777e5f4aa85c8b17a36e8dfb50896481bf38e639345356fea2c6f227d2; the 23
+    extracted proteins verified identical 2026-09-24), searched against this run's
+    tier-1 reps
   source_release: FungiDB release 68 + NovInvenio pangenome.nf run (pipeline 91e3157)
   access_date: '2026-09-24T20:08:32Z'
   checksum_sha256: 0161941f594274ca14837f7f8d8b02317fa8c52b4a8ed50ac2ca68d4e97bd4a3
@@ -14368,8 +14370,10 @@
   pulled_with: '- on c05'
 - local_path: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/af293_hac_region_vs_reps.tsv
   source_url: FungiDB release 68, FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta
-    (Afu5g14850-Afu5g14950, Afu1g00700-Afu1g00800; local copy /bigdata/stajichlab/shared/projects/Afumigatus_RefStrains/prior_ref/FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta, sha256 df4efd777e5f4aa85c8b17a36e8dfb50896481bf38e639345356fea2c6f227d2; the 23 extracted proteins verified identical 2026-09-24),
-    searched against this run's tier-1 reps
+    (Afu5g14850-Afu5g14950, Afu1g00700-Afu1g00800; local copy /bigdata/stajichlab/shared/projects/Afumigatus_RefStrains/prior_ref/FungiDB-68_AfumigatusAf293_AnnotatedProteins.fasta,
+    sha256 df4efd777e5f4aa85c8b17a36e8dfb50896481bf38e639345356fea2c6f227d2; the 23
+    extracted proteins verified identical 2026-09-24), searched against this run's
+    tier-1 reps
   source_release: FungiDB release 68 + NovInvenio pangenome.nf run (pipeline 91e3157)
   access_date: '2026-09-24T20:08:32Z'
   checksum_sha256: 6b651c577c842dd13d5683ca94396f3913f1b36f5fb4685d6cbd601b05640e74
@@ -14715,4 +14719,394 @@
   derived_by: studies/fungi/coccidioides_pangenome/analysis/hrmA_2026-09-24/hrmA_step1-4
     scripts (see 2026-09-24-hrmA-presence-and-neighbourhoods.md Methods); 2026-09-24
     HrmA analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_allele_classes.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 960ab326c9431670bb679b187129871690f0720bcd965a44df94178b68c77f8f
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_allele_partner_linkage.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: d85eaff0ac42055839c40e2026e5b4e9bd25d0d4755922a1aacd6c63c855bdb3
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_context_summary.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: bcf45758289a9fd9c7236f50c190febb89af892698e5963ae9034d7c2a0f6fd0
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_copy_number_tests.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: a26dd642265b9a31e3d7d7c2a6d8d69229a02b01ff021cfc800c523a29488c11
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_exemplar_loci.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: f4d5be7064c403df9631daaa7c307fec3204aaed76546e3c1c8b4a4273800d64
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_exemplar_summary.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 8e7ab9670b1a077140c02c78e025e09919a502fda21dc66484485387c8bcbe50
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_family_census.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 1bf88836cf9837b6d8e3ebff7e762698c709afb16110dbd3108a67565c52ed67
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_family_locations.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 67bfc29ff1ade59c6680bd1218eff6145c25780f05d21a4800aa3dc5dd23fbfd
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_gene_locations.tsv.gz
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: e3786b379e73408d20c6992451efc44d29c8ce2d39bb704038002077170083d5
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_genes_per_strain.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: d19a3ba427ab24e17d10b21860b76e3620b455ece27ea742af6812365ef69189
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_island_membership.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 6f6c767c05c78ba6253831d8b2e0df7105f4ce98b9e0896367829a8f6e35cf02
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_location_tests.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 75310a7261eff7b2825fd57ebd228589381411dadbfa8c43205f702f5602e776
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_loci.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: b9df9920bc923c317f2855454a528dedb420e3045d5294993b9a26dd12b047a9
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_locus_allele_diversity.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 15c7a9ac7baf7c9d634aa082cc4e38c2591f59b64cf848dc49d2d276819b0aaf
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_locus_allele_pairwise.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 7fb2b13fbb9e2f4a3a8e68e80f067a8c3f75b89c6a8c4ee3a5573d80952d8c79
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_locus_allele_spectrum_tests.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 93a62773fec06ea061884e779a95ed667e2b525ce957546df1ce1f1263d0a3f3
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_locus_alleles.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: b3a68b06d37d8a1d697d8fde84a09f6886fba4a87c889388a5b5e0e47a10f4db
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_locus_occupancy.tsv.gz
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: d278cf951c8b7710adff9d918e3503a0f97138b619020310496028108330d573
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_pairs.tsv.gz
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 32341397989d3859c01eb8dcc4c4318bf98c2e4a24aad682da82b2b41a0f7d11
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_presence_matrix.tsv.gz
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:34Z'
+  checksum_sha256: 8c8aa9dc9c6148b8785ecd8ee5167d90a27dbc4f670836fa9115f653977be34d
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_relaxed_nod_by_class.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: 3e0c999c335f86248468d43a3a37f11541c41ab916c2c142dc1ea100d753d166
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_relaxed_nod_by_family.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: 27a7a042e5bc69fda83ee1d2ee2a06064de21b4f23b1c067492f1d1022af2e14
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_rep_pairwise_annotated.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: 03c919e9fd69ee1736efcee02d8c6bfb7d24e94d560844f123cf5d69a28db9a4
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_rescue_overlap.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: a33649e84b426e33f9930d66163ba61169a9a8d3e57fb92f5a7754a2587d776c
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_sites_ownfamily.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: 9297450a1bf76ec296b77c74dab881fb09fea2bc30447c62c34da9ab2732a2f8
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_sites_ownfamily_alleles.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: 784864a078250b6a66987687a914c6ccb70a68778de8b7538e59b39945010270
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_sites_ownfamily_occupancy.tsv.gz
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: 3575a70a1e477ff3ac01ef4504ae7df88f317aa2469d98f7df4b64c6d6f419e1
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_to_hrmA_distance.tsv.gz
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: 481525cfecd7e88a8f5d52d35e0c4c64ed2e2949f3112c4abfacff1b95a4b05d
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_top_neighbours.tsv
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: 1fb97fbd0d040336d6b12e6a81095541e92f8311a5c3818d80dde59745acd8d3
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
+  pulled_with: '- on c05'
+- local_path: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/models.txt
+  source_url: (internal -- studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome,
+    NovInvenio pangenome.nf, pipeline 91e3157) + Pfam-A 38.2 HMMs
+  source_release: derived from rescue_freqpol_immitis_in_posadasii_out outputs and
+    Pfam-A 38.2
+  access_date: '2026-09-26T07:13:35Z'
+  checksum_sha256: e555e484be3b91257e6260f71d789487ab6c959715d74e37b0567ee3b451cba7
+  license: Internal / unpublished (not yet released outside this project); Pfam-A
+    is CC0
+  derived_by: studies/fungi/coccidioides_pangenome/analysis/het_nlr_2026-09-25/het_step1-6
+    scripts, run_allprot.sh, run_small_scans.sh (see 2026-09-25-het-nlr-polymorphic-clusters.md
+    Methods); 2026-09-25 HET/NLR analysis
   pulled_with: '- on c05'
