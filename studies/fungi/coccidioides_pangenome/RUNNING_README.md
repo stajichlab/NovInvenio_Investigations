@@ -368,3 +368,21 @@ See `notes/superpowers/plans/2026-09-15-coccidioides-pangenome-onboarding.md`
 for the full task-by-task detail and
 `notes/superpowers/specs/2026-09-15-coccidioides-pangenome-local-input.md`
 for the design rationale.
+
+## Storage cleanup (2026-09-26)
+
+The Nextflow `work/` dirs under `.nf_launch/` were deleted for these runs:
+`wholeset`, `immitis`, `posadasii`, `immitis_in_posadasii_out`,
+`posadasii_in_immitis_out`, `genus_vs_ureesii`,
+`genus_vs_ureesii_rescue_structural`, `reciprocal_immitis_in_posadasii_out`,
+`reciprocal_posadasii_in_immitis_out` and the 8 `tier1_sweep_*` points.
+
+- Every `results/` folder was kept, including all `mmseqs_*` outputs above.
+  No results file linked into a deleted work dir (checked before deletion).
+- These runs can no longer be resumed with `-resume`. A rerun starts from scratch.
+- Two files that committed notes cite were copied first, byte-identical, to
+  `results/preserved_from_work/genus_vs_ureesii/`: the mash distance matrix
+  used for the species-tree grafts, and one RESCUE_PASS task log.
+- The `mmseqs_immitis` and `mmseqs_posadasii` results are the only
+  single-species clusterings until new runs replace them. They cannot be
+  derived from the 529-strain runs, which cluster both species together.

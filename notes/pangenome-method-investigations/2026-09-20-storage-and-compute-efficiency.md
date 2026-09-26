@@ -15,7 +15,7 @@ this login node unless it says "estimate". Scratch files are in
 line (26 B).
 
 Cause, from the task log
-(`.nf_launch/genus_vs_ureesii/work/16/145a917f.../.command.log`): 530 lines of
+(`.nf_launch/genus_vs_ureesii/work/16/145a917f.../.command.log`; work dir deleted 2026-09-26, copy kept in `studies/fungi/coccidioides_pangenome/results/preserved_from_work/genus_vs_ureesii/rescue_pass_task_16-145a917f/`): 530 lines of
 `Warning : <Short>.tblastn.tsv.zst is a symbolic link, ignoring`, then
 `Rescue: 0 ABSENT->GENOME_ONLY, 0 skipped`. Nextflow stages inputs as symlinks;
 `zstd -dc` without `-f` refuses a symlink and exits 1 (verified here with zstd 1.5.6).
