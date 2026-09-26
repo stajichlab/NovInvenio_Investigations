@@ -112,3 +112,157 @@ def test_relative_pfam_rejected(tmp_path):
 def test_missing_runs_file(tmp_path):
     with pytest.raises(nip.RunsFileError, match=nip.RUNS_FILE):
         nip.load_runs_file(tmp_path)
+
+
+import json
+
+
+def make_study(tmp_path, *, tree=None, publish_yaml=True, rows=None, **run_overrides):
+    """A study that passes every check unless a test breaks one thing."""
+    study = tmp_path / "studies" / "fungi" / "s1"
+    for sub in ("pep", "dna", "gff3"):
+        (study / "data_dir" / sub).mkdir(parents=True)
+    rows = rows or [("A", "A.pep.fa", "A.dna.fa", "A.gff3"), ("B", "B.pep.fa", "B.dna.fa", "B.gff3")]
+    lines = ["GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup"]
+    for short, pep, dna, gff in rows:
+        lines.append(f"IN,Sp one,{short},{pep},{dna},{gff},{short},")
+        for sub, fname in (("pep", pep), ("dna", dna), ("gff3", gff)):
+            if fname:
+                (study / "data_dir" / sub / fname).write_text(">x\nM\n")
+    (study / "config.csv").write_text("\n".join(lines) + "\n")
+    pfam = tmp_path / "Pfam-A.hmm"
+    pfam.write_text("HMMER3\n")
+    (study / "queue.config").write_text("process {}\n")
+    if publish_yaml:
+        (study / "publish.yaml").write_text("study: s1\n")
+    doc = base_doc(**run_overrides)
+    doc["defaults"]["pfam_hmm"] = str(pfam)
+    if tree is not None:
+        (study / "tree.nwk").write_text(tree)
+        doc["runs"]["r1"]["species_tree"] = "tree.nwk"
+    write_runs(study, doc)
+    return study
+
+
+def check(study, tmp_path):
+    spec = nip.load_runs_file(study)["r1"]
+    return nip.check_run(spec, assets_root=tmp_path / "assets")
+
+
+def test_clean_study_passes(tmp_path):
+    study = make_study(tmp_path)
+    errors, warnings = check(study, tmp_path)
+    assert errors == [] and warnings == []
+
+
+def test_short_sha_rejected(tmp_path):
+    study = make_study(tmp_path, pipeline_commit="0dddb42")
+    errors, _ = check(study, tmp_path)
+    assert any("40" in e and "0dddb42" in e for e in errors)
+
+
+def test_missing_samplesheet(tmp_path):
+    study = make_study(tmp_path, samplesheet="nope.csv")
+    errors, _ = check(study, tmp_path)
+    assert any("nope.csv" in e for e in errors)
+
+
+def test_duplicate_short(tmp_path):
+    study = make_study(tmp_path, rows=[("A", "A.pep.fa", "", ""), ("A", "A2.pep.fa", "", "")])
+    errors, _ = check(study, tmp_path)
+    assert any("duplicate Short" in e and "A" in e for e in errors)
+
+
+def test_missing_data_file_reported(tmp_path):
+    study = make_study(tmp_path)
+    (study / "data_dir" / "gff3" / "B.gff3").unlink()
+    errors, _ = check(study, tmp_path)
+    assert any("gff3/B.gff3" in e for e in errors)
+
+
+def test_blank_dna_and_gff3_cells_are_skipped(tmp_path):
+    study = make_study(tmp_path, rows=[("A", "A.pep.fa", "", ""), ("B", "B.pep.fa", "", "")])
+    errors, _ = check(study, tmp_path)
+    assert errors == []
+
+
+def test_tree_tips_must_match_samplesheet(tmp_path):
+    study = make_study(tmp_path, tree="(A:0.1,C:0.2);")
+    errors, _ = check(study, tmp_path)
+    msg = [e for e in errors if "species_tree" in e]
+    assert msg and "B" in msg[0] and "C" in msg[0]
+
+
+def test_newick_tips_ignores_internal_labels_and_lengths():
+    text = "(('A x':0.1,B:0.2)95:0.3,(C,D)[&support=1]:0.4)root;"
+    assert nip.newick_tips(text) == {"A x", "B", "C", "D"}
+
+
+def test_matching_tree_passes(tmp_path):
+    study = make_study(tmp_path, tree="((A:0.1,B:0.2)100:0.5);")
+    errors, _ = check(study, tmp_path)
+    assert errors == []
+
+
+def test_missing_pfam_is_error_unset_pfam_is_warning(tmp_path):
+    study = make_study(tmp_path)
+    (tmp_path / "Pfam-A.hmm").unlink()
+    errors, _ = check(study, tmp_path)
+    assert any("pfam_hmm" in e for e in errors)
+    study2 = make_study(tmp_path / "b")
+    doc = yaml.safe_load((study2 / nip.RUNS_FILE).read_text())
+    del doc["defaults"]["pfam_hmm"]
+    write_runs(study2, doc)
+    errors, warnings = check(study2, tmp_path / "b")
+    assert errors == [] and any("#193" in w for w in warnings)
+
+
+def test_missing_queue_config(tmp_path):
+    study = make_study(tmp_path)
+    (study / "queue.config").unlink()
+    errors, _ = check(study, tmp_path)
+    assert any("queue_config" in e for e in errors)
+
+
+def test_input_inside_nextflow_assets_rejected(tmp_path):
+    study = make_study(tmp_path)
+    inside = tmp_path / "assets" / ".repos" / "x" / "Pfam-A.hmm"
+    inside.parent.mkdir(parents=True)
+    inside.write_text("HMMER3\n")
+    doc = yaml.safe_load((study / nip.RUNS_FILE).read_text())
+    doc["defaults"]["pfam_hmm"] = str(inside)
+    write_runs(study, doc)
+    errors, _ = check(study, tmp_path)
+    assert any("inside" in e and "assets" in e for e in errors)
+
+
+def test_results_dir_from_other_commit_refused(tmp_path):
+    study = make_study(tmp_path)
+    launch = study / ".nf_launch" / "r1"
+    launch.mkdir(parents=True)
+    (launch / nip.RUN_RECORD).write_text(json.dumps({"pipeline_commit": "f" * 40}))
+    errors, _ = check(study, tmp_path)
+    assert any("different commit" in e and "new run name" in e for e in errors)
+
+
+def test_same_commit_record_passes_resume(tmp_path):
+    study = make_study(tmp_path)
+    launch = study / ".nf_launch" / "r1"
+    launch.mkdir(parents=True)
+    (launch / nip.RUN_RECORD).write_text(json.dumps({"pipeline_commit": SHA}))
+    (study / "results" / "r1").mkdir(parents=True)
+    errors, _ = check(study, tmp_path)
+    assert errors == []
+
+
+def test_results_dir_without_record_refused(tmp_path):
+    study = make_study(tmp_path)
+    (study / "results" / "r1").mkdir(parents=True)
+    errors, _ = check(study, tmp_path)
+    assert any("not made by ni" in e for e in errors)
+
+
+def test_publish_true_needs_publish_yaml(tmp_path):
+    study = make_study(tmp_path, publish_yaml=False, publish=True)
+    errors, _ = check(study, tmp_path)
+    assert any("publish.yaml" in e for e in errors)
