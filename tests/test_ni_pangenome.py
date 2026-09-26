@@ -342,9 +342,11 @@ import io
 class FakeRunner:
     """Records commands. nextflow pull creates the clone; sbatch returns a job id."""
 
-    def __init__(self, assets_root, *, sbatch_rc=0, sbatch_out="12345\n", pull_rc=0):
+    def __init__(self, assets_root, *, sbatch_rc=0, sbatch_out="12345\n", pull_rc=0,
+                 squeue_out=""):
         self.calls, self.assets_root = [], assets_root
         self.sbatch_rc, self.sbatch_out, self.pull_rc = sbatch_rc, sbatch_out, pull_rc
+        self.squeue_out = squeue_out
 
     def __call__(self, cmd, **kwargs):
         self.calls.append(cmd)
@@ -361,6 +363,8 @@ class FakeRunner:
             r.returncode, r.stdout = self.sbatch_rc, self.sbatch_out
         elif cmd[0] == "du":
             r.stdout = "9.1G\t/x\n"
+        elif cmd[0] == "squeue":
+            r.returncode, r.stdout = 0, self.squeue_out
         return r
 
     def names(self):
@@ -552,3 +556,76 @@ def test_cli_unknown_run(tmp_path, monkeypatch, capsys):
                                       str(spec.study_dir), "--run", "nope"])
     assert ni.main() == 1
     assert "nope" in capsys.readouterr().out
+
+
+def _write_record(spec, **fields):
+    launch = spec.study_dir / ".nf_launch" / "r1"
+    launch.mkdir(parents=True, exist_ok=True)
+    rec = {"pipeline_commit": SHA, "slurm_job_id": None, "exit_status": None}
+    rec.update(fields)
+    (launch / nip.RUN_RECORD).write_text(json.dumps(rec))
+    return launch / nip.RUN_RECORD
+
+
+def test_live_job_refuses_resubmit(tmp_path):
+    spec = ready_spec(tmp_path)
+    record_path = _write_record(spec, slurm_job_id="77", exit_status=None)
+    before = record_path.read_text()
+    fr = FakeRunner(tmp_path / "assets", squeue_out="RUNNING\n")
+    out = io.StringIO()
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          runner=fr, out=out)
+    assert rc == 1
+    msg = out.getvalue()
+    assert "77" in msg and "RUNNING" in msg
+    assert fr.names() == ["squeue"]
+    assert record_path.read_text() == before
+
+
+def test_finished_job_squeue_empty_proceeds(tmp_path):
+    spec = ready_spec(tmp_path)
+    _write_record(spec, slurm_job_id="77", exit_status=None)
+    fr = FakeRunner(tmp_path / "assets", squeue_out="")
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          runner=fr, out=io.StringIO())
+    assert rc == 0
+    assert "sbatch" in fr.names()
+
+
+def test_recorded_exit_status_skips_squeue(tmp_path):
+    spec = ready_spec(tmp_path)
+    _write_record(spec, slurm_job_id="77", exit_status=1)
+    fr = FakeRunner(tmp_path / "assets")
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          runner=fr, out=io.StringIO())
+    assert rc == 0
+    assert "squeue" not in fr.names()
+
+
+def test_dry_run_also_refused_for_live_job(tmp_path):
+    spec = ready_spec(tmp_path)
+    _write_record(spec, slurm_job_id="77", exit_status=None)
+    fr = FakeRunner(tmp_path / "assets", squeue_out="PENDING\n")
+    rc = nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                          dry_run=True, runner=fr, out=io.StringIO())
+    assert rc == 1
+
+
+def test_foreground_run_records_foreground_marker(tmp_path):
+    spec = ready_spec(tmp_path)
+    fr = FakeRunner(tmp_path / "assets")
+    nip.run_pipeline(spec, nii_root=REPO, extra_args=[], assets_root=tmp_path / "assets",
+                     foreground=True, runner=fr, out=io.StringIO())
+    rec = json.loads((spec.study_dir / ".nf_launch" / "r1" / nip.RUN_RECORD).read_text())
+    assert rec["slurm_job_id"] == "foreground"
+
+
+def test_cli_stage_refuses_without_publish_yaml(tmp_path, monkeypatch, capsys):
+    ni = load_ni_cli()
+    study = make_study(tmp_path, publish_yaml=False)
+    monkeypatch.setattr(sys, "argv", ["ni", "pangenome", "stage", "--study-dir",
+                                      str(study), "--run", "r1"])
+    rc = ni.main()
+    out = capsys.readouterr().out
+    assert rc == 1
+    assert "publish.yaml" in out and "(study: <name>)" in out

@@ -70,6 +70,10 @@ def _pangenome(args) -> int:
                                     assets_root=assets_root, dry_run=args.dry_run,
                                     foreground=args.foreground, out=sys.stdout)
         if args.pg_command == "stage":
+            if nip.load_publish_target(spec.study_dir) is None:
+                print(f"ERROR: {spec.study_dir}/publish.yaml not found; stage needs it "
+                      "(study: <name>)")
+                return 1
             return subprocess.run(nip.stage_command(spec, repo_root)).returncode
         if args.pg_command == "publish":
             return subprocess.run(nip.publish_command(spec, repo_root)).returncode

@@ -11,6 +11,7 @@
 # Study: /S   Run: r1   Pipeline: stajichlab/NovInvenio @ 0dddb421720e0eb0a3045231608b27b113d49be6
 set -uo pipefail
 export PATH="$HOME/.pixi/bin:$HOME/.local/bin:$PATH"
+module load java 2>/dev/null || true
 cd /S/.nf_launch/r1
 rc=0
 nextflow run stajichlab/NovInvenio -r 0dddb421720e0eb0a3045231608b27b113d49be6 -main-script pangenome.nf \

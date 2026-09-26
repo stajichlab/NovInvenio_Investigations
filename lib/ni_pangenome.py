@@ -275,6 +275,7 @@ def render_head_job(spec: RunSpec, *, clone: Path, nii_root: Path, extra_args: l
         f"# Study: {spec.study_dir}   Run: {spec.name}   Pipeline: {spec.pipeline} @ {spec.pipeline_commit}",
         "set -uo pipefail",
         'export PATH="$HOME/.pixi/bin:$HOME/.local/bin:$PATH"',
+        "module load java 2>/dev/null || true",
         f"cd {L}",
         "rc=0",
         f"nextflow run {spec.pipeline} -r {spec.pipeline_commit} -main-script pangenome.nf \\",
@@ -342,6 +343,18 @@ def run_pipeline(spec: RunSpec, *, nii_root: Path, extra_args: list[str], assets
             print(f"ERROR: {e}", file=out)
         return 1
 
+    record_path = launch_dir(spec) / RUN_RECORD
+    if record_path.is_file():
+        prev_rec = json.loads(record_path.read_text())
+        job_id = prev_rec.get("slurm_job_id")
+        if isinstance(job_id, str) and job_id.isdigit() and prev_rec.get("exit_status") is None:
+            sq = runner(["squeue", "-h", "-j", job_id, "-o", "%T"], capture_output=True, text=True)
+            state = (sq.stdout or "").strip()
+            if sq.returncode == 0 and state:
+                print(f"ERROR: run {spec.name} is SLURM job {job_id} ({state}); scancel it "
+                      "first, or wait for it to end", file=out)
+                return 1
+
     clone = clone_path(spec, assets_root)
     params_text = render_params_yaml(spec)
     script_text = render_head_job(spec, clone=clone, nii_root=nii_root, extra_args=extra_args)
@@ -379,6 +392,8 @@ def run_pipeline(spec: RunSpec, *, nii_root: Path, extra_args: list[str], assets
     record = build_run_record(spec, clone=clone, params_text=params_text,
                               submitted_at=now or _now_utc())
     record_path = L / RUN_RECORD
+    if foreground:
+        record["slurm_job_id"] = "foreground"
     record_path.write_text(json.dumps(record, indent=2) + "\n")
 
     if foreground:
