@@ -1,0 +1,15 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-09-25",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/fusarium_FOXY",
+  "source_dir": "results/fusarium_FOXY",
+  "params": [
+    "--run_tool diamond",
+    "--cluster_tool pairwise",
+    "--pfam_hmm /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/38.2/Pfam-A.hmm",
+    "--swissprot_dmnd /bigdata/stajichlab/jstajich/projects/NovInvenio/db/uniprot/uniprot_sprot.fasta.dmnd"
+  ],
+  "n_species": 23,
+  "report_sha256": "ac928631b231f6903fc86274fdef6f8799430c8edf609c4b24c07694d423f531"
+}
