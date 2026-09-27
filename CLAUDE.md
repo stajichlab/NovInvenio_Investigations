@@ -63,6 +63,11 @@ committed across ~200 commits before anyone decided that shouldn't happen).
    `assembly_quality.html` are release-asset only (DESIGN.md Sec 8, 2026-09-24;
    `clinker/` added 2026-09-27, NovInvenio#202's clinker synteny panel --
    grows with drawn-locus count like the other release-asset-only entries).
+   `clinker/` itself only stages the top 25 loci by default
+   (`--clinker_publish_top`, N4, NovInvenio#202); the rest stay in the
+   pipeline's own `results/<run>/.../pangenome/clinker/` dir (never copied
+   into `docs/`), and `island_synteny.html` gets a small injected script so
+   an unpublished locus's panel points there instead of a broken iframe.
 
 **No agent (Claude Code or otherwise) commits a new or changed tracked data file
 without a provenance record for it.** If source URL/version/date is unknown, stop and
