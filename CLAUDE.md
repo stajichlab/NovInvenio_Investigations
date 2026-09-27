@@ -59,8 +59,10 @@ committed across ~200 commits before anyone decided that shouldn't happen).
    `novelties/core/losses.html` may only be committed as old-URL redirect stubs.
    pangenome.nf runs (`docs/<domain>/<set>/<run>/`, staged by
    `bin/sync_pangenome_report.py`): only the run's `report.html` + `run.json` are
-   committed; `figures/`, `figures_pdf/`, `archive/`, `island_synteny.html`,
-   `assembly_quality.html` are release-asset only (DESIGN.md Sec 8, 2026-09-24).
+   committed; `figures/`, `figures_pdf/`, `archive/`, `clinker/`, `island_synteny.html`,
+   `assembly_quality.html` are release-asset only (DESIGN.md Sec 8, 2026-09-24;
+   `clinker/` added 2026-09-27, NovInvenio#202's clinker synteny panel --
+   grows with drawn-locus count like the other release-asset-only entries).
 
 **No agent (Claude Code or otherwise) commits a new or changed tracked data file
 without a provenance record for it.** If source URL/version/date is unknown, stop and
