@@ -94,7 +94,7 @@ jobs:
               [ -f "$extract_dir/$f" ] && cp -f "$extract_dir/$f" "$dest/$f"
             done
             # pangenome.nf run assets (bin/sync_pangenome_report.py)
-            for d in figures figures_pdf archive; do
+            for d in figures figures_pdf archive clinker; do
               [ -d "$extract_dir/$d" ] && rm -rf "$dest/$d" && cp -r "$extract_dir/$d" "$dest/$d"
             done
             echo "merged $tag -> $dest"

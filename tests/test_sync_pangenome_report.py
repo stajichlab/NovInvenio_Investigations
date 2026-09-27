@@ -55,6 +55,8 @@ def _fake_study(root: Path, run: str = "run_a", with_optional: bool = True,
     (pg / "pair_classification.tsv").write_text("a\tb\n")
     if with_optional:
         (pg / "island_synteny.html").write_text("<html>synteny</html>")
+        (pg / "clinker").mkdir()
+        (pg / "clinker" / "L001.html").write_text("<html>clinker</html>")
         (pg / "assembly_quality_report.md").write_text("# Assembly Quality vs Pangenome Content QC\n\nrho table\n")
     return study
 
@@ -204,6 +206,7 @@ def test_bad_run_name_rejected(tmp_path):
     ("docs/fungi/demo/run_a/figures_pdf/x.pdf", True),
     ("docs/fungi/demo/run_a/archive/x.tsv.gz", True),
     ("docs/fungi/demo/run_a/island_synteny.html", True),
+    ("docs/fungi/demo/run_a/clinker/L001.html", True),
     ("docs/fungi/demo/run_a/assembly_quality.html", True),
     ("docs/fungi/demo/run_a/report.html", False),
     ("docs/fungi/demo/run_a/run.json", False),
@@ -232,3 +235,29 @@ def test_run_json_without_ni_run_record_is_unchanged(tmp_path):
     assert _run(tmp_path, "--run", "run_a") == 0
     meta = json.loads((tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a" / "run.json").read_text())
     assert "pipeline_commit" not in meta and "pipeline_repo" not in meta
+
+
+def test_clinker_pages_are_staged_next_to_the_synteny_viewer(tmp_path):
+    _fake_study(tmp_path)
+    assert _run(tmp_path, "--run", "run_a") == 0
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    assert (run_docs / "clinker" / "L001.html").read_text() == "<html>clinker</html>"
+
+
+def test_resync_replaces_the_clinker_dir(tmp_path):
+    study = _fake_study(tmp_path)
+    _run(tmp_path, "--run", "run_a")
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    (run_docs / "clinker" / "L999.html").write_text("stale")
+    pg = study / "results" / "run_a" / "output" / "pangenome"
+    (pg / "clinker" / "L001.html").unlink()
+    _run(tmp_path, "--run", "run_a")
+    assert not (run_docs / "clinker" / "L999.html").exists()
+    assert not (run_docs / "clinker" / "L001.html").exists()
+
+
+def test_publish_script_and_pages_deploy_ship_clinker():
+    publish = (REPO_ROOT / "bin" / "publish_report_release.sh").read_text()
+    static = (REPO_ROOT / ".github" / "workflows" / "static.yml").read_text()
+    assert "archive clinker island_synteny.html" in publish
+    assert "for d in figures figures_pdf archive clinker; do" in static

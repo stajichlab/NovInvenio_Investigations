@@ -15,8 +15,10 @@ Steps, for --study <domain>/<folder> --run <run>:
      studies/<domain>/<set>/results/<run>/*/pangenome/ (the `*` is the
      pipeline's --outdir project subdir). Exactly one match is required;
      pass --pangenome-dir to override.
-  2. Replace docs/<domain>/<set>/<run>/{figures,figures_pdf,archive}/ and
-     island_synteny.html / assembly_quality.html with this run's copies.
+  2. Replace docs/<domain>/<set>/<run>/{figures,figures_pdf,archive,clinker}/
+     and island_synteny.html / assembly_quality.html with this run's copies.
+     clinker/ holds the per-locus clinker pages island_synteny.html loads in
+     its "Synteny (clinker)" panel (NovInvenio spec 2026-09-24 section 8).
      These are gitignored (release asset only).
   3. Render docs/<domain>/<set>/<run>/report.html from report/report.md, and
      write run.json (source path, sha256 of report.md, counts).
@@ -71,8 +73,10 @@ ARCHIVE_TABLES = [
 ]
 
 # Directories and pages copied or rendered into the run dir. All gitignored.
-ASSET_DIRS = [("report/figures", "figures"), ("report/figures_pdf", "figures_pdf")]
-RELEASE_ONLY = ["figures", "figures_pdf", "archive", "island_synteny.html", "assembly_quality.html"]
+ASSET_DIRS = [("report/figures", "figures"), ("report/figures_pdf", "figures_pdf"),
+              ("clinker", "clinker")]
+RELEASE_ONLY = ["figures", "figures_pdf", "archive", "clinker", "island_synteny.html",
+                "assembly_quality.html"]
 
 
 def find_pangenome_dir(study_dir: Path, run: str) -> Path:

@@ -11,6 +11,7 @@ Each run gets its own page, and the study page lists the runs:
   docs/<domain>/<set>/<run>/figures_pdf/   } (bin/publish_report_release.sh,
   docs/<domain>/<set>/<run>/archive/       }  merged into docs/ at Pages-deploy
   docs/<domain>/<set>/<run>/island_synteny.html  time by static.yml)
+  docs/<domain>/<set>/<run>/clinker/       } (clinker pages the synteny viewer loads)
 
 Only report.html and run.json are committed. They are small text files. The
 figures are regenerated binary files, and the tables and island_synteny.html

@@ -10,7 +10,7 @@
 #        bin/publish_report_release.sh <domain>/<set_name>/<run>
 #
 # The 3-part form publishes one pangenome.nf run's release-only files
-# (docs/<domain>/<set>/<run>/{figures,figures_pdf,archive}/, island_synteny.html,
+# (docs/<domain>/<set>/<run>/{figures,figures_pdf,archive,clinker}/, island_synteny.html,
 # assembly_quality.html -- staged by bin/sync_pangenome_report.py). Tag:
 # reports-<domain>-<set>--<run>; manifest.json then also carries "run", and
 # static.yml merges the files into docs/<domain>/<set>/<run>/.
@@ -57,7 +57,7 @@ DOCS_DIR="$REPO_ROOT/docs/$STUDY"
 REPORT_FILES=()
 if [ -n "$RUN" ]; then
     for f in novelties.html core.html losses.html summary.pdf \
-             figures figures_pdf archive island_synteny.html assembly_quality.html; do
+             figures figures_pdf archive clinker island_synteny.html assembly_quality.html; do
         [ -e "$DOCS_DIR/$f" ] && REPORT_FILES+=("$f")
     done
 else
