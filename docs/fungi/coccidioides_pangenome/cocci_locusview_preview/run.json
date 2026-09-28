@@ -1,0 +1,12 @@
+{
+  "run": "cocci_locusview_preview",
+  "published": "2026-09-28",
+  "pipeline": "pangenome.nf",
+  "source_dir": "studies/fungi/coccidioides_pangenome/results/cocci_locusview_preview/output/pangenome",
+  "report_md_sha256": "370aa224c20c29a583307c10aa0c20f6fd234513bb06d66fbc2b6af2363d4aa2",
+  "n_families": 47745,
+  "n_strains": 529,
+  "clinker_published": 25,
+  "clinker_total": 25,
+  "clinker_full_dir": "/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/cocci_locusview_preview/output/pangenome/clinker"
+}
