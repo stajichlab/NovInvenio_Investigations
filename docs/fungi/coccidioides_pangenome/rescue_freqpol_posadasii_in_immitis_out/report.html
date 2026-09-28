@@ -66,6 +66,9 @@ footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
 <li><a href="archive/assembly_quality_correlations.tsv.gz">assembly_quality_correlations</a> (tsv.gz)</li>
 <li><a href="archive/diagnostics.tsv.gz">diagnostics</a> (tsv.gz)</li>
 </ul>
+<blockquote>
+<p><strong>Known issue (<a href="https://github.com/stajichlab/NovInvenio/issues/212">NovInvenio#212</a>).</strong> The <code>singleton</code> class also holds families absent from the ingroup (outgroup-only) and families found only in dereplicated near-duplicate genomes. Outgroup genomes' singleton counts, the per-genome figure's outgroup block, the composition pie's singleton share and the singleton outlier flags are therefore inflated. Ingroup core, soft_core, shell and cloud counts, islands, co-occurrence and enrichment results are not affected. A corrected report will replace this one.</p>
+</blockquote>
 <h2>Pipeline diagnostics</h2>
 <ul>
 <li><strong>rescue_redundancy</strong> [TRIGGERED]: 15124757/19522195 (77.5%) rescuable cells overlap a predicted gene already assigned to a different family in that strain -- the same locus double-counted, not a genuine annotation dropout (issue #133).

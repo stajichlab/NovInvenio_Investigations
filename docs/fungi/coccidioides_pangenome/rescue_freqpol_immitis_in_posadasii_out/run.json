@@ -3,7 +3,7 @@
   "published": "2026-09-28",
   "pipeline": "pangenome.nf",
   "source_dir": "studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome",
-  "report_md_sha256": "e81f67e766cd7e31c81cf9de73a09ee8ff7ee7f1606b9642c58313a751b1dad8",
+  "report_md_sha256": "02dac483db311fb926c88341e60feb6d88234e29e2da77d37db54b3802d4257b",
   "n_families": 47745,
   "n_strains": 529
 }

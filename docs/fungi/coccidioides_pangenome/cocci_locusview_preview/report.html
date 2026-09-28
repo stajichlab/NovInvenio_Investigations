@@ -67,6 +67,9 @@ footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
 <li><a href="archive/diagnostics.tsv.gz">diagnostics</a> (tsv.gz)</li>
 </ul>
 <blockquote>
+<p><strong>Known issue (<a href="https://github.com/stajichlab/NovInvenio/issues/212">NovInvenio#212</a>).</strong> The <code>singleton</code> class also holds families absent from the ingroup (outgroup-only) and families found only in dereplicated near-duplicate genomes. Outgroup genomes' singleton counts, the per-genome figure's outgroup block, the composition pie's singleton share and the singleton outlier flags are therefore inflated. Ingroup core, soft_core, shell and cloud counts, islands, co-occurrence and enrichment results are not affected. A corrected report will replace this one.</p>
+</blockquote>
+<blockquote>
 <p><strong>Preview</strong> of the island locus view and clinker synteny panel (NovInvenio branch <code>locus-view-b</code> at <code>f8b3b97</code>, PRs stajichlab/NovInvenio#201 and #204, not yet merged) on the <code>rescue_freqpol_immitis_in_posadasii_out</code> run. The DNA-check thresholds (90% identity, 80% coverage), the 20 kb gap split and the 5-95% polymorphism band are unvalidated defaults. Open <strong>Island synteny viewer</strong> below for the locus view; clinker figures are published for the top 25 loci.</p>
 </blockquote>
 <h2>Pipeline diagnostics</h2>

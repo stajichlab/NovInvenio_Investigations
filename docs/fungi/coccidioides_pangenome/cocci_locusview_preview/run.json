@@ -3,7 +3,7 @@
   "published": "2026-09-28",
   "pipeline": "pangenome.nf",
   "source_dir": "studies/fungi/coccidioides_pangenome/results/cocci_locusview_preview/output/pangenome",
-  "report_md_sha256": "27e71c6e7831bd4c4a3adeb832a4f3dc4543227aa80ac70fa2a7168ffb0db3a5",
+  "report_md_sha256": "e1bf751ed1281367a6c86357fe6896b5ca3546d60d38573da8b75ad7b894af26",
   "n_families": 47745,
   "n_strains": 529,
   "clinker_published": 25,
