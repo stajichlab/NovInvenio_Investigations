@@ -123,7 +123,7 @@ def render_top_level(domains: list[dict], site_name: str = "NovInvenio Investiga
 <a class="{cls}" href="{escape(href)}">
   <h2>{escape(d['name'])}</h2>
   <p class="desc">{escape(d['desc'])}</p>
-  <p class="meta">{d['n_studies']} study{'ies' if d['n_studies'] != 1 else ''}
+  <p class="meta">{d['n_studies']} {'study' if d['n_studies'] == 1 else 'studies'}
      {'' if d['n_studies'] else '(not yet populated)'}</p>
 </a>""")
     body = f"""
