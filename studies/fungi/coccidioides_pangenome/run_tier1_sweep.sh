@@ -1,4 +1,6 @@
 #!/usr/bin/bash
+# RETIRED 2026-09-28: U. reesii is excluded from pangenome work (see README.md,
+# "Decision: U. reesii excluded"). Kept for the record; do not start new sweeps with it.
 # Issue #132 gap (a): run one tier-1 clustering grid point of the
 # genus_vs_ureesii study (529 Coccidioides strains + outgroup) through the
 # full pangenome.nf chain, so every grid point gets islands, trans pairs,

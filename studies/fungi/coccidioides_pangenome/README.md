@@ -27,3 +27,15 @@ Assess any data problems or quality first.  Review sensibility of results with F
 
 ## Additional consideration
 * We are using mmseqs clustering as the primary clustering. Name the result folders in a way that it would be possible to replace it with diamond clustering to see how it makes a difference
+
+## Decision: U. reesii excluded from pangenome work (2026-09-28)
+
+*Uncinocarpus reesii* is too distant from *Coccidioides* for this pangenome pipeline.
+- Its proteins have median 77.4% identity to *C. immitis* RS, and only 11.1% pass the 90% identity clustering/rescue cutoff
+  (`notes/pangenome-method-investigations/2026-09-24-rescued-rerun-and-outgroup-polarity.md`).
+- In `results/mmseqs_genus_vs_ureesii`, 6592 of its 7396 families are singletons (`per_strain_summary.tsv`).
+
+The main comparison is the reciprocal *C. immitis* vs *C. posadasii* pair (`pangenome_runs.yaml`).
+Retired, kept for the record only: `config_genus_vs_ureesii.csv`, `run_tier1_sweep.sh`,
+`results/mmseqs_genus_vs_ureesii/`, `results/rescue_structural_genus_vs_ureesii/`, `results/tier1_sweep/`.
+Do not start new runs with *U. reesii*.
