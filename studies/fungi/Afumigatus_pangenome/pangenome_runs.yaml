@@ -1,0 +1,19 @@
+# pangenome.nf runs for Afumigatus_pangenome, launched with `bin/ni pangenome run`.
+# Spec: notes/superpowers/specs/2026-09-26-ni-pangenome-mode-design.md
+# 293 A. fumigatus strains (IN) + 2 UniProt reference outgroups (OUT). The old
+# run_pangenome.sh rewrote the outgroups' GFF3 protein_id to the UniProt FASTA
+# IDs; NovInvenio #187 (GN=/locus_tag fallback in GENE_POSITIONS, in v0.7.0)
+# should make that unnecessary -- check the outgroups' gene_positions after the run.
+defaults:
+  pipeline_commit: a394ace8d288b19591ea148e5a12d55aeac668b1
+  pfam_hmm: /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/Pfam-A.hmm
+  queue_config: stajichlab_queue.config
+  head_job: {partition: exfab, account: exfab, time: 30-00:00:00, mem: 8G, cpus: 1}
+  params:
+    pangenome_cluster_backend: mmseqs
+    pangenome_rescue_enable: true
+runs:
+  full_v070:
+    samplesheet: config.csv
+    publish: true
+    current: true
