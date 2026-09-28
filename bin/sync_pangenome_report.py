@@ -15,11 +15,21 @@ Steps, for --study <domain>/<folder> --run <run>:
      studies/<domain>/<set>/results/<run>/*/pangenome/ (the `*` is the
      pipeline's --outdir project subdir). Exactly one match is required;
      pass --pangenome-dir to override.
-  2. Replace docs/<domain>/<set>/<run>/{figures,figures_pdf,archive}/ and
-     island_synteny.html / assembly_quality.html with this run's copies.
-     These are gitignored (release asset only).
+  2. Replace docs/<domain>/<set>/<run>/{figures,figures_pdf,archive,clinker}/
+     and island_synteny.html / assembly_quality.html with this run's copies.
+     clinker/ holds the per-locus clinker pages island_synteny.html loads in
+     its "Synteny (clinker)" panel (NovInvenio spec 2026-09-24 section 8).
+     These are gitignored (release asset only). Only the top
+     --clinker_publish_top loci' pages (default 25; 0 = none; -1 = all) are
+     staged into clinker/, in ascending L### order; the rest stay in the
+     pipeline's own clinker/ dir (never copied anywhere in NII) and
+     island_synteny.html gets a small injected script
+     (window.CLINKER_PUBLISHED / window.CLINKER_FULL_DIR) so an
+     unpublished locus shows a note pointing at that full folder instead
+     of a broken iframe (N3, NovInvenio#202).
   3. Render docs/<domain>/<set>/<run>/report.html from report/report.md, and
-     write run.json (source path, sha256 of report.md, counts).
+     write run.json (source path, sha256 of report.md, counts, and, when
+     clinker/ exists, clinker_published/clinker_total/clinker_full_dir).
   4. Rebuild the study pages (run list, index redirect, study.json) from
      every docs/<domain>/<study>/*/run.json. --current marks this run current.
 
@@ -38,6 +48,7 @@ import datetime
 import gzip
 import hashlib
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -71,8 +82,60 @@ ARCHIVE_TABLES = [
 ]
 
 # Directories and pages copied or rendered into the run dir. All gitignored.
+# clinker/ is staged separately (stage_clinker()): only the top
+# --clinker_publish_top loci' pages are copied, not the whole directory.
 ASSET_DIRS = [("report/figures", "figures"), ("report/figures_pdf", "figures_pdf")]
-RELEASE_ONLY = ["figures", "figures_pdf", "archive", "island_synteny.html", "assembly_quality.html"]
+RELEASE_ONLY = ["figures", "figures_pdf", "archive", "clinker", "island_synteny.html",
+                "assembly_quality.html"]
+
+DEFAULT_CLINKER_PUBLISH_TOP = 25
+CLINKER_KEY_RE = re.compile(r"L(\d+)\.html")
+
+
+def stage_clinker(pangenome_dir: Path, run_docs: Path, publish_top: int) -> dict | None:
+    """Copy up to `publish_top` clinker/<L###>.html pages (in ascending L###
+    order) into run_docs/clinker/. `publish_top < 0` means all; 0 means none.
+    Non-locus files (anything not matching L<digits>.html) are ignored, not
+    counted or copied. Returns None if the pipeline produced no clinker/ dir
+    at all (N4), else {published, total, full_dir, keys} for the caller to
+    fold into run.json and, if published < total, inject into
+    island_synteny.html."""
+    src = pangenome_dir / "clinker"
+    if not src.is_dir():
+        return None
+    keyed = []
+    for p in sorted(src.iterdir()):
+        m = CLINKER_KEY_RE.fullmatch(p.name)
+        if m:
+            keyed.append((int(m.group(1)), p))
+    keyed.sort(key=lambda t: t[0])
+    total = len(keyed)
+    chosen = keyed if publish_top < 0 else keyed[:publish_top]
+    if chosen:
+        dest = run_docs / "clinker"
+        dest.mkdir(exist_ok=True)
+        for _, p in chosen:
+            shutil.copyfile(p, dest / p.name)
+    return {"published": len(chosen), "total": total, "full_dir": str(src.resolve()),
+            "keys": [p.stem for _, p in chosen]}
+
+
+def inject_clinker_published(html: str, keys: list[str], full_dir: str) -> str:
+    """island_synteny.html's clinker panel (lib/island_locus_template.py's
+    N3) reads window.CLINKER_PUBLISHED/window.CLINKER_FULL_DIR to show a
+    note instead of an iframe for a locus that exists in clinker/ but wasn't
+    published. A no-op if already present (idempotent on re-sync) -- though
+    in practice island_synteny.html is always freshly copied from the
+    pipeline's own (never-injected) copy on every sync, so this only
+    guards against a future caller reusing an already-staged page as the
+    source."""
+    keys_json = json.dumps(keys).replace("</", "<\\/")
+    dir_json = json.dumps(full_dir).replace("</", "<\\/")
+    script = ("<script>window.CLINKER_PUBLISHED=" + keys_json +
+              ";window.CLINKER_FULL_DIR=" + dir_json + ";</script>")
+    if script in html:
+        return html
+    return html.replace("</head>", script + "</head>", 1)
 
 
 def find_pangenome_dir(study_dir: Path, run: str) -> Path:
@@ -111,7 +174,8 @@ def count_data_rows(path: Path) -> int | None:
 
 
 def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, run: str,
-              source_label: str, today: str, run_record: Path | None = None) -> dict:
+              source_label: str, today: str, run_record: Path | None = None,
+              clinker_publish_top: int = DEFAULT_CLINKER_PUBLISH_TOP) -> dict:
     run_docs.mkdir(parents=True, exist_ok=True)
     for name in RELEASE_ONLY:
         target = run_docs / name
@@ -125,6 +189,8 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
         if src.is_dir():
             shutil.copytree(src, run_docs / dest_name)
 
+    clinker_info = stage_clinker(pangenome_dir, run_docs, clinker_publish_top)
+
     downloads: list[tuple[str, str]] = []
     archive = run_docs / "archive"
     for src_rel, archive_name in ARCHIVE_TABLES:
@@ -137,7 +203,10 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
     extra_pages: list[tuple[str, str]] = []
     synteny = pangenome_dir / "island_synteny.html"
     if synteny.is_file():
-        shutil.copyfile(synteny, run_docs / "island_synteny.html")
+        html = synteny.read_text()
+        if clinker_info is not None and clinker_info["published"] < clinker_info["total"]:
+            html = inject_clinker_published(html, clinker_info["keys"], clinker_info["full_dir"])
+        (run_docs / "island_synteny.html").write_text(html)
         extra_pages.append(("Island synteny viewer", "island_synteny.html"))
     aq_md = pangenome_dir / "assembly_quality_report.md"
     if aq_md.is_file():
@@ -167,6 +236,10 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
         rec = json.loads(run_record.read_text())
         meta["pipeline_repo"] = rec.get("pipeline")
         meta["pipeline_commit"] = rec.get("pipeline_commit")
+    if clinker_info is not None:
+        meta["clinker_published"] = clinker_info["published"]
+        meta["clinker_total"] = clinker_info["total"]
+        meta["clinker_full_dir"] = clinker_info["full_dir"]
     (run_docs / "run.json").write_text(json.dumps(meta, indent=2) + "\n")
     return meta
 
@@ -178,6 +251,10 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--current", action="store_true", help="mark this run as the study's current run")
     ap.add_argument("--pangenome-dir", type=Path, default=None,
                     help="override the auto-detected <run>/*/pangenome/ dir")
+    ap.add_argument("--clinker_publish_top", type=int, default=DEFAULT_CLINKER_PUBLISH_TOP,
+                    help="publish only the top N loci' clinker/<L###>.html pages "
+                         f"(default: {DEFAULT_CLINKER_PUBLISH_TOP}; 0 = publish none; "
+                         "-1 = publish all)")
     ap.add_argument("--repo-root", type=Path, default=REPO_ROOT, help=argparse.SUPPRESS)
     args = ap.parse_args(argv)
 
@@ -211,7 +288,8 @@ def main(argv: list[str] | None = None) -> int:
     today = datetime.datetime.now(datetime.UTC).date().isoformat()
     meta = stage_run(pangenome_dir, study_docs / args.run, domain, set_name, args.run,
                      source_label, today,
-                     run_record=study_dir / ".nf_launch" / args.run / "ni_run.json")
+                     run_record=study_dir / ".nf_launch" / args.run / "ni_run.json",
+                     clinker_publish_top=args.clinker_publish_top)
     if args.current:
         set_current(study_docs, args.run)
     runs = rebuild_study_pages(study_docs, domain, set_name)

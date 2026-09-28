@@ -55,6 +55,8 @@ def _fake_study(root: Path, run: str = "run_a", with_optional: bool = True,
     (pg / "pair_classification.tsv").write_text("a\tb\n")
     if with_optional:
         (pg / "island_synteny.html").write_text("<html>synteny</html>")
+        (pg / "clinker").mkdir()
+        (pg / "clinker" / "L001.html").write_text("<html>clinker</html>")
         (pg / "assembly_quality_report.md").write_text("# Assembly Quality vs Pangenome Content QC\n\nrho table\n")
     return study
 
@@ -204,6 +206,7 @@ def test_bad_run_name_rejected(tmp_path):
     ("docs/fungi/demo/run_a/figures_pdf/x.pdf", True),
     ("docs/fungi/demo/run_a/archive/x.tsv.gz", True),
     ("docs/fungi/demo/run_a/island_synteny.html", True),
+    ("docs/fungi/demo/run_a/clinker/L001.html", True),
     ("docs/fungi/demo/run_a/assembly_quality.html", True),
     ("docs/fungi/demo/run_a/report.html", False),
     ("docs/fungi/demo/run_a/run.json", False),
@@ -232,3 +235,126 @@ def test_run_json_without_ni_run_record_is_unchanged(tmp_path):
     assert _run(tmp_path, "--run", "run_a") == 0
     meta = json.loads((tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a" / "run.json").read_text())
     assert "pipeline_commit" not in meta and "pipeline_repo" not in meta
+
+
+def test_clinker_pages_are_staged_next_to_the_synteny_viewer(tmp_path):
+    _fake_study(tmp_path)
+    assert _run(tmp_path, "--run", "run_a") == 0
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    assert (run_docs / "clinker" / "L001.html").read_text() == "<html>clinker</html>"
+
+
+def test_resync_replaces_the_clinker_dir(tmp_path):
+    study = _fake_study(tmp_path)
+    _run(tmp_path, "--run", "run_a")
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    (run_docs / "clinker" / "L999.html").write_text("stale")
+    pg = study / "results" / "run_a" / "output" / "pangenome"
+    (pg / "clinker" / "L001.html").unlink()
+    _run(tmp_path, "--run", "run_a")
+    assert not (run_docs / "clinker" / "L999.html").exists()
+    assert not (run_docs / "clinker" / "L001.html").exists()
+
+
+def test_publish_script_and_pages_deploy_ship_clinker():
+    publish = (REPO_ROOT / "bin" / "publish_report_release.sh").read_text()
+    static = (REPO_ROOT / ".github" / "workflows" / "static.yml").read_text()
+    assert "archive clinker island_synteny.html" in publish
+    assert "for d in figures figures_pdf archive clinker; do" in static
+
+
+# ---- N4: NII publishes clinker pages for the top 25 loci only ----
+
+def _fake_study_with_n_clinker_pages(root: Path, n: int, run: str = "run_a") -> Path:
+    study = _fake_study(root, run=run)
+    pg = study / "results" / run / "output" / "pangenome"
+    clinker = pg / "clinker"
+    for f in clinker.iterdir():
+        f.unlink()
+    for i in range(1, n + 1):
+        (clinker / f"L{i:03d}.html").write_text(f"<html>clinker {i}</html>")
+    # a non-locus file must be ignored, not counted or copied.
+    (clinker / "assets.css").write_text("body{}")
+    return study
+
+
+def test_default_publishes_only_the_top_25_of_30_clinker_pages(tmp_path):
+    _fake_study_with_n_clinker_pages(tmp_path, 30)
+    assert _run(tmp_path, "--run", "run_a") == 0
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    staged = sorted(p.name for p in (run_docs / "clinker").glob("L*.html"))
+    assert staged == [f"L{i:03d}.html" for i in range(1, 26)]
+    assert not (run_docs / "clinker" / "assets.css").exists()
+
+
+def test_clinker_publish_top_minus_one_publishes_all_and_injects_nothing(tmp_path):
+    study = _fake_study_with_n_clinker_pages(tmp_path, 30)
+    assert _run(tmp_path, "--run", "run_a", "--clinker_publish_top", "-1") == 0
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    staged = sorted(p.name for p in (run_docs / "clinker").glob("L*.html"))
+    assert staged == [f"L{i:03d}.html" for i in range(1, 31)]
+    assert "CLINKER_PUBLISHED" not in (run_docs / "island_synteny.html").read_text()
+    meta = json.loads((run_docs / "run.json").read_text())
+    assert meta["clinker_published"] == 30
+    assert meta["clinker_total"] == 30
+    assert meta["clinker_full_dir"] == str((study / "results" / "run_a" / "output" /
+                                            "pangenome" / "clinker").resolve())
+
+
+def test_clinker_publish_top_zero_publishes_none(tmp_path):
+    _fake_study_with_n_clinker_pages(tmp_path, 30)
+    assert _run(tmp_path, "--run", "run_a", "--clinker_publish_top", "0") == 0
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    assert not any((run_docs / "clinker").glob("L*.html")) if (run_docs / "clinker").exists() else True
+    meta = json.loads((run_docs / "run.json").read_text())
+    assert meta["clinker_published"] == 0
+    assert meta["clinker_total"] == 30
+
+
+def test_run_json_records_clinker_published_and_total(tmp_path):
+    _fake_study_with_n_clinker_pages(tmp_path, 30)
+    _run(tmp_path, "--run", "run_a")
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    meta = json.loads((run_docs / "run.json").read_text())
+    assert meta["clinker_published"] == 25
+    assert meta["clinker_total"] == 30
+    assert meta["clinker_full_dir"].endswith("/clinker")
+
+
+def test_island_synteny_gets_the_clinker_published_script_injected_once(tmp_path):
+    study = _fake_study_with_n_clinker_pages(tmp_path, 30)
+    pg = study / "results" / "run_a" / "output" / "pangenome"
+    (pg / "island_synteny.html").write_text("<html><head></head><body>synteny</body></html>")
+    _run(tmp_path, "--run", "run_a")
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    html = (run_docs / "island_synteny.html").read_text()
+    assert html.count("window.CLINKER_PUBLISHED=") == 1
+    assert html.index("<script>window.CLINKER_PUBLISHED=") < html.index("</head>")
+    keys = json.loads(html.split("window.CLINKER_PUBLISHED=", 1)[1].split(";", 1)[0])
+    assert keys == [f"L{i:03d}" for i in range(1, 26)]
+
+    # a second sync must not duplicate the injected script.
+    _run(tmp_path, "--run", "run_a")
+    html2 = (run_docs / "island_synteny.html").read_text()
+    assert html2.count("window.CLINKER_PUBLISHED=") == 1
+
+
+def test_all_files_published_means_no_injection(tmp_path):
+    _fake_study_with_n_clinker_pages(tmp_path, 10)
+    _run(tmp_path, "--run", "run_a")
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    html = (run_docs / "island_synteny.html").read_text()
+    assert "CLINKER_PUBLISHED" not in html
+    meta = json.loads((run_docs / "run.json").read_text())
+    assert meta["clinker_published"] == 10
+    assert meta["clinker_total"] == 10
+
+
+def test_no_clinker_dir_means_no_clinker_fields_in_run_json(tmp_path):
+    _fake_study(tmp_path, with_optional=False)
+    _run(tmp_path, "--run", "run_a")
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    meta = json.loads((run_docs / "run.json").read_text())
+    assert "clinker_published" not in meta
+    assert "clinker_total" not in meta
+    assert "clinker_full_dir" not in meta

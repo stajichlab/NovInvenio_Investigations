@@ -376,7 +376,10 @@ Committed: the run's `report.html` (rendered from `report.md`, raw HTML disabled
 and `run.json` (source dir, sha256 of `report.md`, family/strain counts), plus the
 study-level run list. Release asset only: the run's `figures/`, `figures_pdf/`,
 `archive/*.tsv.gz` (fixed allowlist of aggregate/per-island tables; per-gene and
-per-pair tables are not published), `island_synteny.html`, `assembly_quality.html`.
+per-pair tables are not published), `island_synteny.html`, `assembly_quality.html`,
+`clinker/` (added 2026-09-27, NovInvenio#202: the per-locus clinker synteny pages
+`island_synteny.html`'s "Synteny (clinker)" panel loads -- grows with drawn-locus
+count, same reasoning as the rest of this list).
 Figures do not scale with candidate count, but they are regenerated binaries, so
 they stay out of git to keep reruns from adding blobs. Publish with
 `bin/publish_report_release.sh <domain>/<set>/<run>` (tag
