@@ -9,11 +9,13 @@ Usage:
       --freq frequency_table.tsv --pairs cooccurring_pairs.tsv.zst --outgroup Uree
 
 Inputs: presence matrix (family x strain, states present/genome_only/absent),
-frequency_table (family, frequency, strain_count, bin), cooccurring_pairs
+frequency_table (family, frequency, strain_count, bin, ...; read by column
+name), cooccurring_pairs
 (family_a, ..., direction_a), outgroup strain names.
 """
 import argparse
 import collections
+import csv
 import subprocess
 import sys
 
@@ -32,12 +34,9 @@ ap.add_argument("--pairs", required=True)
 ap.add_argument("--outgroup", nargs="+", required=True)
 args = ap.parse_args()
 
-fam_bin = {}
-with open(args.freq) as fh:
-    next(fh)
-    for line in fh:
-        f, _, _, b = line.rstrip("\n").split("\t")
-        fam_bin[f] = b
+# By column name: NovInvenio #212 tables add frequency_out/strain_count_out/bin_out.
+with open(args.freq, newline="") as fh:
+    fam_bin = {r["family"]: r["bin"] for r in csv.DictReader(fh, delimiter="\t")}
 
 # outgroup states per family, plus genome_only totals per strain
 out_state = {}
@@ -71,7 +70,9 @@ print("pair rows: " + ", ".join(f"{k} {v} ({v / tot * 100:.2f}%)" for k, v in so
 print("genome_only (rescued) cells in outgroup columns: " + ", ".join(f"{s} {go_per_strain[s]}" for s in args.outgroup))
 print()
 print("bin\tn_fam\tout_all_present%\tout_any_present%\tout_any_genome_only%\tn_polarised\tgain\tloss\tambiguous")
-bins = ["core", "soft_core", "shell", "cloud", "singleton"]
+# nonrep_only / outgroup_only / absent: NovInvenio #212 labels for families counted in
+# no ingroup representative (in older tables these were all "singleton").
+bins = ["core", "soft_core", "shell", "cloud", "singleton", "nonrep_only", "outgroup_only", "absent"]
 for b in bins:
     fams = [f for f, fb in fam_bin.items() if fb == b and f in out_state]
     n = len(fams)
