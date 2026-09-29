@@ -1,0 +1,14 @@
+{
+  "run": "isl45_v1",
+  "published": "2026-09-29",
+  "pipeline": "pangenome.nf",
+  "source_dir": "studies/fungi/Afumigatus_test45/results/isl45_v1/config/pangenome",
+  "report_md_sha256": "0d420a5275c9b418bed12e3b11b30ae9fa43669eff265cadef3f44b71895d11b",
+  "n_families": 29213,
+  "n_strains": 47,
+  "pipeline_repo": "stajichlab/NovInvenio",
+  "pipeline_commit": "f87fd1e9073b0d0d8927baca8a93f65ae3d86913",
+  "clinker_published": 25,
+  "clinker_total": 100,
+  "clinker_full_dir": "/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_test45/results/isl45_v1/config/pangenome/clinker"
+}
