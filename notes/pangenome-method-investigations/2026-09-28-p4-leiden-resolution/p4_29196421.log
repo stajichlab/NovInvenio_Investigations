@@ -1,0 +1,24 @@
+Afumigatus: 8299 families, 564245 trans edges
+  r=0.25: modules 6.6 (>=10: 3.7), largest 0.673, seed ARI 0.862 (min 0.725), NMI 0.869
+  r=0.5: modules 7.9 (>=10: 5.8), largest 0.357, seed ARI 0.857 (min 0.695), NMI 0.878
+  r=1.0: modules 11.0 (>=10: 7.0), largest 0.341, seed ARI 0.941 (min 0.895), NMI 0.936
+  r=1.5: modules 15.6 (>=10: 11.5), largest 0.290, seed ARI 0.783 (min 0.651), NMI 0.829
+  r=2.0: modules 136.1 (>=10: 26.5), largest 0.217, seed ARI 0.891 (min 0.792), NMI 0.887
+  r=3.0: modules 335.7 (>=10: 43.1), largest 0.180, seed ARI 0.864 (min 0.751), NMI 0.877
+  r=4.0: modules 495.2 (>=10: 51.2), largest 0.179, seed ARI 0.917 (min 0.847), NMI 0.912
+  r=6.0: modules 662.0 (>=10: 51.8), largest 0.128, seed ARI 0.940 (min 0.914), NMI 0.930
+  r=8.0: modules 752.4 (>=10: 53.8), largest 0.122, seed ARI 0.938 (min 0.919), NMI 0.942
+  r=12.0: modules 863.6 (>=10: 71.3), largest 0.107, seed ARI 0.873 (min 0.826), NMI 0.901
+  r=16.0: modules 942.5 (>=10: 86.8), largest 0.094, seed ARI 0.811 (min 0.766), NMI 0.882
+Cocci_genus_0.9_0.8: 14602 families, 543867 trans edges
+  r=0.25: modules 2.0 (>=10: 2.0), largest 0.568, seed ARI 1.000 (min 1.000), NMI 1.000
+  r=0.5: modules 4.0 (>=10: 4.0), largest 0.510, seed ARI 0.999 (min 0.996), NMI 0.997
+  r=1.0: modules 6.6 (>=10: 5.6), largest 0.483, seed ARI 0.943 (min 0.899), NMI 0.919
+  r=1.5: modules 10.9 (>=10: 9.9), largest 0.246, seed ARI 0.826 (min 0.687), NMI 0.846
+  r=2.0: modules 15.7 (>=10: 15.5), largest 0.196, seed ARI 0.835 (min 0.756), NMI 0.835
+  r=3.0: modules 26.1 (>=10: 25.9), largest 0.143, seed ARI 0.812 (min 0.770), NMI 0.797
+  r=4.0: modules 45.5 (>=10: 45.1), largest 0.114, seed ARI 0.796 (min 0.762), NMI 0.769
+  r=6.0: modules 92.8 (>=10: 91.0), largest 0.076, seed ARI 0.791 (min 0.733), NMI 0.770
+  r=8.0: modules 158.5 (>=10: 144.3), largest 0.054, seed ARI 0.779 (min 0.704), NMI 0.774
+  r=12.0: modules 324.1 (>=10: 255.8), largest 0.036, seed ARI 0.719 (min 0.664), NMI 0.774
+  r=16.0: modules 510.6 (>=10: 347.4), largest 0.027, seed ARI 0.678 (min 0.619), NMI 0.795

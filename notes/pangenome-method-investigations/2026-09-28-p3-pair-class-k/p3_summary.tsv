@@ -1,0 +1,29 @@
+dataset	k	physical_threshold	trans_threshold	pairs	unexplained_physical	starship_explained	ambiguous_linkage	trans	trans_unconfirmed	insufficient_data	same_label_as_default	group_changes
+Afumigatus	3	0.5	0.05	1363573	5401	0	1548	571252	713710	71662	0.9934	physical->low:4410; ambiguous->low:3806; physical->ambiguous:730
+Afumigatus	5	0.5	0.05	1363573	7249	0	2435	568869	713358	71662	0.9954	ambiguous->low:3019; physical->low:2462; physical->ambiguous:830
+Afumigatus	7	0.5	0.05	1363573	8728	0	3384	566792	713007	71662	0.9972	ambiguous->low:2038; physical->low:1015; physical->ambiguous:798
+Afumigatus	10	0.5	0.05	1363573	10541	0	4624	564245	712501	71662	1.0	
+Afumigatus	15	0.5	0.05	1363573	12721	0	6446	561004	711740	71662	0.9965	low->ambiguous:2635; low->physical:1367; ambiguous->physical:813
+Afumigatus	20	0.5	0.05	1363573	14321	0	7886	558771	710933	71662	0.9942	low->ambiguous:4140; low->physical:2902; ambiguous->physical:878
+Afumigatus	30	0.5	0.05	1363573	16727	0	10175	555557	709452	71662	0.9907	low->ambiguous:6451; low->physical:5286; ambiguous->physical:900
+Afumigatus	50	0.5	0.05	1363573	20162	0	13846	551208	706695	71662	0.9855	low->ambiguous:10139; low->physical:8704; ambiguous->physical:917
+Afumigatus	10	0.3	0.05	1363573	12014	0	3151	564245	712501	71662	0.9989	ambiguous->physical:1473
+Afumigatus	10	0.5	0.01	1363573	10541	0	5832	563163	712375	71662	0.9991	low->ambiguous:1208
+Afumigatus	10	0.5	0.1	1363573	10541	0	3609	565161	712600	71662	0.9993	ambiguous->low:1015
+Afumigatus	10	0.5	0.2	1363573	10541	0	2218	566391	712761	71662	0.9982	ambiguous->low:2406
+Afumigatus	10	0.7	0.05	1363573	9043	0	6122	564245	712501	71662	0.9989	physical->ambiguous:1498
+Afumigatus	10	0.9	0.05	1363573	7032	0	8133	564245	712501	71662	0.9974	physical->ambiguous:3509
+Cocci_Ci	3	0.5	0.05	77059	2810	0	788	0	72287	1174	0.9491	physical->low:1777; ambiguous->low:1670; physical->ambiguous:472
+Cocci_Ci	5	0.5	0.05	77059	3657	0	1162	0	71066	1174	0.9644	ambiguous->low:1343; physical->low:883; physical->ambiguous:519
+Cocci_Ci	7	0.5	0.05	77059	4327	0	1487	0	70071	1174	0.9784	ambiguous->low:935; physical->ambiguous:436; physical->low:296
+Cocci_Ci	10	0.5	0.05	77059	5059	0	1986	0	68840	1174	1.0	
+Cocci_Ci	15	0.5	0.05	77059	5940	0	2740	0	67205	1174	0.9728	low->ambiguous:1217; ambiguous->physical:463; low->physical:418
+Cocci_Ci	20	0.5	0.05	77059	6469	0	3312	0	66104	1174	0.9577	low->ambiguous:1848; low->physical:888; ambiguous->physical:522
+Cocci_Ci	30	0.5	0.05	77059	6980	0	4201	0	64704	1174	0.9393	low->ambiguous:2753; low->physical:1383; ambiguous->physical:538
+Cocci_Ci	50	0.5	0.05	77059	7236	0	5278	0	63371	1174	0.9219	low->ambiguous:3839; low->physical:1630; ambiguous->physical:547
+Cocci_Ci	10	0.3	0.05	77059	5854	0	1191	0	68840	1174	0.9897	ambiguous->physical:795
+Cocci_Ci	10	0.5	0.01	77059	5059	0	2632	0	68194	1174	0.9916	low->ambiguous:646
+Cocci_Ci	10	0.5	0.1	77059	5059	0	1619	0	69207	1174	0.9952	ambiguous->low:367
+Cocci_Ci	10	0.5	0.2	77059	5059	0	1142	0	69684	1174	0.989	ambiguous->low:844
+Cocci_Ci	10	0.7	0.05	77059	4378	0	2667	0	68840	1174	0.9912	physical->ambiguous:681
+Cocci_Ci	10	0.9	0.05	77059	3294	0	3751	0	68840	1174	0.9771	physical->ambiguous:1765

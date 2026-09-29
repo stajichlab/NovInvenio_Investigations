@@ -17,6 +17,8 @@ these notes are the evidence behind them.
 | `2026-09-20-fragmentation-vs-content.png` | Assembly quality vs pangenome content, 529 strains |
 | `2026-09-24-rescued-rerun-and-outgroup-polarity.md` | The #133 re-run result: gain:loss 144:1 → 138:1 (not fixed); the skew comes from outgroup divergence (*U. reesii* median 77.4% identity) against the 90% cutoffs. Section 6: reciprocal immitis/posadasii runs with outgroup-frequency polarity give gain:loss 6.0-8.4:1 (strict rule 39-145:1) |
 | `2026-09-28-p2-frequency-cutoffs/` | #132 priority 2: the frequency spectrum is a continuum; core 0.95 agrees with a binomial-mixture core boundary (0.94-0.98), 0.90 and 0.15 are conventions; cloud cannot exist below 14 strains |
+| `2026-09-28-p3-pair-class-k/` | #132 priority 3: trans/low-linkage labels stable over k 5-20 (Afu trans -1.8%); physical-pair count doubles over the same range; thresholds 0.5/0.05 move < 2.3% of labels |
+| `2026-09-28-p4-leiden-resolution/` | #132 priority 4: resolution 1.0 is not a validated default; seed-AMI falls monotonically for pooled Cocci (stable only when trivial), two peaks for Afumigatus (1.0 and 6-8) |
 
 ## The finding that ties them together
 
