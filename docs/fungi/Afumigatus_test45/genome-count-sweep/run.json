@@ -1,0 +1,9 @@
+{
+  "run": "genome-count-sweep",
+  "published": "2026-09-29",
+  "pipeline": "island genome-count sweep (island steps only, NovInvenio f87fd1e)",
+  "source_dir": "studies/fungi/Afumigatus_pangenome/analysis/island_genome_count/site",
+  "report_md_sha256": "0d80e016107a9ad97f50476d903d222ce87d6e989a63af5cba8dd6a364306bb0",
+  "n_families": null,
+  "n_strains": null
+}

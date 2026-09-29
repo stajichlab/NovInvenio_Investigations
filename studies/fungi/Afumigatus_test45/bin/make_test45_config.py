@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build studies/fungi/Afumigatus_test45/config.csv: the 45-genome
+"""Build studies/fungi/Afumigatus_test45/config.csv and species.csv: the 45-genome
 A. fumigatus test set for fast iteration on island generation and the island
 interface.
 
@@ -13,7 +13,9 @@ presence pattern. Chosen over seeds 1 and 2 because it includes A1163 and had
 the fewest co-occurring pairs (fastest). It has no Barber cluster 6 genome.
 
 Rows (GROUP, TaxonGroup and file names) are copied unchanged from
-Afumigatus_pangenome/config.csv. No data is copied: pangenome_runs.yaml points
+Afumigatus_pangenome/config.csv; species.csv rows likewise from
+Afumigatus_pangenome/species.csv (the study definition bin/sync_pangenome_report.py
+requires), with Group set from config.csv GROUP. No data is copied: pangenome_runs.yaml points
 data_dir at Afumigatus_pangenome/data_dir.
 """
 import csv
@@ -58,8 +60,35 @@ def main() -> int:
                "subset_source": str(SUBSET.relative_to(NII_ROOT)),
                "subset_sha256": sha256_of(SUBSET)},
     )
-    append_manifest([rec], STUDY / "DATA_MANIFEST.yaml")
-    print(f"{out}: {len(keep)} genomes", file=sys.stderr)
+    recs = [rec]
+
+    with open(SRC / "species.csv", newline="") as fh:
+        reader = csv.DictReader(fh)
+        sp_fields = reader.fieldnames
+        species = {r["Short"]: r for r in reader}
+    missing = [s for s in keep if s not in species]
+    if missing:
+        raise SystemExit(f"species.csv lacks {missing}")
+    sp_out = STUDY / "species.csv"
+    with open(sp_out, "w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=sp_fields, lineterminator="\n")
+        w.writeheader()
+        # Group from config.csv GROUP (IN/OUT, what the pipeline uses): the
+        # parent species.csv mixes "INGROUP", blank and a shifted "OUT" here.
+        w.writerows(dict(species[s], Group=cfg[s]["GROUP"]) for s in keep)
+    recs.append(build_record(
+        source_url=f"file://{SRC / 'species.csv'}",
+        source_release=f"Afumigatus_pangenome/species.csv sha256 {sha256_of(SRC / 'species.csv')}",
+        license="Subset of Afumigatus_pangenome inputs; terms per that study's DATA_MANIFEST.yaml",
+        local_path=sp_out.relative_to(NII_ROOT),
+        checksum=sha256_of(sp_out),
+        derived_by="studies/fungi/Afumigatus_test45/bin/make_test45_config.py -- rows of "
+                   "Afumigatus_pangenome/species.csv for the same 47 strains as config.csv; "
+                   "Group column set from config.csv GROUP (IN/OUT)",
+        extra={"n_genomes": len(keep)},
+    ))
+    append_manifest(recs, STUDY / "DATA_MANIFEST.yaml")
+    print(f"{out}, {sp_out}: {len(keep)} genomes", file=sys.stderr)
     return 0
 
 

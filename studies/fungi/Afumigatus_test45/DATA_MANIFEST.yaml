@@ -1,7 +1,7 @@
 - local_path: studies/fungi/Afumigatus_test45/config.csv
   source_url: file:///bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/config.csv
   source_release: Afumigatus_pangenome/config.csv sha256 fec21f1fb48c3d1904731ebee8399b2de87f09e4f0ac591f079202394cae2663
-  access_date: '2026-09-29T21:05:16Z'
+  access_date: '2026-09-29T21:47:22Z'
   checksum_sha256: 40a74f3434ad0780dba3c92e90d0e0577dad8dfe9b5ee6bfa9a6f697b42306be
   license: Subset of Afumigatus_pangenome inputs; terms per that study's DATA_MANIFEST.yaml
   derived_by: studies/fungi/Afumigatus_test45/bin/make_test45_config.py -- rows of
@@ -11,3 +11,14 @@
   n_genomes: 47
   subset_source: studies/fungi/Afumigatus_pangenome/analysis/island_genome_count/outputs/runs/n45_s3/subset_strains.txt
   subset_sha256: 4a07f6476cc388612e543946c7da681f8f7752590b0f88d628d8d9aaba58a0d8
+- local_path: studies/fungi/Afumigatus_test45/species.csv
+  source_url: file:///bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/species.csv
+  source_release: Afumigatus_pangenome/species.csv sha256 82ee6e534c7f404e9bdfa67be7bdbdc5328e5fa0513c916caacb29ba3d003c19
+  access_date: '2026-09-29T21:47:22Z'
+  checksum_sha256: 90b34d60a4d3edd447e04d80b125134da3691943b7fe455f35cf8c58e7074fe2
+  license: Subset of Afumigatus_pangenome inputs; terms per that study's DATA_MANIFEST.yaml
+  derived_by: studies/fungi/Afumigatus_test45/bin/make_test45_config.py -- rows of
+    Afumigatus_pangenome/species.csv for the same 47 strains as config.csv; Group
+    column set from config.csv GROUP (IN/OUT)
+  pulled_with: make_test45_config.py on r11
+  n_genomes: 47
