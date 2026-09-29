@@ -65,6 +65,7 @@ footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
 <li><a href="archive/assembly_quality_vs_content.tsv.gz">assembly_quality_vs_content</a> (tsv.gz)</li>
 <li><a href="archive/assembly_quality_correlations.tsv.gz">assembly_quality_correlations</a> (tsv.gz)</li>
 <li><a href="archive/diagnostics.tsv.gz">diagnostics</a> (tsv.gz)</li>
+<li><a href="archive/group_class_overlap.tsv.gz">group_class_overlap</a> (tsv.gz)</li>
 </ul>
 <h2>Pipeline diagnostics</h2>
 <ul>
@@ -122,6 +123,14 @@ footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
 <p>Families per strain: min=8964, median=9585, max=10332 (n=529 strains). See per_strain_summary.tsv for outliers.</p>
 <p><strong>Outlier strains (singleton-count modified z-score beyond threshold):</strong> B3476, h5384, 485B-1_L_OLD_CPA0023, CA14, 4545-MICE, GT-101, UTAH_23742X6, FMC778, GT-129, VFC084_CPA0067, GT-139, GT-160, GT-133, SOIL_604-1_L_OLD_CPA066, B11863, Michoacan_2, VFC083, CA1, GT-100, B11002, Cocci_1400035797, UTAH_20380X2, COCPO_34698, COCSP-3505, COCPO_195881, B14286, B11518, NACVFR_4542, SA14, GT-147, COCPO_4545, NACVFR_2566, 730333_Guatemala, B0858-Guatemala, 730332_Guatemala, 409B-0_L_OLD_CPA0011, UTAH_9443</p>
 <p><img src="figures/per_genome_class_composition.png" alt="Gene families per genome by frequency class" /></p>
+<h2>Ingroup vs outgroup content</h2>
+<p>Each gene family's class in the ingroup against its class in the outgroup (counts; colour is log-scaled).</p>
+<p><img src="figures/group_class_overlap_heatmap.png" alt="Class overlap" /></p>
+<p>Families in both groups, split by ingroup class, and families found in one group only.</p>
+<p><img src="figures/group_class_overlap_shared.png" alt="Shared and group-specific families" /></p>
+<p>Every non-empty group-class combination, largest first.</p>
+<p><img src="figures/group_class_overlap_upset.png" alt="Class intersections" /></p>
+<p>Counts: the run's <code>group_class_overlap.tsv</code> table.</p>
 <h2>Accessory islands</h2>
 <p>22183 statistically significant accessory islands found (built from adjacency of non-core genes, gated by containing at least one FDR-significant physically-linked pair).</p>
 <p><img src="figures/island_size_distribution.png" alt="Island sizes" /></p>
