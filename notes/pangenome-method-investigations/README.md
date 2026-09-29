@@ -19,6 +19,7 @@ these notes are the evidence behind them.
 | `2026-09-28-p2-frequency-cutoffs/` | #132 priority 2: the frequency spectrum is a continuum; core 0.95 agrees with a binomial-mixture core boundary (0.94-0.98), 0.90 and 0.15 are conventions; cloud cannot exist below 14 strains |
 | `2026-09-28-p3-pair-class-k/` | #132 priority 3: trans/low-linkage labels stable over k 5-20 (Afu trans -1.8%); physical-pair count doubles over the same range; thresholds 0.5/0.05 move < 2.3% of labels |
 | `2026-09-28-p4-leiden-resolution/` | #132 priority 4: resolution 1.0 is not a validated default; seed-AMI falls monotonically for pooled Cocci (stable only when trivial), two peaks for Afumigatus (1.0 and 6-8) |
+| `2026-09-28-session-handoff.md` | Session handoff: v0.7.0 locus view, #213, SANS/phylogeny, #132 P2-P4, run state, open work, cleanup |
 
 ## The finding that ties them together
 
