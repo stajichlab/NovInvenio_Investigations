@@ -1,0 +1,16 @@
+# pangenome.nf runs for Afumigatus_test10, launched with `bin/ni pangenome run`.
+# Small A. fumigatus test set for fast iteration on the workflow and figures
+# (see README.md). Inputs are read from Afumigatus_pangenome/data_dir; nothing
+# is copied. Genome choice: bin/make_test_subsets.py (in Afumigatus_test10/bin).
+defaults:
+  pipeline_commit: f87fd1e9073b0d0d8927baca8a93f65ae3d86913
+  data_dir: ../Afumigatus_pangenome/data_dir
+  pfam_hmm: /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/Pfam-A.hmm
+  queue_config: ../Afumigatus_pangenome/stajichlab_queue.config
+  head_job: {partition: exfab, account: exfab, time: 2-00:00:00, mem: 8G, cpus: 1}
+  params:
+    pangenome_cluster_backend: mmseqs
+    pangenome_rescue_enable: true
+runs:
+  in10_v1:
+    samplesheet: config.csv

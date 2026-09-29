@@ -1,0 +1,11 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Aspergillus fumigatus,Af293,UP000002530_330879.pep.fa,UP000002530_330879.dna.fa,UP000002530_330879.gff3,Asfu_Af293,DAPC_Clade_1
+IN,Aspergillus fumigatus,A1163,Asfu_A1163.pep.fa,Asfu_A1163.dna.fa,Asfu_A1163.gff3,Asfu_A1163,DAPC_Clade_1
+IN,Aspergillus fumigatus,NRZ-2017-040,Asfu_NRZ2017040.pep.fa,Asfu_NRZ2017040.dna.fa,Asfu_NRZ2017040.gff3,Asfu_NRZ2017040,Barber_cluster1
+IN,Aspergillus fumigatus,NRZ-2017-346,Asfu_NRZ2017346.pep.fa,Asfu_NRZ2017346.dna.fa,Asfu_NRZ2017346.gff3,Asfu_NRZ2017346,Barber_cluster2
+IN,Aspergillus fumigatus,NRZ-2018-313,Asfu_NRZ2018313.pep.fa,Asfu_NRZ2018313.dna.fa,Asfu_NRZ2018313.gff3,Asfu_NRZ2018313,Barber_cluster3
+IN,Aspergillus fumigatus,NRZ-2018-097,Asfu_NRZ2018097.pep.fa,Asfu_NRZ2018097.dna.fa,Asfu_NRZ2018097.gff3,Asfu_NRZ2018097,Barber_cluster4
+IN,Aspergillus fumigatus,NRZ-2018-281,Asfu_NRZ2018281.pep.fa,Asfu_NRZ2018281.dna.fa,Asfu_NRZ2018281.gff3,Asfu_NRZ2018281,Barber_cluster5
+IN,Aspergillus fumigatus,NRZ-2017-214,Asfu_NRZ2017214.pep.fa,Asfu_NRZ2017214.dna.fa,Asfu_NRZ2017214.gff3,Asfu_NRZ2017214,Barber_cluster6
+IN,Aspergillus fumigatus,NRZ-2017-381,Asfu_NRZ2017381.pep.fa,Asfu_NRZ2017381.dna.fa,Asfu_NRZ2017381.gff3,Asfu_NRZ2017381,Barber_cluster7
+IN,Aspergillus fumigatus,L-3-15-2,Asfu_L3152.pep.fa,Asfu_L3152.dna.fa,Asfu_L3152.gff3,Asfu_L3152,Barber_cluster1

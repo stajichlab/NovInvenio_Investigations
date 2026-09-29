@@ -1,0 +1,12 @@
+- local_path: studies/fungi/Afumigatus_test_c1c7/config.csv
+  source_url: file:///bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/config.csv
+  source_release: Afumigatus_pangenome/config.csv sha256 fec21f1fb48c3d1904731ebee8399b2de87f09e4f0ac591f079202394cae2663
+  access_date: '2026-09-29T03:54:54Z'
+  checksum_sha256: 38757027fe25294ea092f89f4ad18d42bd0086ba43b64af15405bc1156a32d12
+  license: Subset of Afumigatus_pangenome inputs; terms per that study's DATA_MANIFEST.yaml
+  derived_by: studies/fungi/Afumigatus_test10/bin/make_test_subsets.py -- 5 fewest-contig
+    genomes (BUSCO>=98.9) of Barber cluster 1 as IN, 5 of Barber cluster 7 as OUT
+  pulled_with: make_test_subsets.py on c01
+  n_genomes: 10
+  busco_source: studies/fungi/Afumigatus_pangenome/busco_completeness_summary.tsv
+  busco_sha256: 30ca60e377ef80b3b01a4933cc7d6f804f2f3526e79407184a160887f7eebce9
