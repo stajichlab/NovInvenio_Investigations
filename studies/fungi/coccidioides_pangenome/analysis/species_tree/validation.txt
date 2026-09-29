@@ -1,0 +1,16 @@
+rescue_structural_genus_vs_ureesii presence_matrix.tsv vs coccidioides_genus_with_Uree.full: tips=530 matrix=530 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_structural_genus_vs_ureesii presence_matrix.rescued.tsv vs coccidioides_genus_with_Uree.full: tips=530 matrix=530 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_structural_genus_vs_ureesii presence_matrix.tsv vs coccidioides_genus_with_Uree.collapsed_ufboot70: tips=530 matrix=530 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_structural_genus_vs_ureesii presence_matrix.rescued.tsv vs coccidioides_genus_with_Uree.collapsed_ufboot70: tips=530 matrix=530 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_freqpol_immitis_in_posadasii_out presence_matrix.tsv vs coccidioides_coccidioides_only.full: tips=529 matrix=529 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_freqpol_immitis_in_posadasii_out presence_matrix.rescued.tsv vs coccidioides_coccidioides_only.full: tips=529 matrix=529 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_freqpol_immitis_in_posadasii_out presence_matrix.tsv vs coccidioides_coccidioides_only.collapsed_ufboot70: tips=529 matrix=529 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_freqpol_immitis_in_posadasii_out presence_matrix.rescued.tsv vs coccidioides_coccidioides_only.collapsed_ufboot70: tips=529 matrix=529 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_freqpol_posadasii_in_immitis_out presence_matrix.tsv vs coccidioides_coccidioides_only.full: tips=529 matrix=529 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_freqpol_posadasii_in_immitis_out presence_matrix.rescued.tsv vs coccidioides_coccidioides_only.full: tips=529 matrix=529 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_freqpol_posadasii_in_immitis_out presence_matrix.tsv vs coccidioides_coccidioides_only.collapsed_ufboot70: tips=529 matrix=529 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+rescue_freqpol_posadasii_in_immitis_out presence_matrix.rescued.tsv vs coccidioides_coccidioides_only.collapsed_ufboot70: tips=529 matrix=529 missing=0 extra=0 dups=0 root_children=2 monophyletic={'immitis': True, 'posadasii': True}
+ALL CHECKS PASS
+families total 54318 accessory (not in all 530) 54269
+dollo on 1000 random accessory families x 2 trees: 176.8s, errors=0
+n_loss_events collapsed vs full: higher=425 lower=0 equal=575; median full=4.0 median collapsed=4.0; sum full=31497 sum collapsed=39511

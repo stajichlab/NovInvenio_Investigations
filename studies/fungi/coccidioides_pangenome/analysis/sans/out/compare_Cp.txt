@@ -1,0 +1,46 @@
+# snp_fasttree_Cp: 284 tips
+# busco_cds: 529 tips
+# sans_dna: 529 tips
+# sans_aa: 529 tips
+# sans_gene_content: 529 tips
+# snp_fasttree_Cp_shuffled: 284 tips
+query	reference	n_shared_tips	q_splits	r_splits	shared	precision	recall	recall_sup95	rf_norm
+snp_fasttree_Cp	busco_cds	254	251	251	43	0.171	0.171	0.339 (115)	0.829
+snp_fasttree_Cp	sans_dna	254	251	122	49	0.195	0.402	-	0.737
+snp_fasttree_Cp	sans_aa	254	251	121	51	0.203	0.421	-	0.726
+snp_fasttree_Cp	sans_gene_content	254	251	105	36	0.143	0.343	-	0.798
+snp_fasttree_Cp	snp_fasttree_Cp_shuffled	284	281	281	0	0.000	0.000	-	1.000
+busco_cds	snp_fasttree_Cp	254	251	251	43	0.171	0.171	-	0.829
+busco_cds	sans_dna	529	526	285	73	0.139	0.256	-	0.820
+busco_cds	sans_aa	529	526	270	65	0.124	0.241	-	0.837
+busco_cds	sans_gene_content	529	526	284	48	0.091	0.169	-	0.881
+busco_cds	snp_fasttree_Cp_shuffled	254	251	251	2	0.008	0.008	-	0.992
+sans_dna	snp_fasttree_Cp	254	122	251	49	0.402	0.195	-	0.737
+sans_dna	busco_cds	529	285	526	73	0.256	0.139	0.313 (214)	0.820
+sans_dna	sans_aa	529	285	270	144	0.505	0.533	-	0.481
+sans_dna	sans_gene_content	529	285	284	77	0.270	0.271	-	0.729
+sans_dna	snp_fasttree_Cp_shuffled	254	122	251	0	0.000	0.000	-	1.000
+sans_aa	snp_fasttree_Cp	254	121	251	51	0.421	0.203	-	0.726
+sans_aa	busco_cds	529	270	526	65	0.241	0.124	0.290 (214)	0.837
+sans_aa	sans_dna	529	270	285	144	0.533	0.505	-	0.481
+sans_aa	sans_gene_content	529	270	284	81	0.300	0.285	-	0.708
+sans_aa	snp_fasttree_Cp_shuffled	254	121	251	0	0.000	0.000	-	1.000
+sans_gene_content	snp_fasttree_Cp	254	105	251	36	0.343	0.143	-	0.798
+sans_gene_content	busco_cds	529	284	526	48	0.169	0.091	0.201 (214)	0.881
+sans_gene_content	sans_dna	529	284	285	77	0.271	0.270	-	0.729
+sans_gene_content	sans_aa	529	284	270	81	0.285	0.300	-	0.708
+sans_gene_content	snp_fasttree_Cp_shuffled	254	105	251	0	0.000	0.000	-	1.000
+snp_fasttree_Cp_shuffled	snp_fasttree_Cp	284	281	281	0	0.000	0.000	-	1.000
+snp_fasttree_Cp_shuffled	busco_cds	254	251	251	2	0.008	0.008	0.000 (115)	0.992
+snp_fasttree_Cp_shuffled	sans_dna	254	251	122	0	0.000	0.000	-	1.000
+snp_fasttree_Cp_shuffled	sans_aa	254	251	121	0	0.000	0.000	-	1.000
+snp_fasttree_Cp_shuffled	sans_gene_content	254	251	105	0	0.000	0.000	-	1.000
+# parsimony on 254 strains common to all trees; 20130 informative families (minor side >= 2)
+tree	total_changes	mean_per_family	frac_one_change	mean_minor2-2	mean_minor3-5	mean_minor6-20	mean_minor21-100	mean_minor101-max
+snp_fasttree_Cp	354170	17.59	0.024	1.90	3.48	9.68	37.79	68.75
+busco_cds	360778	17.92	0.023	1.91	3.50	9.80	38.60	70.05
+sans_dna	380855	18.92	0.027	1.90	3.48	9.79	40.27	81.33
+sans_aa	380811	18.92	0.028	1.90	3.47	9.81	40.27	81.20
+sans_gene_content	399502	19.85	0.034	1.86	3.47	10.02	42.19	88.28
+snp_fasttree_Cp_shuffled	416038	20.67	0.000	2.00	3.74	10.97	44.87	82.70
+n_families_per_band				3819	4357	5324	5672	958

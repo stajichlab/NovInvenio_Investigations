@@ -1,0 +1,19 @@
+# snp_iqtree: 445 tips
+# snp_fasttree: 445 tips
+# busco_cds: 529 tips
+# gene_content: 529 tips
+query	reference	n_shared_tips	q_splits	r_splits	shared	precision	recall	recall_sup95	rf_norm
+snp_iqtree	snp_fasttree	445	442	442	244	0.552	0.552	-	0.448
+snp_iqtree	busco_cds	412	409	409	76	0.186	0.186	0.376 (186)	0.814
+snp_iqtree	gene_content	412	409	193	55	0.134	0.285	-	0.817
+snp_fasttree	snp_iqtree	445	442	442	244	0.552	0.552	0.690 (297)	0.448
+snp_fasttree	busco_cds	412	409	409	73	0.178	0.178	0.355 (186)	0.822
+snp_fasttree	gene_content	412	409	193	51	0.125	0.264	-	0.831
+busco_cds	snp_iqtree	412	409	409	76	0.186	0.186	0.264 (273)	0.814
+busco_cds	snp_fasttree	412	409	409	73	0.178	0.178	-	0.822
+busco_cds	gene_content	529	526	284	48	0.091	0.169	-	0.881
+gene_content	snp_iqtree	412	193	409	55	0.285	0.134	0.187 (273)	0.817
+gene_content	snp_fasttree	412	193	409	51	0.264	0.125	-	0.831
+gene_content	busco_cds	529	284	526	48	0.169	0.091	0.201 (214)	0.881
+# families vs snp_iqtree (445 strains): clade 599, compatible 0, conflict 30487, trivial 16659; of 31086 non-trivial: clade 0.019, compatible 0.000, conflict 0.981
+# families vs gene_content (529 strains): clade 1277, compatible 0, conflict 30729, trivial 15739; of 32006 non-trivial: clade 0.040, compatible 0.000, conflict 0.960

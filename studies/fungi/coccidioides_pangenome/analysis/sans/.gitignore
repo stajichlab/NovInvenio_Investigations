@@ -1,0 +1,6 @@
+# Regenerable or local-only (CLAUDE.md data classes): symlinks to data_dir,
+# SLURM logs, and the 11 MB gene-content splits list (re-run gene_content_splits.py).
+genomes/
+proteins/
+logs/
+out/gene_content.splits

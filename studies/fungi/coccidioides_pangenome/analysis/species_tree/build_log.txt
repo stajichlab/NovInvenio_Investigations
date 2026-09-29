@@ -1,0 +1,15 @@
+species-label conflicts: [('Coccidioides_immitis_485B-1_L_OLD_CPA0023', '485B-1_L_OLD_CPA0023'), ('Coccidioides_posadasii_B3476', 'B3476')]
+  mash median to config-Ci 0.0219913 to config-Cp 0.00448671
+  mash median to config-Ci 0.00299754 to config-Cp 0.0218499
+root children (tips): [146, 332] Cp-node support 100 Ci-node support 100
+  conflict tip Coccidioides_immitis_485B-1_L_OLD_CPA0023 parent clade (config species): {'Coccidioides posadasii': 3}
+  conflict tip Coccidioides_posadasii_B3476 parent clade (config species): {'Coccidioides immitis': 2}
+genus_with_Uree: internal nodes 529 -> 418 after collapsing 111 nodes with support < 70.0
+coccidioides_only: internal nodes 528 -> 417 after collapsing 111 nodes with support < 70.0
+CDS tips 488 mapped 478 unmapped ['CimmitisRS', 'CimmitisWA211', 'CposadasiiSilveira2022', 'Coccidioides_posadasii_GT-153', 'Coccidioides_posadasii_NM_459', 'Coccidioides_posadasii_SOIL_582-1_S_NEW_CPA0065', 'Coccidioides_posadasii_VFC054_7SA', 'Coccidioides_posadasii_M158', 'Coccidioides_immitis_SD7', 'Coccidioides_immitis_SJV_3']
+grafted 51
+spelling check (tree tip, short, mash NN among tree strains, dist, NN is in same parent clade, parent size): [('Coccidioides_posadasii_Coahuilla_2', 'Coahuila_2', 'COCPO_103744', np.float64(0.00202665), False, 3)]
+coccidioides_genus_with_Uree.full.nwk tips 530 root children 2 monophyly {'Coccidioides immitis': {'Coccidioides immitis': 169}, 'Coccidioides posadasii': {'Coccidioides posadasii': 360}}
+coccidioides_genus_with_Uree.collapsed_ufboot70.nwk tips 530 root children 2 monophyly {'Coccidioides immitis': {'Coccidioides immitis': 169}, 'Coccidioides posadasii': {'Coccidioides posadasii': 360}}
+coccidioides_coccidioides_only.full.nwk tips 529 root children 2 monophyly {'Coccidioides immitis': {'Coccidioides immitis': 169}, 'Coccidioides posadasii': {'Coccidioides posadasii': 360}}
+coccidioides_coccidioides_only.collapsed_ufboot70.nwk tips 529 root children 2 monophyly {'Coccidioides immitis': {'Coccidioides immitis': 169}, 'Coccidioides posadasii': {'Coccidioides posadasii': 360}}
