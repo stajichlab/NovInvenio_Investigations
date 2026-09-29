@@ -236,6 +236,11 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
         rec = json.loads(run_record.read_text())
         meta["pipeline_repo"] = rec.get("pipeline")
         meta["pipeline_commit"] = rec.get("pipeline_commit")
+    # report/rerender.json: written when report steps were re-run offline at a
+    # newer pipeline commit than the run itself (NovInvenio #212 rollout).
+    rerender = pangenome_dir / "report" / "rerender.json"
+    if rerender.is_file():
+        meta["report_rerender"] = json.loads(rerender.read_text())
     if clinker_info is not None:
         meta["clinker_published"] = clinker_info["published"]
         meta["clinker_total"] = clinker_info["total"]

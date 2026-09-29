@@ -358,3 +358,23 @@ def test_no_clinker_dir_means_no_clinker_fields_in_run_json(tmp_path):
     assert "clinker_published" not in meta
     assert "clinker_total" not in meta
     assert "clinker_full_dir" not in meta
+
+
+def test_rerender_record_goes_into_run_json(tmp_path):
+    # NovInvenio #212 rollout: report steps re-run offline at a newer commit
+    # than the pipeline run; run.json must say so.
+    study = _fake_study(tmp_path)
+    rec = {"report_steps_commit": "8c55750", "steps": ["FREQUENCY_BINS", "REPORT_RENDER"],
+           "rerendered": "2026-09-28"}
+    (study / "results" / "run_a" / "output" / "pangenome" / "report" / "rerender.json").write_text(
+        json.dumps(rec))
+    assert _run(tmp_path, "--run", "run_a") == 0
+    meta = json.loads((tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a" / "run.json").read_text())
+    assert meta["report_rerender"] == rec
+
+
+def test_no_rerender_record_no_key(tmp_path):
+    _fake_study(tmp_path)
+    assert _run(tmp_path, "--run", "run_a") == 0
+    meta = json.loads((tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a" / "run.json").read_text())
+    assert "report_rerender" not in meta
