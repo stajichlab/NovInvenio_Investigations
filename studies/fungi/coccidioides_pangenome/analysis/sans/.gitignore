@@ -4,3 +4,9 @@ genomes/
 proteins/
 logs/
 out/gene_content.splits
+# Prototype page data and built page (5.9 MB, regenerable; class 3)
+prototype/viz_data.json
+prototype/net_*.json
+prototype/*.built.html
+prototype/__pycache__/
+__pycache__/

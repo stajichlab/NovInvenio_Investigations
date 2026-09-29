@@ -164,8 +164,11 @@ def main():
 
     if args.families:
         present = set(args.present.split(','))
+        with open(args.families) as fh:
+            matrix_strains = set(fh.readline().rstrip('\n').split('\t')[1:])
         for ref in args.families_ref:
-            keep = frozenset(tips[ref])
+            # only strains in the matrix: a tree tip with no matrix column is unknown, not absent
+            keep = frozenset(tips[ref]) & matrix_strains
             anchor = min(keep)
             rs = list(splits(trees[ref], keep))
             rset = set(rs)

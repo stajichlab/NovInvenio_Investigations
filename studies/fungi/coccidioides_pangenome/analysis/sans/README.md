@@ -31,7 +31,7 @@ trees compare to the SNP trees?
 - Reference trees:
   - SNP, IQ-TREE consensus (`GTR+F+ASC`, 446 tips, 323,660 columns) and FastTree:
     `/bigdata/stajichlab/shared/projects/Population_Genomics/Coccidioides/2025_All_Cocci/Genotyping/all_C_immitis_ref_RS/strain_tree/unpruned/Cocciall_v1.All.SNP.mfa.contree`, `Cocciall_v1.All.SNP.fasttree.tre`.
-    Tip renames: `Ref_CimmRS=RS`, `Coahuilla_2=Coahuila_2`. 445 tips map to pangenome strains.
+    Tip rename: `Coahuilla_2=Coahuila_2`. `Ref_CimmRS` is not renamed: the SNP trees also hold `RS`, and the Cp tree uses `Ref_CimmRS` as a Ci outgroup. 412 SNP tips are pangenome strains. (Before 2026-09-28 20:10 a `Ref_CimmRS=RS` rename made a duplicate RS tip; all numbers below are from the corrected rerun.)
   - BUSCO CDS species tree with 51 mash grafts: `../species_tree/coccidioides_coccidioides_only.full.nwk`.
 
 ## Files
@@ -55,26 +55,26 @@ Full comparison tables: `out/compare_all.txt`, `out/compare_Ci.txt` (Ci SNP IQ-T
 Heaviest: a clonal `UTAH_20380X*` group (49 families). Ci | Cp: 42 families.
 Strict filter keeps 284 splits (a binary tree of 529 tips has 526).
 
-Split agreement (`out/compare_gene_content.txt`, trees restricted to shared tips):
+Split agreement (`out/compare_all.txt`, trees restricted to shared tips):
 
 | query | reference | shared tips | shared splits / query splits | shared / reference splits |
 |---|---|---|---|---|
-| SNP FastTree | SNP IQ-TREE | 445 | 0.552 | 0.552 (0.690 of UFboot >= 95) |
+| SNP FastTree | SNP IQ-TREE | 446 | 0.553 | 0.553 (0.691 of UFboot >= 95) |
 | BUSCO CDS | SNP IQ-TREE | 412 | 0.186 | 0.186 (0.264 of UFboot >= 95) |
 | gene content | SNP IQ-TREE | 412 | 0.285 | 0.134 (0.187 of UFboot >= 95) |
 
-Family fit on the SNP IQ-TREE (445 strains): of 31,086 non-trivial families,
-599 (1.9%) are exactly one clade; the rest conflict with at least one split.
+Family fit on the SNP IQ-TREE (412 matrix strains): of 28,830 non-trivial families,
+716 (2.5%) are exactly one clade; the rest conflict with at least one split.
 
 Parsimony (412 strains common to all trees, 28,830 families with minor side >= 2):
 
 | tree | total changes | mean per family | minor 2 | 3-5 | 6-20 | 21-100 | >100 |
 |---|---|---|---|---|---|---|---|
-| SNP IQ-TREE | 549,976 | 19.08 | 1.91 | 3.50 | 9.70 | 36.84 | 48.37 |
-| SNP FastTree | 551,279 | 19.12 | 1.91 | 3.50 | 9.71 | 36.96 | 48.46 |
+| SNP IQ-TREE | 549,451 | 19.06 | 1.91 | 3.50 | 9.70 | 36.84 | 48.35 |
+| SNP FastTree | 550,751 | 19.10 | | | | | 48.44 |
 | BUSCO CDS | 563,902 | 19.56 | 1.92 | 3.53 | 9.85 | 37.94 | 49.62 |
 | gene content (SANS strict) | 805,735 | 27.95 | 1.87 | 3.47 | 9.98 | 41.53 | 101.15 |
-| SNP IQ-TREE, labels shuffled | 919,958 | 31.91 | 2.00 | 3.74 | 10.92 | 46.97 | 117.43 |
+| SNP IQ-TREE, labels shuffled | 915,999 | 31.77 | | | | | 116.81 |
 | families per band | | | 5,224 | 5,889 | 6,701 | 6,803 | 4,213 |
 
 Caveat: the gene-content tree has many polytomies. The rule used at a polytomy
@@ -93,18 +93,18 @@ Split agreement with the SNP IQ-TREE (412 shared tips):
 | BUSCO CDS | 409 | 0.186 | 0.264 of 273 |
 | shuffled control | 410 | 0.005 | 0.004 of 273 |
 
-Parsimony, mean changes per informative family:
+Parsimony, mean changes per informative family (pooled 412, Ci 159, Cp 253 strains):
 
 | tree | pooled (412) | Ci only (159) | Cp only (254) |
 |---|---|---|---|
-| SNP tree (Ci: IQ-TREE; Cp: FastTree; pooled: IQ-TREE) | 19.08 | 10.88 | 17.59 |
-| BUSCO CDS | 19.56 | 11.19 | 17.92 |
-| SANS DNA | 20.53 | 11.79 | 18.92 |
-| SANS protein | 20.48 | 11.71 | 18.92 |
-| SANS gene content | 27.95 | 13.64 | 19.85 |
-| shuffled SNP tree | 31.91 | 14.42 | 20.67 |
+| SNP tree (Ci: IQ-TREE; Cp: FastTree; pooled: IQ-TREE) | 19.06 | 10.88 | 17.65 |
+| BUSCO CDS | 19.56 | 11.19 | 17.97 |
+| SANS DNA | 20.53 | 11.79 | 18.97 |
+| SANS protein | 20.48 | 11.71 | 18.96 |
+| SANS gene content | 27.95 | 13.64 | 19.90 |
+| shuffled SNP tree | 31.77 | 14.34 | 20.74 |
 
-Within a species, the best tree is only 25% (Ci) and 15% (Cp) shorter than
+Within a species, the best tree is only 24% (Ci) and 15% (Cp) shorter than
 the shuffled control. So within-species gene presence/absence has little
 tree structure. These data do not separate recombination from presence-call
 noise. The SANS trees are partly unresolved, so their lengths are upper bounds.
@@ -138,11 +138,38 @@ $S -i out/strains.txt -s out/gene_content.splits -f strict -N out/gene_content.s
 $S -i out/strains.txt -s out/gene_content.splits -f weakly -o out/gene_content.weakly.splits -X out/gene_content.weakly.nex
 mkdir -p genomes proteins logs   # symlink <Short>.fa to ../../data_dir/{dna,pep}/<Short>.{dna,pep}.fa
 sbatch --job-name sans-dna run_sans.sh dna; sbatch --job-name sans-aa run_sans.sh aa
-python3.12 compare_trees.py --rename Ref_CimmRS=RS --rename Coahuilla_2=Coahuila_2 \
+python3.12 compare_trees.py --rename Coahuilla_2=Coahuila_2 \
   --families $M --parsimony --shuffle snp_iqtree \
+  --families-ref snp_iqtree \
   --tree snp_iqtree=$D/Cocciall_v1.All.SNP.mfa.contree --tree snp_fasttree=$D/Cocciall_v1.All.SNP.fasttree.tre \
   --tree busco_cds=../species_tree/coccidioides_coccidioides_only.full.nwk \
   --tree sans_dna=out/dna.strict.nwk --tree sans_aa=out/aa.strict.nwk \
   --tree sans_gene_content=out/gene_content.strict.nwk > out/compare_all.txt
 # Ci / Cp: the same with the Cimmitis contree / Cposadasii fasttree as the SNP tree -> out/compare_Ci.txt, out/compare_Cp.txt
 ```
+
+## Prototype page (2026-09-28)
+
+`prototype/`: tree-ordered heatmap (option 1) and split networks (option 2) in one page.
+Published privately: https://claude.ai/artifact/Wz53NNHTojwx4gCbfdAy8y
+
+- `build_network.py`: NeighborNet circular ordering (SplitsPy 0.x, `pip install --user splitspy`)
+  on a distance matrix, then SANS splits that are contiguous on it, laid out with the outline
+  algorithm. SplitsPy's least-squares weights were too slow for 529 taxa (>11 min for 100), so
+  SANS weights are used instead. Gene content: Jaccard over the 32,006 informative families,
+  104 of 566 SANS weakly splits circular (33.1% of weight). Genomes: mash distance
+  (`results/preserved_from_work/genus_vs_ureesii/all_strains.mash_dist.tsv.gz`), 663 of 1,028
+  splits (97.2%).
+- `build_viz_data.py`: per tree, the best-matching clade per family (Jaccard on the minority side),
+  Fitch changes, packed presence bits; Pfam names from the run's `pfam.domtblout` (island families only).
+- `template.html`: the page; `__DATA__` is replaced by `viz_data.json`.
+
+```bash
+cd prototype
+python3.12 build_network.py --splits ../out/gene_content.weakly.splits --dist jacc.npy --labels ../out/strains.txt --out net_gene_content.json
+python3.12 build_network.py --splits ../out/dna.weakly.splits --dist ../../../results/preserved_from_work/genus_vs_ureesii/all_strains.mash_dist.tsv.gz --labels ../out/strains.txt --out net_dna.json
+python3.12 build_viz_data.py --matrix <run>/presence_matrix.rescued.tsv --config ../../../config.csv --pfam <run>/pfam.domtblout \
+  --tree snp=<SNP contree> --tree busco=../../species_tree/coccidioides_coccidioides_only.full.nwk \
+  --rename Coahuilla_2=Coahuila_2 --network dna=net_dna.json --network gene_content=net_gene_content.json --out viz_data.json
+```
+`jacc.npy` is 1 - Jaccard between strains over families with minority side >= 2 (not yet a script; see the commit message).

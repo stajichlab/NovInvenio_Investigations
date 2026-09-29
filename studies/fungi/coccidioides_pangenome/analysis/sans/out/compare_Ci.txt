@@ -1,44 +1,40 @@
-/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/sans/compare_trees.py:113: RuntimeWarning: Mean of empty slice
-  band = '\t'.join(f'{c[(mi >= a) & (mi <= b)].mean():.2f}' for a, b in bands)
-/rhome/jstajich/.local/lib/python3.12/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in scalar divide
-  ret = ret.dtype.type(ret / rcount)
-# snp_iqtree_Ci: 162 tips
+# snp_iqtree_Ci: 163 tips
 # busco_cds: 529 tips
 # sans_dna: 529 tips
 # sans_aa: 529 tips
 # sans_gene_content: 529 tips
-# snp_iqtree_Ci_shuffled: 162 tips
+# snp_iqtree_Ci_shuffled: 163 tips
 query	reference	n_shared_tips	q_splits	r_splits	shared	precision	recall	recall_sup95	rf_norm
 snp_iqtree_Ci	busco_cds	159	156	156	27	0.173	0.173	0.373 (67)	0.827
 snp_iqtree_Ci	sans_dna	159	156	69	29	0.186	0.420	-	0.742
 snp_iqtree_Ci	sans_aa	159	156	67	27	0.173	0.403	-	0.758
 snp_iqtree_Ci	sans_gene_content	159	156	63	17	0.109	0.270	-	0.845
-snp_iqtree_Ci	snp_iqtree_Ci_shuffled	162	159	160	1	0.006	0.006	0.008 (124)	0.994
+snp_iqtree_Ci	snp_iqtree_Ci_shuffled	163	160	160	1	0.006	0.006	0.008 (124)	0.994
 busco_cds	snp_iqtree_Ci	159	156	156	27	0.173	0.173	0.207 (121)	0.827
 busco_cds	sans_dna	529	526	285	73	0.139	0.256	-	0.820
 busco_cds	sans_aa	529	526	270	65	0.124	0.241	-	0.837
 busco_cds	sans_gene_content	529	526	284	48	0.091	0.169	-	0.881
-busco_cds	snp_iqtree_Ci_shuffled	159	156	157	1	0.006	0.006	0.008 (121)	0.994
+busco_cds	snp_iqtree_Ci_shuffled	159	156	156	1	0.006	0.006	0.008 (121)	0.994
 sans_dna	snp_iqtree_Ci	159	69	156	29	0.420	0.186	0.223 (121)	0.742
 sans_dna	busco_cds	529	285	526	73	0.256	0.139	0.313 (214)	0.820
 sans_dna	sans_aa	529	285	270	144	0.505	0.533	-	0.481
 sans_dna	sans_gene_content	529	285	284	77	0.270	0.271	-	0.729
-sans_dna	snp_iqtree_Ci_shuffled	159	69	157	1	0.014	0.006	0.008 (121)	0.991
+sans_dna	snp_iqtree_Ci_shuffled	159	69	156	1	0.014	0.006	0.008 (121)	0.991
 sans_aa	snp_iqtree_Ci	159	67	156	27	0.403	0.173	0.223 (121)	0.758
 sans_aa	busco_cds	529	270	526	65	0.241	0.124	0.290 (214)	0.837
 sans_aa	sans_dna	529	270	285	144	0.533	0.505	-	0.481
 sans_aa	sans_gene_content	529	270	284	81	0.300	0.285	-	0.708
-sans_aa	snp_iqtree_Ci_shuffled	159	67	157	1	0.015	0.006	0.008 (121)	0.991
+sans_aa	snp_iqtree_Ci_shuffled	159	67	156	1	0.015	0.006	0.008 (121)	0.991
 sans_gene_content	snp_iqtree_Ci	159	63	156	17	0.270	0.109	0.132 (121)	0.845
 sans_gene_content	busco_cds	529	284	526	48	0.169	0.091	0.201 (214)	0.881
 sans_gene_content	sans_dna	529	284	285	77	0.271	0.270	-	0.729
 sans_gene_content	sans_aa	529	284	270	81	0.285	0.300	-	0.708
-sans_gene_content	snp_iqtree_Ci_shuffled	159	63	157	1	0.016	0.006	0.000 (121)	0.991
-snp_iqtree_Ci_shuffled	snp_iqtree_Ci	162	160	159	1	0.006	0.006	0.008 (124)	0.994
-snp_iqtree_Ci_shuffled	busco_cds	159	157	156	1	0.006	0.006	0.015 (67)	0.994
-snp_iqtree_Ci_shuffled	sans_dna	159	157	69	1	0.006	0.014	-	0.991
-snp_iqtree_Ci_shuffled	sans_aa	159	157	67	1	0.006	0.015	-	0.991
-snp_iqtree_Ci_shuffled	sans_gene_content	159	157	63	1	0.006	0.016	-	0.991
+sans_gene_content	snp_iqtree_Ci_shuffled	159	63	156	1	0.016	0.006	0.008 (121)	0.991
+snp_iqtree_Ci_shuffled	snp_iqtree_Ci	163	160	160	1	0.006	0.006	0.008 (124)	0.994
+snp_iqtree_Ci_shuffled	busco_cds	159	156	156	1	0.006	0.006	0.015 (67)	0.994
+snp_iqtree_Ci_shuffled	sans_dna	159	156	69	1	0.006	0.014	-	0.991
+snp_iqtree_Ci_shuffled	sans_aa	159	156	67	1	0.006	0.015	-	0.991
+snp_iqtree_Ci_shuffled	sans_gene_content	159	156	63	1	0.006	0.016	-	0.991
 # parsimony on 159 strains common to all trees; 17825 informative families (minor side >= 2)
 tree	total_changes	mean_per_family	frac_one_change	mean_minor2-2	mean_minor3-5	mean_minor6-20	mean_minor21-100	mean_minor101-max
 snp_iqtree_Ci	193848	10.88	0.048	1.91	3.46	7.16	29.57	nan
@@ -46,5 +42,5 @@ busco_cds	199547	11.19	0.046	1.92	3.50	7.29	30.63	nan
 sans_dna	210219	11.79	0.048	1.90	3.53	7.50	32.75	nan
 sans_aa	208682	11.71	0.050	1.90	3.50	7.43	32.54	nan
 sans_gene_content	243109	13.64	0.029	1.88	3.51	10.20	36.60	nan
-snp_iqtree_Ci_shuffled	257056	14.42	0.001	2.01	3.78	11.36	37.85	nan
+snp_iqtree_Ci_shuffled	255532	14.34	0.001	2.00	3.76	11.29	37.62	nan
 n_families_per_band				3556	3901	5936	4432	0

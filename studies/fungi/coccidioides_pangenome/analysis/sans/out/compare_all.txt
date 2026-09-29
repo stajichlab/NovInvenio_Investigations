@@ -1,60 +1,61 @@
-# snp_iqtree: 445 tips
-# snp_fasttree: 445 tips
+# snp_iqtree: 446 tips
+# snp_fasttree: 446 tips
 # busco_cds: 529 tips
 # sans_dna: 529 tips
 # sans_aa: 529 tips
 # sans_gene_content: 529 tips
-# snp_iqtree_shuffled: 445 tips
+# snp_iqtree_shuffled: 446 tips
 query	reference	n_shared_tips	q_splits	r_splits	shared	precision	recall	recall_sup95	rf_norm
-snp_iqtree	snp_fasttree	445	442	442	244	0.552	0.552	-	0.448
+snp_iqtree	snp_fasttree	446	443	443	245	0.553	0.553	-	0.447
 snp_iqtree	busco_cds	412	409	409	76	0.186	0.186	0.376 (186)	0.814
 snp_iqtree	sans_dna	412	409	198	92	0.225	0.465	-	0.697
 snp_iqtree	sans_aa	412	409	195	92	0.225	0.472	-	0.695
 snp_iqtree	sans_gene_content	412	409	193	55	0.134	0.285	-	0.817
-snp_iqtree	snp_iqtree_shuffled	445	442	443	1	0.002	0.002	0.003 (298)	0.998
-snp_fasttree	snp_iqtree	445	442	442	244	0.552	0.552	0.690 (297)	0.448
+snp_iqtree	snp_iqtree_shuffled	446	443	443	1	0.002	0.002	0.003 (298)	0.998
+snp_fasttree	snp_iqtree	446	443	443	245	0.553	0.553	0.691 (298)	0.447
 snp_fasttree	busco_cds	412	409	409	73	0.178	0.178	0.355 (186)	0.822
 snp_fasttree	sans_dna	412	409	198	89	0.218	0.449	-	0.707
 snp_fasttree	sans_aa	412	409	195	87	0.213	0.446	-	0.712
 snp_fasttree	sans_gene_content	412	409	193	51	0.125	0.264	-	0.831
-snp_fasttree	snp_iqtree_shuffled	445	442	443	1	0.002	0.002	0.003 (298)	0.998
+snp_fasttree	snp_iqtree_shuffled	446	443	443	1	0.002	0.002	0.003 (298)	0.998
 busco_cds	snp_iqtree	412	409	409	76	0.186	0.186	0.264 (273)	0.814
 busco_cds	snp_fasttree	412	409	409	73	0.178	0.178	-	0.822
 busco_cds	sans_dna	529	526	285	73	0.139	0.256	-	0.820
 busco_cds	sans_aa	529	526	270	65	0.124	0.241	-	0.837
 busco_cds	sans_gene_content	529	526	284	48	0.091	0.169	-	0.881
-busco_cds	snp_iqtree_shuffled	412	409	410	2	0.005	0.005	0.007 (273)	0.995
+busco_cds	snp_iqtree_shuffled	412	409	409	2	0.005	0.005	0.007 (273)	0.995
 sans_dna	snp_iqtree	412	198	409	92	0.465	0.225	0.308 (273)	0.697
 sans_dna	snp_fasttree	412	198	409	89	0.449	0.218	-	0.707
 sans_dna	busco_cds	529	285	526	73	0.256	0.139	0.313 (214)	0.820
 sans_dna	sans_aa	529	285	270	144	0.505	0.533	-	0.481
 sans_dna	sans_gene_content	529	285	284	77	0.270	0.271	-	0.729
-sans_dna	snp_iqtree_shuffled	412	198	410	1	0.005	0.002	0.004 (273)	0.997
+sans_dna	snp_iqtree_shuffled	412	198	409	1	0.005	0.002	0.004 (273)	0.997
 sans_aa	snp_iqtree	412	195	409	92	0.472	0.225	0.319 (273)	0.695
 sans_aa	snp_fasttree	412	195	409	87	0.446	0.213	-	0.712
 sans_aa	busco_cds	529	270	526	65	0.241	0.124	0.290 (214)	0.837
 sans_aa	sans_dna	529	270	285	144	0.533	0.505	-	0.481
 sans_aa	sans_gene_content	529	270	284	81	0.300	0.285	-	0.708
-sans_aa	snp_iqtree_shuffled	412	195	410	1	0.005	0.002	0.004 (273)	0.997
+sans_aa	snp_iqtree_shuffled	412	195	409	1	0.005	0.002	0.004 (273)	0.997
 sans_gene_content	snp_iqtree	412	193	409	55	0.285	0.134	0.187 (273)	0.817
 sans_gene_content	snp_fasttree	412	193	409	51	0.264	0.125	-	0.831
 sans_gene_content	busco_cds	529	284	526	48	0.169	0.091	0.201 (214)	0.881
 sans_gene_content	sans_dna	529	284	285	77	0.271	0.270	-	0.729
 sans_gene_content	sans_aa	529	284	270	81	0.285	0.300	-	0.708
-sans_gene_content	snp_iqtree_shuffled	412	193	410	2	0.010	0.005	0.007 (273)	0.993
-snp_iqtree_shuffled	snp_iqtree	445	443	442	1	0.002	0.002	0.003 (297)	0.998
-snp_iqtree_shuffled	snp_fasttree	445	443	442	1	0.002	0.002	-	0.998
-snp_iqtree_shuffled	busco_cds	412	410	409	2	0.005	0.005	0.011 (186)	0.995
-snp_iqtree_shuffled	sans_dna	412	410	198	1	0.002	0.005	-	0.997
-snp_iqtree_shuffled	sans_aa	412	410	195	1	0.002	0.005	-	0.997
-snp_iqtree_shuffled	sans_gene_content	412	410	193	2	0.005	0.010	-	0.993
+sans_gene_content	snp_iqtree_shuffled	412	193	409	2	0.010	0.005	0.007 (273)	0.993
+snp_iqtree_shuffled	snp_iqtree	446	443	443	1	0.002	0.002	0.003 (298)	0.998
+snp_iqtree_shuffled	snp_fasttree	446	443	443	1	0.002	0.002	-	0.998
+snp_iqtree_shuffled	busco_cds	412	409	409	2	0.005	0.005	0.011 (186)	0.995
+snp_iqtree_shuffled	sans_dna	412	409	198	1	0.002	0.005	-	0.997
+snp_iqtree_shuffled	sans_aa	412	409	195	1	0.002	0.005	-	0.997
+snp_iqtree_shuffled	sans_gene_content	412	409	193	2	0.005	0.010	-	0.993
 # parsimony on 412 strains common to all trees; 28830 informative families (minor side >= 2)
 tree	total_changes	mean_per_family	frac_one_change	mean_minor2-2	mean_minor3-5	mean_minor6-20	mean_minor21-100	mean_minor101-max
-snp_iqtree	549976	19.08	0.025	1.91	3.50	9.70	36.84	48.37
-snp_fasttree	551279	19.12	0.024	1.91	3.50	9.71	36.96	48.46
+snp_iqtree	549451	19.06	0.025	1.91	3.50	9.68	36.79	48.35
+snp_fasttree	550751	19.10	0.024	1.91	3.50	9.69	36.92	48.44
 busco_cds	563902	19.56	0.022	1.92	3.53	9.85	37.94	49.62
 sans_dna	591937	20.53	0.026	1.90	3.50	9.83	39.42	53.97
 sans_aa	590391	20.48	0.027	1.90	3.49	9.82	39.29	53.85
 sans_gene_content	805735	27.95	0.032	1.87	3.47	9.98	41.53	101.15
-snp_iqtree_shuffled	919958	31.91	0.001	2.00	3.74	10.92	46.97	117.43
+snp_iqtree_shuffled	915999	31.77	0.001	1.99	3.73	10.89	46.82	116.81
 n_families_per_band				5224	5889	6701	6803	4213
+# families vs snp_iqtree (412 strains): clade 716, compatible 0, conflict 28114, trivial 18915; of 28830 non-trivial: clade 0.025, compatible 0.000, conflict 0.975

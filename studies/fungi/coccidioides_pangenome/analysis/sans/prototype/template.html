@@ -1,0 +1,780 @@
+<title>Coccidioides Gene Presence Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root {
+  --bg: #f2f4f4;
+  --panel: #ffffff;
+  --ink: #1b2326;
+  --muted: #5d6a6f;
+  --rule: #d5dcde;
+  --cell: #1f2b30;
+  --ci: #2b6f8e;
+  --cp: #b97a24;
+  --accent: #b3452c;
+  --fit-good: #3d8a5a;
+  --fit-bad: #c0492f;
+  --focus: #2b6f8e;
+  --shadow: 0 1px 2px rgba(20, 30, 35, .08);
+  --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --cond: "IBM Plex Sans Condensed", "Arial Narrow", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #111618;
+    --panel: #182023;
+    --ink: #dde5e8;
+    --muted: #93a2a8;
+    --rule: #2c373b;
+    --cell: #e3ecef;
+    --ci: #5fa8c9;
+    --cp: #d9a04b;
+    --accent: #e0765b;
+    --fit-good: #6cc08a;
+    --fit-bad: #ec7a5c;
+    --focus: #5fa8c9;
+    --shadow: none;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111618;
+  --panel: #182023;
+  --ink: #dde5e8;
+  --muted: #93a2a8;
+  --rule: #2c373b;
+  --cell: #e3ecef;
+  --ci: #5fa8c9;
+  --cp: #d9a04b;
+  --accent: #e0765b;
+  --fit-good: #6cc08a;
+  --fit-bad: #ec7a5c;
+  --focus: #5fa8c9;
+  --shadow: none;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font: 14px/1.5 var(--sans);
+  padding-inline: 16px;
+  padding-block: 20px 40px;
+}
+.wrap { max-width: 1400px; margin: 0 auto; display: grid; gap: 18px; }
+header { display: grid; gap: 6px; }
+h1 {
+  font: 600 26px/1.15 var(--cond);
+  letter-spacing: .005em;
+  margin: 0;
+  text-wrap: balance;
+}
+.lede { margin: 0; color: var(--muted); max-width: 78ch; }
+.tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--rule); flex-wrap: wrap; }
+.tab {
+  font: 500 14px var(--cond);
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.tab[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+.tab:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: end;
+}
+.ctl { display: grid; gap: 3px; }
+.ctl label, .label {
+  font: 500 11px var(--cond);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted);
+}
+select, input[type="number"], input[type="search"] {
+  font: 13px var(--sans);
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 5px 7px;
+}
+input[type="number"] { width: 5.5em; font-variant-numeric: tabular-nums; }
+input[type="range"] { width: 150px; accent-color: var(--accent); }
+.btn {
+  font: 500 13px var(--sans);
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.btn:hover { border-color: var(--muted); }
+.chip {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  font: 12px var(--mono);
+  background: var(--panel);
+  border: 1px solid var(--accent);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 2px 4px 2px 10px;
+}
+.chip button { border: 0; background: none; color: var(--muted); cursor: pointer; font-size: 14px; padding: 0 6px; }
+.stats {
+  font: 12px var(--mono);
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+.stats b { color: var(--ink); font-weight: 500; }
+.stage {
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  position: relative;
+}
+.heatgrid { display: grid; grid-template-columns: minmax(120px, 22%) 1fr; }
+.heatgrid canvas { display: block; width: 100%; }
+#treeCv { cursor: pointer; border-right: 1px solid var(--rule); }
+#heatCv { cursor: crosshair; touch-action: none; }
+#netCv { display: block; width: 100%; cursor: grab; touch-action: none; }
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 12px;
+  color: var(--muted);
+  align-items: center;
+}
+.sw { display: inline-block; width: 12px; height: 12px; border-radius: 2px; vertical-align: -2px; margin-right: 5px; }
+.ramp { display: inline-block; width: 80px; height: 10px; border-radius: 2px; vertical-align: -1px; margin: 0 5px; }
+#tip {
+  position: fixed;
+  pointer-events: none;
+  z-index: 10;
+  background: var(--panel);
+  color: var(--ink);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .18);
+  padding: 7px 9px;
+  font: 12px/1.45 var(--mono);
+  max-width: 340px;
+}
+.detail {
+  display: grid;
+  gap: 8px;
+  background: var(--panel);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.detail h3 { font: 600 15px var(--cond); margin: 0; letter-spacing: .01em; }
+.kv { display: grid; grid-template-columns: max-content 1fr; gap: 2px 14px; font-size: 13px; }
+.kv dt { color: var(--muted); }
+.kv dd { margin: 0; font-family: var(--mono); font-size: 12px; overflow-wrap: anywhere; }
+.carriers { font: 11.5px/1.5 var(--mono); color: var(--muted); max-height: 9em; overflow: auto; overflow-wrap: anywhere; }
+.notes { color: var(--muted); font-size: 13px; max-width: 90ch; display: grid; gap: 6px; }
+.notes p { margin: 0; }
+.notes code { font: 12px var(--mono); }
+@media (max-width: 640px) {
+  .heatgrid { grid-template-columns: 30% 1fr; }
+  input[type="range"] { width: 110px; }
+  h1 { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Coccidioides gene presence map</h1>
+    <p class="lede">Presence and absence of 32,006 variable gene families across 529 <i>C. immitis</i> and <i>C. posadasii</i> strains, set against two phylogenies and two split networks. Run <code>rescue_freqpol_immitis_in_posadasii_out</code>. Prototype.</p>
+  </header>
+
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" id="tab-heat" aria-selected="true" aria-controls="view-heat">Tree + heatmap</button>
+    <button class="tab" role="tab" id="tab-net" aria-selected="false" aria-controls="view-net">Split network</button>
+    <button class="tab" role="tab" id="tab-notes" aria-selected="false" aria-controls="view-notes">Method and limits</button>
+  </div>
+
+  <section id="view-heat" role="tabpanel" aria-labelledby="tab-heat" style="display:grid;gap:12px">
+    <div class="controls">
+      <div class="ctl"><label for="treeSel">Tree (row order)</label><select id="treeSel"></select></div>
+      <div class="ctl"><label for="sortSel">Column order</label>
+        <select id="sortSel">
+          <option value="clade">Best-matching clade</option>
+          <option value="fit">Fit to tree (best first)</option>
+          <option value="freq">Carrier count</option>
+        </select></div>
+      <div class="ctl"><label for="typeSel">Family type</label>
+        <select id="typeSel">
+          <option value="all">All</option>
+          <option value="gain">Rare (present in minority)</option>
+          <option value="loss">Common (absent in minority)</option>
+        </select></div>
+      <div class="ctl"><label for="kmin">Minority side, strains</label>
+        <div style="display:flex;gap:6px;align-items:center"><input type="number" id="kmin" min="2" value="2"> to <input type="number" id="kmax" min="2" value="265"></div></div>
+      <div class="ctl"><label for="fitMax">Max homoplasy index <span id="fitVal" style="font-family:var(--mono)">1.00</span></label>
+        <input type="range" id="fitMax" min="0" max="1" step="0.01" value="1"></div>
+      <div class="ctl"><label for="findStrain">Find strain</label><input type="search" id="findStrain" list="strainList" placeholder="e.g. RS"><datalist id="strainList"></datalist></div>
+      <div class="ctl"><span class="label">Zoom</span>
+        <div style="display:flex;gap:4px"><button class="btn" id="zIn" aria-label="Zoom in">+</button><button class="btn" id="zOut" aria-label="Zoom out">−</button><button class="btn" id="zFit">All columns</button></div></div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
+      <span id="cladeChip"></span>
+      <div class="stats" id="heatStats"></div>
+    </div>
+    <div class="stage heatgrid">
+      <canvas id="treeCv" aria-label="Phylogeny. Click a node to keep only families that best match that clade."></canvas>
+      <canvas id="heatCv" aria-label="Heatmap of family presence, one row per strain"></canvas>
+    </div>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--ci)"></span><i>C. immitis</i></span>
+      <span><span class="sw" style="background:var(--cp)"></span><i>C. posadasii</i></span>
+      <span>Cell: share of families present in the column<span class="ramp" id="rampCell"></span></span>
+      <span>Top strip: homoplasy index<span class="ramp" id="rampFit"></span>0 = one gain or loss on the tree, 1 = every minority strain separately</span>
+    </div>
+    <div class="detail" id="famDetail" hidden></div>
+  </section>
+
+  <section id="view-net" role="tabpanel" aria-labelledby="tab-net" hidden style="display:grid;gap:12px">
+    <div class="controls">
+      <div class="ctl"><label for="netSel">Network</label><select id="netSel"></select></div>
+      <div class="ctl"><span class="label">View</span><div style="display:flex;gap:4px"><button class="btn" id="nFit">Fit</button><button class="btn" id="nLabels" aria-pressed="false">Show labels</button></div></div>
+      <div class="ctl"><label for="findStrain2">Find strain</label><input type="search" id="findStrain2" list="strainList" placeholder="e.g. RS"></div>
+    </div>
+    <div class="stats" id="netStats"></div>
+    <div class="stage"><canvas id="netCv" aria-label="Split network. Click an edge to select its split."></canvas></div>
+    <div class="legend">
+      <span><span class="sw" style="background:var(--ci)"></span><i>C. immitis</i></span>
+      <span><span class="sw" style="background:var(--cp)"></span><i>C. posadasii</i></span>
+      <span>Parallel edges of one colour belong to one split. Edge length is √(split weight).</span>
+      <span>Scroll to zoom, drag to pan, click an edge.</span>
+    </div>
+    <div class="detail" id="splitDetail" hidden></div>
+  </section>
+
+  <section id="view-notes" role="tabpanel" aria-labelledby="tab-notes" hidden>
+    <div class="notes" id="notesBody"></div>
+  </section>
+</div>
+<div id="tip" hidden></div>
+
+<script type="application/json" id="data">__DATA__</script>
+<script>
+(() => {
+const D = JSON.parse(document.getElementById('data').textContent);
+const B = D.families.bytes_per_family;
+const BITS = Uint8Array.from(atob(D.families.bits), c => c.charCodeAt(0));
+const STR = D.strains;
+const byName = new Map(STR.map((s, i) => [s.name, i]));
+const has = (f, s) => (BITS[f * B + (s >> 3)] >> (7 - (s & 7))) & 1;
+const $ = id => document.getElementById(id);
+const fmt = n => n.toLocaleString('en-US');
+
+function css(name) { return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+function rgb(hex) { const h = hex.replace('#', ''); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); }
+let C = {};
+function readColors() {
+  C = {};
+  for (const k of ['bg', 'panel', 'ink', 'muted', 'rule', 'cell', 'ci', 'cp', 'accent', 'fit-good', 'fit-bad']) C[k] = css('--' + k);
+  C.panelRGB = rgb(C.panel); C.cellRGB = rgb(C.cell);
+  C.goodRGB = rgb(C['fit-good']); C.badRGB = rgb(C['fit-bad']);
+  $('rampCell').style.background = `linear-gradient(90deg, ${C.panel}, ${C.cell})`;
+  $('rampCell').style.border = `1px solid ${C.rule}`;
+  $('rampFit').style.background = `linear-gradient(90deg, ${C['fit-good']}, ${C['fit-bad']})`;
+}
+const spColor = sp => sp === 'Ci' ? C.ci : sp === 'Cp' ? C.cp : C.muted;
+
+// ---------- tooltip ----------
+const tip = $('tip');
+function showTip(html, x, y) {
+  tip.innerHTML = html; tip.hidden = false;
+  const r = tip.getBoundingClientRect();
+  let tx = x + 14, ty = y + 14;
+  if (tx + r.width > innerWidth - 8) tx = x - r.width - 14;
+  if (ty + r.height > innerHeight - 8) ty = y - r.height - 14;
+  tip.style.left = Math.max(8, tx) + 'px'; tip.style.top = Math.max(8, ty) + 'px';
+}
+const hideTip = () => { tip.hidden = true; };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+// ---------- tabs ----------
+const tabs = [['tab-heat', 'view-heat'], ['tab-net', 'view-net'], ['tab-notes', 'view-notes']];
+function selectTab(id) {
+  for (const [t, v] of tabs) {
+    const on = t === id;
+    $(t).setAttribute('aria-selected', on);
+    $(v).hidden = !on;
+  }
+  try { localStorage.setItem('cgpm-tab', id); } catch (e) {}
+  if (id === 'tab-heat') sizeHeat(); else if (id === 'tab-net') sizeNet();
+}
+for (const [t] of tabs) $(t).addEventListener('click', () => selectTab(t));
+
+// ---------- heatmap state ----------
+const S = { tree: Object.keys(D.trees)[0], sort: 'clade', type: 'all', kmin: 2, kmax: 265, fitMax: 1, clade: null, find: -1 };
+let cols = [];                  // indices into tree arrays, after filters and sort
+let view = { a: 0, b: 1 };      // visible column range (float)
+let hi = { r: -1 };
+for (const k of Object.keys(D.trees)) $('treeSel').add(new Option(D.trees[k].label, k));
+$('strainList').innerHTML = STR.map(s => `<option value="${esc(s.name)}">`).join('');
+
+const T = () => D.trees[S.tree];
+function homoplasy(t, i) { const k = Math.min(t.k[i], t.tips.length - t.k[i]); return k > 1 ? (t.changes[i] - 1) / (k - 1) : 0; }
+
+function applyFilters() {
+  const t = T(), n = t.tips.length, out = [];
+  const cl = S.clade != null ? t.nodes[S.clade] : null;
+  for (let i = 0; i < t.order.length; i++) {
+    const minor = Math.min(t.k[i], n - t.k[i]);
+    if (minor < S.kmin || minor > S.kmax) continue;
+    if (S.type === 'gain' && t.loss[i]) continue;
+    if (S.type === 'loss' && !t.loss[i]) continue;
+    if (homoplasy(t, i) > S.fitMax + 1e-9) continue;
+    if (cl) { const b = t.nodes[t.best[i]]; if (b.lo < cl.lo || b.hi > cl.hi) continue; }
+    out.push(i);
+  }
+  if (S.sort === 'fit') out.sort((a, b) => homoplasy(t, a) - homoplasy(t, b) || a - b);
+  else if (S.sort === 'freq') out.sort((a, b) => t.k[a] - t.k[b] || a - b);
+  cols = out;
+  view = { a: 0, b: Math.max(1, cols.length) };
+  statsHeat();
+}
+
+function statsHeat() {
+  const t = T(), n = t.tips.length;
+  let one = 0, sumH = 0;
+  for (const i of cols) { if (t.changes[i] === 1) one++; sumH += homoplasy(t, i); }
+  const m = cols.length || 1;
+  $('heatStats').innerHTML =
+    `<span><b>${fmt(cols.length)}</b> families shown of ${fmt(t.order.length)}</span>` +
+    `<span><b>${fmt(one)}</b> fit one branch (${(100 * one / m).toFixed(1)}%)</span>` +
+    `<span>mean homoplasy index <b>${(sumH / m).toFixed(2)}</b></span>` +
+    `<span>${n} strains in rows</span>` +
+    `<span>columns ${fmt(Math.floor(view.a) + 1)}–${fmt(Math.min(cols.length, Math.ceil(view.b)))}</span>`;
+  const chip = $('cladeChip');
+  if (S.clade != null) {
+    const nd = t.nodes[S.clade];
+    chip.innerHTML = `<span class="chip">clade: ${nd.n} strains${nd.sup != null ? ', support ' + nd.sup : ''}<button id="clearClade" aria-label="Clear clade filter">×</button></span>`;
+    $('clearClade').onclick = () => { S.clade = null; applyFilters(); drawHeat(); };
+  } else chip.innerHTML = '';
+}
+
+// ---------- canvas sizing ----------
+const treeCv = $('treeCv'), heatCv = $('heatCv');
+let dpr = 1, rowH = 2, heatH = 0, stripH = 10;
+function sizeHeat() {
+  if ($('view-heat').hidden) return;
+  dpr = Math.min(2, window.devicePixelRatio || 1);
+  const n = T().tips.length;
+  rowH = Math.max(1.4, Math.min(3, 1000 / n));
+  heatH = Math.round(n * rowH) + stripH + 4;
+  for (const cv of [treeCv, heatCv]) {
+    const w = cv.clientWidth;
+    cv.style.height = heatH + 'px';
+    cv.width = Math.round(w * dpr); cv.height = Math.round(heatH * dpr);
+  }
+  drawHeat();
+}
+
+function drawTree() {
+  const t = T(), ctx = treeCv.getContext('2d');
+  const W = treeCv.width, H = treeCv.height;
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = C.panel; ctx.fillRect(0, 0, W, H);
+  ctx.scale(dpr, dpr);
+  const w = W / dpr - 14, top = stripH + 4;
+  const X = x => 6 + x * (w - 8), Y = y => top + (y + 0.5) * rowH;
+  const cl = S.clade != null ? t.nodes[S.clade] : null;
+  ctx.lineWidth = 0.8;
+  for (let i = 1; i < t.nodes.length; i++) {
+    const nd = t.nodes[i], p = t.nodes[nd.p];
+    const inCl = cl && nd.lo >= cl.lo && nd.hi <= cl.hi && i !== S.clade ? true : false;
+    ctx.strokeStyle = inCl || i === S.clade ? C.accent : C.muted;
+    ctx.beginPath();
+    ctx.moveTo(X(p.x), Y(p.y)); ctx.lineTo(X(p.x), Y(nd.y)); ctx.lineTo(X(nd.x), Y(nd.y));
+    ctx.stroke();
+  }
+  // species strip at the tips
+  for (let r = 0; r < t.tips.length; r++) {
+    ctx.fillStyle = spColor(STR[t.tip_strain_index[r]].sp);
+    ctx.fillRect(w + 4, top + r * rowH, 8, Math.max(1, rowH));
+  }
+  if (S.find >= 0) {
+    const r = t.tip_strain_index.indexOf(S.find);
+    if (r >= 0) { ctx.fillStyle = C.accent; ctx.fillRect(0, top + r * rowH - 1, w + 14, Math.max(2, rowH) + 2); }
+  }
+}
+
+function drawHeat() {
+  if ($('view-heat').hidden) return;
+  drawTree();
+  const t = T(), n = t.tips.length, ctx = heatCv.getContext('2d');
+  const W = heatCv.width, H = heatCv.height;
+  const top = Math.round((stripH + 4) * dpr), rh = rowH * dpr, sh = Math.round(stripH * dpr);
+  const img = ctx.createImageData(W, H);
+  const px = img.data;
+  const [pr, pg, pb] = C.panelRGB, [cr, cg, cb] = C.cellRGB;
+  for (let i = 0; i < px.length; i += 4) { px[i] = pr; px[i + 1] = pg; px[i + 2] = pb; px[i + 3] = 255; }
+  const span = view.b - view.a, per = span / W;
+  const counts = new Float32Array(n);
+  const tipIdx = t.tip_strain_index;
+  const rowY = new Int32Array(n + 1);
+  for (let r = 0; r <= n; r++) rowY[r] = top + Math.round(r * rh);
+  if (cols.length) {
+    for (let x = 0; x < W; x++) {
+      const f0 = Math.floor(view.a + x * per);
+      if (f0 >= cols.length) break;
+      const f1 = Math.min(cols.length, Math.max(f0 + 1, Math.floor(view.a + (x + 1) * per)));
+      counts.fill(0);
+      let hsum = 0;
+      for (let c = f0; c < f1; c++) {
+        const i = cols[c], fam = t.order[i], base = fam * B;
+        hsum += homoplasy(t, i);
+        for (let r = 0; r < n; r++) { const s = tipIdx[r]; if ((BITS[base + (s >> 3)] >> (7 - (s & 7))) & 1) counts[r]++; }
+      }
+      const m = f1 - f0;
+      for (let r = 0; r < n; r++) {
+        const v = counts[r] / m;
+        if (v === 0) continue;
+        const R = pr + (cr - pr) * v, G = pg + (cg - pg) * v, Bl = pb + (cb - pb) * v;
+        for (let y = rowY[r]; y < rowY[r + 1]; y++) { const o = (y * W + x) * 4; px[o] = R; px[o + 1] = G; px[o + 2] = Bl; }
+      }
+      const h = hsum / m, [gr, gg, gb] = C.goodRGB, [br, bg, bb] = C.badRGB;
+      const R = gr + (br - gr) * h, G = gg + (bg - gg) * h, Bl = gb + (bb - gb) * h;
+      for (let y = 0; y < sh; y++) { const o = (y * W + x) * 4; px[o] = R; px[o + 1] = G; px[o + 2] = Bl; }
+    }
+  }
+  ctx.putImageData(img, 0, 0);
+  // highlights
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  const mark = (r, color) => { ctx.fillStyle = color; ctx.globalAlpha = .28; ctx.fillRect(0, rowY[r], W, Math.max(dpr, rowY[r + 1] - rowY[r])); ctx.globalAlpha = 1; };
+  if (S.find >= 0) { const r = tipIdx.indexOf(S.find); if (r >= 0) mark(r, C.accent); }
+  if (hi.r >= 0) mark(hi.r, C.accent);
+  if (S.clade != null) {
+    const nd = t.nodes[S.clade];
+    ctx.strokeStyle = C.accent; ctx.lineWidth = dpr;
+    ctx.strokeRect(0.5, rowY[nd.lo] + 0.5, W - 1, rowY[nd.hi + 1] - rowY[nd.lo] - 1);
+  }
+  statsHeat();
+}
+
+// ---------- heatmap interaction ----------
+function colAt(clientX) {
+  const r = heatCv.getBoundingClientRect();
+  const x = (clientX - r.left) / r.width;
+  return Math.floor(view.a + x * (view.b - view.a));
+}
+function rowAt(clientY) {
+  const r = heatCv.getBoundingClientRect();
+  return Math.floor((clientY - r.top - stripH - 4) / rowH);
+}
+function famHTML(t, i, strain) {
+  const fam = t.order[i], id = D.families.id[fam], pf = D.families.pfam[fam];
+  const n = t.tips.length, minor = Math.min(t.k[i], n - t.k[i]);
+  let s = `<b>${esc(id)}</b><br>`;
+  if (strain != null) s += `${esc(STR[strain].name)} (${STR[strain].sp}): ${has(fam, strain) ? 'present' : 'absent'}<br>`;
+  s += `carriers ${t.k[i]} of ${n}${t.loss[i] ? ' (absent in ' + (n - t.k[i]) + ')' : ''}<br>`;
+  s += `changes on tree ${t.changes[i]} for minority ${minor}; homoplasy ${homoplasy(t, i).toFixed(2)}<br>`;
+  s += `best clade Jaccard ${t.jac[i].toFixed(2)}`;
+  if (pf.length) s += `<br>Pfam: ${pf.map(esc).join(', ')}`;
+  return s;
+}
+heatCv.addEventListener('pointermove', e => {
+  if (drag) return;
+  const t = T(), r = rowAt(e.clientY), c = colAt(e.clientX);
+  if (r < 0 || r >= t.tips.length || c < 0 || c >= cols.length) { hideTip(); if (hi.r !== -1) { hi.r = -1; drawHeat(); } return; }
+  const strain = t.tip_strain_index[r];
+  const per = (view.b - view.a) / heatCv.clientWidth;
+  let html;
+  if (per <= 1.5) html = famHTML(t, cols[c], strain);
+  else html = `<b>${esc(STR[strain].name)}</b> (${STR[strain].sp})<br>${Math.round(per)} families per pixel here.<br>Zoom in to see single families.`;
+  showTip(html, e.clientX, e.clientY);
+  if (hi.r !== r) { hi.r = r; drawHeat(); }
+});
+heatCv.addEventListener('pointerleave', () => { hideTip(); hi.r = -1; drawHeat(); });
+let drag = null;
+heatCv.addEventListener('pointerdown', e => { drag = { x: e.clientX, a: view.a, b: view.b, moved: false }; heatCv.setPointerCapture(e.pointerId); });
+heatCv.addEventListener('pointermove', e => {
+  if (!drag) return;
+  const dx = e.clientX - drag.x;
+  if (Math.abs(dx) > 3) drag.moved = true;
+  const span = drag.b - drag.a, shift = -dx / heatCv.clientWidth * span;
+  setView(drag.a + shift, drag.b + shift);
+});
+heatCv.addEventListener('pointerup', e => {
+  const d = drag; drag = null;
+  if (d && !d.moved) {
+    const t = T(), c = colAt(e.clientX);
+    if (c >= 0 && c < cols.length) showFamily(t, cols[c]);
+  }
+});
+function setView(a, b) {
+  const L = Math.max(1, cols.length), span = Math.min(L, Math.max(20, b - a));
+  a = Math.max(0, Math.min(L - span, a));
+  view = { a, b: a + span };
+  drawHeat();
+}
+function zoom(f, cx) {
+  const span = view.b - view.a, c = view.a + (cx ?? 0.5) * span, ns = span * f;
+  setView(c - (cx ?? 0.5) * ns, c + (1 - (cx ?? 0.5)) * ns);
+}
+heatCv.addEventListener('wheel', e => {
+  e.preventDefault();
+  const r = heatCv.getBoundingClientRect();
+  zoom(e.deltaY > 0 ? 1.25 : 0.8, (e.clientX - r.left) / r.width);
+}, { passive: false });
+$('zIn').onclick = () => zoom(0.5);
+$('zOut').onclick = () => zoom(2);
+$('zFit').onclick = () => setView(0, cols.length);
+
+function showFamily(t, i) {
+  const fam = t.order[i], n = t.tips.length;
+  const car = [], abs = [];
+  for (let r = 0; r < n; r++) { const s = t.tip_strain_index[r]; (has(fam, s) ? car : abs).push(STR[s].name); }
+  const minorList = t.loss[i] ? abs : car;
+  const pf = D.families.pfam[fam];
+  const el = $('famDetail');
+  el.hidden = false;
+  el.innerHTML = `<h3>${esc(D.families.id[fam])}</h3>
+    <dl class="kv">
+      <dt>Carriers</dt><dd>${t.k[i]} of ${n} strains in this tree (${D.families.count[fam]} of 529 overall)</dd>
+      <dt>Type</dt><dd>${t.loss[i] ? 'common: absent in ' + abs.length : 'rare: present in ' + car.length}</dd>
+      <dt>Changes on tree</dt><dd>${t.changes[i]} (Fitch/Hartigan minimum on ${esc(t.label)})</dd>
+      <dt>Homoplasy index</dt><dd>${homoplasy(t, i).toFixed(2)}</dd>
+      <dt>Best clade</dt><dd>${t.nodes[t.best[i]].n} strains, Jaccard ${t.jac[i].toFixed(2)}</dd>
+      <dt>Pfam</dt><dd>${pf.length ? pf.map(esc).join(', ') : 'none recorded (Pfam was run on island families only)'}</dd>
+    </dl>
+    <div><span class="label">${t.loss[i] ? 'Strains lacking it' : 'Strains carrying it'} (${minorList.length})</span>
+    <div class="carriers">${minorList.map(esc).join(', ')}</div></div>
+    <div><button class="btn" id="famClade">Show families of this best clade</button></div>`;
+  $('famClade').onclick = () => { S.clade = t.best[i]; applyFilters(); drawHeat(); };
+}
+
+treeCv.addEventListener('click', e => {
+  const t = T(), r = treeCv.getBoundingClientRect();
+  const w = r.width - 14, top = stripH + 4;
+  const mx = e.clientX - r.left, my = e.clientY - r.top;
+  let best = -1, bd = 1e9;
+  for (let i = 0; i < t.nodes.length; i++) {
+    const nd = t.nodes[i];
+    if (nd.n < 2) continue;
+    const x = 6 + nd.x * (w - 8), y = top + (nd.y + 0.5) * rowH;
+    const d = Math.hypot(x - mx, y - my);
+    if (d < bd) { bd = d; best = i; }
+  }
+  if (best >= 0 && bd < 14) { S.clade = best === 0 ? null : best; applyFilters(); drawHeat(); }
+});
+treeCv.addEventListener('pointermove', e => {
+  const t = T(), r = treeCv.getBoundingClientRect();
+  const row = Math.floor((e.clientY - r.top - stripH - 4) / rowH);
+  if (row >= 0 && row < t.tips.length) {
+    const s = STR[t.tip_strain_index[row]];
+    showTip(`<b>${esc(s.name)}</b> (${s.sp})<br>Click a node to filter to its clade.`, e.clientX, e.clientY);
+  } else hideTip();
+});
+treeCv.addEventListener('pointerleave', hideTip);
+
+// ---------- controls ----------
+$('treeSel').onchange = e => { S.tree = e.target.value; S.clade = null; save(); applyFilters(); sizeHeat(); };
+$('sortSel').onchange = e => { S.sort = e.target.value; save(); applyFilters(); drawHeat(); };
+$('typeSel').onchange = e => { S.type = e.target.value; save(); applyFilters(); drawHeat(); };
+$('kmin').onchange = e => { S.kmin = Math.max(2, +e.target.value || 2); save(); applyFilters(); drawHeat(); };
+$('kmax').onchange = e => { S.kmax = Math.max(2, +e.target.value || 265); save(); applyFilters(); drawHeat(); };
+$('fitMax').oninput = e => { S.fitMax = +e.target.value; $('fitVal').textContent = S.fitMax.toFixed(2); };
+$('fitMax').onchange = () => { save(); applyFilters(); drawHeat(); };
+function findStrain(v) {
+  S.find = byName.has(v) ? byName.get(v) : -1;
+  N.find = S.find;
+  drawHeat(); drawNet();
+}
+$('findStrain').oninput = e => { $('findStrain2').value = e.target.value; findStrain(e.target.value.trim()); };
+$('findStrain2').oninput = e => { $('findStrain').value = e.target.value; findStrain(e.target.value.trim()); };
+function save() { try { localStorage.setItem('cgpm-state', JSON.stringify({ tree: S.tree, sort: S.sort, type: S.type, kmin: S.kmin, kmax: S.kmax, fitMax: S.fitMax })); } catch (e) {} }
+function load() {
+  try {
+    const o = JSON.parse(localStorage.getItem('cgpm-state') || 'null');
+    if (o) { Object.assign(S, o); if (!D.trees[S.tree]) S.tree = Object.keys(D.trees)[0]; }
+  } catch (e) {}
+  $('treeSel').value = S.tree; $('sortSel').value = S.sort; $('typeSel').value = S.type;
+  $('kmin').value = S.kmin; $('kmax').value = S.kmax; $('fitMax').value = S.fitMax; $('fitVal').textContent = (+S.fitMax).toFixed(2);
+}
+
+// ---------- network ----------
+const N = { key: Object.keys(D.networks)[0], sel: -1, find: -1, labels: false, s: 1, tx: 0, ty: 0 };
+const netCv = $('netCv');
+for (const k of Object.keys(D.networks)) $('netSel').add(new Option(k === 'dna' ? 'Genome k-mers (SANS, k=31)' : 'Gene content (SANS, family carrier sets)', k));
+const NET = () => D.networks[N.key];
+function netTaxonNode(net) {
+  if (!net._t) { net._t = new Map(); net.nodes.forEach((v, i) => v.taxa.forEach(t => net._t.set(t, i))); }
+  return net._t;
+}
+function fitNet() {
+  const net = NET(), W = netCv.clientWidth, H = netCv.clientHeight;
+  let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+  for (const v of net.nodes) { x0 = Math.min(x0, v.x); x1 = Math.max(x1, v.x); y0 = Math.min(y0, v.y); y1 = Math.max(y1, v.y); }
+  N.s = 0.9 * Math.min(W / (x1 - x0 || 1), H / (y1 - y0 || 1));
+  N.tx = W / 2 - N.s * (x0 + x1) / 2; N.ty = H / 2 - N.s * (y0 + y1) / 2;
+}
+function sizeNet() {
+  if ($('view-net').hidden) return;
+  dpr = Math.min(2, window.devicePixelRatio || 1);
+  const w = netCv.clientWidth, h = Math.min(820, Math.max(420, Math.round(w * 0.72)));
+  netCv.style.height = h + 'px';
+  netCv.width = Math.round(w * dpr); netCv.height = Math.round(h * dpr);
+  fitNet(); drawNet(); statsNet();
+}
+function statsNet() {
+  const net = NET();
+  $('netStats').innerHTML = `<span><b>${fmt(net.n_splits_drawn)}</b> of ${fmt(net.n_splits_input)} splits drawn</span>` +
+    `<span><b>${(100 * net.weight_frac_drawn).toFixed(1)}%</b> of split weight</span>` +
+    `<span>${esc(net.title)}</span>`;
+}
+const P = (v) => [N.tx + N.s * v.x, N.ty + N.s * v.y];
+function drawNet() {
+  if ($('view-net').hidden) return;
+  const net = NET(), ctx = netCv.getContext('2d');
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = C.panel; ctx.fillRect(0, 0, netCv.width, netCv.height);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  const selSide = N.sel >= 0 ? new Set(net.splits[N.sel].taxa) : null;
+  ctx.lineWidth = 0.9;
+  ctx.strokeStyle = C.muted;
+  ctx.beginPath();
+  for (const [a, b, s] of net.edges) { if (s === N.sel && N.sel >= 0) continue; const [x1, y1] = P(net.nodes[a]), [x2, y2] = P(net.nodes[b]); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); }
+  ctx.stroke();
+  if (N.sel >= 0) {
+    ctx.strokeStyle = C.accent; ctx.lineWidth = 2.2; ctx.beginPath();
+    for (const [a, b, s] of net.edges) if (s === N.sel) { const [x1, y1] = P(net.nodes[a]), [x2, y2] = P(net.nodes[b]); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); }
+    ctx.stroke();
+  }
+  ctx.font = `10px ${css('--mono')}`;
+  for (const v of net.nodes) {
+    if (!v.taxa.length) continue;
+    const [x, y] = P(v);
+    for (const t of v.taxa) {
+      const inSel = selSide && selSide.has(t);
+      ctx.fillStyle = spColor(STR[t].sp);
+      ctx.beginPath(); ctx.arc(x, y, inSel ? 3.6 : 2.4, 0, 7); ctx.fill();
+      if (inSel) { ctx.strokeStyle = C.accent; ctx.lineWidth = 1.2; ctx.stroke(); }
+    }
+    if (N.labels) { ctx.fillStyle = C.ink; ctx.fillText(v.taxa.map(t => STR[t].name).join(', ').slice(0, 60), x + 5, y + 3); }
+  }
+  if (N.find >= 0) {
+    const i = netTaxonNode(net).get(N.find);
+    if (i != null) {
+      const [x, y] = P(net.nodes[i]);
+      ctx.strokeStyle = C.accent; ctx.lineWidth = 2; ctx.beginPath(); ctx.arc(x, y, 9, 0, 7); ctx.stroke();
+      ctx.fillStyle = C.ink; ctx.font = `600 12px ${css('--mono')}`; ctx.fillText(STR[N.find].name, x + 12, y + 4);
+    }
+  }
+}
+function nearestTaxonNode(mx, my) {
+  const net = NET(); let best = -1, bd = 1e9;
+  net.nodes.forEach((v, i) => { if (!v.taxa.length) return; const [x, y] = P(v); const d = Math.hypot(x - mx, y - my); if (d < bd) { bd = d; best = i; } });
+  return bd < 9 ? best : -1;
+}
+function nearestEdge(mx, my) {
+  const net = NET(); let best = -1, bd = 1e9;
+  for (const [a, b, s] of net.edges) {
+    if (s < 0) continue;
+    const [x1, y1] = P(net.nodes[a]), [x2, y2] = P(net.nodes[b]);
+    const dx = x2 - x1, dy = y2 - y1, L = dx * dx + dy * dy || 1;
+    const u = Math.max(0, Math.min(1, ((mx - x1) * dx + (my - y1) * dy) / L));
+    const d = Math.hypot(x1 + u * dx - mx, y1 + u * dy - my);
+    if (d < bd) { bd = d; best = s; }
+  }
+  return bd < 6 ? best : -1;
+}
+let nd = null;
+netCv.addEventListener('pointerdown', e => { nd = { x: e.clientX, y: e.clientY, tx: N.tx, ty: N.ty, moved: false }; netCv.setPointerCapture(e.pointerId); netCv.style.cursor = 'grabbing'; });
+netCv.addEventListener('pointermove', e => {
+  const r = netCv.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
+  if (nd) {
+    const dx = e.clientX - nd.x, dy = e.clientY - nd.y;
+    if (Math.abs(dx) + Math.abs(dy) > 3) nd.moved = true;
+    N.tx = nd.tx + dx; N.ty = nd.ty + dy; drawNet(); return;
+  }
+  const i = nearestTaxonNode(mx, my);
+  if (i >= 0) {
+    const v = NET().nodes[i];
+    showTip(v.taxa.slice(0, 12).map(t => `<b>${esc(STR[t].name)}</b> (${STR[t].sp})`).join('<br>') + (v.taxa.length > 12 ? `<br>+${v.taxa.length - 12} more` : ''), e.clientX, e.clientY);
+  } else {
+    const s = nearestEdge(mx, my);
+    if (s >= 0) { const sp = NET().splits[s]; showTip(`split: ${sp.k} strains on one side<br>weight ${fmt(Math.round(sp.w))}<br>click to select`, e.clientX, e.clientY); }
+    else hideTip();
+  }
+});
+netCv.addEventListener('pointerup', e => {
+  const d = nd; nd = null; netCv.style.cursor = 'grab';
+  if (d && !d.moved) {
+    const r = netCv.getBoundingClientRect();
+    N.sel = nearestEdge(e.clientX - r.left, e.clientY - r.top);
+    drawNet(); showSplit();
+  }
+});
+netCv.addEventListener('pointerleave', hideTip);
+netCv.addEventListener('wheel', e => {
+  e.preventDefault();
+  const r = netCv.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
+  const f = e.deltaY > 0 ? 0.85 : 1.18;
+  N.tx = mx - (mx - N.tx) * f; N.ty = my - (my - N.ty) * f; N.s *= f; drawNet();
+}, { passive: false });
+$('nFit').onclick = () => { fitNet(); drawNet(); };
+$('nLabels').onclick = e => { N.labels = !N.labels; e.target.setAttribute('aria-pressed', N.labels); e.target.textContent = N.labels ? 'Hide labels' : 'Show labels'; drawNet(); };
+$('netSel').onchange = e => { N.key = e.target.value; N.sel = -1; $('splitDetail').hidden = true; fitNet(); drawNet(); statsNet(); };
+function showSplit() {
+  const el = $('splitDetail');
+  if (N.sel < 0) { el.hidden = true; return; }
+  const sp = NET().splits[N.sel];
+  const names = sp.taxa.map(t => STR[t].name);
+  const ci = sp.taxa.filter(t => STR[t].sp === 'Ci').length;
+  el.hidden = false;
+  el.innerHTML = `<h3>Selected split</h3>
+    <dl class="kv"><dt>Weight</dt><dd>${fmt(Math.round(sp.w))} ${N.key === 'dna' ? 'k-mers (SANS geometric-mean weight)' : 'families with exactly this carrier set'}</dd>
+    <dt>Side size</dt><dd>${sp.k} strains (${ci} Ci, ${sp.k - ci} Cp) against ${STR.length - sp.k}</dd></dl>
+    <div><span class="label">Strains on the small side</span><div class="carriers">${names.map(esc).join(', ')}</div></div>`;
+}
+
+// ---------- notes ----------
+$('notesBody').innerHTML = `
+<p><b>Data.</b> Presence matrix <code>presence_matrix.rescued.tsv</code> of run <code>rescue_freqpol_immitis_in_posadasii_out</code>: 47,745 families by 529 strains. Present means <code>present</code> or <code>genome_only</code> (TBLASTN rescue). Only the 32,006 families that are absent from at least 2 and present in at least 2 strains are shown.</p>
+<p><b>Trees.</b> SNP IQ-TREE consensus (GTR+F+ASC, 323,660 SNP columns), rooted between the species; 412 of its tips are pangenome strains. BUSCO CDS tree (50 loci) with 51 strains grafted by mash distance; graft positions below species level are weak. Rows follow the ladderized tree. Branch lengths are not drawn.</p>
+<p><b>Column order.</b> Each family gets the tree node whose tips best match its minority side (Jaccard index). Columns are grouped by that node in tree order, so families that follow a clade form a block.</p>
+<p><b>Changes and homoplasy index.</b> Minimum number of presence/absence changes on the tree (Fitch, Hartigan rule at polytomies). Homoplasy index = (changes − 1) / (minority size − 1): 0 means one gain or loss explains the family, 1 means every minority strain needs its own change. On the SNP tree, 716 of 28,830 families (2.5%) fit one branch. The SNP tree with shuffled tip labels gives a mean of 31.8 changes per family against 19.1 on the real tree (both species pooled); within Cp the gap is only 20.7 against 17.7.</p>
+<p><b>Networks.</b> SANS 2.8_2 splits (weakly compatible filter), drawn on a NeighborNet circular ordering (SplitsPy), using only splits that are contiguous on that ordering; the rest cannot be drawn in the plane. Genome k-mers: 663 of 1,028 splits, 97.2% of the weight. Gene content: 104 of 566 splits, 33.1% of the weight; over all 28,794 distinct family carrier sets only 2.6% of the weight is circular. The ordering uses mash distance for genomes and Jaccard distance over families for gene content. Edge length is the square root of the SANS weight, so the Ci / Cp split does not hide everything else.</p>
+<p><b>Limits.</b> Pfam names exist only for island families (3,953 of 32,006). These data do not separate recombination from presence-call noise as the source of the homoplasy. Source: <code>studies/fungi/coccidioides_pangenome/analysis/sans/</code>.</p>`;
+
+// ---------- boot ----------
+readColors();
+load();
+applyFilters();
+let startTab = 'tab-heat';
+try { const t = localStorage.getItem('cgpm-tab'); if (t && $(t)) startTab = t; } catch (e) {}
+selectTab(startTab);
+let rt;
+addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { sizeHeat(); sizeNet(); }, 120); });
+const rethem = () => { readColors(); drawHeat(); drawNet(); };
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', rethem);
+new MutationObserver(rethem).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+})();
+</script>
