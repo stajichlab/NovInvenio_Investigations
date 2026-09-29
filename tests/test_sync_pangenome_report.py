@@ -378,3 +378,26 @@ def test_no_rerender_record_no_key(tmp_path):
     assert _run(tmp_path, "--run", "run_a") == 0
     meta = json.loads((tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a" / "run.json").read_text())
     assert "report_rerender" not in meta
+
+
+def test_group_class_overlap_table_archived(tmp_path):
+    # NovInvenio #212 PR 2 table.
+    study = _fake_study(tmp_path)
+    pg = study / "results" / "run_a" / "output" / "pangenome"
+    (pg / "report_tables" / "group_class_overlap.tsv").write_text(
+        "ingroup_class\toutgroup_class\tn_families\ncore\tcore\t1\n")
+    assert _run(tmp_path, "--run", "run_a") == 0
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    assert (run_docs / "archive" / "group_class_overlap.tsv.gz").exists()
+    assert "archive/group_class_overlap.tsv.gz" in (run_docs / "report.html").read_text()
+
+
+def test_empty_tables_are_not_listed_as_downloads(tmp_path):
+    # A 0-byte table means "not computed" (e.g. outgroup not binned); no dead link.
+    study = _fake_study(tmp_path)
+    pg = study / "results" / "run_a" / "output" / "pangenome"
+    (pg / "report_tables" / "group_class_overlap.tsv").write_text("")
+    assert _run(tmp_path, "--run", "run_a") == 0
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    assert not (run_docs / "archive" / "group_class_overlap.tsv.gz").exists()
+    assert "group_class_overlap" not in (run_docs / "report.html").read_text()

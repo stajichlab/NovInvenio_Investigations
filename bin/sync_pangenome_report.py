@@ -79,6 +79,7 @@ ARCHIVE_TABLES = [
     ("assembly_quality_vs_content.tsv", "assembly_quality_vs_content.tsv.gz"),
     ("assembly_quality_correlations.tsv", "assembly_quality_correlations.tsv.gz"),
     ("diagnostics/diagnostics.tsv", "diagnostics.tsv.gz"),
+    ("report_tables/group_class_overlap.tsv", "group_class_overlap.tsv.gz"),  # NovInvenio #212 PR 2
 ]
 
 # Directories and pages copied or rendered into the run dir. All gitignored.
@@ -195,7 +196,8 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
     archive = run_docs / "archive"
     for src_rel, archive_name in ARCHIVE_TABLES:
         src = pangenome_dir / src_rel
-        if src.is_file():
+        # 0 bytes = the pipeline's "not computed" convention: no dead download.
+        if src.is_file() and src.stat().st_size > 0:
             archive.mkdir(exist_ok=True)
             gzip_copy(src, archive / archive_name)
             downloads.append((archive_name.removesuffix(".tsv.gz"), f"archive/{archive_name}"))
