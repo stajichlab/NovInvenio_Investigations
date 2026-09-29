@@ -1,0 +1,4 @@
+# Regenerable with run.sh; island tables grow with candidate count (CLAUDE.md class 3).
+outputs/runs/*/significant_islands.tsv.zst
+outputs/smoke/
+logs/

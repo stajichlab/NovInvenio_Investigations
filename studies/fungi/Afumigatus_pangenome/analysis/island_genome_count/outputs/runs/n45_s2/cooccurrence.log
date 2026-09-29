@@ -1,0 +1,28 @@
+Dereplication: 45 representative ingroup strains
+cooccurrence: 6057 eligible families, 18340596 candidate pairs to screen
+cooccurrence: screened 4585145/18340596 pairs (823948 survivors so far)
+cooccurrence: screened 6419203/18340596 pairs (1158185 survivors so far)
+cooccurrence: screened 7336232/18340596 pairs (1310032 survivors so far)
+cooccurrence: screened 14672464/18340596 pairs (2595185 survivors so far)
+cooccurrence: screened 16506522/18340596 pairs (2926551 survivors so far)
+cooccurrence: 3303102 pairs cleared the prefilter, 269098 clear FDR (0.05) -- running the exact within-clade-stratified test
+cooccurrence: exact stratified test on 13454/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 26908/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 40362/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 53816/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 67270/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 80724/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 94178/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 107632/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 121086/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 134540/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 147994/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 161448/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 174902/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 188356/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 201810/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 215264/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 228718/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 242172/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 255626/269098 FDR-significant pairs
+cooccurrence: exact stratified test on 269080/269098 FDR-significant pairs

@@ -1,0 +1,27 @@
+Dereplication: 30 representative ingroup strains
+cooccurrence: 5143 eligible families, 13222653 candidate pairs to screen
+cooccurrence: screened 3305660/13222653 pairs (587050 survivors so far)
+cooccurrence: screened 3966792/13222653 pairs (714974 survivors so far)
+cooccurrence: screened 8594716/13222653 pairs (1534343 survivors so far)
+cooccurrence: screened 13222640/13222653 pairs (2370448 survivors so far)
+cooccurrence: 2370453 pairs cleared the prefilter, 154865 clear FDR (0.05) -- running the exact within-clade-stratified test
+cooccurrence: exact stratified test on 7743/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 15486/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 23229/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 30972/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 38715/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 46458/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 54201/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 61944/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 69687/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 77430/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 85173/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 92916/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 100659/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 108402/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 116145/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 123888/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 131631/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 139374/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 147117/154865 FDR-significant pairs
+cooccurrence: exact stratified test on 154860/154865 FDR-significant pairs

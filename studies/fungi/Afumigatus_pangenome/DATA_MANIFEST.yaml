@@ -8963,3 +8963,34 @@
   content: 614 of 616 requested AF293 RefSeq protein accessions cited in the mBio
     paper supplement (2 rows had literal non-accession text "AspGD only"/"Only available
     on AspGD" in Table S19s accession column, not a fetch failure -- see study notes).
+- local_path: studies/fungi/Afumigatus_pangenome/analysis/island_genome_count/inputs/af293_starships_table_s7.tsv
+  source_url: https://journals.asm.org/doi/suppl/10.1128/mbio.01092-25/suppl_file/mbio.01092-25-s0002.xlsx
+  source_release: mBio (ASM) 2025-06-11, doi:10.1128/mbio.01092-25, Table S7; local
+    copy sha256 40d9e5258c6fe68c6f89ad733dda726bef87b3586aaf91148b29aeae5dc0b920
+  access_date: '2026-09-29T21:40:02Z'
+  checksum_sha256: 9e0df961c196c06788485cac73ff07e1a8731f0bc8d1fa1b7709d88383b5d6c8
+  license: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
+  derived_by: analysis/island_genome_count/scripts/extract_af293_starships.py --xlsx
+    mbio.01092-25-s0002.xlsx; AF293_* rows; RefSeq NC_007194-201 -> GenBank CM000169-176
+    (lengths checked vs NCBI esummary 2026-09-29)
+  pulled_with: '- on r11'
+- local_path: studies/fungi/Afumigatus_pangenome/analysis/island_genome_count/outputs/sweep_summary.tsv
+  source_url: file:///bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v070/config/pangenome/presence_matrix.rescued.tsv
+  source_release: Afumigatus_pangenome full_v070 (NovInvenio a394ace) presence_matrix.rescued.tsv
+    sha256 6fee9c8aa4fc902f4cf4e622f9c624c028f62c184ba9ed1306754b13639c2cb7
+  access_date: '2026-09-29T21:40:02Z'
+  checksum_sha256: be08675b49f2f894ef365d12318c6ef628eaca75e2268e26a5b238015231763c
+  license: Derived from this study; terms per this DATA_MANIFEST.yaml
+  derived_by: analysis/island_genome_count/run.sh (N=10,15,20,30,45,60,80,100 x seeds
+    1-3, N=121 seed 0; island steps at NovInvenio f87fd1e; SLURM 29207128-31) + scripts/summarize.py
+  pulled_with: '- on r11'
+- local_path: studies/fungi/Afumigatus_pangenome/analysis/island_genome_count/outputs/sweep_by_n.tsv
+  source_url: file:///bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v070/config/pangenome/presence_matrix.rescued.tsv
+  source_release: Afumigatus_pangenome full_v070 (NovInvenio a394ace) presence_matrix.rescued.tsv
+    sha256 6fee9c8aa4fc902f4cf4e622f9c624c028f62c184ba9ed1306754b13639c2cb7
+  access_date: '2026-09-29T21:40:02Z'
+  checksum_sha256: 1a97a241d44850e53db5611cc5985e51617488036bbf680b4ba6a6a9d55d9e90
+  license: Derived from this study; terms per this DATA_MANIFEST.yaml
+  derived_by: analysis/island_genome_count/run.sh (N=10,15,20,30,45,60,80,100 x seeds
+    1-3, N=121 seed 0; island steps at NovInvenio f87fd1e; SLURM 29207128-31) + scripts/summarize.py
+  pulled_with: '- on r11'

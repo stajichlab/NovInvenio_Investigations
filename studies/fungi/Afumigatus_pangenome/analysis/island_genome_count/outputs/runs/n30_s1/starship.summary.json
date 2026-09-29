@@ -1,0 +1,12 @@
+{
+ "n_islands": 2306,
+ "n_islands_placed_af293": 1678,
+ "n_islands_in_af293_starship": 148,
+ "af293_high_conf_starships": 7,
+ "af293_high_conf_starships_hit": 7,
+ "island_gene_frac_in_starship": 0.14790076335877864,
+ "noncore_gene_frac_in_starship": 0.05004441812259402,
+ "presence_gt_strains": 24,
+ "presence_starships_scored": 5,
+ "presence_starships_above_null95": 4
+}

@@ -1,0 +1,27 @@
+Dereplication: 100 representative ingroup strains
+cooccurrence: 7854 eligible families, 30838731 candidate pairs to screen
+cooccurrence: screened 3083872/30838731 pairs (636369 survivors so far)
+cooccurrence: screened 4625808/30838731 pairs (949346 survivors so far)
+cooccurrence: screened 21587104/30838731 pairs (4383048 survivors so far)
+cooccurrence: screened 26212912/30838731 pairs (5254952 survivors so far)
+cooccurrence: 6305807 pairs cleared the prefilter, 999062 clear FDR (0.05) -- running the exact within-clade-stratified test
+cooccurrence: exact stratified test on 49953/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 99906/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 149859/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 199812/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 249765/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 299718/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 349671/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 399624/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 449577/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 499530/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 549483/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 599436/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 649389/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 699342/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 749295/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 799248/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 849201/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 899154/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 949107/999062 FDR-significant pairs
+cooccurrence: exact stratified test on 999060/999062 FDR-significant pairs

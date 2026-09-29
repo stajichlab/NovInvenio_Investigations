@@ -1,0 +1,29 @@
+check	starship	name	confidence	value	null95	n_carriers
+af293_coord	AF293_e00029	Lamia h4	high	134		
+af293_coord	AF293_e00039	Gnosis h1	high	67		
+af293_coord	AF293_e00041	Janus (likely) h2 (likely)	unknown	32		
+af293_coord	AF293_s00031	Nebuchadnezzar h2	high	9		
+af293_coord	AF293_s00032	Osiris h4	high	65		
+af293_coord	AF293_s00035	Osiris h3	high	6		
+af293_coord	AF293_s00037	Nebuchadnezzar h1	high	9		
+af293_coord	AF293_s00042	Tardis h1	high	73		
+presence_jaccard	Gnosis-h1	Gnosis-h1	high	0.975	0.6442	39
+presence_jaccard	Gnosis-h2	Gnosis-h2	high	1.0	0.5	4
+presence_jaccard	Janus-h1	Janus-h1	high	0.7778	0.4167	8
+presence_jaccard	Janus-h2	Janus-h2	high	0.6	0.4444	7
+presence_jaccard	Janus-h3	Janus-h3	high			1
+presence_jaccard	Janus-h4	Janus-h4	high	0.6111	0.4237	13
+presence_jaccard	Janus-h5	Janus-h5	high	0.5882	0.4167	10
+presence_jaccard	Lamia-h1	Lamia-h1	high	0.9375	0.4194	15
+presence_jaccard	Lamia-h2	Lamia-h2	high			2
+presence_jaccard	Lamia-h3	Lamia-h3	high			2
+presence_jaccard	Lamia-h4	Lamia-h4	high	0.7143	0.5	5
+presence_jaccard	Logos-h1	Logos-h1	high	0.9091	0.4173	10
+presence_jaccard	Logos-h2	Logos-h2	high	0.5	0.5	4
+presence_jaccard	Nebuchadnezzar-h1	Nebuchadnezzar-h1	high			2
+presence_jaccard	Nebuchadnezzar-h2	Nebuchadnezzar-h2	high			1
+presence_jaccard	Osiris-h1	Osiris-h1	high			1
+presence_jaccard	Osiris-h2	Osiris-h2	high			2
+presence_jaccard	Osiris-h3	Osiris-h3	high	0.5833	0.4	10
+presence_jaccard	Osiris-h4	Osiris-h4	high	0.9787	0.7213	46
+presence_jaccard	Tardis-h1	Tardis-h1	high	1.0	0.6296	38

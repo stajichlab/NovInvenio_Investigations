@@ -1,0 +1,27 @@
+Dereplication: 60 representative ingroup strains
+cooccurrence: 5878 eligible families, 17272503 candidate pairs to screen
+cooccurrence: screened 863625/17272503 pairs (139118 survivors so far)
+cooccurrence: screened 6045375/17272503 pairs (974328 survivors so far)
+cooccurrence: screened 14681625/17272503 pairs (2359183 survivors so far)
+cooccurrence: screened 16408875/17272503 pairs (2637702 survivors so far)
+cooccurrence: 2798312 pairs cleared the prefilter, 47191 clear FDR (0.05) -- running the exact within-clade-stratified test
+cooccurrence: exact stratified test on 2359/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 4718/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 7077/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 9436/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 11795/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 14154/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 16513/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 18872/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 21231/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 23590/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 25949/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 28308/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 30667/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 33026/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 35385/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 37744/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 40103/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 42462/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 44821/47191 FDR-significant pairs
+cooccurrence: exact stratified test on 47180/47191 FDR-significant pairs

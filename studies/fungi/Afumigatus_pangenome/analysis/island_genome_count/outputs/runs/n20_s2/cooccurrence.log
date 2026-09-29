@@ -1,0 +1,6 @@
+Dereplication: 20 representative ingroup strains
+cooccurrence: 3580 eligible families, 6406410 candidate pairs to screen
+cooccurrence: screened 320320/6406410 pairs (39421 survivors so far)
+cooccurrence: screened 1921920/6406410 pairs (227719 survivors so far)
+cooccurrence: screened 5445440/6406410 pairs (693998 survivors so far)
+cooccurrence: 806895 pairs cleared the prefilter, 0 clear FDR (0.05) -- running the exact within-clade-stratified test

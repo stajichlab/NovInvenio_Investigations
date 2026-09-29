@@ -1,0 +1,17 @@
+Asfu_A337s1
+Asfu_A340L1
+Asfu_Af293
+Asfu_B171L1
+Asfu_C166L3
+Asfu_C180s1
+Asfu_CNMCM8689
+Asfu_D235s1
+Asfu_E1351
+Asfu_H237
+Asfu_L3243
+Asfu_NRZ2016071
+Asfu_NRZ2016141
+Asfu_NRZ2017134
+Asfu_eAF1090
+Aslen_ref
+Neofi_ref
