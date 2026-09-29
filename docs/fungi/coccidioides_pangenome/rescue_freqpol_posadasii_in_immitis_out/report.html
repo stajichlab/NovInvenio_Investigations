@@ -66,9 +66,6 @@ footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
 <li><a href="archive/assembly_quality_correlations.tsv.gz">assembly_quality_correlations</a> (tsv.gz)</li>
 <li><a href="archive/diagnostics.tsv.gz">diagnostics</a> (tsv.gz)</li>
 </ul>
-<blockquote>
-<p><strong>Known issue (<a href="https://github.com/stajichlab/NovInvenio/issues/212">NovInvenio#212</a>).</strong> The <code>singleton</code> class also holds families absent from the ingroup (outgroup-only) and families found only in dereplicated near-duplicate genomes. Outgroup genomes' singleton counts, the per-genome figure's outgroup block, the composition pie's singleton share and the singleton outlier flags are therefore inflated. Ingroup core, soft_core, shell and cloud counts, islands, co-occurrence and enrichment results are not affected. A corrected report will replace this one.</p>
-</blockquote>
 <h2>Pipeline diagnostics</h2>
 <ul>
 <li><strong>rescue_redundancy</strong> [TRIGGERED]: 15124757/19522195 (77.5%) rescuable cells overlap a predicted gene already assigned to a different family in that strain -- the same locus double-counted, not a genuine annotation dropout (issue #133).
@@ -88,15 +85,33 @@ footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
 </ul>
 <h1>Pangenome Island + Pfam Enrichment Report</h1>
 <h2>Pangenome composition</h2>
-<p>Total gene families: 47719</p>
+<p><strong>Ingroup</strong> (32576 gene families)</p>
 <ul>
-<li><strong>core</strong>: 6361 (13.3%)</li>
-<li><strong>soft_core</strong>: 640 (1.3%)</li>
-<li><strong>shell</strong>: 4624 (9.7%)</li>
-<li><strong>cloud</strong>: 11907 (25.0%)</li>
-<li><strong>singleton</strong>: 24187 (50.7%)</li>
+<li><strong>core</strong>: 6361 (19.5%)</li>
+<li><strong>soft_core</strong>: 640 (2.0%)</li>
+<li><strong>shell</strong>: 4624 (14.2%)</li>
+<li><strong>cloud</strong>: 11907 (36.6%)</li>
+<li><strong>singleton</strong>: 9044 (27.8%)</li>
 </ul>
-<p><img src="figures/core_shell_cloud_pie.png" alt="Composition" /></p>
+<p>Not counted in this group's classes:</p>
+<ul>
+<li><strong>nonrep_only</strong>: 3580</li>
+<li><strong>outgroup_only</strong>: 11563</li>
+</ul>
+<p><strong>Outgroup</strong> (26027 gene families)</p>
+<ul>
+<li><strong>core</strong>: 6848 (26.3%)</li>
+<li><strong>soft_core</strong>: 604 (2.3%)</li>
+<li><strong>shell</strong>: 3998 (15.4%)</li>
+<li><strong>cloud</strong>: 6772 (26.0%)</li>
+<li><strong>singleton</strong>: 7805 (30.0%)</li>
+</ul>
+<p>Not counted in this group's classes:</p>
+<ul>
+<li><strong>nonrep_only</strong>: 1413</li>
+<li><strong>ingroup_only</strong>: 20279</li>
+</ul>
+<p><img src="figures/group_composition.png" alt="Composition" /></p>
 <p><img src="figures/frequency_distribution.png" alt="Frequency distribution" /></p>
 <h2>Pangenome openness</h2>
 <p>Heaps' law fit: κ=9019.0, γ=0.263 (R²=0.997) -- pangenome is <strong>open</strong> (γ &lt; 1).</p>
@@ -105,7 +120,7 @@ footer { margin-top: 2.5rem; font-size: 0.8rem; color: #888; }
 <p><img src="figures/presence_absence_matrix.png" alt="Presence/absence matrix" /></p>
 <h2>Per-strain summary</h2>
 <p>Families per strain: min=8964, median=9585, max=10332 (n=529 strains). See per_strain_summary.tsv for outliers.</p>
-<p><strong>Outlier strains (singleton-count modified z-score beyond threshold):</strong> UTAH_23742X260, SDVA38, UTAH_23742X170, B12496, UTAH_23742X235, B16338, CA7, B12495, UTAH_23742X241, UTAH_23742X31, UTAH_23742X214, B11034, UTAH_23742X111, B15142, B3476, B14298, B16364, B15145, CA25, CA8, SDVA4, B11517, CA5, B15257, 4SD, GT-167, B13956, GT-104, A391, GT-126, UTAH_23742X255, SDVA1, B11035, San_Diego_1, UTAH_23742X123, B11198, GT-121, B12220, GT-125, A502-1, B14131, SJV_8, A502-2, CA23, GT-140, SJV_9, TX11, SJV_5, M204, GT-105, B14288, SJV_11, UTAH_23742X211, h5384, VFC052, SJV_4, A432, CA22, GT-113, SJV_2, UTAH_23742X223, CA4, GT-127, B14135, SJV_7, GT-109, B15368, 485B-1_L_OLD_CPA0023, 5SD, CA14, GT-114, UTAH_23742X71, 3M3, B14132, B15317, SJV_6, B17567, Washington_1, SJV_10, UTAH_23742X257, 4545-MICE, SDVA2, UTAH_23742X205, Coahuila_1, B14133, B16339, GT-118, Guerrero_1, WA_221, GT-128, UTAH_23742X225, B17635, 4M3, COCSP-2006, SDVA36, B11080, UTAH_23742X162, WA_211, CA2, UTAH_23742X206, CA30, CA24, GT-107, UTAH_23742X138, COCSP-8945, CDC-212, GT-119, GT-132, GT-117, 1M0, CA29, CDC-202, UTAH_23742X153, SDVA39, CA17, CA9, GT-146, B11343, GT-129, CA15, GT-116, GT-169, B12398, GT-111, GT-156, SDVA17, CA27, GT-108, CDC-205, CA20, B11873, CA28, CA26, UTAH_23742X227, B12526, GT-123, SDVA3, UTAH_23742X242, SJV_1, SDVA15, CA3, UTAH_20380X10, B15146, B16536, GT-133, UTAH_20380X16, SDVA48, SOIL_604-1_L_OLD_CPA066, SDVA5, VFC043, M223, GT-163, B11057, B11587, RS, CA6, SDVA6, B11019, B11863, Michoacan_2, VFC083, SDVA41, CA1, GT-100, Beeville, 21SD, B11002, B16692, J_TORRES, B0727_Argentina, B12219, SDVA44, B17554, COCPO_34698, COCSP-3505, COCPO_195881, B14286, B11518, NACVFR_4542, SA14, GT-147, NACVFR_2566, 409B-0_L_OLD_CPA0011, UTAH_9443</p>
+<p><strong>Outlier strains (singleton-count modified z-score beyond threshold):</strong> B3476, h5384, 485B-1_L_OLD_CPA0023, CA14, 4545-MICE, GT-101, UTAH_23742X6, FMC778, GT-129, VFC084_CPA0067, GT-139, GT-160, GT-133, SOIL_604-1_L_OLD_CPA066, B11863, Michoacan_2, VFC083, CA1, GT-100, B11002, Cocci_1400035797, UTAH_20380X2, COCPO_34698, COCSP-3505, COCPO_195881, B14286, B11518, NACVFR_4542, SA14, GT-147, COCPO_4545, NACVFR_2566, 730333_Guatemala, B0858-Guatemala, 730332_Guatemala, 409B-0_L_OLD_CPA0011, UTAH_9443</p>
 <p><img src="figures/per_genome_class_composition.png" alt="Gene families per genome by frequency class" /></p>
 <h2>Accessory islands</h2>
 <p>22183 statistically significant accessory islands found (built from adjacency of non-core genes, gated by containing at least one FDR-significant physically-linked pair).</p>

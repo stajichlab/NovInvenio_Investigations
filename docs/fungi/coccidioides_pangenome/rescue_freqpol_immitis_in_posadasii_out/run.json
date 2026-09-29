@@ -1,9 +1,22 @@
 {
   "run": "rescue_freqpol_immitis_in_posadasii_out",
-  "published": "2026-09-28",
+  "published": "2026-09-29",
   "pipeline": "pangenome.nf",
   "source_dir": "studies/fungi/coccidioides_pangenome/results/rescue_freqpol_immitis_in_posadasii_out/output/pangenome",
-  "report_md_sha256": "02dac483db311fb926c88341e60feb6d88234e29e2da77d37db54b3802d4257b",
+  "report_md_sha256": "0961f3cb5a1fb131ca4fb35f4888c7278372d3c09e92e92c9e647208baf8922f",
   "n_families": 47745,
-  "n_strains": 529
+  "n_strains": 529,
+  "report_rerender": {
+    "report_steps_commit": "8c55750",
+    "steps": [
+      "FREQUENCY_BINS",
+      "REPORT_TABLES",
+      "ASSEMBLY_QUALITY_QC",
+      "DIAGNOSTICS",
+      "REPORT_RENDER"
+    ],
+    "reason": "NovInvenio #212 per-group frequency bins",
+    "rerendered": "2026-09-28",
+    "previous_outputs": "pre212_20260928/"
+  }
 }
