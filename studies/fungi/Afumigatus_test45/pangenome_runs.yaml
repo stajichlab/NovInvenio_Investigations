@@ -17,3 +17,9 @@ runs:
     samplesheet: config.csv
     publish: true
     current: true
+  # NovInvenio PR #215 (#193/#203): no Pfam HMM. Islands must still build;
+  # no Pfam, locus view or synteny output expected. Not published.
+  isl45_nopfam_v1:
+    samplesheet: config.csv
+    pipeline_commit: d3477f40c5457244355206e5758bca1a05b1356d
+    pfam_hmm: null

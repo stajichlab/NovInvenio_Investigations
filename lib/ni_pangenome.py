@@ -192,9 +192,7 @@ def check_run(spec: RunSpec, *, assets_root: Path) -> tuple[list[str], list[str]
                 errors.append(f"species_tree tips differ from samplesheet Short: "
                               f"extra in tree {extra[:20]}, missing from tree {absent[:20]}")
 
-    if spec.pfam_hmm is None:
-        warnings.append("pfam_hmm unset: BUILD_ISLANDS will not run (NovInvenio #193)")
-    elif not spec.pfam_hmm.is_file():
+    if spec.pfam_hmm is not None and not spec.pfam_hmm.is_file():
         errors.append(f"pfam_hmm {spec.pfam_hmm} not found")
 
     if spec.queue_config is not None and not spec.queue_config.is_file():
