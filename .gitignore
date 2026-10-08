@@ -129,3 +129,4 @@ studies/*/*/busco/
 studies/fungi/Afumigatus_pangenome/logs/
 # Old flat pipeline docs/ output kept on disk after the study/run migration (not published)
 studies/*/*/old_flat_docs_*/
+.tools/

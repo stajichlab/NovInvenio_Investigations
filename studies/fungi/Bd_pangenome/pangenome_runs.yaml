@@ -1,0 +1,21 @@
+# pangenome.nf runs for Bd_pangenome, launched with `bin/ni pangenome run`.
+# 344 B. dendrobatidis genomes (IN) + 2 B. salamandrivorans UniProt reference proteomes (OUT):
+# Bsal_AMFP13_ref (RefSeq-category reference genome GCA_002006685.2; protein from NCBI because UniProt marks UP000189906 Excluded) and Bsal_AMFP18_2_ref
+# (the UniProt reference proteome UP001648503, BUSCO C 91.2%).
+# TaxonGroup = Mash_A..E, from analysis/mash/ (Mash k=21 s=10000, average linkage, cut 0.004).
+# These are distance clusters, not named lineages; see analysis/mash/README.md.
+defaults:
+  pipeline_commit: 05fcf3abbd0b5156e1f5b84c11f6fc5ab173891e
+  pfam_hmm: /bigdata/stajichlab/jstajich/projects/NovInvenio/db/pfam/Pfam-A.hmm
+  queue_config: stajichlab_queue.config
+  head_job: {partition: exfab, account: exfab, time: 30-00:00:00, mem: 8G, cpus: 1}
+  params:
+    pangenome_cluster_backend: mmseqs
+    pangenome_rescue_enable: true
+runs:
+  full_v1:
+    samplesheet: config.csv
+    publish: true
+    current: true
+    params:
+      pangenome_island_reference_strains: Bd_JEL423
