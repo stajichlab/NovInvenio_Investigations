@@ -12,9 +12,14 @@ defaults:
     pangenome_cluster_backend: mmseqs
     pangenome_rescue_enable: true
 runs:
-  immitis_in_posadasii_out_v2:
+  immitis_in_posadasii_out_v2:   # failed at ISLAND_LOCI (NovInvenio #213); cache carried into _v3
     samplesheet: config_immitis_in_posadasii_out.csv
     species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
+    publish: true
+  immitis_in_posadasii_out_v3:   # d23dc94+ (#212, #213, #214, #215); resumes _v2's cache
+    samplesheet: config_immitis_in_posadasii_out.csv
+    species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
+    pipeline_commit: 3b045c684169ca08a3e383ad55030fe87110ab87
     publish: true
     current: true
   posadasii_in_immitis_out_v2:

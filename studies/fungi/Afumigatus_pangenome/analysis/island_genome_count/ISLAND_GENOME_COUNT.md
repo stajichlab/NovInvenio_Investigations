@@ -75,12 +75,19 @@ Per run: `outputs/sweep_summary.tsv`; per N: `outputs/sweep_by_n.tsv`.
   FDR-significant pairs; every run at >= 30 had > 1,500 islands.
 - Island genes in Starships: 14.8-20.6% at every N >= 30, vs a non-core
   background of 4.4-5.7%.
-- Not explained: N=121 here gives 8,226 islands vs 11,775 in full_v070 (same
-  strains, pipeline a394ace vs f87fd1e here). The cause was not checked; #212
-  (per-group frequency bins, merged between the two commits) is a candidate only.
-- Runtime above is the island steps only. The runtime of a real N-genome
-  pipeline run (clustering + rescue) was not measured here; in10_v1 (10
-  genomes) took 2 h 06 min end to end.
+- Explained (2026-10-08, `outputs/gap_check/`): N=121 here gave 8,226 islands vs 11,775 in
+  full_v070 because `scripts/make_subset.py` keeps only the kept strains' rows of
+  `family_positions.tsv.zst`. full_v070's PAIR_CLASSIFICATION saw gene positions for all 295
+  strains (123 representatives + 172 near-duplicates and outgroups). With the same
+  f87fd1e scripts and the same full_v070 co-occurrence output (1,363,573 pairs):
+  all 295 strains' positions give 11,775 islands (exactly full_v070); the 123 sweep strains'
+  positions give 8,226 (exactly this sweep). `insufficient_data` pairs: 71,662 vs 188,361;
+  `trans`: 564,245 vs 543,704. So script version (a394ace vs f87fd1e) and #212 are not the cause.
+  Consequence: island calls depend on positions from non-representative strains, which are
+  near-duplicates. The pair classifier counts them as co-carrying evidence
+  (`n_co_carrying`, `linkage_fraction` use every strain in family_positions, per a code review not rechecked line by line), so clones appear to act as
+  pseudo-replicates there. The N-sweep above therefore understates what the full run reports,
+  and a real run on N dereplicated genomes would resemble the sweep, not full_v070.
 
 ## Reproduce
 

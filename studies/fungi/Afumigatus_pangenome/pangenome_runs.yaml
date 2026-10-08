@@ -13,7 +13,11 @@ defaults:
     pangenome_cluster_backend: mmseqs
     pangenome_rescue_enable: true
 runs:
-  full_v070:
+  full_v070:                 # failed at ISLAND_LOCI (NovInvenio #213); cache carried into full_v071
     samplesheet: config.csv
+    publish: true
+  full_v071:                 # d23dc94+ (#212, #213, #214, #215); resumes full_v070's cache
+    samplesheet: config.csv
+    pipeline_commit: 3b045c684169ca08a3e383ad55030fe87110ab87
     publish: true
     current: true

@@ -1,0 +1,10 @@
+full	ambiguous_linkage	4624
+full	insufficient_data	71662
+full	trans_unconfirmed	712501
+full	trans	564245
+full	unexplained_physical	10541
+subset	ambiguous_linkage	4441
+subset	insufficient_data	188361
+subset	trans_unconfirmed	616803
+subset	trans	543704
+subset	unexplained_physical	10264
