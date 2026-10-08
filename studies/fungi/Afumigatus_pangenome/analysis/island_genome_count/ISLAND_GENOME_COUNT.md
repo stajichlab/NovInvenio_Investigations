@@ -83,11 +83,16 @@ Per run: `outputs/sweep_summary.tsv`; per N: `outputs/sweep_by_n.tsv`.
   all 295 strains' positions give 11,775 islands (exactly full_v070); the 123 sweep strains'
   positions give 8,226 (exactly this sweep). `insufficient_data` pairs: 71,662 vs 188,361;
   `trans`: 564,245 vs 543,704. So script version (a394ace vs f87fd1e) and #212 are not the cause.
-  Consequence: island calls depend on positions from non-representative strains, which are
-  near-duplicates. The pair classifier counts them as co-carrying evidence
-  (`n_co_carrying`, `linkage_fraction` use every strain in family_positions, per a code review not rechecked line by line), so clones appear to act as
-  pseudo-replicates there. The N-sweep above therefore understates what the full run reports,
-  and a real run on N dereplicated genomes would resemble the sweep, not full_v070.
+  Which step causes the drop (variant C, job 29630183, same scripts): pair classification
+  with the 123 representatives' positions but islands built from all 295 strains' positions
+  gives 11,676 islands, 99 fewer (0.8%) than 11,775. So the classification evidence
+  (`n_co_carrying`, `linkage_fraction`, which use every strain in family_positions) accounts for
+  about 100 islands. The other 3,450 (11,676 to 8,226) come from BUILDING islands with only the
+  representatives' positions: they are island entries found only in the 172 non-representative
+  strains. Whether those are islands that moved or were gained in near-identical strains, or
+  one-gene differences that split one island into several entries (islands are deduplicated on
+  the exact member set), was not tested. A real run on N dereplicated genomes would resemble
+  the sweep, not full_v070.
 
 ## Reproduce
 
