@@ -20,8 +20,15 @@ runs:
     samplesheet: config_immitis_in_posadasii_out.csv
     species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
     pipeline_commit: 3b045c684169ca08a3e383ad55030fe87110ab87
+    publish: false             # baseline for the v4 comparison; not published
+  immitis_in_posadasii_out_v4:   # 05fcf3a (#228-#231); resumes _v3's cache
+    samplesheet: config_immitis_in_posadasii_out.csv
+    species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
+    pipeline_commit: 05fcf3abbd0b5156e1f5b84c11f6fc5ab173891e
     publish: true
     current: true
+    params:
+      pangenome_island_reference_strains: RS,WA_211
   posadasii_in_immitis_out_v2:
     samplesheet: config_posadasii_in_immitis_out.csv
     species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk

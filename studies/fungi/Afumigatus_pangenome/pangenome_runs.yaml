@@ -19,5 +19,11 @@ runs:
   full_v071:                 # d23dc94+ (#212, #213, #214, #215); resumes full_v070's cache
     samplesheet: config.csv
     pipeline_commit: 3b045c684169ca08a3e383ad55030fe87110ab87
+    publish: false             # baseline for the v072 comparison; not published
+  full_v072:                 # 05fcf3a (#228 reps-only pair evidence, #229 shared columns, #230 permutation_q, #231 variable_gap); resumes full_v071's cache
+    samplesheet: config.csv
+    pipeline_commit: 05fcf3abbd0b5156e1f5b84c11f6fc5ab173891e
     publish: true
     current: true
+    params:
+      pangenome_island_reference_strains: Asfu_Af293,Asfu_A1163
