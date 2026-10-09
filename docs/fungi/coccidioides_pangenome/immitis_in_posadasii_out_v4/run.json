@@ -1,0 +1,14 @@
+{
+  "run": "immitis_in_posadasii_out_v4",
+  "published": "2026-10-09",
+  "pipeline": "pangenome.nf",
+  "source_dir": "studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v4/config_immitis_in_posadasii_out/pangenome",
+  "report_md_sha256": "9b9bbe79521aa0146e1a8f671fbe37730137263db2f59012882499dd838f108d",
+  "n_families": 47780,
+  "n_strains": 529,
+  "pipeline_repo": "stajichlab/NovInvenio",
+  "pipeline_commit": "05fcf3abbd0b5156e1f5b84c11f6fc5ab173891e",
+  "clinker_published": 25,
+  "clinker_total": 100,
+  "clinker_full_dir": "/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v4/config_immitis_in_posadasii_out/pangenome/clinker"
+}

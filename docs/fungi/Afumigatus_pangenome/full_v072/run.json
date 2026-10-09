@@ -1,0 +1,14 @@
+{
+  "run": "full_v072",
+  "published": "2026-10-09",
+  "pipeline": "pangenome.nf",
+  "source_dir": "studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome",
+  "report_md_sha256": "e35980dd17a75b6e813206bf4d89287202614747f7427819cad86493c4b168a7",
+  "n_families": 47954,
+  "n_strains": 295,
+  "pipeline_repo": "stajichlab/NovInvenio",
+  "pipeline_commit": "05fcf3abbd0b5156e1f5b84c11f6fc5ab173891e",
+  "clinker_published": 25,
+  "clinker_total": 100,
+  "clinker_full_dir": "/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/clinker"
+}

@@ -26,9 +26,17 @@ runs:
     species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
     pipeline_commit: 05fcf3abbd0b5156e1f5b84c11f6fc5ab173891e
     publish: true
+    params:
+      pangenome_island_reference_strains: RS,WA_211
+  immitis_in_posadasii_out_v5:   # a2836ad: NovInvenio PR #235 branch (Stratum column); resumes _v4's cache
+    samplesheet: config_immitis_in_posadasii_out.csv
+    species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
+    pipeline_commit: a2836adb5b4a8dace999d0d0699a3b23bcf1d0bc
+    publish: true
     current: true
     params:
       pangenome_island_reference_strains: RS,WA_211
+      pangenome_stratum_source: mash_clade
   posadasii_in_immitis_out_v2:
     samplesheet: config_posadasii_in_immitis_out.csv
     species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
