@@ -153,6 +153,13 @@ if [ "$HAS_ANNOTATIONS" -eq 1 ]; then
     [ -f "$RESULTS_DIR/presence_matrix.evalues.tsv" ] && NOV_ARGS+=(--evalues "$RESULTS_DIR/presence_matrix.evalues.tsv")
     [ -f "$RESULTS_DIR/context_presence.tsv" ] && NOV_ARGS+=(--context_matrix "$RESULTS_DIR/context_presence.tsv")
     [ -f "$RESULTS_DIR/context_presence.evalues.tsv" ] && NOV_ARGS+=(--context_evalues "$RESULTS_DIR/context_presence.evalues.tsv")
+    # Sidecars the pipeline's own REPORT step passes (2026-10-08: without them the regenerated page
+    # lost the other-group evidence, the low-coverage counts and the hit names).
+    [ -f "$RESULTS_DIR/presence_matrix.targets.tsv" ] && NOV_ARGS+=(--targets "$RESULTS_DIR/presence_matrix.targets.tsv")
+    [ -f "$RESULTS_DIR/descriptions.tsv" ] && NOV_ARGS+=(--descriptions "$RESULTS_DIR/descriptions.tsv")
+    [ -s "$RESULTS_DIR/presence_matrix.query_lowcov.tsv" ] && NOV_ARGS+=(--query_lowcov "$RESULTS_DIR/presence_matrix.query_lowcov.tsv")
+    [ -s "$RESULTS_DIR/presence_matrix.other_evidence.tsv.gz" ] && NOV_ARGS+=(--other_evidence "$RESULTS_DIR/presence_matrix.other_evidence.tsv.gz")
+    [ -s "$RESULTS_DIR/tblastn_summary.coverage.tsv.gz" ] && NOV_ARGS+=(--tblastn_coverage "$RESULTS_DIR/tblastn_summary.coverage.tsv.gz")
     PIPEPY make_report.py "${NOV_ARGS[@]}"
 
     echo "== regenerating core.html ==" >&2
@@ -164,6 +171,12 @@ if [ "$HAS_ANNOTATIONS" -eq 1 ]; then
         --output "$RESULTS_DIR/core.html"
     )
     [ -f "$RESULTS_DIR/clusters/clusters_cluster.tsv" ] && CORE_ARGS+=(--cluster_tsv "$RESULTS_DIR/clusters/clusters_cluster.tsv")
+    # The hit names on the core card need NovInvenio PR #234's --targets/--descriptions; an older
+    # checkout does not know them.
+    if PIPEPY make_core_report.py --help 2>/dev/null | grep -q -- "--targets"; then
+        [ -f "$RESULTS_DIR/presence_matrix.targets.tsv" ] && CORE_ARGS+=(--targets "$RESULTS_DIR/presence_matrix.targets.tsv")
+        [ -f "$RESULTS_DIR/descriptions.tsv" ] && CORE_ARGS+=(--descriptions "$RESULTS_DIR/descriptions.tsv")
+    fi
     PIPEPY make_core_report.py "${CORE_ARGS[@]}"
 
     if [ -f "$RESULTS_DIR/loss_presence_matrix.uniprot.tsv" ]; then
@@ -178,6 +191,8 @@ if [ "$HAS_ANNOTATIONS" -eq 1 ]; then
         )
         [ -f "$RESULTS_DIR/loss_tblastn_summary.tsv" ] && LOSSES_ARGS+=(--tblastn_summary "$RESULTS_DIR/loss_tblastn_summary.tsv")
         [ -f "$RESULTS_DIR/clusters/loss_clusters_cluster.tsv" ] && LOSSES_ARGS+=(--cluster_tsv "$RESULTS_DIR/clusters/loss_clusters_cluster.tsv")
+        [ -s "$RESULTS_DIR/loss_presence_matrix.other_evidence.tsv.gz" ] && LOSSES_ARGS+=(--other_evidence "$RESULTS_DIR/loss_presence_matrix.other_evidence.tsv.gz")
+        [ -s "$RESULTS_DIR/loss_tblastn_summary.coverage.tsv.gz" ] && LOSSES_ARGS+=(--tblastn_coverage "$RESULTS_DIR/loss_tblastn_summary.coverage.tsv.gz")
         PIPEPY make_losses_report.py "${LOSSES_ARGS[@]}"
     fi
     # Regenerated in place above, --online -- sync straight from $RESULTS_DIR.
