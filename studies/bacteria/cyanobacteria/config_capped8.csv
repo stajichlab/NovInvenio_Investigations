@@ -1,0 +1,273 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Aetokthonos hydrillicola,MAG-271,No_MAG271.pep.fa,No_MAG271.dna.fa,No_MAG271.gff3,No_MAG271,no-fsp-in-name
+IN,Aliinostoc maniaoense,TIOX60,No_TIOX60.pep.fa,No_TIOX60.dna.fa,No_TIOX60.gff3,No_TIOX60,no-fsp-in-name
+IN,Aliinostoc sp. HNIBRCY26,HNIBRCY26,No_HNIBRCY26.pep.fa,No_HNIBRCY26.dna.fa,No_HNIBRCY26.gff3,No_HNIBRCY26,no-fsp-in-name
+IN,Amazonocrinis nigriterrae,CENA67,No_CENA67.pep.fa,No_CENA67.dna.fa,No_CENA67.gff3,No_CENA67,no-fsp-in-name
+IN,Anabaena azotica,SJ-1,No_SJ1.pep.fa,No_SJ1.dna.fa,No_SJ1.gff3,No_SJ1,no-fsp-in-name
+IN,Anabaena cylindrica,PCC 7122,No_PCC_7122.pep.fa,No_PCC_7122.dna.fa,No_PCC_7122.gff3,No_PCC_7122,no-fsp-in-name
+IN,Anabaena sp. EIM26,EIM26,No_EIM26.pep.fa,No_EIM26.dna.fa,No_EIM26.gff3,No_EIM26,no-fsp-in-name
+IN,Anabaena sp. FACHB-595,FACHB-595,No_FACHB595.pep.fa,No_FACHB595.dna.fa,No_FACHB595.gff3,No_FACHB595,no-fsp-in-name
+IN,Anabaena sp. FACHB-709,FACHB-709,No_FACHB709.pep.fa,No_FACHB709.dna.fa,No_FACHB709.gff3,No_FACHB709,no-fsp-in-name
+IN,Anabaena sp. PCC 7938,ATCC 29414,No_ATCC_29414.pep.fa,No_ATCC_29414.dna.fa,No_ATCC_29414.gff3,No_ATCC_29414,no-fsp-in-name
+IN,Anabaena sp. TISTR 8404,TISTR 8404,No_TISTR_8404.pep.fa,No_TISTR_8404.dna.fa,No_TISTR_8404.gff3,No_TISTR_8404,no-fsp-in-name
+IN,Anabaena sp. YBS01,YBS01,No_YBS01.pep.fa,No_YBS01.dna.fa,No_YBS01.gff3,No_YBS01,no-fsp-in-name
+IN,Anabaenopsis arnoldii,CS-1033,No_CS1033.pep.fa,No_CS1033.dna.fa,No_CS1033.gff3,No_CS1033,no-fsp-in-name
+IN,Anabaenopsis circularis,NIES-21,No_NIES21.pep.fa,No_NIES21.dna.fa,No_NIES21.gff3,No_NIES21,no-fsp-in-name
+IN,Anabaenopsis elenkinii,CCIBt3563,No_CCIBt3563.pep.fa,No_CCIBt3563.dna.fa,No_CCIBt3563.gff3,No_CCIBt3563,no-fsp-in-name
+IN,Anabaenopsis sp. FSS-46,FSS-46,No_FSS46.pep.fa,No_FSS46.dna.fa,No_FSS46.gff3,No_FSS46,no-fsp-in-name
+IN,Anabaenopsis sp. NIES-4685,NIES-4685,No_NIES4685.pep.fa,No_NIES4685.dna.fa,No_NIES4685.gff3,No_NIES4685,no-fsp-in-name
+IN,Anabaenopsis tanganyikae,CS-531,No_CS531.pep.fa,No_CS531.dna.fa,No_CS531.gff3,No_CS531,no-fsp-in-name
+IN,Aphanizomenon flos-aquae,NIES-81,No_NIES81.pep.fa,No_NIES81.dna.fa,No_NIES81.gff3,No_NIES81,no-fsp-in-name
+IN,Aphanizomenon gracile,PMC627.10,No_PMC62710.pep.fa,No_PMC62710.dna.fa,No_PMC62710.gff3,No_PMC62710,no-fsp-in-name
+IN,Aphanizomenon klebahnii,CCAP 1401/3,No_CCAP_14013.pep.fa,No_CCAP_14013.dna.fa,No_CCAP_14013.gff3,No_CCAP_14013,no-fsp-in-name
+IN,Aphanizomenon sp. CS-733/32,CS-733/32,No_CS73332.pep.fa,No_CS73332.dna.fa,No_CS73332.gff3,No_CS73332,no-fsp-in-name
+IN,Aphanizomenon sp. FACHB-1399,FACHB-1399,No_FACHB1399.pep.fa,No_FACHB1399.dna.fa,No_FACHB1399.gff3,No_FACHB1399,no-fsp-in-name
+IN,Aphanizomenon sp. FACHB-1401,FACHB-1401,No_FACHB1401.pep.fa,No_FACHB1401.dna.fa,No_FACHB1401.gff3,No_FACHB1401,no-fsp-in-name
+IN,Aphanizomenon sp. PH219,PH219,No_PH219.pep.fa,No_PH219.dna.fa,No_PH219.gff3,No_PH219,no-fsp-in-name
+IN,Aphanizomenon sp. UHCC 0183,UHCC 0183,No_UHCC_0183.pep.fa,No_UHCC_0183.dna.fa,No_UHCC_0183.gff3,No_UHCC_0183,no-fsp-in-name
+IN,Atlanticothrix silvestris,CENA357,No_CENA357.pep.fa,No_CENA357.dna.fa,No_CENA357.gff3,No_CENA357,no-fsp-in-name
+IN,Aulosira laxa,NIES-50,No_NIES50.pep.fa,No_NIES50.dna.fa,No_NIES50.gff3,No_NIES50,no-fsp-in-name
+IN,Aulosira sp. DedQUE10,DedQUE10,No_DedQUE10.pep.fa,No_DedQUE10.dna.fa,No_DedQUE10.gff3,No_DedQUE10,no-fsp-in-name
+IN,Aulosira sp. DedVER01a,DedVER01a,No_DedVER01a.pep.fa,No_DedVER01a.dna.fa,No_DedVER01a.gff3,No_DedVER01a,no-fsp-in-name
+IN,Aulosira sp. FACHB-113,FACHB-113,No_FACHB113.pep.fa,No_FACHB113.dna.fa,No_FACHB113.gff3,No_FACHB113,no-fsp-in-name
+IN,Aulosira sp. FACHB-129,FACHB-129,No_FACHB129.pep.fa,No_FACHB129.dna.fa,No_FACHB129.gff3,No_FACHB129,no-fsp-in-name
+IN,Aulosira sp. FACHB-615,FACHB-615,No_FACHB615.pep.fa,No_FACHB615.dna.fa,No_FACHB615.gff3,No_FACHB615,no-fsp-in-name
+IN,Aulosira sp. ZfuCHP01,ZfuCHP01,No_ZfuCHP01.pep.fa,No_ZfuCHP01.dna.fa,No_ZfuCHP01.gff3,No_ZfuCHP01,no-fsp-in-name
+IN,Aulosira sp. ZfuVER01,ZfuVER01,No_ZfuVER01.pep.fa,No_ZfuVER01.dna.fa,No_ZfuVER01.gff3,No_ZfuVER01,no-fsp-in-name
+IN,Brasilonema angustatum,MAG-66,No_MAG66.pep.fa,No_MAG66.dna.fa,No_MAG66.gff3,No_MAG66,no-fsp-in-name
+IN,Brasilonema bromeliae,SPC951,No_SPC951.pep.fa,No_SPC951.dna.fa,No_SPC951.gff3,No_SPC951,no-fsp-in-name
+IN,Brasilonema octagenarum,UFV-E1,No_UFVE1.pep.fa,No_UFVE1.dna.fa,No_UFVE1.gff3,No_UFVE1,no-fsp-in-name
+IN,Brasilonema sennae,CENA114,No_CENA114.pep.fa,No_CENA114.dna.fa,No_CENA114.gff3,No_CENA114,no-fsp-in-name
+IN,Brasilonema sp.,TC-B1_metawrap_bin.4,No_TCB1_metawrap_bin4.pep.fa,No_TCB1_metawrap_bin4.dna.fa,No_TCB1_metawrap_bin4.gff3,No_TCB1_metawrap_bin4,no-fsp-in-name
+IN,Brasilonema sp. CT11,CT11,No_CT11.pep.fa,No_CT11.dna.fa,No_CT11.gff3,No_CT11,no-fsp-in-name
+IN,Brasilonema sp. UFV-L1,UFV-L1,No_UFVL1.pep.fa,No_UFVL1.dna.fa,No_UFVL1.gff3,No_UFVL1,no-fsp-in-name
+IN,Brunnivagina elsteri,CCALA 953,No_CCALA_953.pep.fa,No_CCALA_953.dna.fa,No_CCALA_953.gff3,No_CCALA_953,no-fsp-in-name
+IN,Calothrix brevissima,NIES-22,No_NIES22.pep.fa,No_NIES22.dna.fa,No_NIES22.gff3,No_NIES22,no-fsp-in-name
+IN,Calothrix parasitica,NIES-267,No_NIES267.pep.fa,No_NIES267.dna.fa,No_NIES267.gff3,No_NIES267,no-fsp-in-name
+IN,Calothrix sp. NIES-2098,NIES-2098,No_NIES2098.pep.fa,No_NIES2098.dna.fa,No_NIES2098.gff3,No_NIES2098,no-fsp-in-name
+IN,Calothrix sp. NIES-2100,NIES-2100,No_NIES2100.pep.fa,No_NIES2100.dna.fa,No_NIES2100.gff3,No_NIES2100,no-fsp-in-name
+IN,Calothrix sp. NIES-4071,NIES-4071,No_NIES4071.pep.fa,No_NIES4071.dna.fa,No_NIES4071.gff3,No_NIES4071,no-fsp-in-name
+IN,Calothrix sp. NIES-4105,NIES-4105,No_NIES4105.pep.fa,No_NIES4105.dna.fa,No_NIES4105.gff3,No_NIES4105,no-fsp-in-name
+IN,Calothrix sp. PCC 7103,PCC 7103,No_PCC_7103.pep.fa,No_PCC_7103.dna.fa,No_PCC_7103.gff3,No_PCC_7103,no-fsp-in-name
+IN,Calothrix sp. PCC 7716,PCC 7716,No_PCC_7716.pep.fa,No_PCC_7716.dna.fa,No_PCC_7716.gff3,No_PCC_7716,no-fsp-in-name
+IN,Chlorogloeopsis fritschii,PCC 6912,No_PCC_6912.pep.fa,No_PCC_6912.dna.fa,No_PCC_6912.gff3,No_PCC_6912,no-fsp-in-name
+IN,Chlorogloeopsis sp.,MAG6650,No_MAG6650.pep.fa,No_MAG6650.dna.fa,No_MAG6650.gff3,No_MAG6650,no-fsp-in-name
+IN,Chlorogloeopsis sp. ULAP01,ULAP01,No_ULAP01.pep.fa,No_ULAP01.dna.fa,No_ULAP01.gff3,No_ULAP01,no-fsp-in-name
+IN,Chlorogloeopsis sp. ULAP02,ULAP02,No_ULAP02.pep.fa,No_ULAP02.dna.fa,No_ULAP02.gff3,No_ULAP02,no-fsp-in-name
+IN,Chrysosporum bergii,ANA360D,No_ANA360D.pep.fa,No_ANA360D.dna.fa,No_ANA360D.gff3,No_ANA360D,no-fsp-in-name
+IN,Cronbergia sp. UHCC 0137,UHCC 0137,No_UHCC_0137.pep.fa,No_UHCC_0137.dna.fa,No_UHCC_0137.gff3,No_UHCC_0137,no-fsp-in-name
+IN,Cuspidothrix issatschenkoi,CHARLIE-1,No_CHARLIE1.pep.fa,No_CHARLIE1.dna.fa,No_CHARLIE1.gff3,No_CHARLIE1,no-fsp-in-name
+IN,Cuspidothrix sp.,samp_4446_concoct_778,No_samp_4446_concoct_778.pep.fa,No_samp_4446_concoct_778.dna.fa,No_samp_4446_concoct_778.gff3,No_samp_4446_concoct_778,no-fsp-in-name
+IN,Cyanocohniella sp. LLY,LLY,No_LLY.pep.fa,No_LLY.dna.fa,No_LLY.gff3,No_LLY,no-fsp-in-name
+IN,Cyanomargarita calcarea,MAG-2,No_MAG2.pep.fa,No_MAG2.dna.fa,No_MAG2.gff3,No_MAG2,no-fsp-in-name
+IN,Cylindrospermopsis raciborskii,Cr2010,No_Cr2010.pep.fa,No_Cr2010.dna.fa,No_Cr2010.gff3,No_Cr2010,no-fsp-in-name
+IN,Cylindrospermopsis sp. CR12,CR12,No_CR12.pep.fa,No_CR12.dna.fa,No_CR12.gff3,No_CR12,no-fsp-in-name
+IN,Cylindrospermum sp. FACHB-282,FACHB-282,No_FACHB282.pep.fa,No_FACHB282.dna.fa,No_FACHB282.gff3,No_FACHB282,no-fsp-in-name
+IN,Cylindrospermum sp. NIES-4074,NIES-4074,No_NIES4074.pep.fa,No_NIES4074.dna.fa,No_NIES4074.gff3,No_NIES4074,no-fsp-in-name
+IN,Cylindrospermum stagnale,PCC 7417,No_PCC_7417.pep.fa,No_PCC_7417.dna.fa,No_PCC_7417.gff3,No_PCC_7417,no-fsp-in-name
+IN,Dendronalium phyllosphericum,CENA369,No_CENA369.pep.fa,No_CENA369.dna.fa,No_CENA369.gff3,No_CENA369,no-fsp-in-name
+IN,Dendronalium sp. ChiSLP03b,ChiSLP03b,No_ChiSLP03b.pep.fa,No_ChiSLP03b.dna.fa,No_ChiSLP03b.gff3,No_ChiSLP03b,no-fsp-in-name
+IN,Desmonostoc muscorum,CCALA 125,No_CCALA_125.pep.fa,No_CCALA_125.dna.fa,No_CCALA_125.gff3,No_CCALA_125,no-fsp-in-name
+IN,Desmonostoc sp.,MAG-31,No_MAG31.pep.fa,No_MAG31.dna.fa,No_MAG31.gff3,No_MAG31,no-fsp-in-name
+IN,Desmonostoc vinosum,MAG-72,No_MAG72.pep.fa,No_MAG72.dna.fa,No_MAG72.gff3,No_MAG72,no-fsp-in-name
+IN,Dolichospermum heterosporum,NIES-1697,No_NIES1697.pep.fa,No_NIES1697.dna.fa,No_NIES1697.gff3,No_NIES1697,no-fsp-in-name
+IN,Dolichospermum sp. BR01,BR01,No_BR01.pep.fa,No_BR01.dna.fa,No_BR01.gff3,No_BR01,no-fsp-in-name
+IN,Dolichospermum sp. DET50,DET50,No_DET50.pep.fa,No_DET50.dna.fa,No_DET50.gff3,No_DET50,no-fsp-in-name
+IN,Dolichospermum sp. DET66,DET66,No_DET66.pep.fa,No_DET66.dna.fa,No_DET66.gff3,No_DET66,no-fsp-in-name
+IN,Dolichospermum sp. DET67,DET67,No_DET67.pep.fa,No_DET67.dna.fa,No_DET67.gff3,No_DET67,no-fsp-in-name
+IN,Dolichospermum sp. DET68,DET68,No_DET68.pep.fa,No_DET68.dna.fa,No_DET68.gff3,No_DET68,no-fsp-in-name
+IN,Dolichospermum sp. DET69,DET69,No_DET69.pep.fa,No_DET69.dna.fa,No_DET69.gff3,No_DET69,no-fsp-in-name
+IN,Dolichospermum sp. UHCC 0315A,UHCC 0315A,No_UHCC_0315A.pep.fa,No_UHCC_0315A.dna.fa,No_UHCC_0315A.gff3,No_UHCC_0315A,no-fsp-in-name
+IN,Dulcicalothrix desertica,PCC 7102,No_PCC_7102.pep.fa,No_PCC_7102.dna.fa,No_PCC_7102.gff3,No_PCC_7102,no-fsp-in-name
+IN,Fischerella major,NIES-592,No_NIES592.pep.fa,No_NIES592.dna.fa,No_NIES592.gff3,No_NIES592,no-fsp-in-name
+IN,Fischerella sp. CENA71,CENA71,No_CENA71.pep.fa,No_CENA71.dna.fa,No_CENA71.gff3,No_CENA71,no-fsp-in-name
+IN,Fischerella sp. JS2,JS2,No_JS2.pep.fa,No_JS2.dna.fa,No_JS2.gff3,No_JS2,no-fsp-in-name
+IN,Fischerella sp. NIES-3754,NIES-3754,No_NIES3754.pep.fa,No_NIES3754.dna.fa,No_NIES3754.gff3,No_NIES3754,no-fsp-in-name
+IN,Fischerella sp. NIES-4106,NIES-4106,No_NIES4106.pep.fa,No_NIES4106.dna.fa,No_NIES4106.gff3,No_NIES4106,no-fsp-in-name
+IN,Fischerella sp. PCC 9339,PCC 9339,No_PCC_9339.pep.fa,No_PCC_9339.dna.fa,No_PCC_9339.gff3,No_PCC_9339,no-fsp-in-name
+IN,Fischerella sp. PCC 9431,PCC 9431,No_PCC_9431.pep.fa,No_PCC_9431.dna.fa,No_PCC_9431.gff3,No_PCC_9431,no-fsp-in-name
+IN,Fischerella sp. PCC 9605,PCC 9605,No_PCC_9605.pep.fa,No_PCC_9605.dna.fa,No_PCC_9605.gff3,No_PCC_9605,no-fsp-in-name
+IN,Fortiea contorta,PCC 7126,No_PCC_7126.pep.fa,No_PCC_7126.dna.fa,No_PCC_7126.gff3,No_PCC_7126,no-fsp-in-name
+IN,Fortiea sp. LEGE XX443,LEGE XX443,No_LEGE_XX443.pep.fa,No_LEGE_XX443.dna.fa,No_LEGE_XX443.gff3,No_LEGE_XX443,no-fsp-in-name
+IN,Gloeotrichia echinulata,CP02,No_CP02.pep.fa,No_CP02.dna.fa,No_CP02.gff3,No_CP02,no-fsp-in-name
+IN,Goleter apudmare,HA4340-LM2,No_HA4340LM2.pep.fa,No_HA4340LM2.dna.fa,No_HA4340LM2.gff3,No_HA4340LM2,no-fsp-in-name
+IN,Goleter sp.,MAG-115,No_MAG115.pep.fa,No_MAG115.dna.fa,No_MAG115.gff3,No_MAG115,no-fsp-in-name
+IN,Halotia branconii,CENA392,No_CENA392.pep.fa,No_CENA392.dna.fa,No_CENA392.gff3,No_CENA392,no-fsp-in-name
+IN,Halotia wernerae,UHCC 0503,No_UHCC_0503.pep.fa,No_UHCC_0503.dna.fa,No_UHCC_0503.gff3,No_UHCC_0503,no-fsp-in-name
+IN,Hapalosiphon sp. MRB220,MRB220,No_MRB220.pep.fa,No_MRB220.dna.fa,No_MRB220.gff3,No_MRB220,no-fsp-in-name
+IN,Hapalosiphonaceae cyanobacterium JJU2,JJU2,No_JJU2.pep.fa,No_JJU2.dna.fa,No_JJU2.gff3,No_JJU2,no-fsp-in-name
+IN,Hassallia byssoidea,VB512170,No_VB512170.pep.fa,No_VB512170.dna.fa,No_VB512170.gff3,No_VB512170,no-fsp-in-name
+IN,Hassallia sp.,MAG-395,No_MAG395.pep.fa,No_MAG395.dna.fa,No_MAG395.gff3,No_MAG395,no-fsp-in-name
+IN,Hassallia sp. WJT32-NPBG1,WJT32-NPBG1,No_WJT32NPBG1.pep.fa,No_WJT32NPBG1.dna.fa,No_WJT32NPBG1.gff3,No_WJT32NPBG1,no-fsp-in-name
+IN,Heteroscytonema crispum,UTEX LB 1556,No_UTEX_LB_1556.pep.fa,No_UTEX_LB_1556.dna.fa,No_UTEX_LB_1556.gff3,No_UTEX_LB_1556,no-fsp-in-name
+IN,Iningainema tapete,BLCC-T55,No_BLCCT55.pep.fa,No_BLCCT55.dna.fa,No_BLCCT55.gff3,No_BLCCT55,no-fsp-in-name
+IN,Iphinoe sp. HA4291-MV1,HA4291-MV1,No_HA4291MV1.pep.fa,No_HA4291MV1.dna.fa,No_HA4291MV1.gff3,No_HA4291MV1,no-fsp-in-name
+IN,Kaarinaea lacus,SNW_BASALT_bin2941,No_SNW_BASALT_bin2941.pep.fa,No_SNW_BASALT_bin2941.dna.fa,No_SNW_BASALT_bin2941.gff3,No_SNW_BASALT_bin2941,no-fsp-in-name
+IN,Kalymmatonema gypsitolerans,NIES-4073,No_NIES4073.pep.fa,No_NIES4073.dna.fa,No_NIES4073.gff3,No_NIES4073,no-fsp-in-name
+IN,Kalymmatonema hyalinum,WJT4-NPBG1,No_WJT4NPBG1.pep.fa,No_WJT4NPBG1.dna.fa,No_WJT4NPBG1.gff3,No_WJT4NPBG1,no-fsp-in-name
+IN,Komarekiella atlantica,MAG-40,No_MAG40.pep.fa,No_MAG40.dna.fa,No_MAG40.gff3,No_MAG40,no-fsp-in-name
+IN,Komarekiella delphini-convector,SJRDD-AB1,No_SJRDDAB1.pep.fa,No_SJRDDAB1.dna.fa,No_SJRDDAB1.gff3,No_SJRDDAB1,no-fsp-in-name
+IN,Mastigocladopsis repens,PCC 10914,No_PCC_10914.pep.fa,No_PCC_10914.dna.fa,No_PCC_10914.gff3,No_PCC_10914,no-fsp-in-name
+IN,Mastigocladus laminosus,UU774,No_UU774.pep.fa,No_UU774.dna.fa,No_UU774.gff3,No_UU774,no-fsp-in-name
+IN,Mastigocladus sp. ERB_26_1,ERB_26_1,No_ERB_26_1.pep.fa,No_ERB_26_1.dna.fa,No_ERB_26_1.gff3,No_ERB_26_1,no-fsp-in-name
+IN,Mastigocladus sp. ERB_26_2,ERB_26_2,No_ERB_26_2.pep.fa,No_ERB_26_2.dna.fa,No_ERB_26_2.gff3,No_ERB_26_2,no-fsp-in-name
+IN,Mastigocoleus sp.,pac_S11C2856_1,No_pac_S11C2856_1.pep.fa,No_pac_S11C2856_1.dna.fa,No_pac_S11C2856_1.gff3,No_pac_S11C2856_1,no-fsp-in-name
+IN,Mastigocoleus sp. MO_167.B18,MO_167.B18,No_MO_167B18.pep.fa,No_MO_167B18.dna.fa,No_MO_167B18.gff3,No_MO_167B18,no-fsp-in-name
+IN,Mastigocoleus sp. MO_188.B34,MO_188.B34,No_MO_188B34.pep.fa,No_MO_188B34.dna.fa,No_MO_188B34.gff3,No_MO_188B34,no-fsp-in-name
+IN,Mastigocoleus testarum,BC008,No_BC008.pep.fa,No_BC008.dna.fa,No_BC008.gff3,No_BC008,no-fsp-in-name
+IN,Microchaete diplosiphon,NIES-3275,No_NIES3275.pep.fa,No_NIES3275.dna.fa,No_NIES3275.gff3,No_NIES3275,no-fsp-in-name
+IN,Mojavia pulchra,JT2-VF2,No_JT2VF2.pep.fa,No_JT2VF2.dna.fa,No_JT2VF2.gff3,No_JT2VF2,no-fsp-in-name
+IN,Mojavia sp.,MAG-256,No_MAG256.pep.fa,No_MAG256.dna.fa,No_MAG256.gff3,No_MAG256,no-fsp-in-name
+IN,Neowestiellopsis sp. NC-DW,NC-DW,No_NCDW.pep.fa,No_NCDW.dna.fa,No_NCDW.gff3,No_NCDW,no-fsp-in-name
+IN,Nodularia harveyana,UHCC-0300,No_UHCC0300.pep.fa,No_UHCC0300.dna.fa,No_UHCC0300.gff3,No_UHCC0300,no-fsp-in-name
+IN,Nodularia sp. CChRGM 3473,CChRGM 3473,No_CChRGM_3473.pep.fa,No_CChRGM_3473.dna.fa,No_CChRGM_3473.gff3,No_CChRGM_3473,no-fsp-in-name
+IN,Nodularia sp. LEGE 04288,LEGE 04288,No_LEGE_04288.pep.fa,No_LEGE_04288.dna.fa,No_LEGE_04288.gff3,No_LEGE_04288,no-fsp-in-name
+IN,Nodularia sp. LEGE 06071,LEGE 06071,No_LEGE_06071.pep.fa,No_LEGE_06071.dna.fa,No_LEGE_06071.gff3,No_LEGE_06071,no-fsp-in-name
+IN,Nodularia sp. NIES-3585,NIES-3585,No_NIES3585.pep.fa,No_NIES3585.dna.fa,No_NIES3585.gff3,No_NIES3585,no-fsp-in-name
+IN,Nodularia sp. UHCC 0506,UHCC 0506,No_UHCC_0506.pep.fa,No_UHCC_0506.dna.fa,No_UHCC_0506.gff3,No_UHCC_0506,no-fsp-in-name
+IN,Nodularia sphaerocarpa,UHCC 0038,No_UHCC_0038.pep.fa,No_UHCC_0038.dna.fa,No_UHCC_0038.gff3,No_UHCC_0038,no-fsp-in-name
+IN,Nodularia spumigena,CCY9414,No_CCY9414.pep.fa,No_CCY9414.dna.fa,No_CCY9414.gff3,No_CCY9414,no-fsp-in-name
+IN,Nostoc carneum,NIES-2107,No_NIES2107.pep.fa,No_NIES2107.dna.fa,No_NIES2107.gff3,No_NIES2107,no-fsp-in-name
+IN,Nostoc flagelliforme,CCNUN1,No_CCNUN1.pep.fa,No_CCNUN1.dna.fa,No_CCNUN1.gff3,No_CCNUN1,no-fsp-in-name
+IN,Nostoc sp. DSM 114159,DSM 114159,No_DSM_114159.pep.fa,No_DSM_114159.dna.fa,No_DSM_114159.gff3,No_DSM_114159,no-fsp-in-name
+IN,Nostoc sp. DSM 114161,DSM 114161,No_DSM_114161.pep.fa,No_DSM_114161.dna.fa,No_DSM_114161.gff3,No_DSM_114161,no-fsp-in-name
+IN,Nostoc sp. DSM 114167,DSM 114167,No_DSM_114167.pep.fa,No_DSM_114167.dna.fa,No_DSM_114167.gff3,No_DSM_114167,no-fsp-in-name
+IN,Nostoc sp. NIES-4103,NIES-4103,No_NIES4103.pep.fa,No_NIES4103.dna.fa,No_NIES4103.gff3,No_NIES4103,no-fsp-in-name
+IN,Nostoc sp. UHCC 0302,UHCC 0302,No_UHCC_0302.pep.fa,No_UHCC_0302.dna.fa,No_UHCC_0302.gff3,No_UHCC_0302,no-fsp-in-name
+IN,Nostoc sp. UHCC 0702,UHCC 0702,No_UHCC_0702.pep.fa,No_UHCC_0702.dna.fa,No_UHCC_0702.gff3,No_UHCC_0702,no-fsp-in-name
+IN,Nostocaceae cyanobacterium,MGR_bin409,No_MGR_bin409.pep.fa,No_MGR_bin409.dna.fa,No_MGR_bin409.gff3,No_MGR_bin409,no-fsp-in-name
+IN,Nostocaceae cyanobacterium CSU_2_110,CSU_2_110,No_CSU_2_110.pep.fa,No_CSU_2_110.dna.fa,No_CSU_2_110.gff3,No_CSU_2_110,no-fsp-in-name
+IN,Nostocales cyanobacterium,PH2015_08D_39_10,No_PH2015_08D_39_10.pep.fa,No_PH2015_08D_39_10.dna.fa,No_PH2015_08D_39_10.gff3,No_PH2015_08D_39_10,no-fsp-in-name
+IN,Nostocales cyanobacterium 94392,94392,No_94392.pep.fa,No_94392.dna.fa,No_94392.gff3,No_94392,no-fsp-in-name
+IN,Nostocales cyanobacterium HT-58-2,HT-58-2,No_HT582.pep.fa,No_HT582.dna.fa,No_HT582.gff3,No_HT582,no-fsp-in-name
+IN,Nostocales cyanobacterium LE14-WE12,LE14-WE12,No_LE14WE12.pep.fa,No_LE14WE12.dna.fa,No_LE14WE12.gff3,No_LE14WE12,no-fsp-in-name
+IN,Nostocales cyanobacterium LE14-WE4,LE14-WE4,No_LE14WE4.pep.fa,No_LE14WE4.dna.fa,No_LE14WE4.gff3,No_LE14WE4,no-fsp-in-name
+IN,Nostocales cyanobacterium LEGE 11386,LEGE 11386,No_LEGE_11386.pep.fa,No_LEGE_11386.dna.fa,No_LEGE_11386.gff3,No_LEGE_11386,no-fsp-in-name
+IN,Nostocales cyanobacterium LEGE 12452,LEGE 12452,No_LEGE_12452.pep.fa,No_LEGE_12452.dna.fa,No_LEGE_12452.gff3,No_LEGE_12452,no-fsp-in-name
+IN,Nostocales cyanobacterium LacPavin_0920_SED1_MAG_38_18,LacPavin_0920_SED1_MAG_38_18,No_LacPavin_0920_SED1_MAG_38_18.pep.fa,No_LacPavin_0920_SED1_MAG_38_18.dna.fa,No_LacPavin_0920_SED1_MAG_38_18.gff3,No_LacPavin_0920_SED1_MAG_38_18,no-fsp-in-name
+IN,Nostochopsis sp.,Haneayah,No_Haneayah.pep.fa,No_Haneayah.dna.fa,No_Haneayah.gff3,No_Haneayah,no-fsp-in-name
+IN,Okeanomitos corallinicola,TIOX110,No_TIOX110.pep.fa,No_TIOX110.dna.fa,No_TIOX110.gff3,No_TIOX110,no-fsp-in-name
+IN,Pelatocladus maniniholoensis,HA4357-MV3,No_HA4357MV3.pep.fa,No_HA4357MV3.dna.fa,No_HA4357MV3.gff3,No_HA4357MV3,no-fsp-in-name
+IN,Pelatocladus sp.,MAG-53,No_MAG53.pep.fa,No_MAG53.dna.fa,No_MAG53.gff3,No_MAG53,no-fsp-in-name
+IN,Pelatocladus sp. BLCC-F211,BLCC-F211,No_BLCCF211.pep.fa,No_BLCCF211.dna.fa,No_BLCCF211.gff3,No_BLCCF211,no-fsp-in-name
+IN,Raphidiopsis brookii,D9,No_D9.pep.fa,No_D9.dna.fa,No_D9.gff3,No_D9,no-fsp-in-name
+IN,Raphidiopsis curvata,NIES-932,No_NIES932.pep.fa,No_NIES932.dna.fa,No_NIES932.gff3,No_NIES932,no-fsp-in-name
+IN,Raphidiopsis curvispora,GIHE-G1,No_GIHEG1.pep.fa,No_GIHEG1.dna.fa,No_GIHEG1.gff3,No_GIHEG1,no-fsp-in-name
+IN,Raphidiopsis sp. BLCC-F218,BLCC-F218,No_BLCCF218.pep.fa,No_BLCCF218.dna.fa,No_BLCCF218.gff3,No_BLCCF218,no-fsp-in-name
+IN,Rhizonema sp. NSF051,NSF051,No_NSF051.pep.fa,No_NSF051.dna.fa,No_NSF051.gff3,No_NSF051,no-fsp-in-name
+IN,Rhizonema sp. PD37,PD37,No_PD37.pep.fa,No_PD37.dna.fa,No_PD37.gff3,No_PD37,no-fsp-in-name
+IN,Rhizonema sp. PD38,PD38,No_PD38.pep.fa,No_PD38.dna.fa,No_PD38.gff3,No_PD38,no-fsp-in-name
+IN,Richelia intracellularis,RC01,No_RC01.pep.fa,No_RC01.dna.fa,No_RC01.gff3,No_RC01,no-fsp-in-name
+IN,Richelia sinica,FACHB 800,No_FACHB_800.pep.fa,No_FACHB_800.dna.fa,No_FACHB_800.gff3,No_FACHB_800,no-fsp-in-name
+IN,Richelia sp. CSU_2_1,CSU_2_1,No_CSU_2_1.pep.fa,No_CSU_2_1.dna.fa,No_CSU_2_1.gff3,No_CSU_2_1,no-fsp-in-name
+IN,Richelia sp. RM1_1_1,RM1_1_1,No_RM1_1_1.pep.fa,No_RM1_1_1.dna.fa,No_RM1_1_1.gff3,No_RM1_1_1,no-fsp-in-name
+IN,Richelia sp. RM2_1_2,RM2_1_2,No_RM2_1_2.pep.fa,No_RM2_1_2.dna.fa,No_RM2_1_2.gff3,No_RM2_1_2,no-fsp-in-name
+IN,Richelia sp. SL_2_1,SL_2_1,No_SL_2_1.pep.fa,No_SL_2_1.dna.fa,No_SL_2_1.gff3,No_SL_2_1,no-fsp-in-name
+IN,Richelia sp. SM1_7_0,SM1_7_0,No_SM1_7_0.pep.fa,No_SM1_7_0.dna.fa,No_SM1_7_0.gff3,No_SM1_7_0,no-fsp-in-name
+IN,Richelia sp. SM2_1_7,SM2_1_7,No_SM2_1_7.pep.fa,No_SM2_1_7.dna.fa,No_SM2_1_7.gff3,No_SM2_1_7,no-fsp-in-name
+IN,Rivularia sp. (in: cyanobacteria),MFD12149_ilm_asm_bin21,No_MFD12149_ilm_asm_bin21.pep.fa,No_MFD12149_ilm_asm_bin21.dna.fa,No_MFD12149_ilm_asm_bin21.gff3,No_MFD12149_ilm_asm_bin21,no-fsp-in-name
+IN,Rivularia sp. ALOHA_DT_140,ALOHA_DT_140,No_ALOHA_DT_140.pep.fa,No_ALOHA_DT_140.dna.fa,No_ALOHA_DT_140.gff3,No_ALOHA_DT_140,no-fsp-in-name
+IN,Rivularia sp. IAM M-261,IAM M-261,No_IAM_M261.pep.fa,No_IAM_M261.dna.fa,No_IAM_M261.gff3,No_IAM_M261,no-fsp-in-name
+IN,Rivularia sp. MS3,MS3,No_MS3.pep.fa,No_MS3.dna.fa,No_MS3.gff3,No_MS3,no-fsp-in-name
+IN,Rivularia sp. PCC 7116,PCC 7116,No_PCC_7116.pep.fa,No_PCC_7116.dna.fa,No_PCC_7116.gff3,No_PCC_7116,no-fsp-in-name
+IN,Rivularia sp. T60_A2020_040,T60_A2020_040,No_T60_A2020_040.pep.fa,No_T60_A2020_040.dna.fa,No_T60_A2020_040.gff3,No_T60_A2020_040,no-fsp-in-name
+IN,Rivularia sp. UHCC 0363,UHCC 0363,No_UHCC_0363.pep.fa,No_UHCC_0363.dna.fa,No_UHCC_0363.gff3,No_UHCC_0363,no-fsp-in-name
+IN,Scytonema hankhaensis,NUACC26,No_NUACC26.pep.fa,No_NUACC26.dna.fa,No_NUACC26.gff3,No_NUACC26,no-fsp-in-name
+IN,Scytonema hofmannii,PCC 7110,No_PCC_7110.pep.fa,No_PCC_7110.dna.fa,No_PCC_7110.gff3,No_PCC_7110,no-fsp-in-name
+IN,Scytonema millei,VB511283,No_VB511283.pep.fa,No_VB511283.dna.fa,No_VB511283.gff3,No_VB511283,no-fsp-in-name
+IN,Scytonema sp. HK-05,NIES-2130,No_NIES2130.pep.fa,No_NIES2130.dna.fa,No_NIES2130.gff3,No_NIES2130,no-fsp-in-name
+IN,Scytonema sp. NUACC21,NUACC21,No_NUACC21.pep.fa,No_NUACC21.dna.fa,No_NUACC21.gff3,No_NUACC21,no-fsp-in-name
+IN,Scytonema sp. PCC 10023,Scytonema sp. PCC 10023,No_Scytonema_sp_PCC_10023.pep.fa,No_Scytonema_sp_PCC_10023.dna.fa,No_Scytonema_sp_PCC_10023.gff3,No_Scytonema_sp_PCC_10023,no-fsp-in-name
+IN,Scytonema sp. PRP1,PRP1,No_PRP1.pep.fa,No_PRP1.dna.fa,No_PRP1.gff3,No_PRP1,no-fsp-in-name
+IN,Scytonema tolypothrichoides,VB-61278,No_VB61278.pep.fa,No_VB61278.dna.fa,No_VB61278.gff3,No_VB61278,no-fsp-in-name
+IN,Sphaerospermopsis aphanizomenoides,BCCUSP55,No_BCCUSP55.pep.fa,No_BCCUSP55.dna.fa,No_BCCUSP55.gff3,No_BCCUSP55,no-fsp-in-name
+IN,Sphaerospermopsis kisseleviana,NIES-73,No_NIES73.pep.fa,No_NIES73.dna.fa,No_NIES73.gff3,No_NIES73,no-fsp-in-name
+IN,Sphaerospermopsis sp. FACHB-1094,FACHB-1094,No_FACHB1094.pep.fa,No_FACHB1094.dna.fa,No_FACHB1094.gff3,No_FACHB1094,no-fsp-in-name
+IN,Sphaerospermopsis sp. FACHB-1194,FACHB-1194,No_FACHB1194.pep.fa,No_FACHB1194.dna.fa,No_FACHB1194.gff3,No_FACHB1194,no-fsp-in-name
+IN,Sphaerospermopsis sp. LEGE 00249,LEGE 00249,No_LEGE_00249.pep.fa,No_LEGE_00249.dna.fa,No_LEGE_00249.gff3,No_LEGE_00249,no-fsp-in-name
+IN,Sphaerospermopsis sp. LEGE 08334,LEGE 08334,No_LEGE_08334.pep.fa,No_LEGE_08334.dna.fa,No_LEGE_08334.gff3,No_LEGE_08334,no-fsp-in-name
+IN,Sphaerospermopsis sp. SIO1G1,SIO1G1,No_SIO1G1.pep.fa,No_SIO1G1.dna.fa,No_SIO1G1.gff3,No_SIO1G1,no-fsp-in-name
+IN,Sphaerospermopsis torques-reginae,ITEP-024,No_ITEP024.pep.fa,No_ITEP024.dna.fa,No_ITEP024.gff3,No_ITEP024,no-fsp-in-name
+IN,Spirirestis rafaelensis,MAG-19,No_MAG19.pep.fa,No_MAG19.dna.fa,No_MAG19.gff3,No_MAG19,no-fsp-in-name
+IN,Stigonema ocellatum,JP211,No_JP211.pep.fa,No_JP211.dna.fa,No_JP211.gff3,No_JP211,no-fsp-in-name
+IN,Tolypothrix bouteillei,VB521301,No_VB521301.pep.fa,No_VB521301.dna.fa,No_VB521301.gff3,No_VB521301,no-fsp-in-name
+IN,Tolypothrix brevis,GSE-NOS-MK-07-07A,No_GSENOSMK0707A.pep.fa,No_GSENOSMK0707A.dna.fa,No_GSENOSMK0707A.gff3,No_GSENOSMK0707A,no-fsp-in-name
+IN,Tolypothrix campylonemoides,VB511288,No_VB511288.pep.fa,No_VB511288.dna.fa,No_VB511288.gff3,No_VB511288,no-fsp-in-name
+IN,Tolypothrix sp. NIES-4075,NIES-4075,No_NIES4075.pep.fa,No_NIES4075.dna.fa,No_NIES4075.gff3,No_NIES4075,no-fsp-in-name
+IN,Tolypothrix sp. PCC 7601,PCC 7601,No_PCC_7601.pep.fa,No_PCC_7601.dna.fa,No_PCC_7601.gff3,No_PCC_7601,no-fsp-in-name
+IN,Tolypothrix sp. PCC 7712,PCC 7712,No_PCC_7712.pep.fa,No_PCC_7712.dna.fa,No_PCC_7712.gff3,No_PCC_7712,no-fsp-in-name
+IN,Tolypothrix sp. PCC 7910,PCC 7910,No_PCC_7910.pep.fa,No_PCC_7910.dna.fa,No_PCC_7910.gff3,No_PCC_7910,no-fsp-in-name
+IN,Tolypothrix tenuis,NIES-37,No_NIES37.pep.fa,No_NIES37.dna.fa,No_NIES37.gff3,No_NIES37,no-fsp-in-name
+IN,Trichormus azollae,0708,No_0708.pep.fa,No_0708.dna.fa,No_0708.gff3,No_0708,no-fsp-in-name
+IN,Trichormus sp.,SMAG_U16483,No_SMAG_U16483.pep.fa,No_SMAG_U16483.dna.fa,No_SMAG_U16483.gff3,No_SMAG_U16483,no-fsp-in-name
+IN,Trichormus sp. ATA11-4-KO1,ATA11-4-KO1,No_ATA114KO1.pep.fa,No_ATA114KO1.dna.fa,No_ATA114KO1.gff3,No_ATA114KO1,no-fsp-in-name
+IN,Trichormus sp. M33_DOE_039,M33_DOE_039,No_M33_DOE_039.pep.fa,No_M33_DOE_039.dna.fa,No_M33_DOE_039.gff3,No_M33_DOE_039,no-fsp-in-name
+IN,Trichormus sp. NMC-1,NMC-1,No_NMC1.pep.fa,No_NMC1.dna.fa,No_NMC1.gff3,No_NMC1,no-fsp-in-name
+IN,Trichormus variabilis,0441,No_0441.pep.fa,No_0441.dna.fa,No_0441.gff3,No_0441,no-fsp-in-name
+IN,Umezakia ovalisporum,Ak1311,No_Ak1311.pep.fa,No_Ak1311.dna.fa,No_Ak1311.gff3,No_Ak1311,no-fsp-in-name
+IN,Westiellopsis prolifica,IICB1,No_IICB1.pep.fa,No_IICB1.dna.fa,No_IICB1.gff3,No_IICB1,no-fsp-in-name
+IN,Westiellopsis ramosa,NRMC-F 0431,No_NRMCF_0431.pep.fa,No_NRMCF_0431.dna.fa,No_NRMCF_0431.gff3,No_NRMCF_0431,no-fsp-in-name
+IN,[Scytonema hofmanni] UTEX B 1581,UTEX 2349,No_UTEX_2349.pep.fa,No_UTEX_2349.dna.fa,No_UTEX_2349.gff3,No_UTEX_2349,no-fsp-in-name
+IN,aff. Roholtiella sp. LEGE 12411,LEGE 12411,No_LEGE_12411.pep.fa,No_LEGE_12411.dna.fa,No_LEGE_12411.gff3,No_LEGE_12411,no-fsp-in-name
+IN,cyanobacterium PCC 7702,PCC 7702,No_PCC_7702.pep.fa,No_PCC_7702.dna.fa,No_PCC_7702.gff3,No_PCC_7702,no-fsp-in-name
+IN,uncultured Nostoc sp.,SRR13685151_bin.36_CONCOCT_v1.1_MAG,No_SRR13685151_bin36_CONCOCT_v11_MAG.pep.fa,No_SRR13685151_bin36_CONCOCT_v11_MAG.dna.fa,No_SRR13685151_bin36_CONCOCT_v11_MAG.gff3,No_SRR13685151_bin36_CONCOCT_v11_MAG,no-fsp-in-name
+OUT,Candidatus Avigastranaerophilus faecigallinarum,5572,CaMe_5572.pep.fa,CaMe_5572.dna.fa,CaMe_5572.gff3,CaMe_5572,no-fsp-in-name
+OUT,Candidatus Avigastranaerophilus sp.,LOHA14_bin.017,CaMe_LOHA14_bin017.pep.fa,CaMe_LOHA14_bin017.dna.fa,CaMe_LOHA14_bin017.gff3,CaMe_LOHA14_bin017,no-fsp-in-name
+OUT,Candidatus Caenarcanaceae bacterium,MAG04988,CaMe_MAG04988.pep.fa,CaMe_MAG04988.dna.fa,CaMe_MAG04988.gff3,CaMe_MAG04988,no-fsp-in-name
+OUT,Candidatus Caenarcanales bacterium,DT_14,CaMe_DT_14.pep.fa,CaMe_DT_14.dna.fa,CaMe_DT_14.gff3,CaMe_DT_14,no-fsp-in-name
+OUT,Candidatus Galligastranaerophilus faecipullorum,ChiW23-1657,CaMe_ChiW231657.pep.fa,CaMe_ChiW231657.dna.fa,CaMe_ChiW231657.gff3,CaMe_ChiW231657,no-fsp-in-name
+OUT,Candidatus Galligastranaerophilus gallistercoris,CHK123-4750,CaMe_CHK1234750.pep.fa,CaMe_CHK1234750.dna.fa,CaMe_CHK1234750.gff3,CaMe_CHK1234750,no-fsp-in-name
+OUT,Candidatus Galligastranaerophilus intestinavium,CHK152-2871,CaMe_CHK1522871.pep.fa,CaMe_CHK1522871.dna.fa,CaMe_CHK1522871.gff3,CaMe_CHK1522871,no-fsp-in-name
+OUT,Candidatus Galligastranaerophilus intestinigallinarum,CHK123-3438,CaMe_CHK1233438.pep.fa,CaMe_CHK1233438.dna.fa,CaMe_CHK1233438.gff3,CaMe_CHK1233438,no-fsp-in-name
+OUT,Candidatus Gastranaerophilaceae bacterium,AMR_MDS_1254,CaMe_AMR_MDS_1254.pep.fa,CaMe_AMR_MDS_1254.dna.fa,CaMe_AMR_MDS_1254.gff3,CaMe_AMR_MDS_1254,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium,UMGS1079,CaMe_UMGS1079.pep.fa,CaMe_UMGS1079.dna.fa,CaMe_UMGS1079.gff3,CaMe_UMGS1079,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_1,HUM_1,CaMe_HUM_1.pep.fa,CaMe_HUM_1.dna.fa,CaMe_HUM_1.gff3,CaMe_HUM_1,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_10,HUM_10,CaMe_HUM_10.pep.fa,CaMe_HUM_10.dna.fa,CaMe_HUM_10.gff3,CaMe_HUM_10,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_11,HUM_11,CaMe_HUM_11.pep.fa,CaMe_HUM_11.dna.fa,CaMe_HUM_11.gff3,CaMe_HUM_11,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_12,HUM_12,CaMe_HUM_12.pep.fa,CaMe_HUM_12.dna.fa,CaMe_HUM_12.gff3,CaMe_HUM_12,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_13,HUM_13,CaMe_HUM_13.pep.fa,CaMe_HUM_13.dna.fa,CaMe_HUM_13.gff3,CaMe_HUM_13,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_14,HUM_14,CaMe_HUM_14.pep.fa,CaMe_HUM_14.dna.fa,CaMe_HUM_14.gff3,CaMe_HUM_14,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_15,HUM_15,CaMe_HUM_15.pep.fa,CaMe_HUM_15.dna.fa,CaMe_HUM_15.gff3,CaMe_HUM_15,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_16,HUM_16,CaMe_HUM_16.pep.fa,CaMe_HUM_16.dna.fa,CaMe_HUM_16.gff3,CaMe_HUM_16,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_17,HUM_17,CaMe_HUM_17.pep.fa,CaMe_HUM_17.dna.fa,CaMe_HUM_17.gff3,CaMe_HUM_17,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_18,HUM_18,CaMe_HUM_18.pep.fa,CaMe_HUM_18.dna.fa,CaMe_HUM_18.gff3,CaMe_HUM_18,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_19,HUM_19,CaMe_HUM_19.pep.fa,CaMe_HUM_19.dna.fa,CaMe_HUM_19.gff3,CaMe_HUM_19,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_2,HUM_2,CaMe_HUM_2.pep.fa,CaMe_HUM_2.dna.fa,CaMe_HUM_2.gff3,CaMe_HUM_2,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_20,HUM_20,CaMe_HUM_20.pep.fa,CaMe_HUM_20.dna.fa,CaMe_HUM_20.gff3,CaMe_HUM_20,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_21,HUM_21,CaMe_HUM_21.pep.fa,CaMe_HUM_21.dna.fa,CaMe_HUM_21.gff3,CaMe_HUM_21,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_22,HUM_22,CaMe_HUM_22.pep.fa,CaMe_HUM_22.dna.fa,CaMe_HUM_22.gff3,CaMe_HUM_22,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_23,HUM_23,CaMe_HUM_23.pep.fa,CaMe_HUM_23.dna.fa,CaMe_HUM_23.gff3,CaMe_HUM_23,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_3,HUM_3,CaMe_HUM_3.pep.fa,CaMe_HUM_3.dna.fa,CaMe_HUM_3.gff3,CaMe_HUM_3,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_4,HUM_4,CaMe_HUM_4.pep.fa,CaMe_HUM_4.dna.fa,CaMe_HUM_4.gff3,CaMe_HUM_4,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_5,HUM_5,CaMe_HUM_5.pep.fa,CaMe_HUM_5.dna.fa,CaMe_HUM_5.gff3,CaMe_HUM_5,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_6,HUM_6,CaMe_HUM_6.pep.fa,CaMe_HUM_6.dna.fa,CaMe_HUM_6.gff3,CaMe_HUM_6,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_7,HUM_7,CaMe_HUM_7.pep.fa,CaMe_HUM_7.dna.fa,CaMe_HUM_7.gff3,CaMe_HUM_7,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_8,HUM_8,CaMe_HUM_8.pep.fa,CaMe_HUM_8.dna.fa,CaMe_HUM_8.gff3,CaMe_HUM_8,no-fsp-in-name
+OUT,Candidatus Gastranaerophilales bacterium HUM_9,HUM_9,CaMe_HUM_9.pep.fa,CaMe_HUM_9.dna.fa,CaMe_HUM_9.gff3,CaMe_HUM_9,no-fsp-in-name
+OUT,Candidatus Gastranaerophilus sp. (ex Termes propinquus),tpqmel,CaMe_tpqmel.pep.fa,CaMe_tpqmel.dna.fa,CaMe_tpqmel.gff3,CaMe_tpqmel,no-fsp-in-name
+OUT,Candidatus Limenecus avicola,MAG1634,CaMe_MAG1634.pep.fa,CaMe_MAG1634.dna.fa,CaMe_MAG1634.gff3,CaMe_MAG1634,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium,Melainabacteria_sp_nbed3b74,CaMe_Melainabacteria_sp_nbed3b74.pep.fa,CaMe_Melainabacteria_sp_nbed3b74.dna.fa,CaMe_Melainabacteria_sp_nbed3b74.gff3,CaMe_Melainabacteria_sp_nbed3b74,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium 35_41,35_41,CaMe_35_41.pep.fa,CaMe_35_41.dna.fa,CaMe_35_41.gff3,CaMe_35_41,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium GWA2_34_9,,CaMe_unk.pep.fa,CaMe_unk.dna.fa,CaMe_unk.gff3,CaMe_unk,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium GWF2_32_7,,CaMe_unk_2.pep.fa,CaMe_unk_2.dna.fa,CaMe_unk_2.gff3,CaMe_unk_2,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium GWF2_37_15,,CaMe_unk_3.pep.fa,CaMe_unk_3.dna.fa,CaMe_unk_3.gff3,CaMe_unk_3,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium HGW-Melainabacteria-1,HGW-Melainabacteria-1,CaMe_HGWMelainabacteria1.pep.fa,CaMe_HGWMelainabacteria1.dna.fa,CaMe_HGWMelainabacteria1.gff3,CaMe_HGWMelainabacteria1,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium LEY3_CP_29_8,LEY3_CP_29_8,CaMe_LEY3_CP_29_8.pep.fa,CaMe_LEY3_CP_29_8.dna.fa,CaMe_LEY3_CP_29_8.gff3,CaMe_LEY3_CP_29_8,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium MEL.A1,MEL.A1,CaMe_MELA1.pep.fa,CaMe_MELA1.dna.fa,CaMe_MELA1.gff3,CaMe_MELA1,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium RIFCSPHIGHO2_02_FULL_34_12,,CaMe_unk_4.pep.fa,CaMe_unk_4.dna.fa,CaMe_unk_4.gff3,CaMe_unk_4,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium RIFCSPLOWO2_02_FULL_35_15,,CaMe_unk_5.pep.fa,CaMe_unk_5.dna.fa,CaMe_unk_5.gff3,CaMe_unk_5,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium RIFCSPLOWO2_12_FULL_35_11,,CaMe_unk_6.pep.fa,CaMe_unk_6.dna.fa,CaMe_unk_6.gff3,CaMe_unk_6,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium RIFOXYA12_FULL_32_12,,CaMe_unk_7.pep.fa,CaMe_unk_7.dna.fa,CaMe_unk_7.gff3,CaMe_unk_7,no-fsp-in-name
+OUT,Candidatus Melainabacteria bacterium RIFOXYA2_FULL_32_9,,CaMe_unk_8.pep.fa,CaMe_unk_8.dna.fa,CaMe_unk_8.gff3,CaMe_unk_8,no-fsp-in-name
+OUT,Candidatus Obscuribacterales bacterium,SO_2017_GW1_221,CaMe_SO_2017_GW1_221.pep.fa,CaMe_SO_2017_GW1_221.dna.fa,CaMe_SO_2017_GW1_221.gff3,CaMe_SO_2017_GW1_221,no-fsp-in-name
+OUT,Candidatus Scatenecus faecavium,MAG2744,CaMe_MAG2744.pep.fa,CaMe_MAG2744.dna.fa,CaMe_MAG2744.gff3,CaMe_MAG2744,no-fsp-in-name
+OUT,Candidatus Spyradomonas excrementavium,CHK149-2741,CaMe_CHK1492741.pep.fa,CaMe_CHK1492741.dna.fa,CaMe_CHK1492741.gff3,CaMe_CHK1492741,no-fsp-in-name
+OUT,Candidatus Stercorousia faecigallinarum,MAG2747,CaMe_MAG2747.pep.fa,CaMe_MAG2747.dna.fa,CaMe_MAG2747.gff3,CaMe_MAG2747,no-fsp-in-name
+OUT,Candidatus Stercorousia sp.,gSpreadC_ID_2733,CaMe_gSpreadC_ID_2733.pep.fa,CaMe_gSpreadC_ID_2733.dna.fa,CaMe_gSpreadC_ID_2733.gff3,CaMe_gSpreadC_ID_2733,no-fsp-in-name
+OUT,Obscuribacter phosphatis (SeqCode),CTOTU24636,CaMe_CTOTU24636.pep.fa,CaMe_CTOTU24636.dna.fa,CaMe_CTOTU24636.gff3,CaMe_CTOTU24636,no-fsp-in-name
+OUT,Obscuribacter sp. (SeqCode),new MAG-284,CaMe_new_MAG284.pep.fa,CaMe_new_MAG284.dna.fa,CaMe_new_MAG284.gff3,CaMe_new_MAG284,no-fsp-in-name
+OUT,Obscuribacteraceae bacterium (SeqCode),LZS2_bin.43,CaMe_LZS2_bin43.pep.fa,CaMe_LZS2_bin43.dna.fa,CaMe_LZS2_bin43.gff3,CaMe_LZS2_bin43,no-fsp-in-name
+OUT,Vampirovibrio chlorellavorus,Vc_AZ_1,CaMe_Vc_AZ_1.pep.fa,CaMe_Vc_AZ_1.dna.fa,CaMe_Vc_AZ_1.gff3,CaMe_Vc_AZ_1,no-fsp-in-name
+OUT,Vampirovibrio sp.,JTS-AC367,CaMe_JTSAC367.pep.fa,CaMe_JTSAC367.dna.fa,CaMe_JTSAC367.gff3,CaMe_JTSAC367,no-fsp-in-name
+OUT,Vampirovibrionales bacterium,Fred_18-Q3-R57-64_MAXAC.379,CaMe_Fred_18Q3R5764_MAXAC379.pep.fa,CaMe_Fred_18Q3R5764_MAXAC379.dna.fa,CaMe_Fred_18Q3R5764_MAXAC379.gff3,CaMe_Fred_18Q3R5764_MAXAC379,no-fsp-in-name
+OUT,Vampirovibriophyceae bacterium,Deming_bin.154,CaMe_Deming_bin154.pep.fa,CaMe_Deming_bin154.dna.fa,CaMe_Deming_bin154.gff3,CaMe_Deming_bin154,no-fsp-in-name
