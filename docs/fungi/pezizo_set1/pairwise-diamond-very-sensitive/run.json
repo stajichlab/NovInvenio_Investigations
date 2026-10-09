@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond-very-sensitive",
+  "published": "2026-10-09",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/pezizo_set1",
+  "source_dir": "results/pezizo_set1",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 11,
+  "report_sha256": "789b1fbb1c4b0135cff0fe99e885940449c387c36d8335db306b49e87ce97fb0"
+}
