@@ -1,0 +1,13 @@
+{
+  "run": "pairwise-diamond-very-sensitive",
+  "published": "2026-10-09",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/agaricomycetes_pairwise",
+  "source_dir": "results/agaricomycetes_pairwise",
+  "params": [
+    "--cluster_tool pairwise",
+    "--run_tool diamond"
+  ],
+  "n_species": 7,
+  "report_sha256": "34e00a3c7f5cad68176c073c03709b0e60ef6e5343e66e9b08a44c2e80e2ae24"
+}
