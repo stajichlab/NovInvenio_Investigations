@@ -176,6 +176,8 @@ if [ "$HAS_ANNOTATIONS" -eq 1 ]; then
     if PIPEPY make_core_report.py --help 2>/dev/null | grep -q -- "--targets"; then
         [ -f "$RESULTS_DIR/presence_matrix.targets.tsv" ] && CORE_ARGS+=(--targets "$RESULTS_DIR/presence_matrix.targets.tsv")
         [ -f "$RESULTS_DIR/descriptions.tsv" ] && CORE_ARGS+=(--descriptions "$RESULTS_DIR/descriptions.tsv")
+        [ -f "$RESULTS_DIR/presence_matrix.evalues.tsv" ] && CORE_ARGS+=(--evalues "$RESULTS_DIR/presence_matrix.evalues.tsv")
+        [ -s "$RESULTS_DIR/presence_matrix.other_evidence.tsv.gz" ] && CORE_ARGS+=(--other_evidence "$RESULTS_DIR/presence_matrix.other_evidence.tsv.gz")
     fi
     PIPEPY make_core_report.py "${CORE_ARGS[@]}"
 
