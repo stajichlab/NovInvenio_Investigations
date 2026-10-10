@@ -282,14 +282,14 @@ VA02	Mash_A	GPL	BdGPL	paper_metadata
 VC1_CA	Mash_A		BdGPL	inferred_from_mash_group	
 VOR3_CH	Mash_A		BdGPL	inferred_from_mash_group	
 picosAo1	Mash_A	GPL	BdGPL	paper_metadata	
-CLFT001	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces paper ASIA-2
-CLFT024-02	Mash_B		BdASIA-2	inferred_from_mash_group	maintainer: BdBRAZIL
-CLFT061	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces paper ASIA-2
-CLFT065	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces paper ASIA-2
-CLFT067	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces paper ASIA-2
-CLFT071	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces paper ASIA-2
-CLFT136	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces paper ASIA-2
-CLFT144	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces paper ASIA-2
+CLFT001	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces ASIA-2
+CLFT024-02	Mash_B		BdBRAZIL	inferred_from_mash_group	maintainer: BdBRAZIL replaces ASIA-2 (not in paper metadata; Mash_B)
+CLFT061	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces ASIA-2
+CLFT065	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces ASIA-2
+CLFT067	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces ASIA-2
+CLFT071	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces ASIA-2
+CLFT136	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces ASIA-2
+CLFT144	Mash_B	ASIA-2	BdBRAZIL	paper_metadata	maintainer: BdBRAZIL replaces ASIA-2
 KB108	Mash_B	ASIA-2	BdASIA-2	paper_metadata	
 KB23	Mash_B	ASIA-2	BdASIA-2	paper_metadata	
 KB45	Mash_B	ASIA-2	BdASIA-2	paper_metadata	

@@ -16,6 +16,13 @@ runs:
   full_v1:
     samplesheet: config.csv
     publish: true
+    params:
+      pangenome_island_reference_strains: Bd_JEL423
+  full_v2:                    # TaxonGroup = lineage (lineages.tsv); the null is stratified by Mash clade (Stratum)
+    samplesheet: config_lineages.csv
+    pipeline_commit: edfb88399327879b59c2f341a91ad8d30825be37
+    publish: true
     current: true
     params:
       pangenome_island_reference_strains: Bd_JEL423
+      pangenome_stratum_source: mash_clade
