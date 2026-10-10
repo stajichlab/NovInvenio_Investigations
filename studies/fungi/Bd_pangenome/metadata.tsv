@@ -1,0 +1,235 @@
+SAMPLE	NAME IN VCF	latitude	longitude	CONTINENT	COUNTRY	Locality	Species	HOST_FAMILY	LINEAGE	YEAR_ISOLATED	TYPE
+02_OZ	02.OZ	NA	NA	Australia	Australia	Captive Melbourne, Vic	Litoria caerulea	Hylidae	GPL	2005	Captive
+03_OZ	03.OZ	-41.176	144.715	Australia	Tasmania	NW Tasmania	Limnodynastes peronii	Myobatrachidae	GPL	2009	Wild
+06_OZ	06.OZ	-19.000048	146.201307	Australia	Australia	Nth Queensland  	Litoria genimaculata	Hylidae	GPL	2010	Wild
+07_OZ	07.OZ	-19.000048	146.201307	Australia	Australia	Nth Queensland  	Litoria genimaculata	Hylidae	GPL	2010	Wild
+0710-1	0710-1	42.88778333	-0.70885	Europe	France	Lac Ansabere	Alytes obstetricans	Alytidae	GPL	2007	Wild
+0711_1	711.1	42.88778333	-0.70885	Europe	France	Lac Ansabere	Alytes obstetricans	Alytidae	GPL	2007	Wild
+08MG02	08MG02	-28.76268	28.91794	Africa	South Africa	Kwazulu Natal	Amietia vertebralis	Pyxicephalidae	GPL	2008	Wild
+08MG05	08MG05	-34.093316	18.42167	Africa	South Africa	Western Cape	Amietia fuscigula	Pyxicephalidae	GPL	2008	Wild
+09_OZ	09.OZ	-42.8958	147.2366	Australia	Tasmania	Sth Tasmania  	Litoria ewingii	Hylidae	GPL	2012	Wild
+11_OZ	11.OZ	-17.887163	145.803852	Australia	Australia	Nth Queensland	Nictimystes dayi	Hylidae	GPL	1998	Wild
+12_OZ	12.OZ	-23.375	150.5117	Australia	Australia	Mid Queensland	Litoria caerulea	Hylidae	GPL	1999	Wild
+13_OZ	13.OZ	-19.00711	146.20745	Australia	Australia	Nth Queensland	Litoria serrata	Hylidae	GPL	2012	Wild
+14_OZ	14.OZ	-15.8833	145.2333	Australia	Australia	Far Nth Queensland 	Litoria rheocola	Hylidae	GPL	2005	Wild
+15_OZ	15.OZ	-33.975066	149.160882	Australia	Australia	NSW	Litoria booroolongensis	Hylidae	GPL	2009	Wild
+16_OZ	16.OZ	-41.606029	145.17334	Australia	Australia	Tasmania	Litoria ewingii	Hylidae	GPL	2012	Wild
+18_OZ	18.OZ	-41.606029	145.17334	Australia	Australia	Tasmania	Litoria ewingii	Hylidae	GPL	2012	Wild
+20_OZ	20.OZ	-41.595307	145.097013	Australia	Australia	Tasmania	Crinia tasmaniensis	Myobatrachidae	GPL	2012	Wild
+22_OZ	22.OZ	-41.595307	145.097013	Australia	Australia	Tasmania	Crinia tasmaniensis	Myobatrachidae	GPL	2012	Wild
+23_OZ	23.OZ	-17.307546	145.92344	Australia	Australia	Nth Queensland  	Litoria rheocola	Hylidae	GPL	2012	Wild
+24_OZ	24.OZ	-17.307546	145.92344	Australia	Australia	Nth Queensland  	Litoria rheocola	Hylidae	GPL	2012	Wild
+25_OZ	25.OZ	-17.307546	145.92344	Australia	Australia	Nth Queensland  	Litoria rheocola	Hylidae	GPL	2012	Wild
+28_OZ	28.OZ	-17.887163	145.803852	Australia	Australia	Nth Queensland  	Litoria rheocola	Hylidae	GPL	2012	Wild
+30_OZ	30.OZ	-17.887163	145.803852	Australia	Australia	Nth Queensland  	Litoria nannotis	Hylidae	GPL	2012	Wild
+33_OZ	33.OZ	-39.993839	148.055609	Australia	Australia	Nth Tasmania  	Litoria ewingii	Hylidae	GPL	2012	Wild
+34_OZ	34.OZ	-39.993839	148.055609	Australia	Tasmania	Nth of  Tasmania  	Limnodynastes sp	Myobatrachidae	GPL	2012	Wild
+35_OZ	35.OZ	-18.979893	146.252557	Australia	Australia	Nth Queensland	Litoria nannotis	Hylidae	GPL	2013	Wild
+36_OZ	36.OZ	NA	NA	Australia	Australia	NSW	Pseudophryne corroboree	Myobatrachidae	GPL	2013	Experiment
+37_OZ	37.OZ	NA	NA	Australia	Australia	NSW	Pseudophryne corroboree	Myobatrachidae	GPL	2013	Experiment
+38_OZ	38.OZ	-18.199257	145.844575	Australia	Australia	Nth Queensland  	Litoria nannotis	Hylidae	GPL	2013	Wild
+39_OZ	39.OZ	-18.199257	145.844575	Australia	Australia	Nth Queensland  	Litoria nannotis	Hylidae	GPL	2013	Wild
+40_OZ	40.OZ	-18.199257	145.844575	Australia	Australia	Nth Queensland  	Litoria nannotis	Hylidae	GPL	2013	Wild
+41_OZ	41.OZ	-32.993331	151.44575	Australia	Australia	NSW	Limnodyastes dumerilii grayii	Myobatrachidae	GPL	2013	Wild
+42_OZ	42.OZ	-32.993331	151.44575	Australia	Australia	NSW	Mixophyes fasciolatus	Myobatrachidae	GPL	2013	Wild
+43_OZ	43.OZ	-32.993331	151.44575	Australia	Australia	NSW	Limnodynastes peronii	Myobatrachidae	GPL	2013	Wild
+44_OZ	44.OZ	-36.4	148.6167	Australia	Australia	NSW alps	Litoria verreauxii alpina	Hylidae	GPL	2013	Wild
+45_OZ	45.OZ	-36.4	148.6167	Australia	Australia	NSW alps	Litoria verreauxii alpina	Hylidae	GPL	2013	Wild
+46_OZ	46.OZ	-36.4	148.6167	Australia	Australia	NSW alps	Litoria verreauxii alpina	Hylidae	GPL	2013	Wild
+47_OZ	47.OZ	NA	NA	Australia	Australia	Captive Melbourne	Litoria lesueuri	Hylidae	GPL	2000	Captive
+49_OZ	49.OZ	NA	NA	Australia	Australasia	Ethel Ck exp infected 	Litoria alpina	Hylidae	GPL	2014	Experiment
+Acherito_c_15	Acherito.c_15	42.879167	-0.700833	Europe	Spain	 Pyrenees	Alytes obstetricans	Alytidae	GPL	2015	Wild
+ADMALA	ADMALA	36.87284	-4.06186	Europe	Spain	Malaga	Alytes dickhilleni	Alytidae	GPL	2012	Wild
+BdBE5	Alyt21	50.742643	5.814315	Europe	Belgium	Limburg	Alytes obstetricans	Alytidae	GPL	2016	Wild
+ANS_13No10	ANS_13No10	42.88778333	-0.70885	Europe	France	Pyrenees	Alytes obstetricans	Alytidae	GPL	2013	Wild
+AoCH15	AoCH15_B	47.30691163	8.498080357	Europe	Switzerland	Gamlikon	Alytes obstetricans	Alytidae	GPL	2015	Wild
+AP15	AP15	40.057286	9.203291	Europe	Italy	Sardinia	Discoglossus sardus	Alytidae	GPL	2010	Wild
+Arlet_a_15	Arlet.a_15	42.840056	-0.615033	Europe	France	 Pyrenees	Alytes obstetricans	Alytidae	GPL	2015	Wild
+AUL	AUL	42.885022	-0.480207	Europe	France	Pyrenees	Alytes obstetricans	Alytidae	GPL	2010	Wild
+AVS2	AVS2	-44.1082229	-73.1190496	South America	Chile	Melimoyu	Batrachyla antartandica	 Batrachylidae	GPL	2015	Wild
+AVS4	AVS4	-34.9686871	-71.8375124	South America	Chile	Hualañé	Xenopus laevis	Pipidae	GPL	2016	Wild
+AVS7	AVS7	-39.834071	-73.222834	South America	Chile	Valdivia	Calyptocephalella gayi	Calyptocephalellidae	GPL	2016	Wild
+BAV_BRUCH_1	BAV_BRUCH_1	50.5393995	10.1541838	Europe	Germany	Fladungen	Alytes obstetricans	Alytidae	GPL	2013	Wild
+BAV_OBER_1	BAV_OBER_1	50.4047222	10.2603113	Europe	Germany	Bavaria	Alytes obstetricans	Alytidae	GPL	2013	Wild
+BAV_OBER_2	BAV_OBER_2	50.4047222	10.2603113	Europe	Germany	Bavaria	Alytes obstetricans	Alytidae	GPL	2013	Wild
+BAV_OBER_3	BAV_OBER_3	50.4047222	10.2603113	Europe	Germany	Bavaria	Alytes obstetricans	Alytidae	GPL	2013	Wild
+BdBE1	BdBE1	50.778095	4.619583	Europe	Belgium	Flemish-Brabant 	Alytes obstetricans	Alytidae	GPL	2015	Wild
+BdBE2	BdBE2	51.151561	5.180321	Europe	Belgium	Antwerp	Rana catesbeianus	Ranidae	GPL	2015	Wild
+BdBE3	BdBE3	50.690926	4.192698	Europe	Belgium	Walloon Brabant	Ichthyosaura alpestris	Salamandridae	GPL	2015	Wild
+BdBE4	BdBE4	51.357185	5.087353	Europe	Belgium	Antwerp	Rana catesbeianus	Ranidae	GPL	2016	Wild
+BdBE6	BdBE6	50.759485	5.768259	Europe	Belgium	Limburg	Ichthyosaura alpestris	Salamandridae	GPL	2016	Wild
+BEW2	BEW2	47.04966892	7.790279019	Europe	Switzerland	Bern	Alytes obstetricans	Alytidae	GPL	2010	Wild
+BLI1	BLI1	47.45966669	7.783305696	Europe	Switzerland	Basel-Landschaft	Alytes obstetricans	Alytidae	GPL	2010	Wild
+BdNL1	BOM2	50.819546	5.782573	Europe	Netherlands	Limburg	Alytes obstetricans	Alytidae	GPL	2015	Wild
+BR1	BR1	47.00235746	7.758477968	Europe	Switzerland	Bern	Alytes obstetricans	Alytidae	GPL	2011	Wild
+C2A	C2A	40.85	-3.9559	Europe	Spain	Madrid	Alytes obstetricans	Alytidae	GPL	2002	Wild
+CH4	CH4	47.01269149	7.792667062	Europe	Switzerland	Bern	Alytes obstetricans	Alytidae	GPL	2011	Wild
+CHAL3	CHAL3	47.47758693	7.766441066	Europe	Switzerland	Basel-Landschaft	Alytes obstetricans	Alytidae	GPL	2011	Wild
+CJB4	CJB4	37.821289	-120.012849	North America	USA	California	Rana muscosa/sierrae	Ranidae	GPL	2009	Wild
+CJB5-2	CJB5-2	37.084575	-118.533387	North America	USA	California	Rana muscosa/sierrae	Ranidae	GPL	2009	Wild
+CJB7	CJB7	36.815925	-118.418644	North America	USA	California	Rana muscosa/sierrae	Ranidae	GPL	2009	Wild
+CLFT021	CLFT021	-23.249292	-46.949915	South America	Brazil	Serra do Japi	anuran tadpole unidentified	NA	GPL	2011	Wild
+CLFT023	CLFT023	-22.866361	-46.033068	South America	Brazil	Monte Verde	Boana sp	Hylidae	GPL	2011	Wild
+CLFT026	CLFT026	-24.590532	-48.626003	South America	Brazil	Reserva Betary	Boana faber	Hylidae	GPL	2011	Wild
+CM21	CM21	44.939586	-0.517843	Europe	France	Aquitaine	Rana catesbeianus	Ranidae	GPL	2015	Wild
+CM22	CM22	44.939586	-0.517843	Europe	France	Aquitaine	Rana catesbeianus	Ranidae	GPL	2015	Wild
+CMT3	CMT3	44.939586	-0.517843	Europe	France	Aquitaine	Rana catesbeianus	Ranidae	GPL	2015	Wild
+CMT5	CMT5	44.939586	-0.517843	Europe	France	Aquitaine	Rana catesbeianus	Ranidae	GPL	2015	Wild
+CORN1	CORN1	50.3	-4.6	Europe	UK	Cornwall	Ichthyosaura alpestris	Salamandridae	GPL	2012	Wild
+CORN1B	CORN1B	50.342	-4.66	Europe	UK	Cornwall	Ichthyosaura alpestris	Salamandridae	GPL	2012	Wild
+ETH2	ETH2	6.6865071	39.66411808	Africa	Ethiopia	Oromia	Afrixalus enseticola	Hyperoliidae	GPL	2011	Wild
+ETH4	ETH4	6.7571667	39.7211917	Africa	Ethiopia	Oromia	Leptopelis sp.	Arthroleptidae	GPL	2011	Wild
+EV001	EV001	4.436667	-73.919444	South America	Colombia	Ubaque	Rheobates palmatus	Aromobatidae	GPL	2010	Wild
+FG184	FG184	4.08829	-52.67952	South America	French Guiana	Roura	Allobates femoralis	Aromobatidae	GPL	2015	Wild
+FG32	FG32	4.08829	-52.67952	South America	French Guiana	Roura	Dendrobates tinctorius	Dendrobatidae	GPL	2015	Wild
+HER3	HER3	47.022977	8.235105	Europe	Switzerland	Lucerne	Alytes obstetricans	Alytidae	GPL	2011	Wild
+Hung_2014	Hung_2014	47.232612	17.642608	Europe	Hungary	Bakony	Bombina variegata	Bombinatoridae	GPL	2014	Wild
+Hung_2039	Hung_2039	47.232612	17.642608	Europe	Hungary	Bakony	Bombina variegata	Bombinatoridae	GPL	2014	Wild
+Hung_2044	Hung_2044	47.232612	17.642608	Europe	Hungary	Bakony	Bombina variegata	Bombinatoridae	GPL	2014	Wild
+HYATT	HYATT	NA	NA	Australia	Australia	Rockhampton	Litoria caerulea	Hylidae	GPL	1998	Wild
+IA_11	IA_11	42.879167	-0.700833	Europe	Spain	Pyrenees	Alytes obstetricans	Alytidae	GPL	2011	Wild
+IA_13No17	IA_13No17	42.879167	-0.700833	Europe	Spain	Pyrenees	Alytes obstetricans	Alytidae	GPL	2013	Wild
+IA043_cryo	IA043_cryo	42.879167	-0.700833	Europe	Spain	Pyrenees	Alytes obstetricans	Alytidae	GPL	2004	Wild
+JEL238	JEL238	33.73083	-111.51417	North America	USA	Arizona	Rana yavapaiensis	Ranidae	GPL	1999	Wild
+JEL240	JEL240	44.90082	-68.665646	North America	USA	Captive (Ghana Xt 1999)	Xenopus tropicalis	Pipidae	GPL	1999	Trade
+JEL261	JEL261	46.79	-71.25	North America	Canada	Quebec	Rana catesbeianus	Ranidae	GPL	1999	Wild
+JEL267	JEL267	45.56501	-73.19131	North America	Canada	NA	NA	Ranidae	GPL	1999	Wild
+JEL270	JEL270	38.068751	-122.806456	North America	USA	California	Rana catesbeianus	Ranidae	GPL	1999	Wild
+JEL271	JEL271	38.068751	-122.806456	North America	USA	California	Rana catesbeianus	Ranidae	GPL	1999	Wild
+JEL274	JEL274	40.779	-111.924	North America	USA	Colarado	Bufo boreas	Bufonidae	GPL	1999	Wild
+JEL275	JEL275	39.689195	-105.640169	North America	USA	Colarado	Anaxyrus boreas	Bufonidae	GPL	1999	Wild
+JEL289	JEL289	44.946435	-68.64026	North America	USA	Maine	Rana pipiens	Ranidae	GPL	2000	Wild
+JEL310	JEL310	8.708647	-82.170291	North America	Panama	Chiriquí	Smilisca phaeota	Hylidae	GPL	2005	Wild
+JEL359	JEL359	44.46867	-71.185077	North America	USA	New Hampshire	Rana clamitans	Ranidae	GPL	2002	Wild
+JEL408	JEL408	8.620236	-80.583777	North America	Panama	Coclé	Colostethus inguinalis	Dendrobatidae	GPL	2004	Wild
+JEL423	JEL423_2014	8.5833	-82.5333	North America	Panama	Chiriquí	Agalychnis lemur	Phyllomedusidae	GPL	2004	Wild
+JEL427	JEL427	18.299386	-65.77925	North America	Puerto Rico	El Yunque	Eleutherodactylus coqui	Eleutherodactylidae	GPL	2004	Wild
+JEL429	JEL429	8.6076	-71.152681	South America	Venezuela	Merida	Rana catesbeianus	Ranidae	GPL	2005	Wild
+JEL433	JEL433	-29.983039	19.374335	Africa	South Africa	Northern Cape	Xenopus laevis	Pipidae 	GPL	2005	Wild
+JEL627	JEL627	44.404459	-70.789881	North America	USA	Maine	Rana catesbeianus	Ranidae	GPL	2009	Wild
+L2203	L2203	16.743	-62.1873	North America	France OST	Montserrat	Leptodactylus fallax	Leptodactylidae	GPL	2009	Wild
+LBAbercrom	LBAbercrom	-33.378091	149.545924	Australia	Australia	 New South Wales	Litoria booroolongensis	Hylidae	GPL	2009	Wild
+LHURS_11No1	LHURS_11No1	42.92205	-0.702633333	Europe	France	Pyrenees	Alytes obstetricans	Alytidae	GPL	2011	Wild
+LHURS_11No7	LHURS_11No7	42.92205	-0.702633333	Europe	France	Pyrenees	Alytes obstetricans	Alytidae	GPL	2011	Wild
+MAD	MAD	42.867513	0.144952	Europe	France	Pyrenees	Alytes obstetricans	Alytidae	GPL	2010	Wild
+UKMAL05	MAL05	52.08269004	-2.344787335	Europe	UK	Kent	Ichthyosaura alpestris	Salamandridae	GPL	2011	Wild
+MC94	MC94	-22.901675	30.696089	Africa	South Africa	Limpopo	Xenopus laevis	Pipidae 	GPL	2008	Wild
+MCT8	MCT8	-34.093316	18.42167	Africa	South Africa	Western Cape	Amietia fuscigula	Pyxicephalidae	GPL	2008	Wild
+MexMkt	MexMkt	19.432605	-99.133372	North America	Mexico	Mexico City	Ambystoma	Ambystomatidae	GPL	2009	Trade
+MG3	MG3	-27.682836	29.57863	Africa	South Africa	Free State	Amietia angolensis	Pyxicephalidae	GPL	2008	Wild
+MG4	MG4	-34.093316	18.42167	Africa	South Africa	Kwazulu Natal	Amietia fuscigula	Pyxicephalidae	GPL	2008	Wild
+MG8	MG8	-23.85	30.033333	Africa	South Africa	Magoebaskloof	Amietia angolensis	Pyxicephalidae	GPL	2008	Wild
+MLA1	MLA1	-32.406266	-65.98798	South America	Argentina	San Luis Province	Boana cordobae	Hylidae	GPL	2009	Wild
+MODS27_3	MODS27.3	40.745833	9.361111	Europe	Italy	Sardinia	Discoglossus sardus	Alytidae	GPL	2010	Wild
+MODS28	MODS28	40.745833	9.361111	Europe	Italy	Sardinia	Discoglossus sardus	Alytidae	GPL	2010	Wild
+NBRC106979	NBRC106979	35.576435	139.388626	Asia	Japan	Kanagawa	Ceratophrys cranwelli	Ceratophryidae	GPL	2007	Wild
+PENNEWT	PENNEWT	40.85	-3.9559	Europe	Spain	Peñalara	Lissotriton helveticus	Salamandridae	GPL	2011	Wild
+PENS-2-4	PENS-2.4	40.839869	-3.957348	Europe	Spain	NA	NA	Salamandridae	GPL	2014	Wild
+PENS-9-2	PENS-9.2	40.839869	-3.957348	Europe	Spain	NA	NA	Salamandridae	GPL	2014	Wild
+picosAo1	picosAo1	43.26418	-4.95328	Europe	Spain	Picos de Europa	Alytes obstetricans	Alytidae	GPL	2010	Wild
+PNP15150	PNP15150	42.92205	-0.702633333	Europe	France	 Pyrenees	Alytes obstetricans	Alytidae	GPL	2015	Wild
+PNP15153	PNP15153	42.92205	-0.702633333	Europe	France	 Pyrenees	Alytes obstetricans	Alytidae	GPL	2015	Wild
+PUITS_11	PUITS_11	42.86428333	-0.6332	Europe	France	Pyrenees	Alytes obstetricans	Alytidae	GPL	2011	Wild
+RAB1	RAB1	42.852876	0.144684	Europe	France	Pyrenees	Alytes obstetricans	Alytidae	GPL	2012	Wild
+RAS3	RAS3	47.014894	8.193292	Europe	Switzerland	Schwarzenberg	Alytes obstetricans	Alytidae	GPL	2011	Wild
+RC4	RC4	47.591329	1.897041	Europe	France	Centre	Rana catesbeianus	Ranidae	GPL	2010	Wild
+RC5_1	RC5.1_2015	47.591329	1.897041	Europe	France	Centre	Rana catesbeianus	Ranidae	GPL	2010	Wild
+REPSOL	REPSOL	44.591229	-0.517809	Europe	France	Aquitaine	Rana catesbeianus	Ranidae	GPL	2012	Wild
+SA-EC1	SA-EC1	-30.598095	29.894511	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC1	SA-NC1	-28.91356	19.0014167	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC10	SA-NC10	-28.69598	17.597361	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC2	SA-NC2	-28.91356	19.0014167	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC3	SA-NC3	-28.91356	19.0014167	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC4	SA-NC4	-28.91356	19.0014167	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC5	SA-NC5	-28.91356	19.0014167	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC6	SA-NC6	-28.73725	19.299222	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC7	SA-NC7	-28.73725	19.299222	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC8	SA-NC8	-28.69598	17.597361	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SA-NC9	SA-NC9	-28.69598	17.597361	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2015	Wild
+SAEC-6	SAEC-6	-30.72189	26.9064555	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2016	Wild
+SAEC-7	SAEC-7	-30.72189	26.9064555	Africa	South Africa	NA	NA	Pyxicephalidae	GPL	2016	Wild
+SCH	SCH	47.027141	8.281869	Europe	Switzerland	Kriens	Alytes obstetricans	Alytidae	GPL	2011	Wild
+SFBC014	SFBC014	54.425439	-3.513852	Europe	UK	Cumbria	Bufo calamita	Bufonidae	GPL	2010	Wild
+SP10	SP10	40.5275	9.588056	Europe	Italy	Sardinia	Discoglossus sardus	Alytidae	GPL	2010	Wild
+SRS812	SRS812	33.391525	-81.716981	North America	USA	Carolina	Rana catesbeianus	Ranidae	GPL	2006	Wild
+STR3	STR3	47.48398671	7.800976577	Europe	Switzerland	Basel-Landschaft	Alytes obstetricans	Alytidae	GPL	2011	Wild
+SWED-40-5-04	SWED-40.5.04	55.633978	13.005419	Europe	Sweden	NA	NA	Bufonidae	GPL	2016	Wild
+SWED-40-5-13	SWED-40.5.13	55.633978	13.005419	Europe	Sweden	NA	NA	Bufonidae	GPL	2016	Wild
+SWED-40-5-14	SWED-40.5.14	55.633978	13.005419	Europe	Sweden	NA	NA	Bufonidae	GPL	2016	Wild
+SWED-40-5-17	SWED-40.5.17	55.633978	13.005419	Europe	Sweden	NA	NA	Bufonidae	GPL	2016	Wild
+SWED-40-5-22	SWED-40.5.22	55.633978	13.005419	Europe	Sweden	NA	NA	Bufonidae	GPL	2016	Wild
+SWISS_IT1	SWISS_IT1	47.469756	7.78906	Europe	Switzerland	Intingen	NA	Alytidae	GPL	2011	Wild
+TER_1_1	TER_1.1	40.50787	-0.50932	Europe	Spain	Teruel	Alytes obstetricans	Alytidae	GPL	2013	Wild
+TER_3_1	TER_3.1	40.50787	-0.50932	Europe	Spain	Teruel	Alytes obstetricans	Alytidae	GPL	2014	Wild
+TER_4_2	TER_4.2	40.50787	-0.50932	Europe	Spain	Teruel	Alytes obstetricans	Alytidae	GPL	2014	Wild
+TORO1	TORO1	41.42356	-5.34387	Europe	Spain	Zamora	Alytes obstetricans	Alytidae	GPL	2011	Wild
+TRAX	TRAX	51.536586	-0.153405	Europe	UK	Trade	Ambystoma mexicanum	Ambystomatidae	GPL	2012	Trade
+TRNR1	TRNR1	51.536586	-0.153405	Europe	UK	Trade	Notophthalmus viridescens	Salamandridae	GPL	2012	Trade
+TST75	TST75	37.974375	-119.305706	North America	USA	California	Rana muscosa/sierrae	Ranidae	GPL	2007	Wild
+TW16-050	TW16-050	23.91898	120.88251	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+TW16-164	TW16-164	23.82602	120.85744	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+TW16-206	TW16-206	23.94846	120.85157	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+TW16-279	TW16-279	23.94957	120.85352	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+TW16-280	TW16-280	23.94957	120.85352	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+TW16-292	TW16-292	23.94957	120.85352	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+TW16-293	TW16-293	23.94957	120.85352	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+TW16-295	TW16-295	23.94957	120.85352	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+TW16-304	TW16-304	23.94957	120.85352	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+TW16-519	TW16-519	23.9186	120.88485	Asia	Taiwan	NA	NA	Ranidae	GPL	2016	Wild
+UG3	UG3	1.7271	31.5469	Africa	Uganda	Nyabyeya	Sclerophrys	Bufonidae	GPL	2012	Wild
+UKBEL	UKBEL	51.171	-0.271	Europe	UK	Surrey	Lissotriton vulgaris	Salamandridae	GPL	2012	Wild
+UKBER	UKBER	51.171	-0.271	Europe	UK	Surrey	Pelophylax ridibundus	Ranidae	GPL	2012	Wild
+UKMAB	UKMAB	54.818	-3.421	Europe	UK	Cumbria	Bufo calamita	Bufonidae	GPL	2012	Wild
+UKSHB	UKSHB	54.171	-3.226	Europe	UK	Cumbria	Bufo calamita	Bufonidae	GPL	2012	Wild
+UKTVB	UKTVB	51.147313	0.091876	Europe	UK	Kent	Lissotriton vulgaris	Salamandridae	GPL	2007	Wild
+VA02	VA02	40.30079	-0.33281	Europe	Spain	Valencia	Alytes obstetricans	Alytidae	GPL	2008	Wild
+VC1	VC1	49.6518	-125.4493	North America	Canada	British Columbia	Rana catesbeianus	Ranidae	GPL	2009	Wild
+VOR3	VOR3	46.98282173	7.764210692	Europe	Switzerland	Bern	Alytes obstetricans	Alytidae	GPL	2011	Wild
+739	739	47.30691163	8.498080357	Europe	Switzerland	Zurich	Alytes obstetricans	Alytidae	CH	2007	Wild
+CAE2	CAE2	51.53659	-0.153415	Europe	UK	Trade	Geotrypetes seraphini	Dermophiidae	CAPE	2012	Trade
+CCB1	CCB1	39.87533	2.856399	Europe	Spain	Coco de sa Bova, Mallorca	Alytes muletensis	Alytidae	CAPE	2007	Wild
+CCB15	CCB15	39.87533	2.856399	Europe	Mallorca	Coco de sa Bova	Alytes obstetricans	Alytidae	CAPE	2015	Wild
+DB8-4	DB8-4	-28.760278	28.896389	Africa	South Africa	NA	NA	Pyxicephalidae	CAPE	2016	Wild
+DB8-2	DB8.2	-28.760278	28.896389	Africa	South Africa	NA	NA	Pyxicephalidae	CAPE	2016	Wild
+HR1	HR1	51.53659	-0.153415	Europe	UK	WC Cameroon	Hyperolius riggenbachi	Hyperoliidae	CAPE	2013	Trade
+HR5	HR5	51.53659	-0.153415	Europe	UK	WC Cameroon	Hyperolius riggenbachi	Hyperoliidae	CAPE	2013	Trade
+LM2	LM2	51.53659	-0.153415	Europe	UK	WC Cameroon	Leptopelis rufus	Arthroleptidae	CAPE	2013	Trade
+MC58	MC58	-23.81647	30.0238	Africa	South Africa	Limpopo	Hadromophryne natalensis	Heleophrynidae	CAPE	2008	Wild
+MG1	MG1	-28.844605	29.054547	Africa	South Africa	Kwazulu Natal	Amietia vertebralis	Pyxicephalidae	CAPE	2008	Wild
+NTA6	NTA6	5.250917	9.573917	Africa	Cameroon	South West	Opisthothylax immaculatus	Hyperoliidae	CAPE	2012	Wild
+SA1d	SA1d	-28.71986	28.92375	Africa	South Africa	Kwazulu Natal	Hadromophryne natalensis	Heleophrynidae	CAPE	2010	Wild
+SA3e	SA3e	-29.02242	30.58106	Africa	South Africa	KwaZulu-Natal	Amietia angolensis	Pyxicephalidae	CAPE	2010	Wild
+SA4c	SA4c	-29.02242	30.58106	Africa	South Africa	Kwazulu Natal	Amietia angolensis	Pyxicephalidae	CAPE	2010	Wild
+SA5c	SA5c	-29.02242	30.58106	Africa	South Africa	Kwazulu Natal	Amietia angolensis	Pyxicephalidae	CAPE	2010	Wild
+SA6e	SA6e	-29.02242	30.58106	Africa	South Africa	Pinetown Kwazulu	NA	Pyxicephalidae	CAPE	2010	Wild
+SAFS-1	SAFS-1	-28.75064	28.871361	Africa	South Africa	NA	NA	Pyxicephalidae	CAPE	2016	Wild
+SAKN-1	SAKN-1	-28.75231	28.894361	Africa	South Africa	NA	NA	Pyxicephalidae	CAPE	2016	Wild
+SAKN-3	SAKN-3	-28.76028	28.896389	Africa	South Africa	NA	NA	Pyxicephalidae	CAPE	2016	Wild
+SAKN-4	SAKN-4	-28.71981	28.923611	Africa	South Africa	NA	NA	Heleophrynidae	CAPE	2016	Wild
+SAKN-5	SAKN-5	-28.71981	28.923611	Africa	South Africa	NA	NA	Heleophrynidae	CAPE	2016	Wild
+SAKN-6	SAKN-6	-28.71981	28.923611	Africa	South Africa	NA	NA	Heleophrynidae	CAPE	2016	Wild
+TF5a1	TF5a1	39.85755444	2.837379981	Europe	Spain	Mallorca	Alytes muletensis	Alytidae	CAPE	2007	Wild
+TRBOMB	TRBOMB	51.046322	3.727932	Europe	Belgium	Herrent	Bombina variegata	Bombinatoridae	CAPE	2012	Trade
+CLFT001	CLFT001	-23.249292	-46.949915	South America	Brazil	Serra do Japi	Hylodes japi	Hylodidae	ASIA-2	2010	Wild
+CLFT061	CLFT061	-26.77046	-49.19247	South America	Brazil	Pomerode	Hylodes meridionalis	Hylodidae	ASIA-2	2013	Wild
+CLFT065	CLFT065	-23.25231	-46.94758	South America	Brazil	Serra do Japi	Hylodes japi	Hylodidae	ASIA-2	2013	Wild
+CLFT067	CLFT067	-23.25231	-46.94758	South America	Brazil	Serra do Japi	Hylodes japi	Hylodidae	ASIA-2	2013	Wild
+CLFT071	CLFT071	-23.25231	-46.94758	South America	Brazil	Serra do Japi	Hylodes japi	Hylodidae	ASIA-2	2013	Wild
+CLFT136	CLFT136	-25.36387	-48.87675	South America	Brazil	Morretes	Bokermannohyla hylax	Hylodidae	ASIA-2	2014	Wild
+CLFT144	CLFT144	-25.36387	-48.87675	South America	Brazil	Morretes	Hylodes cardosoi	Hylodidae	ASIA-2	2014	Wild
+KB108	KB108	37.18010366	126.7563225	Asia	South Korea	Hwaseong-si	Rana catesbeianus	Ranidae	ASIA-2	2014	Wild
+KB23	KB23	38.1298	127.7657	Asia	South Korea	NA	Rana catesbeianus	Ranidae	ASIA-2	2014	Wild
+KB45	KB45	36.13737	127.38169	Asia	South Korea	NA	Rana catesbeianus	Ranidae	ASIA-2	2014	Wild
+KB72	KB72	36.13737	127.38169	Asia	South Korea	NA	Rana catesbeianus	Ranidae	ASIA-2	2014	Wild
+UM142	UM142	42.241148	-83.613008	North America	USA	Michigan	Rana catesbeianus	Ranidae	ASIA-2	2009	Trade
+KB347	KB347	38.1298	127.7657	Asia	South Korea	Gangwon-do	Bombina orientalis	Bombinatoridae	ASIA-1	2014	Wild
+KBO_317	KBO_317	38.1298	127.7657	Asia	South Korea	Gangwon-do	Bombina orientalis	Bombinatoridae	ASIA-1	2014	Wild
+KBO_319	KBO_319	38.1298	127.7657	Asia	South Korea	Gangwon-do	Bombina orientalis	Bombinatoridae	ASIA-1	2014	Wild
+KBO_327	KBO_327	38.1298	127.7657	Asia	South Korea	Gangwon-do	Bombina orientalis	Bombinatoridae	ASIA-1	2014	Wild
+KRBOOR_317	KRBOOR_317	38.1298	127.7657	Asia	South Korea	Gangwon-do	Bombina orientalis	Bombinatoridae	ASIA-1	2014	Wild
+KRBOOR_323	KRBOOR_323	38.1298	127.7657	Asia	South Korea	Gangwon-do	Bombina orientalis	Bombinatoridae	ASIA-1	2014	Wild
+KRBOOR_331	KRBOOR_331	38.1298	127.7657	Asia	South Korea	Gangwon-do	Bombina orientalis	Bombinatoridae	ASIA-1	2014	Wild
+TRBOOR	TRBOOR_11	51.046322	3.727932	Europe	Belgium	Klotten	Bombina orientalis	Bombinatoridae	ASIA-1	2012	Trade
+CLFT024/2	CLFT024_2	-25.35899	-48.87857	South America	Brazil	Morretes	Hylodes cardosoi	Hylodidae	HYBRID	2011	Wild
+SA-EC3	SA-EC3	-32.51572	26.934611	Africa	South Africa	NA	NA	Pyxicephalidae	HYBRID	2015	Wild
+SAEC-5	SAEC-5	-30.72189	26.9064555	Africa	South Africa	NA	NA	Pyxicephalidae	HYBRID	2016	Wild

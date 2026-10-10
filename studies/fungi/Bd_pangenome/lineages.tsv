@@ -1,12 +1,345 @@
-strain	lineage	lineage_source	mash_group	in_gpl_mash_group
-CLFT001	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
-CLFT023	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_A	yes
-CLFT024-02	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
-CLFT024	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_A	yes
-CLFT026	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_A	yes
-CLFT061	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
-CLFT065	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
-CLFT067	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
-CLFT071	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
-CLFT136	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
-CLFT144	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
+strain	mash_group	paper_lineage	lineage	lineage_source	note
+02.OZ	Mash_A	GPL	GPL	paper_metadata	
+03.OZ	Mash_A	GPL	GPL	paper_metadata	
+06.OZ	Mash_A	GPL	GPL	paper_metadata	
+07.OZ	Mash_A	GPL	GPL	paper_metadata	
+0710-1	Mash_A	GPL	GPL	paper_metadata	
+0711.1	Mash_A	GPL	GPL	paper_metadata	
+08MG02	Mash_A	GPL	GPL	paper_metadata	
+08MG05	Mash_A	GPL	GPL	paper_metadata	
+09.OZ	Mash_A	GPL	GPL	paper_metadata	
+11.OZ	Mash_A	GPL	GPL	paper_metadata	
+12.OZ	Mash_A	GPL	GPL	paper_metadata	
+13.OZ	Mash_A	GPL	GPL	paper_metadata	
+14.OZ	Mash_A	GPL	GPL	paper_metadata	
+15.OZ	Mash_A	GPL	GPL	paper_metadata	
+16.OZ	Mash_A	GPL	GPL	paper_metadata	
+18.OZ	Mash_A	GPL	GPL	paper_metadata	
+20.OZ	Mash_A	GPL	GPL	paper_metadata	
+22.OZ	Mash_A	GPL	GPL	paper_metadata	
+23.OZ	Mash_A	GPL	GPL	paper_metadata	
+24.OZ	Mash_A	GPL	GPL	paper_metadata	
+25.OZ	Mash_A	GPL	GPL	paper_metadata	
+28.OZ	Mash_A	GPL	GPL	paper_metadata	
+30.OZ	Mash_A	GPL	GPL	paper_metadata	
+33.OZ	Mash_A	GPL	GPL	paper_metadata	
+34.OZ	Mash_A	GPL	GPL	paper_metadata	
+35.OZ	Mash_A	GPL	GPL	paper_metadata	
+36.OZ	Mash_A	GPL	GPL	paper_metadata	
+37.OZ	Mash_A	GPL	GPL	paper_metadata	
+38.OZ	Mash_A	GPL	GPL	paper_metadata	
+39.OZ	Mash_A	GPL	GPL	paper_metadata	
+40.OZ	Mash_A	GPL	GPL	paper_metadata	
+41.OZ	Mash_A	GPL	GPL	paper_metadata	
+42.OZ	Mash_A	GPL	GPL	paper_metadata	
+43.OZ	Mash_A	GPL	GPL	paper_metadata	
+44.OZ	Mash_A	GPL	GPL	paper_metadata	
+45.OZ	Mash_A	GPL	GPL	paper_metadata	
+46.OZ	Mash_A	GPL	GPL	paper_metadata	
+47.OZ	Mash_A	GPL	GPL	paper_metadata	
+49.OZ	Mash_A	GPL	GPL	paper_metadata	
+ADMALA	Mash_A	GPL	GPL	paper_metadata	
+ANS_13No1	Mash_A		GPL	inferred_from_mash_group	
+ANS_13No10	Mash_A	GPL	GPL	paper_metadata	
+ANS_13No12	Mash_A		GPL	inferred_from_mash_group	
+ANS_13No4	Mash_A		GPL	inferred_from_mash_group	
+ANS_13No7	Mash_A		GPL	inferred_from_mash_group	
+AP15_IT	Mash_A		GPL	inferred_from_mash_group	
+AUL_FR	Mash_A		GPL	inferred_from_mash_group	
+AVS2	Mash_A	GPL	GPL	paper_metadata	
+AVS4	Mash_A	GPL	GPL	paper_metadata	
+AVS7	Mash_A	GPL	GPL	paper_metadata	
+Acherito.1.2_15	Mash_A		GPL	inferred_from_mash_group	
+Acherito.3.1_15	Mash_A		GPL	inferred_from_mash_group	
+Acherito.4.1_15	Mash_A		GPL	inferred_from_mash_group	
+Acherito.5.2_15	Mash_A		GPL	inferred_from_mash_group	
+Acherito.c_15	Mash_A	GPL	GPL	paper_metadata	
+Acherito.d_15	Mash_A		GPL	inferred_from_mash_group	
+Ansabere.6.1_15	Mash_A		GPL	inferred_from_mash_group	
+AoCH15_B	Mash_A	GPL	GPL	paper_metadata	
+Arlet.K_15	Mash_A		GPL	inferred_from_mash_group	
+Arlet.a_15	Mash_A	GPL	GPL	paper_metadata	
+Arlet_13No1	Mash_A		GPL	inferred_from_mash_group	
+Arlet_13No2	Mash_A		GPL	inferred_from_mash_group	
+Arlet_13No4	Mash_A		GPL	inferred_from_mash_group	
+Arlet_13No6	Mash_A		GPL	inferred_from_mash_group	
+Arlet_13No8	Mash_A		GPL	inferred_from_mash_group	
+BAV_BRUCH_1	Mash_A	GPL	GPL	paper_metadata	
+BAV_OBER_1	Mash_A	GPL	GPL	paper_metadata	
+BAV_OBER_2	Mash_A	GPL	GPL	paper_metadata	
+BAV_OBER_3	Mash_A	GPL	GPL	paper_metadata	
+BEW2_CH	Mash_A		GPL	inferred_from_mash_group	
+BLI1_CH	Mash_A		GPL	inferred_from_mash_group	
+BR1_CH	Mash_A		GPL	inferred_from_mash_group	
+BdBE1	Mash_A	GPL	GPL	paper_metadata	
+BdBE2	Mash_A	GPL	GPL	paper_metadata	
+BdBE3	Mash_A	GPL	GPL	paper_metadata	
+BdBE4	Mash_A	GPL	GPL	paper_metadata	
+BdBE5	Mash_A	GPL	GPL	paper_metadata	
+BdBE6	Mash_A	GPL	GPL	paper_metadata	
+BdNL1	Mash_A	GPL	GPL	paper_metadata	
+Bd_Aus1	Mash_A		GPL	inferred_from_mash_group	
+Bd_Aus2	Mash_A		GPL	inferred_from_mash_group	
+Bd_Aus3	Mash_A		GPL	inferred_from_mash_group	
+Bd_Aus4	Mash_A		GPL	inferred_from_mash_group	
+Bd_Aus5	Mash_A		GPL	inferred_from_mash_group	
+Bd_Aus6	Mash_A		GPL	inferred_from_mash_group	
+Bd_Aus8	Mash_A		GPL	inferred_from_mash_group	
+Bd_Aus9	Mash_A		GPL	inferred_from_mash_group	
+Bd_JEL253	Mash_A		GPL	inferred_from_mash_group	
+Bd_RTP5	Mash_A		GPL	inferred_from_mash_group	
+Bd_RTP6	Mash_A		GPL	inferred_from_mash_group	
+CH4_CH	Mash_A		GPL	inferred_from_mash_group	
+CHAL3_CH	Mash_A		GPL	inferred_from_mash_group	
+CJB4	Mash_A	GPL	GPL	paper_metadata	
+CJB5-2	Mash_A	GPL	GPL	paper_metadata	
+CJB7	Mash_A	GPL	GPL	paper_metadata	
+CLFT023	Mash_A	GPL	GPL	paper_metadata	maintainer: BdBRAZIL (but Mash_A/GPL; paper: GPL)
+CLFT024	Mash_A		GPL	inferred_from_mash_group	maintainer: BdBRAZIL (but Mash_A/GPL; not in paper metadata)
+CLFT026	Mash_A	GPL	GPL	paper_metadata	maintainer: BdBRAZIL (but Mash_A/GPL; paper: GPL)
+CM21	Mash_A	GPL	GPL	paper_metadata	
+CM22	Mash_A	GPL	GPL	paper_metadata	
+CMT3	Mash_A	GPL	GPL	paper_metadata	
+CMT5	Mash_A	GPL	GPL	paper_metadata	
+CORN1	Mash_A	GPL	GPL	paper_metadata	
+CORN1B	Mash_A	GPL	GPL	paper_metadata	
+Campana	Mash_A		GPL	inferred_from_mash_group	
+ETH2_ET	Mash_A		GPL	inferred_from_mash_group	
+ETH4_ET	Mash_A		GPL	inferred_from_mash_group	
+EV001	Mash_A	GPL	GPL	paper_metadata	
+FG184	Mash_A	GPL	GPL	paper_metadata	
+FG32	Mash_A	GPL	GPL	paper_metadata	
+HER3_CH	Mash_A		GPL	inferred_from_mash_group	
+HYATT	Mash_A	GPL	GPL	paper_metadata	
+Hung_2014	Mash_A	GPL	GPL	paper_metadata	
+Hung_2039	Mash_A	GPL	GPL	paper_metadata	
+Hung_2044	Mash_A	GPL	GPL	paper_metadata	
+IA042_Highly_passaged	Mash_A		GPL	inferred_from_mash_group	
+IA042_Low_passage	Mash_A		GPL	inferred_from_mash_group	
+IA043_cryo	Mash_A	GPL	GPL	paper_metadata	
+IA12	Mash_A		GPL	inferred_from_mash_group	
+IA_11	Mash_A	GPL	GPL	paper_metadata	
+IA_12No1	Mash_A		GPL	inferred_from_mash_group	
+IA_12No10	Mash_A		GPL	inferred_from_mash_group	
+IA_12No12	Mash_A		GPL	inferred_from_mash_group	
+IA_12No3	Mash_A		GPL	inferred_from_mash_group	
+IA_12No4	Mash_A		GPL	inferred_from_mash_group	
+IA_12No5	Mash_A		GPL	inferred_from_mash_group	
+IA_12No8	Mash_A		GPL	inferred_from_mash_group	
+IA_12No9	Mash_A		GPL	inferred_from_mash_group	
+IA_13No1	Mash_A		GPL	inferred_from_mash_group	
+IA_13No12	Mash_A		GPL	inferred_from_mash_group	
+IA_13No13_48	Mash_A		GPL	inferred_from_mash_group	
+IA_13No13_60	Mash_A		GPL	inferred_from_mash_group	
+IA_13No17	Mash_A	GPL	GPL	paper_metadata	
+IA_13No6	Mash_A		GPL	inferred_from_mash_group	
+IA_13No8	Mash_A		GPL	inferred_from_mash_group	
+JEL238	Mash_A	GPL	GPL	paper_metadata	
+JEL240	Mash_A	GPL	GPL	paper_metadata	
+JEL261	Mash_A	GPL	GPL	paper_metadata	
+JEL267	Mash_A	GPL	GPL	paper_metadata	
+JEL270	Mash_A	GPL	GPL	paper_metadata	
+JEL271	Mash_A	GPL	GPL	paper_metadata	
+JEL274	Mash_A	GPL	GPL	paper_metadata	
+JEL275	Mash_A	GPL	GPL	paper_metadata	
+JEL289	Mash_A	GPL	GPL	paper_metadata	
+JEL310	Mash_A	GPL	GPL	paper_metadata	
+JEL359	Mash_A	GPL	GPL	paper_metadata	
+JEL408	Mash_A	GPL	GPL	paper_metadata	
+JEL410	Mash_A		GPL	inferred_from_mash_group	
+JEL412	Mash_A		GPL	inferred_from_mash_group	
+JEL413	Mash_A		GPL	inferred_from_mash_group	
+JEL423	Mash_A	GPL	GPL	paper_metadata	
+JEL423_PA	Mash_A		GPL	inferred_from_mash_group	
+JEL427	Mash_A	GPL	GPL	paper_metadata	
+JEL427-P17	Mash_A		GPL	inferred_from_mash_group	
+JEL427-P39	Mash_A		GPL	inferred_from_mash_group	
+JEL429	Mash_A	GPL	GPL	paper_metadata	
+JEL433	Mash_A	GPL	GPL	paper_metadata	
+JEL627	Mash_A	GPL	GPL	paper_metadata	
+L2203	Mash_A	GPL	GPL	paper_metadata	
+LBAbercrom	Mash_A	GPL	GPL	paper_metadata	
+LHURS8_CH	Mash_A		GPL	inferred_from_mash_group	
+LHURS_11No1	Mash_A	GPL	GPL	paper_metadata	
+LHURS_11No11	Mash_A		GPL	inferred_from_mash_group	
+LHURS_11No7	Mash_A	GPL	GPL	paper_metadata	
+LHURS_11No8	Mash_A		GPL	inferred_from_mash_group	
+Lhurs_13No11	Mash_A		GPL	inferred_from_mash_group	
+Lhurs_13No13	Mash_A		GPL	inferred_from_mash_group	
+Lhurs_13No14	Mash_A		GPL	inferred_from_mash_group	
+Lhurs_13No2	Mash_A		GPL	inferred_from_mash_group	
+Lhurs_13No4	Mash_A		GPL	inferred_from_mash_group	
+MAD_FR	Mash_A		GPL	inferred_from_mash_group	
+MAL05_GB	Mash_A		GPL	inferred_from_mash_group	
+MC94	Mash_A	GPL	GPL	paper_metadata	
+MCT8	Mash_A	GPL	GPL	paper_metadata	
+MG4_ZA	Mash_A		GPL	inferred_from_mash_group	
+MLA1	Mash_A	GPL	GPL	paper_metadata	
+MODS27_IT	Mash_A		GPL	inferred_from_mash_group	
+MODS28_IT	Mash_A		GPL	inferred_from_mash_group	
+MexMkt	Mash_A	GPL	GPL	paper_metadata	
+NBRC106979	Mash_A	GPL	GPL	paper_metadata	
+PENNEWT	Mash_A	GPL	GPL	paper_metadata	
+PENS-2.4	Mash_A	GPL	GPL	paper_metadata	
+PENS-9.2	Mash_A	GPL	GPL	paper_metadata	
+PNP15150	Mash_A	GPL	GPL	paper_metadata	
+PNP15152	Mash_A		GPL	inferred_from_mash_group	
+PNP15153	Mash_A	GPL	GPL	paper_metadata	
+PNP15156	Mash_A		GPL	inferred_from_mash_group	
+PUITS_11	Mash_A	GPL	GPL	paper_metadata	
+PUITS_12No3	Mash_A		GPL	inferred_from_mash_group	
+PUITS_12No4	Mash_A		GPL	inferred_from_mash_group	
+PUITS_12No5	Mash_A		GPL	inferred_from_mash_group	
+PUITS_12No7	Mash_A		GPL	inferred_from_mash_group	
+PUITS_12No8	Mash_A		GPL	inferred_from_mash_group	
+RAS3_CH	Mash_A		GPL	inferred_from_mash_group	
+RC4	Mash_A	GPL	GPL	paper_metadata	
+RC5.1	Mash_A	GPL	GPL	paper_metadata	
+RioMaria	Mash_A		GPL	inferred_from_mash_group	
+SA-EC1	Mash_A	GPL	GPL	paper_metadata	
+SA-EC6	Mash_A	GPL	GPL	paper_metadata	
+SA-EC7	Mash_A	GPL	GPL	paper_metadata	
+SA-NC1	Mash_A	GPL	GPL	paper_metadata	
+SA-NC10	Mash_A	GPL	GPL	paper_metadata	
+SA-NC2	Mash_A	GPL	GPL	paper_metadata	
+SA-NC3	Mash_A	GPL	GPL	paper_metadata	
+SA-NC4	Mash_A	GPL	GPL	paper_metadata	
+SA-NC5	Mash_A	GPL	GPL	paper_metadata	
+SA-NC6	Mash_A	GPL	GPL	paper_metadata	
+SA-NC7	Mash_A	GPL	GPL	paper_metadata	
+SA-NC8	Mash_A	GPL	GPL	paper_metadata	
+SA-NC9	Mash_A	GPL	GPL	paper_metadata	
+SCH_CH	Mash_A		GPL	inferred_from_mash_group	
+SFBC014_GB	Mash_A		GPL	inferred_from_mash_group	
+SP10_IT	Mash_A		GPL	inferred_from_mash_group	
+SRS812	Mash_A	GPL	GPL	paper_metadata	
+STR3_CH	Mash_A		GPL	inferred_from_mash_group	
+SWED-40.5.04	Mash_A	GPL	GPL	paper_metadata	
+SWED-40.5.13	Mash_A	GPL	GPL	paper_metadata	
+SWED-40.5.14	Mash_A	GPL	GPL	paper_metadata	
+SWED-40.5.17	Mash_A	GPL	GPL	paper_metadata	
+SWED-40.5.22	Mash_A	GPL	GPL	paper_metadata	
+SWISS_IT1	Mash_A	GPL	GPL	paper_metadata	
+Sample_55882	Mash_A		GPL	inferred_from_mash_group	
+Sample_55883	Mash_A		GPL	inferred_from_mash_group	
+Sample_55886	Mash_A		GPL	inferred_from_mash_group	
+Sample_55888	Mash_A		GPL	inferred_from_mash_group	
+Sample_55890	Mash_A		GPL	inferred_from_mash_group	
+Sample_55897	Mash_A		GPL	inferred_from_mash_group	
+Sample_55899	Mash_A		GPL	inferred_from_mash_group	
+Sample_55900	Mash_A		GPL	inferred_from_mash_group	
+Sample_55906	Mash_A		GPL	inferred_from_mash_group	
+Sample_55908	Mash_A		GPL	inferred_from_mash_group	
+Sample_55910	Mash_A		GPL	inferred_from_mash_group	
+Sample_55911	Mash_A		GPL	inferred_from_mash_group	
+Sample_55912	Mash_A		GPL	inferred_from_mash_group	
+Sample_55913	Mash_A		GPL	inferred_from_mash_group	
+Sample_55914	Mash_A		GPL	inferred_from_mash_group	
+Sample_55915	Mash_A		GPL	inferred_from_mash_group	
+Sample_55916	Mash_A		GPL	inferred_from_mash_group	
+Sample_55917	Mash_A		GPL	inferred_from_mash_group	
+Sample_55918	Mash_A		GPL	inferred_from_mash_group	
+Sample_55920	Mash_A		GPL	inferred_from_mash_group	
+Sample_55921	Mash_A		GPL	inferred_from_mash_group	
+Sample_55922	Mash_A		GPL	inferred_from_mash_group	
+Sample_55925	Mash_A		GPL	inferred_from_mash_group	
+Sample_55926	Mash_A		GPL	inferred_from_mash_group	
+Sample_55927	Mash_A		GPL	inferred_from_mash_group	
+Sample_55928	Mash_A		GPL	inferred_from_mash_group	
+Sample_55929	Mash_A		GPL	inferred_from_mash_group	
+Sample_55930	Mash_A		GPL	inferred_from_mash_group	
+Sample_55931	Mash_A		GPL	inferred_from_mash_group	
+Sample_55932	Mash_A		GPL	inferred_from_mash_group	
+Sample_55934	Mash_A		GPL	inferred_from_mash_group	
+Sample_55938	Mash_A		GPL	inferred_from_mash_group	
+Sample_55939	Mash_A		GPL	inferred_from_mash_group	
+Sample_55940	Mash_A		GPL	inferred_from_mash_group	
+Sample_55942	Mash_A		GPL	inferred_from_mash_group	
+Sample_55944	Mash_A		GPL	inferred_from_mash_group	
+Sample_55946	Mash_A		GPL	inferred_from_mash_group	
+Sample_55947	Mash_A		GPL	inferred_from_mash_group	
+Sora	Mash_A		GPL	inferred_from_mash_group	
+TER_1.1	Mash_A	GPL	GPL	paper_metadata	
+TER_3.1	Mash_A	GPL	GPL	paper_metadata	
+TER_4.2	Mash_A	GPL	GPL	paper_metadata	
+TORO1_ES	Mash_A		GPL	inferred_from_mash_group	
+TST75	Mash_A	GPL	GPL	paper_metadata	
+TW16-050	Mash_A	GPL	GPL	paper_metadata	
+TW16-164	Mash_A	GPL	GPL	paper_metadata	
+TW16-206	Mash_A	GPL	GPL	paper_metadata	
+TW16-279	Mash_A	GPL	GPL	paper_metadata	
+TW16-280	Mash_A	GPL	GPL	paper_metadata	
+TW16-292	Mash_A	GPL	GPL	paper_metadata	
+TW16-293	Mash_A	GPL	GPL	paper_metadata	
+TW16-295	Mash_A	GPL	GPL	paper_metadata	
+TW16-304	Mash_A	GPL	GPL	paper_metadata	
+TW16-519	Mash_A	GPL	GPL	paper_metadata	
+UKBEL	Mash_A	GPL	GPL	paper_metadata	
+UKBER	Mash_A	GPL	GPL	paper_metadata	
+UKMAB	Mash_A	GPL	GPL	paper_metadata	
+UKTVB	Mash_A	GPL	GPL	paper_metadata	
+VA02	Mash_A	GPL	GPL	paper_metadata	
+VC1_CA	Mash_A		GPL	inferred_from_mash_group	
+VOR3_CH	Mash_A		GPL	inferred_from_mash_group	
+picosAo1	Mash_A	GPL	GPL	paper_metadata	
+CLFT001	Mash_B	ASIA-2	ASIA-2	paper_metadata	maintainer: BdBRAZIL (paper: ASIA-2, same group)
+CLFT024-02	Mash_B		ASIA-2	inferred_from_mash_group	maintainer: BdBRAZIL
+CLFT061	Mash_B	ASIA-2	ASIA-2	paper_metadata	maintainer: BdBRAZIL (paper: ASIA-2, same group)
+CLFT065	Mash_B	ASIA-2	ASIA-2	paper_metadata	maintainer: BdBRAZIL (paper: ASIA-2, same group)
+CLFT067	Mash_B	ASIA-2	ASIA-2	paper_metadata	maintainer: BdBRAZIL (paper: ASIA-2, same group)
+CLFT071	Mash_B	ASIA-2	ASIA-2	paper_metadata	maintainer: BdBRAZIL (paper: ASIA-2, same group)
+CLFT136	Mash_B	ASIA-2	ASIA-2	paper_metadata	maintainer: BdBRAZIL (paper: ASIA-2, same group)
+CLFT144	Mash_B	ASIA-2	ASIA-2	paper_metadata	maintainer: BdBRAZIL (paper: ASIA-2, same group)
+KB108	Mash_B	ASIA-2	ASIA-2	paper_metadata	
+KB23	Mash_B	ASIA-2	ASIA-2	paper_metadata	
+KB45	Mash_B	ASIA-2	ASIA-2	paper_metadata	
+KB72	Mash_B	ASIA-2	ASIA-2	paper_metadata	
+LFT001_10	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55887	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55898	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55901	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55902	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55903	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55904	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55905	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55933	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55935	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55936	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55937	Mash_B		ASIA-2	inferred_from_mash_group	
+Sample_55945	Mash_B		ASIA-2	inferred_from_mash_group	
+UM142	Mash_B	ASIA-2	ASIA-2	paper_metadata	
+CCB1	Mash_C	CAPE	CAPE	paper_metadata	
+CCB15	Mash_C	CAPE	CAPE	paper_metadata	
+DB8-4	Mash_C	CAPE	CAPE	paper_metadata	
+DB8.2	Mash_C	CAPE	CAPE	paper_metadata	
+HR1	Mash_C	CAPE	CAPE	paper_metadata	
+HR5	Mash_C	CAPE	CAPE	paper_metadata	
+LM2	Mash_C	CAPE	CAPE	paper_metadata	
+MC58	Mash_C	CAPE	CAPE	paper_metadata	
+MG1_ZA	Mash_C		CAPE	inferred_from_mash_group	
+RC5.1_FR	Mash_C		CAPE	inferred_from_mash_group	
+SA-EC3	Mash_C	HYBRID	HYBRID	paper_metadata	
+SA-EC5	Mash_C	HYBRID	HYBRID	paper_metadata	
+SA-FS1	Mash_C	CAPE	CAPE	paper_metadata	
+SA-KN1	Mash_C	CAPE	CAPE	paper_metadata	
+SA-KN3	Mash_C	CAPE	CAPE	paper_metadata	
+SA-KN4	Mash_C	CAPE	CAPE	paper_metadata	
+SA-KN5	Mash_C	CAPE	CAPE	paper_metadata	
+SA-KN6	Mash_C	CAPE	CAPE	paper_metadata	
+SA1d_ZA	Mash_C		CAPE	inferred_from_mash_group	
+SA3e	Mash_C	CAPE	CAPE	paper_metadata	
+SA4c_ZA	Mash_C		CAPE	inferred_from_mash_group	
+SA5c	Mash_C	CAPE	CAPE	paper_metadata	
+SA6e	Mash_C	CAPE	CAPE	paper_metadata	
+TF5a1_ES	Mash_C		CAPE	inferred_from_mash_group	
+KB347	Mash_D	ASIA-1	ASIA-1	paper_metadata	
+KBO_317	Mash_D	ASIA-1	ASIA-1	paper_metadata	
+KBO_319	Mash_D	ASIA-1	ASIA-1	paper_metadata	
+KBO_327	Mash_D	ASIA-1	ASIA-1	paper_metadata	
+KRBOOR_317	Mash_D	ASIA-1	ASIA-1	paper_metadata	
+KRBOOR_323	Mash_D	ASIA-1	ASIA-1	paper_metadata	
+KRBOOR_331	Mash_D	ASIA-1	ASIA-1	paper_metadata	
+0739	Mash_E		CH	inferred_from_mash_group	
+ACON_CH	Mash_E		CH	inferred_from_mash_group	
+APEP_CH	Mash_E		CH	inferred_from_mash_group	
+CON2A_CH	Mash_E		CH	inferred_from_mash_group	
