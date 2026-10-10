@@ -1,0 +1,16 @@
+pc_strat
+  ambiguous_linkage	1986
+  insufficient_data	1174
+  trans	65458
+  trans_unconfirmed	3382
+  unexplained_physical	5059
+/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v3/config_immitis_in_posadasii_out/pangenome/pair_classification
+  ambiguous_linkage	1986
+  insufficient_data	1174
+  trans_unconfirmed	68840
+  unexplained_physical	5059
+strata_in_pair	1	465
+strata_in_pair	2	2813
+strata_in_pair	3	9262
+strata_in_pair	4	20167
+strata_in_pair	5	44352

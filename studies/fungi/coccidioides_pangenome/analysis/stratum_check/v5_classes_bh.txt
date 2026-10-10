@@ -1,0 +1,5 @@
+ambiguous_linkage	2009
+insufficient_data	1539
+trans	65117
+trans_unconfirmed	3346
+unexplained_physical	5048
