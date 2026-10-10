@@ -1,0 +1,6 @@
+mash_group	n_strains	suggested_lineage	basis
+Mash_A	283	BdGPL	largest group; contains JEL423; green clade in O'Hanlon 2018 Fig 1B and the GPL tree of Rosenblum 2013 Fig 1
+Mash_B	26	BdASIA-2/BdBRAZIL	8 of the 11 strains in strain_to_group.tsv are here (CLFT001, 024-02, 061, 065, 067, 071, 136, 144)
+Mash_C	24	BdCAPE	contains South African strains (SA*_ZA, MG1_ZA); not confirmed strain by strain
+Mash_D	7	BdASIA-1	KBO_317/319/327 and KRBOOR_317/323/331 (Korean); blue clade in the 2018 figure; not confirmed strain by strain
+Mash_E	4	BdCH	0739, ACON_CH, APEP_CH, CON2A_CH (Swiss codes); not confirmed strain by strain

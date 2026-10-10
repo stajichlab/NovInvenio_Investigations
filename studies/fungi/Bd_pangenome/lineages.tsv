@@ -1,0 +1,12 @@
+strain	lineage	lineage_source	mash_group	in_gpl_mash_group
+CLFT001	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
+CLFT023	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_A	yes
+CLFT024-02	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
+CLFT024	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_A	yes
+CLFT026	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_A	yes
+CLFT061	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
+CLFT065	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
+CLFT067	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
+CLFT071	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
+CLFT136	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
+CLFT144	BdBRAZIL	strain_to_group.tsv (maintainer)	Mash_B	no
