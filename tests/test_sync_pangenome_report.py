@@ -401,3 +401,23 @@ def test_empty_tables_are_not_listed_as_downloads(tmp_path):
     run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
     assert not (run_docs / "archive" / "group_class_overlap.tsv.gz").exists()
     assert "group_class_overlap" not in (run_docs / "report.html").read_text()
+
+
+def test_stage_locus_summary_publishes_subset(tmp_path):
+    import sync_pangenome_report as sp
+    fig = tmp_path / "fig"
+    (fig / "locus_strips").mkdir(parents=True)
+    (fig / "locus_table.tsv").write_text(
+        "key\ttype\tsize\tn_strains\tcontent_n\tcontent_frac\tn_states\ttier\tstarship\tpair\n"
+        "L001\tswap_candidate\t7\t293\t272\t0.928\t19\tfull\t\tA(1) vs B(2)\n"
+        "L002\tunresolved\t5\t100\t3\t0.03\t4\tcontig_end\tLamia-h4\t\n")
+    (fig / "locus_overview.png").write_bytes(b"png")
+    (fig / "locus_strips" / "L001.png").write_bytes(b"png")
+    run = tmp_path / "docs" / "set" / "run"
+    run.mkdir(parents=True)
+    assert sp.stage_locus_summary(fig, run)
+    assert (run / "locus_summary" / "locus_overview.png").is_file()
+    assert not (run / "locus_summary" / "locus_strips").exists()
+    page = (run / "locus_summary.html").read_text()
+    assert "swap_candidate 1" in page and "Lamia-h4" in page
+    assert not sp.stage_locus_summary(tmp_path / "missing", run)

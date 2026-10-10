@@ -87,7 +87,17 @@ ARCHIVE_TABLES = [
 # --clinker_publish_top loci' pages are copied, not the whole directory.
 ASSET_DIRS = [("report/figures", "figures"), ("report/figures_pdf", "figures_pdf")]
 RELEASE_ONLY = ["figures", "figures_pdf", "archive", "clinker", "island_synteny.html",
-                "assembly_quality.html"]
+                "assembly_quality.html", "locus_summary", "locus_summary.html"]
+
+# Files of a locus-summary fig/ dir (studies/*/analysis/locus_summary/make_locus_figures.py)
+# that are published. The per-locus PNGs (about 0.5 MB each) are not; the PDF has them all.
+LOCUS_SUMMARY_FILES = ["locus_overview.png", "starship_overlay.png", "locus_strips_selected.png",
+                       "locus_strips.pdf", "idiomorph_candidates.tsv"]
+LOCUS_SUMMARY_CAPTIONS = {
+    "locus_overview.png": "All loci: carrier fraction against locus type.",
+    "starship_overlay.png": "Af293 loci with Starship spans (Af293 only).",
+    "locus_strips_selected.png": "Selected loci: one row per strain, Mash-clade order.",
+}
 
 DEFAULT_CLINKER_PUBLISH_TOP = 25
 CLINKER_KEY_RE = re.compile(r"L(\d+)\.html")
@@ -174,9 +184,59 @@ def count_data_rows(path: Path) -> int | None:
         return max(sum(1 for _ in fh) - 1, 0)
 
 
+def stage_locus_summary(fig_dir: Path, run_docs: Path) -> bool:
+    """Copy the published subset of a locus-summary fig/ dir into
+    run_docs/locus_summary/ and write run_docs/locus_summary.html. Returns
+    False when fig_dir lacks locus_table.tsv."""
+    import csv
+    import html
+    from collections import Counter
+    table = fig_dir / "locus_table.tsv"
+    if not table.is_file():
+        return False
+    dest = run_docs / "locus_summary"
+    dest.mkdir(exist_ok=True)
+    present = [f for f in LOCUS_SUMMARY_FILES if (fig_dir / f).is_file()]
+    for f in present:
+        shutil.copy2(fig_dir / f, dest / f)
+    with open(table, newline="") as fh:
+        rows = list(csv.DictReader(fh, delimiter="\t"))
+    cols = ["key", "type", "size", "n_strains", "content_n", "content_frac", "n_states",
+            "tier", "starship", "pair"]
+    cols = [c for c in cols if rows and c in rows[0]]
+    types = Counter(r["type"] for r in rows)
+    body = ['<p><a href="report.html">back to run report</a></p>',
+            f"<p>{len(rows)} loci, one focal species. Exploratory: the <code>unresolved</code> "
+            "type is the majority, and <code>swap_candidate</code> is verified on one locus only. "
+            "Starship overlap uses Af293 coordinates. Strip colours: gene in place; DNA at site, "
+            "no gene; DNA checked, absent; not DNA-checked; elsewhere or contig break.</p>",
+            "<p>Types: " + ", ".join(f"{html.escape(t)} {n}" for t, n in types.most_common()) + "</p>"]
+    for f in present:
+        if f in LOCUS_SUMMARY_CAPTIONS:
+            body.append(f'<h3>{html.escape(LOCUS_SUMMARY_CAPTIONS[f])}</h3>'
+                        f'<p><img src="locus_summary/{f}" style="max-width:100%"></p>')
+    if "locus_strips.pdf" in present:
+        body.append('<p><a href="locus_summary/locus_strips.pdf">Strips for all loci (PDF)</a></p>')
+    if "idiomorph_candidates.tsv" in present:
+        body.append('<p><a href="locus_summary/idiomorph_candidates.tsv">Swap candidates (TSV)</a></p>')
+    head = "".join(f"<th>{html.escape(c)}</th>" for c in cols)
+    trs = "".join("<tr>" + "".join(f"<td>{html.escape(r.get(c, ''))}</td>" for c in cols) + "</tr>"
+                  for r in rows)
+    body.append(f'<table id="lt"><thead><tr>{head}</tr></thead><tbody>{trs}</tbody></table>')
+    body.append("<script>document.querySelectorAll('#lt th').forEach((th,i)=>th.onclick=()=>{"
+                "const b=document.querySelector('#lt tbody'),d=th.dataset.d=th.dataset.d==='1'?-1:1;"
+                "[...b.rows].sort((x,y)=>{const a=x.cells[i].textContent,c=y.cells[i].textContent,"
+                "n=parseFloat(a)-parseFloat(c);return d*(isNaN(n)?a.localeCompare(c):n)})"
+                ".forEach(r=>b.appendChild(r))});</script>")
+    (run_docs / "locus_summary.html").write_text(_page(
+        f"{run_docs.parent.name} / {run_docs.name} / locus summary", "\n".join(body)))
+    return True
+
+
 def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, run: str,
               source_label: str, today: str, run_record: Path | None = None,
-              clinker_publish_top: int = DEFAULT_CLINKER_PUBLISH_TOP) -> dict:
+              clinker_publish_top: int = DEFAULT_CLINKER_PUBLISH_TOP,
+              locus_summary_dir: Path | None = None) -> dict:
     run_docs.mkdir(parents=True, exist_ok=True)
     for name in RELEASE_ONLY:
         target = run_docs / name
@@ -210,6 +270,8 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
             html = inject_clinker_published(html, clinker_info["keys"], clinker_info["full_dir"])
         (run_docs / "island_synteny.html").write_text(html)
         extra_pages.append(("Island synteny viewer", "island_synteny.html"))
+    if locus_summary_dir is not None and stage_locus_summary(locus_summary_dir, run_docs):
+        extra_pages.append(("Locus summary", "locus_summary.html"))
     aq_md = pangenome_dir / "assembly_quality_report.md"
     if aq_md.is_file():
         (run_docs / "assembly_quality.html").write_text(_page(
@@ -262,6 +324,9 @@ def main(argv: list[str] | None = None) -> int:
                     help="publish only the top N loci' clinker/<L###>.html pages "
                          f"(default: {DEFAULT_CLINKER_PUBLISH_TOP}; 0 = publish none; "
                          "-1 = publish all)")
+    ap.add_argument("--locus_summary_dir", type=Path, default=None,
+                    help="fig/ dir written by make_locus_figures.py; adds a Locus summary page "
+                         "(release asset only). Not auto-detected, so a stale dir is never published.")
     ap.add_argument("--repo-root", type=Path, default=REPO_ROOT, help=argparse.SUPPRESS)
     args = ap.parse_args(argv)
 
@@ -296,7 +361,8 @@ def main(argv: list[str] | None = None) -> int:
     meta = stage_run(pangenome_dir, study_docs / args.run, domain, set_name, args.run,
                      source_label, today,
                      run_record=study_dir / ".nf_launch" / args.run / "ni_run.json",
-                     clinker_publish_top=args.clinker_publish_top)
+                     clinker_publish_top=args.clinker_publish_top,
+                     locus_summary_dir=args.locus_summary_dir)
     if args.current:
         set_current(study_docs, args.run)
     runs = rebuild_study_pages(study_docs, domain, set_name)
