@@ -259,8 +259,10 @@ def test_resync_replaces_the_clinker_dir(tmp_path):
 def test_publish_script_and_pages_deploy_ship_clinker():
     publish = (REPO_ROOT / "bin" / "publish_report_release.sh").read_text()
     static = (REPO_ROOT / ".github" / "workflows" / "static.yml").read_text()
-    assert "archive clinker island_synteny.html" in publish
-    assert "for d in figures figures_pdf archive clinker; do" in static
+    assert "archive clinker locus_summary island_synteny.html" in publish
+    assert "locus_summary.html" in publish
+    assert "for d in figures figures_pdf archive clinker locus_summary; do" in static
+    assert "assembly_quality.html locus_summary.html; do" in static
 
 
 # ---- N4: NII publishes clinker pages for the top 25 loci only ----
