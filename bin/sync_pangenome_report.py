@@ -201,7 +201,7 @@ def stage_locus_summary(fig_dir: Path, run_docs: Path) -> bool:
         shutil.copy2(fig_dir / f, dest / f)
     with open(table, newline="") as fh:
         rows = list(csv.DictReader(fh, delimiter="\t"))
-    cols = ["key", "type", "size", "n_strains", "content_n", "content_frac", "n_states",
+    cols = ["key", "label", "type", "size", "n_strains", "content_n", "content_frac", "n_states",
             "tier", "starship", "pair"]
     cols = [c for c in cols if rows and c in rows[0]]
     types = Counter(r["type"] for r in rows)

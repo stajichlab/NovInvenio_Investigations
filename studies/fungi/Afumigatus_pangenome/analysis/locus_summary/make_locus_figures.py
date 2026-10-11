@@ -266,6 +266,7 @@ def main():
     ap.add_argument("--label", default="")
     ap.add_argument("--pick", default="", help="comma list of locus keys to include in the montage")
     ap.add_argument("--starships", default="", help="Af293 Starship table (Table S7 TSV)")
+    ap.add_argument("--labels", default="", help="TSV with columns key, label (known loci, e.g. MAT); keys are per run")
     ap.add_argument("--ref_strain", default="Asfu_Af293")
     ap.add_argument("--family_positions", default="")
     ap.add_argument("--gene_positions", default="")
@@ -281,6 +282,7 @@ def main():
     clade_idx = {c: i for i, c in enumerate(clade_names)}
     os.makedirs(os.path.join(a.outdir, "locus_strips"), exist_ok=True)
 
+    known = {r["key"]: r["label"] for r in read_tsv(a.labels)} if a.labels else {}
     ships, fam, by_contig = [], {}, {}
     if a.starships:
         for r in read_tsv(a.starships):
@@ -299,8 +301,9 @@ def main():
         c["starship"] = ";".join(f"{s['name']}-{s['hap']}" for s in ov["ships"]) if ov and ov["ships"] else ""
         c["af293_pos"] = f"{ov['contig']}:{ov['start']}-{ov['end']}" if ov else ""
         c["_ov"] = ov
+        c["label"] = known.get(L["key"], "")
         table.append(c)
-    cols = ["key", "size", "dom_class", "n_strains", "content_n", "content_frac", "n_common", "n_states",
+    cols = ["key", "label", "size", "dom_class", "n_strains", "content_n", "content_frac", "n_common", "n_states",
             "top_share", "elsewhere_frac", "unknown_frac", "tier", "type", "empty_gap", "pair", "starship", "af293_pos", "exemplar"]
     with open(os.path.join(a.outdir, "locus_table.tsv"), "w") as fh:
         fh.write("\t".join(cols) + "\n")
@@ -365,7 +368,7 @@ def main():
         axc, axm = fig.add_subplot(gs[0]), fig.add_subplot(gs[1])
         draw_strip(axm, axc, L, by_strain, order, clade_of, clade_idx)
         ttl = (f"{L['key']}  {L['size']} genes  content {c['content_frac']:.0%} of {c['n_strains']} strains  "
-               f"type: {c['type']}" + (f"  Starship: {c['starship']}" if c["starship"] else ""))
+               f"type: {c['type']}" + (f"  Known: {c['label']}" if c["label"] else "") + (f"  Starship: {c['starship']}" if c["starship"] else ""))
         fig.suptitle(ttl, fontsize=8, x=0.02, ha="left")
         fig.legend([Patch(color=x) for x in CELL_COL] + [Patch(color=CLADE_COLS[i]) for i in range(len(clade_names))],
                    CELL_LAB + clade_names, ncol=5, fontsize=6, loc="lower center")
@@ -403,7 +406,7 @@ def main():
         inner = outer[i // cols_n, i % cols_n].subgridspec(1, 2, width_ratios=[1, 25], wspace=.01)
         axc, axm = fig.add_subplot(inner[0]), fig.add_subplot(inner[1])
         draw_strip(axm, axc, L, by_strain, order, clade_of, clade_idx, with_labels=False)
-        axm.set_title(f"{k} {c['type']}\n{c['content_frac']:.0%} content" + (f", {c['starship']}" if c["starship"] else ""),
+        axm.set_title(f"{k} {c['type']}" + (f" [{c['label']}]" if c["label"] else "") + f"\n{c['content_frac']:.0%} content" + (f", {c['starship']}" if c["starship"] else ""),
                       fontsize=7)
     fig.legend([Patch(color=x) for x in CELL_COL] + [Patch(color=CLADE_COLS[i]) for i in range(len(clade_names))],
                CELL_LAB + clade_names, ncol=6, fontsize=7, loc="lower center")
