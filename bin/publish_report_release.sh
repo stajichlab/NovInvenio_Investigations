@@ -57,7 +57,7 @@ DOCS_DIR="$REPO_ROOT/docs/$STUDY"
 REPORT_FILES=()
 if [ -n "$RUN" ]; then
     for f in novelties.html core.html losses.html summary.pdf \
-             figures figures_pdf archive clinker island_synteny.html assembly_quality.html; do
+             figures figures_pdf archive clinker locus_summary island_synteny.html assembly_quality.html locus_summary.html; do
         [ -e "$DOCS_DIR/$f" ] && REPORT_FILES+=("$f")
     done
 else

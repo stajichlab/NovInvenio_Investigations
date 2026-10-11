@@ -90,11 +90,11 @@ jobs:
             # reports-* assets: individual files, overwritten in place -- these
             # may already exist in the git checkout (committed historically);
             # this release's copy always wins since it's the freshly rebuilt one.
-            for f in novelties.html core.html losses.html summary.pdf island_synteny.html assembly_quality.html; do
+            for f in novelties.html core.html losses.html summary.pdf island_synteny.html assembly_quality.html locus_summary.html; do
               [ -f "$extract_dir/$f" ] && cp -f "$extract_dir/$f" "$dest/$f"
             done
             # pangenome.nf run assets (bin/sync_pangenome_report.py)
-            for d in figures figures_pdf archive clinker; do
+            for d in figures figures_pdf archive clinker locus_summary; do
               [ -d "$extract_dir/$d" ] && rm -rf "$dest/$d" && cp -r "$extract_dir/$d" "$dest/$d"
             done
             echo "merged $tag -> $dest"
