@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-12",
+  "pipeline": "main.nf",
+  "folder": "studies/eukaryotes/zoosporic_holozoa_vs_dikarya",
+  "source_dir": "results/zoosporic_holozoa_vs_dikarya",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 32,
+  "report_sha256": "5931186f2822496b85e40f66b6f525c1b5469fee3c845cf85bae57a0d13310a1"
+}
