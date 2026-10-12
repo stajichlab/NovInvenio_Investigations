@@ -1,0 +1,269 @@
+generated: '2026-10-12T14:56:47'
+study: zoosporic_holozoa_vs_dikarya
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: 199f750f1ebbeb473fc6204d0435b712f565039b8460e5f08108c49d9752ccf2
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya --config
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations
+  --study zoosporic_holozoa_vs_dikarya --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/analysis/enrichment/outputs/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations
+annotation_files:
+  Monobrev: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001357.tsv.gz
+  Salprose: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000007799.tsv.gz
+  Capsowcz: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000008743.tsv.gz
+  Sphaarct: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000054560.tsv.gz
+  Amphquee: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000007879.tsv.gz
+  Tricadha: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000009022.tsv.gz
+  Nemavect: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001593.tsv.gz
+  Mnemleid: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001729289.tsv.gz
+  Caeneleg: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001940.tsv.gz
+  Drosmela: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000000803.tsv.gz
+  Homosapi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000005640.tsv.gz
+  Batrdend: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000007241.tsv.gz
+  Batrsala: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001648503.tsv.gz
+  Spizpunc: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000053201.tsv.gz
+  Powehirt: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000318582.tsv.gz
+  Geravari: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001212152.tsv.gz
+  Syncendo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000317494.tsv.gz
+  Syncmicr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000319731.tsv.gz
+  Chytconf: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000320333.tsv.gz
+  Polystew: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001527925.tsv.gz
+  Rhizglob: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000193642.tsv.gz
+  Rhizrose: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001212841.tsv.gz
+  Cateangu: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000193411.tsv.gz
+  Allomacr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000054350.tsv.gz
+  Pirofinn: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000193719.tsv.gz
+  Sacccere: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000002311.tsv.gz
+  Schipomb: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000002485.tsv.gz
+  Neurcras: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001805.tsv.gz
+  Aspenidu: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000000560.tsv.gz
+  Mycomayd: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000000561.tsv.gz
+  Crypneof: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000010091.tsv.gz
+  Coprcine: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001861.tsv.gz
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 6615
+  candidates_txt: 6615
+  symmetric_difference: 0
+background_clustering:
+  key: 1845b2ec434f81b3
+  n_sequences: 318843
+  n_clusters: 182816
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 360.9
+  threads: 8
+  created: '2026-10-12T14:55:17'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/config.csv: bec465ef33372ed010bca6d6b3737ceb2bf3b6890558ce2e6d2e106bfb722580
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/candidates.txt: f43e40c1a9a0c1df2969dc57a3098c3fe164dea0d8e55c94f4b3a68026167dcf
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Monobrev.tsv
+  : 31c5ed4d49476323ad06fb9f612871c67881baab101c75e72e0a7e0846fa5cd8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Salprose.tsv
+  : b82942debcbf3febae5c8f96dc1c86c84470a7b85dedb23a20a8c6111e437c04
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Capsowcz.tsv
+  : eb9c6aa6ab3a8303541d02b49ba685db79b697515132727f659fe0b8b9f3bcb1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Sphaarct.tsv
+  : 0f92837fa09e80668e3af31f99791a38a1aaf76d3f91fe82bf1761ecdba2c30f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Amphquee.tsv
+  : 7365326d4c07628dfeea729031eab55ae7630dd8b293ea19d956eac3965d748d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Tricadha.tsv
+  : a7d6c4100a8d6e791bc5a6296adffc7f5ab47f75904272febe40be8b7d98f920
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Nemavect.tsv
+  : d0108bd5bb738b4701d3b6d232aa527092370a2d229863ab85d3e01152836ecd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Mnemleid.tsv
+  : 68cf4f8baa858036f4d73101dde6d876ebc080e476ad783d7be89774a3494b22
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Caeneleg.tsv
+  : 6874f29a942e535ca37449c8329f1400bff12e83b4765d3cd252f8f0eb206456
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Drosmela.tsv
+  : 62d5c294f686751950a94eda5d5d4119140605a500c1045e7d6b02dd7d4fd934
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Homosapi.tsv
+  : aad38feff3bdf8ff88a12bc19c5371e9bddc2159802414b9ebb5131025e06cad
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Batrdend.tsv
+  : dded65af6b90130aac96213b1aeecb1e4fe8b0add5369b81510018b653454642
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Batrsala.tsv
+  : 063c5f2d612402c926715b62b0f803d039428164b555adb0104b07f2e0d752a2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Spizpunc.tsv
+  : e84034ac2219b49a56ae81486374469fd417fd2a8145608ba45cfbf90c566f96
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Powehirt.tsv
+  : c42cc27a8b26ecde08d488adcbb321ab8dc7976763270cdb1c1ab81a8395f9bc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Geravari.tsv
+  : 635781de899e925e46add068fdd963a468f5d46f6cadf6a8de031b6a9c19d1aa
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Syncendo.tsv
+  : 2c8e2a54355f60d5127b150f7da51788809d3352761840e1a6cd0d20080a6411
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Syncmicr.tsv
+  : ecbfb74775d03c00eb8ea91d953cb921be5db1e9267bdb670c5820c70669dd00
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Chytconf.tsv
+  : 09dad127e808f2222669f873c24a559f1aac9379336a42442a70add738c61c99
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Polystew.tsv
+  : 71e2c786570f76256954a1da7e5ab9a66ddc1597d2c41c5468c0e09131423db6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Rhizglob.tsv
+  : eefdfb30e4344dc88e5c9273edfcf7d5618bcef2dc4ccec09f4487693b50cbaa
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Rhizrose.tsv
+  : 0480e9e07a06fa054b0cb6276249639510bef48f7c371c97b6cff1b1f7def02c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Cateangu.tsv
+  : 15da9245c4865f674961f03988b17269c1ac436fe05ff27e84623796f92dc77c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Allomacr.tsv
+  : 00348c4f0b23171fb4a14fb5099b3ce182db4a187b9ed595c38a8fcdad473b9e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/novelties.Pirofinn.tsv
+  : 31be957a38b9621a787430eb36be3e6884728c632d45f09a8787a3200ca6e771
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/presence_matrix.uniprot.tsv
+  : 6bd584b4813efc8f6dfbb2fb49ec23a5bb4b92aec819b10a39604b2cc5280a3b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000001357_81824.pep.fa
+  : e0eb61aac339caa417ba5e55829158d2acb953b19a353cc8f40bece558dc779a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000007799_946362.pep.fa
+  : 19ec549afba6bf303cd60f6750ec5ab88773ff74a4c841498e3ace3cc3094de4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000008743_595528.pep.fa
+  : 620536168e05e01bbfc6ab197b737bab9a68f3d202d1e8f9a3114f2403f8518e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000054560_667725.pep.fa
+  : ce14811a47a4e47715f5d7d20d5802334b38cbd601792f1d4dc5d3cc5935d00d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000007879_400682.pep.fa
+  : 7172d172471352e84314ba1c23039fb5731470c1645cdbd01ceca044f433d45c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000009022_10228.pep.fa
+  : 81c8f7bb5187b5eb03d5a95fb48a4d0481989114b8b92cfd36c5a4b2b0103e3a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000001593_45351.pep.fa
+  : f0f34dae61500bf92f8d12fdec2f648b6bfd5680e53c75abf0bc2c327527f7a9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP001729289_27923.pep.fa
+  : 6ff832ac68cc9381431d5d3568c7fd61a1774a8079f1d15807537f0e35cd07f6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000001940_6239.pep.fa
+  : 0756b21150c88be01d02c5f3d1136f5b73976034e85eece73934016a21cd7b27
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000000803_7227.pep.fa
+  : c8de15241de84c6785ad0d3a9c9df7d266a3d3297ee3a2588949f3557c9e77c6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000005640_9606.pep.fa
+  : 9d749eb81cf7085246ce3aad7e8c23b3a9858e631fa1ddbe6cfacb439ce7af4e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000007241_684364.pep.fa
+  : 4e4c6abb18055c8c0ed97e584c71e1919acb4afb8aa9afd89ed5870347126ae4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP001648503_1357716.pep.fa
+  : d6bdafbabb15ee5c5f4d86ead7ff6640a683d578b6807244b890e060da36b7a5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000053201_645134.pep.fa
+  : 8bd4d9ebed9f723020afc4ea42cff0fbd940dc7922870dedfbb5f9a4cfc2f9c0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000318582_109895.pep.fa
+  : 9bda96b8b8b1102754d22304a37d4ade9dab495d1007aff23f5018bfb7938ec4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP001212152_109894.pep.fa
+  : ca499d9289158588d1939cf83bd3ac94e09fc00a58fb7de3fcf31ebccc8a5205
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000317494_286115.pep.fa
+  : c56505ba0725d49584a4b0b3c378dc4341ad59547d23ee3c5989ebf05c71975e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000319731_1806994.pep.fa
+  : fc6275af2476c5f803bed32c3b0f5e07a0a342ef38ab9bf1ff3382292e1e9efc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000320333_246404.pep.fa
+  : 1d4b846fd4db60adf1d1808b4c6dd8e7ac63b7bf2a1a23e3586b97fcdcd2d199
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP001527925_2732419.pep.fa
+  : f6ef9d1ef38a1ff0fde17d0b9e355bebd1b56abaf955d1fb7dac985a320f20e9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000193642_329046.pep.fa
+  : 6b3bfcbd84931e4c404f64976ca7eeb9f3b71a91bac1ea3ed66c031c2ed10a8a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP001212841_64517.pep.fa
+  : 6c79e7963718fd0758b03330a048a6f2c770edeb60404f37a5858f813505b878
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000193411_765915.pep.fa
+  : ccf263045dc7be55fa4f4c853762b950d837c4fd6406d2847b3e23c44d1f4f23
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000054350_578462.pep.fa
+  : f874160443aa6627a1165bc333271882998af5b69dad5ca6dbbec76d68e6d04c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000193719_1754191.pep.fa
+  : f6b43bdd5c0d2f7eef717808bb34aca5b489c9c062446101cc3adc5f0bd1b0c7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/species.csv
+  : a4d74efc4cac6398ba8f32cf841c0ebb0cee386d7078ac8ae062673a1d681628
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001357.tsv.gz
+  : 01b22736e9cb5c608e1cc14d27fa565191d08bdcb9bb0e328884860248438b43
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000007799.tsv.gz
+  : f0d7bcafea8326bbb8121472667606ccc30ad4fea2c2b8008899d2b80a68c705
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000008743.tsv.gz
+  : 85ccf0497d27141899edcd56f5e76453c37ee3fb90ce4761eef7dc0c9d5578c5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000054560.tsv.gz
+  : fdfaad291046cb2cfec38ea1e881158621036a334fe10f9f376022cf2bc18370
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000007879.tsv.gz
+  : cfc037583f70056a6d142de7b49e310d4045637f59f911039a15912358025be7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000009022.tsv.gz
+  : cdd19cc05aa821e8dcbca01afdc72857bf985ba0c31f95fb843090d1bb2d908e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001593.tsv.gz
+  : 5bdd8e547b7e5a331119adda0569454d38d134ed0edb028c6a0aeb4061f2a2f3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001729289.tsv.gz
+  : e153bbfe63b88fad51737dcb4374603d26a4f6203f767c118745e86cbb03d8d9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001940.tsv.gz
+  : a51131aab21ac2ba8751c5d9b5c602b8367735eb2f57506ab35b394a672bed78
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000000803.tsv.gz
+  : 4826bc688fa1c119a8063e5ee26c35d4dd52543a1e9ac37126dfb868820bddf0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000005640.tsv.gz
+  : 8d721aa15e5e34e7ea50e1b0db291978e25bcdbd1b83eb66828b68a21ece0b19
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000007241.tsv.gz
+  : 0067d94630f306cce3e1cf196ae44033a0a4452e276d928a086ee35ee3e5740a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001648503.tsv.gz
+  : 52f1dfac39247c54a6c3feb4c170b724083fb6a0bc5dcf6aefab1ec5bf4ac18d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000053201.tsv.gz
+  : 36e02512af8cb6428546fcfbdeef18212ff61e901cedf6a0e59b970669658fe5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000318582.tsv.gz
+  : 3245c6e2b72e4e5d277fc618e94f7601ea6d1d905c2069ba4f09323df6f1b3e3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001212152.tsv.gz
+  : 233996d585245673ba4cdcb3dc848b5604e565b02365ec79a2fdc95385d15fd3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000317494.tsv.gz
+  : e740bb619422930b994d2a1053bca622a07339186fa3b4dafaeccfa76ab06d04
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000319731.tsv.gz
+  : 417f10ef725b8b5b3ee2c04fac87bcebcd4e9dcbf84d7bcd8367d3e92fae8009
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000320333.tsv.gz
+  : ff98708dba3dd998137a820e09e1226b01c4197535c69afe7f2fba712b35bb7d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001527925.tsv.gz
+  : 3abd36b17716ed1e54ee79098767136fd2d502c31c5f12a0a4f08aa1fc0c4e9e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000193642.tsv.gz
+  : e636e1596f8fbfcf2f752eb82e795f99c58d1e222d18cda5bf2dad15204cbff0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP001212841.tsv.gz
+  : 3fae791c32d83e67adcada8921afa8773a4d5e3c0a79700a33e7e3d9a1c736da
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000193411.tsv.gz
+  : 2fc349353b5392c3f7bc327436c928ba92fd80a9134e5fc250fc702be810b51f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000054350.tsv.gz
+  : 68a29e758522081bb078f966837ef1225d60f0c7cd1800461e8af662959db264
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000193719.tsv.gz
+  : 7de4e2011b6a191341ec4a630adadacbeb20a32bf1f7ebc3e0072fc87996d723
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000002311.tsv.gz
+  : 3ceddef7bfa4c6de1cd6028cbf071bf9bdeb183c1c54bfcb571a55423b062a78
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000002485.tsv.gz
+  : 3738a7555fcb90b63fb9cd621384068fedc730c14285a199147ebf0441851d13
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001805.tsv.gz
+  : 210bad0e45e10727a9f8d5e54fd9c9e42ae5588791ce9d865c73866824b3cc32
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000000560.tsv.gz
+  : 3c0a6cb164350bd53c28dce8c6a834e6170a7a447b6f365a5545de00e3b750be
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000000561.tsv.gz
+  : c0a3e9c3ee38fdfadb8e4ceeb4018da9cce2707d37a0db86974ed6e990a74226
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000010091.tsv.gz
+  : 703dc23f0e893394fdcb6af0827262b940eb3838e61efb94172c5da886405b64
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/annotations/UP000001861.tsv.gz
+  : fa55937773823cff7216677e89d056028ed1f2b3f3d892e9aaacdca943667a4a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 26.3
+  background_cluster_s: 380.7
+  tests_s: 66.7
+  total_s: 488.9
+host: r11
+slurm_job: '29892648'

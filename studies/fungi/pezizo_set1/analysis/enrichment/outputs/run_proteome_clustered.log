@@ -1,0 +1,55 @@
+[    0.0s] IN=['Amega', 'Ncra', 'Afum', 'Ztri', 'Cimm'] OUT=['Nirr', 'CneoH99', 'Ccin', 'Mcir', 'Spom', 'Scer']
+[    0.6s] matrix rows 38478; in_rule 32856; in_rule & 0 OUT 3193; candidates.txt 3193
+[    1.4s] universe 'proteome': 51803 IN proteins
+[    2.1s] annotation rows matched: 51803 of 51803
+[    5.6s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29892523/bgclust_r9gmg_j1/bg.fa /scratch/jstajich/29892523/bgclust_r9gmg_j1/bg /scratch/jstajich/29892523/bgclust_r9gmg_j1/mmtmp --threads 4 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[  102.5s] background clusters: 26964 clusters from 48610 proteins
+[  103.9s] whole_set	protein	pfam	N=1636/3193	M=27984	tested=1795	sig=67
+[  103.9s] whole_set	protein	pfam_clan	N=1066/3193	M=22762	tested=425	sig=29
+[  104.1s] whole_set	protein	interpro	N=1931/3193	M=29974	tested=3953	sig=103
+[  104.3s] whole_set	protein	go	N=1244/3193	M=25984	tested=5193	sig=93
+[  105.3s] whole_set	family	pfam	N=1184/2209	M=12125	tested=766	sig=28
+[  105.4s] whole_set	family	pfam_clan	N=779/2209	M=9574	tested=310	sig=5
+[  105.4s] whole_set	family	interpro	N=1382/2209	M=13480	tested=1654	sig=29
+[  105.6s] whole_set	family	go	N=903/2209	M=10809	tested=3464	sig=18
+[  105.7s] Amega	protein	pfam	N=0/574	M=0	tested=0	sig=0
+[  105.7s] Amega	protein	pfam_clan	N=0/574	M=0	tested=0	sig=0
+[  105.7s] Amega	protein	interpro	N=0/574	M=0	tested=0	sig=0
+[  105.7s] Amega	protein	go	N=0/574	M=0	tested=0	sig=0
+[  105.7s] Amega	family	pfam	N=0/526	M=0	tested=0	sig=0
+[  105.7s] Amega	family	pfam_clan	N=0/526	M=0	tested=0	sig=0
+[  105.7s] Amega	family	interpro	N=0/526	M=0	tested=0	sig=0
+[  105.7s] Amega	family	go	N=0/526	M=0	tested=0	sig=0
+[  105.9s] Ncra	protein	pfam	N=399/641	M=6689	tested=368	sig=4
+[  105.9s] Ncra	protein	pfam_clan	N=251/641	M=5330	tested=244	sig=2
+[  105.9s] Ncra	protein	interpro	N=470/641	M=7160	tested=914	sig=11
+[  106.0s] Ncra	protein	go	N=312/641	M=6279	tested=2700	sig=5
+[  106.6s] Ncra	family	pfam	N=390/628	M=6087	tested=305	sig=3
+[  106.6s] Ncra	family	pfam_clan	N=242/628	M=4798	tested=238	sig=1
+[  106.7s] Ncra	family	interpro	N=457/628	M=6546	tested=769	sig=6
+[  106.8s] Ncra	family	go	N=305/628	M=5709	tested=2604	sig=5
+[  106.9s] Afum	protein	pfam	N=447/708	M=7698	tested=438	sig=9
+[  106.9s] Afum	protein	pfam_clan	N=304/708	M=6356	tested=253	sig=5
+[  107.0s] Afum	protein	interpro	N=535/708	M=8211	tested=1068	sig=16
+[  107.1s] Afum	protein	go	N=379/708	M=7341	tested=2954	sig=15
+[  107.6s] Afum	family	pfam	N=428/684	M=6472	tested=328	sig=3
+[  107.6s] Afum	family	pfam_clan	N=287/684	M=5245	tested=237	sig=3
+[  107.7s] Afum	family	interpro	N=511/684	M=6957	tested=822	sig=9
+[  107.8s] Afum	family	go	N=360/684	M=6147	tested=2757	sig=4
+[  107.9s] Ztri	protein	pfam	N=431/684	M=7455	tested=406	sig=7
+[  107.9s] Ztri	protein	pfam_clan	N=282/684	M=6130	tested=248	sig=3
+[  108.0s] Ztri	protein	interpro	N=516/684	M=8028	tested=1014	sig=13
+[  108.1s] Ztri	protein	go	N=312/684	M=6750	tested=2636	sig=6
+[  108.2s] Ztri	family	pfam	N=410/654	M=6295	tested=332	sig=6
+[  108.2s] Ztri	family	pfam_clan	N=266/654	M=5109	tested=239	sig=3
+[  108.2s] Ztri	family	interpro	N=486/654	M=6829	tested=833	sig=10
+[  108.3s] Ztri	family	go	N=291/654	M=5645	tested=2508	sig=2
+[  108.8s] Cimm	protein	pfam	N=359/586	M=6142	tested=304	sig=4
+[  108.9s] Cimm	protein	pfam_clan	N=229/586	M=4946	tested=223	sig=4
+[  108.9s] Cimm	protein	interpro	N=410/586	M=6575	tested=803	sig=6
+[  109.0s] Cimm	protein	go	N=241/586	M=5614	tested=2120	sig=4
+[  109.1s] Cimm	family	pfam	N=343/570	M=5519	tested=269	sig=4
+[  109.1s] Cimm	family	pfam_clan	N=214/570	M=4391	tested=213	sig=2
+[  109.1s] Cimm	family	interpro	N=394/570	M=5925	tested=691	sig=6
+[  109.2s] Cimm	family	go	N=232/570	M=5038	tested=2045	sig=4
+[  111.3s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/analysis/enrichment/outputs/proteome_clustered

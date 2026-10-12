@@ -1,0 +1,26 @@
+study	rank	term	name	k_cand_units	N_cand	n_bg_units	M	fold	fdr_bh	n_candidate_proteins	n_species	repeat_TE_like
+yeast_filamentous	1	PF13638	PIN_4: PIN domain	4	282	10	11034	15.651	0.0388	4	4	False
+yeast_filamentous	2	PF00398	RrnaAD: Ribosomal RNA adenine dimethylase	3	282	5	11034	23.477	0.0388	3	3	False
+yeast_filamentous	3	PF01735	PLA2_B: Lysophospholipase catalytic domain	3	282	5	11034	23.477	0.0388	3	3	False
+yeast_filamentous	4	PF05063	MT-A70: MT-A70	3	282	6	11034	19.564	0.0571			False
+yeast_filamentous	5	PF00505	HMG_box: HMG (high mobility group) box	4	282	23	11034	6.805	0.369			False
+mushrooms_tremella	1	PF20152	DUF6534: Family of unknown function (DUF6534)	38	1993	58	8589	2.824	3.68e-09	77	2	False
+mushrooms_tremella	2	PF20151	DUF6533: Family of unknown function (DUF6533)	49	1993	100	8589	2.112	3.43e-06	68	2	False
+mushrooms_tremella	3	PF24883	NPHP3_N: Nephrocystin 3, N-terminal	40	1993	77	8589	2.239	4.39e-06	138	2	False
+mushrooms_tremella	4	PF00067	p450: Cytochrome P450	34	1993	61	8589	2.402	4.39e-06	145	2	False
+mushrooms_tremella	5	PF00734	CBM_1: Fungal cellulose binding domain	26	1993	41	8589	2.733	4.39e-06	56	2	False
+pezizo_set1	1	PF20684	Fung_rhodopsin: Fungal rhodopsin domain	78	1184	135	12125	5.917	2.96e-41	93	5	False
+pezizo_set1	2	PF06985	HET: Heterokaryon incompatibility protein (HET)	46	1184	100	12125	4.711	2.27e-18	52	4	False
+pezizo_set1	3	PF26639	Het-6_barrel: Het-6 beta-barrel domain	9	1184	11	12125	8.379	9.19e-06	11	4	False
+pezizo_set1	4	PF01757	Acyl_transf_3: Acyltransferase domain	8	1184	9	12125	9.103	1.27e-05	25	5	False
+pezizo_set1	5	PF26118	DUF8035: Family of unknown function (DUF8035)	8	1184	10	12125	8.193	4.66e-05	11	4	False
+chytrid_vs_mucoromycota	1	PF00211	Guanylate_cyc: Adenylate and Guanylate cyclase catalytic domain	33	1459	55	29351	12.07	6.79e-26	99	11	False
+chytrid_vs_mucoromycota	2	PF02493	MORN: MORN repeat	20	1459	25	29351	16.094	3.49e-19	45	11	False
+chytrid_vs_mucoromycota	3	PF14033	DUF4246: Protein of unknown function (DUF4246)	18	1459	22	29351	16.46	1.39e-17	95	10	False
+chytrid_vs_mucoromycota	4	PF13879	Hmw_CFAP97: Hemingway/CFA97	20	1459	30	29351	13.411	7.77e-17	25	11	False
+chytrid_vs_mucoromycota	5	PF02156	Glyco_hydro_26: Glycosyl hydrolase family 26	17	1459	26	29351	13.154	5.74e-14	95	11	False
+zoosporic_dikarya	1	PF00211	Guanylate_cyc: Adenylate and Guanylate cyclase catalytic domain	18	1682	25	14923	6.388	1.73e-09	33	4	False
+zoosporic_dikarya	2	PF13516	LRR_6: Leucine Rich repeat	22	1682	51	14923	3.827	3.65e-06	28	4	True
+zoosporic_dikarya	3	PF03493	BK_channel_a: Calcium-activated BK potassium channel alpha subunit	8	1682	8	14923	8.872	8.47e-06	11	4	False
+zoosporic_dikarya	4	PF22614	Slo-like_RCK: Calcium-activated potassium channel slowpoke-like RCK domain	8	1682	9	14923	7.886	3.23e-05	11	4	False
+zoosporic_dikarya	5	PF15619	Lebercilin: Ciliary protein causing Leber congenital amaurosis disease	7	1682	7	14923	8.872	3.23e-05	7	4	False
