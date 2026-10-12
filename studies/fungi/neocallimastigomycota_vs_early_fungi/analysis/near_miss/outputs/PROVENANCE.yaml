@@ -1,0 +1,30 @@
+# Provenance for the derived tables in this folder (all generated, none downloaded).
+derived_by:
+  script: studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/near_miss/near_miss.py
+  command: >-
+    .pixi/envs/default/bin/python3 -I near_miss.py
+    --results results/neocallimastigomycota_vs_early_fungi
+    --config studies/fungi/neocallimastigomycota_vs_early_fungi/config.csv
+    --out-prefix outputs/near_miss --max-out 2 --ingroup 0.75
+    --mmseqs .pixi/envs/default/bin/mmseqs --threads 4
+  date: 2026-10-12
+  author_note: written by a Claude subagent; reviewed by the main session only for the summary numbers, not line by line
+inputs:
+  pipeline_run:
+    study: neocallimastigomycota_vs_early_fungi (6 IN, 13 OUT)
+    slurm_job: 29876233
+    pipeline: NovInvenio main d03f5a2 (worktree), --run_tool diamond
+    results_dir: results/neocallimastigomycota_vs_early_fungi (not tracked)
+    files: presence_matrix.tsv, presence_matrix.evalues.tsv, presence_matrix.targets.tsv, presence_matrix.other_evidence.tsv.gz, presence_matrix.uniprot.tsv, search_cache/*.diamond.tsv.gz, candidates.txt
+  proteomes: studies/fungi/neocallimastigomycota_vs_early_fungi/data_dir/pep/*.pep.fa (for mmseqs families)
+  clustering: mmseqs 18.8cc5c easy-cluster, 0.3 identity, 0.8 coverage, cov-mode 0 (pipeline MMSEQS_CLUSTER settings)
+rule:
+  ingroup_fraction: 0.75
+  max_out_species_with_hit: 2
+  outgroup_hit_filters: same as the pipeline (E < 1e-5, paralog-competition scope target with rescue E <= 1e-20; coverage floor off in this run)
+checks:
+  - The script reproduces candidates.txt exactly (32,717 proteins, symmetric difference 0).
+notes:
+  - Family IDs here are new (clustering of near-miss proteins only). They do not match family_id in novelties.<Short>.tsv.
+  - Pfam IDs exist only for the 2 UniProt-sourced IN proteomes.
+  - No unit tests for near_miss.py yet.

@@ -1,0 +1,7 @@
+IN (6): Pirofinn,Anaerobu,Neocalif,Neolanat,Neoconst,PiroE2sp
+OUT (13): Spizpunc,Batrdend,Powehirt,Geravari,Chytconf,Syncendo,Allomacr,Cateangu,Rhizdele,Mucocirc,Umbevina,Sacccere,Neurcras
+candidate cross-check: rule gives 32717, candidates.txt has 32717, symmetric difference 0
+matrix IN rows 103108; pass ingroup rule 87780; candidates 32717; near misses (1..2 OUT) 6957
+raw diamond rows found for 9803/9803 kept OUT cells; E-value equal to presence_matrix.evalues.tsv for 9803
+running: .pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29421617/near_miss_mmseqs_6g6hps06/near_miss.fa /scratch/jstajich/29421617/near_miss_mmseqs_6g6hps06/nm /scratch/jstajich/29421617/near_miss_mmseqs_6g6hps06/work --threads 4 --min-seq-id 0.3 -c 0.8 --cov-mode 0 -v 1
+wall 26.26 s, maxrss 919876 KB

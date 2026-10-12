@@ -8,6 +8,7 @@ Design:
 - IN (25): 11 Holozoa (2 choanoflagellates, Capsaspora, Sphaeroforma, 4 early metazoans, 3 bilaterians), 11 Chytridiomycota, 2 Blastocladiomycota (Allomyces, Catenaria), 1 Neocallimastigomycota (Piromyces finnis).
 - OUT (7): 4 Ascomycota, 3 Basidiomycota (Dikarya).
 - Mucoromycota are left out. They lost the flagellum. Whether they kept crawling is not stated in the text I read. They could be added as context later.
+- Proteomes: canonical FASTA only (`bin/fetch_uniprot_proteome.py` does not pull the `_additional` isoform file). Human has 20,652 entries.
 - Default thresholds: ingroup fraction 0.75 means a family needs at least 19 of 25 IN species. Holozoa alone (11) and zoosporic alone (14) cannot pass. A candidate must be in both groups.
 - Weak points: Neocallimastigomycota and some chytrids are derived. Low-BUSCO proteomes (Sphaeroforma 63.1) are kept on purpose. One Dikarya homolog removes a family from the candidates. Only 7 Dikarya are sampled, so a gene lost in all 7 may still exist in other Dikarya.
 - Not tested: Saccharomycotina other than S. cerevisiae, Ustilaginomycotina other than Mycosarcoma, Pucciniomycotina.
