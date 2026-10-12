@@ -1,0 +1,14 @@
+{
+  "run": "full_v1",
+  "published": "2026-10-10",
+  "pipeline": "pangenome.nf",
+  "source_dir": "studies/fungi/Bd_pangenome/results/full_v1/config/pangenome",
+  "report_md_sha256": "13a81bf5f58d213a2448fe9c72c0ff172daace08e3b857e00bd8e51a699289c3",
+  "n_families": 54796,
+  "n_strains": 346,
+  "pipeline_repo": "stajichlab/NovInvenio",
+  "pipeline_commit": "05fcf3abbd0b5156e1f5b84c11f6fc5ab173891e",
+  "clinker_published": 25,
+  "clinker_total": 100,
+  "clinker_full_dir": "/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Bd_pangenome/results/full_v1/config/pangenome/clinker"
+}
