@@ -40,6 +40,19 @@ Inventory: `bin/inventory_bfd_fusarium.py` -> `selection/bfd_fusarium_inventory.
 genome and a unique LOCUSTAG match. All-vs-all mash over those 1,964:
 `selection/bfd_fusarium_all_vs_all.mash_dist.tsv.zst`.
 
+The mash matrix is NOT tracked in git (42 MB, regenerable). `bin/select_strains.py`
+reads it from `selection/bfd_fusarium_all_vs_all.mash_dist.tsv.zst` and needs it to run.
+To rebuild it:
+- Inputs: the BFD mash sketches `results/mash_sketch/<ASMID>.fa.msh` (k=21, s=10000)
+  of the 1,964 inventory rows with `status=ok` in `selection/bfd_fusarium_inventory.tsv`.
+- Output: `mash dist` over all pairs, compressed with `zstd`, saved under the name above.
+- The exact command that made the committed-era file (dated 2026-09-25) was not
+  recorded in this repo. An untested outline: `mash dist -p <threads> <all .msh files>
+  <all .msh files> | zstd -T0 > selection/bfd_fusarium_all_vs_all.mash_dist.tsv.zst`.
+  Check the column layout against what `select_strains.py` parses (around line 139)
+  before relying on it.
+- Record the `mash --version`, the sketch paths and the date in a note when it is rebuilt.
+
 Complex membership needs BOTH a taxonomic name AND mash placement (nearest of
 nine complex anchors, `ANCHORS` in the script):
 - FOXY names: *F. oxysporum* + FOSC segregate species present in BFD
