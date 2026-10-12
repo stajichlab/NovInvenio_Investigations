@@ -33,15 +33,18 @@ fetch_genome_assembly.py.
 from __future__ import annotations
 
 import argparse
+import os
 import shutil
 import subprocess
 import sys
+import time
 import zipfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from provenance import build_record, sha256_of, write_record  # noqa: E402
 
+MAX_ATTEMPTS = 5
 LICENSE = "Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)"
 
 
@@ -86,18 +89,31 @@ def fetch_batch(
             f"{' '.join(batch)} --include {include_list} ({len(batch)} accessions)",
             file=sys.stderr,
         )
-        batch_zip = outdir / f"_batch_{batch_num:03d}.zip"
+        # Unique per process: concurrent builds share outdir (data/ncbi), and a
+        # shared zip name let one job truncate another's download (2026-10-11).
+        tag = f"{os.getpid()}_{batch_num:03d}"
+        batch_zip = outdir / f"_batch_{tag}.zip"
         batch_zip.parent.mkdir(parents=True, exist_ok=True)
-        subprocess.run(
-            [
-                exe, "download", "genome", "accession", *batch,
-                "--include", include_list,
-                "--filename", str(batch_zip),
-            ],
-            check=True,
-        )
+        cmd = [
+            exe, "download", "genome", "accession", *batch,
+            "--include", include_list,
+            "--filename", str(batch_zip),
+        ]
+        # NCBI Datasets can return "invalid zip archive"; retry with backoff.
+        for attempt in range(1, MAX_ATTEMPTS + 1):
+            batch_zip.unlink(missing_ok=True)
+            rc = subprocess.run(cmd).returncode
+            if rc == 0 and zipfile.is_zipfile(batch_zip):
+                with zipfile.ZipFile(batch_zip) as zf:
+                    if zf.testzip() is None:
+                        break
+            if attempt == MAX_ATTEMPTS:
+                sys.exit(f"ERROR: batch {batch_num} failed after {MAX_ATTEMPTS} attempts")
+            wait = min(300, 15 * 2 ** (attempt - 1))
+            print(f"[batch {batch_num}] attempt {attempt} failed (rc={rc}); retry in {wait}s", file=sys.stderr)
+            time.sleep(wait)
 
-        extract_dir = outdir / f"_batch_{batch_num:03d}_extracted"
+        extract_dir = outdir / f"_batch_{tag}_extracted"
         with zipfile.ZipFile(batch_zip) as zf:
             zf.extractall(extract_dir)
         batch_zip.unlink()
