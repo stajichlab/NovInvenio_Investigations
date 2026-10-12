@@ -1,0 +1,70 @@
+results: results/neocallimastigomycota_vs_early_fungi
+config: studies/fungi/neocallimastigomycota_vs_early_fungi/config.csv
+rule: IN present >= 0.75 of 6 (own proteome counts); near miss = 1..2 OUT proteomes present
+candidate cross-check: rule gives 32717, candidates.txt has 32717, symmetric difference 0
+IN matrix rows: 103108; pass ingroup rule: 87780; candidates (0 OUT): 32717
+near-miss proteins with 1 OUT species: 4111; same lineage: 4111
+near-miss proteins with 2 OUT species: 2846; same lineage: 1345
+near-miss proteins total: 6957; families (mmseqs on near misses): 2419
+families with 1 OUT species in union: 1214; same lineage: 1214
+families with 2 OUT species in union: 980; same lineage: 540
+families with 3 OUT species in union: 144; same lineage: 46
+families with 4 OUT species in union: 57; same lineage: 9
+families with 5 OUT species in union: 13; same lineage: 0
+families with 6 OUT species in union: 3; same lineage: 0
+families with 7 OUT species in union: 4; same lineage: 0
+families with 8 OUT species in union: 2; same lineage: 0
+families with 10 OUT species in union: 2; same lineage: 0
+single-lineage families with >= 2 OUT species: 595 of 1205
+families with >= 2 proteins: 1095; with >= 2 IN species: 1040
+per OUT species (sorted by families where it is the only OUT hit):
+out_species            lineage  proteins_sole_out_hit  proteins_any  families_sole_out_hit  families_any
+   Spizpunc    Chytridiomycota                    598          1515                    207           604
+   Umbevina       Mucoromycota                    407           945                    115           359
+   Chytconf    Chytridiomycota                    394           845                    110           352
+   Neurcras            Dikarya                    604          1459                    109           317
+   Batrdend    Chytridiomycota                    323           744                    101           355
+   Cateangu Blastocladiomycota                    415           674                     97           254
+   Syncendo    Chytridiomycota                    205           470                     97           253
+   Geravari    Chytridiomycota                    302           682                     88           298
+   Rhizdele       Mucoromycota                    201           515                     77           272
+   Mucocirc       Mucoromycota                    236           616                     76           309
+   Powehirt    Chytridiomycota                    223           601                     62           301
+   Allomacr Blastocladiomycota                    155           621                     59           236
+   Sacccere            Dikarya                     48           116                     16            71
+Pfam comparison uses UniProt-annotated proteins only: near misses 1489/6957, candidates 6484/32717.
+Top 15 Pfam by log2((nm+0.5)/nm_annotated / ((cand+0.5)/cand_annotated)), Pfam with >= 5 near-miss proteins. Descriptive ratio only; no test.
+pfam_id       pfam_name  near_miss_proteins  candidate_proteins  log2_ratio_pc0.5
+PF02901        PFL-like                  38                   0          8.389327
+PF01228     Gly_radical                  36                   0          8.312365
+PF25115         Agd3_CE                  28                   0          7.955430
+PF02011  Glyco_hydro_48                  17                   0          7.251823
+PF03537 Glyco_hydro_114                  42                   1          6.946969
+PF25117          Agd3_C                  11                   0          6.646102
+PF16990          CBM_35                   9                   0          6.370468
+PF02156  Glyco_hydro_26                   7                   0          6.029431
+PF25116      CBM87_Agd3                  29                   2          5.683255
+PF13920      zf-C3HC4_3                   5                   0          5.581972
+PF00209             SNF                   5                   0          5.581972
+PF00457  Glyco_hydro_11                  38                   4          5.219402
+PF00331  Glyco_hydro_10                  25                   3          4.987611
+PF01753         zf-MYND                   5                   1          3.997009
+PF04616  Glyco_hydro_43                  18                   6          3.631554
+Top 15 Pfam by near-miss protein count:
+pfam_id       pfam_name  near_miss_proteins  candidate_proteins
+PF02013          CBM_10                 109                 183
+PF12796           Ank_2                  83                 343
+PF00187   Chitin_bind_1                  42                  22
+PF03537 Glyco_hydro_114                  42                   1
+PF00457  Glyco_hydro_11                  38                   4
+PF02901        PFL-like                  38                   0
+PF01228     Gly_radical                  36                   0
+PF00003           7tm_3                  31                  51
+PF25116      CBM87_Agd3                  29                   2
+PF25115         Agd3_CE                  28                   0
+PF00023             Ank                  27                  85
+PF00331  Glyco_hydro_10                  25                   3
+PF00734           CBM_1                  23                   8
+PF00560           LRR_1                  19                  80
+PF04616  Glyco_hydro_43                  18                   6
+runtime_seconds: 25.9
