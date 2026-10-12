@@ -1,0 +1,8 @@
+dirname	asmid	group	step	reason
+Fusarium_oxysporum_Fol074	GCA_001703105.1_Fol074	IN	clone_dedup	mash=0.000498 to kept Fusarium_oxysporum_Fol038
+Fusarium_oxysporum_VPRI44276	GCA_025217085.1_ASM2521708v1	IN	clone_dedup	mash=0.000000 to kept Fusarium_oxysporum_VPRI44100
+Fusarium_oxysporum_VPRI44107	GCA_025216785.1_ASM2521678v1	IN	clone_dedup	mash=0.000291 to kept Fusarium_oxysporum_VPRI44100
+Fusarium_oxysporum_VPRI44272	GCA_025217125.1_ASM2521712v1	IN	clone_dedup	mash=0.000291 to kept Fusarium_oxysporum_VPRI44100
+Fusarium_oxysporum_VPRI44099	GCA_025216745.1_ASM2521674v1	IN	clone_dedup	mash=0.000259 to kept Fusarium_oxysporum_VPRI44100
+Fusarium_oxysporum_VPRI44275	GCA_025217065.1_ASM2521706v1	IN	clone_dedup	mash=0.000296 to kept Fusarium_oxysporum_VPRI44100
+Fusarium_oxysporum_VPRI44273	GCA_025217165.1_ASM2521716v1	IN	clone_dedup	mash=0.000315 to kept Fusarium_oxysporum_VPRI44274

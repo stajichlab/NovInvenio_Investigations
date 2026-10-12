@@ -1,0 +1,7 @@
+# Run 2 (rescue ON, pipeline default). Same Pfam chunking as run 1.
+pangenome_rescue_enable: true
+pangenome_pfam_chunk_size: 2000
+# Pipeline strain dedup at the study's clone threshold (default 0.001 would
+# further merge 3 FOL groups of 2-4 strains at mash 0.0006-0.001; the study
+# rule keeps strains unless mash < 0.0005).
+pangenome_mash_threshold: 0.0005
