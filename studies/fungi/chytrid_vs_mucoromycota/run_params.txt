@@ -1,0 +1,5 @@
+# Extra nextflow params for this study, applied by bin/run_study.sh before any
+# args passed on the command line. One flag/value per line.
+
+# diamond for pairwise search and self-search (turnaround over phmmer sensitivity).
+--run_tool diamond

@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-11",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/malassezia_vs_ustilaginomycotina",
+  "source_dir": "results/malassezia_vs_ustilaginomycotina",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 28,
+  "report_sha256": "17b2ea175be3ef7dadbc8eb281eb0bf92f787db5564b6bf3b3d6539708a9e57e"
+}

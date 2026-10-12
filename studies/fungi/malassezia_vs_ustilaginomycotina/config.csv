@@ -1,0 +1,29 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Malassezia globosa,CBS 7966,UP000008837_425265.pep.fa,UP000008837_425265.dna.fa,UP000008837_425265.gff3,Malaglob,Malasseziales
+IN,Malassezia sympodialis,ATCC 42132,UP000186303_1230383.pep.fa,UP000186303_1230383.dna.fa,UP000186303_1230383.gff3,Malasymp,Malasseziales
+IN,Malassezia restricta,CBS 7877,UP000269793_425264.pep.fa,UP000269793_425264.dna.fa,UP000269793_425264.gff3,Malarest,Malasseziales
+IN,Malassezia furfur,,UP000818624_55194.pep.fa,UP000818624_55194.dna.fa,UP000818624_55194.gff3,Malafurf,Malasseziales
+IN,Malassezia pachydermatis,,UP000037751_77020.pep.fa,UP000037751_77020.dna.fa,UP000037751_77020.gff3,Malapach,Malasseziales
+IN,Malassezia vespertilionis,,UP000232875_2020962.pep.fa,UP000232875_2020962.dna.fa,UP000232875_2020962.gff3,Malavesp,Malasseziales
+IN,Malassezia nana,,UP001213623_180528.pep.fa,UP001213623_180528.dna.fa,UP001213623_180528.gff3,Malanana,Malasseziales
+IN,Malassezia brasiliensis,,UP001216638_1821822.pep.fa,UP001216638_1821822.dna.fa,UP001216638_1821822.gff3,Malabras,Malasseziales
+IN,Malassezia japonica,,UP001217754_223818.pep.fa,UP001217754_223818.dna.fa,UP001217754_223818.gff3,Malajapo,Malasseziales
+IN,Malassezia arunalokei,,UP001217582_1514897.pep.fa,UP001217582_1514897.dna.fa,UP001217582_1514897.gff3,Malaarun,Malasseziales
+OUT,Mycosarcoma maydis,,UP000000561_5270.pep.fa,UP000000561_5270.dna.fa,UP000000561_5270.gff3,Mycomayd,Ustilaginales
+OUT,Ustilago hordei,,UP000006174_120017.pep.fa,UP000006174_120017.dna.fa,UP000006174_120017.gff3,Ustihord,Ustilaginales
+OUT,Sporisorium reilianum,SRZ2,UP000008867_999809.pep.fa,UP000008867_999809.dna.fa,UP000008867_999809.gff3,Sporreil,Ustilaginales
+OUT,Moesziomyces aphidis,,UP000019462_84754.pep.fa,UP000019462_84754.dna.fa,UP000019462_84754.gff3,Moesaphi,Ustilaginales
+OUT,Kalmanozyma brasiliensis,GHG001,UP000019377_1365824.pep.fa,UP000019377_1365824.dna.fa,UP000019377_1365824.gff3,Kalmbras,Ustilaginales
+OUT,Pseudozyma flocculosa,,UP000323386_84751.pep.fa,UP000323386_84751.dna.fa,UP000323386_84751.gff3,Pseufloc,Ustilaginales
+OUT,Sporisorium graminicola,,UP000306050_280036.pep.fa,UP000306050_280036.dna.fa,UP000306050_280036.gff3,Sporgram,Ustilaginales
+OUT,Testicularia cyperi,,UP000246740_1882483.pep.fa,UP000246740_1882483.dna.fa,UP000246740_1882483.gff3,Testcype,Ustilaginales
+OUT,Tilletia indica,,UP000077521_43049.pep.fa,UP000077521_43049.dna.fa,UP000077521_43049.gff3,Tillindi,Tilletiales
+OUT,Tilletia caries,,UP000836402_13290.pep.fa,UP000836402_13290.dna.fa,UP000836402_13290.gff3,Tillcari,Tilletiales
+OUT,Meira miltonrushii,,UP000245771_1280837.pep.fa,UP000245771_1280837.dna.fa,UP000245771_1280837.gff3,Meirmilt,Exobasidiomycetes
+OUT,Acaromyces ingoldii,,UP000245768_215250.pep.fa,UP000245768_215250.dna.fa,UP000245768_215250.gff3,Acaringo,Exobasidiomycetes
+OUT,Jaminaea rosea,,UP000245884_1569628.pep.fa,UP000245884_1569628.dna.fa,UP000245884_1569628.gff3,Jamirose,Exobasidiomycetes
+OUT,Microstroma glucosiphilum,,UP000245942_1684307.pep.fa,UP000245942_1684307.dna.fa,UP000245942_1684307.gff3,Micrgluc,Exobasidiomycetes
+OUT,Tilletiopsis washingtonensis,,UP000245946_58919.pep.fa,UP000245946_58919.dna.fa,UP000245946_58919.gff3,Tillwash,Exobasidiomycetes
+OUT,Ceraceosorus bombacis,,UP000054845_401625.pep.fa,UP000054845_401625.dna.fa,UP000054845_401625.gff3,Cerabomb,Ceraceosorales_Violaceomycetales
+OUT,Violaceomyces palustris,,UP000245626_1673888.pep.fa,UP000245626_1673888.dna.fa,UP000245626_1673888.gff3,Violpalu,Ceraceosorales_Violaceomycetales
+OUT,Tilletiaria anomala,UBC 951,UP000027361_1037660.pep.fa,UP000027361_1037660.dna.fa,UP000027361_1037660.gff3,Tillanom,Tilletiariales
