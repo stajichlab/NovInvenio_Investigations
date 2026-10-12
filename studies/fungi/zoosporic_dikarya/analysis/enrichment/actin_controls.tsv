@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex
+Arp2/3 ARPC2 (P34-Arc)	PF04045
+Arp2/3 ARPC3 (P21-Arc)	PF04062
+Arp2/3 ARPC4	PF05856
+Arp2/3 ARPC5 (P16-Arc)	PF04699
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b
+WAVE complex NCKAP1	PF09735
+WAVE complex CYFIP (FragX_IP)	PF05994
+WAVE complex ABI	PF07815|PF27594
+SCAR/WAVE (SCAR_helical)	PF27569
+WASP family (WH1)	PF00568
+WH2 motif (WASP, WAVE, others)	PF02205
+Formin FH2	PF02181
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345
+Ena/VASP (VASP_tetra)	PF08776
+Coronin (description only)		coronin
+Cortactin (HS1_rep)	PF02218
+Myosin 2 tail (Myosin_tail_1)	PF01576
+Myosin head (all myosins)	PF00063

@@ -1,0 +1,47 @@
+[    0.0s] IN=['Batrdend', 'Spizpunc', 'Syncendo', 'Cateangu'] OUT=['Scer', 'Ncra', 'Anid', 'Spom', 'Ccin']
+[    0.5s] matrix rows 24359; in_rule 20079; in_rule & 0 OUT 2927; candidates.txt 2927
+[    0.8s] universe 'proteome': 38035 IN proteins
+[    1.3s] annotation rows matched: 38035 of 38035
+[    7.3s] background clusters: cache hit /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/outputs/cache/bg_clusters.59527ad2993eedb0.tsv.gz
+[    7.4s] background clusters: 24895 clusters from 35108 proteins
+[    8.8s] whole_set	protein	pfam	N=2183/2927	M=23777	tested=1717	sig=87
+[    8.9s] whole_set	protein	pfam_clan	N=1480/2927	M=19414	tested=420	sig=43
+[    9.1s] whole_set	protein	interpro	N=2557/2927	M=26211	tested=3850	sig=185
+[    9.5s] whole_set	protein	go	N=1924/2927	M=22447	tested=4419	sig=258
+[   10.6s] whole_set	family	pfam	N=1682/2284	M=14923	tested=990	sig=47
+[   10.7s] whole_set	family	pfam_clan	N=1141/2284	M=11965	tested=358	sig=20
+[   10.8s] whole_set	family	interpro	N=1969/2284	M=16784	tested=2191	sig=95
+[   11.2s] whole_set	family	go	N=1474/2284	M=13884	tested=3612	sig=159
+[   11.4s] Batrdend	protein	pfam	N=583/800	M=5819	tested=308	sig=6
+[   11.4s] Batrdend	protein	pfam_clan	N=406/800	M=4764	tested=214	sig=11
+[   11.4s] Batrdend	protein	interpro	N=690/800	M=6489	tested=788	sig=4
+[   11.6s] Batrdend	protein	go	N=522/800	M=5666	tested=2171	sig=66
+[   12.2s] Batrdend	family	pfam	N=566/778	M=4988	tested=240	sig=1
+[   12.3s] Batrdend	family	pfam_clan	N=391/778	M=3996	tested=199	sig=11
+[   12.3s] Batrdend	family	interpro	N=672/778	M=5456	tested=626	sig=2
+[   12.5s] Batrdend	family	go	N=514/778	M=4818	tested=2075	sig=58
+[   12.6s] Spizpunc	protein	pfam	N=653/845	M=6840	tested=424	sig=4
+[   12.6s] Spizpunc	protein	pfam_clan	N=437/845	M=5583	tested=244	sig=9
+[   12.7s] Spizpunc	protein	interpro	N=746/845	M=7278	tested=1025	sig=6
+[   12.9s] Spizpunc	protein	go	N=552/845	M=6274	tested=2575	sig=69
+[   13.5s] Spizpunc	family	pfam	N=647/839	M=6294	tested=360	sig=4
+[   13.5s] Spizpunc	family	pfam_clan	N=433/839	M=5122	tested=231	sig=8
+[   13.6s] Spizpunc	family	interpro	N=740/839	M=6717	tested=878	sig=5
+[   13.7s] Spizpunc	family	go	N=548/839	M=5763	tested=2461	sig=65
+[   13.9s] Syncendo	protein	pfam	N=477/671	M=5053	tested=297	sig=1
+[   13.9s] Syncendo	protein	pfam_clan	N=313/671	M=4123	tested=213	sig=5
+[   13.9s] Syncendo	protein	interpro	N=567/671	M=5487	tested=739	sig=2
+[   14.1s] Syncendo	protein	go	N=421/671	M=4803	tested=1923	sig=60
+[   14.7s] Syncendo	family	pfam	N=472/663	M=4744	tested=261	sig=1
+[   14.8s] Syncendo	family	pfam_clan	N=310/663	M=3847	tested=199	sig=4
+[   14.8s] Syncendo	family	interpro	N=561/663	M=5154	tested=641	sig=2
+[   14.9s] Syncendo	family	go	N=417/663	M=4511	tested=1868	sig=60
+[   15.1s] Cateangu	protein	pfam	N=470/611	M=6065	tested=351	sig=6
+[   15.1s] Cateangu	protein	pfam_clan	N=324/611	M=4944	tested=218	sig=5
+[   15.1s] Cateangu	protein	interpro	N=554/611	M=6957	tested=883	sig=15
+[   15.3s] Cateangu	protein	go	N=429/611	M=5704	tested=2053	sig=106
+[   15.5s] Cateangu	family	pfam	N=447/584	M=5222	tested=264	sig=3
+[   15.5s] Cateangu	family	pfam_clan	N=307/584	M=4224	tested=202	sig=3
+[   15.5s] Cateangu	family	interpro	N=528/584	M=5993	tested=688	sig=7
+[   16.1s] Cateangu	family	go	N=406/584	M=4908	tested=1942	sig=98
+[   20.7s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/outputs/proteome_clustered
