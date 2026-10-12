@@ -23,6 +23,7 @@ import sys
 from pathlib import Path
 
 from goatools.obo_parser import GODag
+from scipy.stats import hypergeom
 from goatools.go_enrichment import GOEnrichmentStudy
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
@@ -103,12 +104,19 @@ def main() -> int:
     )
     results = study.run_study(list(candidates_annot))
 
-    # ORA-only: keep over-represented terms only (enrichment == 'e'), matching the
-    # one-sided decision in DESIGN.md Sec 7/10
-    kept = [r for r in results if r.enrichment == "e"]
-    fdrs = bh_fdr([r.p_uncorrected for r in kept])
+    # goatools' p_uncorrected is a two-sided Fisher exact test. Recompute the one-sided
+    # over-representation p (P(X >= k), same as domain_enrichment.py) for every tested
+    # term, and apply BH over ALL tested terms. Correcting only the over-represented
+    # subset (the earlier behaviour) shrank the BH denominator and made q too low.
+    # Terms are then reported if over-represented (enrichment == 'e').
+    for r in results:
+        r.p_one_sided = hypergeom.sf(r.study_count - 1, r.pop_n, r.pop_count, r.study_n) if r.study_count > 0 else 1.0
+    fdrs = bh_fdr([r.p_one_sided for r in results])
+    n_tested = len(results)
     rows = []
-    for r, fdr in zip(kept, fdrs):
+    for r, fdr in zip(results, fdrs):
+        if r.enrichment != "e":
+            continue
         rows.append({
             "GO_id": r.GO,
             "namespace": r.NS,
@@ -117,7 +125,7 @@ def main() -> int:
             "n_candidates_annotatable": r.study_n,
             "n_background_with_term": r.pop_count,
             "n_background_annotatable": r.pop_n,
-            "pvalue": r.p_uncorrected,
+            "pvalue": r.p_one_sided,
             "fdr_bh": fdr,
         })
     rows.sort(key=lambda r: r["pvalue"])
@@ -133,7 +141,7 @@ def main() -> int:
         w.writerows(rows)
 
     n_sig = sum(1 for r in rows if r["fdr_bh"] < 0.05)
-    print(f"Wrote {args.output} ({len(rows)} over-represented terms tested, {n_sig} at FDR<0.05)", file=sys.stderr)
+    print(f"Wrote {args.output} ({n_tested} terms tested, {len(rows)} over-represented reported, {n_sig} at FDR<0.05)", file=sys.stderr)
     return 0
 
 

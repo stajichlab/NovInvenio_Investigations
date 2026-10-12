@@ -1,0 +1,21 @@
+# Provenance for the derived tables in this folder (all generated, none downloaded).
+derived_by:
+  script: studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/enrich_novelties.py
+  figure_script: studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/make_summary_figure.py
+  plan: studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/PLAN.md
+  date: 2026-10-12
+inputs:
+  pipeline_run:
+    study: neocallimastigomycota_vs_early_fungi (6 IN, 13 OUT)
+    slurm_job: 29876233
+    pipeline: NovInvenio main d03f5a2 (worktree), --run_tool diamond
+    results_dir: results/neocallimastigomycota_vs_early_fungi (not tracked)
+    files: presence_matrix.uniprot.tsv, candidates.txt, novelties.<Short>.tsv
+  annotations: UniProt-derived columns merged by bin/sync_reports.sh (uniprot_go_ids, uniprot_pfam_ids, uniprot_interpro_ids)
+  go_ontology: data/go/go-basic.obo (release 2026-07-26; provenance sidecar in data/go/)
+  pfam_clans: /srv/projects/db/pfam/2026-01-27-Pfam38.2 (Pfam-A.hmm.dat, Pfam-C)
+  interpro_names: InterProScan 6 entries.json, InterPro 110.0 (labels only)
+notes:
+  - The four NCBI/JGI IN proteomes have no UniProt annotation and are skipped in species-level tests.
+  - All GO assignments in this run are IEA.
+  - Prototype. No unit tests for enrich_novelties.py yet.

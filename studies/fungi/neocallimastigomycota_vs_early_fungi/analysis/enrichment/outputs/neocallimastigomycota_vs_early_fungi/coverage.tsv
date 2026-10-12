@@ -1,0 +1,15 @@
+species	subset	n_proteins	n_go	frac_go	n_pfam	frac_pfam	n_pfam_clan	frac_pfam_clan	n_interpro	frac_interpro	n_any	frac_any
+Anaerobu	all	11375	6544	0.5753	8105	0.7125	6825	0.6	8871	0.7799	8910	0.7833
+Anaerobu	candidates	3429	687	0.2003	1310	0.382	1123	0.3275	1680	0.4899	1699	0.4955
+Neocalif	all	19908	0	0.0	0	0.0	0	0.0	0	0.0	0	0.0
+Neocalif	candidates	6180	0	0.0	0	0.0	0	0.0	0	0.0	0	0.0
+Neoconst	all	23129	0	0.0	0	0.0	0	0.0	0	0.0	0	0.0
+Neoconst	candidates	7272	0	0.0	0	0.0	0	0.0	0	0.0	0	0.0
+Neolanat	all	25549	0	0.0	0	0.0	0	0.0	0	0.0	0	0.0
+Neolanat	candidates	8029	0	0.0	0	0.0	0	0.0	0	0.0	0	0.0
+PiroE2sp	all	12863	0	0.0	0	0.0	0	0.0	0	0.0	0	0.0
+PiroE2sp	candidates	4753	0	0.0	0	0.0	0	0.0	0	0.0	0	0.0
+Pirofinn	all	10284	6114	0.5945	7148	0.6951	5964	0.5799	7830	0.7614	7866	0.7649
+Pirofinn	candidates	3054	589	0.1929	946	0.3098	779	0.2551	1304	0.427	1316	0.4309
+ALL_IN	all	103108	12658	0.1228	15253	0.1479	12789	0.124	16701	0.162	16776	0.1627
+ALL_IN	candidates	32717	1276	0.039	2256	0.069	1902	0.0581	2984	0.0912	3015	0.0922

@@ -1,0 +1,3 @@
+# Extra nextflow params for this study.
+
+--run_tool diamond
