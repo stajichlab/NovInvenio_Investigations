@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-#SBATCH -p batch -c 2 --mem 8gb --time=2-00:00:00 --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/logs/zoosporic_dikarya.log
+#SBATCH -p stajichlab -N 1 -n 2 --mem 8G --time=3-00:00:00 --job-name nf-zoodik --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/logs/slurm/nf_zoodik_%j.log
 
 # Real run of zoosporic_dikarya (studies/fungi/zoosporic_dikarya/), built the same way as
 # pezizo_set1 -- see that study's run.sh for the full rationale (NII_PIPELINE
@@ -13,9 +13,10 @@ module load nextflow
 set -euo pipefail
 
 NII_ROOT="/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations"
-NOVINVENIO_ROOT="/bigdata/stajichlab/jstajich/projects/NovInvenio"
+NOVINVENIO_ROOT="/rhome/jstajich/projects/NovInvenio-worktrees/main-d03f5a2"
 
 export NII_PIPELINE="$NOVINVENIO_ROOT/main.nf"
+export PATH="$NII_ROOT/.pixi/envs/default/bin:$PATH"
 
 "$NII_ROOT/bin/run_study.sh" fungi/zoosporic_dikarya \
     -profile slurm \

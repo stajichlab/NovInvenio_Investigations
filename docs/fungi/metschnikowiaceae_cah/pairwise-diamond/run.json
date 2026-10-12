@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-12",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/metschnikowiaceae_cah",
+  "source_dir": "results/metschnikowiaceae_cah",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 22,
+  "report_sha256": "0db3a7b41ff072c34b511cf65ee7399792c0f8210d1451ecba75ff54c08434b2"
+}

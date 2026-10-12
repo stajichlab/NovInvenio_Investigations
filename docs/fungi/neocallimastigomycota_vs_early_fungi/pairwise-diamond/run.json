@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-12",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/neocallimastigomycota_vs_early_fungi",
+  "source_dir": "results/neocallimastigomycota_vs_early_fungi",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 19,
+  "report_sha256": "c2eadc2747d1ac19e06c611b0f4a6bab2cc8ae9710234e2f13e6cdc4d03497b7"
+}

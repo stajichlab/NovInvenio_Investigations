@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-12",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/serinales_vs_pichiales",
+  "source_dir": "results/serinales_vs_pichiales",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 33,
+  "report_sha256": "6c99af17534360a610e3720d31b5278bb39c753f665842b30ab15ace33393c70"
+}

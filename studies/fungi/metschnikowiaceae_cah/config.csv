@@ -1,0 +1,23 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Candidozyma auris,,UP000230249_498019.pep.fa,UP000230249_498019.dna.fa,UP000230249_498019.gff3,Candauri,Candidozyma
+IN,Candidozyma haemuli,,UP000244309_45357.pep.fa,UP000244309_45357.dna.fa,UP000244309_45357.gff3,Candhaem,Candidozyma
+IN,Candidozyma pseudohaemuli,,UP000241107_418784.pep.fa,UP000241107_418784.dna.fa,UP000241107_418784.gff3,Candpseu,Candidozyma
+IN,Candidozyma duobushaemuli,,UP000244406_1231522.pep.fa,UP000244406_1231522.dna.fa,UP000244406_1231522.gff3,Candduob,Candidozyma
+IN,Clavispora lusitaniae,ATCC 42720,UP000007703_306902.pep.fa,UP000007703_306902.dna.fa,UP000007703_306902.gff3,Clavlusi,Metschnikowiaceae_other
+IN,Sungouiella intermedia,,UP000182334_45354.pep.fa,UP000182334_45354.dna.fa,UP000182334_45354.gff3,Sunginte,Metschnikowiaceae_other
+IN,Metschnikowia bicuspidata,,UP000092555_869754.pep.fa,UP000092555_869754.dna.fa,UP000092555_869754.gff3,Metsbicu,Metschnikowiaceae_other
+IN,Metschnikowia aff.,,UP000292447_2163413.pep.fa,UP000292447_2163413.dna.fa,UP000292447_2163413.gff3,Metsaff,Metschnikowiaceae_other
+IN,Australozyma saopauloensis,,UP001338582_291208.pep.fa,UP001338582_291208.dna.fa,UP001338582_291208.gff3,Austsaop,Metschnikowiaceae_other
+OUT,Candida albicans,ATCC MYA-2876,UP000000559_237561.pep.fa,UP000000559_237561.dna.fa,UP000000559_237561.gff3,Candalbi,Serinales_other
+OUT,Candida tropicalis,T1,UP000002037_294747.pep.fa,UP000002037_294747.dna.fa,UP000002037_294747.gff3,Candtrop,Serinales_other
+OUT,Lodderomyces elongisporus,NRRL YB-4239,UP000001996_379508.pep.fa,UP000001996_379508.dna.fa,UP000001996_379508.gff3,Loddelon,Serinales_other
+OUT,Meyerozyma guilliermondii,NRRL Y-324,UP000001997_294746.pep.fa,UP000001997_294746.dna.fa,UP000001997_294746.gff3,Meyeguil,Serinales_other
+OUT,Debaryomyces hansenii,IGC 2968,UP000000599_284592.pep.fa,UP000000599_284592.dna.fa,UP000000599_284592.gff3,Debahans,Serinales_other
+OUT,Scheffersomyces stipitis,NRRL Y-11545,UP000002258_322104.pep.fa,UP000002258_322104.dna.fa,UP000002258_322104.gff3,Schestip,Serinales_other
+OUT,Spathaspora passalidarum,11-Y1,UP000000709_619300.pep.fa,UP000000709_619300.dna.fa,UP000000709_619300.gff3,Spatpass,Serinales_other
+OUT,Diutina rugosa,,UP000449547_5481.pep.fa,UP000449547_5481.dna.fa,UP000449547_5481.gff3,Diutrugo,Serinales_other
+OUT,Komagataella phaffii,ATCC 20864,UP000000314_644223.pep.fa,UP000000314_644223.dna.fa,UP000000314_644223.gff3,Komaphaf,Pichiales
+OUT,Ogataea parapolymorpha,DL-1,UP000008673_871575.pep.fa,UP000008673_871575.dna.fa,UP000008673_871575.gff3,Ogatpara,Pichiales
+OUT,Kuraishia capsulata,,UP000019384_1382522.pep.fa,UP000019384_1382522.dna.fa,UP000019384_1382522.gff3,Kuracaps,Pichiales
+OUT,Pichia kudriavzevii,,UP000249293_4909.pep.fa,UP000249293_4909.dna.fa,UP000249293_4909.gff3,Pichkudr,Pichiales
+OUT,Pachysolen tannophilus,,UP000094236_669874.pep.fa,UP000094236_669874.dna.fa,UP000094236_669874.gff3,Pachtann,Alaninales
