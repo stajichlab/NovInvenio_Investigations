@@ -9,6 +9,11 @@
   desc: >-
     Lineage-specific gene novelty/loss in fungi (Ascomycota, Basidiomycota,
     early-diverging lineages).
+- slug: eukaryotes
+  name: Eukaryotes
+  desc: >-
+    Cross-kingdom comparisons (Holozoa, zoosporic fungi, Dikarya, and other
+    eukaryotic lineages).
 - slug: animal
   name: Animal
   desc: Not yet populated.
