@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex	IN_universe	IN_in_matrix	IN_pass_ingroup_rule	candidates	near_miss_out1	near_miss_out2	n_Batrdend	n_Spizpunc	n_Syncendo	n_Cateangu	n_Scer	n_Ncra	n_Anid	n_Spom	n_Ccin	candidate_ids	near_miss_out1_ids
+Arp2/3 ARPC2 (P34-Arc)	PF04045		4	4	4	0	0	0	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC3 (P21-Arc)	PF04062		4	4	4	0	0	0	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC4	PF05856		4	4	4	0	0	0	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC5 (P16-Arc)	PF04699		4	4	4	0	1	0	1	1	1	1	1	1	1	1	1		Cateangu::tr|A0A1Y2HCK8|A0A1Y2HCK8_9FUNG
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1	1	1	1	0	0	0	0	0	1	0	0	0	0	0	0		
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b	26	26	26	0	1	0	6	6	7	7	7	6	7	7	5		Cateangu::tr|A0A1Y2HCK8|A0A1Y2HCK8_9FUNG
+WAVE complex NCKAP1	PF09735		4	4	4	4	0	0	1	1	1	1	0	0	0	0	0	Batrdend::tr|F4PD12|F4PD12_BATDJ;Cateangu::tr|A0A1Y2HJ12|A0A1Y2HJ12_9FUNG;Spizpunc::tr|A0A0L0HUD3|A0A0L0HUD3_SPIPD;Syncendo::tr|A0A507D6K0|A0A507D6K0_9FUNG	
+WAVE complex CYFIP (FragX_IP)	PF05994		4	4	4	4	0	0	1	1	1	1	0	0	0	0	0	Batrdend::tr|F4NU01|F4NU01_BATDJ;Cateangu::tr|A0A1Y2HQA0|A0A1Y2HQA0_9FUNG;Spizpunc::tr|A0A0L0HKR9|A0A0L0HKR9_SPIPD;Syncendo::tr|A0A507D0Y3|A0A507D0Y3_9FUNG	
+WAVE complex ABI	PF07815|PF27594		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+SCAR/WAVE (SCAR_helical)	PF27569		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WASP family (WH1)	PF00568		4	4	4	1	0	0	1	1	1	1	1	1	1	1	2	Cateangu::tr|A0A1Y2HVK0|A0A1Y2HVK0_9FUNG	
+WH2 motif (WASP, WAVE, others)	PF02205		6	3	3	0	0	1	3	1	1	1	2	1	3	2	2		
+Formin FH2	PF02181		14	14	14	1	3	3	4	4	3	3	2	1	1	3	2	Spizpunc::tr|A0A0L0HBD9|A0A0L0HBD9_SPIPD	Batrdend::tr|F4NSE8|F4NSE8_BATDJ;Batrdend::tr|F4NTW8|F4NTW8_BATDJ;Cateangu::tr|A0A1Y2HDC1|A0A1Y2HDC1_9FUNG
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345		12	12	11	0	2	2	3	4	2	3	1	2	2	4	3		Batrdend::tr|F4NSE8|F4NSE8_BATDJ;Cateangu::tr|A0A1Y2HDC1|A0A1Y2HDC1_9FUNG
+Ena/VASP (VASP_tetra)	PF08776		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Coronin (description only)		coronin	6	6	6	0	0	0	1	3	1	1	1	1	1	1	1		
+Cortactin (HS1_rep)	PF02218		1	1	1	1	0	0	0	0	0	1	0	0	0	0	0	Cateangu::tr|A0A1Y2HKY3|A0A1Y2HKY3_9FUNG	
+Myosin 2 tail (Myosin_tail_1)	PF01576		3	3	3	0	0	0	1	1	1	0	0	0	0	0	1		
+Myosin head (all myosins)	PF00063		30	30	30	0	0	0	7	9	6	8	5	4	5	5	5		

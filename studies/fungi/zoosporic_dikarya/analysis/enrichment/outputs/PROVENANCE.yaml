@@ -1,0 +1,42 @@
+study: zoosporic_dikarya
+date: '2026-10-12'
+class: ephemeral analysis output; not committed; regenerate with run_enrichment.sh
+pipeline_results: results/zoosporic_dikarya (nf_NovInvenio d03f5a2, diamond pairwise, 4 IN / 5 OUT, run 2026-10-11)
+scripts:
+  enrichment: studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  figure: studies/fungi/zoosporic_dikarya/analysis/enrichment/make_summary_figure.py
+  driver: studies/fungi/zoosporic_dikarya/analysis/enrichment/run_enrichment.sh
+  controls_table: studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  derived_from: studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/enrich_novelties.py (prototype, unchanged)
+runs:
+  proteome_clustered: PRIMARY. universe = all proteins of the 4 IN proteome FASTAs (38,035); background clustered.
+  sensitivity_in_conserved_clustered: universe = matrix rows that pass the ingroup rule (>=3 of 4 IN), background clustered.
+  sensitivity_proteome_unclustered: universe = whole IN proteomes; background one unit per protein (prototype behaviour).
+  per_run_provenance: each run dir has its own PROVENANCE.yaml with input sha256 sums, command and runtimes.
+inputs:
+  results_files: [presence_matrix.uniprot.tsv, candidates.txt, 'novelties.<Short>.tsv']
+  proteomes: studies/fungi/zoosporic_dikarya/data_dir/pep/<Short>.pep.fa (UniProt reference proteomes; see study DATA_MANIFEST.yaml)
+  annotations: studies/fungi/zoosporic_dikarya/annotations/<UPID>.tsv.gz (UniProt GO/Pfam/InterPro per accession;
+    file mtimes 2026-09-07; no provenance sidecar or DATA_MANIFEST entry found for these files; UniProt release and the
+    Pfam/InterPro release behind the UniProt cross-references are NOT recorded)
+  go_basic_obo: {path: data/go/go-basic.obo, data_version: releases/2026-07-26,
+                 sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc,
+                 source_url: 'https://purl.obolibrary.org/obo/go/go-basic.obo'}
+  pfam_clans_and_names: {path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat (+ Pfam-C for clan names),
+                         release: Pfam 38.2 per directory name (not stated inside the file),
+                         sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d}
+  interpro_names: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json (labels only)
+mmseqs_background_clustering:
+  tool: .pixi/envs/default/bin/mmseqs, version 18.8cc5c
+  command: mmseqs easy-cluster bg.fa out tmp --threads 2 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  note: same settings as nf_NovInvenio modules/mmseqs_cluster.nf (MMSEQS_CLUSTER, which made the candidate families);
+    default sensitivity and cluster mode in both
+  input: 35,108 non-candidate IN proteins (38,035 - 2,927); output 24,895 clusters
+  cache: outputs/cache/bg_clusters.59527ad2993eedb0.{tsv.gz,json}
+  runtime: 239.7 s wall on 2 threads (SLURM job 29421617, host r11)
+statistics: one-sided hypergeometric (scipy 1.18.1 hypergeom.sf); BH within scope x level x vocabulary;
+  scope B also BH across species tests (fdr_bh_all_species); min 5 universe units per tested term
+tools: {python: 3.12.14, scipy: 1.18.1, goatools: 1.6.4 (OBO parsing and is_a ancestors only), matplotlib: 3.11.2}
+runtimes:
+  primary_first_run_including_clustering: 4 min 54 s wall, 1.17 GB max RSS
+  each_rerun_with_cache: 14-19 s
