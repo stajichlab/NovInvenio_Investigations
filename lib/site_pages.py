@@ -167,6 +167,10 @@ def render_domain_index(
             n_runs = s.get("n_runs") or 0
             runs_link = (f'<a href="{escape(s["slug"])}/report.html">'
                          f'{n_runs} run{"s" if n_runs != 1 else ""}</a>')
+            # Optional pages of the current run, e.g. enrichment.html
+            # (s["extras"]: [(href, label)], only for files that exist).
+            runs_link += "".join(f' &middot; <a href="{escape(h)}">{escape(lbl)}</a>'
+                                 for h, lbl in s.get("extras") or [])
             cards.append(f"""
 <div class="card">
   <h2><a href="{escape(href)}">{escape(s['name'].replace('_', ' '))}</a></h2>

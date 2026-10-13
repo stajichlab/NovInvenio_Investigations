@@ -35,7 +35,9 @@ import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from site_pages import render_domain_index, render_top_level  # noqa: E402
-from study_runs import load_publish_target, read_current, rebuild_study_pages  # noqa: E402
+from study_runs import (  # noqa: E402
+    load_publish_target, read_current, rebuild_study_pages, run_extra_links,
+)
 
 REPO_ROOT = Path(__file__).parent.parent
 STUDIES_ROOT = REPO_ROOT / "studies"
@@ -106,9 +108,13 @@ def find_studies(domain_slug: str) -> list[dict]:
                 continue
             runs = rebuild_study_pages(study_docs, domain_slug, study_docs.name)
             current = read_current(study_docs)
+            # Optional pages of the current run (e.g. enrichment.html) that
+            # exist on disk; the card links to each one.
+            extras = [(f"{study_docs.name}/{current}/{fname}", label)
+                      for fname, label in run_extra_links(study_docs / current)] if current else []
             by_study[study_docs.name] = {
                 "name": study_docs.name, "slug": study_docs.name,
-                "status": "complete", "n_runs": len(runs),
+                "status": "complete", "n_runs": len(runs), "extras": extras,
                 "href": f"{study_docs.name}/{current}/report.html" if current
                         else f"{study_docs.name}/report.html",
                 "hypothesis": "", "n_ingroup": None, "n_outgroup": None,

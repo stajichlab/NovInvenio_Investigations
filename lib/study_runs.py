@@ -12,6 +12,7 @@ opt-in: a folder without one is skipped, never guessed.
 """
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 from dataclasses import dataclass
@@ -94,6 +95,87 @@ def set_current(study_docs: Path, run: str) -> None:
     (study_docs / "study.json").write_text(json.dumps({"current": run}, indent=2) + "\n")
 
 
+# Optional pages in a run folder. The run list, the gallery card and the run
+# report link to a page only when its file exists, so a rerun of
+# bin/generate_docs.py keeps the links and adds none for other runs.
+# bin/generate_enrichment_page.py writes these files.
+RUN_EXTRA_PAGES = (
+    ("enrichment.html", "enrichment", "Functional enrichment (novelty)",
+     "Pfam, InterPro and GO term enrichment of the novelty candidates against the proteome background."),
+    ("enrichment_loss.html", "loss enrichment", "Functional enrichment (loss)",
+     "Pfam, InterPro and GO term enrichment of the loss candidates against the proteome background."),
+)
+
+
+def run_extra_links(run_dir: Path) -> list[tuple[str, str]]:
+    """[(filename, short label), ...] for the RUN_EXTRA_PAGES that exist in run_dir."""
+    return [(fname, label) for fname, label, _, _ in RUN_EXTRA_PAGES if (run_dir / fname).is_file()]
+
+
+_LINKS_START = "<!-- nii-run-extra-links:start -->"
+_LINKS_END = "<!-- nii-run-extra-links:end -->"
+_LINKS_BLOCK_RE = re.compile(
+    r"[ \t]*" + re.escape(_LINKS_START) + r".*?" + re.escape(_LINKS_END) + r"\n?", re.S)
+# The pipeline's run report (nf_NovInvenio COLLATE_REPORTS) lists its pages
+# as <a class="card-link" ...> elements. The extra links go after the last
+# of these, so they use the same style.
+_CARD_LINK_RE = re.compile(r'<a class="card-link" href="(?:novelties|core|losses)\.html">.*?</a>\n?', re.S)
+_INDENT = "      "
+
+
+def _sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def inject_run_report_links(run_dir: Path) -> str:
+    """Write the RUN_EXTRA_PAGES links that exist in run_dir into
+    run_dir/report.html, between marker comments. Idempotent: an earlier
+    block is replaced, and no block is written when no extra page exists.
+
+    report.html is a pipeline page; a sync of a new run overwrites it, so
+    bin/sync_reports.sh calls this again (through
+    bin/generate_enrichment_page.py --links-only) before it records the run.
+
+    When run.json's report_sha256 matched report.html before the edit, it is
+    updated to the new content. When it did not match, run.json is not
+    changed. Returns a one-line status."""
+    report = run_dir / "report.html"
+    if not report.is_file():
+        return f"no {report}; nothing to link"
+    old_bytes = report.read_bytes()
+    old = old_bytes.decode("utf-8")
+    text = _LINKS_BLOCK_RE.sub("", old)
+    pages = [p for p in RUN_EXTRA_PAGES if (run_dir / p[0]).is_file()]
+    if pages:
+        anchors = list(_CARD_LINK_RE.finditer(text))
+        if not anchors:
+            return f"WARNING: {report} has no card-link anchor; links not added"
+        block = _INDENT + _LINKS_START + "\n" + "".join(
+            f'{_INDENT}<a class="card-link" href="{escape(fname)}"><span class="card-link-title">'
+            f'{escape(title)}</span><span class="card-link-desc">{escape(desc)}</span></a>\n'
+            for fname, _, title, desc in pages
+        ) + _INDENT + _LINKS_END + "\n"
+        end = anchors[-1].end()
+        if not text[:end].endswith("\n"):
+            block = "\n" + block
+        text = text[:end] + block + text[end:]
+    if text == old:
+        return f"{report}: links already current"
+    new_bytes = text.encode("utf-8")
+    report.write_bytes(new_bytes)
+    status = f"{report}: links set to {[p[0] for p in pages]}"
+    meta_path = run_dir / "run.json"
+    if meta_path.is_file():
+        meta = json.loads(meta_path.read_text())
+        if meta.get("report_sha256") == _sha256_bytes(old_bytes):
+            meta["report_sha256"] = _sha256_bytes(new_bytes)
+            meta_path.write_text(json.dumps(meta, indent=2) + "\n")
+            status += "; run.json report_sha256 updated"
+        elif "report_sha256" in meta:
+            status += "; WARNING: run.json report_sha256 did not match report.html before the edit, not changed"
+    return status
+
+
 def run_summary(r: dict) -> str:
     parts = []
     if r.get("n_families") is not None:
@@ -118,9 +200,12 @@ _RUNS_CSS = """
 """
 
 
-def render_run_index(domain: str, study: str, runs: list[dict], current: str | None) -> str:
+def render_run_index(domain: str, study: str, runs: list[dict], current: str | None,
+                     extras: dict[str, list[tuple[str, str]]] | None = None) -> str:
     """docs/<domain>/<study>/report.html: one row per run, current first,
-    then the others newest first."""
+    then the others newest first. extras maps a run name to its
+    run_extra_links(); each one is linked after the run name."""
+    extras = extras or {}
     body = [_RUNS_CSS]
     body.append(
         '<div class="crumbs"><a href="../../index.html">gallery</a> / '
@@ -144,9 +229,13 @@ def render_run_index(domain: str, study: str, runs: list[dict], current: str | N
     for r in ordered:
         is_current = r["run"] == current
         params = " ".join(r.get("params") or [])
+        extra_links = "".join(
+            f' &middot; <a href="{escape(r["run"])}/{escape(fname)}">{escape(label)}</a>'
+            for fname, label in extras.get(r["run"], [])
+        )
         body.append(
             f'<tr class="{"current" if is_current else ""}">'
-            f'<td><a href="{escape(r["run"])}/report.html">{escape(r["run"])}</a></td>'
+            f'<td><a href="{escape(r["run"])}/report.html">{escape(r["run"])}</a>{extra_links}</td>'
             f'<td>{"current" if is_current else "archived"}</td>'
             f"<td>{escape(r.get('pipeline') or '')}</td>"
             f"<td>{escape(run_summary(r))}</td>"
@@ -171,7 +260,8 @@ def rebuild_study_pages(study_docs: Path, domain: str, study: str) -> list[dict]
         if len(runs) == 1:
             current = runs[0]["run"]
             set_current(study_docs, current)
-    (study_docs / "report.html").write_text(render_run_index(domain, study, runs, current))
+    extras = {r["run"]: run_extra_links(study_docs / r["run"]) for r in runs}
+    (study_docs / "report.html").write_text(render_run_index(domain, study, runs, current, extras))
     target = f"{current}/report.html" if current else "report.html"
     (study_docs / "index.html").write_text(render_redirect(target))
     return runs
