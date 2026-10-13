@@ -1,0 +1,116 @@
+generated: '2026-10-12T17:24:59'
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/analysis/loss_near_miss/loss_loose.py
+  sha256: 0b86ad2cdc2ef69622ca1a2c5d8a8aed61debe2ee614a3e7a8912604b5cf9679
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/analysis/loss_near_miss/loss_loose.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya --config
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/config.csv
+  --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/analysis/loss_near_miss/outputs
+  --outgroup-min-frac 0.75 --ks 0,1,2,3 --in-max-frac 0.15 --threads 8
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+pipeline_reference: 'nf_NovInvenio main d03f5a2: workflows/loss_search.nf, bin/build_presence_matrix.py'
+parameters:
+  outgroup_min_frac: 0.75
+  ks:
+  - 0
+  - 1
+  - 2
+  - 3
+  in_max_frac: 0.15
+  in_max_frac_as_k: 3
+  evalue: 1.0e-05
+  parse_evalue: 0.01
+  paralog_competition_scope: target
+  paralog_rescue_evalue: 1.0e-20
+  paralog_rescue_delta: null
+  other_coverage_floor_qcov: null
+  mmseqs_args:
+  - --min-seq-id
+  - '0.3'
+  - -c
+  - '0.8'
+  - --cov-mode
+  - '0'
+reproduction:
+  matrix_rows_rebuilt: 43169
+  matrix_rows_pipeline: 43169
+  rows_only_rebuilt: 0
+  rows_only_pipeline: 0
+  cells_compared: 1381408
+  cells_differing: 0
+  k0_rebuilt: 332
+  loss_candidates_txt: 332
+  k0_symmetric_difference: 0
+  family_check: 'pipeline loss_clusters 248 families; our K0 mmseqs 248 families; identical partitions: True (shared families
+    248)'
+counts:
+- set: K0
+  max_in_species: 0
+  n_proteins: 332
+  n_mmseqs_families: 248
+  n_new_vs_K0: 0
+  per_out_species: Sacccere:45;Schipomb:35;Neurcras:51;Aspenidu:56;Mycomayd:45;Crypneof:42;Coprcine:58
+- set: K1
+  max_in_species: 1
+  n_proteins: 514
+  n_mmseqs_families: 368
+  n_new_vs_K0: 182
+  per_out_species: Sacccere:68;Schipomb:57;Neurcras:73;Aspenidu:104;Mycomayd:62;Crypneof:74;Coprcine:76
+- set: K2
+  max_in_species: 2
+  n_proteins: 716
+  n_mmseqs_families: 490
+  n_new_vs_K0: 384
+  per_out_species: Sacccere:91;Schipomb:71;Neurcras:93;Aspenidu:137;Mycomayd:92;Crypneof:107;Coprcine:125
+- set: K3
+  max_in_species: 3
+  n_proteins: 931
+  n_mmseqs_families: 610
+  n_new_vs_K0: 599
+  per_out_species: Sacccere:121;Schipomb:98;Neurcras:125;Aspenidu:186;Mycomayd:109;Crypneof:131;Coprcine:161
+- set: INfrac0.15
+  max_in_species: 3
+  n_proteins: 931
+  n_mmseqs_families: 610
+  n_new_vs_K0: 599
+  per_out_species: Sacccere:121;Schipomb:98;Neurcras:125;Aspenidu:186;Mycomayd:109;Crypneof:131;Coprcine:161
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/config.csv: bec465ef33372ed010bca6d6b3737ceb2bf3b6890558ce2e6d2e106bfb722580
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/self_hits/Sacccere.paralog_cutoffs.tsv
+  : 4a5e96767a0a47a3a0685600871c4d49369311fec4f2eece65a41b36a09605e4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/self_hits/Schipomb.paralog_cutoffs.tsv
+  : aa4245dc33e4b6657f199b6970cc86630b80a7fb6711e726ef0d2fbd5a396dc2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/self_hits/Neurcras.paralog_cutoffs.tsv
+  : 5717e373302d5eba9da9e93dc8282d489f62f8c86aab346820f7a7efdd60e5c5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/self_hits/Aspenidu.paralog_cutoffs.tsv
+  : 44bffab4e99d8e11519724da8c032e5f23f4c8b516a34ff0148f721463dbe600
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/self_hits/Mycomayd.paralog_cutoffs.tsv
+  : c197332127ece6579fc2b246ca4f5ac13faf99aacc1882f13e0d96e2bc5a386d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/self_hits/Crypneof.paralog_cutoffs.tsv
+  : 81b70df84603a3042a8ec2214ad77c72b054561ad9c2b1f9d15fefbd547e92f5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/self_hits/Coprcine.paralog_cutoffs.tsv
+  : 04c2aeb35b280405cd95e3599c27478b11bd39f02e0c5cfcfa4d4e2b8058129d
+  search_cache: 217 files /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/search_cache/<OUT>_vs_<T>.diamond.tsv.gz
+    (not hashed)
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/loss_presence_matrix.tsv
+  : edc030ed6d065a7f3fb2441855c3f37ee37602f1460c1046be3bc167bedff0a5
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya/loss_candidates.txt: 7838b37762e975b16b40e9b1740094ed18204bc733037b0a4b2c98ad9403764a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000002311_559292.pep.fa
+  : 8ca7d8ccfd337f039527d136c3d10ec9c81be3aae33578cadef3abf2093792cb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000001861_240176.pep.fa
+  : 74c44aa4bf25cf5b12557eb189790357f7864197c5f0ec34b2724c338bda80c3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000000560_227321.pep.fa
+  : 929546c62a96b539b87eff1da79f95462d02f3853e6a1301cc43572bf8f3f7cc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000000561_5270.pep.fa
+  : bb48a1d66d6108995ac7e17cc7b99091d603e4d7d099de9e38ce6de2a7a304d8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000001805_367110.pep.fa
+  : 6c3a6d498fb30b129e2ab084f95789b3c510164f34661a5c85acb6a14e5f3dde
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000010091_235443.pep.fa
+  : 0aac11ac6b8d8332a4d0b1ed530b14da22f11c33c32423844c4f015482dbcd36
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/eukaryotes/zoosporic_holozoa_vs_dikarya/data_dir/pep/UP000002485_284812.pep.fa
+  : b5d0a365078dc93e90244f462ebdead02b85de578db20ef20b9d7af9caa0de47
+tools:
+  python: 3.12.14
+  mmseqs: 18.8cc5c
+host: r11
+slurm_job: '29893039'

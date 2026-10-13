@@ -1,0 +1,27 @@
+IN (25) OUT (7)
+paralog pairs (OUT proteomes): 45424
+Sacccere: done (1s, 31 files, 634534 rows)
+Schipomb: done (2s, 62 files, 1254948 rows)
+Neurcras: done (3s, 93 files, 2057581 rows)
+Aspenidu: done (5s, 124 files, 3098937 rows)
+Mycomayd: done (6s, 155 files, 3818000 rows)
+Crypneof: done (7s, 186 files, 4538696 rows)
+Coprcine: done (9s, 217 files, 5491265 rows)
+results: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya
+search cache files read: 217; rows: 5491265
+rebuilt matrix rows (OUT proteins with >= 1 kept hit): 43169; pipeline loss_presence_matrix.tsv rows: 43169
+rows only in rebuilt: 0; rows only in pipeline: 0
+cells compared (pipeline rows x 32 species): 1381408; differing cells: 0
+rule: OUT present / 7 >= 0.75 (own proteome counts) and IN present <= K
+K=0 rebuilt: 332; loss_candidates.txt: 332; symmetric difference: 0
+IN fraction <= 0.15 of 25 equals IN present <= 3
+family check: pipeline loss_clusters 248 families; our K0 mmseqs 248 families; identical partitions: True (shared families 248)
+runtime_s: 48
+
+set	max_in_species	n_proteins	n_mmseqs_families	n_new_vs_K0	per_out_species
+K0	0	332	248	0	Sacccere:45;Schipomb:35;Neurcras:51;Aspenidu:56;Mycomayd:45;Crypneof:42;Coprcine:58
+K1	1	514	368	182	Sacccere:68;Schipomb:57;Neurcras:73;Aspenidu:104;Mycomayd:62;Crypneof:74;Coprcine:76
+K2	2	716	490	384	Sacccere:91;Schipomb:71;Neurcras:93;Aspenidu:137;Mycomayd:92;Crypneof:107;Coprcine:125
+K3	3	931	610	599	Sacccere:121;Schipomb:98;Neurcras:125;Aspenidu:186;Mycomayd:109;Crypneof:131;Coprcine:161
+INfrac0.15	3	931	610	599	Sacccere:121;Schipomb:98;Neurcras:125;Aspenidu:186;Mycomayd:109;Crypneof:131;Coprcine:161
+
