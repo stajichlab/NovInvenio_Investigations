@@ -1,4 +1,9 @@
 study	rank	term	name	k_cand_units	N_cand	n_bg_units	M	fold	fdr_bh	n_candidate_proteins	n_species	repeat_TE_like
+zoosporic_dikarya	1	PF00211	Guanylate_cyc: Adenylate and Guanylate cyclase catalytic domain	18	1682	25	14923	6.388	1.73e-09	33	4	False
+zoosporic_dikarya	2	PF13516	LRR_6: Leucine Rich repeat	22	1682	51	14923	3.827	3.65e-06	28	4	True
+zoosporic_dikarya	3	PF03493	BK_channel_a: Calcium-activated BK potassium channel alpha subunit	8	1682	8	14923	8.872	8.47e-06	11	4	False
+zoosporic_dikarya	4	PF22614	Slo-like_RCK: Calcium-activated potassium channel slowpoke-like RCK domain	8	1682	9	14923	7.886	3.23e-05	11	4	False
+zoosporic_dikarya	5	PF15619	Lebercilin: Ciliary protein causing Leber congenital amaurosis disease	7	1682	7	14923	8.872	3.23e-05	7	4	False
 yeast_filamentous	1	PF13638	PIN_4: PIN domain	4	282	10	11034	15.651	0.0388	4	4	False
 yeast_filamentous	2	PF00398	RrnaAD: Ribosomal RNA adenine dimethylase	3	282	5	11034	23.477	0.0388	3	3	False
 yeast_filamentous	3	PF01735	PLA2_B: Lysophospholipase catalytic domain	3	282	5	11034	23.477	0.0388	3	3	False
@@ -19,8 +24,13 @@ chytrid_vs_mucoromycota	2	PF02493	MORN: MORN repeat	20	1459	25	29351	16.094	3.49
 chytrid_vs_mucoromycota	3	PF14033	DUF4246: Protein of unknown function (DUF4246)	18	1459	22	29351	16.46	1.39e-17	95	10	False
 chytrid_vs_mucoromycota	4	PF13879	Hmw_CFAP97: Hemingway/CFA97	20	1459	30	29351	13.411	7.77e-17	25	11	False
 chytrid_vs_mucoromycota	5	PF02156	Glyco_hydro_26: Glycosyl hydrolase family 26	17	1459	26	29351	13.154	5.74e-14	95	11	False
-zoosporic_dikarya	1	PF00211	Guanylate_cyc: Adenylate and Guanylate cyclase catalytic domain	18	1682	25	14923	6.388	1.73e-09	33	4	False
-zoosporic_dikarya	2	PF13516	LRR_6: Leucine Rich repeat	22	1682	51	14923	3.827	3.65e-06	28	4	True
-zoosporic_dikarya	3	PF03493	BK_channel_a: Calcium-activated BK potassium channel alpha subunit	8	1682	8	14923	8.872	8.47e-06	11	4	False
-zoosporic_dikarya	4	PF22614	Slo-like_RCK: Calcium-activated potassium channel slowpoke-like RCK domain	8	1682	9	14923	7.886	3.23e-05	11	4	False
-zoosporic_dikarya	5	PF15619	Lebercilin: Ciliary protein causing Leber congenital amaurosis disease	7	1682	7	14923	8.872	3.23e-05	7	4	False
+serinales_vs_pichiales	1	PF29124	MSC3_beta: Meiotic sister-chromatid recombination protein 3 beta-sheet domain	10	477	11	13407	25.552	3.39e-11	17	17	False
+serinales_vs_pichiales	2	PF05730	CFEM: CFEM domain	13	477	24	13407	15.225	1.17e-10	57	16	False
+serinales_vs_pichiales	3	PF29143	PGA45_C: GPI-anchored protein 45 C-terminal domain	9	477	10	13407	25.296	2.94e-10	59	16	False
+serinales_vs_pichiales	4	PF29045	YOL036W_C: YOL036W-like C-terminal domain	7	477	7	13407	28.107	1.85e-08	14	14	False
+serinales_vs_pichiales	5	PF11214	Med2: Mediator complex subunit 2	6	477	6	13407	28.107	3.52e-07	29	16	False
+zoosporic_holozoa_vs_dikarya	1	PF00211	Guanylate_cyc: Adenylate and Guanylate cyclase catalytic domain	94	2711	171	107786	21.856	6.67e-99	279	25	False
+zoosporic_holozoa_vs_dikarya	2	PF17958	EF-hand_13: EF-hand domain	23	2711	24	107786	38.102	1.05e-32	50	21	False
+zoosporic_holozoa_vs_dikarya	3	PF18027	Pepdidase_M14_N: Cytosolic carboxypeptidase N-terminal domain	25	2711	32	107786	31.062	5.29e-31	42	19	False
+zoosporic_holozoa_vs_dikarya	4	PF03133	TTL: Tubulin-tyrosine ligase family	37	2711	108	107786	13.621	1.56e-28	51	22	False
+zoosporic_holozoa_vs_dikarya	5	PF07701	HNOBA: Heme NO binding associated	20	2711	27	107786	29.451	8.67e-24	87	18	False
