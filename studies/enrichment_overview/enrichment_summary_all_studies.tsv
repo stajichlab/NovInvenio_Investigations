@@ -1,4 +1,8 @@
 study	vocab	n_cand_units	N_cand_annotated	frac_cand_units_annotated	M_units_annotated	n_terms_tested	n_fdr_lt_0.05	n_fdr_lt_0.05_k_ge_3	n_sig_k_lt_3	n_candidate_proteins_in_sig_terms	n_sig_repeat_TE_like	candidate_check_symdiff	candidates_txt
+zoosporic_dikarya	pfam	2284	1682	0.7364	14923	990	47	47	0	447	4	0	2927
+zoosporic_dikarya	pfam_clan	2284	1141	0.4996	11965	358	20	20	0	361		0	2927
+zoosporic_dikarya	interpro	2284	1969	0.8621	16784	2191	95	95	0	759		0	2927
+zoosporic_dikarya	go	2284	1474	0.6454	13884	3612	159	159	0	1153		0	2927
 yeast_filamentous	pfam	302	282	0.9338	11034	732	3	3	0	10	0	0	335
 yeast_filamentous	pfam_clan	302	205	0.6788	8322	307	0	0	0	0		0	335
 yeast_filamentous	interpro	302	301	0.9967	11812	1640	0	0	0	0		0	335
@@ -15,7 +19,11 @@ chytrid_vs_mucoromycota	pfam	2151	1459	0.6783	29351	2228	140	140	0	1973	9	0	4868
 chytrid_vs_mucoromycota	pfam_clan	2151	1002	0.4658	24222	442	35	35	0	1527		0	4868
 chytrid_vs_mucoromycota	interpro	2151	1765	0.8205	33597	4623	251	251	0	2622		0	4868
 chytrid_vs_mucoromycota	go	2151	1157	0.5379	25791	4450	300	300	0	2757		0	4868
-zoosporic_dikarya	pfam	2284	1682	0.7364	14923	990	47	47	0	447	4	0	2927
-zoosporic_dikarya	pfam_clan	2284	1141	0.4996	11965	358	20	20	0	361		0	2927
-zoosporic_dikarya	interpro	2284	1969	0.8621	16784	2191	95	95	0	759		0	2927
-zoosporic_dikarya	go	2284	1474	0.6454	13884	3612	159	159	0	1153		0	2927
+serinales_vs_pichiales	pfam	1234	477	0.3865	13407	1073	31	31	0	511	0	0	2995
+serinales_vs_pichiales	pfam_clan	1234	223	0.1807	9821	323	6	6	0	157		0	2995
+serinales_vs_pichiales	interpro	1234	571	0.4627	14550	2161	43	43	0	585		0	2995
+serinales_vs_pichiales	go	1234	332	0.269	12151	4056	11	11	0	262		0	2995
+zoosporic_holozoa_vs_dikarya	pfam	2958	2711	0.9165	107786	6027	297	297	0	4955	14	0	6615
+zoosporic_holozoa_vs_dikarya	pfam_clan	2958	2013	0.6805	87546	600	48	48	0	2999		0	6615
+zoosporic_holozoa_vs_dikarya	interpro	2958	2923	0.9882	123867	12289	564	564	0	5640		0	6615
+zoosporic_holozoa_vs_dikarya	go	2958	2373	0.8022	91079	13705	532	532	0	5588		0	6615
