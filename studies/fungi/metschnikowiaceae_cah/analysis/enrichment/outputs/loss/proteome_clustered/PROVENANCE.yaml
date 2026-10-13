@@ -1,0 +1,205 @@
+generated: '2026-10-12T18:21:36'
+study: metschnikowiaceae_cah
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: b96062411e1f05983aa679d2d85d6e719db6cdc15260175ccf643db400903b17
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/metschnikowiaceae_cah --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations
+  --study metschnikowiaceae_cah --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --direction loss --ingroup-min-frac 0.75 --other-max-frac 0.0 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Candalbi
+  - Candtrop
+  - Loddelon
+  - Meyeguil
+  - Debahans
+  - Schestip
+  - Spatpass
+  - Diutrugo
+  - Komaphaf
+  - Ogatpara
+  - Kuracaps
+  - Pichkudr
+  - Pachtann
+other_group:
+  label: IN
+  species:
+  - Candauri
+  - Candhaem
+  - Candpseu
+  - Candduob
+  - Clavlusi
+  - Sunginte
+  - Metsbicu
+  - Metsaff
+  - Austsaop
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations
+annotation_files:
+  Candalbi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000000559.tsv.gz
+  Candtrop: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000002037.tsv.gz
+  Loddelon: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000001996.tsv.gz
+  Meyeguil: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000001997.tsv.gz
+  Debahans: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000000599.tsv.gz
+  Schestip: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000002258.tsv.gz
+  Spatpass: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000000709.tsv.gz
+  Diutrugo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000449547.tsv.gz
+  Komaphaf: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000000314.tsv.gz
+  Ogatpara: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000008673.tsv.gz
+  Kuracaps: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000019384.tsv.gz
+  Pichkudr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000249293.tsv.gz
+  Pachtann: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000094236.tsv.gz
+  Candauri: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000230249.tsv.gz
+  Candhaem: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000244309.tsv.gz
+  Candpseu: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000241107.tsv.gz
+  Candduob: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000244406.tsv.gz
+  Clavlusi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000007703.tsv.gz
+  Sunginte: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000182334.tsv.gz
+  Metsbicu: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000092555.tsv.gz
+  Metsaff: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000292447.tsv.gz
+  Austsaop: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP001338582.tsv.gz
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 182
+  candidates_txt: 182
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/metschnikowiaceae_cah/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/metschnikowiaceae_cah/loss_presence_matrix.tsv
+  rule: OUT count / 13 >= 0.75 and IN count / 9 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: a7be57a3ab4423a7
+  n_sequences: 74857
+  n_clusters: 21615
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 58.0
+  threads: 8
+  created: '2026-10-12T18:21:18'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/metschnikowiaceae_cah/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/config.csv: e24f5c0e759bdd1d6dcfaf9c647729ad26727d8b5664fe16f1bfa1a49ae3e938
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/metschnikowiaceae_cah/loss_candidates.txt: 1eb4a60ef58d907b7c23a473618c628ec824b13738b00411de529bd85faa7ffb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/metschnikowiaceae_cah/clusters/loss_clusters_cluster.tsv
+  : 04f5a5ed799b7e34fb42b557e935bb6afb9f681d3798625e103d142e7c7f0599
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/metschnikowiaceae_cah/loss_presence_matrix.tsv: 764d3c4993d82886a1cb5557c7560327dbfb26642d82b5f52ddabee5ede12226
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000000559_237561.pep.fa
+  : 603def324372fc7aab183f6d4cf3a482c1e97a43e99f018b0d96d47011832090
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000002037_294747.pep.fa
+  : ac6ccf5c7ae7e395f52c07536d4f48aa2688f1c22e3623546ae90dba278c5303
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000001996_379508.pep.fa
+  : e932d838ed35103900697f1a75571c3660d05d976caa8d254c5b57e1a28abb63
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000001997_294746.pep.fa
+  : c8c4a7fc6219926ee81696e4db4ef4823943776651ad89f3ff5a5b6342deaceb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000000599_284592.pep.fa
+  : 93f0aedfdd287fd685e562f5f0ee73ea3d2f18f772f59cc2494f91ad869d82f1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000002258_322104.pep.fa
+  : 41ec693ffb6e89daf85eff111171ee67c548c02bdb8e25b0d9d08626c9a7bb93
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000000709_619300.pep.fa
+  : 4974bf62e540da7da5da50ce6706cedfd5fcee1b7a7286af4df1651a3b7e0ab3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000449547_5481.pep.fa
+  : 5f1addabf5bb3e22bba5ae187f96dd8a59a9e1f73a6c488de9cbeb4cf2965608
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000000314_644223.pep.fa
+  : 8e2149c52c9ce07421f48e313b1f7ebfa4b22ba20eb47c953b19fa91a1cae030
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000008673_871575.pep.fa
+  : 58d24d860572baa3b82d0033caab6df99a3fdb1a126026bf5099bf5add0f1d36
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000019384_1382522.pep.fa
+  : e2f6e191eb2c7341ee431eafdc0720ed53cdd1af312a5bb0ca65576c64800dcb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000249293_4909.pep.fa
+  : eb66f55e2d7697b15af4b80a73cedf402e4a1376f5a1847e8a9755be56912487
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/data_dir/pep/UP000094236_669874.pep.fa
+  : b25f0f1e63441e3702aaa97759dce0b7f3b8ffe64e3799889f65aca314bf270a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/species.csv: 7a297cd136245f65b41f6fc8bf69e6988db723d1969899d0a1b7431d9c17be8a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000000559.tsv.gz
+  : bc041a838a739eec5c4972b557374f5f2e8fb4702dff515e6558b957b3c58117
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000002037.tsv.gz
+  : 78e45205e8bfd118cd2466e274d141cb3af91486821b8bbc3899480e69ac0de3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000001996.tsv.gz
+  : c43410b9f35237f7eeeb973b4db60174150264832fcad205e659e5a07dd3561d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000001997.tsv.gz
+  : b5980efa665d3d3140224f3f7f9387b1e768bdd232fcf21ac45dfea2964c54fa
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000000599.tsv.gz
+  : ac6dd7f7ef5fa88cc6557e060c871672373dca0648c68d403fd0e8a64d3b5634
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000002258.tsv.gz
+  : c9349b30e933ded518243ad38cc9d7859a96d2e8c1c31f1cbcf7be8204ab74b8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000000709.tsv.gz
+  : 19ea145a23a554d9bfbed3bad563299fd17e0bd40f155546f51c7d2c7484bdc1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000449547.tsv.gz
+  : d8db9cdbca86e66b697828396168b535dfc6c6f89f83a165854b27ae9938aea7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000000314.tsv.gz
+  : 461dc644c7d835a6cec17943c0494ed9509b64255e486df33a1ef1cc866f54cc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000008673.tsv.gz
+  : 8f6fa41c1cc0541633146babb6cfca7a33b6d7b31ef8d0490dab02710ef3d79c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000019384.tsv.gz
+  : 78849e3e93bd323e6498f7f37856e40ece506dd1d7dc28654ec5f3bd7450092d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000249293.tsv.gz
+  : b9d02288f21a835dcb7a5b94008e45bb6a004273fa7745b27edef368febfd70c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000094236.tsv.gz
+  : d0ab37e35bcb9956c14c888f044e31c3280a2e0e462f0f3f368ad7716c739df5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000230249.tsv.gz
+  : 264490dc0ff68e8ca031cc7f9f4d6087773d91aee92a5379a6ad3e567b17dd59
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000244309.tsv.gz
+  : bee9590e7e8486672befedf9a0e1588a1d894219d9c15ca17ca7d62dfeb31e21
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000241107.tsv.gz
+  : 3ec421f818ae413ef87a445013382eb4fbb6a2d20ef5eb4d38809382459fda95
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000244406.tsv.gz
+  : eea4b213cc491e87bc7134044a7854e1e10f82f607feabaeffde47602b0d9fb2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000007703.tsv.gz
+  : 84f6d2bb3256b17e468de03103556db5b5667bc04db16bab5b9babeca98b437d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000182334.tsv.gz
+  : 640351a5b4b153c4d43ad1a4f2e35c7f9a0b2e954e5de6e322d6dc2e11d667ea
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000092555.tsv.gz
+  : 2b6d788983b3ef7c1170ce37c209a355046f937cceea31eb36ebd5c941576365
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP000292447.tsv.gz
+  : 1affc815680e9f5289837e9303933d3392a0af03841d5d2a22363b40aca4697a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/metschnikowiaceae_cah/annotations/UP001338582.tsv.gz
+  : 157253a826f2d6ba8fe046996049b2320a6088c6adce721e62d2f46248499406
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 29.1
+  background_cluster_s: 58.7
+  tests_s: 13.9
+  total_s: 106.7
+host: r11
+slurm_job: '29893778'
+candidate_annotation:
+  frac_loss_candidates_any_annotation: 0.7527
+  low_coverage: false
+  rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
+  wall_s_enrichment: 108

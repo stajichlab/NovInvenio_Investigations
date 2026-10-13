@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex	OUT_universe	OUT_in_matrix	OUT_pass_outgroup_rule	candidates	near_miss_in1	near_miss_in2	n_Mucocirc	n_Rhizdele	n_Lichcory	n_Phycblak	n_Absiglau	n_Syncrace	n_Choacucu	n_Hessvesi	n_Umbevina	n_Mortisab	n_Thamspha	n_Batrdend	n_Batrsala	n_Spizpunc	n_Powehirt	n_Geravari	n_Syncendo	n_Syncmicr	n_Chytconf	n_Polystew	n_Rhizglob	n_Rhizrose	candidate_ids	near_miss_in1_ids
+Arp2/3 ARPC2 (P34-Arc)	PF04045		12	12	12	0	0	0	1	1	1	1	2	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC3 (P21-Arc)	PF04062		10	10	10	0	0	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC4	PF05856		11	11	11	0	0	0	1	2	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC5 (P16-Arc)	PF04699		10	10	10	0	0	0	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	2	1	1	1		
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0		
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b	69	69	69	0	0	0	6	7	5	5	8	5	8	7	7	7	4	6	7	6	7	6	7	6	6	8	5	6		
+WAVE complex NCKAP1	PF09735		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	1	1	1	1	0	1	0	1		
+WAVE complex CYFIP (FragX_IP)	PF05994		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	1	1	1	1	0	1	0	1		
+WAVE complex ABI	PF07815|PF27594		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+SCAR/WAVE (SCAR_helical)	PF27569		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	1	1	1	1	0	1	0	1		
+WASP family (WH1)	PF00568		21	21	21	2	1	2	3	1	1	1	2	3	2	3	2	2	1	1	1	1	1	1	1	1	1	1	1	1	Choacucu::tr|A0A1C7N1T4|A0A1C7N1T4_9FUNG;Mucocirc::tr|S2JFU3|S2JFU3_MUCC1	Absiglau::tr|A0A168S8B5|A0A168S8B5_ABSGL
+WH2 motif (WASP, WAVE, others)	PF02205		20	20	18	0	0	2	2	1	2	0	3	2	2	3	2	3	0	3	1	1	1	1	1	1	1	1	0	1		
+Formin FH2	PF02181		65	64	63	1	0	0	8	9	7	3	9	6	6	7	4	4	2	4	6	4	4	4	3	4	5	6	5	5	Rhizdele::tr|I1BSD3|I1BSD3_RHIO9	
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345		81	81	80	17	0	0	8	11	7	6	10	7	8	8	7	7	2	3	4	4	3	4	2	3	3	4	3	7	Absiglau::tr|A0A163KHA0|A0A163KHA0_ABSGL;Absiglau::tr|A0A168NPX3|A0A168NPX3_ABSGL;Choacucu::tr|A0A1C7N9G4|A0A1C7N9G4_9FUNG;Choacucu::tr|A0A1C7NGV4|A0A1C7NGV4_9FUNG;Choacucu::tr|A0A1C7NR88|A0A1C7NR88_9FUNG;Hessvesi::tr|A0A1X2GV11|A0A1X2GV11_9FUNG;Lichcory::tr|A0A068RDM0|A0A068RDM0_9FUNG;Mortisab::tr|A0A8H7PS49|A0A8H7PS49_MORIS;Mortisab::tr|A0A8H7PZF7|A0A8H7PZF7_MORIS;Mucocirc::tr|S2JRV4|S2JRV4_MUCC1;Phycblak::tr|A0A163ADT6|A0A163ADT6_PHYB8;Rhizdele::tr|I1BMG5|I1BMG5_RHIO9;Rhizdele::tr|I1BSD3|I1BSD3_RHIO9;Rhizdele::tr|I1BW56|I1BW56_RHIO9;Syncrace::tr|A0A1X2HM17|A0A1X2HM17_SYNRA;Umbevina::tr|A0A8H7UKN1|A0A8H7UKN1_9FUNG;Umbevina::tr|A0A8H7US18|A0A8H7US18_9FUNG	
+Ena/VASP (VASP_tetra)	PF08776		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Coronin (description only)		coronin	21	21	21	0	0	0	1	3	2	2	3	2	1	2	2	2	1	1	1	3	3	4	1	2	4	2	2	4		
+Cortactin (HS1_rep)	PF02218		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Myosin 2 tail (Myosin_tail_1)	PF01576		2	2	1	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	2		
+Myosin head (all myosins)	PF00063		146	146	146	0	0	0	17	19	14	16	18	11	16	13	8	9	5	7	8	9	9	7	6	9	13	7	14	12		

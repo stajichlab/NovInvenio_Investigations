@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex	OUT_universe	OUT_in_matrix	OUT_pass_outgroup_rule	candidates	near_miss_in1	near_miss_in2	n_Mycomayd	n_Ustihord	n_Sporreil	n_Moesaphi	n_Kalmbras	n_Pseufloc	n_Sporgram	n_Testcype	n_Tillindi	n_Tillcari	n_Meirmilt	n_Acaringo	n_Jamirose	n_Micrgluc	n_Tillwash	n_Cerabomb	n_Violpalu	n_Tillanom	n_Malaglob	n_Malasymp	n_Malarest	n_Malafurf	n_Malapach	n_Malavesp	n_Malanana	n_Malabras	n_Malajapo	n_Malaarun	candidate_ids	near_miss_in1_ids
+Arp2/3 ARPC2 (P34-Arc)	PF04045		18	18	18	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC3 (P21-Arc)	PF04062		18	18	18	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC4	PF05856		16	16	16	0	0	0	1	0	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC5 (P16-Arc)	PF04699		18	18	18	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1	18	18	18	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b	110	110	110	0	0	0	7	5	6	6	6	6	7	5	7	7	6	6	6	6	6	6	6	6	6	8	7	7	6	4	7	7	7	7		
+WAVE complex NCKAP1	PF09735		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WAVE complex CYFIP (FragX_IP)	PF05994		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WAVE complex ABI	PF07815|PF27594		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+SCAR/WAVE (SCAR_helical)	PF27569		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WASP family (WH1)	PF00568		17	17	17	0	0	0	1	1	1	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1		
+WH2 motif (WASP, WAVE, others)	PF02205		30	30	19	0	0	0	2	2	2	1	1	2	2	2	1	1	1	2	3	2	1	2	2	1	1	2	1	3	2	1	1	2	2	1		
+Formin FH2	PF02181		36	36	36	7	2	0	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	1	1	1	1	1	1	1	1	1	1	Jamirose::tr|A0A316UPM5|A0A316UPM5_9BASI;Meirmilt::tr|A0A316V707|A0A316V707_9BASI;Micrgluc::tr|A0A316U5B0|A0A316U5B0_9BASI;Tillanom::tr|A0A066VF43|A0A066VF43_TILAU;Tillcari::tr|A0ABN7J8G2|A0ABN7J8G2_9BASI;Tillindi::tr|A0A8T8TJS3|A0A8T8TJS3_9BASI;Tillwash::tr|A0A316Z7D9|A0A316Z7D9_9BASI	Acaringo::tr|A0A316YCC8|A0A316YCC8_9BASI;Cerabomb::tr|A0A0P1BDN7|A0A0P1BDN7_9BASI
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345		37	37	37	5	2	0	2	2	2	2	2	2	2	2	2	2	2	2	2	2	3	2	2	2	2	2	2	1	2	1	2	1	2	1	Jamirose::tr|A0A316UPM5|A0A316UPM5_9BASI;Meirmilt::tr|A0A316V707|A0A316V707_9BASI;Micrgluc::tr|A0A316U5B0|A0A316U5B0_9BASI;Tillanom::tr|A0A066VF43|A0A066VF43_TILAU;Tillwash::tr|A0A316Z7D9|A0A316Z7D9_9BASI	Acaringo::tr|A0A316YCC8|A0A316YCC8_9BASI;Cerabomb::tr|A0A0P1BDN7|A0A0P1BDN7_9BASI
+Ena/VASP (VASP_tetra)	PF08776		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Coronin (description only)		coronin	25	25	23	0	0	0	1	1	1	1	1	2	1	1	2	2	2	2	1	1	1	2	1	2	1	1	1	1	1	1	1	1	1	1		
+Cortactin (HS1_rep)	PF02218		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Myosin 2 tail (Myosin_tail_1)	PF01576		2	2	2	0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0		
+Myosin head (all myosins)	PF00063		80	80	80	0	0	0	4	4	4	3	4	5	4	4	5	5	4	4	5	5	5	5	5	5	5	5	5	5	5	5	5	4	5	5		

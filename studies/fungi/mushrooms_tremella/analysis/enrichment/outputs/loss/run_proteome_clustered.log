@@ -1,0 +1,31 @@
+[    0.0s] direction=loss target(OUT)=['CneoH99', 'Tremes'] other(IN)=['Ccin', 'Agbis']
+[    0.1s] matrix rows 11289; target rule 10783; target rule & other frac <= 0.0 2395; loss_candidates.txt 2395
+[    0.2s] universe 'proteome': 15026 OUT (target group) proteins
+[    2.9s] annotation rows matched: 15026 of 15026
+[   13.9s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29893778/bgclust_byrkz0va/bg.fa /scratch/jstajich/29893778/bgclust_byrkz0va/bg /scratch/jstajich/29893778/bgclust_byrkz0va/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   40.1s] background clusters: 8430 clusters from 12631 proteins
+[   40.5s] whole_set	protein	pfam	N=1280/2395	M=10289	tested=669	sig=5
+[   40.6s] whole_set	protein	pfam_clan	N=936/2395	M=8390	tested=301	sig=7
+[   40.6s] whole_set	protein	interpro	N=1551/2395	M=11101	tested=1562	sig=17
+[   40.8s] whole_set	protein	go	N=1186/2395	M=9863	tested=2822	sig=58
+[   41.0s] whole_set	family	pfam	N=973/1826	M=6206	tested=334	sig=2
+[   41.0s] whole_set	family	pfam_clan	N=715/1826	M=4997	tested=228	sig=0
+[   41.1s] whole_set	family	interpro	N=1167/1826	M=6783	tested=815	sig=4
+[   41.2s] whole_set	family	go	N=905/1826	M=5895	tested=2158	sig=15
+[   41.6s] CneoH99	protein	pfam	N=646/1190	M=5251	tested=272	sig=2
+[   41.6s] CneoH99	protein	pfam_clan	N=467/1190	M=4281	tested=205	sig=3
+[   41.7s] CneoH99	protein	interpro	N=779/1190	M=5633	tested=721	sig=5
+[   41.8s] CneoH99	protein	go	N=602/1190	M=5062	tested=1998	sig=23
+[   41.9s] CneoH99	family	pfam	N=635/1176	M=4775	tested=225	sig=3
+[   41.9s] CneoH99	family	pfam_clan	N=457/1176	M=3841	tested=191	sig=3
+[   41.9s] CneoH99	family	interpro	N=768/1176	M=5145	tested=597	sig=3
+[   42.0s] CneoH99	family	go	N=594/1176	M=4610	tested=1914	sig=17
+[   42.5s] Tremes	protein	pfam	N=634/1205	M=5038	tested=252	sig=2
+[   42.5s] Tremes	protein	pfam_clan	N=469/1205	M=4109	tested=196	sig=1
+[   42.5s] Tremes	protein	interpro	N=772/1205	M=5468	tested=675	sig=3
+[   42.7s] Tremes	protein	go	N=584/1205	M=4801	tested=1957	sig=13
+[   42.7s] Tremes	family	pfam	N=630/1199	M=4694	tested=223	sig=2
+[   42.8s] Tremes	family	pfam_clan	N=465/1199	M=3799	tested=188	sig=1
+[   42.8s] Tremes	family	interpro	N=767/1199	M=5117	tested=592	sig=3
+[   42.9s] Tremes	family	go	N=582/1199	M=4484	tested=1893	sig=11
+[   44.2s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/analysis/enrichment/outputs/loss/proteome_clustered

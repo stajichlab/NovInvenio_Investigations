@@ -1,0 +1,45 @@
+study	vocab	n_cand_units	N_cand_annotated	frac_cand_units_annotated	M_units_annotated	n_terms_tested	n_fdr_lt_0.05	n_fdr_lt_0.05_k_ge_3	n_sig_k_lt_3	n_candidate_proteins_in_sig_terms	n_sig_repeat_TE_like	candidate_check_symdiff	candidates_txt
+zoosporic_dikarya	pfam	844	788	0.9336	17943	1376	44	44	0	476	0	0	1207
+zoosporic_dikarya	pfam_clan	844	589	0.6979	13908	385	18	18	0	448		0	1207
+zoosporic_dikarya	interpro	844	837	0.9917	19709	2842	90	90	0	558		0	1207
+zoosporic_dikarya	go	844	791	0.9372	17723	5216	195	195	0	1085		0	1207
+yeast_filamentous	pfam	3319	2574	0.7755	12904	811	14	14	0	343	0	0	5637
+yeast_filamentous	pfam_clan	3319	1951	0.5878	10200	326	5	5	0	957		0	5637
+yeast_filamentous	interpro	3319	2853	0.8596	14311	1754	22	22	0	640		0	5637
+yeast_filamentous	go	3319	2281	0.6873	11553	3557	4	4	0	658		0	5637
+mushrooms_tremella	pfam	1826	973	0.5329	6206	334	2	2	0	25	0	0	2395
+mushrooms_tremella	pfam_clan	1826	715	0.3916	4997	228	0	0	0	0		0	2395
+mushrooms_tremella	interpro	1826	1167	0.6391	6783	815	4	4	0	42		0	2395
+mushrooms_tremella	go	1826	905	0.4956	5895	2158	15	15	0	272		0	2395
+pezizo_set1	pfam	114	100	0.8772	19158	1627	13	9	4	55	1	0	141
+pezizo_set1	pfam_clan	114	83	0.7281	14893	382	4	4	0	19		0	141
+pezizo_set1	interpro	114	114	1.0	21079	3366	32	23	9	64		0	141
+pezizo_set1	go	114	106	0.9298	18938	5179	29	29	0	60		0	141
+chytrid_vs_mucoromycota	pfam	4185	2215	0.5293	24460	1724	84	84	0	2110	8	0	9295
+chytrid_vs_mucoromycota	pfam_clan	4185	1604	0.3833	19834	397	19	19	0	1402		0	9295
+chytrid_vs_mucoromycota	interpro	4185	2700	0.6452	27833	3614	132	132	0	2672		0	9295
+chytrid_vs_mucoromycota	go	4185	1815	0.4337	21652	4052	153	153	0	2013		0	9295
+serinales_vs_pichiales	pfam	74	61	0.8243	14277	1248	8	6	2	76	0	0	169
+serinales_vs_pichiales	pfam_clan	74	48	0.6486	10009	318	4	4	0	60		0	169
+serinales_vs_pichiales	interpro	74	66	0.8919	15133	2367	13	11	2	76		0	169
+serinales_vs_pichiales	go	74	43	0.5811	13082	4490	30	27	3	44		0	169
+zoosporic_holozoa_vs_dikarya	pfam	248	225	0.9073	22388	1963	26	26	0	187	0	0	332
+zoosporic_holozoa_vs_dikarya	pfam_clan	248	143	0.5766	17061	406	12	12	0	145		0	332
+zoosporic_holozoa_vs_dikarya	interpro	248	245	0.9879	24571	3927	49	49	0	203		0	332
+zoosporic_holozoa_vs_dikarya	go	248	231	0.9315	21038	5440	111	111	0	303		0	332
+malassezia_vs_ustilaginomycotina	pfam	3339	2051	0.6143	18903	1527	125	125	0	3333	4	0	11852
+malassezia_vs_ustilaginomycotina	pfam_clan	3339	1681	0.5034	15084	375	38	38	0	3298		0	11852
+malassezia_vs_ustilaginomycotina	interpro	3339	2405	0.7203	21774	3210	255	255	0	4768		0	11852
+malassezia_vs_ustilaginomycotina	go	3339	1842	0.5517	17553	4032	207	207	0	5145		0	11852
+metschnikowiaceae_cah	pfam	102	73	0.7157	13892	1160	6	6	0	39	0	0	182
+metschnikowiaceae_cah	pfam_clan	102	44	0.4314	10160	315	3	3	0	33		0	182
+metschnikowiaceae_cah	interpro	102	81	0.7941	15006	2262	15	15	0	67		0	182
+metschnikowiaceae_cah	go	102	42	0.4118	12533	4097	2	2	0	5		0	182
+neocallimastigomycota_vs_early_fungi	pfam	3271	3127	0.956	41024	3151	288	288	0	5741	0	0	9173
+neocallimastigomycota_vs_early_fungi	pfam_clan	3271	2357	0.7206	32611	477	73	73	0	4522		0	9173
+neocallimastigomycota_vs_early_fungi	interpro	3271	3239	0.9902	46155	6341	689	689	0	7064		0	9173
+neocallimastigomycota_vs_early_fungi	go	3271	3005	0.9187	37183	5815	731	731	0	8642		0	9173
+sordariales_shallow	pfam	814	625	0.7678	22069	1292	13	13	0	243	0	0	1620
+sordariales_shallow	pfam_clan	814	531	0.6523	17652	370	7	7	0	459		0	1620
+sordariales_shallow	interpro	814	689	0.8464	25056	2669	28	28	0	322		0	1620
+sordariales_shallow	go	814	487	0.5983	17430	3652	41	41	0	437		0	1620
