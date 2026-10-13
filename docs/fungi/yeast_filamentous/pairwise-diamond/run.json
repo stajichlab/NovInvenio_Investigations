@@ -8,6 +8,6 @@
     "--run_tool diamond"
   ],
   "n_species": 8,
-  "report_sha256": "44f90a8cb12754c989f9cd291c75bfd65c42568f7f25ff1c1349ffed87f35d9f",
+  "report_sha256": "372bbb587f0837df2230b23367515e57d02c429f309674486a600581e4d7b717",
   "note": "migrated from docs/fungi/yeast_filamentous/ on 2026-09-24; params read from run_params.txt at migration time"
 }

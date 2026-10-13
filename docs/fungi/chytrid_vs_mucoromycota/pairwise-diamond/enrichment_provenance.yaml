@@ -1,0 +1,170 @@
+generated: '2026-10-12T14:46:00'
+study: chytrid_vs_mucoromycota
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: 199f750f1ebbeb473fc6204d0435b712f565039b8460e5f08108c49d9752ccf2
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations
+  --study chytrid_vs_mucoromycota --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/analysis/enrichment/outputs/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations
+annotation_files:
+  Batrdend: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000007241.tsv.gz
+  Batrsala: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP001648503.tsv.gz
+  Spizpunc: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000053201.tsv.gz
+  Powehirt: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000318582.tsv.gz
+  Geravari: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP001212152.tsv.gz
+  Syncendo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000317494.tsv.gz
+  Syncmicr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000319731.tsv.gz
+  Chytconf: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000320333.tsv.gz
+  Polystew: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP001527925.tsv.gz
+  Rhizglob: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000193642.tsv.gz
+  Rhizrose: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP001212841.tsv.gz
+  Mucocirc: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000014254.tsv.gz
+  Rhizdele: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000009138.tsv.gz
+  Lichcory: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000027586.tsv.gz
+  Phycblak: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000077315.tsv.gz
+  Absiglau: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000078561.tsv.gz
+  Syncrace: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000242180.tsv.gz
+  Choacucu: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000093000.tsv.gz
+  Hessvesi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000242146.tsv.gz
+  Umbevina: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000612746.tsv.gz
+  Mortisab: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000654370.tsv.gz
+  Thamspha: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000271241.tsv.gz
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 4868
+  candidates_txt: 4868
+  symmetric_difference: 0
+background_clustering:
+  key: 867b83fe8f946aec
+  n_sequences: 101239
+  n_clusters: 49924
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 183.4
+  threads: 4
+  created: '2026-10-12T14:45:39'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/config.csv: 6987c9119529729166920e02a2acb9a4cef5e6f3eed932cf1ff78cda22bf6581
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/candidates.txt: 9c55ef41e5e49da4f0cbb605364fbf14bea8a211ac4cf36d29fc3b3f01fd63cd
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Batrdend.tsv: b27c867cd2334eac7ffe004ebce2a079124ef6ce67fa6528c246dfccf7e583d3
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Batrsala.tsv: 2f24645bee46f01083bda28fea2334723dbdc1c821c2e45fc5ff16c96f127e3c
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Spizpunc.tsv: 35cf687868bd604d30142c6c93ef5e94561f6723b0159e0204c2f7e565e0fb49
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Powehirt.tsv: 98f26d5c72cdb0b2bb888f2879ecb255617f910c6caec6819c8273134090202e
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Geravari.tsv: b4ecb7dc647386f20ecd26ed8c495700953aa97b34dcb4c77395ff4015e09341
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Syncendo.tsv: 9bc28651bcbe60018dd3ec965c2a0929b400cc1ef87623b563088a397b340b79
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Syncmicr.tsv: 6c935f1b0897ed8caa11ec12ab7f0d7c13667e72fbff82dd8ab9868ff18786fe
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Chytconf.tsv: 3b39e9a97eeef6c1c0171c5b9bff070989c2248078ae6249d141086e365b16a6
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Polystew.tsv: 720307e8697209be8939a85a0f278a54c9d7f743138c9e481e5fdb6dbf90b5b5
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Rhizglob.tsv: d411a11748fd84b1e000d3d01f6a295177c1346bfe7e92f6b59f86561a374957
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/novelties.Rhizrose.tsv: ec802c4d2ddd8388225be29d8dd7e23ac577929c876d2b69321c88990d9f6700
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/chytrid_vs_mucoromycota/presence_matrix.uniprot.tsv
+  : b6983b9c18e42ea48ffb7f3a2da0d38c8e6392ed5500c98b9d7bafdec7d80a77
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP000007241_684364.pep.fa
+  : 4e4c6abb18055c8c0ed97e584c71e1919acb4afb8aa9afd89ed5870347126ae4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP001648503_1357716.pep.fa
+  : d6bdafbabb15ee5c5f4d86ead7ff6640a683d578b6807244b890e060da36b7a5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP000053201_645134.pep.fa
+  : 8bd4d9ebed9f723020afc4ea42cff0fbd940dc7922870dedfbb5f9a4cfc2f9c0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP000318582_109895.pep.fa
+  : 9bda96b8b8b1102754d22304a37d4ade9dab495d1007aff23f5018bfb7938ec4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP001212152_109894.pep.fa
+  : ca499d9289158588d1939cf83bd3ac94e09fc00a58fb7de3fcf31ebccc8a5205
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP000317494_286115.pep.fa
+  : c56505ba0725d49584a4b0b3c378dc4341ad59547d23ee3c5989ebf05c71975e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP000319731_1806994.pep.fa
+  : fc6275af2476c5f803bed32c3b0f5e07a0a342ef38ab9bf1ff3382292e1e9efc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP000320333_246404.pep.fa
+  : 1d4b846fd4db60adf1d1808b4c6dd8e7ac63b7bf2a1a23e3586b97fcdcd2d199
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP001527925_2732419.pep.fa
+  : f6ef9d1ef38a1ff0fde17d0b9e355bebd1b56abaf955d1fb7dac985a320f20e9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP000193642_329046.pep.fa
+  : 6b3bfcbd84931e4c404f64976ca7eeb9f3b71a91bac1ea3ed66c031c2ed10a8a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/data_dir/pep/UP001212841_64517.pep.fa
+  : 6c79e7963718fd0758b03330a048a6f2c770edeb60404f37a5858f813505b878
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/species.csv: f8b130e5e9ca93fa019255cb2c2cfa4504001780ea992a48610881f10504de13
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000007241.tsv.gz
+  : 2adae3d98f9dce7d2ffda11754bb5e41e7edc5b21fb0c621ff87181f2437c902
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP001648503.tsv.gz
+  : be732bff6d17b2bed371828c8125ee074b5dce224955ad32916e317495e72892
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000053201.tsv.gz
+  : 9c2262251433924ea4615d51ab20eab8dbc2baf5a590cc84b607ece96144d102
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000318582.tsv.gz
+  : 40ff0505a1f4b8b014b1ad68d805b1ae5c34d68bcac545d17bb84ca3e3b33fdb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP001212152.tsv.gz
+  : 988f260e5d4cf71360a22fc389d674fd8993bc3d71509d0d4c60435999a8f4fa
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000317494.tsv.gz
+  : a681f8e2108f9781809e93278eb6c844e5d8d096addc2bc0636926dff7260fc4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000319731.tsv.gz
+  : e8284d22a359bbca594b0b36f91dc555948b154b9d80323b2259238e086eb921
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000320333.tsv.gz
+  : 4208dcf79d8a866ae8f38e361632d497efcc7516e3f0d0b6bd3583e0d857ee6f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP001527925.tsv.gz
+  : 54a429777750ef92c094a505b38f025033bd07d7ca402b3446907076aeddde2f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000193642.tsv.gz
+  : c76f853c068aed076027f652260de424854d07c5bcc357f54d546aca9eee7ec8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP001212841.tsv.gz
+  : 944ef67857798e8b6ca73813489a955e32fe640d1efd516d8e6c39f065763044
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000014254.tsv.gz
+  : 8beb89416fa24564e6620a4188cfaace89e50698c7fcf1f613bda4ac2e5cbf4a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000009138.tsv.gz
+  : 788c1bf88cd9874b2e4546cf2203e4c2f8ef316225c7876b644b3fe2d862b985
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000027586.tsv.gz
+  : 89dfe6ba27b6a498a2f9145f324d60b0ef373a0b499037c37de54a00719bdab7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000077315.tsv.gz
+  : ae324a413b49f94c218dcfc1aa1c5b0b129dc99086c3cb90a7a2351580584236
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000078561.tsv.gz
+  : 1d8f8573d11e8c4a2627bb0dab4f31ad314ce41c1e3f4b0b4a070eabced77ccf
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000242180.tsv.gz
+  : 7865f38d42f32a29910af76ff99b9a510dcefe7098b2de1036e6d189188123f1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000093000.tsv.gz
+  : 1bffb27daa3de1d94b851f60633e5573218603712bcc3fce649a6c425162c520
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000242146.tsv.gz
+  : 58eb59eab11ca0bf556e1bfd13fe8a6d68b57732550525cd8cda30dad5242511
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000612746.tsv.gz
+  : 85d29fa2228f9f72c51ab5ffda34c40e907ab9f6c07086ab341c299bb8e3a99d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000654370.tsv.gz
+  : 1eaac59d5caa1b782d01e4114f684cd5d0a3ebc2f2a70a222beefc46e23cafd4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/chytrid_vs_mucoromycota/annotations/UP000271241.tsv.gz
+  : f542705d24bbba5ade6d57f7837dbe7f11a5d94ed77c8ef9ee109a2fd9b29a0a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 10.2
+  background_cluster_s: 185.0
+  tests_s: 15.0
+  total_s: 216.2
+host: r11
+slurm_job: '29892523'
