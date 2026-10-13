@@ -2,3 +2,5 @@
 # notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md).
 study: serinales_vs_pichiales
 run: pairwise-diamond
+notes:
+  - "Babjeviella inositovora (Babjinos) is a divergent outlier in this IN group. It has 23 novelty rows (the other 17 IN species have 143-205) and carries 23.3% of the 2,995 candidates (the other IN species carry 85-99%). Its UniProt BUSCO is 94.8%, so incomplete annotation does not explain the pattern. The pattern fits a lineage that diverged before the rest of Serinales. Counts of candidates shared by all IN species are lowered by this species."

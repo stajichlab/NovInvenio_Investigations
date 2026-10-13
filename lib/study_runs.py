@@ -35,6 +35,7 @@ REDIRECT_MAX_BYTES = 2048
 class PublishTarget:
     study: str
     run: str | None
+    notes: tuple[str, ...] = ()
 
 
 def validate_slug(name: str, what: str) -> str:
@@ -55,7 +56,10 @@ def load_publish_target(folder_dir: Path) -> PublishTarget | None:
     run = data.get("run")
     if run is not None:
         run = validate_slug(run, f"{path}: run")
-    return PublishTarget(study=study, run=run)
+    notes = data.get("notes") or []
+    if not isinstance(notes, list) or not all(isinstance(n, str) and n.strip() for n in notes):
+        raise ValueError(f"{path}: notes must be a list of non-empty strings")
+    return PublishTarget(study=study, run=run, notes=tuple(n.strip() for n in notes))
 
 
 def render_redirect(target: str) -> str:
@@ -161,9 +165,57 @@ def inject_run_report_links(run_dir: Path) -> str:
         text = text[:end] + block + text[end:]
     if text == old:
         return f"{report}: links already current"
+    return f"{report}: links set to {[p[0] for p in pages]}" + _commit_report(run_dir, report, old_bytes, text)
+
+
+_NOTES_START = "<!-- nii-run-notes:start -->"
+_NOTES_END = "<!-- nii-run-notes:end -->"
+_NOTES_BLOCK_RE = re.compile(
+    r"[ \t]*" + re.escape(_NOTES_START) + r".*?" + re.escape(_NOTES_END) + r"\n?", re.S)
+# The Notes card goes right after the page header, before the Reports card.
+_HEADER_END_RE = re.compile(r"</header>\n?")
+
+
+def inject_run_report_notes(run_dir: Path, notes: tuple[str, ...] | list[str]) -> str:
+    """Write `notes` (from publish.yaml) into run_dir/report.html as a Notes
+    card between marker comments. Idempotent: an earlier block is replaced,
+    and an empty `notes` removes the block.
+
+    report.html is a pipeline page and a sync of a new run overwrites it, so
+    bin/sync_reports.sh calls this again (bin/study_pages.py inject-notes)
+    before it records the run. run.json's report_sha256 is handled as in
+    inject_run_report_links. Returns a one-line status."""
+    report = run_dir / "report.html"
+    if not report.is_file():
+        return f"no {report}; nothing to annotate"
+    old_bytes = report.read_bytes()
+    old = old_bytes.decode("utf-8")
+    text = _NOTES_BLOCK_RE.sub("", old)
+    if notes:
+        anchor = _HEADER_END_RE.search(text)
+        if anchor is None:
+            return f"WARNING: {report} has no </header>; notes not added"
+        block = (
+            f"  {_NOTES_START}\n"
+            '  <section class="card">\n'
+            '    <h2 class="card-title">Notes</h2>\n'
+            + "".join(f'    <p class="card-note">{escape(n)}</p>\n' for n in notes)
+            + "  </section>\n"
+            f"  {_NOTES_END}\n"
+        )
+        text = text[:anchor.end()] + block + text[anchor.end():]
+    if text == old:
+        return f"{report}: notes already current"
+    return f"{report}: notes set ({len(notes)})" + _commit_report(run_dir, report, old_bytes, text)
+
+
+def _commit_report(run_dir: Path, report: Path, old_bytes: bytes, text: str) -> str:
+    """Write the edited report. When run.json's report_sha256 matched the
+    report before the edit, update it to the new content. When it did not
+    match, leave run.json alone. Returns a status suffix for the caller."""
     new_bytes = text.encode("utf-8")
     report.write_bytes(new_bytes)
-    status = f"{report}: links set to {[p[0] for p in pages]}"
+    status = ""
     meta_path = run_dir / "run.json"
     if meta_path.is_file():
         meta = json.loads(meta_path.read_text())

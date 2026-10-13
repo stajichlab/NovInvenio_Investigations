@@ -10,6 +10,9 @@ Subcommands:
       Write docs/<domain>/<study>/<run>/run.json for a main.nf folder
       (params from run_params.txt, species count from species.csv, sha256 of
       --report), then rebuild the study pages.
+  inject-notes <domain>/<folder>
+      Write publish.yaml's `notes:` list into the run's report.html as a Notes
+      card (between marker comments; an empty list removes the card).
   set-current <domain>/<study> <run>
       Mark <run> as the study's current run and rebuild the study pages.
   rebuild <domain>/<study>
@@ -26,7 +29,9 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "lib"))
-from study_runs import load_publish_target, rebuild_study_pages, set_current  # noqa: E402
+from study_runs import (  # noqa: E402
+    inject_run_report_notes, load_publish_target, rebuild_study_pages, set_current,
+)
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
@@ -108,6 +113,16 @@ def cmd_record_run(args, root: Path) -> int:
     return 0
 
 
+def cmd_inject_notes(args, root: Path) -> int:
+    domain, folder = split2(args.folder, "folder")
+    target = load_publish_target(root / "studies" / domain / folder)
+    if target is None or target.run is None:
+        raise SystemExit(f"ERROR: studies/{domain}/{folder}/publish.yaml missing or has no run")
+    run_docs = root / "docs" / domain / target.study / target.run
+    print(inject_run_report_notes(run_docs, target.notes), file=sys.stderr)
+    return 0
+
+
 def cmd_set_current(args, root: Path) -> int:
     domain, study = split2(args.study, "study")
     study_docs = root / "docs" / domain / study
@@ -138,13 +153,15 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--published", help="override the publish date (YYYY-MM-DD)")
     p.add_argument("--source-dir", help="override source_dir (default results/<folder>)")
     p.add_argument("--note", help="free-text note stored in run.json")
+    p = sub.add_parser("inject-notes")
+    p.add_argument("folder")
     p = sub.add_parser("set-current")
     p.add_argument("study")
     p.add_argument("run")
     p = sub.add_parser("rebuild")
     p.add_argument("study")
     args = ap.parse_args(argv)
-    return {"target": cmd_target, "record-run": cmd_record_run,
+    return {"target": cmd_target, "record-run": cmd_record_run, "inject-notes": cmd_inject_notes,
             "set-current": cmd_set_current, "rebuild": cmd_rebuild}[args.cmd](args, args.repo_root)
 
 
