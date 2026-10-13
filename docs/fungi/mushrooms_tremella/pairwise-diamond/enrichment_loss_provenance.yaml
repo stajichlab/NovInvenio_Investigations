@@ -1,0 +1,111 @@
+generated: '2026-10-12T18:22:27'
+study: mushrooms_tremella
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: b96062411e1f05983aa679d2d85d6e719db6cdc15260175ccf643db400903b17
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/mushrooms_tremella --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations
+  --study mushrooms_tremella --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --direction loss --ingroup-min-frac 0.75 --other-max-frac 0.0 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - CneoH99
+  - Tremes
+other_group:
+  label: IN
+  species:
+  - Ccin
+  - Agbis
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations
+annotation_files:
+  CneoH99: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations/UP000010091.tsv.gz
+  Tremes: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations/UP000289152.tsv.gz
+  Ccin: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations/UP000001861.tsv.gz
+  Agbis: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations/UP000008493.tsv.gz
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 2395
+  candidates_txt: 2395
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/mushrooms_tremella/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/mushrooms_tremella/loss_presence_matrix.tsv
+  rule: OUT count / 2 >= 0.75 and IN count / 2 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: e5f7fecac3e1b37a
+  n_sequences: 12631
+  n_clusters: 8430
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 26.0
+  threads: 8
+  created: '2026-10-12T18:22:22'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/mushrooms_tremella/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/config.csv: 080506e7efb1fd326e63ff11c96018a06f7f3d256d5f13b27229a25325084273
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/mushrooms_tremella/loss_candidates.txt: 1924ebcf6bc7d08296e4a604367ba9731b7395c609ee06b30b1451b679f2568f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/mushrooms_tremella/clusters/loss_clusters_cluster.tsv
+  : eb356b4ef485e79ac53fcd7df90af626b7dc2514acfeaf60fb1c11f3576d409a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/mushrooms_tremella/loss_presence_matrix.tsv: 22bd295b1b0f5c386bf22e06a741994658ba0a47bf9d14a9126501d41dae5d7b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/data_dir/pep/CneoH99.pep.fa
+  : 15405d849d9701d1ad4fbb783eefb63ce527ee17eeb272aa7e2bf3a4491c33b1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/data_dir/pep/Tremes.pep.fa
+  : f7a15036b6d266542cf0dd16ece3f0fcc2af3d8701cb03b8e12127018a7e7245
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/species.csv: ec60612cedb3bd01a314204770be9215b7cfc94c163a5af1047e7de68d96bc19
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations/UP000010091.tsv.gz
+  : b1dce1e8279c4e33efe4b61dc41309ed49993262f6532bd759b0ed56e88e9cb5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations/UP000289152.tsv.gz
+  : d13ab251a796d37f0c71685ed4d84bf2c65980fbfb71bbca7378caa34761baf4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations/UP000001861.tsv.gz
+  : 961277af452d2d33003064b3b0c692fb898ea3f66f34fbfd930387426995f5ca
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/annotations/UP000008493.tsv.gz
+  : 7777303ecfef1d3202516dbaf486fb68a799f6a93f20937052bc99ca1c07df6d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 5.2
+  background_cluster_s: 26.2
+  tests_s: 2.8
+  total_s: 44.2
+host: r11
+slurm_job: '29893778'
+candidate_annotation:
+  frac_loss_candidates_any_annotation: 0.6539
+  low_coverage: false
+  rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
+  wall_s_enrichment: 45

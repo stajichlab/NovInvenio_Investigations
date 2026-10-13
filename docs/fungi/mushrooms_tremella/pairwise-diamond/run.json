@@ -8,6 +8,6 @@
     "--run_tool diamond"
   ],
   "n_species": 4,
-  "report_sha256": "05f39da26151fa8cd76ccbc9946602e5498cf78a92c01a512a1210f3367e745d",
+  "report_sha256": "d0939ba3d55ef00bdc4f9cb645d8ccdaadcbb77ca64c87fe8e219a71b933cce8",
   "note": "migrated from docs/fungi/mushrooms_tremella/ on 2026-09-24; params read from run_params.txt at migration time"
 }

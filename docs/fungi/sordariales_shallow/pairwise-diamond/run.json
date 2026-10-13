@@ -6,6 +6,6 @@
   "source_dir": "results/sordariales_shallow",
   "params": [],
   "n_species": 12,
-  "report_sha256": "817d672521f90bfb6445f6c4197290cd136ec8c7b05b336a60bf77b735afe066",
+  "report_sha256": "c5293b0a9e5aab30576a61fdb168105292950ae76d197cf0a69d1f0d54276154",
   "note": "migrated from docs/fungi/sordariales_shallow/ on 2026-09-24; params read from run_params.txt at migration time"
 }

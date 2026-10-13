@@ -1,0 +1,132 @@
+generated: '2026-10-12T18:17:56'
+study: zoosporic_dikarya
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: b96062411e1f05983aa679d2d85d6e719db6cdc15260175ccf643db400903b17
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_dikarya --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations
+  --study zoosporic_dikarya --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --direction loss --ingroup-min-frac 0.75 --other-max-frac 0.0 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Scer
+  - Ncra
+  - Anid
+  - Spom
+  - Ccin
+other_group:
+  label: IN
+  species:
+  - Batrdend
+  - Spizpunc
+  - Syncendo
+  - Cateangu
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations
+annotation_files:
+  Scer: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000002311.tsv.gz
+  Ncra: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000001805.tsv.gz
+  Anid: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000000560.tsv.gz
+  Spom: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000002485.tsv.gz
+  Ccin: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000001861.tsv.gz
+  Batrdend: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000007241.tsv.gz
+  Spizpunc: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000053201.tsv.gz
+  Syncendo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000317494.tsv.gz
+  Cateangu: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000193411.tsv.gz
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 1207
+  candidates_txt: 1207
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_dikarya/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_dikarya/loss_presence_matrix.tsv
+  rule: OUT count / 5 >= 0.75 and IN count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: f44d0f50927df3a8
+  n_sequences: 43642
+  n_clusters: 28407
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 49.1
+  threads: 8
+  created: '2026-10-12T18:17:43'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_dikarya/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/config.csv: a3e2a84785fc867b20fda5f7159399912196d59e8a14f49ee2b48d4e95613bf6
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_dikarya/loss_candidates.txt: dde3febc3d057f73c320429367e0d3ab8db086327098e72a5a70df44728b3533
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_dikarya/clusters/loss_clusters_cluster.tsv
+  : d74a3af5692841b7d98d56f6829ed7b66c708fcf3886b3fcff97d84788d86efa
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_dikarya/loss_presence_matrix.tsv: 75e9c77577edc17a8b483a95217ae7a9c1b5916d52108e1f94bda0836f58994d
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/data_dir/pep/Scer.pep.fa: 37967a3926d1780b29f61dbaed84c95065fba37546b291f77c9a55235053cb5a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/data_dir/pep/Ncra.pep.fa: 64510ca60f0efbd7831689a409eafcd1ad5251eb1a541663a223f396148d54eb
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/data_dir/pep/Anid.pep.fa: 640852a7910ef64bab56555338a8d4d5fe636ac47e9e904dcbdf5c792eac845a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/data_dir/pep/Spom.pep.fa: 9fa890059fbd1378cec3e10d99992caa766c11c14d5abcc2f7b93e3b3b487578
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/data_dir/pep/Ccin.pep.fa: dea684feec7aef3a662bdfab1469925ebb311023c6d37dbc891c397dc46fc5ee
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/species.csv: 0d878d7a185e509e8ae864f95e79387f2b32bd2f65103aa93ada847badb56a1d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000002311.tsv.gz
+  : 951b04014c33079cafc8ae6d54737e454014b3c6f9bdd4e2187ded61165f1e65
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000001805.tsv.gz
+  : a4f44e84a92326f5d5120f9858d0e7a9123ccf2d0508902f708ab733e6491583
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000000560.tsv.gz
+  : 2c6ad77a819143743bb32021d7fe8c6d99527ea333ca2c6eddccbdee173af7b6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000002485.tsv.gz
+  : 69ce86f8c47942232b46c3f78ec417f681420296ed094545fd22cb418f324ce5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000001861.tsv.gz
+  : 36cc63137e4b6456f8c0d8a6fa822a2be1691a78a85365be3c0cf98177c8376e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000007241.tsv.gz
+  : 254d36539773c41495e9d1d42a3650708e02e7d19d8c65ade87ba950eb52b3ce
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000053201.tsv.gz
+  : 843f527bc862bde54cd777e2331e0406933c11014aed85df841f820565812529
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000317494.tsv.gz
+  : 40d1e6e62df016703d90d420953acb359bda473aa06fcf9533b6bcc55b7ff547
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/annotations/UP000193411.tsv.gz
+  : 8657255a23aaca440a7eccce4c8ed6ea5dc243d189b40cf47480e243822eed26
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 17.0
+  background_cluster_s: 49.6
+  tests_s: 9.0
+  total_s: 79.7
+host: r11
+slurm_job: '29893778'
+candidate_annotation:
+  frac_loss_candidates_any_annotation: 0.9983
+  low_coverage: false
+  rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
+  wall_s_enrichment: 80

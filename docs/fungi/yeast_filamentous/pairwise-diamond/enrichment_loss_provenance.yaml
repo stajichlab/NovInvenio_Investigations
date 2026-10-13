@@ -1,0 +1,127 @@
+generated: '2026-10-12T18:23:17'
+study: yeast_filamentous
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: b96062411e1f05983aa679d2d85d6e719db6cdc15260175ccf643db400903b17
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations
+  --study yeast_filamentous --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --direction loss --ingroup-min-frac 0.75 --other-max-frac 0.0 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Ncra
+  - Afum
+  - Ztri
+  - Cimm
+other_group:
+  label: IN
+  species:
+  - Scer
+  - Ylip
+  - Spom
+  - Nirr
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations
+annotation_files:
+  Ncra: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000001805.tsv.gz
+  Afum: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000002530.tsv.gz
+  Ztri: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000008062.tsv.gz
+  Cimm: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000001261.tsv.gz
+  Scer: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000002311.tsv.gz
+  Ylip: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000001300.tsv.gz
+  Spom: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000002485.tsv.gz
+  Nirr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000186594.tsv.gz
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 5637
+  candidates_txt: 5637
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_presence_matrix.tsv
+  rule: OUT count / 4 >= 0.75 and IN count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: e193f5e8067c7de0
+  n_sequences: 34307
+  n_clusters: 20192
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 32.1
+  threads: 8
+  created: '2026-10-12T18:23:08'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/config.csv: 7d9f4aed52daccafe58dd82b33898e496d8ab8ee320442a1f978ba5ad9e183f1
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_candidates.txt: 94edbfa442c04a00b26964ff79c63b4d0bacb8231a8aa77a2f2232e046f790d9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/clusters/loss_clusters_cluster.tsv
+  : 87d734f5a3b46e3d749b50833ba4b71f4812483e9ae00b2533187d0dddc3e819
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_presence_matrix.tsv: 22f798a7c8031e7f7a9981ddc278b4d02cff857a776902b4a659147f5dfc090e
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/data_dir/pep/Ncra.pep.fa: 64510ca60f0efbd7831689a409eafcd1ad5251eb1a541663a223f396148d54eb
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/data_dir/pep/Afum.pep.fa: 1e888bb1a1aa58b9ff6adf3eb221affa7a67c57618aa4663eebaeea81eea7a28
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/data_dir/pep/Ztri.pep.fa: 3224be4a0ac028418b7571d322c8e837d85c1a3923bb0a606d4e2898b6b3673a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/data_dir/pep/Cimm.pep.fa: 71b0445457051f4e4faaf2fbf45f35c4c88e5722e5f890c28ed5deac1d7e9e3a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/species.csv: 3f5cf348c1336045eb6a1accb7c8a4caff183853ed34d361e31df675137acaa4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000001805.tsv.gz
+  : 2fe385fe609645a3e1f85faf672397e2e1998eabb9cddfc5bf182e1af77622f5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000002530.tsv.gz
+  : 2dbbdd01574c9ea2b90088f120aab8fc29a67c1bdb744e1f73d61abc5bcdfea9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000008062.tsv.gz
+  : af1e9dbdce9292f6b38b276f773511f1ef51c150861c865f258a98ab6858aac9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000001261.tsv.gz
+  : e6b9f7a7dc7bcb925b751f075bd9c9f6c6fbc62873683af47e8ce789c45047d8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000002311.tsv.gz
+  : c48e3f8fb0332e1ef974268e7601151dd797a6881a2970da74baf5f28bd07e91
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000001300.tsv.gz
+  : 47a6a7ddf6ddf464fe4f06d78e2f51e63a694cf9a50535581ef60dadec7f84ac
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000002485.tsv.gz
+  : cbb108172f3b7d110f33717cc1dde0153d1600da9996f2943d2e0176788cff4f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/annotations/UP000186594.tsv.gz
+  : b1b704ae1cc5788961c4712e2abc76d7dc4dae06e62d3ef3265048f24c1bb03c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 5.6
+  background_cluster_s: 32.5
+  tests_s: 8.1
+  total_s: 48.0
+host: r11
+slurm_job: '29893778'
+candidate_annotation:
+  frac_loss_candidates_any_annotation: 0.876
+  low_coverage: false
+  rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
+  wall_s_enrichment: 49
