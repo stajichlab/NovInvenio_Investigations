@@ -261,9 +261,12 @@ def controls_table(cols: list[str], rows: list[dict]) -> str:
 
 def scale_figure(src: Path, dst: Path) -> str:
     """Write src to dst as a small PNG: at most FIG_MAX_WIDTH px wide, flat on
-    white, 256-colour palette. The source figures are 3,300-3,500 px RGBA
-    (about 0.4-0.6 MB); this gives about 0.1-0.2 MB. The full-size figure stays
-    in the study's analysis/enrichment/figures/."""
+    white, 256-colour palette. The source figures are about 2,850 px wide RGBA
+    (14 in at 200 dpi, panels stacked in rows); this gives about 0.1-0.25 MB.
+    The full-size figure stays in the study's analysis/enrichment/figures/.
+    FASTOCTREE, not MEDIANCUT: median cut merged small legend patches into
+    other colours (the #7b5aa6 purple came out about 43 RGB units off on
+    the chytrid_vs_mucoromycota loss figure; octree: under 9)."""
     from PIL import Image
     with Image.open(src) as im:
         im = im.convert("RGBA")
@@ -272,7 +275,7 @@ def scale_figure(src: Path, dst: Path) -> str:
             im = im.resize((FIG_MAX_WIDTH, round(h * FIG_MAX_WIDTH / w)), Image.LANCZOS)
         flat = Image.new("RGB", im.size, (255, 255, 255))
         flat.paste(im, mask=im.split()[3])
-        pal = flat.quantize(colors=256, method=Image.Quantize.MEDIANCUT)
+        pal = flat.quantize(colors=256, method=Image.Quantize.FASTOCTREE)
         buf = io.BytesIO()
         pal.save(buf, format="PNG", optimize=True)
     dst.write_bytes(buf.getvalue())
