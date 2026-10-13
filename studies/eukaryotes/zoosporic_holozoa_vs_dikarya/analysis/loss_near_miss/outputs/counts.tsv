@@ -1,0 +1,6 @@
+set	max_in_species	n_proteins	n_mmseqs_families	n_new_vs_K0	per_out_species
+K0	0	332	248	0	Sacccere:45;Schipomb:35;Neurcras:51;Aspenidu:56;Mycomayd:45;Crypneof:42;Coprcine:58
+K1	1	514	368	182	Sacccere:68;Schipomb:57;Neurcras:73;Aspenidu:104;Mycomayd:62;Crypneof:74;Coprcine:76
+K2	2	716	490	384	Sacccere:91;Schipomb:71;Neurcras:93;Aspenidu:137;Mycomayd:92;Crypneof:107;Coprcine:125
+K3	3	931	610	599	Sacccere:121;Schipomb:98;Neurcras:125;Aspenidu:186;Mycomayd:109;Crypneof:131;Coprcine:161
+INfrac0.15	3	931	610	599	Sacccere:121;Schipomb:98;Neurcras:125;Aspenidu:186;Mycomayd:109;Crypneof:131;Coprcine:161

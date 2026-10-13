@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex	OUT_universe	OUT_in_matrix	OUT_pass_outgroup_rule	candidates	near_miss_in1	near_miss_in2	n_Sacccere	n_Schipomb	n_Neurcras	n_Aspenidu	n_Mycomayd	n_Crypneof	n_Coprcine	n_Monobrev	n_Salprose	n_Capsowcz	n_Sphaarct	n_Amphquee	n_Tricadha	n_Nemavect	n_Mnemleid	n_Caeneleg	n_Drosmela	n_Homosapi	n_Batrdend	n_Batrsala	n_Spizpunc	n_Powehirt	n_Geravari	n_Syncendo	n_Syncmicr	n_Chytconf	n_Polystew	n_Rhizglob	n_Rhizrose	n_Cateangu	n_Allomacr	n_Pirofinn	candidate_ids	near_miss_in1_ids
+Arp2/3 ARPC2 (P34-Arc)	PF04045		7	7	7	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	2	1		
+Arp2/3 ARPC3 (P21-Arc)	PF04062		7	7	7	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	2	1	1	1	1	1	1	1	1	1	1	1	1	1	2	1		
+Arp2/3 ARPC4	PF05856		7	7	7	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC5 (P16-Arc)	PF04699		7	7	7	0	0	0	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	2	1	2	1	1	1	1	1	1	1	2	1	1	1	1	2	1		
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1	1	1	1	0	0	0	0	0	0	0	1	0	0	0	0	0	1	0	0	0	0	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0		
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b	44	44	44	0	0	0	7	7	6	7	7	5	5	5	6	5	5	6	6	7	6	8	8	11	6	7	6	7	6	7	6	6	8	5	6	7	13	6		
+WAVE complex NCKAP1	PF09735		0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	0	1	2	1	1	1	1	2	1	1	1	1	1	1	1	0	1	0	1	1	2	1		
+WAVE complex CYFIP (FragX_IP)	PF05994		0	0	0	0	0	0	0	0	0	0	0	0	0	1	2	1	0	5	1	1	1	1	1	2	1	1	1	1	1	1	1	0	1	0	1	1	4	1		
+WAVE complex ABI	PF07815|PF27594		0	0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	0	1	1	3	1	1	1	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+SCAR/WAVE (SCAR_helical)	PF27569		0	0	0	0	0	0	0	0	0	0	0	0	0	1	2	1	0	2	1	1	3	1	1	3	1	1	1	1	1	1	1	0	1	0	1	1	0	1		
+WASP family (WH1)	PF00568		8	7	7	0	0	0	1	1	1	1	1	1	2	2	3	3	3	5	5	5	3	2	4	11	1	1	1	1	1	1	1	1	1	1	1	1	4	1		
+WH2 motif (WASP, WAVE, others)	PF02205		14	14	9	0	0	0	2	2	1	3	2	2	2	3	6	5	2	4	3	3	4	4	4	15	3	1	1	1	1	1	1	1	1	0	1	1	2	2		
+Formin FH2	PF02181		12	12	9	0	0	0	2	3	1	1	2	1	2	8	8	6	8	12	4	11	8	7	6	15	4	6	4	4	4	3	4	5	6	5	5	3	9	7		
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345		16	16	13	5	1	0	1	4	2	2	2	2	3	5	5	3	5	7	4	9	3	3	5	9	3	4	4	3	4	2	3	3	4	3	7	3	7	7	Aspenidu::tr|Q5B1D2|Q5B1D2_EMENI;Coprcine::tr|A8NUR8|A8NUR8_COPC7;Crypneof::tr|J9VD83|J9VD83_CRYN9;Neurcras::tr|Q7S209|Q7S209_NEUCR;Schipomb::sp|O74737|RID1_SCHPO	Crypneof::tr|J9VD83|J9VD83_CRYN9
+Ena/VASP (VASP_tetra)	PF08776		0	0	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	1	3	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Coronin (description only)		coronin	7	7	7	0	0	0	1	1	1	1	1	1	1	1	1	2	2	2	2	4	2	2	2	7	1	1	3	3	4	1	2	4	2	2	4	1	4	4		
+Cortactin (HS1_rep)	PF02218		0	0	0	0	0	0	0	0	0	0	0	0	0	1	1	1	0	1	1	1	1	0	1	2	0	0	0	0	0	0	0	0	0	0	0	1	0	0		
+Myosin 2 tail (Myosin_tail_1)	PF01576		1	1	1	0	0	0	0	0	0	0	0	0	1	1	1	3	1	3	0	2	6	8	4	19	1	1	1	1	1	1	1	1	1	1	2	0	1	2		
+Myosin head (all myosins)	PF00063		32	32	32	0	0	0	5	5	4	5	4	4	5	32	32	23	15	19	12	20	10	17	14	39	7	8	9	9	7	6	9	13	7	14	12	8	21	14		

@@ -22,6 +22,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.patches import Patch  # noqa: E402
 
+# Candidate-ID list columns in the enrichment tables can exceed the default 128 KB field limit.
+csv.field_size_limit(1 << 30)
+
 ap = argparse.ArgumentParser()
 ap.add_argument("--enrich", required=True, type=Path)
 ap.add_argument("--config", required=True, type=Path)
@@ -31,10 +34,15 @@ ap.add_argument("--out", required=True, type=Path, help="output prefix; writes .
 ap.add_argument("--top", type=int, default=12)
 ap.add_argument("--top-go", type=int, default=8)
 ap.add_argument("--min-k", type=int, default=3, help="display filter: candidate units with the term")
+ap.add_argument("--group", choices=["IN", "OUT"], default="IN",
+                help="config group the candidates come from (panel A rows): IN for novelty "
+                     "(default), OUT for loss-direction enrichment (enrich_novelties_v2.py --direction loss)")
+ap.add_argument("--candidate-label", default="novelty candidate proteins", help="panel A x-axis label")
 a = ap.parse_args()
 
 cfg = list(csv.DictReader(open(a.config)))
-IN = [r["Short"] for r in cfg if r["GROUP"] == "IN"]
+# IN = the candidates' source group (named IN for the novelty default; OUT rows with --group OUT).
+IN = [r["Short"] for r in cfg if r["GROUP"] == a.group]
 LABEL = {r["Short"]: r["Species"] for r in cfg}
 
 cov = {}
@@ -99,10 +107,10 @@ for y, s in zip(ys, IN):
             va="center", fontsize=8)
 ax.set_yticks(ys)
 ax.set_yticklabels([f"{LABEL[s]}" for s in IN], fontsize=9, style="italic")
-ax.set_xlabel("novelty candidate proteins")
+ax.set_xlabel(a.candidate_label)
 ax.set_xlim(0, xmax * 1.7)
 ax.set_ylim(-0.6, len(IN) - 0.4)
-ax.set_title(f"A  {total:,} candidates in {len(IN)} IN species", loc="left", fontsize=11, fontweight="bold")
+ax.set_title(f"A  {total:,} candidates in {len(IN)} {a.group} species", loc="left", fontsize=11, fontweight="bold")
 ax.legend(handles=[Patch(color="#2a78d6", label=f"UniProt GO/Pfam/InterPro ({n_annot:,}, {n_annot / total:.0%})"),
                    Patch(color="#c9c9c9", label="no annotation")],
           loc="upper left", bbox_to_anchor=(0, -0.09), fontsize=8, frameon=False)

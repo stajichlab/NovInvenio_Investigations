@@ -1,0 +1,10 @@
+results: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/zoosporic_holozoa_vs_dikarya
+search cache files read: 217; rows: 5491265
+rebuilt matrix rows (OUT proteins with >= 1 kept hit): 43169; pipeline loss_presence_matrix.tsv rows: 43169
+rows only in rebuilt: 0; rows only in pipeline: 0
+cells compared (pipeline rows x 32 species): 1381408; differing cells: 0
+rule: OUT present / 7 >= 0.75 (own proteome counts) and IN present <= K
+K=0 rebuilt: 332; loss_candidates.txt: 332; symmetric difference: 0
+IN fraction <= 0.15 of 25 equals IN present <= 3
+family check: pipeline loss_clusters 248 families; our K0 mmseqs 248 families; identical partitions: True (shared families 248)
+runtime_s: 48

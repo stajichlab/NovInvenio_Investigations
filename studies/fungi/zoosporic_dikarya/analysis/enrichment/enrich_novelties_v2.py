@@ -44,6 +44,23 @@ enrich_novelties.py (that prototype is unchanged). Changes in v2:
      in 1 or 2 OUT proteomes per presence_matrix.uniprot.tsv). Counts only.
   6. Writes PROVENANCE.yaml in --out-dir (inputs with sha256, tool versions, mmseqs
      settings, go-basic.obo data-version, Pfam .dat path, command, runtimes).
+  7. --direction {novelty,loss} (added 2026-10-12; default novelty, which gives the
+     same tests.tsv as before the flag existed). The "target" group is the group the
+     candidates come from:
+       novelty  target = IN,  other = OUT; candidates.txt; presence_matrix.uniprot.tsv;
+                families from novelties.<Short>.tsv family_id
+       loss     target = OUT, other = IN;  loss_candidates.txt; loss_presence_matrix.tsv;
+                families from clusters/loss_clusters_cluster.tsv (the pipeline's
+                LOSS_CLUSTER mmseqs run on loss_candidates.fa, same settings)
+     Everything that the text above says about "IN" applies to the target group:
+     universe = target-group proteomes, background = non-candidate target proteins,
+     scope B = each target species. The matrix rule check is the pipeline rule of
+     bin/build_presence_matrix.py: target count / n_target >= --ingroup-min-frac
+     (in the loss direction pass the pipeline's outgroup_min_frac) and other count /
+     n_other <= --other-max-frac (pipeline loss_ingroup_max_frac; 0.0 = absent).
+     --candidates / --presence-matrix / --families override the default files.
+     tests.tsv has the same columns in both directions; the direction is recorded
+     in PROVENANCE.yaml and in the output directory name.
 
 Statistics (same as the prototype): one-sided hypergeometric P(X >= k)
 (scipy.stats.hypergeom.sf(k-1, M, n, N)). Universe per test = units with >=1 term
@@ -176,6 +193,20 @@ def load_pfam_clan_names(path):
     return out
 
 
+def rule_candidates(counts, n_target, n_other, min_frac, other_max_frac=0.0):
+    """Pipeline candidate rule (nf_NovInvenio bin/build_presence_matrix.py, both directions).
+
+    counts: {key: (target_count, other_count)} from a presence matrix (the protein's own
+    proteome counts in target_count). Return (target_rule, candidates):
+      target_rule = keys with target_count / n_target >= min_frac
+      candidates  = target_rule keys with other_count / n_other <= other_max_frac
+    """
+    target_rule = {k for k, (tc, _) in counts.items() if tc / n_target >= min_frac}
+    cands = {k for k in target_rule
+             if (counts[k][1] / n_other if n_other else 0) <= other_max_frac}
+    return target_rule, cands
+
+
 def tool_version(cmd):
     try:
         return subprocess.run(cmd, capture_output=True, text=True, timeout=60).stdout.strip().splitlines()[0]
@@ -252,8 +283,24 @@ def main():
     ap.add_argument("--out-dir", required=True, type=Path)
     ap.add_argument("--study", required=True, help="study name (labels and provenance only)")
     ap.add_argument("--universe", choices=["proteome", "matrix", "in_conserved"], default="proteome")
+    ap.add_argument("--direction", choices=["novelty", "loss"], default="novelty",
+                    help="novelty: candidates from IN, absent from OUT (default). "
+                         "loss: candidates from OUT, absent from IN (see docstring item 7)")
+    ap.add_argument("--candidates", type=Path, default=None,
+                    help="candidate list (Short::protein_id per line); default "
+                         "<results>/candidates.txt (novelty) or <results>/loss_candidates.txt (loss)")
+    ap.add_argument("--presence-matrix", type=Path, default=None,
+                    help="presence matrix; default <results>/presence_matrix.uniprot.tsv (novelty) "
+                         "or <results>/loss_presence_matrix.tsv (loss)")
+    ap.add_argument("--families", type=Path, default=None,
+                    help="loss direction only: mmseqs cluster TSV (rep, member) of the candidates; "
+                         "default <results>/clusters/loss_clusters_cluster.tsv")
     ap.add_argument("--ingroup-min-frac", type=float, default=0.75,
-                    help="pipeline ingroup_min_frac (in_conserved universe and near-miss rule)")
+                    help="presence threshold within the target group (pipeline ingroup_min_frac for "
+                         "novelty, outgroup_min_frac for loss); in_conserved universe and near-miss rule")
+    ap.add_argument("--other-max-frac", type=float, default=0.0,
+                    help="max fraction of the other group with a hit for the rule check (pipeline "
+                         "--other-max-frac; loss_ingroup_max_frac in the loss direction). Default 0.0")
     ap.add_argument("--cluster-background", action="store_true")
     ap.add_argument("--cache-dir", type=Path, default=None, help="default: <out-dir>/cache")
     ap.add_argument("--mmseqs", default=str(NII_ROOT / ".pixi/envs/default/bin/mmseqs"))
@@ -282,35 +329,62 @@ def main():
 
     # ---------- config ----------
     cfg = list(csv.DictReader(open(args.config)))
-    in_sp = [r["Short"] for r in cfg if r["GROUP"] == "IN"]
-    out_sp = [r["Short"] for r in cfg if r["GROUP"] == "OUT"]
+    loss = args.direction == "loss"
+    # From here on in_sp = TARGET group (candidates' source) and out_sp = OTHER group.
+    # Novelty: IN / OUT as named. Loss: swapped (OUT is the target group).
+    tgt_label, oth_label = ("OUT", "IN") if loss else ("IN", "OUT")
+    in_sp = [r["Short"] for r in cfg if r["GROUP"] == tgt_label]
+    out_sp = [r["Short"] for r in cfg if r["GROUP"] == oth_label]
     pep = {r["Short"]: r["Protein"] for r in cfg}
     inputs[str(args.config)] = sha256(args.config)
-    log(f"IN={in_sp} OUT={out_sp}")
+    log(f"direction={args.direction} target({tgt_label})={in_sp} other({oth_label})={out_sp}")
 
     # ---------- candidates, families ----------
-    candidates = {l.strip() for l in open(rd / "candidates.txt") if l.strip()}
-    inputs[str(rd / "candidates.txt")] = sha256(rd / "candidates.txt")
+    cand_path = args.candidates or rd / ("loss_candidates.txt" if loss else "candidates.txt")
+    candidates = {l.strip() for l in open(cand_path) if l.strip()}
+    inputs[str(cand_path)] = sha256(cand_path)
     family = {}
-    for sp in in_sp:
-        f = rd / f"novelties.{sp}.tsv"
-        if not f.exists():
-            continue
-        inputs[str(f)] = sha256(f)
-        with open(f) as fh:
-            for row in csv.DictReader(fh, delimiter="\t"):
-                key = f"{row['source_proteome']}::{row['protein_id']}"
-                family[key] = row.get("family_id") or f"singleton:{key}"
+    fam_source = None
+    if loss:
+        fpath = args.families or rd / "clusters" / "loss_clusters_cluster.tsv"
+        inputs[str(fpath)] = sha256(fpath)
+        fam_source = str(fpath)
+        key_of = defaultdict(list)
+        for c in candidates:
+            key_of[c.split("::", 1)[1]].append(c)
+        with open(fpath) as fh:
+            for line in fh:
+                rep, mem = line.rstrip("\n").split("\t")[:2]
+                for key in key_of.get(mem, []):
+                    family[key] = rep
+    else:
+        fam_source = "novelties.<Short>.tsv family_id"
+        for sp in in_sp:
+            f = rd / f"novelties.{sp}.tsv"
+            if not f.exists():
+                continue
+            inputs[str(f)] = sha256(f)
+            with open(f) as fh:
+                for row in csv.DictReader(fh, delimiter="\t"):
+                    key = f"{row['source_proteome']}::{row['protein_id']}"
+                    family[key] = row.get("family_id") or f"singleton:{key}"
     nofam = [c for c in candidates if c not in family]
     if nofam:
-        log(f"WARNING: {len(nofam)} candidates have no novelties row; treated as singletons")
+        log(f"WARNING: {len(nofam)} candidates have no family row; treated as singletons")
 
     # ---------- matrix ----------
-    mpath = rd / "presence_matrix.uniprot.tsv"
+    mpath = args.presence_matrix or rd / ("loss_presence_matrix.tsv" if loss else "presence_matrix.uniprot.tsv")
     inputs[str(mpath)] = sha256(mpath)
-    matrix = {}  # key -> (in_count, out_count, row-annotation dict)
+    matrix = {}  # key -> (target_count, other_count, row-annotation dict)
     with open(mpath) as fh:
-        for row in csv.DictReader(fh, delimiter="\t"):
+        rdr = csv.DictReader(fh, delimiter="\t")
+        if use_matrix_ann and "uniprot_pfam_ids" not in (rdr.fieldnames or []):
+            sys.exit(f"--annotations matrix needs uniprot_* columns; {mpath} has none "
+                     "(use the .uniprot.tsv matrix via --presence-matrix)")
+        miss_cols = [s for s in in_sp + out_sp if s not in (rdr.fieldnames or [])]
+        if miss_cols:
+            sys.exit(f"config species not in {mpath}: {miss_cols}")
+        for row in rdr:
             key = f"{row['source_proteome']}::{row['protein_id']}"
             ic = sum(int(row[s] or 0) for s in in_sp)
             oc = sum(int(row[s] or 0) for s in out_sp)
@@ -320,11 +394,21 @@ def main():
                        "pfam_names": row["uniprot_pfam_names"], "interpro": row["uniprot_interpro_ids"],
                        "desc": row.get("uniprot_description", "")}
             matrix[key] = (ic, oc, ann)
-    in_rule = {k for k, (ic, oc, _) in matrix.items() if ic / len(in_sp) >= args.ingroup_min_frac}
-    rule_cands = {k for k in in_rule if matrix[k][1] == 0}
-    log(f"matrix rows {len(matrix)}; in_rule {len(in_rule)}; in_rule & 0 OUT {len(rule_cands)}; candidates.txt {len(candidates)}")
+    in_rule, rule_cands = rule_candidates({k: (v[0], v[1]) for k, v in matrix.items()},
+                                          len(in_sp), len(out_sp), args.ingroup_min_frac,
+                                          args.other_max_frac)
+    log(f"matrix rows {len(matrix)}; target rule {len(in_rule)}; target rule & other frac <= "
+        f"{args.other_max_frac} {len(rule_cands)}; {cand_path.name} {len(candidates)}")
+    # Key names kept from the novelty-only version; in the loss direction "in_rule" means the
+    # target-group (OUT) rule and "0_out" means 0 hits in the other group (IN).
     cand_check = {"matrix_in_rule_and_0_out": len(rule_cands), "candidates_txt": len(candidates),
-                  "symmetric_difference": len(rule_cands ^ candidates)}
+                  "symmetric_difference": len(rule_cands ^ candidates),
+                  "candidates_file": str(cand_path), "presence_matrix": str(mpath),
+                  "rule": (f"{tgt_label} count / {len(in_sp)} >= {args.ingroup_min_frac} and "
+                           f"{oth_label} count / {len(out_sp)} <= {args.other_max_frac} "
+                           "(own proteome counts toward the target group)"),
+                  "only_in_matrix_rule": sorted(rule_cands - candidates)[:50],
+                  "only_in_candidates_file": sorted(candidates - rule_cands)[:50]}
 
     # ---------- proteomes ----------
     seqs = {}
@@ -349,7 +433,7 @@ def main():
     miss = candidates - universe
     if miss:
         sys.exit(f"ERROR: {len(miss)} candidates not in universe '{args.universe}', e.g. {sorted(miss)[:3]}")
-    log(f"universe '{args.universe}': {len(universe)} IN proteins")
+    log(f"universe '{args.universe}': {len(universe)} {tgt_label} (target group) proteins")
 
     # ---------- annotations ----------
     ann_raw = {}  # key -> dict
@@ -437,8 +521,9 @@ def main():
 
     # ---------- coverage ----------
     cov_rows = []
-    for sp in in_sp + ["ALL_IN"]:
-        sel = [p for p in prot.values() if sp == "ALL_IN" or p["sp"] == sp]
+    all_label = f"ALL_{tgt_label}"
+    for sp in in_sp + [all_label]:
+        sel = [p for p in prot.values() if sp == all_label or p["sp"] == sp]
         for subset, rows in (("universe", sel), ("candidates", [p for p in sel if p["cand"]])):
             n = len(rows)
             r = {"species": sp, "subset": subset, "n_proteins": n,
@@ -536,7 +621,7 @@ def main():
                             r["go_evidence"] = ("none" if k == 0 else
                                                 "IEA_only" if non_iea.get(term, 0) == 0 else "has_non_IEA")
                             r["cand_evidence_codes"] = ";".join(
-                                f"{e}:{c}" for e, c in sorted(evc[term].items(), key=lambda x: -x[1]))
+                                f"{e}:{c}" for e, c in sorted(evc[term].items(), key=lambda x: (-x[1], x[0])))
                         rows.append(r)
                     for r, q in zip(rows, bh_fdr([r["pvalue"] for r in rows])):
                         r["fdr_bh"] = q
@@ -567,7 +652,7 @@ def main():
                 rows[i]["fdr_bh_all_species"] = q
         for r in rows:
             r.setdefault("fdr_bh_all_species", "")
-        rows.sort(key=lambda r: (r["scope"] != "whole_set", r["scope"], r["level"], r["vocab"], r["pvalue"]))
+        rows.sort(key=lambda r: (r["scope"] != "whole_set", r["scope"], r["level"], r["vocab"], r["pvalue"], r["term"]))  # term: deterministic tie order
         fields = ["scope", "level", "vocab", "term", "name", "k_cand_with_term", "N_cand_annotated",
                   "n_bg_with_term", "M_bg_annotated", "expected", "fold", "pvalue", "fdr_bh",
                   "fdr_bh_all_species"]
@@ -599,13 +684,16 @@ def main():
                     return True
                 return bool(rx and rx.search(a.get("desc", "") or ""))
             r = {"control": c["control"], "pfam_ids": c.get("pfam_ids", ""), "desc_regex": c.get("desc_regex", "")}
+            # Column names follow the target group: IN_* / near_miss_out* (novelty),
+            # OUT_* / near_miss_in* (loss).
+            nm = f"near_miss_{oth_label.lower()}"
             in_hits = [k for k in universe if hit(ann_raw.get(k))]
-            r["IN_universe"] = len(in_hits)
-            r["IN_in_matrix"] = sum(1 for k in in_hits if k in matrix)
-            r["IN_pass_ingroup_rule"] = sum(1 for k in in_hits if k in in_rule)
+            r[f"{tgt_label}_universe"] = len(in_hits)
+            r[f"{tgt_label}_in_matrix"] = sum(1 for k in in_hits if k in matrix)
+            r[f"{tgt_label}_pass_{'ingroup' if not loss else 'outgroup'}_rule"] = sum(1 for k in in_hits if k in in_rule)
             r["candidates"] = sum(1 for k in in_hits if k in candidates)
-            r["near_miss_out1"] = sum(1 for k in in_hits if k in in_rule and matrix[k][1] == 1)
-            r["near_miss_out2"] = sum(1 for k in in_hits if k in in_rule and matrix[k][1] == 2)
+            r[f"{nm}1"] = sum(1 for k in in_hits if k in in_rule and matrix[k][1] == 1)
+            r[f"{nm}2"] = sum(1 for k in in_hits if k in in_rule and matrix[k][1] == 2)
             for sp in in_sp + out_sp:
                 if sp in all_sp_ann:
                     r[f"n_{sp}"] = sum(1 for a in all_sp_ann[sp].values() if hit(a))
@@ -614,7 +702,7 @@ def main():
                 else:
                     r[f"n_{sp}"] = "NA"
             r["candidate_ids"] = ";".join(sorted(k for k in in_hits if k in candidates))
-            r["near_miss_out1_ids"] = ";".join(sorted(k for k in in_hits if k in in_rule and matrix[k][1] == 1))
+            r[f"{nm}1_ids"] = ";".join(sorted(k for k in in_hits if k in in_rule and matrix[k][1] == 1))
             crow.append(r)
         with open(out / "controls.tsv", "w", newline="") as fh:
             w = csv.DictWriter(fh, fieldnames=list(crow[0].keys()), delimiter="\t")
@@ -631,18 +719,24 @@ def main():
         "script": {"path": str(Path(sys.argv[0]).resolve()), "sha256": sha256(sys.argv[0])},
         "command": " ".join([sys.executable] + sys.argv),
         "class": "ephemeral analysis output (not tracked; regenerate with the command above)",
+        "direction": args.direction,
+        "target_group": {"label": tgt_label, "species": in_sp},
+        "other_group": {"label": oth_label, "species": out_sp},
         "universe": args.universe, "annotations": args.annotations,
         "annotation_files": ann_files,
         "parameters": {"min_bg": args.min_bg, "exclude_iea": args.exclude_iea,
                        "report_ids_fdr": args.report_ids_fdr, "ingroup_min_frac": args.ingroup_min_frac,
+                       "other_max_frac": args.other_max_frac,
                        "cluster_background": args.cluster_background},
         "statistics": "one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) "
                       "within scope x level x vocabulary; scope-B fdr_bh_all_species = BH across species tests "
                       "of one level x vocabulary. goatools only parses the OBO and gives is_a ancestors.",
         "candidate_check": cand_check,
         "background_clustering": clust_meta,
-        "pipeline_candidate_families": "novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: "
-                                       "mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on candidates.fa)",
+        "pipeline_candidate_families": (f"{fam_source} (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster "
+                                        "--min-seq-id 0.3 -c 0.8 --cov-mode 0 on "
+                                        f"{'loss_candidates.fa' if loss else 'candidates.fa'})"),
+        "candidates_without_family_row": len(nofam),
         "go_obo": {"path": str(args.obo), "data_version": obo_version, "sha256": sha256(args.obo)},
         "pfam_dat": ({"path": str(args.pfam_dat), "sha256": sha256(args.pfam_dat),
                       "release_note": "release taken from directory name; the .dat file has no version line"}
