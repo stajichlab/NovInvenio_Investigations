@@ -174,6 +174,14 @@ def test_gallery_cards(gallery):
     assert "pending one" in html and "not yet started" in html
     assert "dmnd" not in html
     assert html.count("pezizo set1") == 1
+    assert "enrichment" not in html
+
+    # An enrichment page in the current run gets a card link on the next run.
+    (study_docs / "pw" / "enrichment.html").write_text("x")
+    assert generate_docs.main() == 0
+    html = (gallery / "docs" / "fungi" / "index.html").read_text()
+    assert 'href="pezizo_set1/pw/enrichment.html">enrichment</a>' in html
+    assert "enrichment_loss" not in html
 
 
 # --- bin/migrate_docs_to_runs.py -------------------------------------------
