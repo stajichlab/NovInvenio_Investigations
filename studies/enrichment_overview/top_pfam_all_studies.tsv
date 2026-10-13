@@ -34,3 +34,18 @@ zoosporic_holozoa_vs_dikarya	2	PF17958	EF-hand_13: EF-hand domain	23	2711	24	107
 zoosporic_holozoa_vs_dikarya	3	PF18027	Pepdidase_M14_N: Cytosolic carboxypeptidase N-terminal domain	25	2711	32	107786	31.062	5.29e-31	42	19	False
 zoosporic_holozoa_vs_dikarya	4	PF03133	TTL: Tubulin-tyrosine ligase family	37	2711	108	107786	13.621	1.56e-28	51	22	False
 zoosporic_holozoa_vs_dikarya	5	PF07701	HNOBA: Heme NO binding associated	20	2711	27	107786	29.451	8.67e-24	87	18	False
+malassezia_vs_ustilaginomycotina	1	PF00385	Chromo: Chromo (CHRromatin Organisation MOdifier) domain	2	20	9	7438	82.644	0.138			True
+malassezia_vs_ustilaginomycotina	2	PF05047	L51_S25_CI-B8: Mitochondrial ribosomal protein L51 / S25 / CI-B8 domain	1	20	5	7438	74.38	1			False
+malassezia_vs_ustilaginomycotina	3	PF13041	PPR_2: PPR repeat family	1	20	5	7438	74.38	1			True
+malassezia_vs_ustilaginomycotina	4	PF01535	PPR: PPR repeat	1	20	10	7438	37.19	1			True
+malassezia_vs_ustilaginomycotina	5	PF12937	F-box-like: F-box-like	1	20	14	7438	26.564	1			False
+metschnikowiaceae_cah	1	PF05436	MF_alpha_N: Mating factor alpha precursor N-terminus	1	12	5	7337	122.283	1			False
+metschnikowiaceae_cah	2	PF08303	tRNA_lig_kinase: tRNA ligase kinase domain	1	12	5	7337	122.283	1			False
+metschnikowiaceae_cah	3	PF06687	SUR7: SUR7/PalI family	1	12	9	7337	67.935	1			False
+metschnikowiaceae_cah	4	PF00018	SH3_1: SH3 domain	1	12	34	7337	17.983	1			False
+metschnikowiaceae_cah	5	PF11765	Hyphal_reg_CWP: Hyphally regulated cell wall protein N-terminal	1	12	47	7337	13.009	1			False
+sordariales_shallow	1	PF00010	HLH: Helix-loop-helix DNA-binding domain	5	133	24	11356	17.788	0.00509	6	3	False
+sordariales_shallow	2	PF04749	PLAC8: PLAC8 family	3	133	6	11356	42.692	0.0107	3	3	False
+sordariales_shallow	3	PF25534	DUF7918: Domain of unknown function (DUF7918)	3	133	8	11356	32.019	0.0197	3	2	False
+sordariales_shallow	4	PF13857	Ank_5: Ankyrin repeats (many copies)	3	133	10	11356	25.615	0.0311	5	4	True
+sordariales_shallow	5	PF14420	Clr5: Clr5 domain	4	133	28	11356	12.198	0.0415	7	4	False

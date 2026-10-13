@@ -1,0 +1,47 @@
+[    0.0s] direction=novelty target(IN)=['Chaeglob', 'Neurcras', 'Podoanse', 'Sordmacr'] other(OUT)=['Clonrose', 'Collhigg', 'Conilign', 'Cordmili', 'Cryppara', 'Eutylata', 'Metaanis', 'Vertdahl']
+[    3.0s] matrix rows 36313; target rule 30936; target rule & other frac <= 0.0 568; candidates.txt 568
+[    3.5s] universe 'proteome': 41341 IN (target group) proteins
+[    4.1s] annotation rows matched: 41341 of 41341
+[    7.3s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29894058/bgclust_pcq3r_nb/bg.fa /scratch/jstajich/29894058/bgclust_pcq3r_nb/bg /scratch/jstajich/29894058/bgclust_pcq3r_nb/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   44.9s] background clusters: 20007 clusters from 40773 proteins
+[   46.2s] whole_set	protein	pfam	N=183/568	M=29071	tested=1739	sig=14
+[   46.3s] whole_set	protein	pfam_clan	N=123/568	M=23249	tested=423	sig=11
+[   46.3s] whole_set	protein	interpro	N=238/568	M=31374	tested=3767	sig=27
+[   46.4s] whole_set	protein	go	N=113/568	M=25596	tested=4898	sig=4
+[   46.8s] whole_set	family	pfam	N=133/411	M=11356	tested=701	sig=5
+[   46.8s] whole_set	family	pfam_clan	N=84/411	M=8930	tested=294	sig=2
+[   46.8s] whole_set	family	interpro	N=177/411	M=12683	tested=1484	sig=11
+[   46.9s] whole_set	family	go	N=87/411	M=9646	tested=3168	sig=0
+[   47.5s] Chaeglob	protein	pfam	N=33/99	M=7459	tested=416	sig=0
+[   47.5s] Chaeglob	protein	pfam_clan	N=19/99	M=6103	tested=246	sig=0
+[   47.5s] Chaeglob	protein	interpro	N=42/99	M=8153	tested=978	sig=0
+[   47.5s] Chaeglob	protein	go	N=22/99	M=6511	tested=2475	sig=0
+[   47.6s] Chaeglob	family	pfam	N=31/97	M=6608	tested=376	sig=0
+[   47.7s] Chaeglob	family	pfam_clan	N=17/97	M=5340	tested=239	sig=0
+[   47.7s] Chaeglob	family	interpro	N=41/97	M=7252	tested=872	sig=0
+[   47.7s] Chaeglob	family	go	N=21/97	M=5775	tested=2391	sig=0
+[   47.8s] Neurcras	protein	pfam	N=53/160	M=6766	tested=367	sig=1
+[   47.9s] Neurcras	protein	pfam_clan	N=37/160	M=5358	tested=246	sig=2
+[   47.9s] Neurcras	protein	interpro	N=71/160	M=7211	tested=908	sig=0
+[   47.9s] Neurcras	protein	go	N=36/160	M=6113	tested=2632	sig=0
+[   48.4s] Neurcras	family	pfam	N=53/159	M=6169	tested=302	sig=1
+[   48.4s] Neurcras	family	pfam_clan	N=37/159	M=4836	tested=237	sig=1
+[   48.5s] Neurcras	family	interpro	N=71/159	M=6602	tested=757	sig=0
+[   48.5s] Neurcras	family	go	N=36/159	M=5589	tested=2545	sig=0
+[   48.6s] Podoanse	protein	pfam	N=38/117	M=7851	tested=446	sig=0
+[   48.6s] Podoanse	protein	pfam_clan	N=29/117	M=6239	tested=260	sig=0
+[   48.6s] Podoanse	protein	interpro	N=48/117	M=8466	tested=1054	sig=0
+[   48.7s] Podoanse	protein	go	N=19/117	M=6743	tested=2290	sig=0
+[   49.2s] Podoanse	family	pfam	N=38/117	M=6910	tested=362	sig=0
+[   49.2s] Podoanse	family	pfam_clan	N=29/117	M=5450	tested=246	sig=0
+[   49.2s] Podoanse	family	interpro	N=48/117	M=7501	tested=866	sig=0
+[   49.2s] Podoanse	family	go	N=19/117	M=5929	tested=2151	sig=0
+[   49.4s] Sordmacr	protein	pfam	N=59/192	M=6995	tested=375	sig=0
+[   49.4s] Sordmacr	protein	pfam_clan	N=38/192	M=5549	tested=250	sig=0
+[   49.4s] Sordmacr	protein	interpro	N=77/192	M=7544	tested=933	sig=0
+[   49.4s] Sordmacr	protein	go	N=36/192	M=6229	tested=2547	sig=0
+[   50.0s] Sordmacr	family	pfam	N=59/189	M=6349	tested=317	sig=0
+[   50.0s] Sordmacr	family	pfam_clan	N=38/189	M=4997	tested=240	sig=0
+[   50.0s] Sordmacr	family	interpro	N=77/189	M=6877	tested=801	sig=0
+[   50.0s] Sordmacr	family	go	N=36/189	M=5649	tested=2461	sig=0
+[   62.5s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/analysis/enrichment/outputs/proteome_clustered

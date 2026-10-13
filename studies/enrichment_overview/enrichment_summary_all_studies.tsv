@@ -27,3 +27,15 @@ zoosporic_holozoa_vs_dikarya	pfam	2958	2711	0.9165	107786	6027	297	297	0	4955	14
 zoosporic_holozoa_vs_dikarya	pfam_clan	2958	2013	0.6805	87546	600	48	48	0	2999		0	6615
 zoosporic_holozoa_vs_dikarya	interpro	2958	2923	0.9882	123867	12289	564	564	0	5640		0	6615
 zoosporic_holozoa_vs_dikarya	go	2958	2373	0.8022	91079	13705	532	532	0	5588		0	6615
+malassezia_vs_ustilaginomycotina	pfam	304	20	0.0658	7438	563	0	0	0	0	0	0	530
+malassezia_vs_ustilaginomycotina	pfam_clan	304	10	0.0329	5930	263	0	0	0	0		0	530
+malassezia_vs_ustilaginomycotina	interpro	304	33	0.1086	8011	1302	0	0	0	0		0	530
+malassezia_vs_ustilaginomycotina	go	304	11	0.0362	7257	2685	0	0	0	0		0	530
+metschnikowiaceae_cah	pfam	129	12	0.093	7337	511	0	0	0	0	0	0	206
+metschnikowiaceae_cah	pfam_clan	129	5	0.0388	5678	254	0	0	0	0		0	206
+metschnikowiaceae_cah	interpro	129	26	0.2016	7743	1149	1	1	0	4		0	206
+metschnikowiaceae_cah	go	129	8	0.062	6807	3074	0	0	0	0		0	206
+sordariales_shallow	pfam	411	133	0.3236	11356	701	5	5	0	24	1	0	568
+sordariales_shallow	pfam_clan	411	84	0.2044	8930	294	2	2	0	12		0	568
+sordariales_shallow	interpro	411	177	0.4307	12683	1484	11	11	0	30		0	568
+sordariales_shallow	go	411	87	0.2117	9646	3168	0	0	0	0		0	568
