@@ -1,0 +1,1379 @@
+- local_path: data/uniprot/UP000000559/UP000000559_237561.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000559/UP000000559_237561.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:06:33Z'
+  checksum_sha256: 785cc74d7a9c3063d82df983f38f1af15c9b365fce0b4249cb33cd45052744bd
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000559
+  taxon_id: '237561'
+  organism: Candida albicans (strain SC5314 / ATCC MYA-2876)
+  genome_assembly:
+    assemblyId: GCA_000182965.3
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000182965.3
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000000559/UP000000559_237561.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000559/UP000000559_237561.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:06:34Z'
+  checksum_sha256: 62de1d2671d908428a86a534dc6b0a8d0945a45bb665c7ad170e325990d7f58a
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000559
+  taxon_id: '237561'
+  organism: Candida albicans (strain SC5314 / ATCC MYA-2876)
+  genome_assembly:
+    assemblyId: GCA_000182965.3
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000182965.3
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000182965.3/extracted/ncbi_dataset/data/GCA_000182965.3/GCA_000182965.3_ASM18296v3_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000182965.3/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000182965.3'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 33305b2fe88abae9dbaa787269039980b741fe65025119adf40528ece6455f3b
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000182965.3
+- local_path: data/ncbi/GCA_000182965.3/extracted/ncbi_dataset/data/GCA_000182965.3/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000182965.3/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000182965.3'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 1d4280f077f6c9005e118709f13d0beb5cc0c0e8fb5a20d51b4a1e32c6a5b793
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000182965.3
+- local_path: data/uniprot/UP000001996/UP000001996_379508.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001996/UP000001996_379508.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:06:50Z'
+  checksum_sha256: cc1ac0b7994cbb56a3bb11bf4c7f2a85172b3f58ce010927c5d234d6cf78b3c0
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000001996
+  taxon_id: '379508'
+  organism: Lodderomyces elongisporus (strain ATCC 11503 / CBS 2605 / JCM 1781 / NBRC
+    1676 / NRRL YB-4239)
+  genome_assembly:
+    assemblyId: GCA_000149685.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000149685.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000001996/UP000001996_379508.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001996/UP000001996_379508.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:06:51Z'
+  checksum_sha256: f49a60a32bc8b06cb69f34db473c49d9dd5d9f448c6bf00f4d067871a86f2e82
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000001996
+  taxon_id: '379508'
+  organism: Lodderomyces elongisporus (strain ATCC 11503 / CBS 2605 / JCM 1781 / NBRC
+    1676 / NRRL YB-4239)
+  genome_assembly:
+    assemblyId: GCA_000149685.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000149685.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000149685.1/extracted/ncbi_dataset/data/GCA_000149685.1/GCA_000149685.1_ASM14968v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149685.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000149685.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: d229ecfd454ad4b7ae0086272e3e834ea79ff09c04e12e27cee888e53da322a6
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000149685.1
+- local_path: data/ncbi/GCA_000149685.1/extracted/ncbi_dataset/data/GCA_000149685.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149685.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000149685.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 6fe86123b934b1d6b1f2c3118bf6a4eeee234e15bd4c890456291b1fb33f1835
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000149685.1
+- local_path: data/uniprot/UP000001997/UP000001997_294746.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001997/UP000001997_294746.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:06:56Z'
+  checksum_sha256: 23c4b94eeb661614d5c8f4fca921e557d0f36eb77568fc71ea2ee4cde3e5a24a
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000001997
+  taxon_id: '294746'
+  organism: Meyerozyma guilliermondii (strain ATCC 6260 / CBS 566 / DSM 6381 / JCM
+    1539 / NBRC 10279 / NRRL Y-324)
+  genome_assembly:
+    assemblyId: GCA_000149425.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000149425.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000001997/UP000001997_294746.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001997/UP000001997_294746.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:06:57Z'
+  checksum_sha256: 344418f319f2ce452cf6e7ebfcc3361163821f074056c188253ed36a7f06cd02
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000001997
+  taxon_id: '294746'
+  organism: Meyerozyma guilliermondii (strain ATCC 6260 / CBS 566 / DSM 6381 / JCM
+    1539 / NBRC 10279 / NRRL Y-324)
+  genome_assembly:
+    assemblyId: GCA_000149425.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000149425.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000149425.1/extracted/ncbi_dataset/data/GCA_000149425.1/GCA_000149425.1_ASM14942v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149425.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000149425.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: f55fd8a659625755af8632312a45d816a5abab2375b124fc8d295fe9f9b8c31a
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000149425.1
+- local_path: data/ncbi/GCA_000149425.1/extracted/ncbi_dataset/data/GCA_000149425.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149425.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000149425.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 086e3bd1b7cee3373e70306eb56c550a8cacde9e064446bf219a76f45845682c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000149425.1
+- local_path: data/uniprot/UP000000599/UP000000599_284592.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000599/UP000000599_284592.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:02Z'
+  checksum_sha256: 808864eb13373b7baf4011a9ee544b1349852b97e2906a71804978267930363d
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000599
+  taxon_id: '284592'
+  organism: Debaryomyces hansenii (strain ATCC 36239 / CBS 767 / BCRC 21394 / JCM
+    1990 / NBRC 0083 / IGC 2968)
+  genome_assembly:
+    assemblyId: GCA_000006445.2
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000006445.2
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000000599/UP000000599_284592.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000599/UP000000599_284592.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:03Z'
+  checksum_sha256: 466f6185ca74c76f6abb7215ee0e03582170fb1f17b39cafa0157f7d80209a1b
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000599
+  taxon_id: '284592'
+  organism: Debaryomyces hansenii (strain ATCC 36239 / CBS 767 / BCRC 21394 / JCM
+    1990 / NBRC 0083 / IGC 2968)
+  genome_assembly:
+    assemblyId: GCA_000006445.2
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000006445.2
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000006445.2/extracted/ncbi_dataset/data/GCA_000006445.2/GCA_000006445.2_ASM644v2_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000006445.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000006445.2'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: 1c0b9549e936c90903418344d9747a6aca7a66ff478c297477e6421038afc920
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000006445.2
+- local_path: data/ncbi/GCA_000006445.2/extracted/ncbi_dataset/data/GCA_000006445.2/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000006445.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000006445.2'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: 51d04f92178660ce8f0e18cbcbd3436e95afcf8826e2bd1c0a35db159cd96465
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000006445.2
+- local_path: data/uniprot/UP000002258/UP000002258_322104.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002258/UP000002258_322104.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:08Z'
+  checksum_sha256: c745603f35b2cb1245882626f3b4212e25ce6b16738c743e4a86ee11cb91dc0e
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000002258
+  taxon_id: '322104'
+  organism: Scheffersomyces stipitis (strain ATCC 58785 / CBS 6054 / NBRC 10063 /
+    NRRL Y-11545)
+  genome_assembly:
+    assemblyId: GCA_000209165.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000209165.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000002258/UP000002258_322104.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002258/UP000002258_322104.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:09Z'
+  checksum_sha256: cf3323f46cfefb50504a4403ac1ea26581be163cbf1d19cb2aaab02093af4a20
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000002258
+  taxon_id: '322104'
+  organism: Scheffersomyces stipitis (strain ATCC 58785 / CBS 6054 / NBRC 10063 /
+    NRRL Y-11545)
+  genome_assembly:
+    assemblyId: GCA_000209165.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000209165.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000209165.1/extracted/ncbi_dataset/data/GCA_000209165.1/GCA_000209165.1_ASM20916v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000209165.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000209165.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: db212e6000ead460944372207de7fbdc2d18e760b9b1996a495e58a159970b45
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000209165.1
+- local_path: data/ncbi/GCA_000209165.1/extracted/ncbi_dataset/data/GCA_000209165.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000209165.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000209165.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 7fceaf2f554b64fc40cbba46aa32ec99d07925cadea85cc76480e7fbdf649ca5
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000209165.1
+- local_path: data/uniprot/UP000000709/UP000000709_619300.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000709/UP000000709_619300.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:13Z'
+  checksum_sha256: ec122e28f2ef4f998b2667b5a4f8964a3f1d51f49a4cffa77f8da467e5cd40b3
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000709
+  taxon_id: '619300'
+  organism: Spathaspora passalidarum (strain NRRL Y-27907 / 11-Y1)
+  genome_assembly:
+    assemblyId: GCA_000223485.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000223485.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000000709/UP000000709_619300.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000709/UP000000709_619300.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:14Z'
+  checksum_sha256: 39c863d3b3452b942b7691019883da9a85a05ce6e8c132af04782c1b34b94ef5
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000709
+  taxon_id: '619300'
+  organism: Spathaspora passalidarum (strain NRRL Y-27907 / 11-Y1)
+  genome_assembly:
+    assemblyId: GCA_000223485.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000223485.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000223485.1/extracted/ncbi_dataset/data/GCA_000223485.1/GCA_000223485.1_Spathaspora_passalidarum_v2.0_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000223485.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000223485.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 0c61d6fe45448e1cb94d6fc96f7d1f3c0592702558e455dc2173f3a05190dbd2
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000223485.1
+- local_path: data/ncbi/GCA_000223485.1/extracted/ncbi_dataset/data/GCA_000223485.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000223485.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000223485.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 3ffad75ebd91e3bbd5bbcf8cb405ba2105507fbe3f5cd894c7896e7f50370e90
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000223485.1
+- local_path: data/uniprot/UP000000707/UP000000707_590646.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000707/UP000000707_590646.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:30Z'
+  checksum_sha256: acfa65cd5ac0d69c230d918ed9f49fd7ebdde580e19e0efbb506f036d16df3f4
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000707
+  taxon_id: '590646'
+  organism: Candida tenuis (strain ATCC 10573 / BCRC 21748 / CBS 615 / JCM 9827 /
+    NBRC 10315 / NRRL Y-1498 / VKM Y-70)
+  genome_assembly:
+    assemblyId: GCA_000223465.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000223465.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000000707/UP000000707_590646.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000707/UP000000707_590646.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:31Z'
+  checksum_sha256: 30a806ad554b4a4a9b67987c25cbe4da7cf31f36cda9984104f5a92b9d011c9b
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000707
+  taxon_id: '590646'
+  organism: Candida tenuis (strain ATCC 10573 / BCRC 21748 / CBS 615 / JCM 9827 /
+    NBRC 10315 / NRRL Y-1498 / VKM Y-70)
+  genome_assembly:
+    assemblyId: GCA_000223465.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000223465.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000223465.1/extracted/ncbi_dataset/data/GCA_000223465.1/GCA_000223465.1_Candida_tenuis_v1.0_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000223465.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000223465.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 8dd93dcfb9974dda69ebbf4b1be55bfea8924b42dd7e6fda3dc71a72b182a1d0
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000223465.1
+- local_path: data/ncbi/GCA_000223465.1/extracted/ncbi_dataset/data/GCA_000223465.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000223465.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000223465.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 5618e2244720900b275b5c4592c3cb6d9aff247746db8177e7743cb093f741e9
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000223465.1
+- local_path: data/uniprot/UP000094336/UP000094336_984486.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000094336/UP000094336_984486.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:36Z'
+  checksum_sha256: 011eefe152dc45866a21ab28cd641a4a1a0d7ac87d848692198a992ab94e980d
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000094336
+  taxon_id: '984486'
+  organism: Babjeviella inositovora NRRL Y-12698
+  genome_assembly:
+    assemblyId: GCA_001661335.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001661335.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000094336/UP000094336_984486.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000094336/UP000094336_984486.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:37Z'
+  checksum_sha256: efbba51279bbc51d7a5b7afedd9b1b45cc4fb83a98c45bfc764f7ab9bdadc293
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000094336
+  taxon_id: '984486'
+  organism: Babjeviella inositovora NRRL Y-12698
+  genome_assembly:
+    assemblyId: GCA_001661335.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001661335.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_001661335.1/extracted/ncbi_dataset/data/GCA_001661335.1/GCA_001661335.1_Babin1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001661335.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001661335.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 9c91189626e0ac11bb54cb256c6efd44996c7848a5b2efcc301769870d98aa91
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_001661335.1
+- local_path: data/ncbi/GCA_001661335.1/extracted/ncbi_dataset/data/GCA_001661335.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001661335.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001661335.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 12470d0827d92ba3f0bd81ec330a6f11190a4ee7446e2dc383c8fcbf7f425a85
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_001661335.1
+- local_path: data/uniprot/UP000449547/UP000449547_5481.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000449547/UP000449547_5481.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:42Z'
+  checksum_sha256: 93027ae2f41751cd70086120977af5ac5cda8353429985dd28aee3f686722a3c
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000449547
+  taxon_id: '5481'
+  organism: Diutina rugosa
+  genome_assembly:
+    assemblyId: GCA_008704595.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_008704595.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000449547/UP000449547_5481.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000449547/UP000449547_5481.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:43Z'
+  checksum_sha256: 067004bb7cd869b03bdb6f58e9b60fea51c9eff9f3fa8a34a3ef0dbe77c29628
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000449547
+  taxon_id: '5481'
+  organism: Diutina rugosa
+  genome_assembly:
+    assemblyId: GCA_008704595.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_008704595.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_008704595.1/extracted/ncbi_dataset/data/GCA_008704595.1/GCA_008704595.1_ASM870459v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_008704595.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_008704595.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 908cb17339ecfcfbce765bfe016226d52fffc06d5d99c6237933467c5715ff3b
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_008704595.1
+- local_path: data/ncbi/GCA_008704595.1/extracted/ncbi_dataset/data/GCA_008704595.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_008704595.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_008704595.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 644ad68fd98fe1f0383b18b14368b44bc6e9eddb8722c88efa0e055ff6405660
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_008704595.1
+- local_path: data/uniprot/UP001152531/UP001152531_467808.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP001152531/UP001152531_467808.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:48Z'
+  checksum_sha256: 0776a9bae091106e43a39c265741ee1138e991adfef630da4211633de462b1be
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP001152531
+  taxon_id: '467808'
+  organism: Yamadazyma jaroonii
+  genome_assembly:
+    assemblyId: GCA_943733655.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_943733655.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP001152531/UP001152531_467808.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP001152531/UP001152531_467808.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:49Z'
+  checksum_sha256: 03ad582b33ba207107e27605914557f6952d9573491126acb4ba57250d52e922
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP001152531
+  taxon_id: '467808'
+  organism: Yamadazyma jaroonii
+  genome_assembly:
+    assemblyId: GCA_943733655.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_943733655.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_943733655.1/extracted/ncbi_dataset/data/GCA_943733655.1/GCA_943733655.1_CLIB1444v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_943733655.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_943733655.1'
+  access_date: '2026-10-12T05:06:30Z'
+  checksum_sha256: abcf06fc8b786b3f5b9b8dcbfe940d671759998bbc607fa54071779a39c2d959
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_943733655.1
+- local_path: data/ncbi/GCA_943733655.1/extracted/ncbi_dataset/data/GCA_943733655.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_943733655.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_943733655.1'
+  access_date: '2026-10-12T05:06:30Z'
+  checksum_sha256: d75187737da96472a81521cea344b1505ec5b186f05fe7c6b5c69c17a1ed5cc9
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_943733655.1
+- local_path: data/uniprot/UP000230249/UP000230249_498019.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000230249/UP000230249_498019.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:54Z'
+  checksum_sha256: c4c02996e3f3210caaa19418e35c3e0a5ce46c4cd2eb19d42bbc0b3fbbd072d6
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000230249
+  taxon_id: '498019'
+  organism: Candidozyma auris
+  genome_assembly:
+    assemblyId: GCA_002759435.3
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_002759435.3
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000230249/UP000230249_498019.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000230249/UP000230249_498019.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:55Z'
+  checksum_sha256: 920b953a00679521627f090bc96bb1249a8e5388fd0054268b8baa11ad686ae2
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000230249
+  taxon_id: '498019'
+  organism: Candidozyma auris
+  genome_assembly:
+    assemblyId: GCA_002759435.3
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_002759435.3
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_002759435.3/extracted/ncbi_dataset/data/GCA_002759435.3/GCA_002759435.3_Cand_auris_B8441_V3_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_002759435.3/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_002759435.3'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: e29e36442b70893477914a035ad07fc7e644133dc1b2d69f8b4fd0030dee0a6f
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_002759435.3
+- local_path: data/ncbi/GCA_002759435.3/extracted/ncbi_dataset/data/GCA_002759435.3/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_002759435.3/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_002759435.3'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: b823a9db1674c59515c5726b0b7089c9d2cc364ca0fe11ab8d06bdbedf93cd53
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_002759435.3
+- local_path: data/uniprot/UP000007703/UP000007703_306902.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000007703/UP000007703_306902.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:07:59Z'
+  checksum_sha256: 3dab68092a88d41648a6977dbd48f1ad38a5296c864ba071c1885a21929284b2
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000007703
+  taxon_id: '306902'
+  organism: Clavispora lusitaniae (strain ATCC 42720)
+  genome_assembly:
+    assemblyId: GCA_000003835.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000003835.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000007703/UP000007703_306902.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000007703/UP000007703_306902.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:00Z'
+  checksum_sha256: 995a6eb8df9c52d5655163507d726697f2ea9bdc5a05f5e3347f7aefe9ce1265
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000007703
+  taxon_id: '306902'
+  organism: Clavispora lusitaniae (strain ATCC 42720)
+  genome_assembly:
+    assemblyId: GCA_000003835.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000003835.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000003835.1/extracted/ncbi_dataset/data/GCA_000003835.1/GCA_000003835.1_ASM383v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000003835.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000003835.1'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: 958603eeeb4fb64c60b7f1c5bd5e5b6df7e82b1b6343bf7b56881601fd64a878
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000003835.1
+- local_path: data/ncbi/GCA_000003835.1/extracted/ncbi_dataset/data/GCA_000003835.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000003835.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000003835.1'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: faf4ede3a79709001c13bf02c050a97137557a2487ab73f95f9505d892409fc5
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000003835.1
+- local_path: data/uniprot/UP000092555/UP000092555_869754.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000092555/UP000092555_869754.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:05Z'
+  checksum_sha256: 1d25d1f3a76304bd9a1ca518971478f4deeb24c4e4c47589592adf659a43fab9
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000092555
+  taxon_id: '869754'
+  organism: Metschnikowia bicuspidata var. bicuspidata NRRL YB-4993
+  genome_assembly:
+    assemblyId: GCA_001664035.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001664035.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000092555/UP000092555_869754.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000092555/UP000092555_869754.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:06Z'
+  checksum_sha256: b03324e15413659f8604659bae9b0c9fb862a5fcdf797f18a4872582175f6c80
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000092555
+  taxon_id: '869754'
+  organism: Metschnikowia bicuspidata var. bicuspidata NRRL YB-4993
+  genome_assembly:
+    assemblyId: GCA_001664035.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001664035.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_001664035.1/extracted/ncbi_dataset/data/GCA_001664035.1/GCA_001664035.1_Metbi1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001664035.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001664035.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 0ca760a465951757da0a99d81ea7f24bb862a446ebd4f8d7aad8178f0393eb28
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_001664035.1
+- local_path: data/ncbi/GCA_001664035.1/extracted/ncbi_dataset/data/GCA_001664035.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001664035.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001664035.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 03828d15c4bfaff9925f73cbafd92d93dd9d9ef275f3eb242ae82f0412fc9535
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_001664035.1
+- local_path: data/uniprot/UP000790833/UP000790833_45513.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000790833/UP000790833_45513.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:10Z'
+  checksum_sha256: 3586418979aeedb7c62ee7c58eeccecf7955b6a154e566192e1f5a0b3c14ea72
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000790833
+  taxon_id: '45513'
+  organism: Lizanozyma spartinae
+  genome_assembly:
+    assemblyId: GCA_019049425.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_019049425.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000790833/UP000790833_45513.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000790833/UP000790833_45513.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:11Z'
+  checksum_sha256: cc8dee14dd9f8897ed6b023e7f6f2a5e3c25213c810d755f2b1cff9b1c074b44
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000790833
+  taxon_id: '45513'
+  organism: Lizanozyma spartinae
+  genome_assembly:
+    assemblyId: GCA_019049425.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_019049425.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_019049425.1/extracted/ncbi_dataset/data/GCA_019049425.1/GCA_019049425.1_ASM1904942v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_019049425.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_019049425.1'
+  access_date: '2026-10-12T05:06:30Z'
+  checksum_sha256: 5bd595edfd4340bf130c51d8be72ab1570469caac1e372d28a1abff22076ae61
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_019049425.1
+- local_path: data/ncbi/GCA_019049425.1/extracted/ncbi_dataset/data/GCA_019049425.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_019049425.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_019049425.1'
+  access_date: '2026-10-12T05:06:30Z'
+  checksum_sha256: 1f0a453a3d700024c74c5a082ae97188b5fead151f4a12f42f3b341eb3f005fd
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_019049425.1
+- local_path: data/uniprot/UP000000314/UP000000314_644223.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000314/UP000000314_644223.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:15Z'
+  checksum_sha256: 853dcc46c6d52af27a02a2111554396cdc8879eb3bc85443cd6bfc1f4ea2b1db
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000314
+  taxon_id: '644223'
+  organism: Komagataella phaffii (strain GS115 / ATCC 20864)
+  genome_assembly:
+    assemblyId: GCA_000027005.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000027005.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000000314/UP000000314_644223.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000314/UP000000314_644223.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:16Z'
+  checksum_sha256: 8d59d5bca85b3bb3909e2c8dc888bd31386f019c9c835254eef44c8fdcc325e2
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000314
+  taxon_id: '644223'
+  organism: Komagataella phaffii (strain GS115 / ATCC 20864)
+  genome_assembly:
+    assemblyId: GCA_000027005.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000027005.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000027005.1/extracted/ncbi_dataset/data/GCA_000027005.1/GCA_000027005.1_ASM2700v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000027005.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000027005.1'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: 09cfa836de7b72f08cf9a139d75d153b9a80d7ff677475021de716d3cd642199
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000027005.1
+- local_path: data/ncbi/GCA_000027005.1/extracted/ncbi_dataset/data/GCA_000027005.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000027005.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000027005.1'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: bc2f411d7f997c673de071f039e9a69644914b069300b902795e0b023162b780
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000027005.1
+- local_path: data/uniprot/UP000019384/UP000019384_1382522.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000019384/UP000019384_1382522.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:26Z'
+  checksum_sha256: d6562dd22071df9f0abe1be34f47ad70bb7c9dcb8843dbf979095c0906b12834
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000019384
+  taxon_id: '1382522'
+  organism: Kuraishia capsulata CBS 1993
+  genome_assembly:
+    assemblyId: GCA_000576695.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000576695.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000019384/UP000019384_1382522.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000019384/UP000019384_1382522.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:27Z'
+  checksum_sha256: 52dd8c940881229bc3804b3f3a0b45d2a27ccff472534400fbe26cfdd56f22d1
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000019384
+  taxon_id: '1382522'
+  organism: Kuraishia capsulata CBS 1993
+  genome_assembly:
+    assemblyId: GCA_000576695.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000576695.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000576695.1/extracted/ncbi_dataset/data/GCA_000576695.1/GCA_000576695.1_AUH_PRJEB4427_v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000576695.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000576695.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 1b50b4498f7ab735618fab9a72b519cf37dbf5cb8ae680d9a69350fdb008e675
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000576695.1
+- local_path: data/ncbi/GCA_000576695.1/extracted/ncbi_dataset/data/GCA_000576695.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000576695.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000576695.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: dd29e55c1f8439c81f657eba5ddcc2ebe05d7e6d17da6bed3fd8aefea5d0a627
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000576695.1
+- local_path: data/uniprot/UP000094455/UP000094455_763406.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000094455/UP000094455_763406.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:34Z'
+  checksum_sha256: 5163b9d8fc515b63a0b1a9fd4b41e899868c26ea94074f1c403dfb577b59d503
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000094455
+  taxon_id: '763406'
+  organism: Pichia membranifaciens NRRL Y-2026
+  genome_assembly:
+    assemblyId: GCA_001661235.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001661235.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000094455/UP000094455_763406.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000094455/UP000094455_763406.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:08:51Z'
+  checksum_sha256: 8d3b14672abf119c01853d8795dba02402894bf51b0e29c2fbb7f92234abe28d
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000094455
+  taxon_id: '763406'
+  organism: Pichia membranifaciens NRRL Y-2026
+  genome_assembly:
+    assemblyId: GCA_001661235.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001661235.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_001661235.1/extracted/ncbi_dataset/data/GCA_001661235.1/GCA_001661235.1_Picme2_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001661235.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001661235.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 6840df8b749e31c23cb9b2725ecbae0c23ddea3c8a84b7ddd0eefc50c11c0bca
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_001661235.1
+- local_path: data/ncbi/GCA_001661235.1/extracted/ncbi_dataset/data/GCA_001661235.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001661235.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001661235.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 3bc4a784ec34a81178a7c3a39b09f70c2fd79790a1cce709edf232e10c2edd27
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_001661235.1
+- local_path: data/uniprot/UP000249293/UP000249293_4909.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000249293/UP000249293_4909.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:09:32Z'
+  checksum_sha256: 496cfc40e71c7b4642d3a075b2ddb12c9bfc47dfb4213a3de1c5ddc50df3a1af
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000249293
+  taxon_id: '4909'
+  organism: Pichia kudriavzevii
+  genome_assembly:
+    assemblyId: GCA_003054445.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_003054445.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000249293/UP000249293_4909.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000249293/UP000249293_4909.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:09:47Z'
+  checksum_sha256: ba33aa5046fc4f86f8a93bfaf936f5fda89e42f0d1d10f68e8b74421528ae145
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000249293
+  taxon_id: '4909'
+  organism: Pichia kudriavzevii
+  genome_assembly:
+    assemblyId: GCA_003054445.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_003054445.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_003054445.1/extracted/ncbi_dataset/data/GCA_003054445.1/GCA_003054445.1_ASM305444v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_003054445.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_003054445.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: cc09961e0371723589d8630bde8015c6025c485ff6418f7c2b3576f8b5c3c98a
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_003054445.1
+- local_path: data/ncbi/GCA_003054445.1/extracted/ncbi_dataset/data/GCA_003054445.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_003054445.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_003054445.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 8d4d1f3e7dce4c3e9ce84e225ff5c55aa01dbb515774c7e79707f2fabb67cb46
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_003054445.1
+- local_path: data/uniprot/UP000290900/UP000290900_13370.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000290900/UP000290900_13370.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:10:52Z'
+  checksum_sha256: 50dce41e08576cd49c62994a0e97f4131170300293460c2c68059390849294fb
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000290900
+  taxon_id: '13370'
+  organism: Brettanomyces naardenensis
+  genome_assembly:
+    assemblyId: GCA_900660285.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_900660285.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000290900/UP000290900_13370.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000290900/UP000290900_13370.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:11:21Z'
+  checksum_sha256: 9c24fa1db10f1a610dbf7844271c5575993a3875120d8a33efd432b506b2a590
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000290900
+  taxon_id: '13370'
+  organism: Brettanomyces naardenensis
+  genome_assembly:
+    assemblyId: GCA_900660285.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_900660285.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_900660285.1/extracted/ncbi_dataset/data/GCA_900660285.1/GCA_900660285.1_BRENAR_v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_900660285.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_900660285.1'
+  access_date: '2026-10-12T05:06:30Z'
+  checksum_sha256: 0cff57ca67da7ed64c9fbb8caa32c4e742812b0fa7edbbf07a08c79a499ff06a
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_900660285.1
+- local_path: data/ncbi/GCA_900660285.1/extracted/ncbi_dataset/data/GCA_900660285.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_900660285.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_900660285.1'
+  access_date: '2026-10-12T05:06:30Z'
+  checksum_sha256: 4662815a057da2662f4b9f54f7866e08e877c753c4247883d5d7465768d18a0a
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_900660285.1
+- local_path: data/uniprot/UP000788993/UP000788993_460523.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000788993/UP000788993_460523.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:16:09Z'
+  checksum_sha256: af249dfe996a0101f9e54ec40de77a6c8562646f098c7aa823abbe1c53427692
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000788993
+  taxon_id: '460523'
+  organism: Ogataea polymorpha
+  genome_assembly:
+    assemblyId: GCA_020536115.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_020536115.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000788993/UP000788993_460523.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000788993/UP000788993_460523.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:17:02Z'
+  checksum_sha256: 0a100058a6d67894ff6c0a6cac950923ef5b8776065b6ce12a3904619d145d7a
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000788993
+  taxon_id: '460523'
+  organism: Ogataea polymorpha
+  genome_assembly:
+    assemblyId: GCA_020536115.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_020536115.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_020536115.1/extracted/ncbi_dataset/data/GCA_020536115.1/GCA_020536115.1_ASM2053611v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_020536115.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_020536115.1'
+  access_date: '2026-10-12T05:06:30Z'
+  checksum_sha256: f3696ff993e592c70895a064684ccc9873c0e320b6bab17f35f0e12a81746dc0
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_020536115.1
+- local_path: data/ncbi/GCA_020536115.1/extracted/ncbi_dataset/data/GCA_020536115.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_020536115.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_020536115.1'
+  access_date: '2026-10-12T05:06:30Z'
+  checksum_sha256: d040aee5deb568dbe8d37fb713e017ba2d2abb7a7feb070c4672e9e3d297561e
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_020536115.1
+- local_path: data/uniprot/UP000094236/UP000094236_669874.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000094236/UP000094236_669874.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:18:56Z'
+  checksum_sha256: d23d9de7381daaf2ba12cd0aebb8de035b8cfd7808dda6d96055ae627e192255
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000094236
+  taxon_id: '669874'
+  organism: Pachysolen tannophilus NRRL Y-2460
+  genome_assembly:
+    assemblyId: GCA_001661245.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001661245.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000094236/UP000094236_669874.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000094236/UP000094236_669874.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:19:48Z'
+  checksum_sha256: f3801cb45e2063fc1f34baca57b2d5f984153022bce721318ca61760b70a6b31
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000094236
+  taxon_id: '669874'
+  organism: Pachysolen tannophilus NRRL Y-2460
+  genome_assembly:
+    assemblyId: GCA_001661245.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001661245.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_001661245.1/extracted/ncbi_dataset/data/GCA_001661245.1/GCA_001661245.1_Pacta1_2_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001661245.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001661245.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: 20308986f51d19fb4e810f87f75664de90d8756ab3744807cf89d9c26cd868dd
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_001661245.1
+- local_path: data/ncbi/GCA_001661245.1/extracted/ncbi_dataset/data/GCA_001661245.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001661245.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001661245.1'
+  access_date: '2026-10-12T05:06:29Z'
+  checksum_sha256: c5eadce4fc51d9293edd0c469a5b5739127fb93bc603747ec1084e698012d85a
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_001661245.1
+- local_path: data/uniprot/UP000002311/UP000002311_559292.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002311/UP000002311_559292.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:21:05Z'
+  checksum_sha256: 8ed21b6c6ce28bc0b74eac295aab65ec2136286616769757b39758427642f768
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000002311
+  taxon_id: '559292'
+  organism: Saccharomyces cerevisiae (strain ATCC 204508 / S288c)
+  genome_assembly:
+    assemblyId: GCA_000146045.2
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000146045.2
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000002311/UP000002311_559292.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002311/UP000002311_559292.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:21:39Z'
+  checksum_sha256: 2513e95ee8a55aca5bbeafb606962b44e7777e69d002bdbdb85ad2de61b71afc
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000002311
+  taxon_id: '559292'
+  organism: Saccharomyces cerevisiae (strain ATCC 204508 / S288c)
+  genome_assembly:
+    assemblyId: GCA_000146045.2
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000146045.2
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000146045.2/extracted/ncbi_dataset/data/GCA_000146045.2/GCA_000146045.2_R64_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000146045.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000146045.2'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 294aaff72732be536ec7f635a812ef2a86db26c825a01a79796a0b9c93bfe264
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000146045.2
+- local_path: data/ncbi/GCA_000146045.2/extracted/ncbi_dataset/data/GCA_000146045.2/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000146045.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000146045.2'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: d2d43bba740a766e36404123e4ce3224edb101c56587d26bf11ff9a4f57e8fe2
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000146045.2
+- local_path: data/uniprot/UP000000598/UP000000598_284590.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000598/UP000000598_284590.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:23:02Z'
+  checksum_sha256: ce6265a3474508d20f094458b97731aa6ba4a1d0b4213189652345651c465e23
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000598
+  taxon_id: '284590'
+  organism: Kluyveromyces lactis (strain ATCC 8585 / CBS 2359 / DSM 70799 / NBRC 1267
+    / NRRL Y-1140 / WM37)
+  genome_assembly:
+    assemblyId: GCA_000002515.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000002515.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000000598/UP000000598_284590.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000598/UP000000598_284590.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:23:35Z'
+  checksum_sha256: f51688831ba9670981f495d46c092847c157f8e70cbec0e7defe43b99bfb222c
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000000598
+  taxon_id: '284590'
+  organism: Kluyveromyces lactis (strain ATCC 8585 / CBS 2359 / DSM 70799 / NBRC 1267
+    / NRRL Y-1140 / WM37)
+  genome_assembly:
+    assemblyId: GCA_000002515.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000002515.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000002515.1/extracted/ncbi_dataset/data/GCA_000002515.1/GCA_000002515.1_ASM251v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000002515.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000002515.1'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: 8ab9dc6664219069da32564edeb98c66ea6c5ebc5d80a6acee20bfc468cfb91e
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000002515.1
+- local_path: data/ncbi/GCA_000002515.1/extracted/ncbi_dataset/data/GCA_000002515.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000002515.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000002515.1'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: ab61d515379d3d34ebc96423992e313bd096b47f555f8c26e013a13349c5abbd
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000002515.1
+- local_path: data/uniprot/UP000002036/UP000002036_559295.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002036/UP000002036_559295.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:24:23Z'
+  checksum_sha256: a3b391e1ed73060d26fcd1b89109182be71bb82b466f0a9b566ee0ad5c27ff8c
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000002036
+  taxon_id: '559295'
+  organism: Lachancea thermotolerans (strain ATCC 56472 / CBS 6340 / NRRL Y-8284)
+  genome_assembly:
+    assemblyId: GCA_000142805.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000142805.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000002036/UP000002036_559295.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002036/UP000002036_559295.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:24:30Z'
+  checksum_sha256: ff70ad8d2c06f17f82d2d6c782ffd77949fa2501c8b8d606606f7c69b1d13912
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000002036
+  taxon_id: '559295'
+  organism: Lachancea thermotolerans (strain ATCC 56472 / CBS 6340 / NRRL Y-8284)
+  genome_assembly:
+    assemblyId: GCA_000142805.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000142805.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000142805.1/extracted/ncbi_dataset/data/GCA_000142805.1/GCA_000142805.1_ASM14280v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000142805.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000142805.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 14f88c42424273edae51633c740340caeb2c6827829eb4ae4eb859c43d181c47
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000142805.1
+- local_path: data/ncbi/GCA_000142805.1/extracted/ncbi_dataset/data/GCA_000142805.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000142805.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000142805.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 2df54827445c95078af91679e7ab1f6b72c5cc203603e6fc46530acc6777a196
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000142805.1
+- local_path: data/uniprot/UP000002428/UP000002428_284593.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002428/UP000002428_284593.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:24:51Z'
+  checksum_sha256: 4b8df77d0a22cbabf5feed1fdb2be53806cc0369f96d685badcd27b8555872c5
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000002428
+  taxon_id: '284593'
+  organism: Candida glabrata (strain ATCC 2001 / BCRC 20586 / JCM 3761 / NBRC 0622
+    / NRRL Y-65 / CBS 138)
+  genome_assembly:
+    assemblyId: GCA_000002545.2
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000002545.2
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000002428/UP000002428_284593.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002428/UP000002428_284593.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:24:58Z'
+  checksum_sha256: 19eaa9e6cb7369647de1bb6eca810ef6aa5a044ff33606e9157be94fffd15bc7
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000002428
+  taxon_id: '284593'
+  organism: Candida glabrata (strain ATCC 2001 / BCRC 20586 / JCM 3761 / NBRC 0622
+    / NRRL Y-65 / CBS 138)
+  genome_assembly:
+    assemblyId: GCA_000002545.2
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000002545.2
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000002545.2/extracted/ncbi_dataset/data/GCA_000002545.2/GCA_000002545.2_ASM254v2_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000002545.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000002545.2'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: 876f43f4700a6b0ab2b2b38baf13492d57e5e6d77364a97dba56f6641bf90002
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000002545.2
+- local_path: data/ncbi/GCA_000002545.2/extracted/ncbi_dataset/data/GCA_000002545.2/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000002545.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000002545.2'
+  access_date: '2026-10-12T05:06:27Z'
+  checksum_sha256: ddc6eb46e11f43383b6e49156b4185476920eedbc93210d4b32d94b43657b772
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000002545.2
+- local_path: data/uniprot/UP000005627/UP000005627_1076872.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000005627/UP000005627_1076872.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:25:04Z'
+  checksum_sha256: 0bed8d858f9127e3d64747644710aa956e091e4a9d01dc18057a4a4cd73d0970
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000005627
+  taxon_id: '1076872'
+  organism: Torulaspora delbrueckii (strain ATCC 10662 / CBS 1146 / NBRC 0425 / NCYC
+    2629 / NRRL Y-866)
+  genome_assembly:
+    assemblyId: GCA_000243375.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000243375.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000005627/UP000005627_1076872.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000005627/UP000005627_1076872.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-12T05:25:05Z'
+  checksum_sha256: c61453914a5511005723450b054f810f85ef319574bda71dc6844e12d35d1df3
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000005627
+  taxon_id: '1076872'
+  organism: Torulaspora delbrueckii (strain ATCC 10662 / CBS 1146 / NBRC 0425 / NCYC
+    2629 / NRRL Y-866)
+  genome_assembly:
+    assemblyId: GCA_000243375.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000243375.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000243375.1/extracted/ncbi_dataset/data/GCA_000243375.1/GCA_000243375.1_ASM24337v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000243375.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000243375.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: 1e454c9a96fa59a6dcbe71de4ed7da6326d2943b070765096d527a723190c03a
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000243375.1
+- local_path: data/ncbi/GCA_000243375.1/extracted/ncbi_dataset/data/GCA_000243375.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000243375.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000243375.1'
+  access_date: '2026-10-12T05:06:28Z'
+  checksum_sha256: d80b6b26bc2d38e141b5efedbabeaa09d1d839f0de8db4703ee9ce20cd017ea5
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000243375.1
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/config.csv
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-10-13T23:01:55Z'
+  checksum_sha256: 85a71d46e3871a66aace8b86654dbd5f37f2bcb71d5e5910367fa9b4aa59d9b8
+  license: n/a
+  derived_by: 'subset of studies/fungi/serinales_vs_pichiales/config.csv (not bin/build_study_config.py):
+    dropped Canddubl, Candtrop, Suhotanz, Hyphburt (IN) and Eremgoss, Ogatpara, Eeninana
+    (OUT); Babjinos Group IN -> OUT, TaxonGroup Serinales_Babjeviella_outgroup. Data
+    files are hard links to the v1 data_dir.'
+  pulled_with: ad hoc subset script, 2026-10-13

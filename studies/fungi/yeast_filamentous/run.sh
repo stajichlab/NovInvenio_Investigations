@@ -1,6 +1,8 @@
 #!/usr/bin/bash
 #SBATCH -p batch -c 2 --mem 8gb --time=2-00:00:00 --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/logs/yeast_filamentous.log
 
+# Rerun (2026-10-13) at NovInvenio main d03f5a2 (worktree), with results/yeast_filamentous deleted first
+# (search_cache is a storeDir: old outputs would be reused otherwise).
 # Real run of yeast_filamentous (studies/fungi/yeast_filamentous/), built the same way as
 # pezizo_set1 -- see that study's run.sh for the full rationale (NII_PIPELINE
 # local-checkout requirement, why --pfam_hmm/--swissprot_dmnd are omitted in
@@ -13,7 +15,7 @@ module load nextflow
 set -euo pipefail
 
 NII_ROOT="/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations"
-NOVINVENIO_ROOT="/bigdata/stajichlab/jstajich/projects/NovInvenio"
+NOVINVENIO_ROOT="/rhome/jstajich/projects/NovInvenio-worktrees/main-d03f5a2"
 
 export NII_PIPELINE="$NOVINVENIO_ROOT/main.nf"
 

@@ -1,0 +1,6 @@
+# Where this folder publishes on the site (study/run layout,
+# notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md).
+study: serinales_vs_pichiales_v2
+run: pairwise-diamond
+notes:
+  - "Revision of serinales_vs_pichiales. Babjeviella inositovora is an outgroup here (it carries only 23.3% of the original 2,995 IN candidates, so it sits outside the rest of Serinales). Dropped for low added information: Candida dubliniensis, C. tropicalis, Suhomyces tanzawaensis, Hyphopichia burtonii (IN); Eremothecium gossypii, Ogataea parapolymorpha, Eeniella nana (OUT). 13 IN and 13 OUT species."

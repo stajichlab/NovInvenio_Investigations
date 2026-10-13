@@ -39,3 +39,19 @@ Question: genes specific to Serinales (CUG-Ser1 clade) vs Pichiales and Alaninal
 | Candglab | Candida glabrata | OUT | Saccharomycetaceae | UP000002428 | 99.4 | 5200 |
 | Torudelb | Torulaspora delbrueckii | OUT | Saccharomycetaceae | UP000005627 | 99.9 | 4974 |
 | Eremgoss | Eremothecium gossypii | OUT | Saccharomycetaceae | UP000000591 | 99.5 | 4760 |
+
+## Babjeviella inositovora (Babjinos) is a divergent outlier (2026-10-13)
+
+Decision: keep Babjinos in the IN group. Flag it as an outlier when interpreting results. Source: `results/serinales_vs_pichiales/` (pairwise-diamond run).
+
+Observations (counted from `novelties.*.tsv`, `presence_matrix.tsv`, `loss_presence_matrix.tsv`, `loss_tblastn_summary.tsv`):
+
+- Novelty rows: Babjinos 23. The other 17 IN species: 143-205.
+- The 2,995 IN candidates (`candidates.txt`): Babjinos carries 23.3%. Every other IN species carries 85-99%, including the other Serinales_other species.
+- 2,298 candidates are absent from Babjinos. The other Serinales_other species carry about 90% of them, and the Debaryomycetaceae about 95%.
+- Loss direction: 9,813 OUT proteins absent from the Babjinos proteome. This is the second lowest of 18 IN species (median about 12,300). Babjinos keeps more OUT-shared genes than most IN species.
+- Completeness: UniProt BUSCO 94.8% (above the IN median) and 6,394 proteins (most of any IN species). BUSCO was not rerun here.
+
+Interpretation: the pattern fits a lineage that diverged before the rest of the IN group. It does not fit an incomplete proteome. Open points: no phylogeny in this repo confirms the branching position. The tblastn rescue covered 169 of 76,006 loss rows, so it does not test genome-wide annotation completeness.
+
+Use: IN-specific candidate counts across the other 17 species are not affected by Babjinos. Counts "shared by all IN" are lowered by Babjinos (about 2,300 candidates are absent from it).
