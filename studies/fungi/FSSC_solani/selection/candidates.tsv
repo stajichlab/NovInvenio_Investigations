@@ -1,0 +1,28 @@
+asmid	dirname	species	strain	busco_genome_C	n_proteins	n50	decision	placement
+GCA_011033385.1_ASM1103338v1	Fusarium_cf._solani_EtdFoc-155	Fusarium cf. solani	EtdFoc-155	99.1	9952	356947	drop_proteins	
+GCA_011033625.1_ASM1103362v1	Fusarium_cf._solani_EtdFoc-178	Fusarium cf. solani	EtdFoc-178	84.0	10089	12635	drop_busco	
+GCA_011033945.1_ASM1103394v1	Fusarium_cf._solani_EtdFoc-208	Fusarium cf. solani	EtdFoc-208	98.8	10177	258492	drop_proteins	
+GCA_011033925.1_ASM1103392v1	Fusarium_cf._solani_EtdFoc-209	Fusarium cf. solani	EtdFoc-209	87.8	10271	14507	drop_busco	
+GCA_011421325.1_ASM1142132v1	Fusarium_cf._solani_EtdFoc-214	Fusarium cf. solani	EtdFoc-214	98.9	9955	203941	drop_proteins	
+GCA_011036725.1_ASM1103672v1	Fusarium_cf._solani_EtdFoc-29	Fusarium cf. solani	EtdFoc-29	73.0	9127	8202	drop_busco	
+GCA_011036745.1_ASM1103674v1	Fusarium_cf._solani_EtdFoc-35	Fusarium cf. solani	EtdFoc-35	58.9	7931	5046	drop_busco	
+GCA_011034825.1_ASM1103482v1	Fusarium_cf._solani_EtdFoc-63	Fusarium cf. solani	EtdFoc-63	89.4	9117	136910	drop_busco	
+GCA_011036165.1_ASM1103616v1	Fusarium_cf._solani_EthFoc-38	Fusarium cf. solani	EthFoc-38	97.1	10205	50343	drop_proteins	
+GCA_011036515.1_ASM1103651v1	Fusarium_cf._solani_EthFoc-8	Fusarium cf. solani	EthFoc-8	98.8	9965	221331	drop_proteins	
+GCA_054370115.1_ASM5437011v1	Fusarium_falciforme_Progeny4	Fusarium falciforme	Progeny4	99.6	16187	4096864	outgroup	
+GCA_010015875.1_ASM1001587v1	Fusarium_haematococcum_LQ1	Fusarium haematococcum	LQ1	99.4	14790	830712	ingroup	
+GCF_025433545.1_ASM2543354v1	Fusarium_keratoplasticum_Fu6.1	Fusarium keratoplasticum	Fu6.1	99.6	14285	4213465	outgroup	
+GCF_050370095.1_ASM5037009v1	Fusarium_phalaenopsidis_FUZ10S	Fusarium phalaenopsidis	FUZ10S	99.8	14463	3659495	outgroup	
+GCA_019320015.1_ASM1932001v1	Fusarium_solani_1-Jan	Fusarium solani	1-Jan	98.8	16790	1973718	ingroup	
+GCA_027945525.1_F_sol_A01-1	Fusarium_solani_A01-1	Fusarium solani	A01-1	99.3	16998	561160	ingroup	
+GCA_045529305.1_TL_NS_CBS140079	Fusarium_solani_CBS_140079	Fusarium solani	CBS 140079	99.2	15680	55890	ingroup	
+GCA_054370135.1_ASM5437013v1	Fusarium_solani_Cherokee5	Fusarium solani	Cherokee5	99.6	17611	3749779	ingroup	
+GCA_029603225.1_F2	Fusarium_solani_F2	Fusarium solani	F2	99.6	17010	875943	ingroup	
+GCA_040436825.1_ASM4043682v1	Fusarium_solani_F421	Fusarium solani	F421	99.6	17704	4034357	ingroup	
+GCF_020744495.1_Fusso1	Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091	Fusarium solani	FSSC 5 MPI-SDFR-AT-0091	99.7	17007	2221287	ingroup	
+GCA_024220475.1_Fusarium_solani_Karbala-1	Fusarium_solani_Karbala-1	Fusarium solani	Karbala-1	99.7	16691	1009657	ingroup	
+GCA_044646775.1_ASM4464677v1	Fusarium_solani_NAPSME6.1	Fusarium solani	NAPSME6.1	99.4	16470	653878	ingroup	
+GCF_023522795.1_NDSU_Fsol_1.0	Fusarium_solani_SB1	Fusarium solani	SB1	99.6	18084	4026673	ingroup	
+GCA_035772955.1_ASM3577295v1	Fusarium_solani_SX13	Fusarium solani	SX13	99.6	17081	3724189	ingroup	
+GCA_042608555.1_ASM4260855v1	Fusarium_sp._R1_R1	Fusarium sp. R1	R1	99.6	14493	3209824	ingroup	
+GCA_025433535.2_AS_Fvan_2.1	Fusarium_vanettenii_Fs6.1	Fusarium vanettenii	Fs6.1	99.6	19538	3359130	outgroup	

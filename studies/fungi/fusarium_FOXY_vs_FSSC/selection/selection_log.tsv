@@ -1,0 +1,800 @@
+dirname	asmid	species	step	reason
+Fusarium_annulatum_F8_4S_3B			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_140013			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_140016			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_140017			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_160232			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_160237			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_160264			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_171084			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_171131			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_171146			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_171330			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_171366			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_171369			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_171470			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_171482			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_171483			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_180192			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_180200			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_180207			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_180216			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_180220			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_180269			inventory	no_proteins;no_gff3;no_genome
+Fusarium_asiaticum_180648			inventory	no_proteins;no_gff3;no_genome
+Fusarium_cortaderiae_CN29			inventory	no_proteins;no_gff3;no_genome
+Fusarium_cortaderiae_NRRL_29297			inventory	no_proteins;no_gff3;no_genome
+Fusarium_euwallaceae_UCR1854			inventory	no_proteins;no_gff3;no_genome
+Fusarium_fujikuroi_IMI_58289			inventory	no_proteins;no_gff3;no_genome
+Fusarium_fujikuroi_NCIM1100			inventory	no_proteins;no_gff3;no_genome
+Fusarium_fujikuroi_SG4			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_0343			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_042826			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_04501			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_0609			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_09-03a			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_09-04a			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_09-13a			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_09-21a			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_09-53b			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_10F1			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_114-2			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_16-21-z			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_16-390-z			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_16-462-z			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_16-521-z			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_16-92-z			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_177-5			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_237			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_3-2			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_321			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_336-3B			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_58918			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_630			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_70725			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_71E1			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_AGV0002B			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_C10a			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_C10b			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_CBS_104.09			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_CBS_110263			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_CBS_119799			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_CBS_138562			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_CBS_138563			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_CBS_139514			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_CS3005			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_FG_08			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_Fr1b2			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_GER_37			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_GER_4527b			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_ITA_1377			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_KSU23468			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_KSU23522			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_N10_1			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_NRRL28336			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_PH-1			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_RA15A			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_RH14A			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_S18-49			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_S18-55			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_S18-66			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_SR14			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_SW45			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_SW75			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_St-6			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_TaB10			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_W185			inventory	no_proteins;no_gff3;no_genome
+Fusarium_graminearum_WG3A28			inventory	no_proteins;no_gff3;no_genome
+Fusarium_keratoplasticum_LHS11.1			inventory	no_proteins;no_gff3;no_genome
+Fusarium_nematophilum_Fn1			inventory	no_proteins;no_gff3;no_genome
+Fusarium_papillatum_NRRL62943			inventory	no_proteins;no_gff3;no_genome
+Fusarium_poae_DAOMC_213257			inventory	no_proteins;no_gff3;no_genome
+Fusarium_poae_DAOMC_252211			inventory	no_proteins;no_gff3;no_genome
+Fusarium_poae_DAOMC_252221			inventory	no_proteins;no_gff3;no_genome
+Fusarium_poae_DAOMC_252230			inventory	no_proteins;no_gff3;no_genome
+Fusarium_poae_DAOMC_252232			inventory	no_proteins;no_gff3;no_genome
+Fusarium_poae_DAOMC_252235			inventory	no_proteins;no_gff3;no_genome
+Fusarium_poae_DAOMC_252236			inventory	no_proteins;no_gff3;no_genome
+Fusarium_poae_DAOMC_252240			inventory	no_proteins;no_gff3;no_genome
+Fusarium_poae_Fp133			inventory	no_proteins;no_gff3;no_genome
+Fusarium_proliferatum_STSP	GCA_055473395.1_ASM5547339v1	Fusarium annulatum	inventory	dup_locustag_nonmatching_dir
+Fusarium_verticillioides_BIONCL14			inventory	no_proteins;no_gff3;no_genome
+Fusarium_verticillioides_FV-TN-03			inventory	no_proteins;no_gff3;no_genome
+Fusarium_verticillioides_FV32963			inventory	no_proteins;no_gff3;no_genome
+Fusarium_verticillioides_FV34754			inventory	no_proteins;no_gff3;no_genome
+Fusarium_verticillioides_FV34761			inventory	no_proteins;no_gff3;no_genome
+Fusarium_verticillioides_HN2			inventory	no_proteins;no_gff3;no_genome
+Fusarium_verticillioides_ITEM_10027			inventory	no_proteins;no_gff3;no_genome
+Fusarium_azukiicola_NRRL_54364	GCA_001680625.1_ASM168062v1	Fusarium azukiicola	busco	FSSC: BUSCO genome C=49.7
+Fusarium_brasiliense_NRRL_31757	GCA_001680685.1_ASM168068v1	Fusarium brasiliense	busco	FSSC: BUSCO genome C=63.9
+Fusarium_cf._falciforme_EthFoc-55	GCA_011036285.1_ASM1103628v1	Fusarium cf. falciforme	busco	FSSC: BUSCO genome C=64.5
+Fusarium_cf._solani_EtdFoc-178	GCA_011033625.1_ASM1103362v1	Fusarium cf. solani	busco	FSSC: BUSCO genome C=84.0
+Fusarium_cf._solani_EtdFoc-209	GCA_011033925.1_ASM1103392v1	Fusarium cf. solani	busco	FSSC: BUSCO genome C=87.8
+Fusarium_cf._solani_EtdFoc-29	GCA_011036725.1_ASM1103672v1	Fusarium cf. solani	busco	FSSC: BUSCO genome C=73.0
+Fusarium_cf._solani_EtdFoc-35	GCA_011036745.1_ASM1103674v1	Fusarium cf. solani	busco	FSSC: BUSCO genome C=58.9
+Fusarium_cf._solani_EtdFoc-63	GCA_011034825.1_ASM1103482v1	Fusarium cf. solani	busco	FSSC: BUSCO genome C=89.4
+Fusarium_cuneirostrum_NRRL_31157	GCA_001680505.1_ASM168050v1	Fusarium cuneirostrum	busco	FSSC: BUSCO genome C=86.5
+Fusarium_foetens_NRRL_38302	GCA_013623845.1_ASM1362384v1	Fusarium foetens	name_not_in_complex_list	mash places it in FOSC (d_FOSC=0.0289 d_FSSC=0.2454); excluded by name rule
+Fusarium_fujikuroi_FUS01	GCA_002196585.2_FUS01-V2	Fusarium fujikuroi	name_not_in_complex_list	mash places it in FOSC (d_FOSC=0.0189 d_FSSC=0.2488); excluded by name rule
+Fusarium_haematococcum_S2_009_000R2b	GCA_004026335.1_ASM402633v1	Fusarium haematococcum	busco	FSSC: BUSCO genome C=66.6
+Fusarium_inflexum_JTHABCO3.1	GCA_044647245.1_ASM4464724v1	Fusarium inflexum	name_not_in_complex_list	mash places it in FOSC (d_FOSC=0.0224 d_FSSC=0.2454); excluded by name rule
+Fusarium_lateritium_389579	GCA_052570155.1_ASM5257015v1	Fusarium lateritium	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2524 d_FSSC=0.1215); excluded by name rule
+Fusarium_oxysporum_09-002	GCA_024865645.1_FO09_002	Fusarium oxysporum	mash_placement	FOXY name but nearest=FOSC d_FOSC=0.0539
+Fusarium_oxysporum_14003	GCA_014770115.1_ASM1477011v1	Fusarium oxysporum	mash_placement	FOXY name but nearest=FSSC d_FOSC=0.2607
+Fusarium_oxysporum_14004	GCA_001888865.1_ASM188886v1	Fusarium oxysporum	mash_placement	FOXY name but nearest=FRSC d_FOSC=0.0868
+Fusarium_oxysporum_140507A	GCA_019593485.1_ASM1959348v1	Fusarium oxysporum	mash_placement	FOXY name but nearest=FFSC d_FOSC=0.0871
+Fusarium_oxysporum_CCSHAU_FUS_CICERIES	GCA_054991275.1_CCSHAU_FUS_v1	Fusarium oxysporum	mash_placement	FOXY name but nearest=FFSC d_FOSC=0.0924
+Fusarium_oxysporum_CRC	GCA_052324365.1_FUSAVN_CRC	Fusarium oxysporum	mash_placement	FOXY name but nearest=FFSC d_FOSC=0.0862
+Fusarium_oxysporum_CRD	GCA_052324385.1_FUSAVN_CRD	Fusarium oxysporum	mash_placement	FOXY name but nearest=FFSC d_FOSC=0.0867
+Fusarium_oxysporum_EtdFoc-102	GCA_011033505.1_ASM1103350v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=88.6
+Fusarium_oxysporum_EtdFoc-113	GCA_011033575.1_ASM1103357v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=77.9
+Fusarium_oxysporum_EtdFoc-139	GCA_011033685.1_ASM1103368v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=19.7
+Fusarium_oxysporum_EtdFoc-143	GCA_011428085.1_ASM1142808v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=27.8
+Fusarium_oxysporum_EtdFoc-17	GCA_011033665.1_ASM1103366v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=27.3
+Fusarium_oxysporum_EtdFoc-174	GCA_011033645.1_ASM1103364v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=45.8
+Fusarium_oxysporum_EtdFoc-176	GCA_011426355.1_ASM1142635v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=39.5
+Fusarium_oxysporum_EtdFoc-18	GCA_011034045.1_ASM1103404v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=35.8
+Fusarium_oxysporum_EtdFoc-182	GCA_011426335.1_ASM1142633v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=26.6
+Fusarium_oxysporum_EtdFoc-193	GCA_011033715.1_ASM1103371v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=88.2
+Fusarium_oxysporum_EtdFoc-2	GCA_011033995.1_ASM1103399v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=71.0
+Fusarium_oxysporum_EtdFoc-20	GCA_011424625.1_ASM1142462v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=32.4
+Fusarium_oxysporum_EtdFoc-213	GCA_011034275.1_ASM1103427v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=79.6
+Fusarium_oxysporum_EtdFoc-228	GCA_011034205.1_ASM1103420v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=61.8
+Fusarium_oxysporum_EtdFoc-237	GCA_011034455.1_ASM1103445v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=41.5
+Fusarium_oxysporum_EtdFoc-247	GCA_011034415.1_ASM1103441v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=86.6
+Fusarium_oxysporum_EtdFoc-25	GCA_011034575.1_ASM1103457v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=21.7
+Fusarium_oxysporum_EtdFoc-253	GCA_011034545.1_ASM1103454v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=62.2
+Fusarium_oxysporum_EtdFoc-34	GCA_011034745.1_ASM1103474v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=53.0
+Fusarium_oxysporum_EtdFoc-4	GCA_011034655.1_ASM1103465v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=66.9
+Fusarium_oxysporum_EtdFoc-52	GCA_011034875.1_ASM1103487v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=84.7
+Fusarium_oxysporum_EtdFoc-69	GCA_011034965.1_ASM1103496v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=46.2
+Fusarium_oxysporum_EtdFoc-75	GCA_011035205.1_ASM1103520v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=27.5
+Fusarium_oxysporum_EtdFoc-89	GCA_011424605.1_ASM1142460v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=27.8
+Fusarium_oxysporum_EtdFoc-92	GCA_011034945.1_ASM1103494v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=74.7
+Fusarium_oxysporum_EtdFoc-94	GCA_011036835.1_ASM1103683v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=80.7
+Fusarium_oxysporum_EtdFoc-99	GCA_011035185.1_ASM1103518v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=61.3
+Fusarium_oxysporum_EthFoc-10	GCA_011035135.1_ASM1103513v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=76.5
+Fusarium_oxysporum_EthFoc-138	GCA_011035665.1_ASM1103566v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=4.1
+Fusarium_oxysporum_EthFoc-139	GCA_011035645.1_ASM1103564v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=13.7
+Fusarium_oxysporum_EthFoc-142	GCA_011037075.1_ASM1103707v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=5.1
+Fusarium_oxysporum_EthFoc-144	GCA_011035555.1_ASM1103555v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=79.3
+Fusarium_oxysporum_EthFoc-146	GCA_011035595.1_ASM1103559v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=35.0
+Fusarium_oxysporum_EthFoc-152	GCA_011037105.1_ASM1103710v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=2.9
+Fusarium_oxysporum_EthFoc-158	GCA_011035695.1_ASM1103569v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=14.5
+Fusarium_oxysporum_EthFoc-159	GCA_011035725.1_ASM1103572v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=4.5
+Fusarium_oxysporum_EthFoc-165	GCA_011035895.1_ASM1103589v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=2.9
+Fusarium_oxysporum_EthFoc-167	GCA_011035785.1_ASM1103578v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=29.4
+Fusarium_oxysporum_EthFoc-168	GCA_011037005.1_ASM1103700v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=2.0
+Fusarium_oxysporum_EthFoc-173	GCA_011036965.1_ASM1103696v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=4.2
+Fusarium_oxysporum_EthFoc-18	GCA_011035765.1_ASM1103576v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=38.6
+Fusarium_oxysporum_EthFoc-20	GCA_011035875.1_ASM1103587v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=36.0
+Fusarium_oxysporum_EthFoc-28	GCA_011035995.1_ASM1103599v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=48.4
+Fusarium_oxysporum_EthFoc-29	GCA_011035975.1_ASM1103597v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=62.9
+Fusarium_oxysporum_EthFoc-36a	GCA_011036345.1_ASM1103634v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=11.3
+Fusarium_oxysporum_EthFoc-45	GCA_011036325.1_ASM1103632v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=28.3
+Fusarium_oxysporum_EthFoc-49	GCA_011036305.1_ASM1103630v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=75.2
+Fusarium_oxysporum_EthFoc-57	GCA_011036635.1_ASM1103663v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=4.5
+Fusarium_oxysporum_EthFoc-88	GCA_011036425.1_ASM1103642v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=78.7
+Fusarium_oxysporum_EthFoc-93	GCA_011036365.1_ASM1103636v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=69.9
+Fusarium_oxysporum_EthFoc-98	GCA_011036615.1_ASM1103661v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=30.3
+Fusarium_oxysporum_EthFoc-DSP12	GCA_011036575.1_ASM1103657v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=79.9
+Fusarium_oxysporum_EthFoc-DSP2	GCA_011036655.1_ASM1103665v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=43.0
+Fusarium_oxysporum_EthFoc-DSP6	GCA_011036985.1_ASM1103698v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=1.8
+Fusarium_oxysporum_EthFoc-DSP9	GCA_011037735.1_ASM1103773v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=19.2
+Fusarium_oxysporum_F38	GCA_057814765.1_ASM5781476v1	Fusarium oxysporum	mash_placement	FOXY name but nearest=FOSC d_FOSC=0.0528
+Fusarium_oxysporum_RBG_6837	GCA_052324445.1_FUSAVN_6837	Fusarium oxysporum	mash_placement	FOXY name but nearest=FFSC d_FOSC=0.0884
+Fusarium_oxysporum_S17-14	GCA_019054655.1_ASM1905465v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=88.2
+Fusarium_oxysporum_S17-8	GCA_019055395.1_ASM1905539v1	Fusarium oxysporum	busco	FOXY: BUSCO genome C=77.2
+Fusarium_oxysporum_S2_26	GCA_057128245.1_ASM5712824v1	Fusarium oxysporum	mash_placement	FOXY name but nearest=FFSC d_FOSC=0.0868
+Fusarium_oxysporum_Tf1208	GCA_019157295.1_ASM1915729v1	Fusarium oxysporum	mash_placement	FOXY name but nearest=FOSC d_FOSC=0.0526
+Fusarium_papillatum_NRRL_62944	GCA_013186395.1_ASM1318639v1	Fusarium papillatum	busco	FSSC: BUSCO genome C=84.0
+Fusarium_sp._AF-6_NRRL62590	GCA_003947015.1_NRRL62590.SPAdes	Fusarium sp. AF-6	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2607 d_FSSC=0.0944); excluded by name rule
+Fusarium_sp._FW16.1_FW16.1	GCA_017654865.1_FW16	Fusarium sp. FW16.1	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2544 d_FSSC=0.0551); excluded by name rule
+Fusarium_sp._LHS14.1_LHS14.1	GCA_025433615.1_ASM2543361v1	Fusarium sp. LHS14.1	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2544 d_FSSC=0.0608); excluded by name rule
+Fusarium_sp._M6JPR69_M6JPR69	GCA_037576055.1_ASM3757605v1	Fusarium sp. M6JPR69	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2338 d_FSSC=0.0744); excluded by name rule
+Fusarium_sp._MBC_438_MBC_438	GCA_030779245.1_ASM3077924v1	Fusarium sp. MBC 438	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2488 d_FSSC=0.0575); excluded by name rule
+Fusarium_sp._MBC_441_MBC_441	GCA_030779165.1_ASM3077916v1	Fusarium sp. MBC 441	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2470 d_FSSC=0.0585); excluded by name rule
+Fusarium_sp._NRRL_22101_NRRL_22101	GCA_013010345.1_ASM1301034v1	Fusarium sp. NRRL 22101	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2585 d_FSSC=0.0782); excluded by name rule
+Fusarium_sp._NRRL_62610_NRRL_62610	GCA_013186425.2_ASM1318642v2	Fusarium sp. NRRL 62610	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2680 d_FSSC=0.0984); excluded by name rule
+Fusarium_sp._NRRL_62957_NRRL_62957	GCA_012978535.1_ASM1297853v1	Fusarium sp. NRRL 62957	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2607 d_FSSC=0.1006); excluded by name rule
+Fusarium_sp._NRRL_66088_NRRL_66088	GCA_013186415.1_ASM1318641v1	Fusarium sp. NRRL 66088	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2488 d_FSSC=0.0930); excluded by name rule
+Fusarium_sp._Ph1_Ph1	GCA_025433565.1_ASM2543356v1	Fusarium sp. Ph1	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2564 d_FSSC=0.0729); excluded by name rule
+Fusarium_sp._R1_R1	GCA_042608555.1_ASM4260855v1	Fusarium sp. R1	name_not_in_complex_list	mash places it in FSSC (d_FOSC=0.2470 d_FSSC=0.0710); excluded by name rule
+Fusarium_sp._TH15_TH15	GCA_019192225.1_ASM1919222v1	Fusarium sp. TH15	name_not_in_complex_list	mash places it in FOSC (d_FOSC=0.0185 d_FSSC=0.2544); excluded by name rule
+Fusarium_tucumaniae_NRRL_31096	GCA_001680535.1_ASM168053v1	Fusarium tucumaniae	busco	FSSC: BUSCO genome C=89.2
+Fusarium_tucumaniae_NRRL_31781	GCA_001680595.1_ASM168059v1	Fusarium tucumaniae	busco	FSSC: BUSCO genome C=57.0
+Fusarium_tucumaniae_NRRL_34546	GCA_001680725.1_ASM168072v1	Fusarium tucumaniae	busco	FSSC: BUSCO genome C=10.5
+Fusarium_virguliforme_Clinton-1B	GCA_001680665.1_ASM168066v1	Fusarium virguliforme	busco	FSSC: BUSCO genome C=58.3
+Fusarium_virguliforme_LL0009	GCA_001680605.1_ASM168060v1	Fusarium virguliforme	busco	FSSC: BUSCO genome C=52.0
+Fusarium_virguliforme_NRRL_34551	GCA_001680525.1_ASM168052v1	Fusarium virguliforme	busco	FSSC: BUSCO genome C=65.2
+Fusarium_oxysporum_58385	GCA_002711385.1_ASM271138v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_54008
+Fusarium_odoratissimum_Indo-1	GCA_040822295.1_ASM4082229v1	Fusarium odoratissimum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_odoratissimum_Moz-1	GCA_040822185.1_ASM4082218v1	Fusarium odoratissimum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_oxysporum_TR4	GCA_007994515.1_ASM799451v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_oxysporum_Tw-TR4-1	GCA_053754965.1_ASM5375496v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_oxysporum_II5	GCA_031834405.1_ASM3183440v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_odoratissimum_FocTR4_03242	GCA_026745415.1_AGROSAVIA_FocTR4_1.0	Fusarium odoratissimum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_odoratissimum_race_4	GCA_000350365.1_Foc4_1.0	Fusarium odoratissimum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_odoratissimum_54006	GCF_000260195.1_FO_II5_V1	Fusarium odoratissimum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_oxysporum_C1HIR_9889	GCA_001696625.1_C1HIR_9889	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_oxysporum_C1HIR	GCA_045838205.1_ASM4583820v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_odoratissimum_FocTR4_190203
+Fusarium_oxysporum_Foc030	GCA_001702615.1_Foc030	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Foc018
+Fusarium_oxysporum_Forc016	GCA_001702695.2_ASM170269v2	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_V03-2g
+Fusarium_oxysporum_Forc031	GCA_001702645.1_Forc031	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_V03-2g
+Fusarium_oxysporum_Forc024	GCA_001702725.1_Forc024	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_V03-2g
+Fusarium_oxysporum_Fol073	GCA_001703085.1_Fol073	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fol026
+Fusarium_oxysporum_Fol002	GCA_001703355.1_Fol002	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fol026
+Fusarium_oxysporum_Fol004	GCA_001702875.1_Fol004	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fol026
+Fusarium_oxysporum_Fol072	GCA_001703065.1_Fol072	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fol010
+Fusarium_oxysporum_Fol075	GCA_001703135.1_Fol075	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fol010
+Fusarium_oxysporum_Fol016	GCA_001702995.1_Fol016	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fol010
+Fusarium_oxysporum_Fol074	GCA_001703105.1_Fol074	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fol038
+Fusarium_oxysporum_VPRI44109	GCA_025216565.1_ASM2521656v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_KT2a	GCA_020976455.1_ASM2097645v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_VPRI44102	GCA_025216725.1_ASM2521672v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_VPRI44108	GCA_025216805.1_ASM2521680v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_VPRI44103	GCA_025216705.1_ASM2521670v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_Yazd2	GCA_020976365.1_ASM2097636v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_NRRL_22521	GCA_020975975.1_ASM2097597v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_NYFom62	GCA_020976145.1_ASM2097614v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_50798	GCA_020976375.1_ASM2097637v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_VPRI44106	GCA_025216605.1_ASM2521660v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_VPRI44105	GCA_025216645.1_ASM2521664v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_I-17	GCA_020976485.1_ASM2097648v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_10390	GCA_020976355.1_ASM2097635v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_VPRI44104	GCA_025216665.1_ASM2521666v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_Kavar_22	GCA_020976445.1_ASM2097644v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_VPRI44292	GCA_025216625.1_ASM2521662v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_Mah9a	GCA_020976195.1_ASM2097619v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_Fom0125	GCA_020976035.1_ASM2097603v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_FomGol	GCA_020976255.1_ASM2097625v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_Pathtah	GCA_020976525.1_ASM2097652v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_P13	GCA_020976435.1_ASM2097643v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_Busherh-2s	GCA_020976275.1_ASM2097627v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_Seif3a	GCA_020976115.1_ASM2097611v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fom005
+Fusarium_oxysporum_Foc011	GCA_001703455.1_Foc011	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Foc013
+Fusarium_oxysporum_FON-1	GCA_002234055.1_Fonic_001	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_10913
+Fusarium_oxysporum_Ft-Rob	GCA_002233785.1_Fonic_010	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_10913
+Fusarium_oxysporum_90NF2-1	GCA_002233795.1_Fomom_004	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_NRRL26413
+Fusarium_oxysporum_VPRI44263	GCA_025203085.1_ASM2520308v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Tu67
+Fusarium_oxysporum_VPRI44266	GCA_025217225.1_ASM2521722v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Tu67
+Fusarium_oxysporum_Fol-167	GCA_002233855.1_Foluf_002	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fol-114
+Fusarium_oxysporum_Lag_1-1	GCA_002233875.1_Folag_005	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_01-03008
+Fusarium_oxysporum_KOD888	GCA_002233955.2_ASM223395v2	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_KOD886
+Fusarium_oxysporum_KOD887	GCA_002233985.2_ASM223398v2	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_KOD886
+Fusarium_oxysporum_Cong1-1	GCA_018894095.1_ASM1889409v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_IVC-1
+Fusarium_oxysporum_Fo5176	GCA_025331925.1_ASM2533192v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_IVC-1
+Fusarium_oxysporum_FGL03-6	GCA_002711405.2_ASM271140v2	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_IVC-1
+Fusarium_oxysporum_VPRI43900	GCA_025216065.1_ASM2521606v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI43906
+Fusarium_oxysporum_CS5870	GCA_002894245.1_CS5870v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI43906
+Fusarium_oxysporum_VPRI44287	GCA_025215805.1_ASM2521580v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI43906
+Fusarium_oxysporum_VPRI44284	GCA_025215945.1_ASM2521594v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI43906
+Fusarium_oxysporum_VEG-01C1	GCA_003025205.1_ASM302520v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_cuttings
+Fusarium_oxysporum_M7004Y	GCA_023628715.1_ASM2362871v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_cuttings
+Fusarium_oxysporum_VEG-01C2	GCA_003025235.1_ASM302523v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_cuttings
+Fusarium_veterinarium_F5_8S_1A_F	GCA_019191175.1_ASM1919117v1	Fusarium veterinarium	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_cuttings
+Fusarium_veterinarium_F5_8S_1B_F	GCA_019191165.1_ASM1919116v1	Fusarium veterinarium	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_cuttings
+Fusarium_oxysporum_FoC_A23	GCA_003615075.1_FoC_A23_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_FoC_Fus2
+Fusarium_oxysporum_FoC_125	GCA_003615095.1_FoC_125_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_FoC_Fus2
+Fusarium_oxysporum_MOD1-FUNGI10	GCA_003709395.1_ASM370939v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_MOD1-FUNGI11
+Fusarium_oxysporum_ISS-F3	GCA_004291455.1_ASM429145v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_ISS-F4
+Fusarium_oxysporum_RBG6448	GCA_009297715.1_ASM929771v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RBG5783
+Fusarium_oxysporum_RBG6503	GCA_009298245.1_ASM929824v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RBG5783
+Fusarium_oxysporum_VPRI42190	GCA_009299005.1_ASM929900v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_N-16999
+Fusarium_oxysporum_RBG6416	GCA_009297425.1_ASM929742v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_N-16999
+Fusarium_oxysporum_RBG6400	GCA_009297465.1_ASM929746v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RBG6398
+Fusarium_oxysporum_RBG6396	GCA_009297575.1_ASM929757v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RBG6398
+Fusarium_oxysporum_RBG5831	GCA_009297515.1_ASM929751v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fo11
+Fusarium_oxysporum_RBG6454	GCA_009298235.1_ASM929823v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RBG6397
+Fusarium_oxysporum_RBG6431	GCA_009297695.1_ASM929769v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RBG6425
+Fusarium_oxysporum_RBG6450	GCA_009297945.1_ASM929794v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI10403
+Fusarium_oxysporum_RBG6419	GCA_009297825.1_ASM929782v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI10403
+Fusarium_oxysporum_RBG6420	GCA_009297785.1_ASM929778v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI10403
+Fusarium_oxysporum_RBG6422	GCA_009297735.1_ASM929773v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI10403
+Fusarium_oxysporum_RBG6417	GCA_009297885.1_ASM929788v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI10403
+Fusarium_oxysporum_RBG6418	GCA_009297835.1_ASM929783v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI10403
+Fusarium_oxysporum_RBG6464	GCA_009298035.1_ASM929803v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RBG6444
+Fusarium_oxysporum_RBG6494	GCA_009298175.1_ASM929817v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RBG6499
+Fusarium_oxysporum_VPRI10405	GCA_009298295.1_ASM929829v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI31638
+Fusarium_oxysporum_VPRI42119	GCA_009299095.1_ASM929909v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI11762
+Fusarium_oxysporum_VPRI44100	GCA_025216765.1_ASM2521676v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI44276	GCA_025217085.1_ASM2521708v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI44274	GCA_025217105.1_ASM2521710v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI44107	GCA_025216785.1_ASM2521678v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI44272	GCA_025217125.1_ASM2521712v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI44273	GCA_025217165.1_ASM2521716v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI44099	GCA_025216745.1_ASM2521674v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI44275	GCA_025217065.1_ASM2521706v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI32264	GCA_009298805.1_ASM929880v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI16234	GCA_009298505.1_ASM929850v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44277
+Fusarium_oxysporum_VPRI42118	GCA_009299115.1_ASM929911v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI12300
+Fusarium_oxysporum_VPRI32288	GCA_009298745.1_ASM929874v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI32287
+Fusarium_oxysporum_VPRI41208	GCA_009298635.1_ASM929863v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI32287
+Fusarium_oxysporum_VPRI41207	GCA_009298705.1_ASM929870v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI32287
+Fusarium_oxysporum_VPRI42109	GCA_009298655.1_ASM929865v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI42760
+Fusarium_oxysporum_VPRI42181	GCA_009299025.1_ASM929902v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI32441
+Fusarium_oxysporum_VPRI43193	GCA_009299155.1_ASM929915v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI42339
+Fusarium_oxysporum_TF1	GCA_009602505.1_ASM960250v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_ME23
+Fusarium_oxysporum_15-2J	GCA_032878545.1_FOV4_152J_1.0	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_F17
+Fusarium_oxysporum_89-1A	GCA_009602635.1_ASM960263v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_F17
+Fusarium_oxysporum_PHW726	GCA_009755825.1_UMASS_Fom_PHW726_1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Stocks4
+Fusarium_oxysporum_EtdFoc-185	GCA_011033805.1_ASM1103380v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-229
+Fusarium_oxysporum_EtdFoc-183	GCA_011033815.1_ASM1103381v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-13
+Fusarium_oxysporum_EtdFoc-245	GCA_011034445.1_ASM1103444v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-13
+Fusarium_oxysporum_EtdFoc-258	GCA_011034485.1_ASM1103448v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-22
+Fusarium_oxysporum_EtdFoc-8	GCA_011034775.1_ASM1103477v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-216
+Fusarium_oxysporum_EthFoc-40	GCA_011036125.1_ASM1103612v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-216
+Fusarium_oxysporum_EtdFoc-7	GCA_011034815.1_ASM1103481v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-216
+Fusarium_oxysporum_EtdFoc-256	GCA_011034515.1_ASM1103451v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-223
+Fusarium_oxysporum_EtdFoc-5	GCA_011034645.1_ASM1103464v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-6
+Fusarium_oxysporum_EtdFoc-87	GCA_011034925.1_ASM1103492v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-88
+Fusarium_oxysporum_EthFoc-61	GCA_011036235.1_ASM1103623v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-11
+Fusarium_oxysporum_EthFoc-56	GCA_011037795.1_ASM1103779v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-95
+Fusarium_oxysporum_EthFoc-106	GCA_011035065.1_ASM1103506v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-95
+Fusarium_oxysporum_EthFoc-130	GCA_011035265.1_ASM1103526v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-131
+Fusarium_oxysporum_EthFoc-129	GCA_011035385.1_ASM1103538v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-127
+Fusarium_oxysporum_EthFoc-120	GCA_011035375.1_ASM1103537v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-118
+Fusarium_oxysporum_EthFoc-125	GCA_011035345.1_ASM1103534v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-118
+Fusarium_oxysporum_EthFoc-44	GCA_011036055.1_ASM1103605v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-2
+Fusarium_oxysporum_EtdFoc-192	GCA_011421365.1_ASM1142136v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-191
+Fusarium_oxysporum_EthFoc-27	GCA_011035855.1_ASM1103585v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EtdFoc-191
+Fusarium_oxysporum_EthFoc-42	GCA_011036045.1_ASM1103604v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-75
+Fusarium_oxysporum_EthFoc-48	GCA_011036065.1_ASM1103606v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-84
+Fusarium_oxysporum_EthFoc-35	GCA_011036705.1_ASM1103670v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_EthFoc-34
+Fusarium_oxysporum_VCG01220	GCA_016802225.1_NRCB_FocR1_VCG01220	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_TC1-1
+Fusarium_oxysporum_4287	GCF_000149955.1_ASM14995v2	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_TC1-1
+Fusarium_oxysporum_MF34	GCA_015228045.1_ASM1522804v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fus254
+Fusarium_oxysporum_VPRI44294	GCA_025216545.1_ASM2521654v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fus254
+Fusarium_oxysporum_Fus059	GCA_013347525.1_WSU_Fus059	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fus254
+Fusarium_oxysporum_Fus057	GCA_013347515.1_WSU_Fus057	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fus254
+Fusarium_oxysporum_Fus322	GCA_013347505.1_WSU_Fus322	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fus254
+Fusarium_oxysporum_Fus259	GCA_013347375.1_WSU_Fus259	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fus191
+Fusarium_oxysporum_Fus173	GCA_013347495.1_WSU_Fus173	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fus001
+Fusarium_oxysporum_MF42	GCA_015227905.1_ASM1522790v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fus167
+Fusarium_oxysporum_F287	GCA_013423255.1_ASM1342325v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_F329
+Fusarium_oxysporum_F282	GCA_013423265.1_ASM1342326v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_F329
+Fusarium_oxysporum_Fo57	GCA_014324505.1_ASM1432450v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fo58
+Fusarium_oxysporum_Fo75	GCA_014324435.1_ASM1432443v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fo58
+Fusarium_oxysporum_MES6	GCA_044647035.1_ASM4464703v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fo58
+Fusarium_oxysporum_Fo48	GCA_014324625.1_ASM1432462v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fo49
+Fusarium_oxysporum_Fo68	GCA_014324755.1_ASM1432475v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fo49
+Fusarium_oxysporum_GL306	GCA_014843445.1_UCD_FociGL306_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_3-2
+Fusarium_oxysporum_NRRL38295	GCA_014843565.1_UCD_FoaR3-NRRL38295_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_274.AC
+Fusarium_oxysporum_160618	GCA_016166395.1_USDA_160618_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_SK1
+Fusarium_oxysporum_NRF0833	GCA_016163855.1_USDA_NRF0833_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_NRF0995b
+Fusarium_oxysporum_NRF0806	GCA_016163875.1_USDA_NRF0806_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1381
+Fusarium_oxysporum_GL1270	GCA_016166105.1_USDA_GL1270_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1381
+Fusarium_oxysporum_GL1059	GCA_016166195.1_USDA_GL1059_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1381
+Fusarium_oxysporum_GL1517	GCA_016166065.1_USDA_GL1517_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1381
+Fusarium_oxysporum_CT120	GCA_055682805.1_ASM5568280v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1381
+Fusarium_oxysporum_CT119	GCA_055682765.1_ASM5568276v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1381
+Fusarium_oxysporum_F3384	GCA_055681575.1_ASM5568157v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1381
+Fusarium_oxysporum_F3383	GCA_055681535.1_ASM5568153v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1381
+Fusarium_oxysporum_NRF0903	GCA_016163845.1_USDA_NRF0903_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1381
+Fusarium_oxysporum_GL945	GCA_016165935.1_USDA_GL945_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_BRIP62109a	GCA_016166345.1_USDA_BRIP62109a_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_GL1385	GCA_016166085.1_USDA_GL1385_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_Fus08-78	GCA_016166215.1_USDA_Fus08-78_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_N-18462	GCA_016163965.1_USDA_N-18462_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_GL1150	GCA_016166175.1_USDA_GL1150_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_VPRI44271	GCA_025217145.1_ASM2521714v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_F3100	GCA_055682425.1_ASM5568242v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_F3388	GCA_055682585.1_ASM5568258v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_CT114	GCA_055682665.1_ASM5568266v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_F3385	GCA_055682485.1_ASM5568248v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_F3390	GCA_055682865.1_ASM5568286v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_F3386	GCA_055682525.1_ASM5568252v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_F3387	GCA_055682605.1_ASM5568260v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1080
+Fusarium_oxysporum_N-17203	GCA_016163975.1_USDA_N-17203_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_BRIP62122a
+Fusarium_oxysporum_BRIP62106a	GCA_016166335.1_USDA_BRIP62106a_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_BRIP62122a
+Fusarium_oxysporum_BRIP53855a	GCA_016166365.1_USDA_BRIP53855a_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_BRIP62122a
+Fusarium_oxysporum_VPRI43897	GCA_025215825.1_ASM2521582v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_N-10010
+Fusarium_oxysporum_MAFF305557	GCA_016165915.1_USDA_MAFF305557_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_MAFF305558
+Fusarium_oxysporum_GL1702	GCA_016166025.1_USDA_GL1702_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1703
+Fusarium_oxysporum_VPRI43896	GCA_025215965.1_ASM2521596v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1703
+Fusarium_oxysporum_GL1268	GCA_016166135.1_USDA_GL1268_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_GL1315
+Fusarium_oxysporum_F79	GCA_016166225.1_USDA_F79_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_F74
+Fusarium_oxysporum_BRIP5168a	GCA_016166385.1_USDA_BRIP5168a_v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_BRIP63546a
+Fusarium_oxysporum_VPRI44208	GCA_025267615.1_ASM2526761v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_BRIP63546a
+Fusarium_oxysporum_B117	GCA_017654665.1_ASM1765466v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_B04
+Fusarium_oxysporum_MAP5	GCA_016906485.1_Foph_MAP5	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_B04
+Fusarium_oxysporum_150523	GCA_019593445.1_ASM1959344v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fon020
+Fusarium_oxysporum_150524	GCA_019593505.1_ASM1959350v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Fon020
+Fusarium_oxysporum_140508B	GCA_019721145.1_ASM1972114v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_150319
+Fusarium_oxysporum_NYFom3	GCA_020976425.1_ASM2097642v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_ATCC_32669
+Fusarium_oxysporum_ICMP_8357	GCA_020975805.1_ASM2097580v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_ATCC_32669
+Fusarium_oxysporum_NRRL_26172	GCA_020975915.1_ASM2097591v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_ATCC_32669
+Fusarium_oxysporum_D-Oleon-8	GCA_020976025.1_ASM2097602v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_NRRL_26174
+Fusarium_oxysporum_R12-13	GCA_020976165.1_ASM2097616v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_NRRL_26174
+Fusarium_oxysporum_Tai3	GCA_020976085.1_ASM2097608v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Taip2a
+Fusarium_oxysporum_Khaf1	GCA_020976235.1_ASM2097623v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Taip2a
+Fusarium_oxysporum_Nasr1	GCA_020976175.1_ASM2097617v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Taip2a
+Fusarium_oxysporum_2Ma4-5	GCA_020976725.1_ASM2097672v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_TO1
+Fusarium_oxysporum_9	GCA_023509805.1_Fusoxalb1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Foa_44
+Fusarium_oxysporum_VPRI44302	GCA_025216365.1_ASM2521636v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44203
+Fusarium_oxysporum_VPRI44270	GCA_025217185.1_ASM2521718v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44203
+Fusarium_oxysporum_VPRI44269	GCA_025176785.1_ASM2517678v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44203
+Fusarium_oxysporum_VPRI43907	GCA_025216085.1_ASM2521608v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44290
+Fusarium_oxysporum_VPRI44265	GCA_025203045.1_ASM2520304v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44264
+Fusarium_oxysporum_VPRI44260	GCA_025203125.1_ASM2520312v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44261
+Fusarium_oxysporum_VPRI44210	GCA_025267675.1_ASM2526767v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44261
+Fusarium_oxysporum_VPRI44262	GCA_025203075.1_ASM2520307v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44261
+Fusarium_oxysporum_VPRI44200	GCA_025203755.1_ASM2520375v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_pin22
+Fusarium_oxysporum_VPRI44279	GCA_025217005.1_ASM2521700v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_pin22
+Fusarium_oxysporum_VPRI44280	GCA_025216965.1_ASM2521696v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_pin22
+Fusarium_oxysporum_VPRI44278	GCA_025217045.1_ASM2521704v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_pin22
+Fusarium_oxysporum_VPRI44314	GCA_025215215.1_ASM2521521v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44312
+Fusarium_oxysporum_VPRI43909	GCA_025215475.1_ASM2521547v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI43901
+Fusarium_oxysporum_VPRI44295	GCA_025216525.1_ASM2521652v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01112
+Fusarium_oxysporum_VPRI44301	GCA_025216385.1_ASM2521638v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01112
+Fusarium_oxysporum_VPRI44296	GCA_025216465.1_ASM2521646v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01112
+Fusarium_oxysporum_VPRI44211	GCA_025267685.1_ASM2526768v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01112
+Fusarium_oxysporum_VPRI44267	GCA_025217205.1_ASM2521720v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01112
+Fusarium_oxysporum_VPRI44283	GCA_025216125.1_ASM2521612v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01112
+Fusarium_oxysporum_VPRI44202	GCA_025267595.1_ASM2526759v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01112
+Fusarium_oxysporum_VPRI44268	GCA_025217245.1_ASM2521724v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01111
+Fusarium_oxysporum_VPRI44207	GCA_025267705.1_ASM2526770v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01111
+Fusarium_oxysporum_VPRI44303	GCA_025216405.1_ASM2521640v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01111
+Fusarium_oxysporum_VPRI44298	GCA_025216505.1_ASM2521650v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01111
+Fusarium_oxysporum_VPRI44304	GCA_025216345.1_ASM2521634v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01111
+Fusarium_oxysporum_VPRI44282	GCA_025216145.1_ASM2521614v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01111
+Fusarium_oxysporum_VPRI44281	GCA_025216185.1_ASM2521618v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VCG_01111
+Fusarium_oxysporum_VPRI44307	GCA_025216305.1_ASM2521630v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44309
+Fusarium_oxysporum_VPRI44310	GCA_025216225.1_ASM2521622v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44309
+Fusarium_oxysporum_VPRI44305	GCA_025216325.1_ASM2521632v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44255
+Fusarium_oxysporum_VPRI44254	GCA_025266905.1_ASM2526690v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44255
+Fusarium_oxysporum_VPRI44299	GCA_025216445.1_ASM2521644v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44300
+Fusarium_oxysporum_VPRI44297	GCA_025216485.1_ASM2521648v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_SG1
+Fusarium_odoratissimum_MC3	GCA_052550365.1_ASM5255036v1	Fusarium odoratissimum	dedup	FOXY: mash<0.001 to kept Fusarium_phialophorum_CR1.1
+Fusarium_oxysporum_VPRI44083	GCA_025216865.1_ASM2521686v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_phialophorum_CR1.1
+Fusarium_oxysporum_VPRI44082	GCA_025216935.1_ASM2521693v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_phialophorum_CR1.1
+Fusarium_oxysporum_VPRI44257	GCA_025266945.1_ASM2526694v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_VPRI44256
+Fusarium_oxysporum_W2	GCA_027475405.1_ASM2747540v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_STO
+Fusarium_oxysporum_HAR	GCA_026260275.1_HAR_MEGAHIT_1000	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_STO
+Fusarium_oxysporum_PRU	GCA_026260535.1_PRU_MEGAHIT_1000	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_STO
+Fusarium_oxysporum_CF00161	GCA_027945315.1_F_oxy_CF00161	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_CF00144
+Fusarium_oxysporum_CF00141	GCA_027945265.1_F_oxy_CF00141	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_CF00160
+Fusarium_oxysporum_CF00115	GCA_027945535.1_F_oxy_CF00115	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_CF00165
+Fusarium_oxysporum_CF00132	GCA_027945555.1_F_oxy_CF00132	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_CF00159
+Fusarium_oxysporum_Foc-UH	GCA_034509825.1_Foc_UH	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_Tw-R1-1
+Fusarium_oxysporum_1LF1-1	GCA_040285575.1_ASM4028557v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_8RF1-3
+Fusarium_oxysporum_FoCI-2	GCA_040938085.1_ASM4093808v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum
+Fusarium_oxysporum_AJ520	GCA_045838095.1_ASM4583809v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_JCP043
+Fusarium_oxysporum_AJ865	GCA_045837815.1_ASM4583781v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_JCP043
+Fusarium_oxysporum_AJ718	GCA_045837925.1_ASM4583792v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_JCP043
+Fusarium_oxysporum_AJ516	GCA_045838055.1_ASM4583805v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_AT141
+Fusarium_oxysporum_AJ705	GCA_045837975.1_ASM4583797v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_AT141
+Fusarium_oxysporum_AJ592	GCA_045838035.1_ASM4583803v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_AT141
+Fusarium_oxysporum_S55Ac	GCA_050947165.1_ASM5094716v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_S56Ac
+Fusarium_oxysporum_RF2	GCA_051622595.1_ASM5162259v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RF12
+Fusarium_oxysporum_RF7	GCA_051622495.1_ASM5162249v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RF12
+Fusarium_oxysporum_RF4	GCA_051622515.1_ASM5162251v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_RF12
+Fusarium_oxysporum_5xtra	GCA_051943305.1_ASM5194330v1	Fusarium oxysporum	dedup	FOXY: mash<0.001 to kept Fusarium_oxysporum_F4AB
+Fusarium_cf._falciforme_EtdFoc-184	GCA_011033595.1_ASM1103359v1	Fusarium cf. falciforme	dedup	FSSC: mash<0.001 to kept Fusarium_cf._falciforme_EtdFoc-186
+Fusarium_cf._falciforme_EtdFoc-68	GCA_011036815.1_ASM1103681v1	Fusarium cf. falciforme	dedup	FSSC: mash<0.001 to kept Fusarium_cf._falciforme_EtdFoc-195
+Fusarium_cf._solani_EthFoc-38	GCA_011036165.1_ASM1103616v1	Fusarium cf. solani	dedup	FSSC: mash<0.001 to kept Fusarium_cf._solani_EthFoc-8
+Fusarium_obliquiseptatum_BRIP75421	GCA_047371145.1_ASM4737114v1	Fusarium obliquiseptatum	dedup	FSSC: mash<0.001 to kept Fusarium_obliquiseptatum_NRRL62610
+Fusarium_obliquiseptatum_NRRL62611	GCA_057675085.1_ASM5767508v1	Fusarium obliquiseptatum	dedup	FSSC: mash<0.001 to kept Fusarium_obliquiseptatum_NRRL62610
+Neocosmospora_sp._B6999-4_CBS153115	GCA_057673865.1_ASM5767386v1	Neocosmospora sp. B6999-4	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-4_CBS153114
+Neocosmospora_sp._B6999-4_CBS153113	GCA_057673905.1_ASM5767390v1	Neocosmospora sp. B6999-4	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-4_CBS153114
+Neocosmospora_sp._B6999-4_CBS153112	GCA_057674065.1_ASM5767406v1	Neocosmospora sp. B6999-4	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-4_CBS153114
+Neocosmospora_sp._B6999-4_CBS153118	GCA_057673805.1_ASM5767380v1	Neocosmospora sp. B6999-4	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-4_CBS153114
+Neocosmospora_sp._B6999-4_CBS153117	GCA_057673925.1_ASM5767392v1	Neocosmospora sp. B6999-4	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-4_CBS153114
+Neocosmospora_sp._B6999-4_CBS153116	GCA_057673945.1_ASM5767394v1	Neocosmospora sp. B6999-4	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-4_CBS153114
+Neocosmospora_sp._B6999-2_CBS153931	GCA_057674165.1_ASM5767416v1	Neocosmospora sp. B6999-2	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-2_CBS153110
+Neocosmospora_sp._B6999-1_CBS153109	GCA_057674185.1_ASM5767418v1	Neocosmospora sp. B6999-1	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-1_CBS153107
+Neocosmospora_sp._B6999-1_CBS153104	GCA_057674245.1_ASM5767424v1	Neocosmospora sp. B6999-1	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-1_CBS153107
+Neocosmospora_sp._B6999-1_CBS153106	GCA_057674425.1_ASM5767442v1	Neocosmospora sp. B6999-1	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-1_CBS153107
+Neocosmospora_sp._B6999-1_CBS153396	GCA_057674285.1_ASM5767428v1	Neocosmospora sp. B6999-1	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-1_CBS153107
+Neocosmospora_sp._B6999-1_CBS153105	GCA_057674335.1_ASM5767433v1	Neocosmospora sp. B6999-1	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-1_CBS153107
+Neocosmospora_sp._B6999-1_CBS153108	GCA_057674405.1_ASM5767440v1	Neocosmospora sp. B6999-1	dedup	FSSC: mash<0.001 to kept Neocosmospora_sp._B6999-1_CBS153107
+Fusarium_duplospermum_NRRL62585	GCA_057674665.1_ASM5767466v1	Fusarium duplospermum	dedup	FSSC: mash<0.001 to kept Fusarium_duplospermum_NRRL62584
+Fusarium_cf._solani_NRRL62591	GCA_057674765.1_ASM5767476v1	Fusarium cf. solani	dedup	FSSC: mash<0.001 to kept Fusarium_cf._solani_NRRL62590
+Fusarium_mekan_CBS146886	GCA_057675485.1_ASM5767548v1	Fusarium mekan	dedup	FSSC: mash<0.001 to kept Fusarium_mekan_CBS146885
+Fusarium_awan_CBS146884	GCA_057674825.1_ASM5767482v1	Fusarium awan	dedup	FSSC: mash<0.001 to kept Fusarium_awan_CBS146882
+Fusarium_akasia_CBS146880	GCA_057674945.1_ASM5767494v1	Fusarium akasia	dedup	FSSC: mash<0.001 to kept Fusarium_akasia_CBS146881
+Fusarium_euwallaceae_MAFF243813	GCA_057675505.1_ASM5767550v1	Fusarium euwallaceae	dedup	FSSC: mash<0.001 to kept Fusarium_euwallaceae_CBS135854
+Fusarium_euwallaceae_CBS135859	GCA_057675525.1_ASM5767552v1	Fusarium euwallaceae	dedup	FSSC: mash<0.001 to kept Fusarium_euwallaceae_CBS135854
+Fusarium_euwallaceae_MAFF243812	GCA_057675025.1_ASM5767502v1	Fusarium euwallaceae	dedup	FSSC: mash<0.001 to kept Fusarium_euwallaceae_CBS135854
+Fusarium_tuaranense_NRRL22231	GCA_057675225.1_ASM5767522v1	Fusarium tuaranense	dedup	FSSC: mash<0.001 to kept Fusarium_tuaranense_NRRL46518
+Fusarium_floridanum_NRRL62629	GCA_057675305.1_ASM5767530v1	Fusarium floridanum	dedup	FSSC: mash<0.001 to kept Fusarium_floridanum_NRRL62628
+Fusarium_floridanum_NRRL62608	GCA_057675325.1_ASM5767532v1	Fusarium floridanum	dedup	FSSC: mash<0.001 to kept Fusarium_floridanum_NRRL62628
+Fusarium_variasi_CBS146888	GCA_057675405.1_ASM5767540v1	Fusarium variasi	dedup	FSSC: mash<0.001 to kept Fusarium_variasi_CBS146889
+Fusarium_rekanum_CMW52862	GCA_057675625.1_ASM5767562v1	Fusarium rekanum	dedup	FSSC: mash<0.001 to kept Fusarium_rekanum_CMW53688
+Fusarium_cf._solani_TW44	GCA_057675645.1_ASM5767564v1	Fusarium cf. solani	dedup	FSSC: mash<0.001 to kept Fusarium_cf._solani_UCR4677
+Fusarium_cf._solani_UCR4678	GCA_057675765.1_ASM5767576v1	Fusarium cf. solani	dedup	FSSC: mash<0.001 to kept Fusarium_cf._solani_UCR5508
+Fusarium_cf._solani_UCR4676	GCA_057675705.1_ASM5767570v1	Fusarium cf. solani	dedup	FSSC: mash<0.001 to kept Fusarium_cf._solani_UCR5508
+Fusarium_cf._solani_UCR5499	GCA_057675845.1_ASM5767584v1	Fusarium cf. solani	dedup	FSSC: mash<0.001 to kept Fusarium_cf._solani_TW56
+Fusarium_ambrosium_MAFF246289	GCA_057676245.1_ASM5767624v1	Fusarium ambrosium	dedup	FSSC: mash<0.001 to kept Fusarium_ambrosium_CBS571.94
+Fusarium_odoratissimum_36102	GCA_040822265.1_ASM4082226v1	Fusarium odoratissimum	species_floor	FOXY: added so every FOSC species name keeps >=1 strain
+Fusarium_purpurascens_C058	GCA_040822135.1_ASM4082213v1	Fusarium purpurascens	species_floor	FOXY: added so every FOSC species name keeps >=1 strain
+Fusarium_oxysporum_54005	GCA_000260235.2_FO_PHW815_V1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_UASWS_AC1	GCA_000733055.3_FusOxp_1.0	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_1	GCA_001519035.1_ASM151903v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fon005	GCA_001702505.1_ASM170250v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Foc018	GCA_001702545.1_Foc018	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Foc037	GCA_001702635.1_Foc037	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Foc035	GCA_001702655.1_Foc035	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fon002	GCA_001702745.1_Fon002	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fon010	GCA_001702785.1_Fon010	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fon015	GCA_001702795.1_Fon015	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fon037	GCA_001702845.1_Fon037	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fon021	GCA_001702865.1_Fon021	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol007	GCA_001702905.1_Fol007	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol026	GCA_001702935.1_Fol026	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol014	GCA_001702945.1_Fol014	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol018	GCA_001702955.1_Fol018	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol038	GCA_001703015.1_Fol038	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_FoMN14	GCA_001703125.1_FoMN14	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fom005	GCA_001703205.2_UvA_Fom005	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fom006	GCA_001703255.1_Fom006	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fom009	GCA_001703265.1_Fom009	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fom012	GCA_001703345.1_Fom012	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_38-1	GCA_001757345.1_ASM175734v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_IMV_00293	GCA_001931975.2_ASM193197v2	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_KOD886	GCA_002233995.2_ASM223399v2	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol-114	GCA_002234105.1_Foluf_001	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_G76	GCA_002234195.1_Fogla_G76	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo_A13	GCA_003615115.1_Fo_A13_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo_A28	GCA_003615155.1_Fo_A28_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo_CB3	GCA_003615165.1_Fo_CB3_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo_PG	GCA_003615185.1_Fo_PG_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_MOD1-FUNGI9	GCA_003704975.1_ASM370497v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_MOD1-FUNGI16	GCA_003705035.1_ASM370503v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_MOD1-FUNGI11	GCA_003705045.1_ASM370504v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_race_3	GCA_003977725.1_FolCA3_D11_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_N139	GCA_004141715.1_FoN_N139_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_ISS-F4	GCA_004292535.1_ASM429253v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_160527	GCA_005930515.1_ASM593051v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG5714	GCA_009297385.1_ASM929738v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG5783	GCA_009297405.1_ASM929740v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6313	GCA_009297485.1_ASM929748v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6398	GCA_009297495.1_ASM929749v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6358	GCA_009297605.1_ASM929760v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6309	GCA_009297625.1_ASM929762v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6301	GCA_009297635.1_ASM929763v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG5836	GCA_009297655.1_ASM929765v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6425	GCA_009297725.1_ASM929772v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6421	GCA_009297755.1_ASM929775v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6462	GCA_009297915.1_ASM929791v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6433	GCA_009297935.1_ASM929793v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6429	GCA_009297985.1_ASM929798v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6475	GCA_009298065.1_ASM929806v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6442	GCA_009298125.1_ASM929812v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI11235	GCA_009298275.1_ASM929827v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI10605	GCA_009298285.1_ASM929828v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI11762	GCA_009298305.1_ASM929830v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI10408	GCA_009298315.1_ASM929831v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI10403	GCA_009298335.1_ASM929833v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG7070	GCA_009298435.1_ASM929843v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI17796	GCA_009298455.1_ASM929845v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI17577	GCA_009298465.1_ASM929846v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG6505	GCA_009298475.1_ASM929847v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI13039	GCA_009298515.1_ASM929851v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI12300	GCA_009298545.1_ASM929854v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI11409	GCA_009298555.1_ASM929855v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI41778	GCA_009298615.1_ASM929861v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI41920	GCA_009298675.1_ASM929867v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI32441	GCA_009298715.1_ASM929871v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI32287	GCA_009298755.1_ASM929875v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI19293	GCA_009298825.1_ASM929882v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI31638	GCA_009298845.1_ASM929884v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI42882	GCA_009298915.1_ASM929891v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI42339	GCA_009298925.1_ASM929892v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI42760	GCA_009298935.1_ASM929893v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI42117	GCA_009299125.1_ASM929912v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI41884	GCA_009299135.1_ASM929913v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI42889	GCA_009299175.1_ASM929917v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI42888	GCA_009299195.1_ASM929919v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI42327	GCA_009299235.1_ASM929923v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI43194	GCA_009299255.1_ASM929925v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI43195	GCA_009299295.1_ASM929929v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI32289	GCA_009299335.1_ASM929933v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_LA3B	GCA_009602545.1_ASM960254v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-10	GCA_011032855.1_ASM1103285v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-1	GCA_011032885.1_ASM1103288v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-158	GCA_011033375.1_ASM1103337v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-13	GCA_011033475.1_ASM1103347v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-16	GCA_011033555.1_ASM1103355v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-190	GCA_011033745.1_ASM1103374v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-19	GCA_011033765.1_ASM1103376v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-22	GCA_011033835.1_ASM1103383v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-219	GCA_011033885.1_ASM1103388v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-216	GCA_011033895.1_ASM1103389v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-204	GCA_011033955.1_ASM1103395v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-198	GCA_011034025.1_ASM1103402v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-234	GCA_011034125.1_ASM1103412v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-233	GCA_011034135.1_ASM1103413v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-23	GCA_011034155.1_ASM1103415v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-229	GCA_011034195.1_ASM1103419v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-250	GCA_011034375.1_ASM1103437v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-248	GCA_011034395.1_ASM1103439v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-259	GCA_011034565.1_ASM1103456v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-49	GCA_011034615.1_ASM1103461v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-39	GCA_011034675.1_ASM1103467v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-79	GCA_011034805.1_ASM1103480v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-61	GCA_011034845.1_ASM1103484v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-55	GCA_011034915.1_ASM1103491v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-86	GCA_011035015.1_ASM1103501v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-111	GCA_011035045.1_ASM1103504v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-11	GCA_011035055.1_ASM1103505v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-102	GCA_011035075.1_ASM1103507v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-136	GCA_011035255.1_ASM1103525v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-127	GCA_011035335.1_ASM1103533v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-122	GCA_011035355.1_ASM1103535v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-148	GCA_011035625.1_ASM1103562v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-2	GCA_011035745.1_ASM1103574v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-25	GCA_011035835.1_ASM1103583v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-3	GCA_011035955.1_ASM1103595v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-36	GCA_011035965.1_ASM1103596v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-43	GCA_011036075.1_ASM1103607v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-4	GCA_011036135.1_ASM1103613v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-75	GCA_011036215.1_ASM1103621v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-52	GCA_011036275.1_ASM1103627v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-95	GCA_011036385.1_ASM1103638v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-83	GCA_011036475.1_ASM1103647v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-81	GCA_011036505.1_ASM1103650v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-47	GCA_011036765.1_ASM1103676v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-13	GCA_011036875.1_ASM1103687v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EthFoc-34	GCA_011036945.1_ASM1103694v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-85	GCA_011421285.1_ASM1142128v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-220	GCA_011421305.1_ASM1142130v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-206	GCA_011421335.1_ASM1142133v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_EtdFoc-191	GCA_011421355.1_ASM1142135v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_39	GCA_012026625.1_EIMB_FOxy_1.0	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_NRRL_25432	GCA_012610785.1_USDA_Fov5_1.0	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Foa_133	GCA_012922595.1_FOaGM19-11	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fus187	GCA_013347355.2_ASM1334735v2	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fus191	GCA_013347365.1_WSU_Fus191	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fus250	GCA_013347385.1_WSU_Fus250	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fus167	GCA_013347535.2_ASM1334753v2	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fus017	GCA_013347595.1_WSU_Fus017	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fus001	GCA_013347635.1_WSU_Fus001	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_NRRL_39464	GCA_013363075.1_ASM1336307v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_F329	GCA_013423225.1_ASM1342322v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo58	GCA_014324495.1_ASM1432449v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo54	GCA_014324555.1_ASM1432455v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo49	GCA_014324585.1_ASM1432458v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo45	GCA_014324665.1_ASM1432466v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo35	GCA_014324675.1_ASM1432467v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo44	GCA_014324715.1_ASM1432471v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo74	GCA_014324745.1_ASM1432474v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo59	GCA_014324765.1_ASM1432476v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo28	GCA_014324835.1_ASM1432483v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo26	GCA_014324865.1_ASM1432486v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo20	GCA_014324905.1_ASM1432490v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo18	GCA_014324935.1_ASM1432493v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo17	GCA_014324955.1_ASM1432495v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo15	GCA_014324975.1_ASM1432497v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo13	GCA_014325015.1_ASM1432501v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo10	GCA_014325095.1_ASM1432509v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo9	GCA_014325125.1_ASM1432512v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo7	GCA_014325185.1_ASM1432518v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo6	GCA_014325215.1_ASM1432521v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo4	GCA_014325225.1_ASM1432522v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo1	GCA_014325315.1_ASM1432531v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_R3	GCA_014602795.1_ASM1460279v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_R1	GCA_014602815.1_ASM1460281v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_IVC-1	GCA_014839635.1_ASM1483963v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_170	GCA_014857085.1_ASM1485708v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol001	GCA_015345885.1_ASM1534588v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol010	GCA_015345895.1_ASM1534589v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_SK1	GCA_016163805.1_USDA_SK1_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_NRF0995b	GCA_016163825.1_USDA_NRF0995b_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Nasushiobara1	GCA_016163905.1_USDA_Nasushiobara1_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_N-18842	GCA_016163925.1_USDA_N-18842_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_N-16999	GCA_016163985.1_USDA_N-16999_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_N-16893	GCA_016163995.1_USDA_N-16893_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_N-10226	GCA_016164075.1_USDA_N-10226_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_MAFF744009	GCA_016164105.1_USDA_MAFF744009_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_GL1804	GCA_016165945.1_USDA_GL1804_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_GL1703	GCA_016165995.1_USDA_GL1703_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_GL1552	GCA_016166015.1_USDA_GL1552_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_GL1551	GCA_016166045.1_USDA_GL1551_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_GL1315	GCA_016166095.2_USDA_GL1315_v2	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_G2-4	GCA_016166205.1_USDA_G2-4_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_BRIP63546a	GCA_016166285.1_USDA_BRIP63546a_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_80701	GCA_016167825.1_USDA_80701_v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_GL1080	GCA_016170085.2_USDA_GL1080_v2	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_GL1381	GCA_016170095.2_USDA_GL1381_v2	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Focpep1	GCA_016801315.1_CAAS_Focaps_1.0	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VCG0120	GCA_016802205.1_NRCB_FocSTR4_VCG0120	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_FoPvo1	GCA_016859205.1_FoPvo1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_B01	GCA_017654635.1_ASM1765463v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_MR4003	GCA_017979615.1_ASM1797961v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_S18-30	GCA_019054625.1_ASM1905462v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_S18-25	GCA_019054755.1_ASM1905475v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_S18-40	GCA_019054795.1_ASM1905479v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Tf1262	GCA_019157275.1_ASM1915727v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_525	GCA_019670985.1_EIMB_FOl_525_1.2	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_476	GCA_019671045.1_EIMB_FOl_476_1.1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_483	GCA_019671085.1_EIMB_FOl_483_1.0	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_150319	GCA_019721165.1_ASM1972116v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_NRRL_43631	GCA_019843925.1_ASM1984392v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_MPI-SDFR-AT-0094	GCA_020744455.1_Fusoxy1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_JCM_9288	GCA_020975845.1_ASM2097584v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_NRRL_26174	GCA_020975875.1_ASM2097587v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_TST	GCA_020975985.1_ASM2097598v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_ATCC_32669	GCA_020975995.1_ASM2097599v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Taip2a	GCA_020976075.1_ASM2097607v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_T61-1	GCA_020976095.1_ASM2097609v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_I1-1	GCA_020976245.1_ASM2097624v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_660A-17	GCA_020976345.1_ASM2097634v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_TO1	GCA_020976715.1_ASM2097671v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol59	GCA_021018635.1_ASM2101863v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44291	GCA_025176795.1_ASM2517679v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_FCALT	GCA_025177585.1_FCALT	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44313	GCA_025177805.1_ASM2517780v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44290	GCA_025201435.1_ASM2520143v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44264	GCA_025203025.1_ASM2520302v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44261	GCA_025203065.1_ASM2520306v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44312	GCA_025215195.1_ASM2521519v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44286	GCA_025215865.1_ASM2521586v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI43898	GCA_025215925.1_ASM2521592v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI43906	GCA_025216005.1_ASM2521600v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI43892	GCA_025216045.1_ASM2521604v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI43903	GCA_025216165.1_ASM2521616v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI43902	GCA_025216205.1_ASM2521620v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44306	GCA_025216285.1_ASM2521628v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44300	GCA_025216425.1_ASM2521642v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44293	GCA_025216585.1_ASM2521658v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44101	GCA_025216685.1_ASM2521668v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44079	GCA_025216905.1_ASM2521690v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44081	GCA_025216985.1_ASM2521698v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44256	GCA_025266925.1_ASM2526692v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44253	GCA_025267625.1_ASM2526762v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_13116	GCA_026229875.1_ASM2622987v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_odoratissimum_FocTR4_190203	GCA_026745425.1_AGROSAVIA_FocTR4_2.0	Fusarium odoratissimum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_STO	GCA_027475055.1_ASM2747505v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_CF00145	GCA_027945275.1_F_oxy_CF00145	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_CF00160	GCA_027945305.1_F_oxy_CF00160	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_CF00165	GCA_027945335.1_F_oxy_CF00165	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo4287	GCA_030020275.1_Fusox3_1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_HS2	GCA_030064525.1_ASM3006452v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_PkF01	GCA_030272305.1_ASM3027230v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_TPB	GCA_030578155.1_ASM3057815v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_ME23	GCA_030719095.1_ASM3071909v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_TXL	GCA_032173435.1_ASM3217343v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_BPOP18	GCA_032884055.1_ASM3288405v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Tm2	GCA_032991405.1_FOV4_Tm2_1.0	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_ByF01	GCA_034400335.1_ASM3440033v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_19-385	GCA_034641985.1_ASM3464198v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_F17	GCA_038050555.1_ASM3805055v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_BS26	GCA_038502765.1_ASM3850276v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_8RF1-3	GCA_040285555.1_ASM4028555v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_tardichlamydosporum_C135	GCA_040822145.1_ASM4082214v1	Fusarium tardichlamydosporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_cuttings	GCA_041380545.1_ASM4138054v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_3429	GCA_041682635.1_ASM4168263v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_SN1W	GCA_041682655.1_ASM4168265v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VSP-0794	GCA_045786735.1_ASM4578673v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VSP-0916	GCA_045786885.1_ASM4578688v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol621s	GCA_045786925.1_ASM4578692v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fol321	GCA_045786965.1_ASM4578696v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_AJ275	GCA_045837865.1_ASM4583786v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_C2HIR	GCA_045838155.1_ASM4583815v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_El1cr-1f	GCA_047370965.1_ASM4737096v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_SG1	GCA_049000195.1_FovSG1v2	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VCG_01112	GCA_049306905.1_FoV-VCG-01112	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_4-1	GCA_050613755.1_ASM5061375v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44630	GCA_051529645.1_ASM5152964v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44628	GCA_051529745.1_ASM5152974v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_VPRI44634	GCA_051529785.1_ASM5152978v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_TX44	GCA_051943205.1_ASM5194320v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_2051	GCA_051943265.1_ASM5194326v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_TX11	GCA_052056925.1_ASM5205692v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_2053	GCA_052056945.1_ASM5205694v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_RBG_6780	GCA_052324425.1_FUSAVN_6780	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Foc_BF11	GCA_052818615.1_Foc_BF11.1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Tw-R1-1	GCA_053754955.1_ASM5375495v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_LD-06	GCA_054643155.1_ASM5464315v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_LM-2	GCA_054643655.1_ASM5464365v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Foc013	GCA_054857865.1_ASM5485786v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Foc015	GCA_054857935.1_ASM5485793v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_F3001	GCA_055681515.1_ASM5568151v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_FO12	GCA_055853645.1_ASM5585364v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_BPF55	GCA_055878565.1_ASM5587856v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_JCP043	GCA_055944325.1_ASM5594432v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_AT141	GCA_055944345.1_ASM5594434v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_Fo-129	GCA_057657705.1_ASM5765770v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum_H6	GCA_059056295.1_ASM5905629v1	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample
+Fusarium_oxysporum	GCA_984579085.1_Fusarium_oxysporum_ST01	Fusarium oxysporum	subsample	FOXY: not drawn in stratified subsample

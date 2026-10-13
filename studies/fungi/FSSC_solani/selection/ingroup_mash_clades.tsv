@@ -1,0 +1,14 @@
+dendrogram_order	asmid	species	strain	upgma_cut_0.005	upgma_cut_0.01	upgma_cut_0.02	upgma_cut_0.04
+0	GCA_045529305.1_TL_NS_CBS140079	Fusarium solani	CBS 140079	3	1	1	1
+1	GCF_020744495.1_Fusso1	Fusarium solani	FSSC 5 MPI-SDFR-AT-0091	1	1	1	1
+2	GCF_023522795.1_NDSU_Fsol_1.0	Fusarium solani	SB1	2	1	1	1
+3	GCA_027945525.1_F_sol_A01-1	Fusarium solani	A01-1	13	5	1	1
+4	GCA_054370135.1_ASM5437013v1	Fusarium solani	Cherokee5	12	4	1	1
+5	GCA_035772955.1_ASM3577295v1	Fusarium solani	SX13	9	2	1	1
+6	GCA_010015875.1_ASM1001587v1	Fusarium haematococcum	LQ1	8	2	1	1
+7	GCA_024220475.1_Fusarium_solani_Karbala-1	Fusarium solani	Karbala-1	7	2	1	1
+8	GCA_019320015.1_ASM1932001v1	Fusarium solani	1-Jan	6	2	1	1
+9	GCA_042608555.1_ASM4260855v1	Fusarium sp. R1	R1	4	2	1	1
+10	GCA_044646775.1_ASM4464677v1	Fusarium solani	NAPSME6.1	5	2	1	1
+11	GCA_029603225.1_F2	Fusarium solani	F2	10	3	1	1
+12	GCA_040436825.1_ASM4043682v1	Fusarium solani	F421	11	3	1	1

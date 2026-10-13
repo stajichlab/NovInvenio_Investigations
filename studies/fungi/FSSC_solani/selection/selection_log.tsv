@@ -1,0 +1,39 @@
+dirname	asmid	species	strain	step	reason
+Fusarium_cf._solani_EtdFoc-178	GCA_011033625.1_ASM1103362v1	Fusarium cf. solani	EtdFoc-178	busco	BUSCO genome C=84.0
+Fusarium_cf._solani_EtdFoc-209	GCA_011033925.1_ASM1103392v1	Fusarium cf. solani	EtdFoc-209	busco	BUSCO genome C=87.8
+Fusarium_cf._solani_EtdFoc-29	GCA_011036725.1_ASM1103672v1	Fusarium cf. solani	EtdFoc-29	busco	BUSCO genome C=73.0
+Fusarium_cf._solani_EtdFoc-35	GCA_011036745.1_ASM1103674v1	Fusarium cf. solani	EtdFoc-35	busco	BUSCO genome C=58.9
+Fusarium_cf._solani_EtdFoc-63	GCA_011034825.1_ASM1103482v1	Fusarium cf. solani	EtdFoc-63	busco	BUSCO genome C=89.4
+Fusarium_cf._solani_NRRL22643	GCA_057674555.1_ASM5767455v1	Fusarium cf. solani	NRRL22643	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0879
+Fusarium_cf._solani_NRRL62590	GCA_057675065.1_ASM5767506v1	Fusarium cf. solani	NRRL62590	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0889
+Fusarium_cf._solani_NRRL62591	GCA_057674765.1_ASM5767476v1	Fusarium cf. solani	NRRL62591	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0889
+Fusarium_cf._solani_NRRL66088	GCA_057674545.1_ASM5767454v1	Fusarium cf. solani	NRRL66088	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0879
+Fusarium_cf._solani_TW44	GCA_057675645.1_ASM5767564v1	Fusarium cf. solani	TW44	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0898
+Fusarium_cf._solani_TW56	GCA_057675945.1_ASM5767594v1	Fusarium cf. solani	TW56	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0889
+Fusarium_cf._solani_UCR4674	GCA_057675965.1_ASM5767596v1	Fusarium cf. solani	UCR4674	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0884
+Fusarium_cf._solani_UCR4676	GCA_057675705.1_ASM5767570v1	Fusarium cf. solani	UCR4676	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0888
+Fusarium_cf._solani_UCR4677	GCA_057675685.1_ASM5767568v1	Fusarium cf. solani	UCR4677	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0897
+Fusarium_cf._solani_UCR4678	GCA_057675765.1_ASM5767576v1	Fusarium cf. solani	UCR4678	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0891
+Fusarium_cf._solani_UCR4679	GCA_057675865.1_ASM5767586v1	Fusarium cf. solani	UCR4679	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0902
+Fusarium_cf._solani_UCR5499	GCA_057675845.1_ASM5767584v1	Fusarium cf. solani	UCR5499	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0887
+Fusarium_cf._solani_UCR5508	GCA_057675785.1_ASM5767578v1	Fusarium cf. solani	UCR5508	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0890
+Fusarium_cf._solani_UCR6395	GCA_057675825.1_ASM5767582v1	Fusarium cf. solani	UCR6395	not_in_solani_cluster	labelled Fusarium cf. solani; min mash to cluster 0.0928
+Fusarium_solani_2021000008	GCA_050613615.1_ASM5061361v1	Fusarium solani	2021000008	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0723
+Fusarium_solani_BAT_10	GCA_055801755.1_ASM5580175v1	Fusarium solani	BAT 10	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0465
+Fusarium_solani_CC_50	GCA_046630125.1_DGL_Fsol_CC_50	Fusarium solani	CC_50	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0496
+Fusarium_solani_CR12	GCA_030014125.1_ASM3001412v1	Fusarium solani	CR12	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0489
+Fusarium_solani_CSH_1	GCA_053771435.1_ASM5377143v1	Fusarium solani	CSH_1	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0503
+Fusarium_solani_CSH_2	GCA_049901755.1_DGL_Fsol_CSH_2	Fusarium solani	CSH_2	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0498
+Fusarium_solani_CSH_7	GCA_046630155.1_DGL_Fsol_CSH_7	Fusarium solani	CSH_7	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0505
+Fusarium_solani_GU-3	GCA_027574645.1_ASM2757464v1	Fusarium solani	GU-3	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0684
+Fusarium_solani_IISc-1	GCA_013168735.1_IISc_Fs_1.0	Fusarium solani	IISc-1	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0756
+Fusarium_solani_JS-169	GCA_002215905.1_ASM221590v1	Fusarium solani	JS-169	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0735
+Fusarium_solani_KMZW-1	GCA_044510215.1_ASM4451021v1	Fusarium solani	KMZW-1	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0745
+Fusarium_solani_NK-NH1	GCA_033085375.1_ASM3308537v1	Fusarium solani	NK-NH1	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0480
+Fusarium_solani_S2_22	GCA_057128285.1_ASM5712828v1	Fusarium solani	S2_22	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0506
+Fusarium_solani_SC02	GCA_051943245.1_ASM5194324v1	Fusarium solani	SC02	not_in_solani_cluster	labelled Fusarium solani; min mash to cluster 0.0482
+Fusarium_cf._solani_EtdFoc-155	GCA_011033385.1_ASM1103338v1	Fusarium cf. solani	EtdFoc-155	protein_count	9952 proteins < 11,000
+Fusarium_cf._solani_EtdFoc-208	GCA_011033945.1_ASM1103394v1	Fusarium cf. solani	EtdFoc-208	protein_count	10177 proteins < 11,000
+Fusarium_cf._solani_EtdFoc-214	GCA_011421325.1_ASM1142132v1	Fusarium cf. solani	EtdFoc-214	protein_count	9955 proteins < 11,000
+Fusarium_cf._solani_EthFoc-38	GCA_011036165.1_ASM1103616v1	Fusarium cf. solani	EthFoc-38	protein_count	10205 proteins < 11,000
+Fusarium_cf._solani_EthFoc-8	GCA_011036515.1_ASM1103651v1	Fusarium cf. solani	EthFoc-8	protein_count	9965 proteins < 11,000

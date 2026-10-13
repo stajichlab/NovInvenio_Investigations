@@ -1,0 +1,683 @@
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_MN25.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_MN25/predict_results/Fusarium_oxysporum_MN25.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:35Z'
+  checksum_sha256: 510fb01650734a3ce6a49ee564a5e759310ed499f953ae727c82449a027a502b
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_MN25/predict_results/Fusarium_oxysporum_MN25.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_MN25.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_MN25/predict_results/Fusarium_oxysporum_MN25.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:35Z'
+  checksum_sha256: 92e938c370975bc8868a4ebcaa3b3a064ccc3bc1d1885bbb0ef51bc67c77b423
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_MN25/predict_results/Fusarium_oxysporum_MN25.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_MN25.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_MN25/predict_results/Fusarium_oxysporum_MN25.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:35Z'
+  checksum_sha256: a6cafe1e806af7465fda2b55fdb464e7f112a95dd628c33efaba6035936cf840
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_MN25/predict_results/Fusarium_oxysporum_MN25.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol004.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol004/predict_results/Fusarium_oxysporum_Fol004.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:35Z'
+  checksum_sha256: 6b67c856bde6ec4cb9b16a7a400dbf32d3d2b3cfceff41793c6b418617d87a86
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol004/predict_results/Fusarium_oxysporum_Fol004.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol004.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol004/predict_results/Fusarium_oxysporum_Fol004.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:36Z'
+  checksum_sha256: dfa4ff1d5b9a24cd719dfa243f77dc8b3439a3ffbcbc59fe78500bcea75230e9
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol004/predict_results/Fusarium_oxysporum_Fol004.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol004.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol004/predict_results/Fusarium_oxysporum_Fol004.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:36Z'
+  checksum_sha256: 35a921dd6662ba7ca2a11bf0aa374bff69c01eb157a6a97743825ea4f9471df6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol004/predict_results/Fusarium_oxysporum_Fol004.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol007.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol007/predict_results/Fusarium_oxysporum_Fol007.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:36Z'
+  checksum_sha256: 62eaf7c1d87e130dd18965dff1a347bde4c0d214f458a6f5a7ba97bdb391cb2c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol007/predict_results/Fusarium_oxysporum_Fol007.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol007.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol007/predict_results/Fusarium_oxysporum_Fol007.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:37Z'
+  checksum_sha256: 7fcd2a10a8ac667e8be9fa3eb21bd5523213f55bda38db458140e39b4b5aab97
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol007/predict_results/Fusarium_oxysporum_Fol007.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol007.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol007/predict_results/Fusarium_oxysporum_Fol007.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:37Z'
+  checksum_sha256: b1cfb4db862ec293f9c7030e76253e9d09ce9c243280973ab2bd2b9b43a985de
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol007/predict_results/Fusarium_oxysporum_Fol007.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol026.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol026/predict_results/Fusarium_oxysporum_Fol026.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:37Z'
+  checksum_sha256: 56c38ebb1f62b47d7635c2ff1dfe1786ad5bada6ea65ba6fd628fb1687633f79
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol026/predict_results/Fusarium_oxysporum_Fol026.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol026.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol026/predict_results/Fusarium_oxysporum_Fol026.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:37Z'
+  checksum_sha256: 02d3ea3706844d52ef440786ea6aaf7f63bc2befb85b19201d3c326011698b89
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol026/predict_results/Fusarium_oxysporum_Fol026.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol026.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol026/predict_results/Fusarium_oxysporum_Fol026.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:38Z'
+  checksum_sha256: 52e7c7b23ed0cff96e4f8c606b4b0330201ca873f684c99b2f1b8bd4b15768a6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol026/predict_results/Fusarium_oxysporum_Fol026.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol014.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol014/predict_results/Fusarium_oxysporum_Fol014.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:38Z'
+  checksum_sha256: 394112f807bb72a53e44cfb0d358bc9cccb6fa9dd99ac24e58190e90cd8f2739
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol014/predict_results/Fusarium_oxysporum_Fol014.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol014.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol014/predict_results/Fusarium_oxysporum_Fol014.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:38Z'
+  checksum_sha256: ab8cfdfb251787a0fa037ced02d7bfb883dde7c4f2a44127436d368c42e61bd1
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol014/predict_results/Fusarium_oxysporum_Fol014.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol014.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol014/predict_results/Fusarium_oxysporum_Fol014.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:38Z'
+  checksum_sha256: f515088c4778edb04bb53cd3006ef8cc2620ea6195c6d0ff6680820a63267b11
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol014/predict_results/Fusarium_oxysporum_Fol014.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol018.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol018/predict_results/Fusarium_oxysporum_Fol018.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:38Z'
+  checksum_sha256: 59efc94568494a370f3b5990fb4011d1c6e4512e6cb7495e9b031663f27365c9
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol018/predict_results/Fusarium_oxysporum_Fol018.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol018.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol018/predict_results/Fusarium_oxysporum_Fol018.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:39Z'
+  checksum_sha256: 26a1c8299a5e565c73c9123e01ecd154d391e2b0910b2e72fdf681aa47df3f2c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol018/predict_results/Fusarium_oxysporum_Fol018.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol018.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol018/predict_results/Fusarium_oxysporum_Fol018.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:39Z'
+  checksum_sha256: 8147656fd2637fec7873f4f3cc3e37f615b714802cf1848fbd73d66ed4f2c69e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol018/predict_results/Fusarium_oxysporum_Fol018.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol016.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol016/predict_results/Fusarium_oxysporum_Fol016.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:39Z'
+  checksum_sha256: 68a4e92b8eda25c982cf2923bb9f324d7ca2806cfc32eb49fdff745b164e4a0f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol016/predict_results/Fusarium_oxysporum_Fol016.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol016.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol016/predict_results/Fusarium_oxysporum_Fol016.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:39Z'
+  checksum_sha256: e7a63e8b33805e489a0b6b67b84f8767d0817ada033c27a695798c8e52d0efc0
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol016/predict_results/Fusarium_oxysporum_Fol016.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol016.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol016/predict_results/Fusarium_oxysporum_Fol016.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:40Z'
+  checksum_sha256: 26949ebaf8238a25d1ef183927d4aaa6faaa4fe1a2b25843622bf68d46039fc7
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol016/predict_results/Fusarium_oxysporum_Fol016.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol038.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol038/predict_results/Fusarium_oxysporum_Fol038.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:40Z'
+  checksum_sha256: 65f1d31f1003f69fb4b420cac813fe33ff3bfd106ba104dab77cfb7eabed3813
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol038/predict_results/Fusarium_oxysporum_Fol038.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol038.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol038/predict_results/Fusarium_oxysporum_Fol038.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:40Z'
+  checksum_sha256: 147dcc57075ef12fc9dd95d81d3c8b3b3e6537d91d8283d5c0c300b59d845b82
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol038/predict_results/Fusarium_oxysporum_Fol038.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol038.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol038/predict_results/Fusarium_oxysporum_Fol038.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:40Z'
+  checksum_sha256: 04c8148acc39b7fee7f31ebdbd1b47753ae014a88195b08078249c8b0389cbe1
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol038/predict_results/Fusarium_oxysporum_Fol038.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol029.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol029/predict_results/Fusarium_oxysporum_Fol029.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:40Z'
+  checksum_sha256: 80bed825b711748d48dab051cddf63ad92691f569838d911ade1ad7fd7aa693b
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol029/predict_results/Fusarium_oxysporum_Fol029.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol029.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol029/predict_results/Fusarium_oxysporum_Fol029.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:41Z'
+  checksum_sha256: 342c169a35c463b75d477998e35a3713e3d34950d8cba8dd8bc97bc5cd3b9ca6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol029/predict_results/Fusarium_oxysporum_Fol029.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol029.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol029/predict_results/Fusarium_oxysporum_Fol029.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:41Z'
+  checksum_sha256: 02315511692d458064ddfcfbe0e327a5828fcb2069c43e11aca9031a37a97b88
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol029/predict_results/Fusarium_oxysporum_Fol029.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol069.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol069/predict_results/Fusarium_oxysporum_Fol069.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:41Z'
+  checksum_sha256: 4594863009bce53a4d1737792f7a601049670c228390d552fae853cbd66ff44d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol069/predict_results/Fusarium_oxysporum_Fol069.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol069.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol069/predict_results/Fusarium_oxysporum_Fol069.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:41Z'
+  checksum_sha256: 09d52155e38f6ac364c45570db15270fe49f6904f7458d026aa0ceda90d97c9c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol069/predict_results/Fusarium_oxysporum_Fol069.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol069.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol069/predict_results/Fusarium_oxysporum_Fol069.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:41Z'
+  checksum_sha256: 5cd6e4872c3ff82751d293fae56e9d1277357cd4bd9534ae5640e2f0da056e8a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol069/predict_results/Fusarium_oxysporum_Fol069.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol072.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol072/predict_results/Fusarium_oxysporum_Fol072.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:42Z'
+  checksum_sha256: 5f0928d5855cd81f8c14601d1129bdc441d989c4cf6674ec310fc4d6b5f64878
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol072/predict_results/Fusarium_oxysporum_Fol072.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol072.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol072/predict_results/Fusarium_oxysporum_Fol072.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:42Z'
+  checksum_sha256: d17b57419876fb7777f082e3a98e455f37c6bf2795e9f1caf361152cb25bd625
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol072/predict_results/Fusarium_oxysporum_Fol072.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol072.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol072/predict_results/Fusarium_oxysporum_Fol072.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:42Z'
+  checksum_sha256: 655da966c16bad8cc4886c12043e73c7203ea4891f3d56f87865cb4ab6601d05
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol072/predict_results/Fusarium_oxysporum_Fol072.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol073.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol073/predict_results/Fusarium_oxysporum_Fol073.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:42Z'
+  checksum_sha256: 21a186df5392e996d9c70acee71496ad6e0cdfb1d72baf20da914b54e06440c6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol073/predict_results/Fusarium_oxysporum_Fol073.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol073.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol073/predict_results/Fusarium_oxysporum_Fol073.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:43Z'
+  checksum_sha256: a625ed2ebc6ffdb6c3e89269ff1cff777c5d69bc55e81ed7971955687f89b1bd
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol073/predict_results/Fusarium_oxysporum_Fol073.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol073.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol073/predict_results/Fusarium_oxysporum_Fol073.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:43Z'
+  checksum_sha256: 801967642e74a63158b926c36255ecce3cdc60e9b6b28f3a6cce140bef8c7ef0
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol073/predict_results/Fusarium_oxysporum_Fol073.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol075.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol075/predict_results/Fusarium_oxysporum_Fol075.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:43Z'
+  checksum_sha256: 9a807d3a7834f6fda2601f14866b517766cf214f45183567de1fcaca820d21b6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol075/predict_results/Fusarium_oxysporum_Fol075.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol075.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol075/predict_results/Fusarium_oxysporum_Fol075.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:44Z'
+  checksum_sha256: f2c9e1ae47508e3f5ff08ce3e33b45c24d392ca7e3b215f7420a71353f97a3f7
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol075/predict_results/Fusarium_oxysporum_Fol075.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol075.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol075/predict_results/Fusarium_oxysporum_Fol075.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:44Z'
+  checksum_sha256: 076ee6f136e78557b520e06e29993ab96a9b8f086ee31ac1b6b59526b7506c5f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol075/predict_results/Fusarium_oxysporum_Fol075.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol002.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol002/predict_results/Fusarium_oxysporum_Fol002.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:44Z'
+  checksum_sha256: 9d18b30c583d06d092aaf5d9dc0b6921289ba22f62d5c7f59d644a1b228480c6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol002/predict_results/Fusarium_oxysporum_Fol002.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol002.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol002/predict_results/Fusarium_oxysporum_Fol002.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:44Z'
+  checksum_sha256: 6eca20064945ef9920bc595c2a93e15f0783b531502034c04904c0aa51d60621
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol002/predict_results/Fusarium_oxysporum_Fol002.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol002.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol002/predict_results/Fusarium_oxysporum_Fol002.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:45Z'
+  checksum_sha256: 327bf27fe09f6ec4efb15b38b36f510eb34fefd9571cd14fc1a69dbef9926782
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol002/predict_results/Fusarium_oxysporum_Fol002.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_race_3.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_race_3/predict_results/Fusarium_oxysporum_race_3.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:45Z'
+  checksum_sha256: 8cdebddc9163efe421a7d5a9a047c0539ecbca8855c9b6549469847b4634f3f2
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_race_3/predict_results/Fusarium_oxysporum_race_3.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_race_3.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_race_3/predict_results/Fusarium_oxysporum_race_3.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:45Z'
+  checksum_sha256: 2df3aae7604eac32ff78f57bd113d1b5669e945e7e07175d28823b1e265dcd4e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_race_3/predict_results/Fusarium_oxysporum_race_3.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_race_3.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_race_3/predict_results/Fusarium_oxysporum_race_3.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:45Z'
+  checksum_sha256: e0d9a0a99f6fd0ea4e19a1658fdcbd962ffacd1e4f27e9e4c23a78fc40539a28
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_race_3/predict_results/Fusarium_oxysporum_race_3.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_Fol59.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol59/predict_results/Fusarium_oxysporum_Fol59.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:45Z'
+  checksum_sha256: b0a79c994249fed19bfe7d421eb996e82c8288e4f11d3dbd41d82ab6acd41b95
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol59/predict_results/Fusarium_oxysporum_Fol59.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_Fol59.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol59/predict_results/Fusarium_oxysporum_Fol59.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:46Z'
+  checksum_sha256: 98e4c321fe80888e52103324a8a78dcb4a007c443dc99ff78d29cd11aa09c287
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol59/predict_results/Fusarium_oxysporum_Fol59.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_Fol59.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol59/predict_results/Fusarium_oxysporum_Fol59.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:46Z'
+  checksum_sha256: a0879ae0276f5c63e2070bc5cd05307396551fb793ed9a6b15b7c1acfc8b2f47
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_Fol59/predict_results/Fusarium_oxysporum_Fol59.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_VPRI44100.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44100/predict_results/Fusarium_oxysporum_VPRI44100.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:46Z'
+  checksum_sha256: 908314dcd8bd0dacb83447e0b6cf3929a87b110ae82699a4d4aa428e21b7e58c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44100/predict_results/Fusarium_oxysporum_VPRI44100.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_VPRI44100.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44100/predict_results/Fusarium_oxysporum_VPRI44100.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:47Z'
+  checksum_sha256: 52efd1241206c652eaea79f5d2e4a838e5cec9f5a53c72393a4ffc5152e9edeb
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44100/predict_results/Fusarium_oxysporum_VPRI44100.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_VPRI44100.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44100/predict_results/Fusarium_oxysporum_VPRI44100.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:47Z'
+  checksum_sha256: df982eed81f9bbcc3b01de22aedd53367fe30dac037c0d3826512139c8de6e18
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44100/predict_results/Fusarium_oxysporum_VPRI44100.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_VPRI44277.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44277/predict_results/Fusarium_oxysporum_VPRI44277.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:47Z'
+  checksum_sha256: 4f56db2350a1917e08b8c19c13f5e5fe5b53283bd983c7c300735200aed70344
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44277/predict_results/Fusarium_oxysporum_VPRI44277.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_VPRI44277.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44277/predict_results/Fusarium_oxysporum_VPRI44277.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:48Z'
+  checksum_sha256: ea0dc1111c58ab413fea4d05f931afa9fd484bcf0b7db998a62b0869158e5224
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44277/predict_results/Fusarium_oxysporum_VPRI44277.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_VPRI44277.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44277/predict_results/Fusarium_oxysporum_VPRI44277.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:48Z'
+  checksum_sha256: 4c0a674da39825734510e631996cd5398e3935263fc043be7f7c5ecab93116be
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44277/predict_results/Fusarium_oxysporum_VPRI44277.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_VPRI44274.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44274/predict_results/Fusarium_oxysporum_VPRI44274.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:48Z'
+  checksum_sha256: 75eb084476108526ffe6390086c49eb1fa0fa3dc7e071d50a9ba67583884491a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44274/predict_results/Fusarium_oxysporum_VPRI44274.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_VPRI44274.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44274/predict_results/Fusarium_oxysporum_VPRI44274.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:49Z'
+  checksum_sha256: 2173487f0f27e1b4177149a0ad811928d8ab2a72a4a4d346ec21d43107a5f8c4
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44274/predict_results/Fusarium_oxysporum_VPRI44274.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_VPRI44274.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44274/predict_results/Fusarium_oxysporum_VPRI44274.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:49Z'
+  checksum_sha256: 8c0f89696c0edfdcefaddfe0aa7e0b60ea5db3a4c78e24a7c11c919d2eb952c8
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_VPRI44274/predict_results/Fusarium_oxysporum_VPRI44274.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_RR23I-1.2.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_RR23I-1.2/predict_results/Fusarium_oxysporum_RR23I-1.2.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:49Z'
+  checksum_sha256: ceeff439bb4e602ec6477562e1cc3ef7911cf4e076fc75ff717360272655f69a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_RR23I-1.2/predict_results/Fusarium_oxysporum_RR23I-1.2.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_RR23I-1.2.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_RR23I-1.2/predict_results/Fusarium_oxysporum_RR23I-1.2.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:50Z'
+  checksum_sha256: b4dc8de71c8c0cab2853bc4b10e68257560d701a98d760bcb1d5e52cf1a94583
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_RR23I-1.2/predict_results/Fusarium_oxysporum_RR23I-1.2.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_RR23I-1.2.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_RR23I-1.2/predict_results/Fusarium_oxysporum_RR23I-1.2.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:50Z'
+  checksum_sha256: 1e3f41958caced6f5f8ba813def472664d99b3470877b716b0d1723d12326a87
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_RR23I-1.2/predict_results/Fusarium_oxysporum_RR23I-1.2.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_4287.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_4287/predict_results/Fusarium_oxysporum_4287.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:50Z'
+  checksum_sha256: a6bc4c1febfd4711fa09a147c3fa07064b3ba49e38fbb79e1afe4dc5c023df9e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_4287/predict_results/Fusarium_oxysporum_4287.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_4287.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_4287/predict_results/Fusarium_oxysporum_4287.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:50Z'
+  checksum_sha256: afe4ef82d7b8cead6dc04051f69673ce47d730208f613ff7f3c8bc02f4a8ce65
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_4287/predict_results/Fusarium_oxysporum_4287.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_4287.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_4287/predict_results/Fusarium_oxysporum_4287.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:50Z'
+  checksum_sha256: 3b63012c31a324ed40b5129bf19c2c8923d44ea30092218935e2fc41bb05e936
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_4287/predict_results/Fusarium_oxysporum_4287.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_GL1080.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_GL1080/predict_results/Fusarium_oxysporum_GL1080.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:50Z'
+  checksum_sha256: 23931b71712a791990162777d95214162db942e310de2fecda6ad84a0032ad92
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_GL1080/predict_results/Fusarium_oxysporum_GL1080.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_GL1080.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_GL1080/predict_results/Fusarium_oxysporum_GL1080.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:51Z'
+  checksum_sha256: 270752a371b42df2486871431b67909bc79db7cfa4f18059c2f799463ffada92
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_GL1080/predict_results/Fusarium_oxysporum_GL1080.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_GL1080.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_GL1080/predict_results/Fusarium_oxysporum_GL1080.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:51Z'
+  checksum_sha256: 701e15f860440d6688e43d041a5e9f7e720533906a294523a409b0d7cc04fa94
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_GL1080/predict_results/Fusarium_oxysporum_GL1080.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_AJ275.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_AJ275/predict_results/Fusarium_oxysporum_AJ275.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:51Z'
+  checksum_sha256: 73b93ef17e9f5d0de98ce5dbd9a15a563a423a995bc5b1cd92104913079361fa
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_AJ275/predict_results/Fusarium_oxysporum_AJ275.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_AJ275.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_AJ275/predict_results/Fusarium_oxysporum_AJ275.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:52Z'
+  checksum_sha256: f68cd5a8a20e4e2e500138b5c8a76472996b5366fd82b7064091f79e8573ab25
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_AJ275/predict_results/Fusarium_oxysporum_AJ275.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_AJ275.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_AJ275/predict_results/Fusarium_oxysporum_AJ275.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:52Z'
+  checksum_sha256: f3ffc8cfab66b2eae7ba18f15889b52a46eba558c74f082c9c6947ded521968e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_AJ275/predict_results/Fusarium_oxysporum_AJ275.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/oxys_LA1E.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_LA1E/predict_results/Fusarium_oxysporum_LA1E.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:52Z'
+  checksum_sha256: 35a1eb42dd3cb5d3e4214c7dc175fd0c5f27dae8be9664338b72496b3ea6fe20
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_LA1E/predict_results/Fusarium_oxysporum_LA1E.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/oxys_LA1E.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_LA1E/predict_results/Fusarium_oxysporum_LA1E.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:52Z'
+  checksum_sha256: 2cdf6e14dbc6ad4a45f01b5399951566a7c2b8414b13e705009eec6e86f95f0e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_LA1E/predict_results/Fusarium_oxysporum_LA1E.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/oxys_LA1E.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_LA1E/predict_results/Fusarium_oxysporum_LA1E.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:53Z'
+  checksum_sha256: 3d9fd8d1c82764de633cec1a1c702c79b12de3eb546b53d947640e29c2af63a0
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_oxysporum_LA1E/predict_results/Fusarium_oxysporum_LA1E.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/pep/odor_36102.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_odoratissimum_36102/predict_results/Fusarium_odoratissimum_36102.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:53Z'
+  checksum_sha256: 34508a534b52303c981dafb65d8e0363bfca2b1604e7b3066c61c0fce1352e4b
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_odoratissimum_36102/predict_results/Fusarium_odoratissimum_36102.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/dna/odor_36102.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_odoratissimum_36102/predict_results/Fusarium_odoratissimum_36102.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:53Z'
+  checksum_sha256: f7490ef7bcd47a4bf8041b5e7b2a90471f545fe3a46ca3e15db4e1a66539e064
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_odoratissimum_36102/predict_results/Fusarium_odoratissimum_36102.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/data_dir/gff3/odor_36102.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_odoratissimum_36102/predict_results/Fusarium_odoratissimum_36102.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T00:34:53Z'
+  checksum_sha256: 224d12db46b254df780b48d377e6d138682d5bc44e71aca45337944c67dcf846
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_odoratissimum_36102/predict_results/Fusarium_odoratissimum_36102.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL/config.csv
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-26T00:34:53Z'
+  checksum_sha256: c28799a352806237c81175b7b27900d9f6cd6675fdcc0b9099fb15b3765309c7
+  license: n/a
+  derived_by: bin/build_study_config.py --study-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/fusarium_FOL
+  pulled_with: build_study_config_symlinks.py on c05

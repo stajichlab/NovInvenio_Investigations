@@ -1,0 +1,54 @@
+dirname	asmid	species	strain	step	reason
+Fusarium_drepaniforme_NRRL_62941	GCA_012978555.1_ASM1297855v1	Fusarium drepaniforme	NRRL 62941	afc_by_mash_not_by_name	mash nearer AFC (0.0252) than named non-AFC (0.0904); not on AFC name list, not used
+Fusarium_drepaniforme_NRRL62941	GCA_057676085.1_ASM5767608v1	Fusarium drepaniforme	NRRL62941	afc_by_mash_not_by_name	mash nearer AFC (0.0243) than named non-AFC (0.0889); not on AFC name list, not used
+Fusarium_sp._AF-6_NRRL62590	GCA_003947015.1_NRRL62590.SPAdes	Fusarium sp. AF-6	NRRL62590	afc_by_mash_not_by_name	mash nearer AFC (0.0015) than named non-AFC (0.0889); not on AFC name list, not used
+Fusarium_sp._NRRL_62610_NRRL_62610	GCA_013186425.2_ASM1318642v2	Fusarium sp. NRRL 62610	NRRL 62610	afc_by_mash_not_by_name	mash nearer AFC (0.0046) than named non-AFC (0.0918); not on AFC name list, not used
+Fusarium_sp._NRRL_62957_NRRL_62957	GCA_012978535.1_ASM1297853v1	Fusarium sp. NRRL 62957	NRRL 62957	afc_by_mash_not_by_name	mash nearer AFC (0.0119) than named non-AFC (0.0972); not on AFC name list, not used
+Fusarium_sp._NRRL_66088_NRRL_66088	GCA_013186415.1_ASM1318641v1	Fusarium sp. NRRL 66088	NRRL 66088	afc_by_mash_not_by_name	mash nearer AFC (0.0015) than named non-AFC (0.0888); not on AFC name list, not used
+Fusarium_awan_CBS146882	GCA_057674865.1_ASM5767486v1	Fusarium awan	CBS146882	afc_placement	min d to other AFC 0.0881 (Fusarium protoensiforme NRRL 22178); min d to named non-AFC 0.0812 (Fusarium neocosmosporiellum NRRL 22436)
+Fusarium_awan_CBS146884	GCA_057674825.1_ASM5767482v1	Fusarium awan	CBS146884	afc_placement	min d to other AFC 0.0881 (Fusarium protoensiforme NRRL 22178); min d to named non-AFC 0.0812 (Fusarium neocosmosporiellum NRRL 22436)
+Fusarium_protoensiforme_NRRL_22178	GCA_011320165.1_ASM1132016v1	Fusarium protoensiforme	NRRL 22178	afc_placement	min d to other AFC 0.0881 (Fusarium awan CBS146884); min d to named non-AFC 0.0694 (Fusarium piperis IMI 366586)
+Fusarium_papillatum_NRRL_62944	GCA_013186395.1_ASM1318639v1	Fusarium papillatum	NRRL 62944	busco	BUSCO genome C=84.0
+Fusarium_euwallaceae_CBS135859	GCA_057675525.1_ASM5767552v1	Fusarium euwallaceae	CBS135859	clone	mash 0.00019 to kept Fusarium euwallaceae CBS135854 (N50 519206 vs 570316)
+Fusarium_floridanum_NRRL62608	GCA_057675325.1_ASM5767532v1	Fusarium floridanum	NRRL62608	clone	mash 0.00044 to kept Fusarium floridanum NRRL62628 (N50 265013 vs 305607)
+Fusarium_floridanum_NRRL62629	GCA_057675305.1_ASM5767530v1	Fusarium floridanum	NRRL62629	clone	mash 0.00049 to kept Fusarium floridanum NRRL62628 (N50 299084 vs 305607)
+Fusarium_rekanum_CMW52862	GCA_057675625.1_ASM5767562v1	Fusarium rekanum	CMW52862	clone	mash 0.00025 to kept Fusarium rekanum CMW53688 (N50 402406 vs 411950)
+Fusarium_tuaranense_NRRL22231	GCA_057675225.1_ASM5767522v1	Fusarium tuaranense	NRRL22231	clone	mash 0.00046 to kept Fusarium tuaranense NRRL46518 (N50 361947 vs 369583)
+Fusarium_variasi_CBS146888	GCA_057675405.1_ASM5767540v1	Fusarium variasi	CBS146888	clone	mash 0.00040 to kept Fusarium variasi CBS146889 (N50 1574641 vs 1618364)
+Neocosmospora_sp._B6999-1_CBS153104	GCA_057674245.1_ASM5767424v1	Neocosmospora sp. B6999-1	CBS153104	clone	mash 0.00019 to kept Neocosmospora sp. B6999-1 CBS153107 (N50 655874 vs 704463)
+Neocosmospora_sp._B6999-1_CBS153105	GCA_057674335.1_ASM5767433v1	Neocosmospora sp. B6999-1	CBS153105	clone	mash 0.00028 to kept Neocosmospora sp. B6999-1 CBS153107 (N50 504437 vs 704463)
+Neocosmospora_sp._B6999-1_CBS153106	GCA_057674425.1_ASM5767442v1	Neocosmospora sp. B6999-1	CBS153106	clone	mash 0.00017 to kept Neocosmospora sp. B6999-1 CBS153107 (N50 641538 vs 704463)
+Neocosmospora_sp._B6999-1_CBS153108	GCA_057674405.1_ASM5767440v1	Neocosmospora sp. B6999-1	CBS153108	clone	mash 0.00040 to kept Neocosmospora sp. B6999-1 CBS153107 (N50 145257 vs 704463)
+Neocosmospora_sp._B6999-1_CBS153109	GCA_057674185.1_ASM5767418v1	Neocosmospora sp. B6999-1	CBS153109	clone	mash 0.00019 to kept Neocosmospora sp. B6999-1 CBS153107 (N50 700807 vs 704463)
+Neocosmospora_sp._B6999-1_CBS153396	GCA_057674285.1_ASM5767428v1	Neocosmospora sp. B6999-1	CBS153396	clone	mash 0.00023 to kept Neocosmospora sp. B6999-1 CBS153107 (N50 531647 vs 704463)
+Neocosmospora_sp._B6999-2_CBS153931	GCA_057674165.1_ASM5767416v1	Neocosmospora sp. B6999-2	CBS153931	clone	mash 0.00025 to kept Neocosmospora sp. B6999-2 CBS153110 (N50 367829 vs 710030)
+Neocosmospora_sp._B6999-4_CBS153112	GCA_057674065.1_ASM5767406v1	Neocosmospora sp. B6999-4	CBS153112	clone	mash 0.00040 to kept Neocosmospora sp. B6999-4 CBS153114 (N50 757522 vs 891221)
+Neocosmospora_sp._B6999-4_CBS153113	GCA_057673905.1_ASM5767390v1	Neocosmospora sp. B6999-4	CBS153113	clone	mash 0.00038 to kept Neocosmospora sp. B6999-4 CBS153114 (N50 758235 vs 891221)
+Neocosmospora_sp._B6999-4_CBS153115	GCA_057673865.1_ASM5767386v1	Neocosmospora sp. B6999-4	CBS153115	clone	mash 0.00039 to kept Neocosmospora sp. B6999-4 CBS153114 (N50 803126 vs 891221)
+Neocosmospora_sp._B6999-4_CBS153116	GCA_057673945.1_ASM5767394v1	Neocosmospora sp. B6999-4	CBS153116	clone	mash 0.00057 to kept Neocosmospora sp. B6999-4 CBS153114 (N50 398299 vs 891221)
+Neocosmospora_sp._B6999-4_CBS153117	GCA_057673925.1_ASM5767392v1	Neocosmospora sp. B6999-4	CBS153117	clone	mash 0.00046 to kept Neocosmospora sp. B6999-4 CBS153114 (N50 651018 vs 891221)
+Neocosmospora_sp._B6999-4_CBS153118	GCA_057673805.1_ASM5767380v1	Neocosmospora sp. B6999-4	CBS153118	clone	mash 0.00018 to kept Neocosmospora sp. B6999-4 CBS153114 (N50 755069 vs 891221)
+Fusarium_cf._solani_NRRL22643	GCA_057674555.1_ASM5767455v1	Fusarium cf. solani	NRRL22643	protein_count	9234 proteins < 11,000
+Fusarium_cf._solani_NRRL62590	GCA_057675065.1_ASM5767506v1	Fusarium cf. solani	NRRL62590	protein_count	8127 proteins < 11,000
+Fusarium_cf._solani_NRRL62591	GCA_057674765.1_ASM5767476v1	Fusarium cf. solani	NRRL62591	protein_count	8133 proteins < 11,000
+Fusarium_cf._solani_NRRL66088	GCA_057674545.1_ASM5767454v1	Fusarium cf. solani	NRRL66088	protein_count	9656 proteins < 11,000
+Fusarium_cf._solani_TW44	GCA_057675645.1_ASM5767564v1	Fusarium cf. solani	TW44	protein_count	8897 proteins < 11,000
+Fusarium_cf._solani_TW56	GCA_057675945.1_ASM5767594v1	Fusarium cf. solani	TW56	protein_count	8489 proteins < 11,000
+Fusarium_cf._solani_UCR4674	GCA_057675965.1_ASM5767596v1	Fusarium cf. solani	UCR4674	protein_count	8577 proteins < 11,000
+Fusarium_cf._solani_UCR4676	GCA_057675705.1_ASM5767570v1	Fusarium cf. solani	UCR4676	protein_count	8119 proteins < 11,000
+Fusarium_cf._solani_UCR4677	GCA_057675685.1_ASM5767568v1	Fusarium cf. solani	UCR4677	protein_count	8220 proteins < 11,000
+Fusarium_cf._solani_UCR4678	GCA_057675765.1_ASM5767576v1	Fusarium cf. solani	UCR4678	protein_count	8401 proteins < 11,000
+Fusarium_cf._solani_UCR4679	GCA_057675865.1_ASM5767586v1	Fusarium cf. solani	UCR4679	protein_count	9053 proteins < 11,000
+Fusarium_cf._solani_UCR5499	GCA_057675845.1_ASM5767584v1	Fusarium cf. solani	UCR5499	protein_count	8681 proteins < 11,000
+Fusarium_cf._solani_UCR5508	GCA_057675785.1_ASM5767578v1	Fusarium cf. solani	UCR5508	protein_count	8251 proteins < 11,000
+Fusarium_cf._solani_UCR6395	GCA_057675825.1_ASM5767582v1	Fusarium cf. solani	UCR6395	protein_count	9465 proteins < 11,000
+Fusarium_mekan_CBS146885	GCA_057674785.1_ASM5767478v1	Fusarium mekan	CBS146885	protein_count	8595 proteins < 11,000
+Fusarium_mekan_CBS146886	GCA_057675485.1_ASM5767548v1	Fusarium mekan	CBS146886	protein_count	8714 proteins < 11,000
+Fusarium_obliquiseptatum_BRIP75421	GCA_047371145.1_ASM4737114v1	Fusarium obliquiseptatum	BRIP75421	protein_count	9124 proteins < 11,000
+Fusarium_obliquiseptatum_NRRL62610	GCA_057674705.1_ASM5767470v1	Fusarium obliquiseptatum	NRRL62610	protein_count	9057 proteins < 11,000
+Fusarium_obliquiseptatum_NRRL62611	GCA_057675085.1_ASM5767508v1	Fusarium obliquiseptatum	NRRL62611	protein_count	8994 proteins < 11,000
+Fusarium_pseudensiforme_CBS125729	GCA_057674445.1_ASM5767444v1	Fusarium pseudensiforme	CBS125729	protein_count	8033 proteins < 11,000
+Fusarium_pseudensiforme_CBS241.93	GCA_057674525.1_ASM5767452v1	Fusarium pseudensiforme	CBS241.93	protein_count	7880 proteins < 11,000
+Fusarium_tuaranense_NRRL_46518	GCA_013363205.1_ASM1336320v1	Fusarium tuaranense	NRRL 46518	protein_count	416 proteins < 11,000
+Fusarium_warna_CBS146893	GCA_057675365.1_ASM5767536v1	Fusarium warna	CBS146893	protein_count	7233 proteins < 11,000
+Fusarium_ambrosium_NRRL_20438	GCA_003947045.1_NRRL20438v1	Fusarium ambrosium	NRRL 20438	same_strain	second assembly of strain NRRL20438 (mash 0.00101); kept GCA_057676125.1_ASM5767612v1 (N50 195655 vs 122190)

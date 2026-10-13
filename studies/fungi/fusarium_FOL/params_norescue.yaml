@@ -1,0 +1,9 @@
+# Run 1 (rescue OFF). Passed with -params-file: a YAML boolean. The CLI form
+# "--pangenome_rescue_enable false" arrives as the String "false", which is
+# truthy under Nextflow 26.04.6 (NovInvenio issue #191).
+pangenome_rescue_enable: false
+pangenome_pfam_chunk_size: 2000
+# Pipeline strain dedup at the study's clone threshold (default 0.001 would
+# further merge 3 FOL groups of 2-4 strains at mash 0.0006-0.001; the study
+# rule keeps strains unless mash < 0.0005).
+pangenome_mash_threshold: 0.0005

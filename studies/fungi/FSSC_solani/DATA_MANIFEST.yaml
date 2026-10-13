@@ -1,0 +1,467 @@
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/haem_LQ1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_haematococcum_LQ1/predict_results/Fusarium_haematococcum_LQ1.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:18:58Z'
+  checksum_sha256: 7ac362e6eb9839771006b735c0d8e1fb2791418c01178ecddf79c36950ad402d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_haematococcum_LQ1/predict_results/Fusarium_haematococcum_LQ1.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/haem_LQ1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_haematococcum_LQ1/predict_results/Fusarium_haematococcum_LQ1.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:18:58Z'
+  checksum_sha256: 9de5d174dd600d5657ce352d01ebbcded44daa3477e38931baaf0a6925c6a362
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_haematococcum_LQ1/predict_results/Fusarium_haematococcum_LQ1.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/haem_LQ1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_haematococcum_LQ1/predict_results/Fusarium_haematococcum_LQ1.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:18:58Z'
+  checksum_sha256: 542709147863b0c708a80b8d4648c3b9b20fb4bf6e8f0156837d162cfa613c54
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_haematococcum_LQ1/predict_results/Fusarium_haematococcum_LQ1.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_1-Jan.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_1-Jan/predict_results/Fusarium_solani_1-Jan.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:18:58Z'
+  checksum_sha256: 6496a136f3ffa8d0c1c9551c59865d3c2ba14515dc5211c7438456dd7fa40d4b
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_1-Jan/predict_results/Fusarium_solani_1-Jan.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_1-Jan.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_1-Jan/predict_results/Fusarium_solani_1-Jan.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:18:59Z'
+  checksum_sha256: 4d32ce93ceda4a0c033777364a4201aea9919dedbfb669d271a3f3b20d3fed7d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_1-Jan/predict_results/Fusarium_solani_1-Jan.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_1-Jan.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_1-Jan/predict_results/Fusarium_solani_1-Jan.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:18:59Z'
+  checksum_sha256: 9aa45cfa1724b232b6a61bee97ed0eff73e95c1daa1e6af7591bd9972eda1265
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_1-Jan/predict_results/Fusarium_solani_1-Jan.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_Karbala-1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Karbala-1/predict_results/Fusarium_solani_Karbala-1.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:18:59Z'
+  checksum_sha256: 30a7c83c9640f6a006962588dcb1e22a719f1b5d831ccc0e5d47f15e63cf333f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Karbala-1/predict_results/Fusarium_solani_Karbala-1.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_Karbala-1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Karbala-1/predict_results/Fusarium_solani_Karbala-1.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:00Z'
+  checksum_sha256: b766776dc17d114d0817200483a0426e74edb704135f20376282a2680f528ea0
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Karbala-1/predict_results/Fusarium_solani_Karbala-1.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_Karbala-1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Karbala-1/predict_results/Fusarium_solani_Karbala-1.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:00Z'
+  checksum_sha256: 1e2d008eec1b17ac47a1528ccec020268308231cc9471824d3e767ad213deabc
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Karbala-1/predict_results/Fusarium_solani_Karbala-1.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_A01-1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_A01-1/predict_results/Fusarium_solani_A01-1.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:00Z'
+  checksum_sha256: 62f75c67ccd71d929fbddf3d64b87d9b68b536e5e51d25ac4e2b8124c2875f13
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_A01-1/predict_results/Fusarium_solani_A01-1.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_A01-1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_A01-1/predict_results/Fusarium_solani_A01-1.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:00Z'
+  checksum_sha256: b73237b867b9509addb91de02d0787d9a79f3ca4ae2cf125473cd505a65a31fb
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_A01-1/predict_results/Fusarium_solani_A01-1.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_A01-1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_A01-1/predict_results/Fusarium_solani_A01-1.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:00Z'
+  checksum_sha256: bbf0c917f2ac2d416796eff206fb4752a164bc427b3c98bdf8738a2c69064f4e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_A01-1/predict_results/Fusarium_solani_A01-1.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_F2.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F2/predict_results/Fusarium_solani_F2.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:01Z'
+  checksum_sha256: 41908ceca74392bdf69a287c55d4e3753ba8d589c94e08faf58d42ea4ccfac88
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F2/predict_results/Fusarium_solani_F2.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_F2.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F2/predict_results/Fusarium_solani_F2.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:01Z'
+  checksum_sha256: 3fb1af4cd95a7508b822fef7513e48b910f37603bf2e919a407744eb2ee4b706
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F2/predict_results/Fusarium_solani_F2.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_F2.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F2/predict_results/Fusarium_solani_F2.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:01Z'
+  checksum_sha256: c0f666e4f9bfdda4ef5e294491dd33c8af76295a43aaf171f169eb87185d1a69
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F2/predict_results/Fusarium_solani_F2.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_SX13.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SX13/predict_results/Fusarium_solani_SX13.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:01Z'
+  checksum_sha256: ad6abc1e553ee5f9e243322b45e9ccfde1144df80c4edb0597df05ed9c85221f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SX13/predict_results/Fusarium_solani_SX13.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_SX13.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SX13/predict_results/Fusarium_solani_SX13.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:02Z'
+  checksum_sha256: 7d0fb125c7712210e74866ad59d9c85de94434233a565a30f3c73bc5da7e7090
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SX13/predict_results/Fusarium_solani_SX13.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_SX13.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SX13/predict_results/Fusarium_solani_SX13.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:02Z'
+  checksum_sha256: 4f620119cf221a6baf834fc65846c403193d7e4254cb6fd2ee5d4b6c837b76f0
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SX13/predict_results/Fusarium_solani_SX13.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_F421.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F421/predict_results/Fusarium_solani_F421.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:02Z'
+  checksum_sha256: 505b82ace95e0aa31f218b06d5631d44c08e9bf64e8ccc5a4cb1f961abd14fe4
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F421/predict_results/Fusarium_solani_F421.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_F421.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F421/predict_results/Fusarium_solani_F421.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:02Z'
+  checksum_sha256: d1875c69fd750ee0cf6188882af5ff7671150bb56888725c5f1bfb74c3a3f709
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F421/predict_results/Fusarium_solani_F421.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_F421.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F421/predict_results/Fusarium_solani_F421.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:03Z'
+  checksum_sha256: 9ed2c6998828fae725216d28581fbae99c66de1999392034e6b7d07e48d7ca9f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_F421/predict_results/Fusarium_solani_F421.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/R1_R1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_sp._R1_R1/predict_results/Fusarium_sp._R1_R1.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:03Z'
+  checksum_sha256: f2c65d8d113c726a6930677f300ec03f5d7dc60f9346cbeed5663821e32f1c81
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_sp._R1_R1/predict_results/Fusarium_sp._R1_R1.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/R1_R1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_sp._R1_R1/predict_results/Fusarium_sp._R1_R1.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:03Z'
+  checksum_sha256: 24554eeaa1f2025600ec1256db25a0d9ffd9d977eca7ae66faa9ef6c04fda7fb
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_sp._R1_R1/predict_results/Fusarium_sp._R1_R1.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/R1_R1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_sp._R1_R1/predict_results/Fusarium_sp._R1_R1.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:03Z'
+  checksum_sha256: f9a6a7f315fd423496252189d52d6e84e0b7714f0d33e3dbee8b43a8fb988d79
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_sp._R1_R1/predict_results/Fusarium_sp._R1_R1.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_NAPSME6.1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_NAPSME6.1/predict_results/Fusarium_solani_NAPSME6.1.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:03Z'
+  checksum_sha256: c26ffc88932ced6273dec61fe015c885c6dc8631dde1269937498715dc8e9cf6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_NAPSME6.1/predict_results/Fusarium_solani_NAPSME6.1.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_NAPSME6.1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_NAPSME6.1/predict_results/Fusarium_solani_NAPSME6.1.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:04Z'
+  checksum_sha256: 8bc5aeabd24a39301342fa13ea332864059e6e3ed3d76bf8894623488e28e3ad
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_NAPSME6.1/predict_results/Fusarium_solani_NAPSME6.1.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_NAPSME6.1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_NAPSME6.1/predict_results/Fusarium_solani_NAPSME6.1.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:04Z'
+  checksum_sha256: 7658b0d08ff8367a2fb30872a3ec3b0cccf6706d55b646336e4e795afd19041d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_NAPSME6.1/predict_results/Fusarium_solani_NAPSME6.1.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_CBS_140079.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_CBS_140079/predict_results/Fusarium_solani_CBS_140079.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:04Z'
+  checksum_sha256: d0c6a0d9666e0e21d16bd6db71d223db38cb387dd2785232f0731aaa13919bb0
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_CBS_140079/predict_results/Fusarium_solani_CBS_140079.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_CBS_140079.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_CBS_140079/predict_results/Fusarium_solani_CBS_140079.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:05Z'
+  checksum_sha256: be410b9a440eec5fe01fc658942d2ecb01f1b54c990101d2b7d86a87cbd5152d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_CBS_140079/predict_results/Fusarium_solani_CBS_140079.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_CBS_140079.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_CBS_140079/predict_results/Fusarium_solani_CBS_140079.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:05Z'
+  checksum_sha256: 7721277afb8921e709a7780184152ce493f6d77f57060397e0a748f27ef4919c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_CBS_140079/predict_results/Fusarium_solani_CBS_140079.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_Cherokee5.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Cherokee5/predict_results/Fusarium_solani_Cherokee5.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:05Z'
+  checksum_sha256: 9c19ffd61acff5b5e9d984897f174e3a78aa8f3c6400fc51d6377ad872347a5f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Cherokee5/predict_results/Fusarium_solani_Cherokee5.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_Cherokee5.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Cherokee5/predict_results/Fusarium_solani_Cherokee5.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:05Z'
+  checksum_sha256: edd57bf4dba5facd6f7e86332fc325b185b2b61fc091cdefe3fec262a5df9964
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Cherokee5/predict_results/Fusarium_solani_Cherokee5.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_Cherokee5.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Cherokee5/predict_results/Fusarium_solani_Cherokee5.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:05Z'
+  checksum_sha256: 5bf68316efb12f00a703c5a5dc1f2048bb15a80e869d1d59c10bae0170214524
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_Cherokee5/predict_results/Fusarium_solani_Cherokee5.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_FSSC_5_MPI-SDFR-AT-0091.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091/predict_results/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:06Z'
+  checksum_sha256: 87ae4ca9905c2ae05cc0aabe1b7bb49521ff67c45bcbeb55518a01da78c55c3d
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091/predict_results/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_FSSC_5_MPI-SDFR-AT-0091.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091/predict_results/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:06Z'
+  checksum_sha256: 4b58b9c75d4c67d7cfc111e551090139c47fbac2455c139d699dcfb7c85798f7
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091/predict_results/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_FSSC_5_MPI-SDFR-AT-0091.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091/predict_results/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:06Z'
+  checksum_sha256: fdecdd69502b16a4e1301f920db323b425e3a989c1811ea7b8f09c06444bb9bd
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091/predict_results/Fusarium_solani_FSSC_5_MPI-SDFR-AT-0091.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/sola_SB1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SB1/predict_results/Fusarium_solani_SB1.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:06Z'
+  checksum_sha256: f555a51847743f183ab7ef10449a51579a0c91274f32a40c9dd3d18be8407469
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SB1/predict_results/Fusarium_solani_SB1.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/sola_SB1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SB1/predict_results/Fusarium_solani_SB1.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:07Z'
+  checksum_sha256: 7d19e15f74e6459a22eb412250e40a5f9626ff01e7adf676421b2233ac2c1998
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SB1/predict_results/Fusarium_solani_SB1.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/sola_SB1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SB1/predict_results/Fusarium_solani_SB1.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:07Z'
+  checksum_sha256: a08316253cb906eca13bdf6283a759f10f33231b2804e8ffcf92abf8ae299ff3
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_solani_SB1/predict_results/Fusarium_solani_SB1.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/phal_FUZ10S.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_phalaenopsidis_FUZ10S/predict_results/Fusarium_phalaenopsidis_FUZ10S.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:07Z'
+  checksum_sha256: 1a004bf8b76c5a1c228a71ba202cfc9dbadd8ea9d0bfe6b002a66daf95082d29
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_phalaenopsidis_FUZ10S/predict_results/Fusarium_phalaenopsidis_FUZ10S.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/phal_FUZ10S.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_phalaenopsidis_FUZ10S/predict_results/Fusarium_phalaenopsidis_FUZ10S.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:08Z'
+  checksum_sha256: 7be6a7244e40fda139c9c6e7738d438c56bde0399955f9905d0886f72dc3446f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_phalaenopsidis_FUZ10S/predict_results/Fusarium_phalaenopsidis_FUZ10S.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/phal_FUZ10S.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_phalaenopsidis_FUZ10S/predict_results/Fusarium_phalaenopsidis_FUZ10S.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:08Z'
+  checksum_sha256: 7fbdf74543959834541a237954dce41dfda3c2bfe8eb3cfa20c6eefb486551af
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_phalaenopsidis_FUZ10S/predict_results/Fusarium_phalaenopsidis_FUZ10S.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/vane_Fs6.1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_vanettenii_Fs6.1/predict_results/Fusarium_vanettenii_Fs6.1.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:08Z'
+  checksum_sha256: 21f3a39bc015c9f89ceb68120fb7a5b87609e7d3955390edc0da9e1ea0d6a7c9
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_vanettenii_Fs6.1/predict_results/Fusarium_vanettenii_Fs6.1.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/vane_Fs6.1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_vanettenii_Fs6.1/predict_results/Fusarium_vanettenii_Fs6.1.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:08Z'
+  checksum_sha256: d63f686f4de35e722ed944f226ecc34f4fae41f44cea5f520fc021f41c982226
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_vanettenii_Fs6.1/predict_results/Fusarium_vanettenii_Fs6.1.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/vane_Fs6.1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_vanettenii_Fs6.1/predict_results/Fusarium_vanettenii_Fs6.1.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:08Z'
+  checksum_sha256: 7e8723c781ab2c499b8fb27a049351ad63fd2fce38c6280cee6c25f7660d405e
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_vanettenii_Fs6.1/predict_results/Fusarium_vanettenii_Fs6.1.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/falc_Progeny4.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_falciforme_Progeny4/predict_results/Fusarium_falciforme_Progeny4.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:09Z'
+  checksum_sha256: 067125b0f29702685551278885a83e017587e3e546ac7827d624941a49fec80c
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_falciforme_Progeny4/predict_results/Fusarium_falciforme_Progeny4.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/falc_Progeny4.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_falciforme_Progeny4/predict_results/Fusarium_falciforme_Progeny4.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:09Z'
+  checksum_sha256: d78d60a68d8772b412b43a4c033b9c9e0f1b6c2e5389af53f80c372afb0ac8ab
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_falciforme_Progeny4/predict_results/Fusarium_falciforme_Progeny4.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/falc_Progeny4.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_falciforme_Progeny4/predict_results/Fusarium_falciforme_Progeny4.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:09Z'
+  checksum_sha256: c223e40490dd4c14adbaaa3ed11ff2552a0061e08cbdcc86994c23cee87ee7e9
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_falciforme_Progeny4/predict_results/Fusarium_falciforme_Progeny4.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/pep/kera_Fu6.1.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_keratoplasticum_Fu6.1/predict_results/Fusarium_keratoplasticum_Fu6.1.proteins.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:09Z'
+  checksum_sha256: 0b6cad0eb3570329ccd9f5de40eadb8c35cad1a1653be114a2b831a0588686ac
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_keratoplasticum_Fu6.1/predict_results/Fusarium_keratoplasticum_Fu6.1.proteins.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/dna/kera_Fu6.1.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_keratoplasticum_Fu6.1/predict_results/Fusarium_keratoplasticum_Fu6.1.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:10Z'
+  checksum_sha256: 4c0af1a4eca3908444f0a10b9a588ba271c9549c05e7b9741e7e361c9cfe34c3
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_keratoplasticum_Fu6.1/predict_results/Fusarium_keratoplasticum_Fu6.1.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/data_dir/gff3/kera_Fu6.1.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_keratoplasticum_Fu6.1/predict_results/Fusarium_keratoplasticum_Fu6.1.gff3)
+  source_release: local file, not independently versioned
+  access_date: '2026-09-26T01:19:10Z'
+  checksum_sha256: 219ad6ab3551a5d2745175abcac412d01dbe9ae5cd86dff4bc19d0949144b4df
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD/genome_annotation/Fusarium_keratoplasticum_Fu6.1/predict_results/Fusarium_keratoplasticum_Fu6.1.gff3
+    via bin/build_study_config.py
+  pulled_with: build_study_config_symlinks.py on c05
+- local_path: studies/fungi/FSSC_solani/config.csv
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-09-26T01:19:10Z'
+  checksum_sha256: 55caec21df80d35692eab0332e7db0ffa27efb709770d4a7de50528f9f607a32
+  license: n/a
+  derived_by: bin/build_study_config.py --study-dir studies/fungi/FSSC_solani
+  pulled_with: build_study_config_symlinks.py on c05

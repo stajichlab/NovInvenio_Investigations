@@ -1,0 +1,6 @@
+# Passed with -params-file by run_pangenome.sh when RUN_RESCUE=false.
+# A YAML boolean, not "--pangenome_rescue_enable false" on the command line:
+# under Nextflow 26.04.6 the CLI form reached pangenome_profile.nf as a
+# truthy value and EXTRACT_ABSENT_QUERIES ran (first launch, 2026-09-25,
+# jobs 29084981/29084982, cancelled).
+pangenome_rescue_enable: false
