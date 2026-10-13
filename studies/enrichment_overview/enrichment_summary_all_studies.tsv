@@ -1,0 +1,21 @@
+study	vocab	n_cand_units	N_cand_annotated	frac_cand_units_annotated	M_units_annotated	n_terms_tested	n_fdr_lt_0.05	n_fdr_lt_0.05_k_ge_3	n_sig_k_lt_3	n_candidate_proteins_in_sig_terms	n_sig_repeat_TE_like	candidate_check_symdiff	candidates_txt
+yeast_filamentous	pfam	302	282	0.9338	11034	732	3	3	0	10	0	0	335
+yeast_filamentous	pfam_clan	302	205	0.6788	8322	307	0	0	0	0		0	335
+yeast_filamentous	interpro	302	301	0.9967	11812	1640	0	0	0	0		0	335
+yeast_filamentous	go	302	295	0.9768	11884	4779	31	31	0	236		0	335
+mushrooms_tremella	pfam	3308	1993	0.6025	8589	517	14	14	0	830	0	0	5036
+mushrooms_tremella	pfam_clan	3308	1554	0.4698	6902	271	4	4	0	311		0	5036
+mushrooms_tremella	interpro	3308	2308	0.6977	9650	1169	26	26	0	1010		0	5036
+mushrooms_tremella	go	3308	1562	0.4722	7437	2408	28	28	0	844		0	5036
+pezizo_set1	pfam	2209	1184	0.536	12125	766	28	28	0	452	0	0	3193
+pezizo_set1	pfam_clan	2209	779	0.3526	9574	310	5	5	0	202		0	3193
+pezizo_set1	interpro	2209	1382	0.6256	13480	1654	29	29	0	437		0	3193
+pezizo_set1	go	2209	903	0.4088	10809	3464	18	18	0	245		0	3193
+chytrid_vs_mucoromycota	pfam	2151	1459	0.6783	29351	2228	140	140	0	1973	9	0	4868
+chytrid_vs_mucoromycota	pfam_clan	2151	1002	0.4658	24222	442	35	35	0	1527		0	4868
+chytrid_vs_mucoromycota	interpro	2151	1765	0.8205	33597	4623	251	251	0	2622		0	4868
+chytrid_vs_mucoromycota	go	2151	1157	0.5379	25791	4450	300	300	0	2757		0	4868
+zoosporic_dikarya	pfam	2284	1682	0.7364	14923	990	47	47	0	447	4	0	2927
+zoosporic_dikarya	pfam_clan	2284	1141	0.4996	11965	358	20	20	0	361		0	2927
+zoosporic_dikarya	interpro	2284	1969	0.8621	16784	2191	95	95	0	759		0	2927
+zoosporic_dikarya	go	2284	1474	0.6454	13884	3612	159	159	0	1153		0	2927

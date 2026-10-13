@@ -22,6 +22,9 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 from matplotlib.patches import Patch  # noqa: E402
 
+# Candidate-ID list columns in the enrichment tables can exceed the default 128 KB field limit.
+csv.field_size_limit(1 << 30)
+
 ap = argparse.ArgumentParser()
 ap.add_argument("--enrich", required=True, type=Path)
 ap.add_argument("--config", required=True, type=Path)

@@ -1,0 +1,31 @@
+[    0.0s] IN=['Ccin', 'Agbis'] OUT=['CneoH99', 'Tremes']
+[    0.3s] matrix rows 14467; in_rule 13836; in_rule & 0 OUT 5036; candidates.txt 5036
+[    0.5s] universe 'proteome': 24538 IN proteins
+[    0.8s] annotation rows matched: 24538 of 24538
+[    4.3s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29892523/bgclust_hn9kjfov/bg.fa /scratch/jstajich/29892523/bgclust_hn9kjfov/bg /scratch/jstajich/29892523/bgclust_hn9kjfov/mmtmp --threads 4 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   45.3s] background clusters: 12962 clusters from 19502 proteins
+[   45.8s] whole_set	protein	pfam	N=3220/5036	M=14568	tested=891	sig=36
+[   45.9s] whole_set	protein	pfam_clan	N=2499/5036	M=11852	tested=339	sig=21
+[   46.0s] whole_set	protein	interpro	N=3678/5036	M=16082	tested=2010	sig=68
+[   46.3s] whole_set	protein	go	N=2504/5036	M=12680	tested=3038	sig=75
+[   46.8s] whole_set	family	pfam	N=1993/3308	M=8589	tested=517	sig=14
+[   46.9s] whole_set	family	pfam_clan	N=1554/3308	M=6902	tested=271	sig=4
+[   47.0s] whole_set	family	interpro	N=2308/3308	M=9650	tested=1169	sig=26
+[   47.2s] whole_set	family	go	N=1562/3308	M=7437	tested=2408	sig=28
+[   47.7s] Ccin	protein	pfam	N=1676/2612	M=7714	tested=431	sig=23
+[   47.7s] Ccin	protein	pfam_clan	N=1307/2612	M=6267	tested=238	sig=12
+[   47.8s] Ccin	protein	interpro	N=1918/2612	M=8566	tested=1039	sig=42
+[   48.0s] Ccin	protein	go	N=1355/2612	M=6706	tested=2198	sig=39
+[   48.1s] Ccin	family	pfam	N=1312/2176	M=6352	tested=323	sig=14
+[   48.1s] Ccin	family	pfam_clan	N=1036/2176	M=5147	tested=226	sig=4
+[   48.2s] Ccin	family	interpro	N=1527/2176	M=7076	tested=809	sig=15
+[   48.3s] Ccin	family	go	N=1074/2176	M=5632	tested=2077	sig=22
+[   48.8s] Agbis	protein	pfam	N=1544/2424	M=6854	tested=380	sig=20
+[   48.8s] Agbis	protein	pfam_clan	N=1192/2424	M=5585	tested=234	sig=10
+[   48.9s] Agbis	protein	interpro	N=1760/2424	M=7516	tested=935	sig=41
+[   49.0s] Agbis	protein	go	N=1149/2424	M=5974	tested=2098	sig=34
+[   49.1s] Agbis	family	pfam	N=1225/2040	M=5602	tested=291	sig=8
+[   49.2s] Agbis	family	pfam_clan	N=961/2040	M=4530	tested=217	sig=4
+[   49.2s] Agbis	family	interpro	N=1421/2040	M=6134	tested=730	sig=14
+[   49.3s] Agbis	family	go	N=971/2040	M=5014	tested=1977	sig=18
+[   50.4s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/mushrooms_tremella/analysis/enrichment/outputs/proteome_clustered

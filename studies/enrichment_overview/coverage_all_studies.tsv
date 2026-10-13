@@ -1,0 +1,141 @@
+study	species	protein_source	protein_accession	annotation_file	n_proteins	n_annotated	frac_annotated	n_candidates	n_candidates_annotated	frac_candidates_annotated	presence_matrix_uniprot	n_in_species_annotated
+fungi/chytrid_vs_mucoromycota	Batrdend	uniprot	UP000007241	UP000007241.tsv.gz	8610	6538	0.7593	483	417	0.8634	True	
+fungi/chytrid_vs_mucoromycota	Batrsala	uniprot	UP001648503	UP001648503.tsv.gz	11060	7367	0.6661	446	381	0.8543	True	
+fungi/chytrid_vs_mucoromycota	Spizpunc	uniprot	UP000053201	UP000053201.tsv.gz	8940	7339	0.8209	442	382	0.8643	True	
+fungi/chytrid_vs_mucoromycota	Powehirt	uniprot	UP000318582	UP000318582.tsv.gz	6533	6042	0.9248	373	319	0.8552	True	
+fungi/chytrid_vs_mucoromycota	Geravari	uniprot	UP001212152	UP001212152.tsv.gz	8696	6871	0.7901	419	359	0.8568	True	
+fungi/chytrid_vs_mucoromycota	Syncendo	uniprot	UP000317494	UP000317494.tsv.gz	7895	5525	0.6998	337	285	0.8457	True	
+fungi/chytrid_vs_mucoromycota	Syncmicr	uniprot	UP000319731	UP000319731.tsv.gz	6304	5944	0.9429	362	315	0.8702	True	
+fungi/chytrid_vs_mucoromycota	Chytconf	uniprot	UP000320333	UP000320333.tsv.gz	10661	9307	0.873	504	448	0.8889	True	
+fungi/chytrid_vs_mucoromycota	Polystew	uniprot	UP001527925	UP001527925.tsv.gz	9229	7467	0.8091	455	390	0.8571	True	
+fungi/chytrid_vs_mucoromycota	Rhizglob	uniprot	UP000193642	UP000193642.tsv.gz	16725	10949	0.6546	548	458	0.8358	True	
+fungi/chytrid_vs_mucoromycota	Rhizrose	uniprot	UP001212841	UP001212841.tsv.gz	11454	8078	0.7053	499	412	0.8257	True	
+fungi/chytrid_vs_mucoromycota	ALL_IN				106107	81427	0.7674	4868	4166	0.8558	True	11/11
+fungi/malassezia_vs_ustilaginomycotina	Malaglob	uniprot	UP000008837	UP000008837.tsv.gz	4270	3866	0.9054	69	7	0.1014	True	
+fungi/malassezia_vs_ustilaginomycotina	Malasymp	uniprot	UP000186303	UP000186303.tsv.gz	4490	4070	0.9065	43	4	0.093	True	
+fungi/malassezia_vs_ustilaginomycotina	Malarest	uniprot	UP000269793	UP000269793.tsv.gz	4097	3741	0.9131	59	6	0.1017	True	
+fungi/malassezia_vs_ustilaginomycotina	Malafurf	uniprot	UP000818624	UP000818624.tsv.gz	4532	4035	0.8903	75	7	0.0933	True	
+fungi/malassezia_vs_ustilaginomycotina	Malapach	uniprot	UP000037751	UP000037751.tsv.gz	4201	3824	0.9103	51	4	0.0784	True	
+fungi/malassezia_vs_ustilaginomycotina	Malavesp	uniprot	UP000232875	UP000232875.tsv.gz	3791	3467	0.9145	41	4	0.0976	True	
+fungi/malassezia_vs_ustilaginomycotina	Malanana	uniprot	UP001213623	UP001213623.tsv.gz	3953	3600	0.9107	51	6	0.1176	True	
+fungi/malassezia_vs_ustilaginomycotina	Malabras	uniprot	UP001216638	UP001216638.tsv.gz	3911	3591	0.9182	43	5	0.1163	True	
+fungi/malassezia_vs_ustilaginomycotina	Malajapo	uniprot	UP001217754	UP001217754.tsv.gz	4299	3928	0.9137	41	3	0.0732	True	
+fungi/malassezia_vs_ustilaginomycotina	Malaarun	uniprot	UP001217582	UP001217582.tsv.gz	3785	3451	0.9118	57	8	0.1404	True	
+fungi/malassezia_vs_ustilaginomycotina	ALL_IN				41329	37573	0.9091	530	54	0.1019	True	10/10
+fungi/metschnikowiaceae_cah	Candauri	uniprot	UP000230249	UP000230249.tsv.gz	5433	4891	0.9002	18	1	0.0556	True	
+fungi/metschnikowiaceae_cah	Candhaem	uniprot	UP000244309	UP000244309.tsv.gz	5240	4678	0.8927	19	6	0.3158	True	
+fungi/metschnikowiaceae_cah	Candpseu	uniprot	UP000241107	UP000241107.tsv.gz	5132	4556	0.8878	23	5	0.2174	True	
+fungi/metschnikowiaceae_cah	Candduob	uniprot	UP000244406	UP000244406.tsv.gz	5170	4607	0.8911	23	2	0.087	True	
+fungi/metschnikowiaceae_cah	Clavlusi	uniprot	UP000007703	UP000007703.tsv.gz	5932	4942	0.8331	21	2	0.0952	True	
+fungi/metschnikowiaceae_cah	Sunginte	uniprot	UP000182334	UP000182334.tsv.gz	5921	5232	0.8836	16	3	0.1875	True	
+fungi/metschnikowiaceae_cah	Metsbicu	uniprot	UP000092555	UP000092555.tsv.gz	5826	4828	0.8287	31	4	0.129	True	
+fungi/metschnikowiaceae_cah	Metsaff	uniprot	UP000292447	UP000292447.tsv.gz	5795	4934	0.8514	30	8	0.2667	True	
+fungi/metschnikowiaceae_cah	Austsaop	uniprot	UP001338582	UP001338582.tsv.gz	5012	4535	0.9048	25	7	0.28	True	
+fungi/metschnikowiaceae_cah	ALL_IN				49461	43203	0.8735	206	38	0.1845	True	9/9
+fungi/serinales_vs_pichiales	Candalbi	uniprot	UP000000559	UP000000559.tsv.gz	6040	5449	0.9022	205	131	0.639	True	
+fungi/serinales_vs_pichiales	Canddubl	uniprot	UP000002605	UP000002605.tsv.gz	5829	5221	0.8957	190	94	0.4947	True	
+fungi/serinales_vs_pichiales	Candtrop	uniprot	UP000002037	UP000002037.tsv.gz	6226	5373	0.863	184	94	0.5109	True	
+fungi/serinales_vs_pichiales	Loddelon	uniprot	UP000001996	UP000001996.tsv.gz	5779	5006	0.8662	190	91	0.4789	True	
+fungi/serinales_vs_pichiales	Meyeguil	uniprot	UP000001997	UP000001997.tsv.gz	5919	5294	0.8944	167	69	0.4132	True	
+fungi/serinales_vs_pichiales	Debahans	uniprot	UP000000599	UP000000599.tsv.gz	6284	5457	0.8684	178	79	0.4438	True	
+fungi/serinales_vs_pichiales	Schestip	uniprot	UP000002258	UP000002258.tsv.gz	5797	5280	0.9108	181	79	0.4365	True	
+fungi/serinales_vs_pichiales	Spatpass	uniprot	UP000000709	UP000000709.tsv.gz	5973	5237	0.8768	184	90	0.4891	True	
+fungi/serinales_vs_pichiales	Hyphburt	uniprot	UP000095085	UP000095085.tsv.gz	5993	5184	0.865	184	77	0.4185	True	
+fungi/serinales_vs_pichiales	Suhotanz	uniprot	UP000094285	UP000094285.tsv.gz	5881	4981	0.847	183	83	0.4536	True	
+fungi/serinales_vs_pichiales	Candtenu	uniprot	UP000000707	UP000000707.tsv.gz	5540	4916	0.8874	143	58	0.4056	True	
+fungi/serinales_vs_pichiales	Babjinos	uniprot	UP000094336	UP000094336.tsv.gz	6393	5268	0.824	23	18	0.7826	True	
+fungi/serinales_vs_pichiales	Diutrugo	uniprot	UP000449547	UP000449547.tsv.gz	5811	4952	0.8522	169	88	0.5207	True	
+fungi/serinales_vs_pichiales	Yamajaro	uniprot	UP001152531	UP001152531.tsv.gz	5820	5265	0.9046	165	79	0.4788	True	
+fungi/serinales_vs_pichiales	Candauri	uniprot	UP000230249	UP000230249.tsv.gz	5433	4891	0.9002	172	86	0.5	True	
+fungi/serinales_vs_pichiales	Clavlusi	uniprot	UP000007703	UP000007703.tsv.gz	5932	4942	0.8331	169	81	0.4793	True	
+fungi/serinales_vs_pichiales	Metsbicu	uniprot	UP000092555	UP000092555.tsv.gz	5826	4828	0.8287	165	88	0.5333	True	
+fungi/serinales_vs_pichiales	Lizaspar	uniprot	UP000790833	UP000790833.tsv.gz	5041	4592	0.9109	143	67	0.4685	True	
+fungi/serinales_vs_pichiales	ALL_IN				105517	92136	0.8732	2995	1452	0.4848	True	18/18
+fungi/neocallimastigomycota_vs_early_fungi	Pirofinn	uniprot	UP000193719	UP000193719.tsv.gz	10768	7955	0.7388	3054	1316	0.4309	True	
+fungi/neocallimastigomycota_vs_early_fungi	Anaerobu	uniprot	UP000193944	UP000193944.tsv.gz	12656	9079	0.7174	3429	1699	0.4955	True	
+fungi/neocallimastigomycota_vs_early_fungi	Neocalif	ncbi	GCA_002104975.1	NONE	20214	0	0.0	6180	0	0.0	True	
+fungi/neocallimastigomycota_vs_early_fungi	Neolanat	ncbi	GCA_016946835.1	NONE	27675	0	0.0	8029	0	0.0	True	
+fungi/neocallimastigomycota_vs_early_fungi	Neoconst	ncbi	GCA_050613775.1	NONE	23663	0	0.0	7272	0	0.0	True	
+fungi/neocallimastigomycota_vs_early_fungi	PiroE2sp	ncbi	GCA_002157105.1	NONE	14612	0	0.0	4753	0	0.0	True	
+fungi/neocallimastigomycota_vs_early_fungi	ALL_IN				109588	17034	0.1554	32717	3015	0.0922	True	2/6
+fungi/fusarium_FOXY	Fuox_54006	ncbi	GCA_000260195.2	NONE	22487	0	0.0	177	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_Foa_44	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_032206225.1_FOAM13_A1/GCA_032206225.1_FOAM13_A1_protein.faa.gz	NONE	20416	0	0.0	224	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_FoC_Fus2	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_003615085.1_FoC_Fus2_v1/GCA_003615085.1_FoC_Fus2_v1_protein.faa.gz	NONE	19342	0	0.0	210	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_Fo5176	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_025331925.1_ASM2533192v1/GCA_025331925.1_ASM2533192v1_protein.faa.gz	NONE	21391	0	0.0	226	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_TwR11	ncbi	GCA_053754955.2	NONE	16063	0	0.0	184	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_4287	ncbi	GCA_000149955.2	NONE	27347	0	0.0	252	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_Stocks4	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_020796175.1_ASM2079617v1/GCA_020796175.1_ASM2079617v1_protein.faa.gz	NONE	20340	0	0.0	212	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_26406	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260495.2_FO_melonis_V1/GCA_000260495.2_FO_melonis_V1_protein.faa.gz	NONE	26719	0	0.0	233	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_RF12	ncbi	GCA_051622415.1	NONE	15020	0	0.0	157	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_N139	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_004141715.1_FoN_N139_v1/GCA_004141715.1_FoN_N139_v1_protein.faa.gz	NONE	20668	0	0.0	250	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_Fo47	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCF_013085055.1_ASM1308505v1/GCF_013085055.1_ASM1308505v1_protein.faa.gz	NONE	16197	0	0.0	156	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_FOPSP1	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_054130785.1_ASM5413078v1/GCA_054130785.1_ASM5413078v1_protein.faa.gz	NONE	21151	0	0.0	189	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_HDV247	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260075.2_FO_HDV247_V1/GCA_000260075.2_FO_HDV247_V1_protein.faa.gz	NONE	26378	0	0.0	223	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_Forc016	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_001702695.2_ASM170269v2/GCA_001702695.2_ASM170269v2_protein.faa.gz	NONE	17168	0	0.0	198	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_26381	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260155.3_FO_CL57_V1/GCA_000260155.3_FO_CL57_V1_protein.faa.gz	NONE	24739	0	0.0	221	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_F38	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_057814765.1_ASM5781476v1/protein.faa.gz	NONE	19046	0	0.0	172	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_54005	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_000260235.2_FO_PHW815_V1/GCA_000260235.2_FO_PHW815_V1_protein.faa.gz	NONE	25666	0	0.0	219	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_ME23	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_030719095.1_ASM3071909v1/GCA_030719095.1_ASM3071909v1_protein.faa.gz	NONE	16305	0	0.0	184	0	0.0	False	
+fungi/fusarium_FOXY	Fuox_pin22	local_faa	/bigdata/stajichlab/shared/projects/1KFG/2021/NCBI_fungi/source/NCBI_ASM/GCA_051624415.1_ASM5162441v1/GCA_051624415.1_ASM5162441v1_protein.faa.gz	NONE	15540	0	0.0	149	0	0.0	False	
+fungi/fusarium_FOXY	ALL_IN				391983	0	0.0	3836	0	0.0	False	0/19
+fungi/mushrooms_tremella	Ccin	uniprot	UP000001861	UP000001861.tsv.gz	13334	8616	0.6462	2612	1923	0.7362	True	
+fungi/mushrooms_tremella	Agbis	uniprot	UP000008493	UP000008493.tsv.gz	11204	7546	0.6735	2424	1767	0.729	True	
+fungi/mushrooms_tremella	ALL_IN				24538	16162	0.6587	5036	3690	0.7327	True	2/2
+fungi/pezizo_set1	Amega	uniprot	UP001658139	UP001658139.tsv.gz	11859	0	0.0	574	0	0.0	True	
+fungi/pezizo_set1	Ncra	uniprot	UP000001805	UP000001805.tsv.gz	9759	7228	0.7406	641	482	0.752	True	
+fungi/pezizo_set1	Afum	uniprot	UP000002530	UP000002530.tsv.gz	9647	8275	0.8578	708	551	0.7782	True	
+fungi/pezizo_set1	Ztri	uniprot	UP000008062	UP000008062.tsv.gz	10951	8052	0.7353	684	520	0.7602	True	
+fungi/pezizo_set1	Cimm	uniprot	UP000001261	UP000001261.tsv.gz	9587	6607	0.6892	586	418	0.7133	True	
+fungi/pezizo_set1	ALL_IN				51803	30162	0.5822	3193	1971	0.6173	True	4/5
+fungi/sordariales_shallow	Chaeglob	uniprot	UP000001056	UP000001056.tsv.gz	11036	8198	0.7428	99	43	0.4343	True	
+fungi/sordariales_shallow	Neurcras	uniprot	UP000001805	UP000001805.tsv.gz	9759	7275	0.7455	160	73	0.4562	True	
+fungi/sordariales_shallow	Podoanse	uniprot	UP000001197	UP000001197.tsv.gz	10656	8506	0.7982	117	49	0.4188	True	
+fungi/sordariales_shallow	Sordmacr	uniprot	UP000001881	UP000001881.tsv.gz	9890	7578	0.7662	192	79	0.4115	True	
+fungi/sordariales_shallow	ALL_IN				41341	31557	0.7633	568	244	0.4296	True	4/4
+fungi/yeast_filamentous	Scer	uniprot	UP000002311	UP000002311.tsv.gz	6066	5813	0.9583	113	113	1.0	True	
+fungi/yeast_filamentous	Ylip	uniprot	UP000001300	UP000001300.tsv.gz	6449	5530	0.8575	85	85	1.0	True	
+fungi/yeast_filamentous	Spom	uniprot	UP000002485	UP000002485.tsv.gz	5129	5042	0.983	84	84	1.0	True	
+fungi/yeast_filamentous	Nirr	uniprot	UP000186594	UP000186594.tsv.gz	5530	4480	0.8101	53	53	1.0	True	
+fungi/yeast_filamentous	ALL_IN				23174	20865	0.9004	335	335	1.0	True	4/4
+fungi/agaricomycetes_pairwise	Scom	ncbi	GCF_000143185.2	NONE	16193	0	0.0	2521	0	0.0	False	
+fungi/agaricomycetes_pairwise	Ccin	ncbi	GCA_000182895.1	NONE	13356	0	0.0	2469	0	0.0	False	
+fungi/agaricomycetes_pairwise	Agbi	ncbi	GCA_000300555.1	NONE	11262	0	0.0	1872	0	0.0	False	
+fungi/agaricomycetes_pairwise	Lbic	ncbi	GCA_000143565.1	NONE	18213	0	0.0	3099	0	0.0	False	
+fungi/agaricomycetes_pairwise	ALL_IN				59024	0	0.0	9961	0	0.0	False	0/4
+bacteria/UHM_Akkermansia	C286	ingroup	NOVEL_sp01_n18	NONE	2114	0	0.0	105	0	0.0	False	
+bacteria/UHM_Akkermansia	C287	ingroup	NOVEL_sp02_n16	NONE	2684	0	0.0	119	0	0.0	False	
+bacteria/UHM_Akkermansia	C288	ingroup	NOVEL_sp03_n16	NONE	2407	0	0.0	112	0	0.0	False	
+bacteria/UHM_Akkermansia	C289	ingroup	NOVEL_sp04_n15	NONE	2564	0	0.0	129	0	0.0	False	
+bacteria/UHM_Akkermansia	C294	ingroup	NOVEL_sp09_n4	NONE	2020	0	0.0	83	0	0.0	False	
+bacteria/UHM_Akkermansia	C298	ingroup	NOVEL_sp13_n1	NONE	2369	0	0.0	103	0	0.0	False	
+bacteria/UHM_Akkermansia	ALL_IN				14158	0	0.0	651	0	0.0	False	0/6
+bacteria/UHM_Koxytoca	UHM102bin47	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM102.35765_R.bin.47.faa	NONE	5088	0	0.0	45	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM125bin22	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM125.35768_R.bin.22.faa	NONE	5305	0	0.0	43	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM125bin48	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM125.35770_R.bin.48.faa	NONE	2552	0	0.0	16	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM145bin17	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM145.35771_R.bin.17.faa	NONE	4896	0	0.0	36	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM145bin33	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM145.35772_R.bin.33.faa	NONE	4959	0	0.0	41	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM145bin28	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM145.35773_R.bin.28.faa	NONE	4796	0	0.0	42	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM17bin35	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM17.35739_R.bin.35.faa	NONE	5007	0	0.0	44	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM18bin40	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM18.35742_R.bin.40.faa	NONE	5386	0	0.0	43	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM20bin40	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM20.35743_R.bin.40.faa	NONE	5213	0	0.0	45	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM20bin12	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM20.35744_R.bin.12.faa	NONE	5014	0	0.0	44	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM22bin50	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM22.35745_R.bin.50.faa	NONE	4804	0	0.0	41	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM22bin54	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM22.35746_R.bin.54.faa	NONE	4533	0	0.0	33	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM22bin8	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM22.35747_R.bin.8.faa	NONE	4920	0	0.0	45	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM40bin4	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM40.35754_R.bin.4.faa	NONE	5218	0	0.0	45	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM40bin27	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM40.35755_R.bin.27.faa	NONE	4641	0	0.0	44	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM43bin53	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM43.10836_R.bin.53.faa	NONE	2977	0	0.0	20	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM56bin19	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM56.35760_R.bin.19.faa	NONE	4802	0	0.0	31	0	0.0	False	
+bacteria/UHM_Koxytoca	UHM72bin19	local_faa	/bigdata/stajichlab/jpere468/klebsiella_story/koxytoca_ingroup_faa/UHM72.35762_R.bin.19.faa	NONE	4942	0	0.0	39	0	0.0	False	
+bacteria/UHM_Koxytoca	ALL_IN				85053	0	0.0	697	0	0.0	False	0/18
+bacteria/UHM_lachnoNovelclade	UHM207b71			NONE	2681	0	0.0	0	0	0	False	
+bacteria/UHM_lachnoNovelclade	Lachimisp1			NONE	4274	0	0.0	0	0	0	False	
+bacteria/UHM_lachnoNovelclade	Lsph	local_faa	/bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_002797975.1.faa	NONE	4675	0	0.0	615	0	0.0	False	
+bacteria/UHM_lachnoNovelclade	Easp	local_faa	/bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_025149125.1.faa	NONE	5589	0	0.0	616	0	0.0	False	
+bacteria/UHM_lachnoNovelclade	Cami	local_faa	/bigdata/stajichlab/jpere468/unknown_tree/lachno_ingroup_faa/GCF_900112885.1.faa	NONE	2547	0	0.0	430	0	0.0	False	
+bacteria/UHM_lachnoNovelclade	ALL_IN				19766	0	0.0	2354	0	0.0	False	0/5 (candidates not matched to an IN species: 693)
+fungi/zoosporic_dikarya	Batrdend	uniprot	UP000007241	UP000007241.tsv.gz	8610	6529	0.7583	800	698	0.8725	True	
+fungi/zoosporic_dikarya	Spizpunc	uniprot	UP000053201	UP000053201.tsv.gz	8940	7320	0.8188	845	755	0.8935	True	
+fungi/zoosporic_dikarya	Syncendo	uniprot	UP000317494	UP000317494.tsv.gz	7895	5518	0.6989	671	574	0.8554	True	
+fungi/zoosporic_dikarya	Cateangu	uniprot	UP000193411	UP000193411.tsv.gz	12590	6989	0.5551	611	561	0.9182	True	
+fungi/zoosporic_dikarya	ALL_IN				38035	26356	0.6929	2927	2588	0.8842	True	4/4

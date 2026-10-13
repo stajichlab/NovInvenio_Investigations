@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex	IN_universe	IN_in_matrix	IN_pass_ingroup_rule	candidates	near_miss_out1	near_miss_out2	n_Batrdend	n_Batrsala	n_Spizpunc	n_Powehirt	n_Geravari	n_Syncendo	n_Syncmicr	n_Chytconf	n_Polystew	n_Rhizglob	n_Rhizrose	n_Mucocirc	n_Rhizdele	n_Lichcory	n_Phycblak	n_Absiglau	n_Syncrace	n_Choacucu	n_Hessvesi	n_Umbevina	n_Mortisab	n_Thamspha	candidate_ids	near_miss_out1_ids
+Arp2/3 ARPC2 (P34-Arc)	PF04045		11	11	11	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	2	1	1	1	1	1	1		
+Arp2/3 ARPC3 (P21-Arc)	PF04062		11	11	11	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC4	PF05856		11	11	11	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	2	1	1	1	1	1	1	1	1	0		
+Arp2/3 ARPC5 (P16-Arc)	PF04699		12	12	12	0	0	0	1	1	1	1	1	1	1	2	1	1	1	1	1	0	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1	2	2	2	0	0	0	0	1	0	0	0	1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b	70	70	69	0	0	0	6	7	6	7	6	7	6	6	8	5	6	6	7	5	5	8	5	8	7	7	7	4		
+WAVE complex NCKAP1	PF09735		9	9	9	8	0	0	1	1	1	1	1	1	1	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	Batrdend::tr|F4PD12|F4PD12_BATDJ;Batrsala::tr|A0ABQ8FE65|A0ABQ8FE65_9FUNG;Geravari::tr|A0AAD5TMT5|A0AAD5TMT5_9FUNG;Powehirt::tr|A0A507EBT4|A0A507EBT4_9FUNG;Rhizrose::tr|A0AAD5SDV4|A0AAD5SDV4_9FUNG;Spizpunc::tr|A0A0L0HUD3|A0A0L0HUD3_SPIPD;Syncendo::tr|A0A507D6K0|A0A507D6K0_9FUNG;Syncmicr::tr|A0A507BWH7|A0A507BWH7_9FUNG	
+WAVE complex CYFIP (FragX_IP)	PF05994		9	9	9	9	0	0	1	1	1	1	1	1	1	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	Batrdend::tr|F4NU01|F4NU01_BATDJ;Batrsala::tr|A0ABQ8F276|A0ABQ8F276_9FUNG;Geravari::tr|A0AAD5XQL9|A0AAD5XQL9_9FUNG;Polystew::tr|A0ABR4NBZ5|A0ABR4NBZ5_9FUNG;Powehirt::tr|A0A507DR56|A0A507DR56_9FUNG;Rhizrose::tr|A0AAD5X571|A0AAD5X571_9FUNG;Spizpunc::tr|A0A0L0HKR9|A0A0L0HKR9_SPIPD;Syncendo::tr|A0A507D0Y3|A0A507D0Y3_9FUNG;Syncmicr::tr|A0A507BVS9|A0A507BVS9_9FUNG	
+WAVE complex ABI	PF07815|PF27594		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+SCAR/WAVE (SCAR_helical)	PF27569		9	9	9	9	0	0	1	1	1	1	1	1	1	0	1	0	1	0	0	0	0	0	0	0	0	0	0	0	Batrdend::tr|F4NTW1|F4NTW1_BATDJ;Batrsala::tr|A0ABQ8F6F3|A0ABQ8F6F3_9FUNG;Geravari::tr|A0AAD5XR54|A0AAD5XR54_9FUNG;Polystew::tr|A0ABR4N0H9|A0ABR4N0H9_9FUNG;Powehirt::tr|A0A507DVR6|A0A507DVR6_9FUNG;Rhizrose::tr|A0AAD5S8S3|A0AAD5S8S3_9FUNG;Spizpunc::tr|A0A0L0HQY4|A0A0L0HQY4_SPIPD;Syncendo::tr|A0A507CPH5|A0A507CPH5_9FUNG;Syncmicr::tr|A0A507C0C2|A0A507C0C2_9FUNG	
+WASP family (WH1)	PF00568		11	11	11	0	0	0	1	1	1	1	1	1	1	1	1	1	1	3	1	1	1	2	3	2	3	2	2	1		
+WH2 motif (WASP, WAVE, others)	PF02205		12	10	8	0	2	0	3	1	1	1	1	1	1	1	1	0	1	2	1	2	0	3	2	2	3	2	3	0		Rhizrose::tr|A0AAD5SCZ3|A0AAD5SCZ3_9FUNG;Spizpunc::tr|A0A0L0HDW7|A0A0L0HDW7_SPIPD
+Formin FH2	PF02181		50	50	49	3	0	0	4	6	4	4	4	3	4	5	6	5	5	8	9	7	3	9	6	6	7	4	4	2	Polystew::tr|A0ABR4N4S4|A0ABR4N4S4_9FUNG;Rhizrose::tr|A0AAD5S9B3|A0AAD5S9B3_9FUNG;Spizpunc::tr|A0A0L0HBD9|A0A0L0HBD9_SPIPD	
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345		40	40	36	2	1	0	3	4	4	3	4	2	3	3	4	3	7	8	11	7	6	10	7	8	8	7	7	2	Rhizrose::tr|A0AAD5RZZ0|A0AAD5RZZ0_9FUNG;Rhizrose::tr|A0AAD5S8D9|A0AAD5S8D9_9FUNG	Rhizrose::tr|A0AAD5RZP6|A0AAD5RZP6_9FUNG
+Ena/VASP (VASP_tetra)	PF08776		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Coronin (description only)		coronin	27	27	26	1	0	0	1	1	3	3	4	1	2	4	2	2	4	1	3	2	2	3	2	1	2	2	2	1	Rhizrose::tr|A0AAD5SJK2|A0AAD5SJK2_9FUNG	
+Cortactin (HS1_rep)	PF02218		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Myosin 2 tail (Myosin_tail_1)	PF01576		12	11	11	0	1	0	1	1	1	1	1	1	1	1	1	1	2	0	0	0	0	0	0	0	0	0	1	1		Batrdend::tr|F4P097|F4P097_BATDJ
+Myosin head (all myosins)	PF00063		101	101	100	0	0	0	7	8	9	9	7	6	9	13	7	14	12	17	19	14	16	18	11	16	13	8	9	5		
