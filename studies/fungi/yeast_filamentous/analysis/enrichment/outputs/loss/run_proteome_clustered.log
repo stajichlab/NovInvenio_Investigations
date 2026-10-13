@@ -1,0 +1,47 @@
+[    0.0s] direction=loss target(OUT)=['Ncra', 'Afum', 'Ztri', 'Cimm'] other(IN)=['Scer', 'Ylip', 'Spom', 'Nirr']
+[    0.5s] matrix rows 28016; target rule 23816; target rule & other frac <= 0.0 5637; loss_candidates.txt 5637
+[    1.5s] universe 'proteome': 39944 OUT (target group) proteins
+[    2.5s] annotation rows matched: 39944 of 39944
+[    5.8s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29893778/bgclust_cfnty9rs/bg.fa /scratch/jstajich/29893778/bgclust_cfnty9rs/bg /scratch/jstajich/29893778/bgclust_cfnty9rs/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   38.2s] background clusters: 20192 clusters from 34307 proteins
+[   39.7s] whole_set	protein	pfam	N=4417/5637	M=27984	tested=1795	sig=119
+[   39.7s] whole_set	protein	pfam_clan	N=3422/5637	M=22762	tested=425	sig=34
+[   40.0s] whole_set	protein	interpro	N=4883/5637	M=29974	tested=3953	sig=196
+[   40.4s] whole_set	protein	go	N=3900/5637	M=25984	tested=5193	sig=79
+[   41.5s] whole_set	family	pfam	N=2574/3319	M=12904	tested=811	sig=14
+[   41.6s] whole_set	family	pfam_clan	N=1951/3319	M=10200	tested=326	sig=5
+[   41.7s] whole_set	family	interpro	N=2853/3319	M=14311	tested=1754	sig=22
+[   42.0s] whole_set	family	go	N=2281/3319	M=11553	tested=3557	sig=4
+[   42.1s] Ncra	protein	pfam	N=1050/1334	M=6689	tested=368	sig=11
+[   42.2s] Ncra	protein	pfam_clan	N=821/1334	M=5330	tested=244	sig=5
+[   42.2s] Ncra	protein	interpro	N=1157/1334	M=7160	tested=914	sig=27
+[   42.4s] Ncra	protein	go	N=938/1334	M=6279	tested=2700	sig=11
+[   42.5s] Ncra	family	pfam	N=995/1275	M=6157	tested=314	sig=3
+[   42.5s] Ncra	family	pfam_clan	N=766/1275	M=4868	tested=240	sig=4
+[   42.6s] Ncra	family	interpro	N=1098/1275	M=6619	tested=801	sig=6
+[   42.8s] Ncra	family	go	N=886/1275	M=5778	tested=2613	sig=9
+[   42.9s] Afum	protein	pfam	N=1263/1598	M=7698	tested=438	sig=17
+[   42.9s] Afum	protein	pfam_clan	N=991/1598	M=6356	tested=253	sig=6
+[   43.0s] Afum	protein	interpro	N=1390/1598	M=8211	tested=1068	sig=36
+[   43.7s] Afum	protein	go	N=1158/1598	M=7341	tested=2954	sig=12
+[   43.8s] Afum	family	pfam	N=1169/1503	M=6606	tested=342	sig=7
+[   43.8s] Afum	family	pfam_clan	N=904/1503	M=5368	tested=238	sig=3
+[   43.9s] Afum	family	interpro	N=1295/1503	M=7093	tested=850	sig=15
+[   44.1s] Afum	family	go	N=1071/1503	M=6278	tested=2778	sig=6
+[   44.7s] Ztri	protein	pfam	N=1123/1395	M=7455	tested=406	sig=12
+[   44.7s] Ztri	protein	pfam_clan	N=873/1395	M=6130	tested=248	sig=7
+[   44.8s] Ztri	protein	interpro	N=1233/1395	M=8028	tested=1014	sig=21
+[   44.9s] Ztri	protein	go	N=952/1395	M=6750	tested=2636	sig=1
+[   45.1s] Ztri	family	pfam	N=1040/1309	M=6420	tested=343	sig=1
+[   45.1s] Ztri	family	pfam_clan	N=799/1309	M=5223	tested=239	sig=3
+[   45.1s] Ztri	family	interpro	N=1148/1309	M=6962	tested=854	sig=4
+[   45.3s] Ztri	family	go	N=878/1309	M=5767	tested=2522	sig=5
+[   45.4s] Cimm	protein	pfam	N=981/1310	M=6142	tested=304	sig=6
+[   45.4s] Cimm	protein	pfam_clan	N=737/1310	M=4946	tested=223	sig=6
+[   45.5s] Cimm	protein	interpro	N=1103/1310	M=6575	tested=803	sig=10
+[   45.6s] Cimm	protein	go	N=852/1310	M=5614	tested=2120	sig=7
+[   46.2s] Cimm	family	pfam	N=933/1258	M=5573	tested=264	sig=4
+[   46.2s] Cimm	family	pfam_clan	N=690/1258	M=4439	tested=215	sig=5
+[   46.2s] Cimm	family	interpro	N=1051/1258	M=5982	tested=692	sig=7
+[   46.4s] Cimm	family	go	N=811/1258	M=5085	tested=2048	sig=1
+[   48.0s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/analysis/enrichment/outputs/loss/proteome_clustered

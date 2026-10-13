@@ -1,0 +1,56 @@
+study	rank	term	name	k_cand_units	N_cand	n_bg_units	M	fold	fdr_bh	n_candidate_proteins	n_species	repeat_TE_like
+zoosporic_dikarya	1	PF00172	Zn_clus: Fungal Zn(2)-Cys(6) binuclear cluster domain	72	788	426	17943	3.849	3.4e-20	79	5	False
+zoosporic_dikarya	2	PF04082	Fungal_trans: Fungal specific transcription factor domain	49	788	294	17943	3.795	3.99e-13	53	5	False
+zoosporic_dikarya	3	PF00961	LAGLIDADG_1: LAGLIDADG endonuclease	10	788	12	17943	18.975	7.06e-10	15	4	False
+zoosporic_dikarya	4	PF02752	Arrestin_C: Arrestin (or S-antigen), C-terminal domain	11	788	20	17943	12.524	4.4e-08	15	5	False
+zoosporic_dikarya	5	PF06011	TRP: Transient receptor potential (TRP) ion channel	8	788	10	17943	18.216	1.28e-07	15	5	False
+yeast_filamentous	1	PF20684	Fung_rhodopsin: Fungal rhodopsin domain	73	2574	134	12904	2.731	5.28e-16	91	4	False
+yeast_filamentous	2	PF26118	DUF8035: Family of unknown function (DUF8035)	9	2574	10	12904	4.512	0.00118	12	4	False
+yeast_filamentous	3	PF22939	WHD_GPIID: GPI inositol-deacylase, winged helix domain	10	2574	12	12904	4.178	0.00118	14	4	False
+yeast_filamentous	4	PF01494	FAD_binding_3: FAD binding domain	26	2574	56	12904	2.328	0.00139	68	4	False
+yeast_filamentous	5	PF26176	zf_C2H2_17_2: C2H2-domain containing protein second zinc finger domain	7	2574	7	12904	5.013	0.00202	10	4	False
+mushrooms_tremella	1	PF04488	Gly_transf_sug: Glycosyltransferase sugar-binding region containing DXD motif	10	973	14	6206	4.556	0.00157	15	2	False
+mushrooms_tremella	2	PF03162	Y_phosphatase2: Tyrosine phosphatase family	6	973	6	6206	6.378	0.00245	10	2	False
+mushrooms_tremella	3	PF00046	Homeodomain: Homeodomain	7	973	13	6206	3.434	0.182			False
+mushrooms_tremella	4	PF02037	SAP: SAP domain	4	973	5	6206	5.103	0.22			False
+mushrooms_tremella	5	PF00533	BRCT: BRCA1 C Terminus (BRCT) domain	5	973	10	6206	3.189	0.674			False
+pezizo_set1	1	PF12706	Lactamase_B_2: Beta-lactamase superfamily domain	4	100	12	19158	63.86	0.000545	5	5	False
+pezizo_set1	2	PF13638	PIN_4: PIN domain	4	100	15	19158	51.088	0.000713	4	4	False
+pezizo_set1	3	PF09724	Dcc1: Sister chromatid cohesion protein Dcc1	3	100	5	19158	114.948	0.000713	3	3	False
+pezizo_set1	4	PF00642	zf-CCCH: Zinc finger C-x8-C-x5-C-x3-H type (and similar)	5	100	39	19158	24.562	0.000713	5	5	False
+pezizo_set1	5	PF07817	GLE1: GLE1-like protein	3	100	6	19158	95.79	0.000888	3	3	False
+chytrid_vs_mucoromycota	1	PF00339	Arrestin_N: Arrestin (or S-antigen), N-terminal domain	41	2215	83	24460	5.455	3.88e-18	205	11	False
+chytrid_vs_mucoromycota	2	PF13966	zf-RVT: zinc-binding in reverse transcriptase	41	2215	98	24460	4.62	4.12e-15	114	8	False
+chytrid_vs_mucoromycota	3	PF02752	Arrestin_C: Arrestin (or S-antigen), C-terminal domain	37	2215	82	24460	4.983	5.4e-15	179	11	False
+chytrid_vs_mucoromycota	4	PF13812	PPR_3: Pentatricopeptide repeat domain	31	2215	70	24460	4.89	3.44e-12	61	10	True
+chytrid_vs_mucoromycota	5	PF11223	DUF3020: SPP41, DUF3020	16	2215	19	24460	9.299	4.99e-12	42	11	False
+serinales_vs_pichiales	1	PF29832	SOV1_middle: SOV1 mitochondrial middle domain	6	61	7	14277	200.614	4.11e-11	14	14	False
+serinales_vs_pichiales	2	PF01417	ENTH: ENTH domain	7	61	17	14277	96.373	1.23e-10	12	12	False
+serinales_vs_pichiales	3	PF00011	HSP20: Hsp20/alpha crystallin family	6	61	9	14277	156.033	1.23e-10	15	14	False
+serinales_vs_pichiales	4	PF10307	HAD_SAK_1: HAD domain family 1 in Swiss Army Knife RNA repair proteins	6	61	9	14277	156.033	1.23e-10	11	11	False
+serinales_vs_pichiales	5	PF02037	SAP: SAP domain	5	61	24	14277	48.76	1.2e-05	7	7	False
+zoosporic_holozoa_vs_dikarya	1	PF00172	Zn_clus: Fungal Zn(2)-Cys(6) binuclear cluster domain	35	225	572	22388	6.088	1.77e-14	40	7	False
+zoosporic_holozoa_vs_dikarya	2	PF05345	He_PIG: Putative Ig domain	6	225	6	22388	99.502	4.73e-10	6	6	False
+zoosporic_holozoa_vs_dikarya	3	PF15404	PH_4: Pleckstrin homology domain	6	225	6	22388	99.502	4.73e-10	6	6	False
+zoosporic_holozoa_vs_dikarya	4	PF23207	PH_SPO71: Prospore membrane adapter protein SPO71 PH domain	6	225	6	22388	99.502	4.73e-10	6	6	False
+zoosporic_holozoa_vs_dikarya	5	PF02076	STE3: Pheromone A receptor	7	225	12	22388	58.043	2.81e-09	7	6	False
+malassezia_vs_ustilaginomycotina	1	PF11754	Velvet: Velvet factor	42	2051	45	18903	8.602	3.29e-34	86	18	False
+malassezia_vs_ustilaginomycotina	2	PF00172	Zn_clus: Fungal Zn(2)-Cys(6) binuclear cluster domain	119	2051	481	18903	2.28	1.54e-15	325	18	False
+malassezia_vs_ustilaginomycotina	3	PF04082	Fungal_trans: Fungal specific transcription factor domain	78	2051	263	18903	2.733	1.83e-14	212	18	False
+malassezia_vs_ustilaginomycotina	4	PF09994	T6SS_Tle1-like_cat: T6SS, Phospholipase effector Tle1-like, catalytic domain	12	2051	15	18903	7.373	3.28e-07	36	17	False
+malassezia_vs_ustilaginomycotina	5	PF07885	Ion_trans_2: Ion channel	11	2051	13	18903	7.799	3.86e-07	22	18	False
+metschnikowiaceae_cah	1	PF11001	AFUB_07903_YDR124W_hel: YDR124W-like, helical bundle domain	11	73	11	13892	190.301	4.45e-23	12	12	False
+metschnikowiaceae_cah	2	PF29444	KH_FAR1_2nd: FAR1 C-terminal domain	8	73	10	13892	152.241	6.76e-15	10	10	False
+metschnikowiaceae_cah	3	PF29445	PH_FAR1: FAR1 PH domain	8	73	10	13892	152.241	6.76e-15	10	10	False
+metschnikowiaceae_cah	4	PF29452	FAR1_N: FAR1 N-terminal domain	7	73	19	13892	70.111	1.14e-09	9	9	False
+metschnikowiaceae_cah	5	PF02148	zf-UBP: Zn-finger in ubiquitin-hydrolases and other protein	4	73	9	13892	84.578	2.01e-05	12	12	False
+neocallimastigomycota_vs_early_fungi	1	PF00067	p450: Cytochrome P450	66	3127	122	41024	7.097	9.68e-38	292	13	False
+neocallimastigomycota_vs_early_fungi	2	PF05653	Mg_trans_NIPA: Magnesium transporter NIPA	32	3127	41	41024	10.239	4.05e-25	73	12	False
+neocallimastigomycota_vs_early_fungi	3	PF03109	ABC1: ABC1 atypical kinase-like domain	19	3127	20	41024	12.463	1.07e-17	61	13	False
+neocallimastigomycota_vs_early_fungi	4	PF00472	RF-1: RF-1 domain	18	3127	20	41024	11.807	7.9e-16	43	13	False
+neocallimastigomycota_vs_early_fungi	5	PF11815	DUF3336: Domain of unknown function (DUF3336)	16	3127	16	41024	13.119	7.9e-16	37	13	False
+sordariales_shallow	1	PF04082	Fungal_trans: Fungal specific transcription factor domain	53	625	717	22069	2.61	2.74e-07	89	8	False
+sordariales_shallow	2	PF00172	Zn_clus: Fungal Zn(2)-Cys(6) binuclear cluster domain	59	625	880	22069	2.367	5.51e-07	110	8	False
+sordariales_shallow	3	PF00884	Sulfatase: Sulfatase	7	625	21	22069	11.77	0.000501	21	8	False
+sordariales_shallow	4	PF07859	Abhydrolase_3: alpha/beta hydrolase fold	10	625	76	22069	4.646	0.0166	16	8	False
+sordariales_shallow	5	PF00728	Glyco_hydro_20: Glycosyl hydrolase family 20, catalytic domain	4	625	9	22069	15.694	0.0166	10	6	False

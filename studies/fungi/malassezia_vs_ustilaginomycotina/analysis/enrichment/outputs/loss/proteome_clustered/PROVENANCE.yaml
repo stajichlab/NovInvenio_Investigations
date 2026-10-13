@@ -1,0 +1,242 @@
+generated: '2026-10-12T18:32:53'
+study: malassezia_vs_ustilaginomycotina
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: b96062411e1f05983aa679d2d85d6e719db6cdc15260175ccf643db400903b17
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/malassezia_vs_ustilaginomycotina --config
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations
+  --study malassezia_vs_ustilaginomycotina --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --direction loss --ingroup-min-frac 0.75 --other-max-frac 0.0 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Mycomayd
+  - Ustihord
+  - Sporreil
+  - Moesaphi
+  - Kalmbras
+  - Pseufloc
+  - Sporgram
+  - Testcype
+  - Tillindi
+  - Tillcari
+  - Meirmilt
+  - Acaringo
+  - Jamirose
+  - Micrgluc
+  - Tillwash
+  - Cerabomb
+  - Violpalu
+  - Tillanom
+other_group:
+  label: IN
+  species:
+  - Malaglob
+  - Malasymp
+  - Malarest
+  - Malafurf
+  - Malapach
+  - Malavesp
+  - Malanana
+  - Malabras
+  - Malajapo
+  - Malaarun
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations
+annotation_files:
+  Mycomayd: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000000561.tsv.gz
+  Ustihord: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000006174.tsv.gz
+  Sporreil: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000008867.tsv.gz
+  Moesaphi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000019462.tsv.gz
+  Kalmbras: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000019377.tsv.gz
+  Pseufloc: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000323386.tsv.gz
+  Sporgram: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000306050.tsv.gz
+  Testcype: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000246740.tsv.gz
+  Tillindi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000077521.tsv.gz
+  Tillcari: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000836402.tsv.gz
+  Meirmilt: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245771.tsv.gz
+  Acaringo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245768.tsv.gz
+  Jamirose: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245884.tsv.gz
+  Micrgluc: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245942.tsv.gz
+  Tillwash: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245946.tsv.gz
+  Cerabomb: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000054845.tsv.gz
+  Violpalu: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245626.tsv.gz
+  Tillanom: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000027361.tsv.gz
+  Malaglob: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000008837.tsv.gz
+  Malasymp: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000186303.tsv.gz
+  Malarest: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000269793.tsv.gz
+  Malafurf: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000818624.tsv.gz
+  Malapach: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000037751.tsv.gz
+  Malavesp: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000232875.tsv.gz
+  Malanana: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP001213623.tsv.gz
+  Malabras: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP001216638.tsv.gz
+  Malajapo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP001217754.tsv.gz
+  Malaarun: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP001217582.tsv.gz
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 11852
+  candidates_txt: 11852
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/malassezia_vs_ustilaginomycotina/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/malassezia_vs_ustilaginomycotina/loss_presence_matrix.tsv
+  rule: OUT count / 18 >= 0.75 and IN count / 10 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 4f30c682eabdb155
+  n_sequences: 120231
+  n_clusters: 42252
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 102.9
+  threads: 8
+  created: '2026-10-12T18:32:20'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/malassezia_vs_ustilaginomycotina/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/config.csv: 708781d6d9020eaeb844b1f685f8c04ca32191cf42ef9b6b7a9a56d76d48b617
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/malassezia_vs_ustilaginomycotina/loss_candidates.txt
+  : 6a134309e63250882037bb33e277eaf7550f2230070d37a3d8f4751f3ca4c40c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/malassezia_vs_ustilaginomycotina/clusters/loss_clusters_cluster.tsv
+  : 1eb685ff49950e17601939989a5d1c2c46d22dc5f1e3db974f30e607af97d520
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/malassezia_vs_ustilaginomycotina/loss_presence_matrix.tsv
+  : 109334283dfa7d6e0b2ea9dd43eb4d2e1d48c51cd78970095809f756ca0c106f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000000561_5270.pep.fa
+  : bb48a1d66d6108995ac7e17cc7b99091d603e4d7d099de9e38ce6de2a7a304d8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000006174_120017.pep.fa
+  : 6809c38b44205f9d79fbbb558ad7eaafe5dc3aa0c04128be4b5b5733afa5c14c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000008867_999809.pep.fa
+  : 9af18733f7e092ebf47610c8617fbe1d44b81b5c00750da773eb41fc7cd81b5e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000019462_84754.pep.fa
+  : 81bc024265c8f56816b213c2bae43e8f1942948c7c8bb5e91e314c695c95c02b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000019377_1365824.pep.fa
+  : a021c6cde3bc17a85b7f99f9673da8b494dfc0a62c6d2880d39fa8200e0a75ea
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000323386_84751.pep.fa
+  : 85e0bdd5404c0c1927f59f3de20d4f49f4968f3db35cc10d6e8307536773acb7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000306050_280036.pep.fa
+  : debc0ca964c56c956a340614df416319e817ecee8fc2e8e908a57361ae006899
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000246740_1882483.pep.fa
+  : cd385db78e67fe7be3acfcc4705621d33303d533649ffe235a5de781a6d7543e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000077521_43049.pep.fa
+  : 69e72dce160241f296b50260a466b2e02c6a1690a16fddbf7bbf47c27496a1b4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000836402_13290.pep.fa
+  : 020e83360987899f28a0550b3ae4f8bc919e522f5df898a11b91354f309906e5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000245771_1280837.pep.fa
+  : f6dbb733949ece7c822b1dd48e474b22cf7305ba5215e079e94de4d2c7a5da66
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000245768_215250.pep.fa
+  : fafd7724278eeeed1adcac1fc6dc7904817e6ff24c98d8a59e12f4e34332b8a2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000245884_1569628.pep.fa
+  : 42b32a03fb6c5a7c7e14c587765f877f6919a228a095d558a65917da27fefc0a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000245942_1684307.pep.fa
+  : 53bd0f93912f9e334d12b22f22c4d25743d0641992c0d58af1cf67ec9e2e3adf
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000245946_58919.pep.fa
+  : 702a1a8011ebcfedc9f612f5bfb64f921417e2282a8055c561ee20f286e16cfd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000054845_401625.pep.fa
+  : 07594eea68b8def50a7eff7bd46bd88e9414fe4bd8001fa3cd4dfe1e6f222974
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000245626_1673888.pep.fa
+  : 1bdce2375ee27b5c4566de31d2e5b9f5b3eb45c59536fb1f6c084a252899ae39
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/data_dir/pep/UP000027361_1037660.pep.fa
+  : d0951236a1bfa1b57bdc067840128e7fe0e759965bb6bbeab6640664d0580f77
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/species.csv: 8a65a616d314f99ccaf0cf1a77cdd06eca8ba1d54d0c2cb78c385cc540375b95
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000000561.tsv.gz
+  : 926b7176d7fb63fb5b86d31da963ffe83083cd2fd8cfd170b09edbd3b3ca8873
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000006174.tsv.gz
+  : 4558a0b60a56e271f3d9915a1fd91cf6cb86001f9626d421a1748fc8f7ca20a1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000008867.tsv.gz
+  : 3773e81f5ea91b1f245efa6d75f71ae58e88610946d70ef53ac84d299e5624d0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000019462.tsv.gz
+  : 56de5bd36ba0bba54f831768db2a2b8e404e412270ad9a232f23512dc1ef2a6b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000019377.tsv.gz
+  : 5bb957635c57308d51645975ffc20479e0837b782a6df6dcaf768e6ba6af528c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000323386.tsv.gz
+  : 29cb29821673219e80dee8e951b54473357f7c60653876c96a08fffb5f7d342f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000306050.tsv.gz
+  : 09b3a2390d0742984f6cb1cb6024e77838614d6c0b71ab6eafa321c3e3248352
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000246740.tsv.gz
+  : 97e3435029ff8424643eae60fbf339a47abb86a352ecc5ce8f1feb38c2c2db52
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000077521.tsv.gz
+  : e63437821860b8fbcfdb5243a12f65fbef9e38819bfc1b10ad35291db34c3b2f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000836402.tsv.gz
+  : 58527f69af62d01f677ef25fe20dd37ff4e821283eb87f862a4196bb54707790
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245771.tsv.gz
+  : 80c98eb28ff960b251de8f237f58ec482f23313244cb29a24a195d219aad0d7a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245768.tsv.gz
+  : c584847583cda29f42c7ff2418d29ea169df738ef52d9de823c02b6e9885b403
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245884.tsv.gz
+  : c9bb442176c48c0b5dfb2f4e87877c2572cc4c028df71130f4560aba8f493b36
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245942.tsv.gz
+  : 80c0d7affdac1eb3355829f519a1fdbc7d9eebf363e1539eb77b07fe5b2e1048
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245946.tsv.gz
+  : 7713c866cdb55919baad504a60301a66bde2337282427cde24ab064c359f2a17
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000054845.tsv.gz
+  : 467245f3e2ad9d23325adbc1e361614eadaf94a265a7223eb322288e824604ac
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000245626.tsv.gz
+  : 828ca3ac3cd23c5e61a4948f1fe73e380e4042fbf57abc57aeb3b9426ffbfb37
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000027361.tsv.gz
+  : 43736e3d5e08a28b87df1de819fafa4dee611c519d0c457c565c085ebc9f40f5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000008837.tsv.gz
+  : 333ff3fd69e5896fdb9f74a4e872f519c216aba0f50470dd994fd223d8b60917
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000186303.tsv.gz
+  : 6d9c27d94b85d56fdac646cf9ad19daf318787307eb849f6131e11c80f9dccd9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000269793.tsv.gz
+  : 600015aeea2bb0045c910c28c431ebdffe93c4fc42eb0636270cad24611a5110
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000818624.tsv.gz
+  : b14fcb4ff7e137afbf1b7361f5ffc7f040849e2ffa2ec0835c0b3da86e4df74f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000037751.tsv.gz
+  : 32fee36082c197d850689a30b2ff622087bb9068c0cc777a80e14e3180abda52
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP000232875.tsv.gz
+  : c184b6539491540d59761fa426aeade3384c45cd5dc9c4e1440b4c9f2b0a7296
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP001213623.tsv.gz
+  : af4af88b2e1fa1b31bff59df1d88b0246cc220b1bf4f60bbd386891e9f2abe55
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP001216638.tsv.gz
+  : 36b615fbe10da74c77431add74dc15af0b8bf2795e53133604bf9ca6f9d5ae70
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP001217754.tsv.gz
+  : 8f6e5981704624265a534efe8eb45ae8e6a642909b58ee3d7ea70778fb17234c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/malassezia_vs_ustilaginomycotina/annotations/UP001217582.tsv.gz
+  : bdc1882b8c9d8871dfad408c8179107db166c3b50236a443beafeaecfacf6c77
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 19.6
+  background_cluster_s: 107.0
+  tests_s: 22.3
+  total_s: 158.3
+host: r11
+slurm_job: '29893778'
+candidate_annotation:
+  frac_loss_candidates_any_annotation: 0.797
+  low_coverage: false
+  rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
+  wall_s_enrichment: 166

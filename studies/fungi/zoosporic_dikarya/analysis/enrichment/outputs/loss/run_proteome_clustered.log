@@ -1,0 +1,55 @@
+[    0.0s] direction=loss target(OUT)=['Scer', 'Ncra', 'Anid', 'Spom', 'Ccin'] other(IN)=['Batrdend', 'Spizpunc', 'Syncendo', 'Cateangu']
+[    3.1s] matrix rows 30740; target rule 21220; target rule & other frac <= 0.0 1207; loss_candidates.txt 1207
+[   10.5s] universe 'proteome': 44849 OUT (target group) proteins
+[   10.9s] annotation rows matched: 44849 of 44849
+[   17.2s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29893778/bgclust_3qltm9en/bg.fa /scratch/jstajich/29893778/bgclust_3qltm9en/bg /scratch/jstajich/29893778/bgclust_3qltm9en/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   66.7s] background clusters: 28407 clusters from 43642 proteins
+[   68.4s] whole_set	protein	pfam	N=1133/1207	M=32263	tested=3373	sig=107
+[   68.4s] whole_set	protein	pfam_clan	N=863/1207	M=25942	tested=472	sig=30
+[   68.6s] whole_set	protein	interpro	N=1200/1207	M=34480	tested=7392	sig=222
+[   69.1s] whole_set	protein	go	N=1132/1207	M=31572	tested=6761	sig=305
+[   70.4s] whole_set	family	pfam	N=788/844	M=17943	tested=1376	sig=44
+[   70.4s] whole_set	family	pfam_clan	N=589/844	M=13908	tested=385	sig=18
+[   70.5s] whole_set	family	interpro	N=837/844	M=19709	tested=2842	sig=90
+[   70.8s] whole_set	family	go	N=791/844	M=17723	tested=5216	sig=195
+[   71.1s] Scer	protein	pfam	N=216/235	M=5098	tested=263	sig=7
+[   71.1s] Scer	protein	pfam_clan	N=159/235	M=3961	tested=199	sig=9
+[   71.1s] Scer	protein	interpro	N=233/235	M=5327	tested=708	sig=17
+[   71.3s] Scer	protein	go	N=233/235	M=5760	tested=3723	sig=62
+[   72.0s] Scer	family	pfam	N=189/207	M=4243	tested=167	sig=3
+[   72.0s] Scer	family	pfam_clan	N=135/207	M=3231	tested=174	sig=4
+[   72.0s] Scer	family	interpro	N=205/207	M=4447	tested=483	sig=6
+[   72.2s] Scer	family	go	N=205/207	M=4868	tested=3449	sig=43
+[   72.3s] Ncra	protein	pfam	N=243/261	M=6689	tested=368	sig=5
+[   72.3s] Ncra	protein	pfam_clan	N=181/261	M=5330	tested=244	sig=5
+[   72.3s] Ncra	protein	interpro	N=259/261	M=7160	tested=914	sig=12
+[   72.4s] Ncra	protein	go	N=236/261	M=6279	tested=2700	sig=60
+[   72.5s] Ncra	family	pfam	N=234/252	M=6088	tested=303	sig=3
+[   72.5s] Ncra	family	pfam_clan	N=172/252	M=4799	tested=238	sig=7
+[   72.6s] Ncra	family	interpro	N=250/252	M=6547	tested=761	sig=8
+[   72.7s] Ncra	family	go	N=227/252	M=5711	tested=2597	sig=55
+[   73.2s] Anid	protein	pfam	N=316/330	M=8185	tested=461	sig=10
+[   73.3s] Anid	protein	pfam_clan	N=252/330	M=6813	tested=254	sig=7
+[   73.3s] Anid	protein	interpro	N=330/330	M=8736	tested=1107	sig=19
+[   73.4s] Anid	protein	go	N=305/330	M=7801	tested=2987	sig=74
+[   73.6s] Anid	family	pfam	N=280/294	M=6717	tested=350	sig=5
+[   73.6s] Anid	family	pfam_clan	N=216/294	M=5493	tested=239	sig=3
+[   73.6s] Anid	family	interpro	N=294/294	M=7223	tested=856	sig=11
+[   73.7s] Anid	family	go	N=270/294	M=6372	tested=2797	sig=58
+[   74.4s] Spom	protein	pfam	N=177/187	M=4577	tested=222	sig=9
+[   74.4s] Spom	protein	pfam_clan	N=126/187	M=3571	tested=180	sig=8
+[   74.4s] Spom	protein	interpro	N=186/187	M=4691	tested=601	sig=14
+[   74.5s] Spom	protein	go	N=187/187	M=5026	tested=3187	sig=92
+[   74.6s] Spom	family	pfam	N=162/172	M=4041	tested=161	sig=2
+[   74.6s] Spom	family	pfam_clan	N=115/172	M=3140	tested=169	sig=5
+[   74.6s] Spom	family	interpro	N=171/172	M=4152	tested=458	sig=6
+[   74.8s] Spom	family	go	N=172/172	M=4484	tested=3051	sig=78
+[   74.9s] Ccin	protein	pfam	N=181/194	M=7714	tested=431	sig=6
+[   74.9s] Ccin	protein	pfam_clan	N=145/194	M=6267	tested=238	sig=5
+[   74.9s] Ccin	protein	interpro	N=192/194	M=8566	tested=1039	sig=14
+[   75.0s] Ccin	protein	go	N=171/194	M=6706	tested=2198	sig=50
+[   75.6s] Ccin	family	pfam	N=150/161	M=6148	tested=307	sig=3
+[   75.6s] Ccin	family	pfam_clan	N=115/161	M=4972	tested=224	sig=3
+[   75.6s] Ccin	family	interpro	N=159/161	M=6855	tested=764	sig=6
+[   75.7s] Ccin	family	go	N=139/161	M=5475	tested=2056	sig=36
+[   79.7s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/outputs/loss/proteome_clustered

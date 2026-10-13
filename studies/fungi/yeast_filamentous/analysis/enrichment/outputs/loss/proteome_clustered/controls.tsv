@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex	OUT_universe	OUT_in_matrix	OUT_pass_outgroup_rule	candidates	near_miss_in1	near_miss_in2	n_Ncra	n_Afum	n_Ztri	n_Cimm	n_Scer	n_Ylip	n_Spom	n_Nirr	candidate_ids	near_miss_in1_ids
+Arp2/3 ARPC2 (P34-Arc)	PF04045		4	4	4	0	0	0	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC3 (P21-Arc)	PF04062		4	4	4	0	0	0	1	1	1	1	1	1	1	0		
+Arp2/3 ARPC4	PF05856		4	4	4	0	0	0	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC5 (P16-Arc)	PF04699		4	4	4	1	2	1	1	1	1	1	1	1	1	1	Ztri::tr|F9X462|F9X462_ZYMTI	Afum::tr|Q4WXU2|Q4WXU2_ASPFU;Cimm::tr|A0A0E1RYF1|A0A0E1RYF1_COCIM
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1	0	0	0	0	0	0	0	0	0	0	0	0	0	1		
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b	28	28	28	2	3	1	6	8	7	7	7	6	7	6	Cimm::tr|J3KLS0|J3KLS0_COCIM;Ztri::tr|F9X462|F9X462_ZYMTI	Afum::sp|E9QUT3|ARP2_ASPFU;Afum::tr|Q4WXU2|Q4WXU2_ASPFU;Cimm::tr|A0A0E1RYF1|A0A0E1RYF1_COCIM
+WAVE complex NCKAP1	PF09735		0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WAVE complex CYFIP (FragX_IP)	PF05994		0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WAVE complex ABI	PF07815|PF27594		0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+SCAR/WAVE (SCAR_helical)	PF27569		0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WASP family (WH1)	PF00568		4	4	4	0	0	1	1	1	1	1	1	1	1	1		
+WH2 motif (WASP, WAVE, others)	PF02205		9	9	9	0	1	2	1	3	3	2	2	2	2	2		Ztri::tr|F9WX21|F9WX21_ZYMTI
+Formin FH2	PF02181		4	4	4	0	0	0	1	1	1	1	2	1	3	1		
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345		8	8	8	0	0	4	2	2	2	2	1	1	4	2		
+Ena/VASP (VASP_tetra)	PF08776		0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Coronin (description only)		coronin	4	4	4	0	0	0	1	1	1	1	1	1	1	1		
+Cortactin (HS1_rep)	PF02218		0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Myosin 2 tail (Myosin_tail_1)	PF01576		1	1	1	0	0	0	0	1	0	0	0	0	0	0		
+Myosin head (all myosins)	PF00063		17	17	17	0	0	1	4	4	5	4	5	4	5	5		

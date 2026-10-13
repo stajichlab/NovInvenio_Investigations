@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex	OUT_universe	OUT_in_matrix	OUT_pass_outgroup_rule	candidates	near_miss_in1	near_miss_in2	n_Spizpunc	n_Batrdend	n_Powehirt	n_Geravari	n_Chytconf	n_Syncendo	n_Allomacr	n_Cateangu	n_Rhizdele	n_Mucocirc	n_Umbevina	n_Sacccere	n_Neurcras	n_Pirofinn	n_Anaerobu	n_Neocalif	n_Neolanat	n_Neoconst	n_PiroE2sp	candidate_ids	near_miss_in1_ids
+Arp2/3 ARPC2 (P34-Arc)	PF04045		14	14	14	0	0	0	1	1	1	1	1	1	2	1	1	1	1	1	1	1	1	NA	NA	NA	NA		
+Arp2/3 ARPC3 (P21-Arc)	PF04062		13	13	13	0	0	0	1	1	1	1	1	1	2	1	0	1	1	1	1	1	1	NA	NA	NA	NA		
+Arp2/3 ARPC4	PF05856		14	14	14	0	0	0	1	1	1	1	1	1	1	1	2	1	1	1	1	1	1	NA	NA	NA	NA		
+Arp2/3 ARPC5 (P16-Arc)	PF04699		15	15	15	0	1	0	1	1	1	1	2	1	2	1	1	1	1	1	1	1	1	NA	NA	NA	NA		Allomacr::tr|A0A0L0TDV6|A0A0L0TDV6_ALLM3
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1	1	1	1	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	0	0	NA	NA	NA	NA		
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b	91	91	91	0	1	0	6	6	7	6	6	7	13	7	7	6	7	7	6	6	7	NA	NA	NA	NA		Allomacr::tr|A0A0L0TDV6|A0A0L0TDV6_ALLM3
+WAVE complex NCKAP1	PF09735		8	8	0	0	0	0	1	1	1	1	0	1	2	1	0	0	0	0	0	1	1	NA	NA	NA	NA		
+WAVE complex CYFIP (FragX_IP)	PF05994		10	10	1	0	0	0	1	1	1	1	0	1	4	1	0	0	0	0	0	1	1	NA	NA	NA	NA		
+WAVE complex ABI	PF07815|PF27594		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	NA	NA	NA	NA		
+SCAR/WAVE (SCAR_helical)	PF27569		6	6	0	0	0	0	1	1	1	1	0	1	0	1	0	0	0	0	0	1	1	NA	NA	NA	NA		
+WASP family (WH1)	PF00568		19	19	10	0	0	0	1	1	1	1	1	1	4	1	1	3	2	1	1	1	2	NA	NA	NA	NA		
+WH2 motif (WASP, WAVE, others)	PF02205		19	14	6	0	0	2	1	3	1	1	1	1	2	1	1	2	2	2	1	2	2	NA	NA	NA	NA		
+Formin FH2	PF02181		60	59	53	0	0	0	4	4	4	4	5	3	9	3	9	8	4	2	1	7	7	NA	NA	NA	NA		
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345		58	58	47	0	0	0	4	3	3	4	3	2	7	3	11	8	7	1	2	7	6	NA	NA	NA	NA		
+Ena/VASP (VASP_tetra)	PF08776		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	NA	NA	NA	NA		
+Coronin (description only)		coronin	29	29	28	0	0	0	3	1	3	4	4	1	4	1	3	1	2	1	1	4	4	NA	NA	NA	NA		
+Cortactin (HS1_rep)	PF02218		1	1	0	0	0	0	0	0	0	0	0	0	0	1	0	0	0	0	0	0	0	NA	NA	NA	NA		
+Myosin 2 tail (Myosin_tail_1)	PF01576		7	7	6	0	0	0	1	1	1	1	1	1	1	0	0	0	0	0	0	2	1	NA	NA	NA	NA		
+Myosin head (all myosins)	PF00063		133	133	133	0	0	0	9	7	9	7	13	6	21	8	19	17	8	5	4	14	12	NA	NA	NA	NA		

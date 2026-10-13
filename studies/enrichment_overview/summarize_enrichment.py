@@ -6,6 +6,8 @@ top_pfam_all_studies.tsv (top N Pfam rows per study), and prints both.
 Repeat/TE flag = same Pfam-ID-prefix regex as make_summary_figure.py (heuristic, not a test).
 Run: .pixi/envs/default/bin/python3 -I summarize_enrichment.py --outdir DIR STUDY_OUTDIR...
 STUDY_OUTDIR = .../analysis/enrichment/outputs/proteome_clustered
+--direction loss: STUDY_OUTDIR = .../outputs/loss/proteome_clustered; writes
+enrichment_summary_loss_all_studies.tsv and top_pfam_loss_all_studies.tsv (same columns).
 """
 import argparse
 import csv
@@ -25,12 +27,17 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--outdir", required=True, type=Path)
     ap.add_argument("--top", type=int, default=5)
+    ap.add_argument("--direction", choices=["novelty", "loss"], default="novelty",
+                    help="novelty (default): writes *_all_studies.tsv as before. loss: writes "
+                         "*_loss_all_studies.tsv and checks that each PROVENANCE.yaml says direction: loss")
     ap.add_argument("dirs", nargs="+", type=Path)
     a = ap.parse_args()
     summ, top = [], []
     for d in a.dirs:
         prov = yaml.safe_load(open(d / "PROVENANCE.yaml"))
         study = prov["study"]
+        if prov.get("direction", "novelty") != a.direction:
+            sys.exit(f"{d}: PROVENANCE direction {prov.get('direction', 'novelty')!r} != --direction {a.direction}")
         cc = prov.get("candidate_check", {})
         tests = [r for r in csv.DictReader(open(d / "tests.tsv"), delimiter="\t")
                  if r["scope"] == "whole_set" and r["level"] == "family"]
@@ -66,7 +73,8 @@ def main():
                         "n_species": len({x.split('::')[0] for x in ids}) if ids else "",
                         "repeat_TE_like": bool(REPEAT.match(r["name"].split(":")[0]))})
     a.outdir.mkdir(parents=True, exist_ok=True)
-    for name, data in (("enrichment_summary_all_studies.tsv", summ), ("top_pfam_all_studies.tsv", top)):
+    sfx = "_loss" if a.direction == "loss" else ""
+    for name, data in ((f"enrichment_summary{sfx}_all_studies.tsv", summ), (f"top_pfam{sfx}_all_studies.tsv", top)):
         with open(a.outdir / name, "w", newline="") as fh:
             w = csv.DictWriter(fh, fieldnames=list(data[0].keys()), delimiter="\t")
             w.writeheader()
