@@ -1,0 +1,71 @@
+[    0.0s] direction=novelty target(IN)=['Pirofinn', 'Anaerobu', 'Neocalif', 'Neolanat', 'Neoconst', 'PiroE2sp'] other(OUT)=['Spizpunc', 'Batrdend', 'Powehirt', 'Geravari', 'Chytconf', 'Syncendo', 'Allomacr', 'Cateangu', 'Rhizdele', 'Mucocirc', 'Umbevina', 'Sacccere', 'Neurcras']
+[    1.6s] matrix rows 103108; target rule 87780; target rule & other frac <= 0.0 32717; candidates.txt 32717
+[    2.1s] universe 'proteome': 109588 IN (target group) proteins
+[    2.2s] no annotation file for Neocalif (/scratch/jstajich/29956230/annotations_uniprot_only/GCA_002104975.1.tsv.gz)
+[    2.2s] no annotation file for Neolanat (/scratch/jstajich/29956230/annotations_uniprot_only/GCA_016946835.1.tsv.gz)
+[    2.2s] no annotation file for Neoconst (/scratch/jstajich/29956230/annotations_uniprot_only/GCA_050613775.1.tsv.gz)
+[    2.2s] no annotation file for PiroE2sp (/scratch/jstajich/29956230/annotations_uniprot_only/GCA_002157105.1.tsv.gz)
+[    3.1s] annotation rows matched: 23424 of 109588
+[    6.7s] NOTE: pfam terms in 2 of 6 IN species; none in: Neocalif, Neolanat, Neoconst, PiroE2sp
+[    6.7s] NOTE: pfam_clan terms in 2 of 6 IN species; none in: Neocalif, Neolanat, Neoconst, PiroE2sp
+[    6.7s] NOTE: interpro terms in 2 of 6 IN species; none in: Neocalif, Neolanat, Neoconst, PiroE2sp
+[    6.7s] NOTE: go terms in 2 of 6 IN species; none in: Neocalif, Neolanat, Neoconst, PiroE2sp
+[    7.2s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29956230/bgclust_rimrggdy/bg.fa /scratch/jstajich/29956230/bgclust_rimrggdy/bg /scratch/jstajich/29956230/bgclust_rimrggdy/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   42.9s] background clusters: 25788 clusters from 76871 proteins
+[   44.4s] whole_set	protein	pfam	N=2256/32717	M=15453	tested=883	sig=66
+[   44.4s] whole_set	protein	pfam_clan	N=1902/32717	M=12970	tested=307	sig=23
+[   44.5s] whole_set	protein	interpro	N=2984/32717	M=16959	tested=1978	sig=119
+[   44.7s] whole_set	protein	go	N=1276/32717	M=12767	tested=3361	sig=100
+[   45.8s] whole_set	family	pfam	N=1440/11296	M=8337	tested=454	sig=36
+[   45.8s] whole_set	family	pfam_clan	N=1206/11296	M=6887	tested=239	sig=18
+[   45.9s] whole_set	family	interpro	N=1933/11296	M=9332	tested=1060	sig=61
+[   46.0s] whole_set	family	go	N=891/11296	M=6975	tested=2553	sig=18
+[   46.2s] Pirofinn	protein	pfam	N=946/3054	M=7219	tested=404	sig=37
+[   46.2s] Pirofinn	protein	pfam_clan	N=779/3054	M=6030	tested=224	sig=19
+[   46.3s] Pirofinn	protein	interpro	N=1304/3054	M=7919	tested=1002	sig=68
+[   46.4s] Pirofinn	protein	go	N=589/3054	M=6152	tested=2360	sig=31
+[   46.5s] Pirofinn	family	pfam	N=788/2620	M=5942	tested=314	sig=29
+[   46.5s] Pirofinn	family	pfam_clan	N=648/2620	M=4880	tested=208	sig=12
+[   46.6s] Pirofinn	family	interpro	N=1079/2620	M=6537	tested=784	sig=51
+[   46.6s] Pirofinn	family	go	N=499/2620	M=5117	tested=2189	sig=15
+[   46.8s] Anaerobu	protein	pfam	N=1310/3429	M=8234	tested=440	sig=41
+[   46.8s] Anaerobu	protein	pfam_clan	N=1123/3429	M=6940	tested=230	sig=18
+[   46.9s] Anaerobu	protein	interpro	N=1680/3429	M=9040	tested=1048	sig=71
+[   47.0s] Anaerobu	protein	go	N=687/3429	M=6615	tested=2407	sig=49
+[   47.5s] Anaerobu	family	pfam	N=918/2630	M=6198	tested=315	sig=27
+[   47.5s] Anaerobu	family	pfam_clan	N=772/2630	M=5124	tested=211	sig=13
+[   47.6s] Anaerobu	family	interpro	N=1215/2630	M=6867	tested=802	sig=45
+[   47.7s] Anaerobu	family	go	N=551/2630	M=5220	tested=2209	sig=11
+[   47.8s] Neocalif	protein	pfam	N=0/6180	M=0	tested=0	sig=0
+[   47.8s] Neocalif	protein	pfam_clan	N=0/6180	M=0	tested=0	sig=0
+[   47.8s] Neocalif	protein	interpro	N=0/6180	M=0	tested=0	sig=0
+[   47.8s] Neocalif	protein	go	N=0/6180	M=0	tested=0	sig=0
+[   47.9s] Neocalif	family	pfam	N=0/3930	M=0	tested=0	sig=0
+[   47.9s] Neocalif	family	pfam_clan	N=0/3930	M=0	tested=0	sig=0
+[   47.9s] Neocalif	family	interpro	N=0/3930	M=0	tested=0	sig=0
+[   47.9s] Neocalif	family	go	N=0/3930	M=0	tested=0	sig=0
+[   48.3s] Neolanat	protein	pfam	N=0/8029	M=0	tested=0	sig=0
+[   48.3s] Neolanat	protein	pfam_clan	N=0/8029	M=0	tested=0	sig=0
+[   48.3s] Neolanat	protein	interpro	N=0/8029	M=0	tested=0	sig=0
+[   48.3s] Neolanat	protein	go	N=0/8029	M=0	tested=0	sig=0
+[   48.4s] Neolanat	family	pfam	N=0/4508	M=0	tested=0	sig=0
+[   48.4s] Neolanat	family	pfam_clan	N=0/4508	M=0	tested=0	sig=0
+[   48.4s] Neolanat	family	interpro	N=0/4508	M=0	tested=0	sig=0
+[   48.4s] Neolanat	family	go	N=0/4508	M=0	tested=0	sig=0
+[   48.5s] Neoconst	protein	pfam	N=0/7272	M=0	tested=0	sig=0
+[   48.6s] Neoconst	protein	pfam_clan	N=0/7272	M=0	tested=0	sig=0
+[   48.6s] Neoconst	protein	interpro	N=0/7272	M=0	tested=0	sig=0
+[   48.6s] Neoconst	protein	go	N=0/7272	M=0	tested=0	sig=0
+[   49.0s] Neoconst	family	pfam	N=0/4084	M=0	tested=0	sig=0
+[   49.0s] Neoconst	family	pfam_clan	N=0/4084	M=0	tested=0	sig=0
+[   49.0s] Neoconst	family	interpro	N=0/4084	M=0	tested=0	sig=0
+[   49.0s] Neoconst	family	go	N=0/4084	M=0	tested=0	sig=0
+[   49.1s] PiroE2sp	protein	pfam	N=0/4753	M=0	tested=0	sig=0
+[   49.1s] PiroE2sp	protein	pfam_clan	N=0/4753	M=0	tested=0	sig=0
+[   49.1s] PiroE2sp	protein	interpro	N=0/4753	M=0	tested=0	sig=0
+[   49.1s] PiroE2sp	protein	go	N=0/4753	M=0	tested=0	sig=0
+[   49.2s] PiroE2sp	family	pfam	N=0/3804	M=0	tested=0	sig=0
+[   49.2s] PiroE2sp	family	pfam_clan	N=0/3804	M=0	tested=0	sig=0
+[   49.2s] PiroE2sp	family	interpro	N=0/3804	M=0	tested=0	sig=0
+[   49.2s] PiroE2sp	family	go	N=0/3804	M=0	tested=0	sig=0
+[   51.9s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/outputs/proteome_clustered_2annotated_IN

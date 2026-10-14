@@ -1,0 +1,225 @@
+generated: '2026-10-14T10:48:19'
+study: neocallimastigomycota_vs_early_fungi
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d3f44fc3dc41e8838f54a472d2d5fd0d19d353757260b53f14eaba4929ca52c8
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi --config
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/config.csv
+  --study neocallimastigomycota_vs_early_fungi --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --annotations /scratch/jstajich/29956230/annotations_uniprot_only
+  --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/outputs/cache
+  --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/outputs/proteome_clustered_2annotated_IN
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: novelty
+target_group:
+  label: IN
+  species:
+  - Pirofinn
+  - Anaerobu
+  - Neocalif
+  - Neolanat
+  - Neoconst
+  - PiroE2sp
+other_group:
+  label: OUT
+  species:
+  - Spizpunc
+  - Batrdend
+  - Powehirt
+  - Geravari
+  - Chytconf
+  - Syncendo
+  - Allomacr
+  - Cateangu
+  - Rhizdele
+  - Mucocirc
+  - Umbevina
+  - Sacccere
+  - Neurcras
+universe: proteome
+annotations: /scratch/jstajich/29956230/annotations_uniprot_only
+annotation_files:
+  Pirofinn: /scratch/jstajich/29956230/annotations_uniprot_only/UP000193719.tsv.gz
+  Anaerobu: /scratch/jstajich/29956230/annotations_uniprot_only/UP000193944.tsv.gz
+  Spizpunc: /scratch/jstajich/29956230/annotations_uniprot_only/UP000053201.tsv.gz
+  Batrdend: /scratch/jstajich/29956230/annotations_uniprot_only/UP000007241.tsv.gz
+  Powehirt: /scratch/jstajich/29956230/annotations_uniprot_only/UP000318582.tsv.gz
+  Geravari: /scratch/jstajich/29956230/annotations_uniprot_only/UP001212152.tsv.gz
+  Chytconf: /scratch/jstajich/29956230/annotations_uniprot_only/UP000320333.tsv.gz
+  Syncendo: /scratch/jstajich/29956230/annotations_uniprot_only/UP000317494.tsv.gz
+  Allomacr: /scratch/jstajich/29956230/annotations_uniprot_only/UP000054350.tsv.gz
+  Cateangu: /scratch/jstajich/29956230/annotations_uniprot_only/UP000193411.tsv.gz
+  Rhizdele: /scratch/jstajich/29956230/annotations_uniprot_only/UP000009138.tsv.gz
+  Mucocirc: /scratch/jstajich/29956230/annotations_uniprot_only/UP000014254.tsv.gz
+  Umbevina: /scratch/jstajich/29956230/annotations_uniprot_only/UP000612746.tsv.gz
+  Sacccere: /scratch/jstajich/29956230/annotations_uniprot_only/UP000002311.tsv.gz
+  Neurcras: /scratch/jstajich/29956230/annotations_uniprot_only/UP000001805.tsv.gz
+annotation_sources:
+  Pirofinn: not recorded (no sidecar)
+  Anaerobu: not recorded (no sidecar)
+  Spizpunc: not recorded (no sidecar)
+  Batrdend: not recorded (no sidecar)
+  Powehirt: not recorded (no sidecar)
+  Geravari: not recorded (no sidecar)
+  Chytconf: not recorded (no sidecar)
+  Syncendo: not recorded (no sidecar)
+  Allomacr: not recorded (no sidecar)
+  Cateangu: not recorded (no sidecar)
+  Rhizdele: not recorded (no sidecar)
+  Mucocirc: not recorded (no sidecar)
+  Umbevina: not recorded (no sidecar)
+  Sacccere: not recorded (no sidecar)
+  Neurcras: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Pirofinn
+    - Anaerobu
+    species_without_terms:
+    - Neocalif
+    - Neolanat
+    - Neoconst
+    - PiroE2sp
+    n_with: 2
+    n_species: 6
+  pfam_clan:
+    species_with_terms:
+    - Pirofinn
+    - Anaerobu
+    species_without_terms:
+    - Neocalif
+    - Neolanat
+    - Neoconst
+    - PiroE2sp
+    n_with: 2
+    n_species: 6
+  interpro:
+    species_with_terms:
+    - Pirofinn
+    - Anaerobu
+    species_without_terms:
+    - Neocalif
+    - Neolanat
+    - Neoconst
+    - PiroE2sp
+    n_with: 2
+    n_species: 6
+  go:
+    species_with_terms:
+    - Pirofinn
+    - Anaerobu
+    species_without_terms:
+    - Neocalif
+    - Neolanat
+    - Neoconst
+    - PiroE2sp
+    n_with: 2
+    n_species: 6
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 32717
+  candidates_txt: 32717
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/presence_matrix.uniprot.tsv
+  rule: IN count / 6 >= 0.75 and OUT count / 13 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 16a9a2b2eaa61918
+  n_sequences: 76871
+  n_clusters: 25788
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 35.3
+  threads: 8
+  created: '2026-10-14T10:48:10'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/config.csv
+  : a92c0fcde004bbadaec7b934c3c266f77f0af271646b06ea616947700df51c33
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/candidates.txt
+  : 42763268b720941469998126af0e45a13e829507c634caabd631cd57bc4cbb2c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/novelties.Pirofinn.tsv
+  : 0127a847d4e53581526e9711f030e4f3a6448172c19c1f063c371d7db8707d80
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/novelties.Anaerobu.tsv
+  : a675db6ae5882ee959b4109d1523b5a129110df28bd9d0e9d08f149f5001cdd7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/novelties.Neocalif.tsv
+  : fcb6abdea191148e34951f9f837ca3e363079c61e22ed3861136b675d6bd3e97
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/novelties.Neolanat.tsv
+  : 244160f88920e088d83bb6be7b57263cf85fc18dfb11467afaa44feed1cd8219
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/novelties.Neoconst.tsv
+  : 2ca2a38cd0a87ad45f64852092810f27b8a2daa59f6b210b3fa7f13b5486f3db
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/novelties.PiroE2sp.tsv
+  : f220d0c0b96cee2bba330237caaa24fed17b3098970d5158e1d933d84b45b9b8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/neocallimastigomycota_vs_early_fungi/presence_matrix.uniprot.tsv
+  : ec1b89867e936fdb234077ae9c7514501ab8b27fbb030f325096f241e716161d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/data_dir/pep/UP000193719_1754191.pep.fa
+  : f6b43bdd5c0d2f7eef717808bb34aca5b489c9c062446101cc3adc5f0bd1b0c7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/data_dir/pep/UP000193944_1754192.pep.fa
+  : 4112aafcb0282c0e02c02501efe9f9eed17b143279d152b615d9fbafed2b1125
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/data_dir/pep/Neocalif.pep.fa
+  : 3e476821f2518065d6bdefb26477bd072c3c2e51178a8078c3cb8abc9da52b90
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/data_dir/pep/Neolanat.pep.fa
+  : b0591c69154f1f4b3c8f49bfdfc16aea46055bad9184a94e8cbd179aed8dd780
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/data_dir/pep/Neoconst.pep.fa
+  : 1a1cf1dfb42d669a2b110c5f239ba7ce83192a8b076ba0313f272ce81d6d4469
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/data_dir/pep/PiroE2sp.pep.fa
+  : ed6e14ca95f1e2d7c9040b993c0a539240696832e9fb3e890aae821b57bf1b97
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/species.csv
+  : 5d8a35fef76590e0ae2e91214d315e9fbf8e25fd4b0d1944afea83f909c1b959
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000193719.tsv.gz: 6231552a1af8da86030727068daa4b987722109caf6f0e30f6a2cbe944d0340a
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000193944.tsv.gz: 45cfc96f67e80d4742808d23881d81f82683b2707cb72aff9709d8366dff03ca
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000053201.tsv.gz: 3bfce2c6f78a64a4c07111580ebe5b1a115e0ad4f2030d2f581070f70a3df5d2
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000007241.tsv.gz: 7f1bfb0942b5b2082df2d2885dc0c51c1147b490f38df2100eecd2006148b9e9
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000318582.tsv.gz: a0f418efb22b565b52a1ef6bb6dc96f303d5d8221ca8c8f10dfc39f71d168bf9
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP001212152.tsv.gz: 1a527e4d00dec7919259b14699dc2cad8af4ef4997afcffb9cecb22e80e95b3a
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000320333.tsv.gz: 1e5713864364cbb3031f913e3c171ec1a4d8f19e31cc22ac9265bbb1006408ab
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000317494.tsv.gz: 89a1c4f0ad8ffc1065204ef133f38f8843541b573dc4a8910533cfd0e18b9da1
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000054350.tsv.gz: b0f8782a676f95b9384aa9de41bd053eea47423ba2210398f4d4cf9f131f59a9
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000193411.tsv.gz: 9111592afb9e6e8b4b21acf2912c44f35d36960250cdfc698d77cd15934dfbb7
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000009138.tsv.gz: b3311bc82307ce79a473456bf7606f9ef1e53c7b4095016972a8032dda18a927
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000014254.tsv.gz: e370e319db954941e6006dc45c6df7e08565df2e054dd90cff4fa9e85cdc704e
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000612746.tsv.gz: f00a22c82fbd069ce0208cd540d1be07b8f54ff2e27c2064ee615d6b6ad34e99
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000002311.tsv.gz: 6bfc0c01d44828159cd817317ad1b0954148cd39dad2770e9d48971431568d58
+  /scratch/jstajich/29956230/annotations_uniprot_only/UP000001805.tsv.gz: a319daac8abea33c30066289a81d3064dd92ad76944e245022c1359fda4d8e81
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 6.5
+  background_cluster_s: 35.9
+  tests_s: 6.3
+  total_s: 51.8
+host: r11
+slurm_job: '29956230'
+note: "Baseline for comparison. Annotation dir = symlinks to the 15 UniProt files only (/scratch/jstajich/29956230/annotations_uniprot_only, removed after the job), so the 4 NCBI/JGI IN species have no annotation, as before 2026-10-14. Made by /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/run_enrichment_6IN.sh."
+wall_s_enrichment: 55

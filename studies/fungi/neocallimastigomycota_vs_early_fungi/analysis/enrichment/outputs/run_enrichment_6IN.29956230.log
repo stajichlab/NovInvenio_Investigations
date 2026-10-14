@@ -1,0 +1,7 @@
+[10:47:24] novelty baseline (UniProt annotation files only) start
+[10:48:19] novelty baseline done (55 s)
+[10:48:19] kept old loss output in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/outputs/loss/proteome_clustered_2annotated_IN
+[10:48:19] novelty (6 IN with Pfam) start
+[10:48:43] novelty done (enrichment 21 s)
+[10:48:43] loss start
+[10:49:27] loss done (enrichment 41 s)
