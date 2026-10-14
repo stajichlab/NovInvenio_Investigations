@@ -114,6 +114,7 @@ rename actually happens.
 | A script specific to one study (custom `species.csv` schema, hardcoded accession lists, a one-off model-organism pull, etc.) | `studies/<domain>/<set_name>/bin/`, not `bin/` — see "Study-specific vs. shared scripts" below |
 | Enrichment/analysis scripts (GO/Pfam/InterPro ORA) | `bin/go_enrichment.py` (GO, via goatools) + `bin/domain_enrichment.py` (Pfam/InterPro, custom hypergeometric) — both built, hypergeometric + BH-FDR, per the design in `DESIGN.md` Sec 7. Standalone CLI tools (candidates/background accession lists + `extract_dat_annotations.py` output as input) — not yet wired into `bin/run_study.sh`/`bin/sync_reports.sh` for automatic per-study invocation, and no dedicated `tests/test_go_enrichment.py`/`tests/test_domain_enrichment.py` yet |
 | Site generation | `docs/` — release-asset published, never committed; see `DESIGN.md` Sec 8 |
+| Pfam annotation for proteomes without a UniProt record (NCBI/JGI sources) | `bin/annotate_proteomes_pfam.py` (SLURM hmmsearch jobs + finalize) and `bin/hmm_domtbl_to_annotations.py` (HMMER domtblout -> `annotations/<Protein_Accession>.tsv.gz`); see "Annotating non-UniProt proteomes" below |
 
 ### Study-specific vs. shared scripts
 
@@ -124,6 +125,54 @@ rename actually happens.
 - It exists to solve one study's particular data-shape problem (e.g. proteomes that are already local files instead of a UniProt/NCBI pull-per-species) rather than a recipe any study would reuse.
 
 Study-specific scripts still follow the shared-`lib/` and provenance conventions (import `lib/provenance.py`, write `.provenance.yaml` sidecars / fold into that study's `DATA_MANIFEST.yaml`) — only their own location, and any hardcoded reference back to `NII_ROOT`/`NII_BIN`, changes. Since they don't live next to the scripts they invoke via `subprocess` (e.g. `fetch_uniprot_proteome.py`) or the `lib/` they import, hardcode absolute paths to those (`NII_ROOT = Path("/bigdata/.../NovInvenio_Investigations")`) rather than deriving them from `__file__` or cwd — same reasoning as `~/.claude/CLAUDE.md`'s BASH_SOURCE/SLURM warning, just triggered by directory distance instead of a SLURM work dir.
+
+### Annotating non-UniProt proteomes
+
+Why: `bin/build_study_config.py` writes `annotations/<Protein_Accession>.tsv.gz` only for
+`Protein_Source == uniprot` (from the UniProt `.dat.gz`). NCBI/JGI proteomes get no file,
+so the enrichment analysis has no terms for them.
+
+What: a Pfam-A hmmsearch (HMMER 3.4, `--cut_ga`) per proteome, converted into the same
+file format. hmmsearch, not hmmscan: on 500 PiroE2sp proteins (4 cores, job 29943954)
+hmmsearch took 81 s, hmmscan 362 s, with the same 525 (protein, Pfam) pairs. Measured
+full-proteome time with `--cpu 8` on milan nodes: about 0.1 s per protein (20,214
+proteins 1,911 s; 23,663 proteins 2,448 s; 27,675 proteins 2,765 s).
+
+Commands:
+```bash
+bin/annotate_proteomes_pfam.py --study fungi/<study> --dry-run    # which species, how many jobs
+bin/annotate_proteomes_pfam.py --study fungi/<study> --submit     # chunk jobs + dependent finalize job
+bin/annotate_proteomes_pfam.py --study fungi/<study> --finalize   # by hand, if the finalize job did not run
+# existing domain table (hmmsearch or hmmscan layout, plain/.gz/.zst):
+bin/hmm_domtbl_to_annotations.py --domtbl X.domtbl.zst --fasta data_dir/pep/<Short>.pep.fa \
+    --taxon-id <Taxon_ID> --out annotations/<Protein_Accession>.tsv.gz
+```
+`bin/run_study.sh` runs the `--submit` step after the config build only when
+`NII_ANNOTATE_PFAM=1` is set (default: off). The jobs run on their own; the
+enrichment run must wait until the annotation files exist.
+
+Rules and outputs:
+- Selection: species with `Protein_Source != uniprot` and no annotation file. UniProt
+  files are never written or overwritten. `--force` redoes existing non-UniProt files.
+- Job size: at most 35,000 proteins per hmmsearch run (larger proteomes are split by sequence count and the chunk tables are merged). Runs are packed into batch jobs of about 75 min estimated time (`--batch-minutes`, 0.1 s per protein). One finalize job (`afterany`) converts all species. Jobs use `--constraint=milan` and
+  `$SCRATCH`; absolute paths only.
+- Output name: `annotations/<name>.tsv.gz`. `<name>` comes from `lib/annotation_names.py`: the Protein_Accession for UniProt/NCBI accessions; for a local FASTA path, its basename without the proteome and compression suffix; Short as the fallback. Every reader and writer uses this helper. The scripts refuse to write outside `annotations/`, the work dir or `annotations_orig/`.
+- Output: `annotations/<name>.tsv.gz` (UniProt columns; Pfam ids/names
+  filled; two extra columns with best domain i-Evalue and score) + a
+  `.provenance.yaml` sidecar (domain table path + sha256, HMMER version and command,
+  Pfam release/path, FASTA sha256, script command). Work files:
+  `analysis/pfam_hmmsearch/`. `annotations/` is gitignored (regenerable).
+- `--fill-empty-uniprot` (opt-in): fills `pfam_ids`/`pfam_names` of UniProt files that have no terms. The original goes to `annotations_orig/`. Rerunning `build_study_config.py` reverts the file.
+- Limitation: GO and InterPro are empty for these species. Pfam and Pfam-clan tests
+  cover them; GO and InterPro tests do not. `enrich_novelties_v2.py` records this in
+  PROVENANCE.yaml (`vocabulary_coverage`), and `bin/generate_enrichment_page.py` adds a
+  caveat line ("GO and InterPro cover only N of M species: ...") to the page.
+- Report sync: `bin/sync_reports.sh` merges these files into the `uniprot_*` columns
+  together with the UniProt files. `bin/merge_uniprot_annotations.py` labels each row
+  in a last column `annotation_source` (`uniprot` or `hmmer-pfam`; detection in
+  `lib/annotation_sources.py`). `bin/annotation_source_note.py` then writes a note under
+  the header of novelties/core/losses.html that names the species with `hmmer-pfam` rows
+  in that page's matrix ("Pfam from a HMMER search (no GO/InterPro) for: ...").
 
 ## Mycelium
 

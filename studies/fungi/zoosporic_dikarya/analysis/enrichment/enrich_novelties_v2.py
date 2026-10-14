@@ -16,9 +16,12 @@ enrich_novelties.py (that prototype is unchanged). Changes in v2:
   2. Annotation source (--annotations):
        matrix       uniprot_* columns of presence_matrix.uniprot.tsv (only valid
                     with --universe matrix or in_conserved)
-       <DIR>        per-proteome UniProt TSVs <DIR>/<Protein_Accession>.tsv.gz
+       <DIR>        per-proteome annotation TSVs <DIR>/<name>.tsv.gz
                     (columns accession, go_ids, pfam_ids, pfam_names, interpro_ids,
-                    description), mapped by --species-csv (Short -> Protein_Accession).
+                    description), mapped by --species-csv: <name> =
+                    lib/annotation_names.annotation_names(species.csv rows)[Short]
+                    (the Protein_Accession for UniProt/NCBI accessions; for a local
+                    FASTA path, its basename without the proteome suffix).
                     Species without a file get no annotation; coverage.tsv shows it.
   3. Background clustering (--cluster-background): non-candidate IN proteins of the
      whole proteome are clustered once with mmseqs easy-cluster at the pipeline's
@@ -61,6 +64,15 @@ enrich_novelties.py (that prototype is unchanged). Changes in v2:
      --candidates / --presence-matrix / --families override the default files.
      tests.tsv has the same columns in both directions; the direction is recorded
      in PROVENANCE.yaml and in the output directory name.
+  8. Mixed annotation sources (added 2026-10-14). An annotation file can also come from
+     a Pfam-A HMM search (bin/hmm_domtbl_to_annotations.py, for NCBI/JGI proteomes); such
+     a file has Pfam only, with empty GO and InterPro columns. Its species then adds
+     units to the Pfam and Pfam-clan tests only (the universe of each test is the units
+     with >= 1 term in that vocabulary). PROVENANCE.yaml records, per vocabulary, the
+     target species with and without terms (vocabulary_coverage) and the source of each
+     annotation file read from its .provenance.yaml sidecar (annotation_sources). The
+     log prints a NOTE line for each vocabulary that some species lack. coverage.tsv is
+     unchanged: its per-species n_<vocab> columns already give the counts.
 
 Statistics (same as the prototype): one-sided hypergeometric P(X >= k)
 (scipy.stats.hypergeom.sf(k-1, M, n, N)). Universe per test = units with >=1 term
@@ -96,6 +108,7 @@ from scipy.stats import hypergeom
 NII_ROOT = Path("/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations")
 sys.path.insert(0, str(NII_ROOT / "lib"))
 from stats_util import bh_fdr  # noqa: E402
+from annotation_names import annotation_names, annotation_path  # noqa: E402
 
 csv.field_size_limit(10**9)
 GO_ROOTS = {"GO:0008150", "GO:0003674", "GO:0005575"}
@@ -207,6 +220,26 @@ def rule_candidates(counts, n_target, n_other, min_frac, other_max_frac=0.0):
     return target_rule, cands
 
 
+def vocabulary_coverage(cov_rows, vocabs=VOCABS):
+    """Per vocabulary: which target species have >= 1 annotated protein in the universe.
+
+    cov_rows: coverage.tsv rows (species, subset, n_proteins, n_<vocab>). ALL_* rows are
+    ignored. Returns {vocab: {"species_with_terms": [...], "species_without_terms": [...],
+    "n_with": int, "n_species": int}}. A species without terms for a vocabulary adds
+    no units to that vocabulary's tests (for example, a Pfam-only hmmsearch annotation
+    has no GO or InterPro).
+    """
+    sp_rows = [r for r in cov_rows if r["subset"] == "universe" and not str(r["species"]).startswith("ALL_")
+               and int(r["n_proteins"]) > 0]
+    out = {}
+    for v in vocabs:
+        with_t = [r["species"] for r in sp_rows if int(r[f"n_{v}"]) > 0]
+        without = [r["species"] for r in sp_rows if int(r[f"n_{v}"]) == 0]
+        out[v] = {"species_with_terms": with_t, "species_without_terms": without,
+                  "n_with": len(with_t), "n_species": len(sp_rows)}
+    return out
+
+
 def tool_version(cmd):
     try:
         return subprocess.run(cmd, capture_output=True, text=True, timeout=60).stdout.strip().splitlines()[0]
@@ -275,7 +308,7 @@ def main():
     ap.add_argument("--results", required=True, type=Path, help="pipeline results dir (results/<study>)")
     ap.add_argument("--config", required=True, type=Path, help="study config.csv (GROUP, Short, Protein)")
     ap.add_argument("--annotations", required=True,
-                    help="'matrix' or a dir of <Protein_Accession>.tsv.gz UniProt annotation files")
+                    help="'matrix' or a dir of <name>.tsv.gz annotation files (name: lib/annotation_names.py)")
     ap.add_argument("--species-csv", type=Path, default=None,
                     help="species.csv with Short, Protein_Accession (default: <config dir>/species.csv)")
     ap.add_argument("--proteins-dir", type=Path, default=None,
@@ -441,11 +474,17 @@ def main():
     all_sp_ann = defaultdict(dict)  # species -> acc -> ann (all config species; for controls)
     if not use_matrix_ann:
         adir = Path(args.annotations)
-        upid = {r["Short"]: r.get("Protein_Accession", "") for r in csv.DictReader(open(species_csv))}
+        # File name per species from lib/annotation_names.py (same helper as the writers:
+        # bin/annotate_proteomes_pfam.py, bin/hmm_domtbl_to_annotations.py). A local-FASTA
+        # Protein_Accession is a path; the helper turns it into a plain file name.
+        ann_name = annotation_names(list(csv.DictReader(open(species_csv))))
         inputs[str(species_csv)] = sha256(species_csv)
         for sp in in_sp + out_sp:
-            f = adir / f"{upid.get(sp, '')}.tsv.gz"
-            if not upid.get(sp) or not f.exists():
+            if sp not in ann_name:
+                log(f"no annotation file for {sp} (not in {species_csv})")
+                continue
+            f = annotation_path(adir, ann_name[sp])
+            if not f.exists():
                 log(f"no annotation file for {sp} ({f})")
                 continue
             ann_files[sp] = str(f)
@@ -540,6 +579,34 @@ def main():
         w = csv.DictWriter(fh, fieldnames=list(cov_rows[0].keys()), delimiter="\t")
         w.writeheader()
         w.writerows(cov_rows)
+    # Per-vocabulary species coverage (also in PROVENANCE.yaml). The per-species counts
+    # are the n_<vocab> columns of coverage.tsv; this names the species without terms.
+    vocab_cov = vocabulary_coverage(cov_rows)
+    for v, c in vocab_cov.items():
+        if c["species_without_terms"]:
+            log(f"NOTE: {v} terms in {c['n_with']} of {c['n_species']} {tgt_label} species; "
+                f"none in: {', '.join(c['species_without_terms'])}")
+    # Annotation source per species: the sidecar <file>.provenance.yaml of a non-UniProt
+    # annotation file (bin/hmm_domtbl_to_annotations.py) names it; no sidecar = not recorded.
+    ann_sources = {}
+    for sp, f in ann_files.items():
+        side = Path(f + ".provenance.yaml")
+        src = "not recorded (no sidecar)"
+        if side.exists():
+            try:
+                import yaml
+                rec = yaml.safe_load(side.read_text()) or {}
+                src = rec.get("annotation_source") or src
+                inputs[str(side)] = sha256(side)
+                # A sidecar describes one file version (checksum_sha256). A file rewritten
+                # later (e.g. bin/build_study_config.py re-extracting a UniProt file that
+                # --fill-empty-uniprot had filled) no longer matches it.
+                if rec.get("checksum_sha256") and rec["checksum_sha256"] != inputs.get(f):
+                    src = f"STALE SIDECAR (file changed after the sidecar was written): {src}"
+                    log(f"WARNING: {side} checksum does not match {f}")
+            except Exception as e:  # noqa: BLE001
+                src = f"sidecar unreadable ({e})"
+        ann_sources[sp] = src
 
     # ---------- background clusters ----------
     bg_rep, clust_meta = {}, None
@@ -637,9 +704,14 @@ def main():
                     "frac_cand_annotated": round(N / n_c_total, 4) if n_c_total else 0,
                     "n_bg_units": len(units) - n_c_total, "M_units_annotated": M,
                     "n_terms_tested": len(rows), "n_fdr_lt_0.05": n_sig, "n_fdr_lt_0.05_k_ge_3": n_sig_k3,
-                    "status": "ok" if N > 0 else "skipped_no_annotated_candidates"})
+                    # M == 0: no unit has a term of this vocabulary (e.g. GO/InterPro when every
+                    # species has Pfam-only HMM annotation): the vocabulary is not available.
+                    "status": ("ok" if N > 0 else
+                               "not_available_no_annotated_units" if M == 0 else
+                               "skipped_no_annotated_candidates")})
                 rows_by_vocab["go" if v == "go" else "domains"].extend(rows)
-                log(f"{scope}\t{level}\t{v}\tN={N}/{n_c_total}\tM={M}\ttested={len(rows)}\tsig={n_sig}")
+                log(f"{scope}\t{level}\t{v}\tN={N}/{n_c_total}\tM={M}\ttested={len(rows)}\tsig={n_sig}"
+                    + ("\tnot available (no annotated units)" if M == 0 else ""))
     TIMES["tests_s"] = round(time.time() - t, 1)
 
     for role, rows in rows_by_vocab.items():
@@ -724,6 +796,8 @@ def main():
         "other_group": {"label": oth_label, "species": out_sp},
         "universe": args.universe, "annotations": args.annotations,
         "annotation_files": ann_files,
+        "annotation_sources": ann_sources,
+        "vocabulary_coverage": vocab_cov,
         "parameters": {"min_bg": args.min_bg, "exclude_iea": args.exclude_iea,
                        "report_ids_fdr": args.report_ids_fdr, "ingroup_min_frac": args.ingroup_min_frac,
                        "other_max_frac": args.other_max_frac,

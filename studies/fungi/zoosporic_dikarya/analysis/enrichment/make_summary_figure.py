@@ -3,7 +3,7 @@
 
 Adapted from studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/make_summary_figure.py.
 Panels, stacked in rows (one full-width panel per row; the figure height grows with the rows):
-  A  candidates per IN species, split by UniProt annotation (any GO/Pfam/InterPro)
+  A  candidates per IN species, split by annotation (any GO/Pfam/InterPro; legend text --annot-label)
   B  top Pfam families in the whole candidate set, family-level test (PRIMARY result)
   C  top GO terms, whole set, family-level test (SECONDARY; IEA-only terms marked)
 
@@ -43,6 +43,10 @@ ap.add_argument("--group", choices=["IN", "OUT"], default="IN",
                 help="config group the candidates come from (panel A rows): IN for novelty "
                      "(default), OUT for loss-direction enrichment (enrich_novelties_v2.py --direction loss)")
 ap.add_argument("--candidate-label", default="novelty candidate proteins", help="panel A x-axis label")
+ap.add_argument("--annot-label", default="UniProt GO/Pfam/InterPro",
+                help="panel A legend text for annotated candidates (default: UniProt GO/Pfam/InterPro). "
+                     "Use e.g. 'GO/Pfam/InterPro (UniProt) or Pfam (hmmsearch)' when some species have "
+                     "Pfam-only HMM annotation")
 a = ap.parse_args()
 
 # ---- sizes (points at the saved 14 in width; inches for layout) ----
@@ -132,7 +136,14 @@ def go_label(r):
     return "\n".join(lines)
 
 
+def not_available(test):
+    """True when no unit has a term of the vocabulary (e.g. GO with Pfam-only HMM annotation)."""
+    return test is None or int(test["M_units_annotated"]) == 0
+
+
 def stats_line(test):
+    if not_available(test):
+        return "not available: no protein in this study has a term of this vocabulary; no test run"
     return (f"{test['n_terms_tested']} terms tested; {test['n_fdr_lt_0.05']} at FDR<0.05; "
             f"annotated units: {test['N_cand_annotated']} cand. / {test['M_units_annotated']} all")
 
@@ -159,8 +170,8 @@ def bars_h(labels):
 A_TITLE = f"A  {total:,} candidates in {len(IN)} {a.group} species"
 B_TITLE = textwrap.wrap("B  Pfam families enriched in candidates (primary; family units on both sides)", 95)
 C_TITLE = textwrap.wrap("C  GO terms (secondary; UniProt computational evidence)", 95)
-B_SUB = textwrap.wrap(stats_line(tests[("whole_set", "family", "pfam")]), 120)
-C_SUB = textwrap.wrap(stats_line(tests[("whole_set", "family", "go")]), 120)
+B_SUB = textwrap.wrap(stats_line(tests.get(("whole_set", "family", "pfam"))), 120)
+C_SUB = textwrap.wrap(stats_line(tests.get(("whole_set", "family", "go"))), 120)
 
 blocks = [  # (kind, height_in)
     ("title", len(title_lines) * FS_TITLE * LINE + 0.15),
@@ -227,8 +238,8 @@ ax.set_xlabel(a.candidate_label)
 ax.set_xlim(0, xmax * 1.55)
 ax.set_ylim(-0.6, len(IN) - 0.4)
 despine(ax)
-annot_label = (f"UniProt GO/Pfam/InterPro ({n_annot:,}, {n_annot / total:.0%})" if total
-               else "UniProt GO/Pfam/InterPro (0)")
+annot_label = (f"{a.annot_label} ({n_annot:,}, {n_annot / total:.0%})" if total
+               else f"{a.annot_label} (0)")
 sf.legend(handles=[Patch(color="#2a78d6", label=annot_label), Patch(color="#c9c9c9", label="no annotation")],
           loc="outside lower left", ncol=2, frameon=False)
 
@@ -236,8 +247,10 @@ sf.legend(handles=[Patch(color="#2a78d6", label=annot_label), Patch(color="#c9c9
 def barpanel(sf, rows, labels, colorf, handles, test, what, whats):
     ax = sf.subplots()
     if not rows:
-        n_fdr = int(test["n_fdr_lt_0.05"])
-        if n_fdr == 0:
+        n_fdr = 0 if not_available(test) else int(test["n_fdr_lt_0.05"])
+        if not_available(test):
+            msg = f"{whats[0].upper() + whats[1:]} not available: no {what} annotation in this study."
+        elif n_fdr == 0:
             msg = f"No {what} passed FDR<0.05."
         else:
             msg = f"{n_fdr} {whats} at FDR<0.05, none with k>={a.min_k} candidate units."
@@ -266,12 +279,12 @@ def barpanel(sf, rows, labels, colorf, handles, test, what, whats):
 
 barpanel(subs["B"], pf, pf_labels, lambda r: (COL[kind(r)], None),
          [Patch(color=c, label=k_) for k_, c in COL.items()],
-         tests[("whole_set", "family", "pfam")], "Pfam family", "Pfam families")
+         tests.get(("whole_set", "family", "pfam")), "Pfam family", "Pfam families")
 barpanel(subs["C"], go, go_labels, go_style,
          [Patch(facecolor="#b8b8b8", hatch="///", edgecolor="#555", label="IEA only"),
           Patch(color="#c7b3e0", label="IEA + IBA/ISS (computational)"),
           Patch(color="#7b5aa6", label="incl. curated/experimental code")],
-         tests[("whole_set", "family", "go")], "GO term", "GO terms")
+         tests.get(("whole_set", "family", "go")), "GO term", "GO terms")
 
 a.out.parent.mkdir(parents=True, exist_ok=True)
 for ext in ("png", "svg", "pdf"):

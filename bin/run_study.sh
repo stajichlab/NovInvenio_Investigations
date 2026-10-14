@@ -48,6 +48,15 @@ else
     echo "== $STUDY_DIR/config.csv + data_dir already present, skipping fetch (delete to rebuild) ==" >&2
 fi
 
+# Optional (off by default): submit Pfam hmmsearch jobs for proteomes without a UniProt
+# annotation file (NCBI/JGI sources). The jobs run on their own and do not block the
+# pipeline run. See CLAUDE.md "Annotating non-UniProt proteomes".
+if [ "${NII_ANNOTATE_PFAM:-0}" = 1 ]; then
+    echo "== NII_ANNOTATE_PFAM=1: submitting Pfam annotation jobs for non-UniProt proteomes ==" >&2
+    "${NII_PYTHON:-python3}" "$REPO_ROOT/bin/annotate_proteomes_pfam.py" --study "$STUDY" --submit \
+        || echo "== WARNING: bin/annotate_proteomes_pfam.py failed; the pipeline run continues ==" >&2
+fi
+
 STUDY_PARAMS=()
 if [ -f "$STUDY_DIR/run_params.txt" ]; then
     while IFS= read -r line; do

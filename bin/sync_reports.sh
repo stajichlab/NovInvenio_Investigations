@@ -197,6 +197,19 @@ if [ "$HAS_ANNOTATIONS" -eq 1 ]; then
         [ -s "$RESULTS_DIR/loss_tblastn_summary.coverage.tsv.gz" ] && LOSSES_ARGS+=(--tblastn_coverage "$RESULTS_DIR/loss_tblastn_summary.coverage.tsv.gz")
         PIPEPY make_losses_report.py "${LOSSES_ARGS[@]}"
     fi
+    # Pfam-only annotation files (bin/hmm_domtbl_to_annotations.py) feed the same
+    # columns as UniProt files. Name those species in a note under each page header
+    # (the species whose rows the matching matrix labels annotation_source=hmmer-pfam).
+    NIIPY annotation_source_note.py \
+        --matrix "$RESULTS_DIR/presence_matrix.uniprot.tsv" \
+        --species "$STUDY_DIR/species.csv" \
+        --html "$RESULTS_DIR/novelties.html" "$RESULTS_DIR/core.html"
+    if [ -f "$RESULTS_DIR/loss_presence_matrix.uniprot.tsv" ]; then
+        NIIPY annotation_source_note.py \
+            --matrix "$RESULTS_DIR/loss_presence_matrix.uniprot.tsv" \
+            --species "$STUDY_DIR/species.csv" \
+            --html "$RESULTS_DIR/losses.html"
+    fi
     # Regenerated in place above, --online -- sync straight from $RESULTS_DIR.
     NOV_LOSSES_SRC_DIR="$RESULTS_DIR"
 else
