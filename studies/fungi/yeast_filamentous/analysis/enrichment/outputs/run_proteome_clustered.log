@@ -1,47 +1,47 @@
-[   17.9s] IN=['Scer', 'Ylip', 'Spom', 'Nirr'] OUT=['Ncra', 'Afum', 'Ztri', 'Cimm']
-[   20.9s] matrix rows 16359; in_rule 11588; in_rule & 0 OUT 335; candidates.txt 335
-[   21.8s] universe 'proteome': 23174 IN proteins
-[   22.6s] annotation rows matched: 23174 of 23174
-[   38.9s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29892523/bgclust_e3i4lk_a/bg.fa /scratch/jstajich/29892523/bgclust_e3i4lk_a/bg /scratch/jstajich/29892523/bgclust_e3i4lk_a/mmtmp --threads 4 --min-seq-id 0.3 -c 0.8 --cov-mode 0
-[  136.6s] background clusters: 14576 clusters from 22839 proteins
-[  138.7s] whole_set	protein	pfam	N=310/335	M=19038	tested=1537	sig=8
-[  138.7s] whole_set	protein	pfam_clan	N=227/335	M=15043	tested=390	sig=3
-[  138.8s] whole_set	protein	interpro	N=334/335	M=19968	tested=3548	sig=13
-[  139.1s] whole_set	protein	go	N=326/335	M=19923	tested=5900	sig=96
-[  139.5s] whole_set	family	pfam	N=282/302	M=11034	tested=732	sig=3
-[  139.5s] whole_set	family	pfam_clan	N=205/302	M=8322	tested=307	sig=0
-[  139.5s] whole_set	family	interpro	N=301/302	M=11812	tested=1640	sig=0
-[  139.7s] whole_set	family	go	N=295/302	M=11884	tested=4779	sig=31
-[  140.4s] Scer	protein	pfam	N=105/113	M=5098	tested=263	sig=0
-[  140.4s] Scer	protein	pfam_clan	N=79/113	M=3961	tested=199	sig=0
-[  140.4s] Scer	protein	interpro	N=113/113	M=5327	tested=708	sig=0
-[  140.6s] Scer	protein	go	N=112/113	M=5760	tested=3723	sig=0
-[  140.7s] Scer	family	pfam	N=104/112	M=4234	tested=163	sig=0
-[  140.7s] Scer	family	pfam_clan	N=78/112	M=3221	tested=175	sig=0
-[  140.7s] Scer	family	interpro	N=112/112	M=4438	tested=487	sig=0
-[  140.8s] Scer	family	go	N=111/112	M=4859	tested=3449	sig=0
-[  141.4s] Ylip	protein	pfam	N=76/85	M=5191	tested=252	sig=0
-[  141.4s] Ylip	protein	pfam_clan	N=56/85	M=4158	tested=199	sig=0
-[  141.4s] Ylip	protein	interpro	N=85/85	M=5496	tested=689	sig=0
-[  141.5s] Ylip	protein	go	N=83/85	M=5073	tested=2647	sig=0
-[  141.6s] Ylip	family	pfam	N=76/85	M=4469	tested=175	sig=0
-[  141.6s] Ylip	family	pfam_clan	N=56/85	M=3516	tested=183	sig=0
-[  141.6s] Ylip	family	interpro	N=85/85	M=4747	tested=513	sig=0
-[  141.6s] Ylip	family	go	N=83/85	M=4359	tested=2500	sig=0
-[  142.1s] Spom	protein	pfam	N=83/84	M=4577	tested=222	sig=0
-[  142.1s] Spom	protein	pfam_clan	N=59/84	M=3571	tested=180	sig=0
-[  142.2s] Spom	protein	interpro	N=84/84	M=4691	tested=601	sig=0
-[  142.3s] Spom	protein	go	N=84/84	M=5026	tested=3187	sig=28
-[  142.4s] Spom	family	pfam	N=83/84	M=4035	tested=159	sig=0
-[  142.4s] Spom	family	pfam_clan	N=59/84	M=3131	tested=168	sig=0
-[  142.4s] Spom	family	interpro	N=84/84	M=4144	tested=459	sig=0
-[  142.5s] Spom	family	go	N=84/84	M=4476	tested=3058	sig=26
-[  142.9s] Nirr	protein	pfam	N=46/53	M=4172	tested=194	sig=0
-[  142.9s] Nirr	protein	pfam_clan	N=33/53	M=3353	tested=182	sig=0
-[  143.0s] Nirr	protein	interpro	N=52/53	M=4454	tested=563	sig=0
-[  143.0s] Nirr	protein	go	N=47/53	M=4064	tested=2246	sig=0
-[  143.1s] Nirr	family	pfam	N=46/53	M=3938	tested=166	sig=0
-[  143.1s] Nirr	family	pfam_clan	N=33/53	M=3161	tested=179	sig=0
-[  143.1s] Nirr	family	interpro	N=52/53	M=4206	tested=502	sig=0
-[  143.1s] Nirr	family	go	N=47/53	M=3836	tested=2191	sig=0
-[  241.7s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/analysis/enrichment/outputs/proteome_clustered
+[    0.0s] direction=novelty target(IN)=['Scer', 'Ylip', 'Spom', 'Nirr'] other(OUT)=['Ncra', 'Afum', 'Ztri', 'Cimm']
+[    1.9s] matrix rows 18398; target rule 15439; target rule & other frac <= 0.0 262; candidates.txt 262
+[    3.7s] universe 'proteome': 23174 IN (target group) proteins
+[    4.0s] annotation rows matched: 23174 of 23174
+[    9.4s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29949099/bgclust_tp8_hcp1/bg.fa /scratch/jstajich/29949099/bgclust_tp8_hcp1/bg /scratch/jstajich/29949099/bgclust_tp8_hcp1/mmtmp --threads 4 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   82.3s] background clusters: 14579 clusters from 22912 proteins
+[   83.6s] whole_set	protein	pfam	N=237/262	M=19038	tested=1537	sig=16
+[   83.6s] whole_set	protein	pfam_clan	N=168/262	M=15043	tested=390	sig=10
+[   83.7s] whole_set	protein	interpro	N=259/262	M=19968	tested=3548	sig=26
+[   83.9s] whole_set	protein	go	N=251/262	M=19923	tested=5900	sig=92
+[   84.3s] whole_set	family	pfam	N=201/223	M=10957	tested=724	sig=6
+[   84.3s] whole_set	family	pfam_clan	N=139/223	M=8264	tested=304	sig=0
+[   84.3s] whole_set	family	interpro	N=220/223	M=11736	tested=1616	sig=7
+[   84.5s] whole_set	family	go	N=213/223	M=11807	tested=4767	sig=65
+[   85.1s] Scer	protein	pfam	N=84/92	M=5098	tested=263	sig=0
+[   85.2s] Scer	protein	pfam_clan	N=64/92	M=3961	tested=199	sig=0
+[   85.2s] Scer	protein	interpro	N=91/92	M=5327	tested=708	sig=0
+[   85.3s] Scer	protein	go	N=91/92	M=5760	tested=3723	sig=7
+[   85.9s] Scer	family	pfam	N=83/91	M=4226	tested=161	sig=0
+[   85.9s] Scer	family	pfam_clan	N=63/91	M=3215	tested=174	sig=0
+[   85.9s] Scer	family	interpro	N=90/91	M=4430	tested=481	sig=0
+[   86.0s] Scer	family	go	N=90/91	M=4851	tested=3452	sig=0
+[   86.1s] Ylip	protein	pfam	N=53/61	M=5191	tested=252	sig=0
+[   86.1s] Ylip	protein	pfam_clan	N=37/61	M=4158	tested=199	sig=0
+[   86.1s] Ylip	protein	interpro	N=61/61	M=5496	tested=689	sig=0
+[   86.2s] Ylip	protein	go	N=56/61	M=5073	tested=2647	sig=0
+[   86.2s] Ylip	family	pfam	N=53/61	M=4469	tested=173	sig=0
+[   86.3s] Ylip	family	pfam_clan	N=37/61	M=3515	tested=183	sig=0
+[   86.3s] Ylip	family	interpro	N=61/61	M=4747	tested=512	sig=0
+[   86.3s] Ylip	family	go	N=56/61	M=4359	tested=2498	sig=0
+[   86.9s] Spom	protein	pfam	N=71/75	M=4577	tested=222	sig=7
+[   86.9s] Spom	protein	pfam_clan	N=43/75	M=3571	tested=180	sig=5
+[   86.9s] Spom	protein	interpro	N=74/75	M=4691	tested=601	sig=14
+[   87.0s] Spom	protein	go	N=74/75	M=5026	tested=3187	sig=22
+[   87.1s] Spom	family	pfam	N=57/61	M=4018	tested=157	sig=0
+[   87.1s] Spom	family	pfam_clan	N=31/61	M=3118	tested=168	sig=0
+[   87.1s] Spom	family	interpro	N=60/61	M=4127	tested=454	sig=0
+[   87.1s] Spom	family	go	N=60/61	M=4459	tested=3051	sig=0
+[   87.2s] Nirr	protein	pfam	N=29/34	M=4172	tested=194	sig=0
+[   87.2s] Nirr	protein	pfam_clan	N=24/34	M=3353	tested=182	sig=0
+[   87.2s] Nirr	protein	interpro	N=33/34	M=4454	tested=563	sig=0
+[   87.3s] Nirr	protein	go	N=30/34	M=4064	tested=2246	sig=0
+[   87.7s] Nirr	family	pfam	N=29/34	M=3938	tested=166	sig=0
+[   87.7s] Nirr	family	pfam_clan	N=24/34	M=3161	tested=179	sig=0
+[   87.7s] Nirr	family	interpro	N=33/34	M=4206	tested=501	sig=0
+[   87.8s] Nirr	family	go	N=30/34	M=3836	tested=2191	sig=0
+[   90.1s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/analysis/enrichment/outputs/proteome_clustered

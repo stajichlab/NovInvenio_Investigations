@@ -4,6 +4,7 @@
 # Primary enrichment run (same settings as studies/fungi/zoosporic_dikarya/analysis/enrichment/
 # run_enrichment.sh, primary run only) for the studies that pass the coverage rule in
 # coverage_all_studies.tsv (>=2 IN species annotated and >=50% candidates annotated).
+# Usage: sbatch run_enrichment_all.sh [STUDY ...]   (no argument: all studies in STUDIES)
 # Absolute paths only (no BASH_SOURCE; see ~/.claude/CLAUDE.md).
 set -euo pipefail
 NII=/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations
@@ -14,7 +15,7 @@ export SCRATCH="${SCRATCH:?SCRATCH must be set (run under SLURM)}"
 
 # study|ingroup_min_frac|title|run label
 STUDIES=(
-  "fungi/yeast_filamentous|0.75|Yeasts (4 IN) vs filamentous Ascomycota (4 OUT)|diamond pairwise, nf_NovInvenio run 2026-09-10"
+  "fungi/yeast_filamentous|0.75|Yeasts (4 IN) vs filamentous Ascomycota (4 OUT)|diamond pairwise, nf_NovInvenio main d03f5a2 run 2026-10-13"
   "fungi/mushrooms_tremella|0.75|Mushrooms (2 IN) vs Tremella (2 OUT)|diamond pairwise, nf_NovInvenio run 2026-09-10"
   "fungi/pezizo_set1|0.75|Pezizomycotina set1 (5 IN) vs OUT (6)|diamond pairwise, nf_NovInvenio main05fcf3a run 2026-10-08"
   "fungi/chytrid_vs_mucoromycota|0.75|Chytrids (11 IN) vs Mucoromycota (11 OUT)|diamond pairwise, nf_NovInvenio run 2026-10-11"
@@ -22,6 +23,8 @@ STUDIES=(
 for entry in "${STUDIES[@]}"; do
   IFS='|' read -r ST FRAC TITLE RUNLABEL <<< "$entry"
   NAME=$(basename "$ST")
+  # Optional filter: sbatch run_enrichment_all.sh STUDY [STUDY ...] runs only those (folder names).
+  if [ "$#" -gt 0 ] && ! printf '%s\n' "$@" | grep -qx "$NAME"; then continue; fi
   S=$NII/studies/$ST
   E=$S/analysis/enrichment
   O=$E/outputs

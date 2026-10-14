@@ -31,7 +31,7 @@ TABLE=(
   "pezizo_set1|fungi/pezizo_set1|OUT|Pezizomycotina set1|diamond pairwise, nf_NovInvenio main05fcf3a run 2026-10-08"
   "serinales_vs_pichiales|fungi/serinales_vs_pichiales|Pichiales|Serinales|diamond pairwise"
   "sordariales_shallow|fungi/sordariales_shallow|OUT|Sordariales shallow|diamond pairwise"
-  "yeast_filamentous|fungi/yeast_filamentous|filamentous Ascomycota|yeasts|diamond pairwise, nf_NovInvenio run 2026-09-10"
+  "yeast_filamentous|fungi/yeast_filamentous|filamentous Ascomycota|yeasts|diamond pairwise, nf_NovInvenio main d03f5a2 run 2026-10-13"
   "zoosporic_dikarya|fungi/zoosporic_dikarya|Dikarya|zoosporic fungi|diamond pairwise"
 )
 
