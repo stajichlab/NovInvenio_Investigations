@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex	IN_universe	IN_in_matrix	IN_pass_ingroup_rule	candidates	near_miss_out1	near_miss_out2	n_Scom	n_Ccin	n_Agbi	n_Lbic	n_Cneo	n_Umay	n_Rtor	candidate_ids	near_miss_out1_ids
+Arp2/3 ARPC2 (P34-Arc)	PF04045		4	4	4	0	0	0	1	1	1	1	1	1	1		
+Arp2/3 ARPC3 (P21-Arc)	PF04062		4	4	4	0	0	0	1	1	1	1	1	1	1		
+Arp2/3 ARPC4	PF05856		4	4	4	0	0	0	1	1	1	1	1	1	1		
+Arp2/3 ARPC5 (P16-Arc)	PF04699		4	4	4	0	0	0	1	1	1	1	1	1	1		
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b	9	9	9	0	0	0	2	4	0	3	4	6	6		
+WAVE complex NCKAP1	PF09735		0	0	0	0	0	0	0	0	0	0	0	0	0		
+WAVE complex CYFIP (FragX_IP)	PF05994		0	0	0	0	0	0	0	0	0	0	0	0	0		
+WAVE complex ABI	PF07815|PF27594		0	0	0	0	0	0	0	0	0	0	0	0	0		
+SCAR/WAVE (SCAR_helical)	PF27569		0	0	0	0	0	0	0	0	0	0	0	0	0		
+WASP family (WH1)	PF00568		9	9	9	3	1	0	2	3	2	2	1	1	1	Ccin::XP_001837767.1;Lbic::XP_001876518.1;Scom::XP_003031382.1	Agbi::XP_007331032.1
+WH2 motif (WASP, WAVE, others)	PF02205		7	7	7	0	1	2	2	2	1	2	2	3	1		Lbic::XP_001876691.1
+Formin FH2	PF02181		8	8	8	0	0	0	2	2	2	2	1	2	2		
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345		12	12	12	0	0	0	3	3	3	3	2	2	3		
+Ena/VASP (VASP_tetra)	PF08776		0	0	0	0	0	0	0	0	0	0	0	0	0		
+Coronin (description only)		coronin	2	2	2	0	0	0	0	0	0	2	0	1	1		
+Cortactin (HS1_rep)	PF02218		0	0	0	0	0	0	0	0	0	0	0	0	0		
+Myosin 2 tail (Myosin_tail_1)	PF01576		2	2	2	0	0	0	1	1	0	0	0	0	0		
+Myosin head (all myosins)	PF00063		21	21	21	0	0	0	6	5	4	6	4	4	5		

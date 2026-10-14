@@ -1,0 +1,49 @@
+[    0.1s] direction=novelty target(IN)=['Scom', 'Ccin', 'Agbi', 'Lbic'] other(OUT)=['Cneo', 'Umay', 'Rtor']
+[    2.1s] matrix rows 40707; target rule 36377; target rule & other frac <= 0.0 9961; candidates.txt 9961
+[    2.3s] universe 'proteome': 59024 IN (target group) proteins
+[    2.6s] annotation rows matched: 59024 of 59024
+[    6.3s] NOTE: interpro terms in 0 of 4 IN species; none in: Scom, Ccin, Agbi, Lbic
+[    6.3s] NOTE: go terms in 0 of 4 IN species; none in: Scom, Ccin, Agbi, Lbic
+[    6.4s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29957444/bgclust_apxa5wpw/bg.fa /scratch/jstajich/29957444/bgclust_apxa5wpw/bg /scratch/jstajich/29957444/bgclust_apxa5wpw/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   42.6s] background clusters: 27704 clusters from 49063 proteins
+[   43.2s] whole_set	protein	pfam	N=4134/9961	M=31032	tested=2093	sig=119
+[   43.2s] whole_set	protein	pfam_clan	N=3281/9961	M=25230	tested=426	sig=33
+[   43.2s] whole_set	protein	interpro	N=0/9961	M=0	tested=0	sig=0	not available (no annotated units)
+[   43.2s] whole_set	protein	go	N=0/9961	M=0	tested=0	sig=0	not available (no annotated units)
+[   43.8s] whole_set	family	pfam	N=2380/6096	M=12709	tested=895	sig=39
+[   43.8s] whole_set	family	pfam_clan	N=1802/6096	M=10165	tested=300	sig=13
+[   43.8s] whole_set	family	interpro	N=0/6096	M=0	tested=0	sig=0	not available (no annotated units)
+[   43.8s] whole_set	family	go	N=0/6096	M=0	tested=0	sig=0	not available (no annotated units)
+[   43.9s] Scom	protein	pfam	N=984/2521	M=8425	tested=594	sig=37
+[   43.9s] Scom	protein	pfam_clan	N=804/2521	M=6981	tested=243	sig=13
+[   43.9s] Scom	protein	interpro	N=0/2521	M=0	tested=0	sig=0	not available (no annotated units)
+[   43.9s] Scom	protein	go	N=0/2521	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.0s] Scom	family	pfam	N=721/1838	M=6457	tested=440	sig=19
+[   44.0s] Scom	family	pfam_clan	N=568/1838	M=5262	tested=224	sig=10
+[   44.0s] Scom	family	interpro	N=0/1838	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.0s] Scom	family	go	N=0/1838	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.4s] Ccin	protein	pfam	N=1142/2469	M=7812	tested=552	sig=46
+[   44.4s] Ccin	protein	pfam_clan	N=923/2469	M=6309	tested=242	sig=14
+[   44.4s] Ccin	protein	interpro	N=0/2469	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.4s] Ccin	protein	go	N=0/2469	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.5s] Ccin	family	pfam	N=797/1935	M=6222	tested=420	sig=29
+[   44.5s] Ccin	family	pfam_clan	N=608/1935	M=5006	tested=227	sig=9
+[   44.5s] Ccin	family	interpro	N=0/1935	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.5s] Ccin	family	go	N=0/1935	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.5s] Agbi	protein	pfam	N=859/1872	M=6890	tested=512	sig=28
+[   44.5s] Agbi	protein	pfam_clan	N=682/1872	M=5605	tested=236	sig=14
+[   44.5s] Agbi	protein	interpro	N=0/1872	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.5s] Agbi	protein	go	N=0/1872	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.6s] Agbi	family	pfam	N=568/1434	M=5441	tested=378	sig=19
+[   44.6s] Agbi	family	pfam_clan	N=424/1434	M=4383	tested=216	sig=6
+[   44.6s] Agbi	family	interpro	N=0/1434	M=0	tested=0	sig=0	not available (no annotated units)
+[   44.6s] Agbi	family	go	N=0/1434	M=0	tested=0	sig=0	not available (no annotated units)
+[   45.0s] Lbic	protein	pfam	N=1149/3099	M=7905	tested=575	sig=38
+[   45.0s] Lbic	protein	pfam_clan	N=872/3099	M=6335	tested=240	sig=13
+[   45.0s] Lbic	protein	interpro	N=0/3099	M=0	tested=0	sig=0	not available (no annotated units)
+[   45.0s] Lbic	protein	go	N=0/3099	M=0	tested=0	sig=0	not available (no annotated units)
+[   45.1s] Lbic	family	pfam	N=886/2503	M=6334	tested=428	sig=29
+[   45.1s] Lbic	family	pfam_clan	N=675/2503	M=5033	tested=217	sig=10
+[   45.1s] Lbic	family	interpro	N=0/2503	M=0	tested=0	sig=0	not available (no annotated units)
+[   45.1s] Lbic	family	go	N=0/2503	M=0	tested=0	sig=0	not available (no annotated units)
+[   46.9s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/analysis/enrichment/outputs/proteome_clustered

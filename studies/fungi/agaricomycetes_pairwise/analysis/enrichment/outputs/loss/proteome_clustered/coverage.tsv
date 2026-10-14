@@ -1,0 +1,9 @@
+species	subset	n_proteins	n_in_matrix	n_pfam	frac_pfam	n_pfam_clan	frac_pfam_clan	n_interpro	frac_interpro	n_go	frac_go	n_any	frac_any
+Cneo	universe	7826	6257	5865	0.7494	4796	0.6128	0	0.0	0	0.0	5865	0.7494
+Cneo	candidates	78	78	60	0.7692	45	0.5769	0	0.0	0	0.0	60	0.7692
+Umay	universe	6780	5425	5213	0.7689	4219	0.6223	0	0.0	0	0.0	5213	0.7689
+Umay	candidates	77	77	63	0.8182	50	0.6494	0	0.0	0	0.0	63	0.8182
+Rtor	universe	8140	6080	5807	0.7134	4753	0.5839	0	0.0	0	0.0	5807	0.7134
+Rtor	candidates	86	86	69	0.8023	51	0.593	0	0.0	0	0.0	69	0.8023
+ALL_OUT	universe	22746	17762	16885	0.7423	13768	0.6053	0	0.0	0	0.0	16885	0.7423
+ALL_OUT	candidates	241	241	192	0.7967	146	0.6058	0	0.0	0	0.0	192	0.7967
