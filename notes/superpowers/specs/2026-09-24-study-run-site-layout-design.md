@@ -66,6 +66,8 @@ known (optional — not recorded anywhere reliable today for main.nf runs).
 ```yaml
 study: pezizo_set1      # docs/<domain>/<study>/
 run: mmseqs-cov0.3      # docs/<domain>/<study>/<run>/  (main.nf studies)
+notes:                  # optional; shown as a Notes card on the run's report.html
+  - One plain-text sentence per entry.
 ```
 
 - **Absent file: the folder is not published.** The sync step prints a
@@ -75,6 +77,12 @@ run: mmseqs-cov0.3      # docs/<domain>/<study>/<run>/  (main.nf studies)
 - pangenome.nf folders also need `publish.yaml`, with `study` only; the run
   comes from `--run <results/ subdir>`, because one folder holds several runs.
 - CLI flags (`--study`, `--run`) override the file.
+- `notes` (optional list of strings): `bin/sync_reports.sh` calls
+  `bin/study_pages.py inject-notes` after each sync, which writes a Notes card
+  into the run's `report.html` between `nii-run-notes` marker comments (the
+  same way the enrichment links are re-applied, and it keeps `run.json`'s
+  `report_sha256` current). An empty or absent list removes the card. To apply
+  a changed list without a new run: `bin/study_pages.py inject-notes <domain>/<folder>`.
 
 ## Code changes
 

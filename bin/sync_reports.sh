@@ -244,6 +244,8 @@ if [ -f "$DOCS_DIR/report.html" ]; then
     # Note: an enrichment page left from an earlier run is linked again here;
     # rerun bin/generate_enrichment_page.py when the results change.
     NIIPY generate_enrichment_page.py --links-only --docs-run-dir "$DOCS_DIR"
+    # Same for publish.yaml's `notes:` (a Notes card in report.html).
+    NIIPY study_pages.py inject-notes "$STUDY"
     echo "== recording run $DOMAIN/$PUB_STUDY/$PUB_RUN ==" >&2
     NIIPY study_pages.py record-run "$STUDY" --report "$DOCS_DIR/report.html"
 else

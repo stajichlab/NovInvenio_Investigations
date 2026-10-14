@@ -12,8 +12,8 @@ import generate_docs  # noqa: E402
 import migrate_docs_to_runs  # noqa: E402
 import study_pages  # noqa: E402
 from study_runs import (  # noqa: E402
-    REDIRECT_MARKER, REDIRECT_MAX_BYTES, load_publish_target, rebuild_study_pages,
-    render_redirect, set_current,
+    REDIRECT_MARKER, REDIRECT_MAX_BYTES, inject_run_report_notes, load_publish_target,
+    rebuild_study_pages, render_redirect, set_current,
 )
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -55,6 +55,77 @@ def test_publish_target_study_and_run(tmp_path):
 def test_publish_target_study_only(tmp_path):
     (tmp_path / "publish.yaml").write_text("study: cocci\n")
     assert load_publish_target(tmp_path).run is None
+
+
+def test_publish_target_notes(tmp_path):
+    (tmp_path / "publish.yaml").write_text("study: s\nrun: r\nnotes:\n  - first\n  - ' second '\n")
+    assert load_publish_target(tmp_path).notes == ("first", "second")
+    (tmp_path / "publish.yaml").write_text("study: s\n")
+    assert load_publish_target(tmp_path).notes == ()
+
+
+@pytest.mark.parametrize("bad", ["notes: text", "notes: [1]", "notes: ['']"])
+def test_publish_target_rejects_bad_notes(tmp_path, bad):
+    (tmp_path / "publish.yaml").write_text(f"study: s\n{bad}\n")
+    with pytest.raises(ValueError):
+        load_publish_target(tmp_path)
+
+
+_REPORT = ('<body>\n<header class="top">\n  <h1>x</h1>\n  </header>\n\n'
+           '  <section class="card">\n    <div class="cards">\n'
+           '      <a class="card-link" href="novelties.html">n</a>\n    </div>\n  </section>\n</body>\n')
+
+
+def _report_dir(tmp_path):
+    import hashlib
+    d = tmp_path / "run"
+    d.mkdir()
+    (d / "report.html").write_text(_REPORT)
+    (d / "run.json").write_text(json.dumps(
+        {"run": "run", "report_sha256": hashlib.sha256(_REPORT.encode()).hexdigest()}))
+    return d
+
+
+def test_inject_notes_adds_replaces_and_removes(tmp_path):
+    import hashlib
+    d = _report_dir(tmp_path)
+    inject_run_report_notes(d, ["a <b> note"])
+    html = (d / "report.html").read_text()
+    assert html.index("</header>") < html.index("a &lt;b&gt; note") < html.index('class="cards"')
+    assert html.count("nii-run-notes:start") == 1
+    sha = json.loads((d / "run.json").read_text())["report_sha256"]
+    assert sha == hashlib.sha256((d / "report.html").read_bytes()).hexdigest()
+    assert "already current" in inject_run_report_notes(d, ["a <b> note"])
+    inject_run_report_notes(d, ["other"])
+    html = (d / "report.html").read_text()
+    assert "other" in html and "a &lt;b&gt;" not in html and html.count("nii-run-notes:start") == 1
+    inject_run_report_notes(d, [])
+    assert (d / "report.html").read_text() == _REPORT
+    assert json.loads((d / "run.json").read_text())["report_sha256"] == hashlib.sha256(_REPORT.encode()).hexdigest()
+
+
+def test_inject_notes_leaves_mismatched_sha_alone(tmp_path):
+    d = _report_dir(tmp_path)
+    (d / "run.json").write_text(json.dumps({"run": "run", "report_sha256": "0" * 64}))
+    assert "WARNING" in inject_run_report_notes(d, ["n"])
+    assert json.loads((d / "run.json").read_text())["report_sha256"] == "0" * 64
+
+
+def test_inject_notes_without_header_warns(tmp_path):
+    d = tmp_path / "run"
+    d.mkdir()
+    (d / "report.html").write_text("<body></body>")
+    assert "WARNING" in inject_run_report_notes(d, ["n"])
+    assert (d / "report.html").read_text() == "<body></body>"
+
+
+def test_inject_notes_command_reads_publish_yaml(tmp_path):
+    _folder(tmp_path, "fungi", "s1", "study: s\nrun: r\nnotes: [flagged]\n")
+    run = tmp_path / "docs" / "fungi" / "s" / "r"
+    run.mkdir(parents=True)
+    (run / "report.html").write_text(_REPORT)
+    assert study_pages.main(["--repo-root", str(tmp_path), "inject-notes", "fungi/s1"]) == 0
+    assert "flagged" in (run / "report.html").read_text()
 
 
 @pytest.mark.parametrize("bad", ["study: a/b\n", "study: ..\n", "study: x\nrun: 'a b'\n", "run: x\n"])
