@@ -1,0 +1,16 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Piromyces finnis,,UP000193719_1754191.pep.fa,UP000193719_1754191.dna.fa,UP000193719_1754191.gff3,Pirofinn,Neocallimastigomycota
+IN,Anaeromyces robustus,,UP000193944_1754192.pep.fa,UP000193944_1754192.dna.fa,UP000193944_1754192.gff3,Anaerobu,Neocallimastigomycota
+OUT,Spizellomyces punctatus,DAOM BR117,UP000053201_645134.pep.fa,UP000053201_645134.dna.fa,UP000053201_645134.gff3,Spizpunc,Chytridiomycota
+OUT,Batrachochytrium dendrobatidis,FGSC 10211,UP000007241_684364.pep.fa,UP000007241_684364.dna.fa,UP000007241_684364.gff3,Batrdend,Chytridiomycota
+OUT,Powellomyces hirtus,,UP000318582_109895.pep.fa,UP000318582_109895.dna.fa,UP000318582_109895.gff3,Powehirt,Chytridiomycota
+OUT,Geranomyces variabilis,,UP001212152_109894.pep.fa,UP001212152_109894.dna.fa,UP001212152_109894.gff3,Geravari,Chytridiomycota
+OUT,Chytriomyces confervae,,UP000320333_246404.pep.fa,UP000320333_246404.dna.fa,UP000320333_246404.gff3,Chytconf,Chytridiomycota
+OUT,Synchytrium endobioticum,,UP000317494_286115.pep.fa,UP000317494_286115.dna.fa,UP000317494_286115.gff3,Syncendo,Chytridiomycota
+OUT,Allomyces macrogynus,ATCC 38327,UP000054350_578462.pep.fa,UP000054350_578462.dna.fa,UP000054350_578462.gff3,Allomacr,Blastocladiomycota
+OUT,Catenaria anguillulae,,UP000193411_765915.pep.fa,UP000193411_765915.dna.fa,UP000193411_765915.gff3,Cateangu,Blastocladiomycota
+OUT,Rhizopus delemar,NRRL 43880,UP000009138_246409.pep.fa,UP000009138_246409.dna.fa,UP000009138_246409.gff3,Rhizdele,Mucoromycota
+OUT,Mucor circinelloides,1006PhL,UP000014254_1220926.pep.fa,UP000014254_1220926.dna.fa,UP000014254_1220926.gff3,Mucocirc,Mucoromycota
+OUT,Umbelopsis vinacea,,UP000612746_44442.pep.fa,UP000612746_44442.dna.fa,UP000612746_44442.gff3,Umbevina,Mucoromycota
+OUT,Saccharomyces cerevisiae,S288c,UP000002311_559292.pep.fa,UP000002311_559292.dna.fa,UP000002311_559292.gff3,Sacccere,Dikarya
+OUT,Neurospora crassa,FGSC 987,UP000001805_367110.pep.fa,UP000001805_367110.dna.fa,UP000001805_367110.gff3,Neurcras,Dikarya
