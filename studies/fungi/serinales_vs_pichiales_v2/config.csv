@@ -1,0 +1,27 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Candida albicans,ATCC MYA-2876,UP000000559_237561.pep.fa,UP000000559_237561.dna.fa,UP000000559_237561.gff3,Candalbi,Serinales_Debaryomycetaceae
+IN,Lodderomyces elongisporus,NRRL YB-4239,UP000001996_379508.pep.fa,UP000001996_379508.dna.fa,UP000001996_379508.gff3,Loddelon,Serinales_Debaryomycetaceae
+IN,Meyerozyma guilliermondii,NRRL Y-324,UP000001997_294746.pep.fa,UP000001997_294746.dna.fa,UP000001997_294746.gff3,Meyeguil,Serinales_Debaryomycetaceae
+IN,Debaryomyces hansenii,IGC 2968,UP000000599_284592.pep.fa,UP000000599_284592.dna.fa,UP000000599_284592.gff3,Debahans,Serinales_Debaryomycetaceae
+IN,Scheffersomyces stipitis,NRRL Y-11545,UP000002258_322104.pep.fa,UP000002258_322104.dna.fa,UP000002258_322104.gff3,Schestip,Serinales_Debaryomycetaceae
+IN,Spathaspora passalidarum,11-Y1,UP000000709_619300.pep.fa,UP000000709_619300.dna.fa,UP000000709_619300.gff3,Spatpass,Serinales_Debaryomycetaceae
+IN,Candida tenuis,VKM Y-70,UP000000707_590646.pep.fa,UP000000707_590646.dna.fa,UP000000707_590646.gff3,Candtenu,Serinales_Debaryomycetaceae
+IN,Diutina rugosa,,UP000449547_5481.pep.fa,UP000449547_5481.dna.fa,UP000449547_5481.gff3,Diutrugo,Serinales_other
+IN,Yamadazyma jaroonii,,UP001152531_467808.pep.fa,UP001152531_467808.dna.fa,UP001152531_467808.gff3,Yamajaro,Serinales_other
+IN,Candidozyma auris,,UP000230249_498019.pep.fa,UP000230249_498019.dna.fa,UP000230249_498019.gff3,Candauri,Serinales_other
+IN,Clavispora lusitaniae,ATCC 42720,UP000007703_306902.pep.fa,UP000007703_306902.dna.fa,UP000007703_306902.gff3,Clavlusi,Serinales_other
+IN,Metschnikowia bicuspidata,,UP000092555_869754.pep.fa,UP000092555_869754.dna.fa,UP000092555_869754.gff3,Metsbicu,Serinales_other
+IN,Lizanozyma spartinae,,UP000790833_45513.pep.fa,UP000790833_45513.dna.fa,UP000790833_45513.gff3,Lizaspar,Serinales_other
+OUT,Babjeviella inositovora,,UP000094336_984486.pep.fa,UP000094336_984486.dna.fa,UP000094336_984486.gff3,Babjinos,Serinales_Babjeviella_outgroup
+OUT,Komagataella phaffii,ATCC 20864,UP000000314_644223.pep.fa,UP000000314_644223.dna.fa,UP000000314_644223.gff3,Komaphaf,Pichiales
+OUT,Kuraishia capsulata,,UP000019384_1382522.pep.fa,UP000019384_1382522.dna.fa,UP000019384_1382522.gff3,Kuracaps,Pichiales
+OUT,Pichia membranifaciens,,UP000094455_763406.pep.fa,UP000094455_763406.dna.fa,UP000094455_763406.gff3,Pichmemb,Pichiales
+OUT,Pichia kudriavzevii,,UP000249293_4909.pep.fa,UP000249293_4909.dna.fa,UP000249293_4909.gff3,Pichkudr,Pichiales
+OUT,Brettanomyces naardenensis,,UP000290900_13370.pep.fa,UP000290900_13370.dna.fa,UP000290900_13370.gff3,Bretnaar,Pichiales
+OUT,Ogataea polymorpha,,UP000788993_460523.pep.fa,UP000788993_460523.dna.fa,UP000788993_460523.gff3,Ogatpoly,Pichiales
+OUT,Pachysolen tannophilus,,UP000094236_669874.pep.fa,UP000094236_669874.dna.fa,UP000094236_669874.gff3,Pachtann,Alaninales
+OUT,Saccharomyces cerevisiae,S288c,UP000002311_559292.pep.fa,UP000002311_559292.dna.fa,UP000002311_559292.gff3,Sacccere,Saccharomycetaceae
+OUT,Kluyveromyces lactis,WM37,UP000000598_284590.pep.fa,UP000000598_284590.dna.fa,UP000000598_284590.gff3,Kluylact,Saccharomycetaceae
+OUT,Lachancea thermotolerans,NRRL Y-8284,UP000002036_559295.pep.fa,UP000002036_559295.dna.fa,UP000002036_559295.gff3,Lachther,Saccharomycetaceae
+OUT,Candida glabrata,CBS 138,UP000002428_284593.pep.fa,UP000002428_284593.dna.fa,UP000002428_284593.gff3,Candglab,Saccharomycetaceae
+OUT,Torulaspora delbrueckii,NRRL Y-866,UP000005627_1076872.pep.fa,UP000005627_1076872.dna.fa,UP000005627_1076872.gff3,Torudelb,Saccharomycetaceae
