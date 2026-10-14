@@ -255,6 +255,37 @@ def low_annotation(cov: list[dict]) -> list[str]:
     return out
 
 
+GAP_VOCABS = [("go", "GO"), ("interpro", "InterPro"), ("pfam", "Pfam"), ("pfam_clan", "Pfam clan")]
+
+
+def vocabulary_gaps(cov: list[dict]) -> list[str]:
+    """Caveat lines for vocabularies that some species have no term for.
+
+    A species lacks a vocabulary when its universe row has proteins and a zero fraction
+    for that vocabulary (for example a Pfam-only HMM annotation has no GO or InterPro).
+    Vocabularies with the same covered species share one line. No gap: empty list, and
+    the page is the same as before this check existed."""
+    sp_rows = [r for r in cov if r["subset"] == "universe" and not r["species"].startswith("ALL_")
+               and fnum(r["n_proteins"]) > 0]
+    groups: dict[tuple[str, ...], list[str]] = {}
+    for vocab, label in GAP_VOCABS:
+        covered = tuple(r["species"] for r in sp_rows if fnum(r[f"frac_{vocab}"]) > 0)
+        if len(covered) < len(sp_rows):
+            groups.setdefault(covered, []).append(label)
+    lines = []
+    for covered, labels in groups.items():
+        names = labels[0] if len(labels) == 1 else ", ".join(labels[:-1]) + " and " + labels[-1]
+        missing = [r["species"] for r in sp_rows if r["species"] not in covered]
+        lines.append(
+            f"{escape(names)} {'covers' if len(labels) == 1 else 'cover'} only {len(covered)} of "
+            f"{len(sp_rows)} species: "
+            f"{escape(', '.join(covered)) if covered else 'none'}. "
+            f"No {escape(names)} annotation for {escape(', '.join(missing))}; "
+            f"{'this species adds' if len(missing) == 1 else 'these species add'} no units "
+            f"to the {escape(names)} tests, so those results describe the covered species only.")
+    return lines
+
+
 def controls_table(cols: list[str], rows: list[dict]) -> str:
     return table(cols, [[escape(r.get(c, "")) for c in cols] for r in rows], "ctl")
 
@@ -340,6 +371,7 @@ def render(study: str, direction: str, run: str, prov: dict, cov: list[dict], te
     if low:
         caveats.append("Low annotation: the candidate set has less than 50% annotation for "
                        + ", ".join(low) + ". Enrichment for these vocabularies has low power.")
+    caveats.extend(vocabulary_gaps(cov))
     pfam_rel = (prov.get("pfam_dat") or {}).get("path", "")
     go_ver = (prov.get("go_obo") or {}).get("data_version", "not recorded")
     ipr = prov.get("interpro_entries", "")

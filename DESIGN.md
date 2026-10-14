@@ -248,6 +248,21 @@ manual `species.csv` edits if needed → `ni run`) without reaching for a
 second script name at the last step. See `README.md`'s Quick Start for the
 worked end-to-end examples.
 
+**2026-10-14 update — Pfam-only annotation for non-UniProt proteomes.** The fallback
+named in the "no separate InterProScan run" decision above is now built for Pfam only.
+Proteomes from NCBI or JGI (`Protein_Source` other than `uniprot`) get no
+`annotations/<Protein_Accession>.tsv.gz` from `bin/build_study_config.py`, so the
+enrichment analysis had no terms for them (first seen in
+`fungi/neocallimastigomycota_vs_early_fungi`: 4 of 6 IN species). `bin/annotate_proteomes_pfam.py`
+runs a Pfam-A `hmmsearch --cut_ga` per proteome on SLURM and `bin/hmm_domtbl_to_annotations.py`
+writes the result in the UniProt annotation-file format, with a `.provenance.yaml` sidecar.
+hmmsearch, not hmmscan: same (protein, Pfam) pairs on a 500-protein test, 4.5x faster
+(job 29943954). Limits: these files have Pfam (and, through Pfam-A.hmm.dat, Pfam clan)
+only; GO and InterPro stay empty, so GO/InterPro enrichment covers only the UniProt
+species. The enrichment page states this per study (`bin/generate_enrichment_page.py`
+caveat). A full InterProScan run is still not built. How to run it: `CLAUDE.md`,
+"Annotating non-UniProt proteomes".
+
 ## 6. First study: `fungi/pezizo_set1`
 
 Originally scoped as `pezizo5` minus Nirr/Mcir/Amega (8 species), but the independent

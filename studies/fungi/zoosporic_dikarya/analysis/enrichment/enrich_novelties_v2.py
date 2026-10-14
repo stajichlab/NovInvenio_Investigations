@@ -61,6 +61,15 @@ enrich_novelties.py (that prototype is unchanged). Changes in v2:
      --candidates / --presence-matrix / --families override the default files.
      tests.tsv has the same columns in both directions; the direction is recorded
      in PROVENANCE.yaml and in the output directory name.
+  8. Mixed annotation sources (added 2026-10-14). An annotation file can also come from
+     a Pfam-A HMM search (bin/hmm_domtbl_to_annotations.py, for NCBI/JGI proteomes); such
+     a file has Pfam only, with empty GO and InterPro columns. Its species then adds
+     units to the Pfam and Pfam-clan tests only (the universe of each test is the units
+     with >= 1 term in that vocabulary). PROVENANCE.yaml records, per vocabulary, the
+     target species with and without terms (vocabulary_coverage) and the source of each
+     annotation file read from its .provenance.yaml sidecar (annotation_sources). The
+     log prints a NOTE line for each vocabulary that some species lack. coverage.tsv is
+     unchanged: its per-species n_<vocab> columns already give the counts.
 
 Statistics (same as the prototype): one-sided hypergeometric P(X >= k)
 (scipy.stats.hypergeom.sf(k-1, M, n, N)). Universe per test = units with >=1 term
@@ -205,6 +214,26 @@ def rule_candidates(counts, n_target, n_other, min_frac, other_max_frac=0.0):
     cands = {k for k in target_rule
              if (counts[k][1] / n_other if n_other else 0) <= other_max_frac}
     return target_rule, cands
+
+
+def vocabulary_coverage(cov_rows, vocabs=VOCABS):
+    """Per vocabulary: which target species have >= 1 annotated protein in the universe.
+
+    cov_rows: coverage.tsv rows (species, subset, n_proteins, n_<vocab>). ALL_* rows are
+    ignored. Returns {vocab: {"species_with_terms": [...], "species_without_terms": [...],
+    "n_with": int, "n_species": int}}. A species without terms for a vocabulary adds
+    no units to that vocabulary's tests (for example, a Pfam-only hmmsearch annotation
+    has no GO or InterPro).
+    """
+    sp_rows = [r for r in cov_rows if r["subset"] == "universe" and not str(r["species"]).startswith("ALL_")
+               and int(r["n_proteins"]) > 0]
+    out = {}
+    for v in vocabs:
+        with_t = [r["species"] for r in sp_rows if int(r[f"n_{v}"]) > 0]
+        without = [r["species"] for r in sp_rows if int(r[f"n_{v}"]) == 0]
+        out[v] = {"species_with_terms": with_t, "species_without_terms": without,
+                  "n_with": len(with_t), "n_species": len(sp_rows)}
+    return out
 
 
 def tool_version(cmd):
@@ -540,6 +569,28 @@ def main():
         w = csv.DictWriter(fh, fieldnames=list(cov_rows[0].keys()), delimiter="\t")
         w.writeheader()
         w.writerows(cov_rows)
+    # Per-vocabulary species coverage (also in PROVENANCE.yaml). The per-species counts
+    # are the n_<vocab> columns of coverage.tsv; this names the species without terms.
+    vocab_cov = vocabulary_coverage(cov_rows)
+    for v, c in vocab_cov.items():
+        if c["species_without_terms"]:
+            log(f"NOTE: {v} terms in {c['n_with']} of {c['n_species']} {tgt_label} species; "
+                f"none in: {', '.join(c['species_without_terms'])}")
+    # Annotation source per species: the sidecar <file>.provenance.yaml of a non-UniProt
+    # annotation file (bin/hmm_domtbl_to_annotations.py) names it; no sidecar = not recorded.
+    ann_sources = {}
+    for sp, f in ann_files.items():
+        side = Path(f + ".provenance.yaml")
+        src = "not recorded (no sidecar)"
+        if side.exists():
+            try:
+                import yaml
+                rec = yaml.safe_load(side.read_text()) or {}
+                src = rec.get("annotation_source") or src
+                inputs[str(side)] = sha256(side)
+            except Exception as e:  # noqa: BLE001
+                src = f"sidecar unreadable ({e})"
+        ann_sources[sp] = src
 
     # ---------- background clusters ----------
     bg_rep, clust_meta = {}, None
@@ -724,6 +775,8 @@ def main():
         "other_group": {"label": oth_label, "species": out_sp},
         "universe": args.universe, "annotations": args.annotations,
         "annotation_files": ann_files,
+        "annotation_sources": ann_sources,
+        "vocabulary_coverage": vocab_cov,
         "parameters": {"min_bg": args.min_bg, "exclude_iea": args.exclude_iea,
                        "report_ids_fdr": args.report_ids_fdr, "ingroup_min_frac": args.ingroup_min_frac,
                        "other_max_frac": args.other_max_frac,

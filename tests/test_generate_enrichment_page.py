@@ -94,6 +94,45 @@ def test_novelty_page_links_and_sha(repo):
     assert (run / "report.html").read_bytes() == before
 
 
+COV_HEAD = ("species\tsubset\tn_proteins\tn_in_matrix\tn_pfam\tfrac_pfam\tn_pfam_clan\tfrac_pfam_clan\t"
+            "n_interpro\tfrac_interpro\tn_go\tfrac_go\tn_any\tfrac_any\n")
+
+
+def test_no_vocabulary_gap_no_caveat(repo):
+    assert _main(repo) == 0
+    page = (repo / "docs" / "fungi" / "s1" / "pw" / "enrichment.html").read_text()
+    assert "cover only" not in page and "covers only" not in page
+
+
+def test_vocabulary_gap_caveat(repo):
+    d = repo / "studies" / "fungi" / "s1" / "analysis" / "enrichment" / "outputs" / "proteome_clustered"
+    (d / "coverage.tsv").write_text(
+        COV_HEAD
+        + "Uni\tuniverse\t100\t90\t80\t0.8\t70\t0.7\t85\t0.85\t60\t0.6\t88\t0.88\n"
+        + "Uni\tcandidates\t10\t10\t4\t0.4\t3\t0.3\t6\t0.6\t2\t0.2\t6\t0.6\n"
+        + "HmmA\tuniverse\t50\t40\t30\t0.6\t20\t0.4\t0\t0.0\t0\t0.0\t30\t0.6\n"
+        + "HmmB\tuniverse\t50\t40\t30\t0.6\t20\t0.4\t0\t0.0\t0\t0.0\t30\t0.6\n"
+        + "None1\tuniverse\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\t0\n"           # no proteins: ignored
+        + "ALL_IN\tuniverse\t200\t170\t140\t0.7\t110\t0.55\t85\t0.425\t60\t0.3\t148\t0.74\n"
+        + "ALL_IN\tcandidates\t10\t10\t4\t0.4\t3\t0.3\t6\t0.6\t2\t0.2\t6\t0.6\n")
+    assert _main(repo) == 0
+    page = (repo / "docs" / "fungi" / "s1" / "pw" / "enrichment.html").read_text()
+    assert "GO and InterPro cover only 1 of 3 species: Uni." in page
+    assert "No GO and InterPro annotation for HmmA, HmmB" in page
+    assert "Pfam covers only" not in page and "Pfam and" not in page
+
+
+def test_vocabulary_gaps_groups():
+    def r(sp, n, pf, cl, ipr, go):
+        return {"species": sp, "subset": "universe", "n_proteins": n, "frac_pfam": pf,
+                "frac_pfam_clan": cl, "frac_interpro": ipr, "frac_go": go, "frac_any": "0"}
+    lines = gep.vocabulary_gaps([r("A", "10", "0.5", "0.4", "0.5", "0.5"), r("B", "10", "0", "0", "0", "0")])
+    assert len(lines) == 1 and lines[0].startswith("GO, InterPro, Pfam and Pfam clan cover only 1 of 2 species: A.")
+    lines = gep.vocabulary_gaps([r("A", "10", "0.5", "0.4", "0.5", "0"), r("B", "10", "0.5", "0.4", "0", "0.2")])
+    assert lines[0].startswith("GO covers only 1 of 2 species: B.")
+    assert lines[1].startswith("InterPro covers only 1 of 2 species: A.")
+
+
 def test_loss_absent_writes_nothing(repo):
     assert _main(repo, "--direction", "loss") == 0
     run = repo / "docs" / "fungi" / "s1" / "pw"

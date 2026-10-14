@@ -3,7 +3,7 @@
 
 Adapted from studies/fungi/neocallimastigomycota_vs_early_fungi/analysis/enrichment/make_summary_figure.py.
 Panels, stacked in rows (one full-width panel per row; the figure height grows with the rows):
-  A  candidates per IN species, split by UniProt annotation (any GO/Pfam/InterPro)
+  A  candidates per IN species, split by annotation (any GO/Pfam/InterPro; legend text --annot-label)
   B  top Pfam families in the whole candidate set, family-level test (PRIMARY result)
   C  top GO terms, whole set, family-level test (SECONDARY; IEA-only terms marked)
 
@@ -43,6 +43,10 @@ ap.add_argument("--group", choices=["IN", "OUT"], default="IN",
                 help="config group the candidates come from (panel A rows): IN for novelty "
                      "(default), OUT for loss-direction enrichment (enrich_novelties_v2.py --direction loss)")
 ap.add_argument("--candidate-label", default="novelty candidate proteins", help="panel A x-axis label")
+ap.add_argument("--annot-label", default="UniProt GO/Pfam/InterPro",
+                help="panel A legend text for annotated candidates (default: UniProt GO/Pfam/InterPro). "
+                     "Use e.g. 'GO/Pfam/InterPro (UniProt) or Pfam (hmmsearch)' when some species have "
+                     "Pfam-only HMM annotation")
 a = ap.parse_args()
 
 # ---- sizes (points at the saved 14 in width; inches for layout) ----
@@ -227,8 +231,8 @@ ax.set_xlabel(a.candidate_label)
 ax.set_xlim(0, xmax * 1.55)
 ax.set_ylim(-0.6, len(IN) - 0.4)
 despine(ax)
-annot_label = (f"UniProt GO/Pfam/InterPro ({n_annot:,}, {n_annot / total:.0%})" if total
-               else "UniProt GO/Pfam/InterPro (0)")
+annot_label = (f"{a.annot_label} ({n_annot:,}, {n_annot / total:.0%})" if total
+               else f"{a.annot_label} (0)")
 sf.legend(handles=[Patch(color="#2a78d6", label=annot_label), Patch(color="#c9c9c9", label="no annotation")],
           loc="outside lower left", ncol=2, frameon=False)
 
