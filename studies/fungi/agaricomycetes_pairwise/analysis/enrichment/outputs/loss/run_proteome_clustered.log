@@ -1,0 +1,41 @@
+[    0.0s] direction=loss target(OUT)=['Cneo', 'Umay', 'Rtor'] other(IN)=['Scom', 'Ccin', 'Agbi', 'Lbic']
+[    0.3s] matrix rows 17762; target rule 14279; target rule & other frac <= 0.0 241; loss_candidates.txt 241
+[    0.4s] universe 'proteome': 22746 OUT (target group) proteins
+[    0.6s] annotation rows matched: 22746 of 22746
+[    2.6s] NOTE: interpro terms in 0 of 3 OUT species; none in: Cneo, Umay, Rtor
+[    2.6s] NOTE: go terms in 0 of 3 OUT species; none in: Cneo, Umay, Rtor
+[    2.6s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29957444/bgclust_8cnfblki/bg.fa /scratch/jstajich/29957444/bgclust_8cnfblki/bg /scratch/jstajich/29957444/bgclust_8cnfblki/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   32.5s] background clusters: 14544 clusters from 22505 proteins
+[   32.8s] whole_set	protein	pfam	N=192/241	M=16885	tested=1435	sig=11
+[   32.8s] whole_set	protein	pfam_clan	N=146/241	M=13768	tested=375	sig=9
+[   32.8s] whole_set	protein	interpro	N=0/241	M=0	tested=0	sig=0	not available (no annotated units)
+[   32.8s] whole_set	protein	go	N=0/241	M=0	tested=0	sig=0	not available (no annotated units)
+[   32.9s] whole_set	family	pfam	N=150/192	M=9680	tested=749	sig=4
+[   32.9s] whole_set	family	pfam_clan	N=117/192	M=7645	tested=296	sig=4
+[   32.9s] whole_set	family	interpro	N=0/192	M=0	tested=0	sig=0	not available (no annotated units)
+[   32.9s] whole_set	family	go	N=0/192	M=0	tested=0	sig=0	not available (no annotated units)
+[   32.9s] Cneo	protein	pfam	N=60/78	M=5865	tested=445	sig=1
+[   32.9s] Cneo	protein	pfam_clan	N=45/78	M=4796	tested=221	sig=0
+[   32.9s] Cneo	protein	interpro	N=0/78	M=0	tested=0	sig=0	not available (no annotated units)
+[   32.9s] Cneo	protein	go	N=0/78	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.0s] Cneo	family	pfam	N=54/70	M=4784	tested=320	sig=0
+[   33.0s] Cneo	family	pfam_clan	N=40/70	M=3835	tested=195	sig=0
+[   33.0s] Cneo	family	interpro	N=0/70	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.0s] Cneo	family	go	N=0/70	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.2s] Umay	protein	pfam	N=63/77	M=5213	tested=374	sig=1
+[   33.2s] Umay	protein	pfam_clan	N=50/77	M=4219	tested=207	sig=0
+[   33.2s] Umay	protein	interpro	N=0/77	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.2s] Umay	protein	go	N=0/77	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.3s] Umay	family	pfam	N=62/76	M=4829	tested=334	sig=0
+[   33.3s] Umay	family	pfam_clan	N=49/76	M=3877	tested=199	sig=0
+[   33.3s] Umay	family	interpro	N=0/76	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.3s] Umay	family	go	N=0/76	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.3s] Rtor	protein	pfam	N=69/86	M=5807	tested=420	sig=0
+[   33.3s] Rtor	protein	pfam_clan	N=51/86	M=4753	tested=215	sig=0
+[   33.3s] Rtor	protein	interpro	N=0/86	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.3s] Rtor	protein	go	N=0/86	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.3s] Rtor	family	pfam	N=69/86	M=5163	tested=358	sig=0
+[   33.3s] Rtor	family	pfam_clan	N=51/86	M=4169	tested=199	sig=0
+[   33.3s] Rtor	family	interpro	N=0/86	M=0	tested=0	sig=0	not available (no annotated units)
+[   33.3s] Rtor	family	go	N=0/86	M=0	tested=0	sig=0	not available (no annotated units)
+[   34.4s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/analysis/enrichment/outputs/loss/proteome_clustered

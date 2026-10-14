@@ -1,0 +1,180 @@
+generated: '2026-10-14T14:14:19'
+study: agaricomycetes_pairwise
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/agaricomycetes_pairwise --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations
+  --study agaricomycetes_pairwise --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --direction loss --ingroup-min-frac 0.75 --other-max-frac 0.0 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Cneo
+  - Umay
+  - Rtor
+other_group:
+  label: IN
+  species:
+  - Scom
+  - Ccin
+  - Agbi
+  - Lbic
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations
+annotation_files:
+  Cneo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000149245.1.tsv.gz
+  Umay: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000328475.2.tsv.gz
+  Rtor: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000320785.1.tsv.gz
+  Scom: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCF_000143185.2.tsv.gz
+  Ccin: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000182895.1.tsv.gz
+  Agbi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000300555.1.tsv.gz
+  Lbic: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000143565.1.tsv.gz
+annotation_sources:
+  Cneo: Pfam-A HMM search (hmmsearch); Pfam only
+  Umay: Pfam-A HMM search (hmmsearch); Pfam only
+  Rtor: Pfam-A HMM search (hmmsearch); Pfam only
+  Scom: Pfam-A HMM search (hmmsearch); Pfam only
+  Ccin: Pfam-A HMM search (hmmsearch); Pfam only
+  Agbi: Pfam-A HMM search (hmmsearch); Pfam only
+  Lbic: Pfam-A HMM search (hmmsearch); Pfam only
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Cneo
+    - Umay
+    - Rtor
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  pfam_clan:
+    species_with_terms:
+    - Cneo
+    - Umay
+    - Rtor
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  interpro:
+    species_with_terms: []
+    species_without_terms:
+    - Cneo
+    - Umay
+    - Rtor
+    n_with: 0
+    n_species: 3
+  go:
+    species_with_terms: []
+    species_without_terms:
+    - Cneo
+    - Umay
+    - Rtor
+    n_with: 0
+    n_species: 3
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 241
+  candidates_txt: 241
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/agaricomycetes_pairwise/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/agaricomycetes_pairwise/loss_presence_matrix.tsv
+  rule: OUT count / 3 >= 0.75 and IN count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 7db97450805a2da4
+  n_sequences: 22505
+  n_clusters: 14544
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 29.7
+  threads: 8
+  created: '2026-10-14T14:14:17'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/agaricomycetes_pairwise/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/config.csv: fab6168dbcd9c3373b07cd11e84a78c2c140a32df781af3a7fa1b6074dc28be2
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/agaricomycetes_pairwise/loss_candidates.txt: 54b26569e6a8589d948a9659cd091699cfa76d39985bad5523f936b4e1b21874
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/agaricomycetes_pairwise/clusters/loss_clusters_cluster.tsv
+  : d382601e063e2aa0b6a5d9d960024cace3c5d1d1c61eaa4f9938b9cb67565373
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/agaricomycetes_pairwise/loss_presence_matrix.tsv: 4fb04dc9864346634079f1d60e071b934950e97bad323417cc8c7212eedffb21
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/data_dir/pep/Cneo.pep.fa
+  : b15078bc4a4f273afbae54d92bba43ee2f0de118c47368e83a19c11f6041ab2f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/data_dir/pep/Umay.pep.fa
+  : 1c15b109a6a8c4fea2d8f3004c1f0cb68d1695c4acad00ae6041f4b9146336f3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/data_dir/pep/Rtor.pep.fa
+  : 6037dd04c51ebd58fbf3042d55d58ad4aa69161914a7e48578cf8bbf97d08b49
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/species.csv: b688d7ed5ad5f65413cc6a3fca95a359f32c830d2ebe1666e822df91f3676aba
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000149245.1.tsv.gz
+  : 353004c2f51cdb1617bfec710b380579849c964097a3e2ca80981be796aceedd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000328475.2.tsv.gz
+  : ef29e0d969da57d6202ec7359360f561331d5ed5f4b5e0936ba060412d9cd923
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000320785.1.tsv.gz
+  : badd1401905ee39172207cef577d095b961a3b54ced51b7d9009f468f6ab418a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCF_000143185.2.tsv.gz
+  : 4241ce13591af37d26d75c20690309fd2e84d21f11873849a57586dfbd5b820b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000182895.1.tsv.gz
+  : 0897dbf3c94983a9ac46e3ceac205a279001425c472b43e0a6e9bf3aa43b0939
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000300555.1.tsv.gz
+  : 4f27bbbc49745cf9a81eaae7564d00c5113a90c139d372b63c88a73582820b77
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000143565.1.tsv.gz
+  : 9d85e8e8b80e105b24c765d494a3b2f803a83a8bf832356406340b0034ede18e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000149245.1.tsv.gz.provenance.yaml
+  : e9c11e2fac89e74a45af53a848a259947a08d0168eae5803240326524f0a7875
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000328475.2.tsv.gz.provenance.yaml
+  : 7c1f54445fd4e77b51055c91ac174afcb20e77934d11788be81345ff596cba6a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000320785.1.tsv.gz.provenance.yaml
+  : a17fcb07693ff3ee090aacb44430b1eb174c14eee3e7b3c5d29490f278d9902a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCF_000143185.2.tsv.gz.provenance.yaml
+  : 08c1ab84bf63c1c5049ab75756392886f05a8ef267f10627a06696c5dd1a97e4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000182895.1.tsv.gz.provenance.yaml
+  : edff1d6eb8c3c733cb9f493adb892d5398421f425e18d07c856099f116113e3c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000300555.1.tsv.gz.provenance.yaml
+  : 9377275fbbce488c476486d2bc3d6e57986e2536d0681f884a1b410c187697e5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/agaricomycetes_pairwise/annotations/GCA_000143565.1.tsv.gz.provenance.yaml
+  : 7134c236817b1e4457dc6a01e36cbb11d6277f26ec4007c2de557d6194342dbd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 2.5
+  background_cluster_s: 29.9
+  tests_s: 0.9
+  total_s: 34.4
+host: r11
+slurm_job: '29957444'
+candidate_annotation:
+  frac_loss_candidates_any_annotation: 0.7967
+  low_coverage: false
+  rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
+  wall_s_enrichment: 35
