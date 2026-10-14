@@ -1,4 +1,4 @@
-generated: '2026-10-12T18:23:17'
+generated: '2026-10-13T22:10:41'
 study: yeast_filamentous
 script:
   path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
@@ -48,8 +48,8 @@ statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (li
   x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
   and gives is_a ancestors.
 candidate_check:
-  matrix_in_rule_and_0_out: 5637
-  candidates_txt: 5637
+  matrix_in_rule_and_0_out: 5060
+  candidates_txt: 5060
   symmetric_difference: 0
   candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_candidates.txt
   presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_presence_matrix.tsv
@@ -57,15 +57,15 @@ candidate_check:
   only_in_matrix_rule: []
   only_in_candidates_file: []
 background_clustering:
-  key: e193f5e8067c7de0
-  n_sequences: 34307
-  n_clusters: 20192
+  key: 8c67b54b9fea3e10
+  n_sequences: 34884
+  n_clusters: 19574
   mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
   mmseqs_version: 18.8cc5c
   command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
-  runtime_s: 32.1
+  runtime_s: 39.5
   threads: 8
-  created: '2026-10-12T18:23:08'
+  created: '2026-10-13T22:10:32'
   cache_hit: false
 pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/clusters/loss_clusters_cluster.tsv
   (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
@@ -81,10 +81,10 @@ pfam_dat:
 interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
 inputs_sha256:
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/config.csv: 7d9f4aed52daccafe58dd82b33898e496d8ab8ee320442a1f978ba5ad9e183f1
-  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_candidates.txt: 94edbfa442c04a00b26964ff79c63b4d0bacb8231a8aa77a2f2232e046f790d9
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_candidates.txt: 5cca00ba68c78aa3733c7a284d22b5980651b7eabbb8b6559bd3245c7a250073
   ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/clusters/loss_clusters_cluster.tsv
-  : 87d734f5a3b46e3d749b50833ba4b71f4812483e9ae00b2533187d0dddc3e819
-  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_presence_matrix.tsv: 22f798a7c8031e7f7a9981ddc278b4d02cff857a776902b4a659147f5dfc090e
+  : fe2d460c2db9d1dd7b7613b873d1d292c01ee8a289b9d40237c1efce34db253e
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yeast_filamentous/loss_presence_matrix.tsv: 730659df7e4331096c5882a5fa2abd34264d5609d10bc929ba18b0ecc239f05b
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/data_dir/pep/Ncra.pep.fa: 64510ca60f0efbd7831689a409eafcd1ad5251eb1a541663a223f396148d54eb
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/data_dir/pep/Afum.pep.fa: 1e888bb1a1aa58b9ff6adf3eb221affa7a67c57618aa4663eebaeea81eea7a28
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_filamentous/data_dir/pep/Ztri.pep.fa: 3224be4a0ac028418b7571d322c8e837d85c1a3923bb0a606d4e2898b6b3673a
@@ -114,14 +114,14 @@ tools:
   goatools: 1.6.4
   mmseqs: 18.8cc5c
 runtimes_s:
-  load_s: 5.6
-  background_cluster_s: 32.5
-  tests_s: 8.1
-  total_s: 48.0
+  load_s: 10.0
+  background_cluster_s: 40.0
+  tests_s: 7.2
+  total_s: 58.9
 host: r11
-slurm_job: '29893778'
+slurm_job: '29949100'
 candidate_annotation:
-  frac_loss_candidates_any_annotation: 0.876
+  frac_loss_candidates_any_annotation: 0.8065
   low_coverage: false
   rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
-  wall_s_enrichment: 49
+  wall_s_enrichment: 114

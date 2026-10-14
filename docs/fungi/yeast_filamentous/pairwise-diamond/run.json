@@ -1,6 +1,6 @@
 {
   "run": "pairwise-diamond",
-  "published": "2026-09-07",
+  "published": "2026-10-14",
   "pipeline": "main.nf",
   "folder": "studies/fungi/yeast_filamentous",
   "source_dir": "results/yeast_filamentous",
@@ -8,6 +8,5 @@
     "--run_tool diamond"
   ],
   "n_species": 8,
-  "report_sha256": "3b1ad6c27d9dd83d3fcbd6f9749596ec48516428d03a429c0aab8c90ab608b16",
-  "note": "migrated from docs/fungi/yeast_filamentous/ on 2026-09-24; params read from run_params.txt at migration time"
+  "report_sha256": "00aa571777314b42f7aa183313227a04b61468c756d6024abdc8b3dd704dea79"
 }
