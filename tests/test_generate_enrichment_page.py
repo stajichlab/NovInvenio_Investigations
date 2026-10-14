@@ -122,6 +122,34 @@ def test_vocabulary_gap_caveat(repo):
     assert "Pfam covers only" not in page and "Pfam and" not in page
 
 
+def test_pfam_only_study_not_available(repo):
+    """Every species has Pfam-only HMM annotation: GO and InterPro say 'not available'."""
+    d = repo / "studies" / "fungi" / "s1" / "analysis" / "enrichment" / "outputs" / "proteome_clustered"
+    (d / "coverage.tsv").write_text(
+        COV_HEAD
+        + "HmmA\tuniverse\t50\t40\t30\t0.6\t20\t0.4\t0\t0.0\t0\t0.0\t30\t0.6\n"
+        + "HmmB\tuniverse\t50\t40\t30\t0.6\t20\t0.4\t0\t0.0\t0\t0.0\t30\t0.6\n"
+        + "ALL_IN\tuniverse\t100\t80\t60\t0.6\t40\t0.4\t0\t0.0\t0\t0.0\t60\t0.6\n"
+        + "ALL_IN\tcandidates\t10\t10\t6\t0.6\t3\t0.3\t0\t0.0\t0\t0.0\t6\t0.6\n")
+    with gzip.open(d / "enrichment_domains.tsv.gz", "wt") as fh:
+        fh.write(DOMAIN_HEADER)
+        fh.write("whole_set\tfamily\tpfam\tPF00001\tX: thing\t3\t4\t5\t80\t0.2\t12\t1e-5\t0.01\t\tA::p1\n")
+    with gzip.open(d / "enrichment_go.tsv.gz", "wt") as fh:
+        fh.write(GO_HEADER)
+    (d / "PROVENANCE.yaml").write_text(
+        (d / "PROVENANCE.yaml").read_text()
+        + "annotation_sources:\n  HmmA: 'Pfam-A HMM search (hmmsearch); Pfam only'\n"
+          "  HmmB: 'Pfam-A HMM search (hmmsearch); Pfam only'\n")
+    assert _main(repo) == 0
+    page = (repo / "docs" / "fungi" / "s1" / "pw" / "enrichment.html").read_text()
+    assert "GO and InterPro: not available for this study." in page
+    assert page.count("<b>Not available</b>") == 2                  # InterPro and GO top-hit sections
+    assert "GO: not available for this study" in page
+    assert "Pfam-A HMM search (hmmsearch, Pfam gathering thresholds) for every species" in page
+    assert "not the UniProt release" not in page
+    assert "PF00001" in page
+
+
 def test_vocabulary_gaps_groups():
     def r(sp, n, pf, cl, ipr, go):
         return {"species": sp, "subset": "universe", "n_proteins": n, "frac_pfam": pf,

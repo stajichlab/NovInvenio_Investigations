@@ -173,7 +173,12 @@ def top_hits(rows: list[dict], vocab: str, n: int) -> list[dict]:
     return sel[:n]
 
 
-def hits_table(hits: list[dict], vocab: str, go: bool = False) -> str:
+def hits_table(hits: list[dict], vocab: str, go: bool = False, unavailable: str | None = None) -> str:
+    """unavailable: vocabulary label when no protein of the study has a term of it."""
+    if unavailable:
+        return (f'<p class="note"><b>Not available</b>: no protein of the candidate source group has '
+                f"a {escape(unavailable)} annotation in this study (for example Pfam-only HMM "
+                f"annotation). No {escape(unavailable)} test was run.</p>")
     if not hits:
         return '<p class="note">No whole-set family-level rows for this vocabulary.</p>'
     headers = ["Term", "Name", "k / N cand.", "n / M bg", "Fold", "FDR (BH)"]
@@ -276,6 +281,12 @@ def vocabulary_gaps(cov: list[dict]) -> list[str]:
     for covered, labels in groups.items():
         names = labels[0] if len(labels) == 1 else ", ".join(labels[:-1]) + " and " + labels[-1]
         missing = [r["species"] for r in sp_rows if r["species"] not in covered]
+        if not covered:
+            lines.append(
+                f"{escape(names)}: not available for this study. No species has "
+                f"{escape(names)} annotation ({escape(', '.join(missing))}), so no "
+                f"{escape(names)} test was run.")
+            continue
         lines.append(
             f"{escape(names)} {'covers' if len(labels) == 1 else 'cover'} only {len(covered)} of "
             f"{len(sp_rows)} species: "
@@ -284,6 +295,21 @@ def vocabulary_gaps(cov: list[dict]) -> list[str]:
             f"{'this species adds' if len(missing) == 1 else 'these species add'} no units "
             f"to the {escape(names)} tests, so those results describe the covered species only.")
     return lines
+
+
+def unavailable_vocabs(cov: list[dict]) -> set[str]:
+    """Vocabularies with no term in any protein of the candidate source group (the ALL_*
+    universe row has fraction 0). Empty set when there is no ALL_* universe row."""
+    rows = [r for r in cov if r["subset"] == "universe" and r["species"].startswith("ALL_")]
+    if not rows:
+        return set()
+    return {v for v, _ in GAP_VOCABS if all(fnum(r[f"frac_{v}"]) == 0 for r in rows)}
+
+
+def all_sources_hmm(prov: dict) -> bool:
+    """True when PROVENANCE.yaml annotation_sources names a Pfam HMM search for every file."""
+    src = prov.get("annotation_sources") or {}
+    return bool(src) and all("HMM search" in str(v) for v in src.values())
 
 
 def controls_table(cols: list[str], rows: list[dict]) -> str:
@@ -359,11 +385,17 @@ def render(study: str, direction: str, run: str, prov: dict, cov: list[dict], te
         + ". Family level: one unit per candidate family and per background cluster."
     )
     low = low_annotation(cov)
+    na = unavailable_vocabs(cov)
     caveats = [
-        "Annotation provenance is not fully recorded: PROVENANCE.yaml lists the per-species "
-        "annotation files and their checksums, but not the UniProt release they come from.",
-        "GO results are secondary. GO annotations include computational evidence (IEA, IBA); "
-        "the GO evidence column shows if a term has non-IEA support.",
+        ("Annotation: Pfam-A HMM search (hmmsearch, Pfam gathering thresholds) for every species; "
+         "no UniProt annotation. Each annotation file has a provenance sidecar (domain table, HMMER "
+         "version, Pfam release); PROVENANCE.yaml lists the files and their checksums."
+         if all_sources_hmm(prov) else
+         "Annotation provenance is not fully recorded: PROVENANCE.yaml lists the per-species "
+         "annotation files and their checksums, but not the UniProt release they come from."),
+        ("GO: not available for this study (no GO annotation in any species)." if "go" in na else
+         "GO results are secondary. GO annotations include computational evidence (IEA, IBA); "
+         "the GO evidence column shows if a term has non-IEA support."),
         "Candidate families (pipeline clustering of candidates) and background clusters (mmseqs "
         "clustering of the background proteome) are made by different runs, so family-level counts "
         "are not fully comparable.",
@@ -409,12 +441,15 @@ Full record: <a href="{escape(prov_name)}">PROVENANCE</a>. Run report: <a href="
                  "Protein level counts proteins; family level counts candidate families and background "
                  "clusters.</p>" + tests_table(tests))
     parts.append(f"<h2>Top {TOP_DOMAINS} Pfam terms (whole set, family level)</h2>"
-                 + hits_table(top_hits(domains, "pfam", TOP_DOMAINS), "pfam"))
+                 + hits_table(top_hits(domains, "pfam", TOP_DOMAINS), "pfam",
+                              unavailable="Pfam" if "pfam" in na else None))
     parts.append(f"<h2>Top {TOP_DOMAINS} InterPro terms (whole set, family level)</h2>"
-                 + hits_table(top_hits(domains, "interpro", TOP_DOMAINS), "interpro"))
+                 + hits_table(top_hits(domains, "interpro", TOP_DOMAINS), "interpro",
+                              unavailable="InterPro" if "interpro" in na else None))
     parts.append(f"<h2>Top {TOP_GO} GO terms (whole set, family level) &mdash; secondary, "
                  "computational evidence (IEA/IBA) included</h2>"
-                 + hits_table(top_hits(go, "go", TOP_GO), "go", go=True))
+                 + hits_table(top_hits(go, "go", TOP_GO), "go", go=True,
+                              unavailable="GO" if "go" in na else None))
     if controls is not None:
         cols, rows = controls
         parts.append("<h2>Actin cytoskeleton controls</h2>"

@@ -154,18 +154,25 @@ enrichment run must wait until the annotation files exist.
 Rules and outputs:
 - Selection: species with `Protein_Source != uniprot` and no annotation file. UniProt
   files are never written or overwritten. `--force` redoes existing non-UniProt files.
-- Job size: at most 35,000 proteins per job (about 1 h); larger proteomes are split by
-  sequence count and the chunk tables are merged. Jobs use `--constraint=milan` and
+- Job size: at most 35,000 proteins per hmmsearch run (larger proteomes are split by sequence count and the chunk tables are merged). Runs are packed into batch jobs of about 75 min estimated time (`--batch-minutes`, 0.1 s per protein). One finalize job (`afterany`) converts all species. Jobs use `--constraint=milan` and
   `$SCRATCH`; absolute paths only.
-- Output: `annotations/<Protein_Accession>.tsv.gz` (UniProt columns; Pfam ids/names
+- Output name: `annotations/<name>.tsv.gz`. `<name>` comes from `lib/annotation_names.py`: the Protein_Accession for UniProt/NCBI accessions; for a local FASTA path, its basename without the proteome and compression suffix; Short as the fallback. Every reader and writer uses this helper. The scripts refuse to write outside `annotations/`, the work dir or `annotations_orig/`.
+- Output: `annotations/<name>.tsv.gz` (UniProt columns; Pfam ids/names
   filled; two extra columns with best domain i-Evalue and score) + a
   `.provenance.yaml` sidecar (domain table path + sha256, HMMER version and command,
   Pfam release/path, FASTA sha256, script command). Work files:
   `analysis/pfam_hmmsearch/`. `annotations/` is gitignored (regenerable).
+- `--fill-empty-uniprot` (opt-in): fills `pfam_ids`/`pfam_names` of UniProt files that have no terms. The original goes to `annotations_orig/`. Rerunning `build_study_config.py` reverts the file.
 - Limitation: GO and InterPro are empty for these species. Pfam and Pfam-clan tests
   cover them; GO and InterPro tests do not. `enrich_novelties_v2.py` records this in
   PROVENANCE.yaml (`vocabulary_coverage`), and `bin/generate_enrichment_page.py` adds a
   caveat line ("GO and InterPro cover only N of M species: ...") to the page.
+- Report sync: `bin/sync_reports.sh` merges these files into the `uniprot_*` columns
+  together with the UniProt files. `bin/merge_uniprot_annotations.py` labels each row
+  in a last column `annotation_source` (`uniprot` or `hmmer-pfam`; detection in
+  `lib/annotation_sources.py`). `bin/annotation_source_note.py` then writes a note under
+  the header of novelties/core/losses.html that names the species with `hmmer-pfam` rows
+  in that page's matrix ("Pfam from a HMMER search (no GO/InterPro) for: ...").
 
 ## Mycelium
 

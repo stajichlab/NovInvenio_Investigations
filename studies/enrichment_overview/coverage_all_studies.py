@@ -2,7 +2,8 @@
 """Annotation coverage of IN proteomes and novelty candidates, per NII study.
 
 Uses the same lookup as studies/fungi/zoosporic_dikarya/analysis/enrichment/
-enrich_novelties_v2.py: annotations/<Protein_Accession>.tsv.gz (from species.csv),
+enrich_novelties_v2.py: annotations/<name>.tsv.gz, <name> from lib/annotation_names.py
+(species.csv rows),
 matched by bare UniProt accession (tr|ACC|NAME -> ACC). "Annotated" = any of
 go_ids, pfam_ids, interpro_ids non-empty.
 
@@ -13,9 +14,12 @@ STUDY = <domain>/<name>; results are read from results/<name>.
 import argparse
 import csv
 import gzip
+import sys
 from pathlib import Path
 
 NII = Path("/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations")
+sys.path.insert(0, str(NII / "lib"))
+from annotation_names import annotation_names, annotation_path  # noqa: E402
 csv.field_size_limit(10**9)
 
 
@@ -43,7 +47,9 @@ def main():
         name = Path(st).name
         rd = NII / "results" / name
         cfg = list(csv.DictReader(open(sd / "config.csv")))
-        sp_rows = {r["Short"]: r for r in csv.DictReader(open(sd / "species.csv"))}
+        sp_list = list(csv.DictReader(open(sd / "species.csv")))
+        sp_rows = {r["Short"]: r for r in sp_list}
+        ann_name = annotation_names(sp_list)
         in_sp = [r["Short"] for r in cfg if r["GROUP"] == "IN"]
         pep = {r["Short"]: r["Protein"] for r in cfg}
         cands = {l.strip() for l in open(rd / "candidates.txt") if l.strip()}
@@ -54,7 +60,8 @@ def main():
             r = sp_rows.get(sp, {})
             acc = r.get("Protein_Accession") or r.get("Accession") or ""
             src = r.get("Protein_Source") or r.get("Source") or ""
-            af = sd / "annotations" / f"{acc}.tsv.gz"
+            af = (annotation_path(sd / "annotations", ann_name[sp]) if sp in ann_name
+                  else sd / "annotations" / "NONE.tsv.gz")
             ann = set()
             if acc and af.exists():
                 with gzip.open(af, "rt") as fh:

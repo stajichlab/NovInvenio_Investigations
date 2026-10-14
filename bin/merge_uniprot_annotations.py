@@ -13,7 +13,14 @@ Adds new columns (prefixed uniprot_ to stay distinct from any gene_name/Pfam_Nam
 columns nf_NovInvenio's own ANNOTATE_MATRIX might have added, e.g. via
 --modelorgs_config, which this script leaves untouched): uniprot_gene_name,
 uniprot_description, uniprot_pfam_ids, uniprot_pfam_names, uniprot_interpro_ids,
-uniprot_go_ids, uniprot_ec_numbers, uniprot_alphafold_id, uniprot_xrefs.
+uniprot_go_ids, uniprot_ec_numbers, uniprot_alphafold_id, uniprot_xrefs, and,
+last, annotation_source.
+
+annotation_source (added 2026-10-14) says which producer made the file the row's
+annotation came from: `uniprot` (bin/extract_dat_annotations.py: GO, Pfam,
+InterPro) or `hmmer-pfam` (bin/hmm_domtbl_to_annotations.py: Pfam only, GO and
+InterPro empty). The uniprot_* columns hold both; this column tells them apart.
+Empty when the protein has no annotation. Detection: lib/annotation_sources.py.
 A protein_id with no matching
 UniProt annotation (shouldn't happen for a study built entirely from UniProt
 proteomes, but --lenient allows it) gets empty strings, not a hard error.
@@ -29,13 +36,21 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 from compressed_io import open_text  # noqa: E402
 from uniprot_ids import bare_accession  # noqa: E402
+from annotation_sources import file_source  # noqa: E402
+
+SOURCE_COLUMN = "annotation_source"
 
 
 def load_annotations(paths: list[Path]) -> dict[str, dict]:
+    """accession -> annotation row. Each row also carries SOURCE_COLUMN
+    (lib/annotation_sources.file_source of the file it came from)."""
     out: dict[str, dict] = {}
     for p in paths:
         with open_text(p, "rt", newline="") as fh:
-            for row in csv.DictReader(fh, delimiter="\t"):
+            reader = csv.DictReader(fh, delimiter="\t")
+            source = file_source(p, list(reader.fieldnames or []))
+            for row in reader:
+                row[SOURCE_COLUMN] = source
                 out[row["accession"]] = row
     return out
 
@@ -65,15 +80,23 @@ def main() -> int:
     for c in new_cols:
         if c not in fieldnames:
             fieldnames.append(c)
+    # Always the last column, after any column the input matrix already had.
+    if SOURCE_COLUMN in fieldnames:
+        fieldnames.remove(SOURCE_COLUMN)
+    fieldnames.append(SOURCE_COLUMN)
 
     n_missing = 0
+    n_by_source: dict[str, int] = {}
     for row in rows:
         a = annot.get(bare_accession(row["protein_id"]))
         if a is None:
             n_missing += 1
             for c in new_cols:
                 row[c] = ""
+            row[SOURCE_COLUMN] = ""
             continue
+        row[SOURCE_COLUMN] = a[SOURCE_COLUMN]
+        n_by_source[a[SOURCE_COLUMN]] = n_by_source.get(a[SOURCE_COLUMN], 0) + 1
         row["uniprot_gene_name"] = a["gene_name"]
         row["uniprot_description"] = a.get("description", "")
         row["uniprot_pfam_ids"] = a["pfam_ids"]
@@ -97,7 +120,9 @@ def main() -> int:
         w.writeheader()
         w.writerows(rows)
 
-    print(f"Wrote {args.output} ({len(rows)} rows, {n_missing} without UniProt annotation)", file=sys.stderr)
+    by_src = ", ".join(f"{k}={v}" for k, v in sorted(n_by_source.items())) or "none"
+    print(f"Wrote {args.output} ({len(rows)} rows, {n_missing} without annotation; "
+          f"{SOURCE_COLUMN}: {by_src})", file=sys.stderr)
     return 0
 
 

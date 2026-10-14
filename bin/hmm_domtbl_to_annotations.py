@@ -4,8 +4,11 @@
 Why: proteomes from NCBI or JGI have no UniProt record, so bin/extract_dat_annotations.py
 cannot annotate them. A Pfam-A hmmsearch (or hmmscan) run gives Pfam domains for these
 proteins. This script writes them in the same file format as the UniProt annotation
-files (<study>/annotations/<Protein_Accession>.tsv.gz), so the enrichment scripts read
-both sources the same way.
+files (<study>/annotations/<name>.tsv.gz), so the enrichment scripts read both sources
+the same way. <name> comes from lib/annotation_names.py: the Protein_Accession for
+UniProt/NCBI accessions; for a local FASTA path, its basename without the
+proteome/compression suffix. With --study-dir and --short, --out defaults to that file,
+and an --out outside <study-dir>/annotations/ is refused.
 
 Input
   --domtbl  one or more HMMER 3 domain tables: plain text, .gz or .zst (read with
@@ -56,6 +59,7 @@ Example
       --domtbl analysis/hmmscan/Neocalif.pfam.hmmsearch.domtbl.zst \\
       --fasta data_dir/pep/Neocalif.pep.fa --taxon-id 1754190 \\
       --out annotations/GCA_002104975.1.tsv.gz
+  # same, with the default name:  --study-dir studies/fungi/<study> --short Neocalif
 """
 from __future__ import annotations
 
@@ -71,6 +75,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "lib"))
+from annotation_names import annotation_names, annotation_path, ensure_within  # noqa: E402
 from provenance import build_record, sha256_of, write_record  # noqa: E402
 
 UNIPROT_COLUMNS = ["accession", "taxon_id", "gene_name", "description", "go_ids", "pfam_ids",
@@ -325,7 +330,13 @@ def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--domtbl", required=True, nargs="+", type=Path,
                     help="HMMER --domtblout file(s): plain, .gz or .zst")
-    ap.add_argument("--out", required=True, type=Path, help="output TSV (.tsv.gz writes gzip)")
+    ap.add_argument("--out", type=Path,
+                    help="output TSV (.tsv.gz writes gzip). Default (needs --study-dir and --short): "
+                         "<study-dir>/annotations/<name>.tsv.gz, <name> from lib/annotation_names.py")
+    ap.add_argument("--study-dir", type=Path,
+                    help="study dir with species.csv; gives the default --out and the guard "
+                         "(--out must then be inside <study-dir>/annotations/)")
+    ap.add_argument("--short", help="species Short name in <study-dir>/species.csv (with --study-dir)")
     ap.add_argument("--fasta", type=Path, help="protein FASTA of the proteome (plain, .gz or .zst)")
     ap.add_argument("--tool", choices=["auto", "hmmsearch", "hmmscan"], default="auto",
                     help="table layout (default: detect from the '# Program:' trailer or the columns)")
@@ -335,6 +346,23 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--pfam-release", default="",
                     help="Pfam release text (default: parsed from the Pfam-A.hmm directory name)")
     args = ap.parse_args(argv)
+    if args.study_dir is not None:
+        ann_dir = (args.study_dir / "annotations").resolve()
+        if args.out is None:
+            if not args.short:
+                ap.error("--study-dir without --out needs --short")
+            with open(args.study_dir / "species.csv", newline="") as fh:
+                rows = list(csv.DictReader(fh))
+            names = annotation_names(rows)
+            if args.short not in names:
+                ap.error(f"--short {args.short} is not in {args.study_dir / 'species.csv'}")
+            args.out = annotation_path(ann_dir, names[args.short])
+        try:
+            ensure_within(args.out, [ann_dir])
+        except ValueError as e:
+            raise SystemExit(f"ERROR: {e}")
+    elif args.out is None:
+        ap.error("give --out, or --study-dir and --short")
     s = convert(args.domtbl, args.out, fasta=args.fasta, tool=args.tool, taxon_id=args.taxon_id,
                 pfam_hmm=args.pfam_hmm, pfam_release=args.pfam_release, argv=argv)
     pct = f"{100 * s['n_proteins_with_pfam'] / s['n_rows']:.1f}%" if s["n_rows"] else "NA"
