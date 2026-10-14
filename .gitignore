@@ -20,11 +20,17 @@ studies/*/*/data/
 # not symlinks -- one such symlink (an absolute, host-specific path) was caught
 # about to be committed for real on 2026-09-11 before this fix.
 studies/*/*/data_dir
+# Variant input dirs (e.g. data_dir_in2): same rule, same reason. The first pattern only matches the exact name.
+studies/*/*/data_dir_*
 
 # Per-species UniProt DR annotation extracts (bin/extract_dat_annotations.py) --
 # regenerable from the (also gitignored) data/uniprot/ cache in ~2s/species, not
 # source.
 studies/*/*/annotations/
+
+# Enrichment cache (enrich_novelties_v2.py --cache-dir): hashed background-cluster files,
+# regenerated on demand, 1-2 MB per study. Never tracked.
+studies/*/*/analysis/enrichment/outputs/cache/
 
 # Nextflow run state (when studies invoke nf_NovInvenio directly from here)
 .nextflow/
