@@ -1,0 +1,144 @@
+generated: '2026-10-12T18:42:43'
+study: sordariales_shallow
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: b96062411e1f05983aa679d2d85d6e719db6cdc15260175ccf643db400903b17
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/sordariales_shallow --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations
+  --study sordariales_shallow --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/analysis/enrichment/outputs/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: novelty
+target_group:
+  label: IN
+  species:
+  - Chaeglob
+  - Neurcras
+  - Podoanse
+  - Sordmacr
+other_group:
+  label: OUT
+  species:
+  - Clonrose
+  - Collhigg
+  - Conilign
+  - Cordmili
+  - Cryppara
+  - Eutylata
+  - Metaanis
+  - Vertdahl
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations
+annotation_files:
+  Chaeglob: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001056.tsv.gz
+  Neurcras: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001805.tsv.gz
+  Podoanse: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001197.tsv.gz
+  Sordmacr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001881.tsv.gz
+  Clonrose: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000836387.tsv.gz
+  Collhigg: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000092177.tsv.gz
+  Conilign: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000182658.tsv.gz
+  Cordmili: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001610.tsv.gz
+  Cryppara: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000803844.tsv.gz
+  Eutylata: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000012174.tsv.gz
+  Metaanis: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000054544.tsv.gz
+  Vertdahl: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001611.tsv.gz
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 568
+  candidates_txt: 568
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/sordariales_shallow/candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/sordariales_shallow/presence_matrix.uniprot.tsv
+  rule: IN count / 4 >= 0.75 and OUT count / 8 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: c71af64d56014ccc
+  n_sequences: 40773
+  n_clusters: 20007
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 37.2
+  threads: 8
+  created: '2026-10-12T18:42:25'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/config.csv: 5fb99b4b4726df9cffcb87eafa9dcc9f1587250fa5548a91f960850a3b5c6bc7
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/sordariales_shallow/candidates.txt: 7eacf9fca2a4f259c54dafcd2e83cc7eeb89be97e7cdf30a8e7481c4389ab2c0
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/sordariales_shallow/novelties.Chaeglob.tsv: c274951932723e0cac85aa4e05d571936b79aa7ef066b931ab713bf589e585f9
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/sordariales_shallow/novelties.Neurcras.tsv: c48c3202f8298bbcc9660387134744d594ef2778cd5bbc0e4c2d5a98237cb328
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/sordariales_shallow/novelties.Podoanse.tsv: 87ca44524b338dd3169022d6f28396c3a19dc60193032f6edf2a220568e70c07
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/sordariales_shallow/novelties.Sordmacr.tsv: 916b99828cd6373b6cf0f0bf7d39b5d91e268401ffb6097413318f2516ae2d7b
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/sordariales_shallow/presence_matrix.uniprot.tsv: 260e1627872a2fad0bd9e2370db24fed0bcba410e247a517fa03360d2aaeb34e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/data_dir/pep/UP000001056_306901.pep.fa
+  : 7638da9c5d299449d4d415a88cd9b02939e519b0ba6f56da3310bf3a3f0455a4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/data_dir/pep/UP000001805_367110.pep.fa
+  : 6c3a6d498fb30b129e2ab084f95789b3c510164f34661a5c85acb6a14e5f3dde
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/data_dir/pep/UP000001197_515849.pep.fa
+  : af03765003d623ad8350afabe15edb03a878b4954bd03928ea178d1b6a156291
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/data_dir/pep/UP000001881_771870.pep.fa
+  : 4c753e90de2ed72ef0d381ca5fd1690a5b36850530a7c392938ef44dae6c0e7e
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/species.csv: ff895ff2ae264af389077c09b8fa6c55ff1742b2c20515b214bd471918c572e9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001056.tsv.gz
+  : efec740f623e1597d84bd60b71123b479799477379eb6c11188bba556d8f4997
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001805.tsv.gz
+  : 8ecec37394d51f8673ae5fbde82cff9f7a6aa716fb18f85b96c35e02eb178d57
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001197.tsv.gz
+  : 58ff6b2c88f1f8573e758d0e2329d2b101249b3a4f620eb9f8328f460f42c57b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001881.tsv.gz
+  : 44ef92ad7049ea2a22968ac51384dcb8fc7414052ef8eed7e94de1ff5163dc46
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000836387.tsv.gz
+  : 325d38148b1517eb0c3c8492ee964ecd8b035aa55d220df910d04feca2fad20a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000092177.tsv.gz
+  : 5e60eca3600d838f1a8de6170b85e765569e3388328287bdf446f0dae671ef79
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000182658.tsv.gz
+  : 3186486fb19d7a3ab10589973a750f11a93678bb7629493373392f189e592827
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001610.tsv.gz
+  : 13e67096cc2bbcad1cc24a58af90fbf6da768608533662348d89ac56adba8462
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000803844.tsv.gz
+  : 5b9ab9c44e6454f5dd2bd905baab460ab21f692b017c4b05ea36a88294c6f7ae
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000012174.tsv.gz
+  : a3f062983e0120329e9c0f37380deefa669f913fd0440b5838c4ffb7e63ecd29
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000054544.tsv.gz
+  : 39a32a190ba446772243399825a8a0d8b98cf72ef77fb334a867213f631384db
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/sordariales_shallow/annotations/UP000001611.tsv.gz
+  : 643628fec908bda4b3c38ab092cec1863e1484ed8257e851fc19d278111f4982
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 7.2
+  background_cluster_s: 37.6
+  tests_s: 5.1
+  total_s: 62.4
+host: r11
+slurm_job: '29894058'
