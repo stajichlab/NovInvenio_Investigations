@@ -1,0 +1,57 @@
+[    0.0s] direction=novelty target(IN)=['Ub71', 'Lsp1', 'Lsph', 'Easp', 'Cami'] other(OUT)=['Ub56', 'Ub85', 'Ub22', 'Ub119']
+[    0.5s] matrix rows 14586; target rule 7350; target rule & other frac <= 0.0 2354; candidates.txt 2354
+[    1.0s] universe 'proteome': 19766 IN (target group) proteins
+[    1.4s] annotation rows matched: 19766 of 19766
+[    4.0s] NOTE: interpro terms in 0 of 5 IN species; none in: Ub71, Lsp1, Lsph, Easp, Cami
+[    4.0s] NOTE: go terms in 0 of 5 IN species; none in: Ub71, Lsp1, Lsph, Easp, Cami
+[    4.1s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29966687/bgclust_gpia28w4/bg.fa /scratch/jstajich/29966687/bgclust_gpia28w4/bg /scratch/jstajich/29966687/bgclust_gpia28w4/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   19.1s] background clusters: 9078 clusters from 17412 proteins
+[   19.3s] whole_set	protein	pfam	N=2235/2354	M=17035	tested=1787	sig=159
+[   19.3s] whole_set	protein	pfam_clan	N=1886/2354	M=14384	tested=356	sig=33
+[   19.3s] whole_set	protein	interpro	N=0/2354	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.3s] whole_set	protein	go	N=0/2354	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.8s] whole_set	family	pfam	N=904/941	M=7844	tested=696	sig=13
+[   19.8s] whole_set	family	pfam_clan	N=770/941	M=6505	tested=241	sig=5
+[   19.8s] whole_set	family	interpro	N=0/941	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.8s] whole_set	family	go	N=0/941	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.8s] Ub71	protein	pfam	N=119/125	M=2183	tested=162	sig=0
+[   19.8s] Ub71	protein	pfam_clan	N=106/125	M=1768	tested=103	sig=0
+[   19.8s] Ub71	protein	interpro	N=0/125	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.8s] Ub71	protein	go	N=0/125	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.8s] Ub71	family	pfam	N=117/123	M=1978	tested=135	sig=0
+[   19.8s] Ub71	family	pfam_clan	N=104/123	M=1587	tested=94	sig=0
+[   19.8s] Ub71	family	interpro	N=0/123	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.8s] Ub71	family	go	N=0/123	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.9s] Lsp1	protein	pfam	N=546/568	M=3754	tested=329	sig=5
+[   19.9s] Lsp1	protein	pfam_clan	N=456/568	M=3205	tested=149	sig=4
+[   19.9s] Lsp1	protein	interpro	N=0/568	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.9s] Lsp1	protein	go	N=0/568	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.9s] Lsp1	family	pfam	N=496/518	M=3122	tested=271	sig=0
+[   19.9s] Lsp1	family	pfam_clan	N=415/518	M=2612	tested=140	sig=1
+[   19.9s] Lsp1	family	interpro	N=0/518	M=0	tested=0	sig=0	not available (no annotated units)
+[   19.9s] Lsp1	family	go	N=0/518	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.0s] Lsph	protein	pfam	N=585/615	M=4106	tested=353	sig=5
+[   20.0s] Lsph	protein	pfam_clan	N=495/615	M=3507	tested=149	sig=3
+[   20.0s] Lsph	protein	interpro	N=0/615	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.0s] Lsph	protein	go	N=0/615	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.0s] Lsph	family	pfam	N=521/550	M=3261	tested=270	sig=2
+[   20.0s] Lsph	family	pfam_clan	N=434/550	M=2731	tested=142	sig=0
+[   20.0s] Lsph	family	interpro	N=0/550	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.0s] Lsph	family	go	N=0/550	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.1s] Easp	protein	pfam	N=578/616	M=4766	tested=408	sig=6
+[   20.1s] Easp	protein	pfam_clan	N=495/616	M=4054	tested=175	sig=2
+[   20.1s] Easp	protein	interpro	N=0/616	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.1s] Easp	protein	go	N=0/616	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.1s] Easp	family	pfam	N=513/548	M=3567	tested=288	sig=1
+[   20.1s] Easp	family	pfam_clan	N=435/548	M=2977	tested=157	sig=0
+[   20.1s] Easp	family	interpro	N=0/548	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.1s] Easp	family	go	N=0/548	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.1s] Cami	protein	pfam	N=407/430	M=2226	tested=187	sig=0
+[   20.1s] Cami	protein	pfam_clan	N=334/430	M=1850	tested=112	sig=0
+[   20.1s] Cami	protein	interpro	N=0/430	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.1s] Cami	protein	go	N=0/430	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.5s] Cami	family	pfam	N=396/419	M=2027	tested=156	sig=0
+[   20.5s] Cami	family	pfam_clan	N=323/419	M=1666	tested=106	sig=0
+[   20.5s] Cami	family	interpro	N=0/419	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.5s] Cami	family	go	N=0/419	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.3s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/analysis/enrichment/outputs/proteome_clustered

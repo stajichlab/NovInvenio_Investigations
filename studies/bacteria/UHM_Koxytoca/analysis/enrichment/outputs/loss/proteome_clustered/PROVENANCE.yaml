@@ -1,0 +1,447 @@
+generated: '2026-10-14T22:00:34'
+study: UHM_Koxytoca
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_Koxytoca --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/config.csv
+  --proteins-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations
+  --study UHM_Koxytoca --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --direction loss --ingroup-min-frac 0.75 --other-max-frac 0.0 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - KoxO_050916275
+  - KoxO_017310465
+  - KoxO_929608445
+  - KoxO_040561445
+  - KoxO_900083795
+  - KoxO_024918735
+  - KoxO_902162875
+  - KoxO_053276915
+  - KoxO_030343105
+  - KoxO_030343375
+  - KoxO_016734995
+  - KoxO_030343565
+  - KoxO_900083995
+  - KoxO_004360035
+  - KoxO_030344075
+  - KoxO_051951865
+other_group:
+  label: IN
+  species:
+  - UHM102bin47
+  - UHM125bin22
+  - UHM125bin48
+  - UHM145bin17
+  - UHM145bin33
+  - UHM145bin28
+  - UHM17bin35
+  - UHM18bin40
+  - UHM20bin40
+  - UHM20bin12
+  - UHM22bin50
+  - UHM22bin54
+  - UHM22bin8
+  - UHM40bin4
+  - UHM40bin27
+  - UHM43bin53
+  - UHM56bin19
+  - UHM72bin19
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations
+annotation_files:
+  KoxO_050916275: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_050916275.1.tsv.gz
+  KoxO_017310465: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_017310465.1.tsv.gz
+  KoxO_929608445: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_929608445.1.tsv.gz
+  KoxO_040561445: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_040561445.1.tsv.gz
+  KoxO_900083795: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_900083795.1.tsv.gz
+  KoxO_024918735: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_024918735.1.tsv.gz
+  KoxO_902162875: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_902162875.1.tsv.gz
+  KoxO_053276915: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_053276915.1.tsv.gz
+  KoxO_030343105: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030343105.1.tsv.gz
+  KoxO_030343375: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030343375.1.tsv.gz
+  KoxO_016734995: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_016734995.1.tsv.gz
+  KoxO_030343565: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030343565.1.tsv.gz
+  KoxO_900083995: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_900083995.1.tsv.gz
+  KoxO_004360035: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_004360035.1.tsv.gz
+  KoxO_030344075: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030344075.1.tsv.gz
+  KoxO_051951865: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_051951865.1.tsv.gz
+  UHM102bin47: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM102.35765_R.bin.47.tsv.gz
+  UHM125bin22: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM125.35768_R.bin.22.tsv.gz
+  UHM125bin48: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM125.35770_R.bin.48.tsv.gz
+  UHM145bin17: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM145.35771_R.bin.17.tsv.gz
+  UHM145bin33: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM145.35772_R.bin.33.tsv.gz
+  UHM145bin28: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM145.35773_R.bin.28.tsv.gz
+  UHM17bin35: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM17.35739_R.bin.35.tsv.gz
+  UHM18bin40: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM18.35742_R.bin.40.tsv.gz
+  UHM20bin40: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM20.35743_R.bin.40.tsv.gz
+  UHM20bin12: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM20.35744_R.bin.12.tsv.gz
+  UHM22bin50: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM22.35745_R.bin.50.tsv.gz
+  UHM22bin54: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM22.35746_R.bin.54.tsv.gz
+  UHM22bin8: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM22.35747_R.bin.8.tsv.gz
+  UHM40bin4: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM40.35754_R.bin.4.tsv.gz
+  UHM40bin27: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM40.35755_R.bin.27.tsv.gz
+  UHM43bin53: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM43.10836_R.bin.53.tsv.gz
+  UHM56bin19: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM56.35760_R.bin.19.tsv.gz
+  UHM72bin19: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM72.35762_R.bin.19.tsv.gz
+annotation_sources:
+  KoxO_050916275: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_017310465: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_929608445: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_040561445: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_900083795: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_024918735: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_902162875: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_053276915: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_030343105: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_030343375: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_016734995: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_030343565: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_900083995: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_004360035: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_030344075: Pfam-A HMM search (hmmsearch); Pfam only
+  KoxO_051951865: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM102bin47: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM125bin22: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM125bin48: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM145bin17: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM145bin33: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM145bin28: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM17bin35: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM18bin40: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM20bin40: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM20bin12: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM22bin50: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM22bin54: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM22bin8: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM40bin4: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM40bin27: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM43bin53: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM56bin19: Pfam-A HMM search (hmmsearch); Pfam only
+  UHM72bin19: Pfam-A HMM search (hmmsearch); Pfam only
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - KoxO_050916275
+    - KoxO_017310465
+    - KoxO_929608445
+    - KoxO_040561445
+    - KoxO_900083795
+    - KoxO_024918735
+    - KoxO_902162875
+    - KoxO_053276915
+    - KoxO_030343105
+    - KoxO_030343375
+    - KoxO_016734995
+    - KoxO_030343565
+    - KoxO_900083995
+    - KoxO_004360035
+    - KoxO_030344075
+    - KoxO_051951865
+    species_without_terms: []
+    n_with: 16
+    n_species: 16
+  pfam_clan:
+    species_with_terms:
+    - KoxO_050916275
+    - KoxO_017310465
+    - KoxO_929608445
+    - KoxO_040561445
+    - KoxO_900083795
+    - KoxO_024918735
+    - KoxO_902162875
+    - KoxO_053276915
+    - KoxO_030343105
+    - KoxO_030343375
+    - KoxO_016734995
+    - KoxO_030343565
+    - KoxO_900083995
+    - KoxO_004360035
+    - KoxO_030344075
+    - KoxO_051951865
+    species_without_terms: []
+    n_with: 16
+    n_species: 16
+  interpro:
+    species_with_terms: []
+    species_without_terms:
+    - KoxO_050916275
+    - KoxO_017310465
+    - KoxO_929608445
+    - KoxO_040561445
+    - KoxO_900083795
+    - KoxO_024918735
+    - KoxO_902162875
+    - KoxO_053276915
+    - KoxO_030343105
+    - KoxO_030343375
+    - KoxO_016734995
+    - KoxO_030343565
+    - KoxO_900083995
+    - KoxO_004360035
+    - KoxO_030344075
+    - KoxO_051951865
+    n_with: 0
+    n_species: 16
+  go:
+    species_with_terms: []
+    species_without_terms:
+    - KoxO_050916275
+    - KoxO_017310465
+    - KoxO_929608445
+    - KoxO_040561445
+    - KoxO_900083795
+    - KoxO_024918735
+    - KoxO_902162875
+    - KoxO_053276915
+    - KoxO_030343105
+    - KoxO_030343375
+    - KoxO_016734995
+    - KoxO_030343565
+    - KoxO_900083995
+    - KoxO_004360035
+    - KoxO_030344075
+    - KoxO_051951865
+    n_with: 0
+    n_species: 16
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 1320
+  candidates_txt: 1320
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_Koxytoca/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_Koxytoca/loss_presence_matrix.tsv
+  rule: OUT count / 16 >= 0.75 and IN count / 18 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 167343698870ef87
+  n_sequences: 89506
+  n_clusters: 7838
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 12.0
+  threads: 8
+  created: '2026-10-14T22:00:24'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_Koxytoca/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/config.csv: cfb62f71e826777ec08b4ab7d30814b8e870f7569e70b26f2fba927b847d7057
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_Koxytoca/loss_candidates.txt: a36c8d4805f8168d9ff772de38d30245d4adad085c7b8aeecd39a9be40911083
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_Koxytoca/clusters/loss_clusters_cluster.tsv: 3c6d28a008636c4ba2cd2f99c45aa130eab0e7ef65ec2589de157cb1d0228e96
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_Koxytoca/loss_presence_matrix.tsv: a61b40849e900b5613283a7ae354042f35164c1c728082556bcd7b7f0a76381c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_050916275.pep.fa
+  : 1c930c109140558dee86e2b2bb3d56a7cc1cabfcc59932053212aa1521f9a86a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_017310465.pep.fa
+  : 7e08151617d9f76119185a260f5c069a382d2e9faca11eecd8b8f7e5f7a4952d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_929608445.pep.fa
+  : d3d181c03bb31920d5ad4697a58eb7ffc9558fff571fcf2a0885433800b5d133
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_040561445.pep.fa
+  : 7d6e0d26e3e86e7e0c6776926015cbe3c93825cf5c4ddcbde704b842ab770cdf
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_900083795.pep.fa
+  : a15e5c3baaaf6668e91f273de7c7601f2555b032ed270c88b06fa66418cea39e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_024918735.pep.fa
+  : 29925d5aedc2d88f4539dc33ac93b32e6e8e1a41ba227afd42b781859ae88446
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_902162875.pep.fa
+  : 0690578c969c42b07e4e457a77fdd323a06ba5631869bfda083c82718803dd7f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_053276915.pep.fa
+  : cd25cd37b58b117d4e926b6e2ce373cb73ab5f67cdcd60627e042fad3a2d1b5b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_030343105.pep.fa
+  : a651aedd45c791c5ff637ec5fe473bcefb1b90ee3961913ed099bd9b4279cebd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_030343375.pep.fa
+  : dcea91fde71130c870dc2670130dd3e746203adf7d2e34956c3f5fa782cc5e3d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_016734995.pep.fa
+  : 5cf1dc1a034566ea62f1f6f38d84ad4031318fefdce486c4d45084e3306a0974
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_030343565.pep.fa
+  : 82841896eacdf4e3b13675d9e118200bc2c907eb530248685135d28a20b8c4a9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_900083995.pep.fa
+  : bdd222d0d5c1862a99ac3a183e2a64b06d8e839a282048aa21491878f4f5b420
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_004360035.pep.fa
+  : aa4d2925b174101693f90ac8165168aa4ee5cf1ec2dc92bc86b2da307fcc2516
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_030344075.pep.fa
+  : 75e89e35d0c859de9a4d5a204afbb2f9dafafafb82afc90802e30f25f220b5f8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/pep/KoxO_051951865.pep.fa
+  : d234701cc7101f11a5d04b2cfcc3f5944df82ffa77f341983556680969fc29d7
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/species.csv: 95a2b5ab7d8fe936cfddc1c7390375e5bc407eb0d573f13f97ca074a945f616e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_050916275.1.tsv.gz
+  : d27e2b4fbf3dcc815abbc8f739ec2594d656db5e1af240b138e51dee8be1ce4c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_017310465.1.tsv.gz
+  : 68ed683d6009497a774f6caa6b396aef901d0851ed51026b294734e51543d940
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_929608445.1.tsv.gz
+  : 20607f0fbeb627788d5ce928a5db4e72ed924c791c031b8956d6bdeed7a05ee8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_040561445.1.tsv.gz
+  : f521fd8aaf41d72fc82b134dc974e3061c3f29e09b292161009095eb5898c4da
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_900083795.1.tsv.gz
+  : 151b47cd8eb028517dccbcf140b182c64501ab3c1e6dbff2512c2d88f3af9fd1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_024918735.1.tsv.gz
+  : 313e847b2936d7a3a09d2330d1179f81e5f5e64bd14c4d421c9cb57f044e0316
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_902162875.1.tsv.gz
+  : aa3c709165d1cbe070b30cd57e0530cd0fae9d2cd92bf0c5d18a8f5fb52e913f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_053276915.1.tsv.gz
+  : f49f96c1d3278d1e0215f58182be815488f3a663de5683c90f5caef1d3c14c38
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030343105.1.tsv.gz
+  : 81aa01af3b1ac8dab16b607fb1b80ba74a76721f1095d0090322695a520ff868
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030343375.1.tsv.gz
+  : 1111cb4ddcb02ba3da470ae0affe2955898fa78dbf7ce23e54ee86a335e2137e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_016734995.1.tsv.gz
+  : ade60fbc46d6016752a4c8e96881c7b1d46273ca81d4a5ea1c4b5f5ee4f63375
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030343565.1.tsv.gz
+  : 89b4f9b24d7ebbb24433b214191afa7f9fa8e894ac49393c5509d1bb52c46104
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_900083995.1.tsv.gz
+  : 3fcd2a7d83883e7a56cd88ecf489678ea3ac6601c3f8ff87b32db14a677efd3e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_004360035.1.tsv.gz
+  : cbf7b5cec86a887d3c0f82cedca5e5d875ee174883a8056f82b5108f5dcda9fa
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030344075.1.tsv.gz
+  : 9a1d71e5aa1ffb4c0a176400145c041e3b6136287baf774f6ed96a64a72e313c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_051951865.1.tsv.gz
+  : 4b36455fc5d10a1a1e27a5a8a8a609c4baed0df95ae9ae84b0d3b5754c00d0aa
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM102.35765_R.bin.47.tsv.gz
+  : 041162ce6cb2932dc61c1ad3742760f3ed6234f752c9f325bd30d3856f9e9742
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM125.35768_R.bin.22.tsv.gz
+  : 381d83eda0b6cda4e98fe9100eaf2c0c4552f0ee57252d6e3e13777b7e4aa104
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM125.35770_R.bin.48.tsv.gz
+  : 3a0d5d26279d3f1121be6c0a0de3b28904768b9166cf377e9ecd897a51593bd0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM145.35771_R.bin.17.tsv.gz
+  : a0507b9ab89d59f3af241d5e48d473d7478244743d2eebf51a51c95afa378b3e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM145.35772_R.bin.33.tsv.gz
+  : 678e33b1e30741ce5b18bc355288c4ec80ecc243da17259936a88cc04f3a8062
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM145.35773_R.bin.28.tsv.gz
+  : 58d8fdd2f47f501e71585ad68a9f627aa41f27d862d83224d750f4cbe1436b27
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM17.35739_R.bin.35.tsv.gz
+  : 9f63dd4acf70445eae0d80eb53dec026fe51006892e700fbdcd26b14f757aa7d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM18.35742_R.bin.40.tsv.gz
+  : 4197b90b1e983b7d1d7473ee9a6dbdcd98b23f7bb3fcb36f32b1ce6d63907242
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM20.35743_R.bin.40.tsv.gz
+  : f624fcfdd4daa216137d2e85e57991723c0dc3a56162112656547441ce904d2b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM20.35744_R.bin.12.tsv.gz
+  : 29e654931b9b5dfefbb4c772ff78c45723f2c689bdac6532e313ef6e03da505f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM22.35745_R.bin.50.tsv.gz
+  : f7c29e58ce24ae156e4aa996a9fef02f8777a91e94d5e89259ee0dab259844be
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM22.35746_R.bin.54.tsv.gz
+  : f205ab317a3737747671b4031d26920bc6e4e670f8ebb4177acd4be602f1c4d2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM22.35747_R.bin.8.tsv.gz
+  : 20e4a2bf2b1f234569e290a07e05ef9de8e99d9774a8db26aea3eb8bbfb77cff
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM40.35754_R.bin.4.tsv.gz
+  : 9b40a511dfa90edc0cef4dc587892da5b023fcf1f021de907b36233c944e37a7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM40.35755_R.bin.27.tsv.gz
+  : a5ff0616176753f04218bf77d9629ee2c9f9f96235370d5ba1c627a8d46a395f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM43.10836_R.bin.53.tsv.gz
+  : 0f4e83cd992e4c912d74697442e44afbd8c7e79c20066223ac00232f23eba4ad
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM56.35760_R.bin.19.tsv.gz
+  : a1c1399060f8e51d8dfca1f5aaa08046a2e359ff253faa772f7752df44f6c0ae
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM72.35762_R.bin.19.tsv.gz
+  : 9ff8b90262ce5dcb3ca8802f3c4fd901e2742b6db1bf8960127777f6af6ab279
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_050916275.1.tsv.gz.provenance.yaml
+  : 61b46750b9acebc59f496fe3f87d8caea24b19c3b0d78776019cdc1d22430f45
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_017310465.1.tsv.gz.provenance.yaml
+  : 98c284ef78c769ee5d5448270dfddac0dd8bbc0005d84280838c66523431dadc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_929608445.1.tsv.gz.provenance.yaml
+  : bc67ed73ac1f9a7866a103ada276fbd5bb108a10bdfa5841be88f0924b0d7e1e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_040561445.1.tsv.gz.provenance.yaml
+  : afc83203fc2aea6d3cf2c6cd4e62f5a99bcde938c6043202614ffff5b6d13654
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_900083795.1.tsv.gz.provenance.yaml
+  : 413cf24b1c45d8a79a67dc0177aaabe6770b84cb8cdcbe66053020a19b1cf751
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_024918735.1.tsv.gz.provenance.yaml
+  : 2127be7746480af1b98bbd8332822eb6ca3c859ac1bb65d6531a8b7f7edd594e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_902162875.1.tsv.gz.provenance.yaml
+  : af4942b9df0472b4d7a056924631d51d6c699181e973965832a96bfe440e3e83
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_053276915.1.tsv.gz.provenance.yaml
+  : 093024f22f7242d52b84e52aae593ef4c7d0f6b842574cc05ae0b2e6ad8a6042
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030343105.1.tsv.gz.provenance.yaml
+  : 7b12055238987e66e2dc0e6756aabb490c5d8c3032904e268e16d5816be172f2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030343375.1.tsv.gz.provenance.yaml
+  : 2d22d87036cbaf6b2153b9fdce265239977663cbb3eb2acbac7c24d59f184009
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_016734995.1.tsv.gz.provenance.yaml
+  : d2d563eba0c00e5aacad3f35d47ee78f66211f225eeff96326e3c54f876acffe
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030343565.1.tsv.gz.provenance.yaml
+  : f7005cdbebfd2ed65105a0c1014861b01889f147eb89bc1fec110c75bf9429a8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_900083995.1.tsv.gz.provenance.yaml
+  : 2011e00edb0890f2eec5bd9ee82f29bb14a2af1db07d55d795dd97b3826c6900
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_004360035.1.tsv.gz.provenance.yaml
+  : baee9f5492289b1bb094b97f16fce01f919b75efa96cddc3ed889befffdbf1d5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_030344075.1.tsv.gz.provenance.yaml
+  : 3d31ece02f22a2a58e89c6329f6a99230f33788c61c3b2d9f4b1ea170e54643c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/GCF_051951865.1.tsv.gz.provenance.yaml
+  : d23538c58b2b4d764b1cfd7f3a7b2087f82e03f57bceaf11a478899b7e478043
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM102.35765_R.bin.47.tsv.gz.provenance.yaml
+  : c302df9f0d83da3a8439de7e9d478b97792c60e4188713302d80035b4c4b9c03
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM125.35768_R.bin.22.tsv.gz.provenance.yaml
+  : 86162843e2d7371b674a8c9420f2966da314f7f9c29335164fafee8c8fefdde8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM125.35770_R.bin.48.tsv.gz.provenance.yaml
+  : ac6afe3ee34104cbcae512d49adc45d471aaf5f8041e90106c15e038c5763114
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM145.35771_R.bin.17.tsv.gz.provenance.yaml
+  : 9f446978c66e59d52bd0ec6afa6c6ac4feaa121f29e49f97c28df307278914f2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM145.35772_R.bin.33.tsv.gz.provenance.yaml
+  : f7d31bb6ff3a64e114d8591237ed19e80146ee8e1dbc0b471d6b3a8929d36223
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM145.35773_R.bin.28.tsv.gz.provenance.yaml
+  : cba27fe24ce6ef8d43c557d374791843cc0ccc1d8ab0373a625edf37d53735f8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM17.35739_R.bin.35.tsv.gz.provenance.yaml
+  : 7b85caff473a21dceb51f768c880e97994a6afc348ec0945b6aa2cbe360abe99
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM18.35742_R.bin.40.tsv.gz.provenance.yaml
+  : b77e9bc8d439bbaeb01e610db593d3441dcffbdb36d2f43936004a5c86b9ad6d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM20.35743_R.bin.40.tsv.gz.provenance.yaml
+  : 1631ee7779f71918fa2880936fc4c466683b0fe29834235d79e5ed90669491ad
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM20.35744_R.bin.12.tsv.gz.provenance.yaml
+  : d3e215b3fd07aee3cbb3405b725b8735317cd99bc0e82dc9f704a486e1509431
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM22.35745_R.bin.50.tsv.gz.provenance.yaml
+  : a72ba0d55cf383c8b8f47e44a5dbb33d48933f6fb0f58e7dc7bd49f8a10d81c9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM22.35746_R.bin.54.tsv.gz.provenance.yaml
+  : c99d38982a82b3bceafaae54bde088870b4ea499e8edefacf0701e6dbeaf4857
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM22.35747_R.bin.8.tsv.gz.provenance.yaml
+  : 7c86d60676ed524554ad012cdb64e1eade68b2627e54956c6242ba1b1d4ad5fd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM40.35754_R.bin.4.tsv.gz.provenance.yaml
+  : 559c77c6945f478b70760d548f7a13bf56af61920912921c31f70b297bd5c800
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM40.35755_R.bin.27.tsv.gz.provenance.yaml
+  : daefcc2ec0892321a5fae327cf3fb8ad18a1a4d31b55b99e8da6cfce1730afbe
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM43.10836_R.bin.53.tsv.gz.provenance.yaml
+  : 941fa939d3a861711b1ed0976a3e0e3542b75581b8aff8933de912c7edb827b2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM56.35760_R.bin.19.tsv.gz.provenance.yaml
+  : 293a0a0aef6241ba2a13b23b12243a9739a5ef994caa53b61dbe65223355abbe
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/data_dir_enrich_prefixed/annotations/UHM72.35762_R.bin.19.tsv.gz.provenance.yaml
+  : 9a2a8dba5a5cacf93b2061d1100772a71206b3bb7451dbb824cf57905ce75661
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 5.8
+  background_cluster_s: 12.6
+  tests_s: 4.5
+  total_s: 28.2
+host: r22
+slurm_job: '29966708'
+candidate_annotation:
+  frac_loss_candidates_any_annotation: 0.7485
+  low_coverage: false
+  rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
+  wall_s_enrichment: 35

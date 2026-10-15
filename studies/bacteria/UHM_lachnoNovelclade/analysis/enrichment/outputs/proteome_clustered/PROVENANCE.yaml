@@ -1,0 +1,209 @@
+generated: '2026-10-14T21:58:06'
+study: UHM_lachnoNovelclade
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/analysis/enrichment/config.fasta_stems.csv
+  --species-csv /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/species.csv
+  --proteins-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/data_dir/pep
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations
+  --study UHM_lachnoNovelclade --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --universe proteome --cluster-background --presence-matrix /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/presence_matrix.tsv
+  --ingroup-min-frac 0.75 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/analysis/enrichment/outputs/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: novelty
+target_group:
+  label: IN
+  species:
+  - Ub71
+  - Lsp1
+  - Lsph
+  - Easp
+  - Cami
+other_group:
+  label: OUT
+  species:
+  - Ub56
+  - Ub85
+  - Ub22
+  - Ub119
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations
+annotation_files:
+  Ub71: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM207.23041__UHM207.23041_R.bin.71.tsv.gz
+  Lsp1: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_000687555.1.tsv.gz
+  Lsph: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_002797975.1.tsv.gz
+  Easp: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_025149125.1.tsv.gz
+  Cami: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_900112885.1.tsv.gz
+  Ub56: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM1088.41098__UHM1088.41098_R.bin.56.tsv.gz
+  Ub85: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM1210.23070__UHM1210.23070_R.bin.85.tsv.gz
+  Ub22: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM896.23052__UHM896.23052_R.bin.22.tsv.gz
+  Ub119: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM904.23055__UHM904.23055_R.bin.119.tsv.gz
+annotation_sources:
+  Ub71: Pfam-A HMM search (hmmsearch); Pfam only
+  Lsp1: Pfam-A HMM search (hmmsearch); Pfam only
+  Lsph: Pfam-A HMM search (hmmsearch); Pfam only
+  Easp: Pfam-A HMM search (hmmsearch); Pfam only
+  Cami: Pfam-A HMM search (hmmsearch); Pfam only
+  Ub56: Pfam-A HMM search (hmmsearch); Pfam only
+  Ub85: Pfam-A HMM search (hmmsearch); Pfam only
+  Ub22: Pfam-A HMM search (hmmsearch); Pfam only
+  Ub119: Pfam-A HMM search (hmmsearch); Pfam only
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Ub71
+    - Lsp1
+    - Lsph
+    - Easp
+    - Cami
+    species_without_terms: []
+    n_with: 5
+    n_species: 5
+  pfam_clan:
+    species_with_terms:
+    - Ub71
+    - Lsp1
+    - Lsph
+    - Easp
+    - Cami
+    species_without_terms: []
+    n_with: 5
+    n_species: 5
+  interpro:
+    species_with_terms: []
+    species_without_terms:
+    - Ub71
+    - Lsp1
+    - Lsph
+    - Easp
+    - Cami
+    n_with: 0
+    n_species: 5
+  go:
+    species_with_terms: []
+    species_without_terms:
+    - Ub71
+    - Lsp1
+    - Lsph
+    - Easp
+    - Cami
+    n_with: 0
+    n_species: 5
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 2354
+  candidates_txt: 2354
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/presence_matrix.tsv
+  rule: IN count / 5 >= 0.75 and OUT count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 7ed40194fb3b8151
+  n_sequences: 17412
+  n_clusters: 9078
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 14.9
+  threads: 8
+  created: '2026-10-14T21:58:04'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/analysis/enrichment/config.fasta_stems.csv
+  : 7334b746c73714a70cf3f97ce1bc3671def408a31256eb275270c989cf699f64
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/candidates.txt: a7fc90930a5ba299293b7a92a19f48c0d2d55874dbc45ea515663ba245a01f7a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/novelties.Ub71.tsv: 01c43a393a7502e999e9a982c32fb47d5e66908db12affcb5a9a2b8f752185b6
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/novelties.Lsp1.tsv: f93be67059ba0048b2afcee9b4645a47610b13e600ef09312cf0bcca7cf1aee1
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/novelties.Lsph.tsv: a99c50320067b7e0b3652c48f421e29b80cf27b1b1e274c1dcabc224e8a6acdc
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/novelties.Easp.tsv: 36e728642a07fd0ac5d6ddaf743b8f4a09499475a69e4798fff7cb01c0fa163d
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/novelties.Cami.tsv: ab1c96c4842177f5de3d2077a1ea9eea790ce8408976426818021aa77febd894
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/UHM_lachnoNovelclade/presence_matrix.tsv: 6b728cebc3d1bea9eae1c683c6f295b9c910d741295f0fef86b76fd356f98895
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Ub71.pep.fa
+  : 2a6b928751117d1da73e415220eaabc6fae2f0864a343e1a82f5128ad3941480
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Lsp1.pep.fa
+  : dc68e879082adefd56dfd4416d8f7da7c303cad350ab5570e58c9ba05ae2984d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Lsph.pep.fa
+  : cb0ea7f2f1c11835c24d79cbc23637f5d63488c109935baae1f742fea9de824c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Easp.pep.fa
+  : cdaaf83668a0ec7a019acb379c6613a6bf372105aaa14b968f5f301635ee0b72
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/data_dir/pep/Cami.pep.fa
+  : 6ad16c5ddc8e8aea462d1f6227ded70154bfc7742b49f3b228f8ec0eba18b741
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/species.csv: 6b955f9ad5b6b366cf85bdb4605fa0475b99899830440e3428db93f9e511c0c9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM207.23041__UHM207.23041_R.bin.71.tsv.gz
+  : 5963986ea95c527427345273a730af77f6eb76cc057696053540c27346eba0c6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_000687555.1.tsv.gz
+  : c08925c1a9e645a0192da80438059e84a4746689b3f681054f2905171546b2fc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_002797975.1.tsv.gz
+  : 323069503f50f994d331fbfb2b0ea7497542458156111126d6f8e9e201b6946d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_025149125.1.tsv.gz
+  : 859f2a53826b27876d2879fbc41e04df1d1bc0da3be331c8f958b2584ff23a64
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_900112885.1.tsv.gz
+  : 0eb7e4b3b0e36dfcf42380e16b7e5c1a76cf5265562c6d3da58091aa77661cab
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM1088.41098__UHM1088.41098_R.bin.56.tsv.gz
+  : 6a9f5e549fe3df575100b84bf02dbba8bd632e2b1c975ea0d067679ce96fc1d0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM1210.23070__UHM1210.23070_R.bin.85.tsv.gz
+  : c1632d8afd49d6f6f28f4e23a54c89861993ec25eabb732f18590412d4c61065
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM896.23052__UHM896.23052_R.bin.22.tsv.gz
+  : d665b1bc43a527ed634e6d55b6b67a795c49de7f0915607e82055d8d3d681481
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM904.23055__UHM904.23055_R.bin.119.tsv.gz
+  : 3551ee267b12957c92a268f7143dde8de70c85618e9eee231682f49c8f90fcef
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM207.23041__UHM207.23041_R.bin.71.tsv.gz.provenance.yaml
+  : e70d06809e44d00bea1a25e4f541f0607d2edf1b2f0def5500932545fc45b8c2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_000687555.1.tsv.gz.provenance.yaml
+  : 13ee1fc5941bac7bd2a8e2bc5e0f239b5a0fe89faef249cfab0a5d86e903e159
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_002797975.1.tsv.gz.provenance.yaml
+  : c85e6cd0f118cf4deb5705be6a3256ec875727fdbeda07fec31170156c453a3c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_025149125.1.tsv.gz.provenance.yaml
+  : ca1f2058dc60a4f17c2396e1216f82ebd9d43b4a22ff5b734c041905a125cc7c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/GCF_900112885.1.tsv.gz.provenance.yaml
+  : c6f04356f2bf56d95088e787983e72015dcc0ddec838cc1c82ead0a4ff20b9aa
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM1088.41098__UHM1088.41098_R.bin.56.tsv.gz.provenance.yaml
+  : 797ef9f7b2a013ea0ad30ce637e11e864a723760f81c448dd28f72407ff759a0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM1210.23070__UHM1210.23070_R.bin.85.tsv.gz.provenance.yaml
+  : e8e8afa637a2bee4005ee6ad7bf840d34755a0d380491008d0a77e393abcaa8b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM896.23052__UHM896.23052_R.bin.22.tsv.gz.provenance.yaml
+  : 0239b860957e650032d9b3ef3884bc28d212093a37bf62057e2188ef715446b7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/annotations/UHM904.23055__UHM904.23055_R.bin.119.tsv.gz.provenance.yaml
+  : d514243004f70b98d80cca83b063f5e4af0ac11a6754a29d750389dfe6bb3052
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 3.9
+  background_cluster_s: 15.0
+  tests_s: 1.3
+  total_s: 21.2
+host: r22
+slurm_job: '29966687'
+wall_s_enrichment: 23

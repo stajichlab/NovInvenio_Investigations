@@ -1,0 +1,129 @@
+generated: '2026-10-12T18:16:09'
+study: pezizo_set1
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: b96062411e1f05983aa679d2d85d6e719db6cdc15260175ccf643db400903b17
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/pezizo_set1 --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations --study
+  pezizo_set1 --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --direction loss --ingroup-min-frac 0.75 --other-max-frac 0.0 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Nirr
+  - CneoH99
+  - Ccin
+  - Mcir
+  - Spom
+  - Scer
+other_group:
+  label: IN
+  species:
+  - Amega
+  - Ncra
+  - Afum
+  - Ztri
+  - Cimm
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations
+annotation_files:
+  Nirr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000186594.tsv.gz
+  CneoH99: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000010091.tsv.gz
+  Ccin: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000001861.tsv.gz
+  Mcir: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000014254.tsv.gz
+  Spom: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002485.tsv.gz
+  Scer: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002311.tsv.gz
+  Amega: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP001658139.tsv.gz
+  Ncra: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000001805.tsv.gz
+  Afum: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002530.tsv.gz
+  Ztri: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000008062.tsv.gz
+  Cimm: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000001261.tsv.gz
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 141
+  candidates_txt: 141
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/pezizo_set1/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/pezizo_set1/loss_presence_matrix.tsv
+  rule: OUT count / 6 >= 0.75 and IN count / 5 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: f21263a1ec32fdaa
+  n_sequences: 49026
+  n_clusters: 30890
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 59.8
+  threads: 8
+  created: '2026-10-12T18:15:59'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/pezizo_set1/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/config.csv: e07595644d3146648b9fc40d96fa14205b78c7421fa782402b7385981ba197ef
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/pezizo_set1/loss_candidates.txt: 3e2dda167ae6377796af852b3f564792d5978b9c0e886a7af68e8839adbc849b
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/pezizo_set1/clusters/loss_clusters_cluster.tsv: fe24ca372bde15ed15988306f2bab98ffed40626d84bcc08bbf09bc6fd1e423a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/pezizo_set1/loss_presence_matrix.tsv: 71d10d49a449695cffb9da2373150e2a1f7a01d3dc6b878868ad0eeffecf6a21
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/data_dir/pep/Nirr.pep.fa: 3ca13d77d9045854295e889f5b9ea5b4ee327d78eff22cf41837aa3fe6d6d41b
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/data_dir/pep/CneoH99.pep.fa: 15405d849d9701d1ad4fbb783eefb63ce527ee17eeb272aa7e2bf3a4491c33b1
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/data_dir/pep/Ccin.pep.fa: dea684feec7aef3a662bdfab1469925ebb311023c6d37dbc891c397dc46fc5ee
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/data_dir/pep/Mcir.pep.fa: 5b2e67b3bccaff52713141a44a5110d453e62c6c455d8649b29ca03bd34573d8
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/data_dir/pep/Spom.pep.fa: 9fa890059fbd1378cec3e10d99992caa766c11c14d5abcc2f7b93e3b3b487578
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/data_dir/pep/Scer.pep.fa: 37967a3926d1780b29f61dbaed84c95065fba37546b291f77c9a55235053cb5a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/species.csv: a73170da299b4f890cac59854cbf974933d7b1ec3de59006ee538726076d1a19
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000186594.tsv.gz: c49f80107f2f929a67869fc0815508b2290813f2e4bb9b52ba27f993dc44c51d
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000010091.tsv.gz: b7621c7a9a589042564980a46807b81d3c9b53b191b9cff0adf9d3b09e30f73c
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000001861.tsv.gz: 254921dd73f18d34346aa35b2a709bd42e94cba1359debe0d800232093dc4c1e
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000014254.tsv.gz: 263d27b0a2977efd3faa7a39ae3056796c970fcb9b114b447a3660a2a0990eef
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002485.tsv.gz: d520a30aea4f063a12ea0b0be8730c879073646534c58095d18268b98b9905d2
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002311.tsv.gz: 2bbf3241cabc412c7f560e95c4d55ac83dc868e7203a6bc75fa523155d72ce67
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP001658139.tsv.gz: 73605813b844eab2c36d1d7043f568b276e3e4d014f88fd54358a0becab82f30
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000001805.tsv.gz: a15af9195cbb0a281c431f7cd75c9296f45c9ff48f093c0bc40934d2e145e12c
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002530.tsv.gz: a5b7b48dfb0bae7656399d5b4ae263d7422f6edbfef38560e757056afa7a7577
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000008062.tsv.gz: b3c0a46bb2299ccccbcfc8c780ce9ce08772a126e6dba2528cf0382549d54a13
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000001261.tsv.gz: eef9a7afbd45341c4a0a41e370a8e05249fda7a31e16b45fa201d785ba4bc89c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 6.9
+  background_cluster_s: 60.4
+  tests_s: 7.7
+  total_s: 77.4
+host: r11
+slurm_job: '29893773'
+candidate_annotation:
+  frac_loss_candidates_any_annotation: 1.0
+  low_coverage: false
+  rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
+  wall_s_enrichment: 89

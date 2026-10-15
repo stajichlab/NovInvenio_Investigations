@@ -1,0 +1,63 @@
+[    0.0s] direction=loss target(OUT)=['Nirr', 'CneoH99', 'Ccin', 'Mcir', 'Spom', 'Scer'] other(IN)=['Amega', 'Ncra', 'Afum', 'Ztri', 'Cimm']
+[    0.1s] matrix rows 34399; target rule 23441; target rule & other frac <= 0.0 141; loss_candidates.txt 141
+[    0.6s] universe 'proteome': 49167 OUT (target group) proteins
+[    1.3s] annotation rows matched: 49167 of 49167
+[    7.1s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29893773/bgclust_guoew_yj/bg.fa /scratch/jstajich/29893773/bgclust_guoew_yj/bg /scratch/jstajich/29893773/bgclust_guoew_yj/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   67.4s] background clusters: 30890 clusters from 49026 proteins
+[   69.2s] whole_set	protein	pfam	N=127/141	M=35784	tested=3613	sig=26
+[   69.2s] whole_set	protein	pfam_clan	N=108/141	M=28848	tested=479	sig=14
+[   69.3s] whole_set	protein	interpro	N=141/141	M=38187	tested=7899	sig=66
+[   69.5s] whole_set	protein	go	N=132/141	M=34951	tested=6585	sig=73
+[   70.8s] whole_set	family	pfam	N=100/114	M=19158	tested=1627	sig=13
+[   70.8s] whole_set	family	pfam_clan	N=83/114	M=14893	tested=382	sig=4
+[   70.9s] whole_set	family	interpro	N=114/114	M=21079	tested=3366	sig=32
+[   71.0s] whole_set	family	go	N=106/114	M=18938	tested=5179	sig=29
+[   71.2s] Nirr	protein	pfam	N=14/15	M=4172	tested=194	sig=0
+[   71.2s] Nirr	protein	pfam_clan	N=13/15	M=3353	tested=182	sig=0
+[   71.2s] Nirr	protein	interpro	N=15/15	M=4454	tested=563	sig=0
+[   71.2s] Nirr	protein	go	N=15/15	M=4064	tested=2246	sig=0
+[   71.3s] Nirr	family	pfam	N=14/15	M=3935	tested=169	sig=0
+[   71.3s] Nirr	family	pfam_clan	N=13/15	M=3159	tested=179	sig=0
+[   71.3s] Nirr	family	interpro	N=15/15	M=4203	tested=503	sig=0
+[   71.3s] Nirr	family	go	N=15/15	M=3831	tested=2187	sig=0
+[   71.9s] CneoH99	protein	pfam	N=18/19	M=5251	tested=272	sig=0
+[   71.9s] CneoH99	protein	pfam_clan	N=14/19	M=4281	tested=205	sig=0
+[   71.9s] CneoH99	protein	interpro	N=19/19	M=5633	tested=721	sig=0
+[   71.9s] CneoH99	protein	go	N=18/19	M=5062	tested=1998	sig=0
+[   72.0s] CneoH99	family	pfam	N=18/19	M=4694	tested=219	sig=0
+[   72.0s] CneoH99	family	pfam_clan	N=14/19	M=3767	tested=189	sig=0
+[   72.0s] CneoH99	family	interpro	N=19/19	M=5057	tested=586	sig=0
+[   72.1s] CneoH99	family	go	N=18/19	M=4530	tested=1892	sig=0
+[   72.2s] Ccin	protein	pfam	N=28/32	M=7714	tested=431	sig=0
+[   72.2s] Ccin	protein	pfam_clan	N=24/32	M=6267	tested=238	sig=0
+[   72.2s] Ccin	protein	interpro	N=32/32	M=8566	tested=1039	sig=0
+[   72.3s] Ccin	protein	go	N=29/32	M=6706	tested=2198	sig=0
+[   72.9s] Ccin	family	pfam	N=28/32	M=6128	tested=308	sig=0
+[   72.9s] Ccin	family	pfam_clan	N=24/32	M=4959	tested=224	sig=0
+[   72.9s] Ccin	family	interpro	N=32/32	M=6835	tested=767	sig=0
+[   73.0s] Ccin	family	go	N=29/32	M=5454	tested=2046	sig=0
+[   73.1s] Mcir	protein	pfam	N=28/30	M=8972	tested=619	sig=0
+[   73.1s] Mcir	protein	pfam_clan	N=21/30	M=7415	tested=270	sig=0
+[   73.1s] Mcir	protein	interpro	N=30/30	M=9516	tested=1448	sig=0
+[   73.2s] Mcir	protein	go	N=25/30	M=8333	tested=2566	sig=0
+[   73.8s] Mcir	family	pfam	N=28/30	M=6473	tested=372	sig=0
+[   73.8s] Mcir	family	pfam_clan	N=21/30	M=5259	tested=227	sig=0
+[   73.8s] Mcir	family	interpro	N=30/30	M=6918	tested=885	sig=0
+[   73.8s] Mcir	family	go	N=25/30	M=5988	tested=2147	sig=0
+[   74.0s] Spom	protein	pfam	N=26/29	M=4577	tested=222	sig=7
+[   74.0s] Spom	protein	pfam_clan	N=25/29	M=3571	tested=180	sig=5
+[   74.0s] Spom	protein	interpro	N=29/29	M=4691	tested=601	sig=14
+[   74.0s] Spom	protein	go	N=29/29	M=5026	tested=3187	sig=31
+[   74.2s] Spom	family	pfam	N=16/19	M=4023	tested=156	sig=0
+[   74.2s] Spom	family	pfam_clan	N=15/19	M=3124	tested=170	sig=0
+[   74.2s] Spom	family	interpro	N=19/19	M=4133	tested=456	sig=0
+[   74.2s] Spom	family	go	N=19/19	M=4465	tested=3043	sig=0
+[   74.9s] Scer	protein	pfam	N=13/16	M=5098	tested=263	sig=0
+[   74.9s] Scer	protein	pfam_clan	N=11/16	M=3961	tested=199	sig=0
+[   74.9s] Scer	protein	interpro	N=16/16	M=5327	tested=708	sig=0
+[   75.0s] Scer	protein	go	N=16/16	M=5760	tested=3723	sig=0
+[   75.1s] Scer	family	pfam	N=13/16	M=4209	tested=168	sig=0
+[   75.1s] Scer	family	pfam_clan	N=11/16	M=3205	tested=175	sig=0
+[   75.1s] Scer	family	interpro	N=16/16	M=4413	tested=485	sig=0
+[   75.2s] Scer	family	go	N=16/16	M=4835	tested=3448	sig=0
+[   77.4s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/analysis/enrichment/outputs/loss/proteome_clustered
