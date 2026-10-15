@@ -1,0 +1,27 @@
+local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/analysis/enrichment/config.fasta_stems.csv
+checksum_sha256: 7334b746c73714a70cf3f97ce1bc3671def408a31256eb275270c989cf699f64
+derived_from:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/config.csv
+  sha256: ac9ef17150a9031c7aab8ca3a2beef585342f3995a00d41409ef89e51ef750cc
+derived_by: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/bin/make_fasta_stem_config.py
+  --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/analysis/enrichment/config.fasta_stems.csv
+script_sha256: 2cb70d44d63e7a66a5b0c52d8521544bdb2abe87f52f6d075a57c7ad9f0e72fa
+date: '2026-10-14T21:57:44'
+rule: Short = Protein without '.pep.fa'; all other columns unchanged
+why: config.csv Short differs from the protein FASTA stem for some species; the pipeline
+  results and species.csv use the stem. Used as enrich_novelties_v2.py --config. The
+  tracked config.csv is unchanged.
+short_changes:
+- config_short: UHM1088b56
+  fasta_stem: Ub56
+- config_short: UHM1210b85
+  fasta_stem: Ub85
+- config_short: UHM896b22
+  fasta_stem: Ub22
+- config_short: UHM904b119
+  fasta_stem: Ub119
+- config_short: UHM207b71
+  fasta_stem: Ub71
+- config_short: Lachimisp1
+  fasta_stem: Lsp1

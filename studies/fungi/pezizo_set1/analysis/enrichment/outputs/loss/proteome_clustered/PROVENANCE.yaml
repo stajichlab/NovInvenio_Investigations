@@ -1,8 +1,8 @@
-generated: '2026-10-12T18:16:09'
+generated: '2026-10-14T21:58:24'
 study: pezizo_set1
 script:
   path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
-  sha256: b96062411e1f05983aa679d2d85d6e719db6cdc15260175ccf643db400903b17
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
 command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
   --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/pezizo_set1 --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/config.csv
   --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations --study
@@ -43,6 +43,63 @@ annotation_files:
   Afum: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002530.tsv.gz
   Ztri: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000008062.tsv.gz
   Cimm: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000001261.tsv.gz
+annotation_sources:
+  Nirr: not recorded (no sidecar)
+  CneoH99: not recorded (no sidecar)
+  Ccin: not recorded (no sidecar)
+  Mcir: not recorded (no sidecar)
+  Spom: not recorded (no sidecar)
+  Scer: not recorded (no sidecar)
+  Amega: UniProt reference proteome (no GO/Pfam/InterPro in the UniProt entries) + Pfam-A HMM search (hmmsearch) for pfam_ids/pfam_names
+  Ncra: not recorded (no sidecar)
+  Afum: not recorded (no sidecar)
+  Ztri: not recorded (no sidecar)
+  Cimm: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Nirr
+    - CneoH99
+    - Ccin
+    - Mcir
+    - Spom
+    - Scer
+    species_without_terms: []
+    n_with: 6
+    n_species: 6
+  pfam_clan:
+    species_with_terms:
+    - Nirr
+    - CneoH99
+    - Ccin
+    - Mcir
+    - Spom
+    - Scer
+    species_without_terms: []
+    n_with: 6
+    n_species: 6
+  interpro:
+    species_with_terms:
+    - Nirr
+    - CneoH99
+    - Ccin
+    - Mcir
+    - Spom
+    - Scer
+    species_without_terms: []
+    n_with: 6
+    n_species: 6
+  go:
+    species_with_terms:
+    - Nirr
+    - CneoH99
+    - Ccin
+    - Mcir
+    - Spom
+    - Scer
+    species_without_terms: []
+    n_with: 6
+    n_species: 6
 parameters:
   min_bg: 5
   exclude_iea: false
@@ -72,7 +129,7 @@ background_clustering:
   runtime_s: 59.8
   threads: 8
   created: '2026-10-12T18:15:59'
-  cache_hit: false
+  cache_hit: true
 pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/pezizo_set1/clusters/loss_clusters_cluster.tsv
   (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
 candidates_without_family_row: 0
@@ -103,11 +160,13 @@ inputs_sha256:
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000014254.tsv.gz: 263d27b0a2977efd3faa7a39ae3056796c970fcb9b114b447a3660a2a0990eef
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002485.tsv.gz: d520a30aea4f063a12ea0b0be8730c879073646534c58095d18268b98b9905d2
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002311.tsv.gz: 2bbf3241cabc412c7f560e95c4d55ac83dc868e7203a6bc75fa523155d72ce67
-  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP001658139.tsv.gz: 73605813b844eab2c36d1d7043f568b276e3e4d014f88fd54358a0becab82f30
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP001658139.tsv.gz: 96b19c6ccbed33f91955ae1236e6a1ba585cfde0840cf3721f37b83a8f63d048
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000001805.tsv.gz: a15af9195cbb0a281c431f7cd75c9296f45c9ff48f093c0bc40934d2e145e12c
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000002530.tsv.gz: a5b7b48dfb0bae7656399d5b4ae263d7422f6edbfef38560e757056afa7a7577
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000008062.tsv.gz: b3c0a46bb2299ccccbcfc8c780ce9ce08772a126e6dba2528cf0382549d54a13
   /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP000001261.tsv.gz: eef9a7afbd45341c4a0a41e370a8e05249fda7a31e16b45fa201d785ba4bc89c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/pezizo_set1/annotations/UP001658139.tsv.gz.provenance.yaml
+  : 4da209bd0b03720dac8cfb46d159a7b48c07dbcb61cac2167058ec662d1dbbf4
   ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
   : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
 tools:
@@ -116,14 +175,14 @@ tools:
   goatools: 1.6.4
   mmseqs: 18.8cc5c
 runtimes_s:
-  load_s: 6.9
-  background_cluster_s: 60.4
-  tests_s: 7.7
-  total_s: 77.4
-host: r11
-slurm_job: '29893773'
+  load_s: 6.4
+  background_cluster_s: 0.1
+  tests_s: 8.6
+  total_s: 18.1
+host: r22
+slurm_job: '29966667'
 candidate_annotation:
   frac_loss_candidates_any_annotation: 1.0
   low_coverage: false
   rule: "low_coverage = fraction < 0.5 (flag only; no run was excluded on this value)"
-  wall_s_enrichment: 89
+  wall_s_enrichment: 20

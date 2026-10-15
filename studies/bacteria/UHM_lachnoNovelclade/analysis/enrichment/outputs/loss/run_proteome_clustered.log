@@ -1,0 +1,49 @@
+[    0.0s] direction=loss target(OUT)=['Ub56', 'Ub85', 'Ub22', 'Ub119'] other(IN)=['Ub71', 'Lsp1', 'Lsph', 'Easp', 'Cami']
+[    0.4s] matrix rows 7572; target rule 6310; target rule & other frac <= 0.0 1523; loss_candidates.txt 1523
+[    1.2s] universe 'proteome': 8591 OUT (target group) proteins
+[    1.3s] annotation rows matched: 8591 of 8591
+[    3.6s] NOTE: interpro terms in 0 of 4 OUT species; none in: Ub56, Ub85, Ub22, Ub119
+[    3.6s] NOTE: go terms in 0 of 4 OUT species; none in: Ub56, Ub85, Ub22, Ub119
+[    3.7s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29966687/bgclust_ttti5xrw/bg.fa /scratch/jstajich/29966687/bgclust_ttti5xrw/bg /scratch/jstajich/29966687/bgclust_ttti5xrw/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   10.2s] background clusters: 3256 clusters from 7068 proteins
+[   10.3s] whole_set	protein	pfam	N=1130/1523	M=7328	tested=786	sig=51
+[   10.3s] whole_set	protein	pfam_clan	N=761/1523	M=5811	tested=244	sig=16
+[   10.3s] whole_set	protein	interpro	N=0/1523	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.3s] whole_set	protein	go	N=0/1523	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.3s] whole_set	family	pfam	N=454/603	M=3011	tested=275	sig=0
+[   10.3s] whole_set	family	pfam_clan	N=308/603	M=2364	tested=140	sig=0
+[   10.3s] whole_set	family	interpro	N=0/603	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.3s] whole_set	family	go	N=0/603	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub56	protein	pfam	N=279/378	M=1787	tested=125	sig=0
+[   10.4s] Ub56	protein	pfam_clan	N=187/378	M=1406	tested=83	sig=0
+[   10.4s] Ub56	protein	interpro	N=0/378	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub56	protein	go	N=0/378	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub56	family	pfam	N=274/371	M=1640	tested=104	sig=0
+[   10.4s] Ub56	family	pfam_clan	N=183/371	M=1278	tested=79	sig=0
+[   10.4s] Ub56	family	interpro	N=0/371	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub56	family	go	N=0/371	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub85	protein	pfam	N=286/388	M=1762	tested=112	sig=0
+[   10.4s] Ub85	protein	pfam_clan	N=186/388	M=1382	tested=84	sig=0
+[   10.4s] Ub85	protein	interpro	N=0/388	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub85	protein	go	N=0/388	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub85	family	pfam	N=280/381	M=1638	tested=95	sig=0
+[   10.4s] Ub85	family	pfam_clan	N=180/381	M=1269	tested=79	sig=0
+[   10.4s] Ub85	family	interpro	N=0/381	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub85	family	go	N=0/381	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub22	protein	pfam	N=281/372	M=1934	tested=142	sig=0
+[   10.4s] Ub22	protein	pfam_clan	N=195/372	M=1561	tested=93	sig=0
+[   10.4s] Ub22	protein	interpro	N=0/372	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.4s] Ub22	protein	go	N=0/372	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.7s] Ub22	family	pfam	N=276/365	M=1769	tested=130	sig=0
+[   10.7s] Ub22	family	pfam_clan	N=191/365	M=1410	tested=90	sig=0
+[   10.7s] Ub22	family	interpro	N=0/365	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.7s] Ub22	family	go	N=0/365	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.7s] Ub119	protein	pfam	N=284/385	M=1845	tested=125	sig=0
+[   10.7s] Ub119	protein	pfam_clan	N=193/385	M=1462	tested=85	sig=0
+[   10.7s] Ub119	protein	interpro	N=0/385	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.7s] Ub119	protein	go	N=0/385	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.7s] Ub119	family	pfam	N=279/378	M=1676	tested=104	sig=0
+[   10.7s] Ub119	family	pfam_clan	N=188/378	M=1309	tested=78	sig=0
+[   10.7s] Ub119	family	interpro	N=0/378	M=0	tested=0	sig=0	not available (no annotated units)
+[   10.7s] Ub119	family	go	N=0/378	M=0	tested=0	sig=0	not available (no annotated units)
+[   11.4s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_lachnoNovelclade/analysis/enrichment/outputs/loss/proteome_clustered

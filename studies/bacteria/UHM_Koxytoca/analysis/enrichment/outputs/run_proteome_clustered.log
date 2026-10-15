@@ -1,0 +1,161 @@
+[    0.0s] direction=novelty target(IN)=['UHM102bin47', 'UHM125bin22', 'UHM125bin48', 'UHM145bin17', 'UHM145bin33', 'UHM145bin28', 'UHM17bin35', 'UHM18bin40', 'UHM20bin40', 'UHM20bin12', 'UHM22bin50', 'UHM22bin54', 'UHM22bin8', 'UHM40bin4', 'UHM40bin27', 'UHM43bin53', 'UHM56bin19', 'UHM72bin19'] other(OUT)=['KoxO_050916275', 'KoxO_017310465', 'KoxO_929608445', 'KoxO_040561445', 'KoxO_900083795', 'KoxO_024918735', 'KoxO_902162875', 'KoxO_053276915', 'KoxO_030343105', 'KoxO_030343375', 'KoxO_016734995', 'KoxO_030343565', 'KoxO_900083995', 'KoxO_004360035', 'KoxO_030344075', 'KoxO_051951865']
+[    0.8s] matrix rows 83459; target rule 74882; target rule & other frac <= 0.0 697; candidates.txt 697
+[    1.1s] universe 'proteome': 85053 IN (target group) proteins
+[    2.0s] annotation rows matched: 85053 of 85053
+[    5.4s] NOTE: interpro terms in 0 of 18 IN species; none in: UHM102bin47, UHM125bin22, UHM125bin48, UHM145bin17, UHM145bin33, UHM145bin28, UHM17bin35, UHM18bin40, UHM20bin40, UHM20bin12, UHM22bin50, UHM22bin54, UHM22bin8, UHM40bin4, UHM40bin27, UHM43bin53, UHM56bin19, UHM72bin19
+[    5.4s] NOTE: go terms in 0 of 18 IN species; none in: UHM102bin47, UHM125bin22, UHM125bin48, UHM145bin17, UHM145bin33, UHM145bin28, UHM17bin35, UHM18bin40, UHM20bin40, UHM20bin12, UHM22bin50, UHM22bin54, UHM22bin8, UHM40bin4, UHM40bin27, UHM43bin53, UHM56bin19, UHM72bin19
+[    5.7s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29966708/bgclust_7vz6sl3n/bg.fa /scratch/jstajich/29966708/bgclust_7vz6sl3n/bg /scratch/jstajich/29966708/bgclust_7vz6sl3n/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   19.8s] background clusters: 8840 clusters from 84356 proteins
+[   21.2s] whole_set	protein	pfam	N=114/697	M=78664	tested=3321	sig=15
+[   21.2s] whole_set	protein	pfam_clan	N=113/697	M=65677	tested=434	sig=4
+[   21.2s] whole_set	protein	interpro	N=0/697	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.2s] whole_set	protein	go	N=0/697	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.5s] whole_set	family	pfam	N=15/65	M=7124	tested=603	sig=0
+[   21.5s] whole_set	family	pfam_clan	N=14/65	M=5806	tested=243	sig=0
+[   21.5s] whole_set	family	interpro	N=0/65	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.5s] whole_set	family	go	N=0/65	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.6s] UHM102bin47	protein	pfam	N=9/45	M=4673	tested=379	sig=0
+[   21.6s] UHM102bin47	protein	pfam_clan	N=8/45	M=3901	tested=179	sig=0
+[   21.6s] UHM102bin47	protein	interpro	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.6s] UHM102bin47	protein	go	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.6s] UHM102bin47	family	pfam	N=9/45	M=3644	tested=282	sig=0
+[   21.6s] UHM102bin47	family	pfam_clan	N=8/45	M=2962	tested=169	sig=0
+[   21.6s] UHM102bin47	family	interpro	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.6s] UHM102bin47	family	go	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.7s] UHM125bin22	protein	pfam	N=7/43	M=4882	tested=387	sig=0
+[   21.7s] UHM125bin22	protein	pfam_clan	N=7/43	M=4046	tested=189	sig=0
+[   21.7s] UHM125bin22	protein	interpro	N=0/43	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.7s] UHM125bin22	protein	go	N=0/43	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.8s] UHM125bin22	family	pfam	N=7/43	M=3825	tested=301	sig=0
+[   21.8s] UHM125bin22	family	pfam_clan	N=7/43	M=3092	tested=176	sig=0
+[   21.8s] UHM125bin22	family	interpro	N=0/43	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.8s] UHM125bin22	family	go	N=0/43	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.8s] UHM125bin48	protein	pfam	N=2/16	M=2388	tested=184	sig=0
+[   21.8s] UHM125bin48	protein	pfam_clan	N=2/16	M=1976	tested=121	sig=0
+[   21.8s] UHM125bin48	protein	interpro	N=0/16	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.8s] UHM125bin48	protein	go	N=0/16	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.2s] UHM125bin48	family	pfam	N=2/16	M=2047	tested=141	sig=0
+[   22.2s] UHM125bin48	family	pfam_clan	N=2/16	M=1666	tested=113	sig=0
+[   22.2s] UHM125bin48	family	interpro	N=0/16	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.2s] UHM125bin48	family	go	N=0/16	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] UHM145bin17	protein	pfam	N=8/36	M=4408	tested=322	sig=0
+[   22.3s] UHM145bin17	protein	pfam_clan	N=8/36	M=3694	tested=172	sig=0
+[   22.3s] UHM145bin17	protein	interpro	N=0/36	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] UHM145bin17	protein	go	N=0/36	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] UHM145bin17	family	pfam	N=8/36	M=3689	tested=271	sig=0
+[   22.3s] UHM145bin17	family	pfam_clan	N=8/36	M=3027	tested=164	sig=0
+[   22.3s] UHM145bin17	family	interpro	N=0/36	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] UHM145bin17	family	go	N=0/36	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] UHM145bin33	protein	pfam	N=6/41	M=4599	tested=384	sig=0
+[   22.3s] UHM145bin33	protein	pfam_clan	N=6/41	M=3839	tested=185	sig=0
+[   22.3s] UHM145bin33	protein	interpro	N=0/41	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] UHM145bin33	protein	go	N=0/41	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.4s] UHM145bin33	family	pfam	N=6/41	M=3625	tested=304	sig=0
+[   22.4s] UHM145bin33	family	pfam_clan	N=6/41	M=2951	tested=167	sig=0
+[   22.4s] UHM145bin33	family	interpro	N=0/41	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.4s] UHM145bin33	family	go	N=0/41	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.4s] UHM145bin28	protein	pfam	N=6/42	M=4404	tested=361	sig=0
+[   22.4s] UHM145bin28	protein	pfam_clan	N=6/42	M=3663	tested=181	sig=0
+[   22.4s] UHM145bin28	protein	interpro	N=0/42	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.4s] UHM145bin28	protein	go	N=0/42	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.5s] UHM145bin28	family	pfam	N=6/42	M=3450	tested=273	sig=0
+[   22.5s] UHM145bin28	family	pfam_clan	N=6/42	M=2804	tested=163	sig=0
+[   22.5s] UHM145bin28	family	interpro	N=0/42	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.5s] UHM145bin28	family	go	N=0/42	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.5s] UHM17bin35	protein	pfam	N=7/44	M=4658	tested=393	sig=0
+[   22.5s] UHM17bin35	protein	pfam_clan	N=7/44	M=3895	tested=189	sig=0
+[   22.5s] UHM17bin35	protein	interpro	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.5s] UHM17bin35	protein	go	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.6s] UHM17bin35	family	pfam	N=7/44	M=3624	tested=296	sig=0
+[   22.6s] UHM17bin35	family	pfam_clan	N=7/44	M=2955	tested=171	sig=0
+[   22.6s] UHM17bin35	family	interpro	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.6s] UHM17bin35	family	go	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.9s] UHM18bin40	protein	pfam	N=7/43	M=5004	tested=403	sig=0
+[   22.9s] UHM18bin40	protein	pfam_clan	N=7/43	M=4177	tested=190	sig=0
+[   22.9s] UHM18bin40	protein	interpro	N=0/43	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.9s] UHM18bin40	protein	go	N=0/43	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.0s] UHM18bin40	family	pfam	N=7/43	M=3807	tested=308	sig=0
+[   23.0s] UHM18bin40	family	pfam_clan	N=7/43	M=3094	tested=176	sig=0
+[   23.0s] UHM18bin40	family	interpro	N=0/43	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.0s] UHM18bin40	family	go	N=0/43	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.0s] UHM20bin40	protein	pfam	N=8/45	M=4877	tested=402	sig=0
+[   23.0s] UHM20bin40	protein	pfam_clan	N=8/45	M=4061	tested=193	sig=0
+[   23.0s] UHM20bin40	protein	interpro	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.0s] UHM20bin40	protein	go	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.1s] UHM20bin40	family	pfam	N=7/44	M=3670	tested=302	sig=0
+[   23.1s] UHM20bin40	family	pfam_clan	N=7/44	M=2982	tested=170	sig=0
+[   23.1s] UHM20bin40	family	interpro	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.1s] UHM20bin40	family	go	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.1s] UHM20bin12	protein	pfam	N=7/44	M=4675	tested=387	sig=0
+[   23.2s] UHM20bin12	protein	pfam_clan	N=7/44	M=3919	tested=187	sig=0
+[   23.2s] UHM20bin12	protein	interpro	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.2s] UHM20bin12	protein	go	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.2s] UHM20bin12	family	pfam	N=7/44	M=3573	tested=295	sig=0
+[   23.2s] UHM20bin12	family	pfam_clan	N=7/44	M=2911	tested=166	sig=0
+[   23.2s] UHM20bin12	family	interpro	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.2s] UHM20bin12	family	go	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.3s] UHM22bin50	protein	pfam	N=9/41	M=4421	tested=360	sig=0
+[   23.3s] UHM22bin50	protein	pfam_clan	N=9/41	M=3712	tested=174	sig=0
+[   23.3s] UHM22bin50	protein	interpro	N=0/41	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.3s] UHM22bin50	protein	go	N=0/41	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.3s] UHM22bin50	family	pfam	N=9/41	M=3554	tested=294	sig=0
+[   23.3s] UHM22bin50	family	pfam_clan	N=9/41	M=2918	tested=158	sig=0
+[   23.3s] UHM22bin50	family	interpro	N=0/41	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.3s] UHM22bin50	family	go	N=0/41	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.4s] UHM22bin54	protein	pfam	N=4/33	M=4186	tested=351	sig=0
+[   23.4s] UHM22bin54	protein	pfam_clan	N=4/33	M=3499	tested=182	sig=0
+[   23.4s] UHM22bin54	protein	interpro	N=0/33	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.4s] UHM22bin54	protein	go	N=0/33	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.4s] UHM22bin54	family	pfam	N=4/33	M=3210	tested=255	sig=0
+[   23.4s] UHM22bin54	family	pfam_clan	N=4/33	M=2622	tested=154	sig=0
+[   23.4s] UHM22bin54	family	interpro	N=0/33	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.4s] UHM22bin54	family	go	N=0/33	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.8s] UHM22bin8	protein	pfam	N=7/45	M=4606	tested=383	sig=0
+[   23.9s] UHM22bin8	protein	pfam_clan	N=7/45	M=3848	tested=188	sig=0
+[   23.9s] UHM22bin8	protein	interpro	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.9s] UHM22bin8	protein	go	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.9s] UHM22bin8	family	pfam	N=7/45	M=3599	tested=291	sig=0
+[   23.9s] UHM22bin8	family	pfam_clan	N=7/45	M=2930	tested=167	sig=0
+[   23.9s] UHM22bin8	family	interpro	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.9s] UHM22bin8	family	go	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.9s] UHM40bin4	protein	pfam	N=8/45	M=4874	tested=401	sig=0
+[   24.0s] UHM40bin4	protein	pfam_clan	N=8/45	M=4104	tested=189	sig=0
+[   24.0s] UHM40bin4	protein	interpro	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.0s] UHM40bin4	protein	go	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.0s] UHM40bin4	family	pfam	N=8/45	M=3599	tested=296	sig=0
+[   24.0s] UHM40bin4	family	pfam_clan	N=8/45	M=2954	tested=167	sig=0
+[   24.0s] UHM40bin4	family	interpro	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.0s] UHM40bin4	family	go	N=0/45	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.0s] UHM40bin27	protein	pfam	N=6/44	M=4347	tested=372	sig=0
+[   24.0s] UHM40bin27	protein	pfam_clan	N=6/44	M=3650	tested=180	sig=0
+[   24.0s] UHM40bin27	protein	interpro	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.0s] UHM40bin27	protein	go	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.1s] UHM40bin27	family	pfam	N=6/44	M=3391	tested=276	sig=0
+[   24.1s] UHM40bin27	family	pfam_clan	N=6/44	M=2779	tested=159	sig=0
+[   24.1s] UHM40bin27	family	interpro	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.1s] UHM40bin27	family	go	N=0/44	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.1s] UHM43bin53	protein	pfam	N=2/20	M=2822	tested=224	sig=0
+[   24.1s] UHM43bin53	protein	pfam_clan	N=2/20	M=2333	tested=132	sig=0
+[   24.1s] UHM43bin53	protein	interpro	N=0/20	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.1s] UHM43bin53	protein	go	N=0/20	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.2s] UHM43bin53	family	pfam	N=2/20	M=2378	tested=178	sig=0
+[   24.2s] UHM43bin53	family	pfam_clan	N=2/20	M=1925	tested=119	sig=0
+[   24.2s] UHM43bin53	family	interpro	N=0/20	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.2s] UHM43bin53	family	go	N=0/20	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.2s] UHM56bin19	protein	pfam	N=5/31	M=4255	tested=330	sig=0
+[   24.2s] UHM56bin19	protein	pfam_clan	N=5/31	M=3538	tested=165	sig=0
+[   24.2s] UHM56bin19	protein	interpro	N=0/31	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.2s] UHM56bin19	protein	go	N=0/31	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.2s] UHM56bin19	family	pfam	N=5/31	M=3647	tested=280	sig=0
+[   24.2s] UHM56bin19	family	pfam_clan	N=5/31	M=2984	tested=160	sig=0
+[   24.2s] UHM56bin19	family	interpro	N=0/31	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.2s] UHM56bin19	family	go	N=0/31	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.6s] UHM72bin19	protein	pfam	N=6/39	M=4585	tested=380	sig=0
+[   24.6s] UHM72bin19	protein	pfam_clan	N=6/39	M=3822	tested=178	sig=0
+[   24.6s] UHM72bin19	protein	interpro	N=0/39	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.6s] UHM72bin19	protein	go	N=0/39	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.7s] UHM72bin19	family	pfam	N=6/39	M=3571	tested=293	sig=0
+[   24.7s] UHM72bin19	family	pfam_clan	N=6/39	M=2893	tested=165	sig=0
+[   24.7s] UHM72bin19	family	interpro	N=0/39	M=0	tested=0	sig=0	not available (no annotated units)
+[   24.7s] UHM72bin19	family	go	N=0/39	M=0	tested=0	sig=0	not available (no annotated units)
+[   30.4s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/analysis/enrichment/outputs/proteome_clustered

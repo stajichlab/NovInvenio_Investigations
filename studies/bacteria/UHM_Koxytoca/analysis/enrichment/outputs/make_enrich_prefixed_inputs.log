@@ -1,0 +1,34 @@
+KoxO_050916275	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_017310465	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_929608445	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_040561445	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_900083795	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_024918735	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_902162875	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_053276915	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_030343105	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_030343375	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_016734995	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_030343565	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_900083995	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_004360035	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_030344075	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+KoxO_051951865	OUT	fasta symlink, annotation copy	fasta=None	annotation_rows=None
+UHM102bin47	IN	prefixed	fasta=5088	annotation_rows=5088
+UHM125bin22	IN	prefixed	fasta=5305	annotation_rows=5305
+UHM125bin48	IN	prefixed	fasta=2552	annotation_rows=2552
+UHM145bin17	IN	prefixed	fasta=4896	annotation_rows=4896
+UHM145bin33	IN	prefixed	fasta=4959	annotation_rows=4959
+UHM145bin28	IN	prefixed	fasta=4796	annotation_rows=4796
+UHM17bin35	IN	prefixed	fasta=5007	annotation_rows=5007
+UHM18bin40	IN	prefixed	fasta=5386	annotation_rows=5386
+UHM20bin40	IN	prefixed	fasta=5213	annotation_rows=5213
+UHM20bin12	IN	prefixed	fasta=5014	annotation_rows=5014
+UHM22bin50	IN	prefixed	fasta=4804	annotation_rows=4804
+UHM22bin54	IN	prefixed	fasta=4533	annotation_rows=4533
+UHM22bin8	IN	prefixed	fasta=4920	annotation_rows=4920
+UHM40bin4	IN	prefixed	fasta=5218	annotation_rows=5218
+UHM40bin27	IN	prefixed	fasta=4641	annotation_rows=4641
+UHM43bin53	IN	prefixed	fasta=2977	annotation_rows=2977
+UHM56bin19	IN	prefixed	fasta=4802	annotation_rows=4802
+UHM72bin19	IN	prefixed	fasta=4942	annotation_rows=4942

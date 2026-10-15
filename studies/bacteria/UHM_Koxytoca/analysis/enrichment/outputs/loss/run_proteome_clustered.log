@@ -1,0 +1,145 @@
+[    0.0s] direction=loss target(OUT)=['KoxO_050916275', 'KoxO_017310465', 'KoxO_929608445', 'KoxO_040561445', 'KoxO_900083795', 'KoxO_024918735', 'KoxO_902162875', 'KoxO_053276915', 'KoxO_030343105', 'KoxO_030343375', 'KoxO_016734995', 'KoxO_030343565', 'KoxO_900083995', 'KoxO_004360035', 'KoxO_030344075', 'KoxO_051951865'] other(IN)=['UHM102bin47', 'UHM125bin22', 'UHM125bin48', 'UHM145bin17', 'UHM145bin33', 'UHM145bin28', 'UHM17bin35', 'UHM18bin40', 'UHM20bin40', 'UHM20bin12', 'UHM22bin50', 'UHM22bin54', 'UHM22bin8', 'UHM40bin4', 'UHM40bin27', 'UHM43bin53', 'UHM56bin19', 'UHM72bin19']
+[    0.9s] matrix rows 88991; target rule 79551; target rule & other frac <= 0.0 1320; loss_candidates.txt 1320
+[    1.8s] universe 'proteome': 90826 OUT (target group) proteins
+[    2.6s] annotation rows matched: 90826 of 90826
+[    6.0s] NOTE: interpro terms in 0 of 16 OUT species; none in: KoxO_050916275, KoxO_017310465, KoxO_929608445, KoxO_040561445, KoxO_900083795, KoxO_024918735, KoxO_902162875, KoxO_053276915, KoxO_030343105, KoxO_030343375, KoxO_016734995, KoxO_030343565, KoxO_900083995, KoxO_004360035, KoxO_030344075, KoxO_051951865
+[    6.0s] NOTE: go terms in 0 of 16 OUT species; none in: KoxO_050916275, KoxO_017310465, KoxO_929608445, KoxO_040561445, KoxO_900083795, KoxO_024918735, KoxO_902162875, KoxO_053276915, KoxO_030343105, KoxO_030343375, KoxO_016734995, KoxO_030343565, KoxO_900083995, KoxO_004360035, KoxO_030344075, KoxO_051951865
+[    6.3s] running: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs easy-cluster /scratch/jstajich/29966708/bgclust_5fvwn6h8/bg.fa /scratch/jstajich/29966708/bgclust_5fvwn6h8/bg /scratch/jstajich/29966708/bgclust_5fvwn6h8/mmtmp --threads 8 --min-seq-id 0.3 -c 0.8 --cov-mode 0
+[   18.7s] background clusters: 7838 clusters from 89506 proteins
+[   19.9s] whole_set	protein	pfam	N=988/1320	M=83608	tested=3657	sig=80
+[   20.0s] whole_set	protein	pfam_clan	N=305/1320	M=68340	tested=451	sig=19
+[   20.0s] whole_set	protein	interpro	N=0/1320	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.0s] whole_set	protein	go	N=0/1320	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.3s] whole_set	family	pfam	N=75/100	M=6007	tested=480	sig=0
+[   20.3s] whole_set	family	pfam_clan	N=26/100	M=4635	tested=227	sig=0
+[   20.3s] whole_set	family	interpro	N=0/100	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.3s] whole_set	family	go	N=0/100	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.3s] KoxO_050916275	protein	pfam	N=61/81	M=4962	tested=411	sig=1
+[   20.3s] KoxO_050916275	protein	pfam_clan	N=19/81	M=4093	tested=194	sig=0
+[   20.3s] KoxO_050916275	protein	interpro	N=0/81	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.3s] KoxO_050916275	protein	go	N=0/81	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.4s] KoxO_050916275	family	pfam	N=61/81	M=3805	tested=308	sig=0
+[   20.4s] KoxO_050916275	family	pfam_clan	N=19/81	M=3049	tested=176	sig=0
+[   20.4s] KoxO_050916275	family	interpro	N=0/81	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.4s] KoxO_050916275	family	go	N=0/81	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.8s] KoxO_017310465	protein	pfam	N=61/83	M=5202	tested=424	sig=1
+[   20.8s] KoxO_017310465	protein	pfam_clan	N=19/83	M=4255	tested=203	sig=0
+[   20.8s] KoxO_017310465	protein	interpro	N=0/83	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.8s] KoxO_017310465	protein	go	N=0/83	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.8s] KoxO_017310465	family	pfam	N=61/83	M=4011	tested=311	sig=0
+[   20.8s] KoxO_017310465	family	pfam_clan	N=19/83	M=3188	tested=188	sig=0
+[   20.8s] KoxO_017310465	family	interpro	N=0/83	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.8s] KoxO_017310465	family	go	N=0/83	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.9s] KoxO_929608445	protein	pfam	N=58/77	M=5295	tested=437	sig=1
+[   20.9s] KoxO_929608445	protein	pfam_clan	N=18/77	M=4345	tested=202	sig=0
+[   20.9s] KoxO_929608445	protein	interpro	N=0/77	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.9s] KoxO_929608445	protein	go	N=0/77	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.9s] KoxO_929608445	family	pfam	N=58/76	M=4084	tested=326	sig=0
+[   20.9s] KoxO_929608445	family	pfam_clan	N=18/76	M=3248	tested=188	sig=0
+[   20.9s] KoxO_929608445	family	interpro	N=0/76	M=0	tested=0	sig=0	not available (no annotated units)
+[   20.9s] KoxO_929608445	family	go	N=0/76	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.0s] KoxO_040561445	protein	pfam	N=61/80	M=5065	tested=412	sig=1
+[   21.0s] KoxO_040561445	protein	pfam_clan	N=19/80	M=4157	tested=195	sig=0
+[   21.0s] KoxO_040561445	protein	interpro	N=0/80	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.0s] KoxO_040561445	protein	go	N=0/80	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.0s] KoxO_040561445	family	pfam	N=61/80	M=3924	tested=308	sig=0
+[   21.0s] KoxO_040561445	family	pfam_clan	N=19/80	M=3128	tested=177	sig=0
+[   21.0s] KoxO_040561445	family	interpro	N=0/80	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.0s] KoxO_040561445	family	go	N=0/80	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.1s] KoxO_900083795	protein	pfam	N=61/80	M=5141	tested=421	sig=1
+[   21.1s] KoxO_900083795	protein	pfam_clan	N=18/80	M=4221	tested=196	sig=0
+[   21.1s] KoxO_900083795	protein	interpro	N=0/80	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.1s] KoxO_900083795	protein	go	N=0/80	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.1s] KoxO_900083795	family	pfam	N=60/79	M=3992	tested=322	sig=0
+[   21.1s] KoxO_900083795	family	pfam_clan	N=18/79	M=3180	tested=181	sig=0
+[   21.1s] KoxO_900083795	family	interpro	N=0/79	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.1s] KoxO_900083795	family	go	N=0/79	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.5s] KoxO_024918735	protein	pfam	N=62/85	M=5318	tested=426	sig=1
+[   21.5s] KoxO_024918735	protein	pfam_clan	N=20/85	M=4332	tested=198	sig=0
+[   21.5s] KoxO_024918735	protein	interpro	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.5s] KoxO_024918735	protein	go	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.5s] KoxO_024918735	family	pfam	N=62/85	M=4079	tested=313	sig=0
+[   21.5s] KoxO_024918735	family	pfam_clan	N=20/85	M=3224	tested=183	sig=0
+[   21.5s] KoxO_024918735	family	interpro	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.5s] KoxO_024918735	family	go	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.6s] KoxO_902162875	protein	pfam	N=64/85	M=5422	tested=446	sig=1
+[   21.6s] KoxO_902162875	protein	pfam_clan	N=21/85	M=4433	tested=205	sig=0
+[   21.6s] KoxO_902162875	protein	interpro	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.6s] KoxO_902162875	protein	go	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.6s] KoxO_902162875	family	pfam	N=64/85	M=4127	tested=325	sig=0
+[   21.6s] KoxO_902162875	family	pfam_clan	N=21/85	M=3275	tested=191	sig=0
+[   21.6s] KoxO_902162875	family	interpro	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.6s] KoxO_902162875	family	go	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.7s] KoxO_053276915	protein	pfam	N=59/81	M=5038	tested=407	sig=1
+[   21.7s] KoxO_053276915	protein	pfam_clan	N=17/81	M=4142	tested=192	sig=0
+[   21.7s] KoxO_053276915	protein	interpro	N=0/81	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.7s] KoxO_053276915	protein	go	N=0/81	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.7s] KoxO_053276915	family	pfam	N=59/81	M=3895	tested=313	sig=0
+[   21.7s] KoxO_053276915	family	pfam_clan	N=17/81	M=3111	tested=179	sig=0
+[   21.7s] KoxO_053276915	family	interpro	N=0/81	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.7s] KoxO_053276915	family	go	N=0/81	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.8s] KoxO_030343105	protein	pfam	N=67/89	M=5408	tested=439	sig=1
+[   21.8s] KoxO_030343105	protein	pfam_clan	N=21/89	M=4393	tested=208	sig=0
+[   21.8s] KoxO_030343105	protein	interpro	N=0/89	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.8s] KoxO_030343105	protein	go	N=0/89	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.8s] KoxO_030343105	family	pfam	N=66/88	M=4185	tested=320	sig=0
+[   21.8s] KoxO_030343105	family	pfam_clan	N=20/88	M=3308	tested=192	sig=0
+[   21.8s] KoxO_030343105	family	interpro	N=0/88	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.8s] KoxO_030343105	family	go	N=0/88	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.9s] KoxO_030343375	protein	pfam	N=66/88	M=5428	tested=442	sig=1
+[   21.9s] KoxO_030343375	protein	pfam_clan	N=21/88	M=4407	tested=208	sig=0
+[   21.9s] KoxO_030343375	protein	interpro	N=0/88	M=0	tested=0	sig=0	not available (no annotated units)
+[   21.9s] KoxO_030343375	protein	go	N=0/88	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] KoxO_030343375	family	pfam	N=66/88	M=4196	tested=323	sig=0
+[   22.3s] KoxO_030343375	family	pfam_clan	N=21/88	M=3315	tested=193	sig=0
+[   22.3s] KoxO_030343375	family	interpro	N=0/88	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] KoxO_030343375	family	go	N=0/88	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] KoxO_016734995	protein	pfam	N=57/75	M=4707	tested=390	sig=1
+[   22.3s] KoxO_016734995	protein	pfam_clan	N=16/75	M=3883	tested=183	sig=0
+[   22.3s] KoxO_016734995	protein	interpro	N=0/75	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.3s] KoxO_016734995	protein	go	N=0/75	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.4s] KoxO_016734995	family	pfam	N=57/75	M=3686	tested=288	sig=0
+[   22.4s] KoxO_016734995	family	pfam_clan	N=16/75	M=2954	tested=168	sig=0
+[   22.4s] KoxO_016734995	family	interpro	N=0/75	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.4s] KoxO_016734995	family	go	N=0/75	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.4s] KoxO_030343565	protein	pfam	N=66/88	M=5469	tested=443	sig=1
+[   22.4s] KoxO_030343565	protein	pfam_clan	N=21/88	M=4440	tested=208	sig=0
+[   22.4s] KoxO_030343565	protein	interpro	N=0/88	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.4s] KoxO_030343565	protein	go	N=0/88	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.5s] KoxO_030343565	family	pfam	N=65/87	M=4229	tested=325	sig=0
+[   22.5s] KoxO_030343565	family	pfam_clan	N=20/87	M=3341	tested=192	sig=0
+[   22.5s] KoxO_030343565	family	interpro	N=0/87	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.5s] KoxO_030343565	family	go	N=0/87	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.5s] KoxO_900083995	protein	pfam	N=64/86	M=5446	tested=434	sig=1
+[   22.5s] KoxO_900083995	protein	pfam_clan	N=21/86	M=4416	tested=205	sig=0
+[   22.5s] KoxO_900083995	protein	interpro	N=0/86	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.5s] KoxO_900083995	protein	go	N=0/86	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.6s] KoxO_900083995	family	pfam	N=63/85	M=4169	tested=324	sig=0
+[   22.6s] KoxO_900083995	family	pfam_clan	N=21/85	M=3285	tested=190	sig=0
+[   22.6s] KoxO_900083995	family	interpro	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.6s] KoxO_900083995	family	go	N=0/85	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.6s] KoxO_004360035	protein	pfam	N=59/79	M=5114	tested=417	sig=1
+[   22.6s] KoxO_004360035	protein	pfam_clan	N=17/79	M=4185	tested=191	sig=0
+[   22.6s] KoxO_004360035	protein	interpro	N=0/79	M=0	tested=0	sig=0	not available (no annotated units)
+[   22.6s] KoxO_004360035	protein	go	N=0/79	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.0s] KoxO_004360035	family	pfam	N=59/79	M=3979	tested=326	sig=0
+[   23.0s] KoxO_004360035	family	pfam_clan	N=17/79	M=3166	tested=178	sig=0
+[   23.0s] KoxO_004360035	family	interpro	N=0/79	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.0s] KoxO_004360035	family	go	N=0/79	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.0s] KoxO_030344075	protein	pfam	N=65/87	M=5423	tested=439	sig=1
+[   23.0s] KoxO_030344075	protein	pfam_clan	N=20/87	M=4403	tested=208	sig=0
+[   23.0s] KoxO_030344075	protein	interpro	N=0/87	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.0s] KoxO_030344075	protein	go	N=0/87	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.1s] KoxO_030344075	family	pfam	N=65/87	M=4189	tested=321	sig=0
+[   23.1s] KoxO_030344075	family	pfam_clan	N=20/87	M=3309	tested=193	sig=0
+[   23.1s] KoxO_030344075	family	interpro	N=0/87	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.1s] KoxO_030344075	family	go	N=0/87	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.1s] KoxO_051951865	protein	pfam	N=57/76	M=5170	tested=416	sig=1
+[   23.2s] KoxO_051951865	protein	pfam_clan	N=17/76	M=4235	tested=192	sig=0
+[   23.2s] KoxO_051951865	protein	interpro	N=0/76	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.2s] KoxO_051951865	protein	go	N=0/76	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.2s] KoxO_051951865	family	pfam	N=57/76	M=4002	tested=322	sig=0
+[   23.2s] KoxO_051951865	family	pfam_clan	N=17/76	M=3178	tested=178	sig=0
+[   23.2s] KoxO_051951865	family	interpro	N=0/76	M=0	tested=0	sig=0	not available (no annotated units)
+[   23.2s] KoxO_051951865	family	go	N=0/76	M=0	tested=0	sig=0	not available (no annotated units)
+[   28.3s] done; outputs in /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/analysis/enrichment/outputs/loss/proteome_clustered
