@@ -12,6 +12,6 @@
     "--modelorgs_config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/bacteria/UHM_Koxytoca/modelorgs.yaml"
   ],
   "n_species": 34,
-  "report_sha256": "37e25dfce18da747fb72a9380336e60c9d1da9a03d2594a57abebdb4273de23d",
+  "report_sha256": "f78389b0a0dd3c8717a56d6686f7e6d92ab86906be8344e4ebe77033e603c920",
   "note": "migrated from docs/bacteria/UHM_Koxytoca/ on 2026-09-24; params read from run_params.txt at migration time"
 }
