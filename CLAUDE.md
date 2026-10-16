@@ -180,3 +180,5 @@ This repo adopts the Mycelium living-repo framework (`.living/`, `todo/`,
 `mycelium:ingest`), same as `nf_NovInvenio`. Confirmed lightweight: the plugin itself is
 a shared, one-time install; per-project footprint is a handful of tracked markdown/YAML
 files plus a gitignored `.mycelium/` run-state dir.
+
+- Source label rules (`lib/annotation_sources.py`): a file is `hmmer-pfam` if its header has `pfam_best_ievalue`, if its sidecar `derived_by` names `hmm_domtbl_to_annotations`, or if its sidecar `derived_by` names `annotate_proteomes_pfam` (the `--fill-empty-uniprot` case) with `vocabularies_not_available` containing `go` and a `checksum_sha256` equal to the current file. The checksum check stops a UniProt file rewritten by `build_study_config.py` from keeping the old label.

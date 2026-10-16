@@ -148,6 +148,35 @@ def test_pfam_only_study_not_available(repo):
     assert "Pfam-A HMM search (hmmsearch, Pfam gathering thresholds) for every species" in page
     assert "not the UniProt release" not in page
     assert "PF00001" in page
+    # 2026-10-16: vocabulary tag, link text, no repeated 0% low-annotation line.
+    assert '<meta name="nii-enrichment-vocabularies" content="pfam">' in page
+    assert "Low annotation" not in page                      # only InterPro/GO 0% were low
+    report = (repo / "docs" / "fungi" / "s1" / "pw" / "report.html").read_text()
+    assert "Pfam term enrichment of the novelty candidates" in report
+    assert "Pfam, InterPro and GO" not in report
+
+
+def test_pfam_only_low_pfam_keeps_low_line_without_go_interpro(repo):
+    d = repo / "studies" / "fungi" / "s1" / "analysis" / "enrichment" / "outputs" / "proteome_clustered"
+    (d / "coverage.tsv").write_text(
+        COV_HEAD
+        + "HmmA\tuniverse\t50\t40\t30\t0.6\t20\t0.4\t0\t0.0\t0\t0.0\t30\t0.6\n"
+        + "ALL_IN\tuniverse\t50\t40\t30\t0.6\t20\t0.4\t0\t0.0\t0\t0.0\t30\t0.6\n"
+        + "ALL_IN\tcandidates\t10\t10\t2\t0.2\t1\t0.1\t0\t0.0\t0\t0.0\t2\t0.2\n")
+    assert _main(repo) == 0
+    page = (repo / "docs" / "fungi" / "s1" / "pw" / "enrichment.html").read_text()
+    assert ("Low annotation: the candidate set has less than 50% annotation for Pfam 20.0%, "
+            "any vocabulary 20.0%.") in page
+
+
+def test_full_annotation_page_tag_and_default_link_text(repo):
+    assert _main(repo) == 0
+    run = repo / "docs" / "fungi" / "s1" / "pw"
+    page = (run / "enrichment.html").read_text()
+    assert '<meta name="nii-enrichment-vocabularies" content="pfam,interpro,go">' in page
+    assert "Low annotation: the candidate set has less than 50% annotation for Pfam 40.0%, GO 20.0%." in page
+    assert ("Pfam, InterPro and GO term enrichment of the novelty candidates against the proteome "
+            "background.") in (run / "report.html").read_text()
 
 
 def test_vocabulary_gaps_groups():

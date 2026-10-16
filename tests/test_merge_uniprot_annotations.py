@@ -203,3 +203,84 @@ def test_note_from_matrix_names_only_species_with_hmmer_rows(tmp_path):
                         "--html", str(page)], check=True)
     assert "for: Piromyces sp. E2 (PiroE2sp)." in nov.read_text()
     assert losses.read_text() == PAGE
+
+
+# --- --fill-empty-uniprot files and local-FASTA names (2026-10-16) --------------
+import hashlib  # noqa: E402
+
+sys.path.insert(0, str(REPO / "lib"))
+from annotation_sources import file_accession, file_source, species_labels  # noqa: E402
+
+FILL_SIDECAR = """derived_by: 'bin/annotate_proteomes_pfam.py --fill-empty-uniprot: python3 bin/annotate_proteomes_pfam.py
+  --study fungi/pezizo_set1 --species Amega --finalize --fill-empty-uniprot'
+annotation_source: UniProt reference proteome (no GO/Pfam/InterPro in the UniProt
+  entries) + Pfam-A HMM search (hmmsearch) for pfam_ids/pfam_names
+checksum_sha256: {sha}
+vocabularies_available:
+- pfam
+- pfam_clan (derived from Pfam-A.hmm.dat by the reader)
+vocabularies_not_available:
+- go
+- interpro
+"""
+
+
+def _filled_uniprot_file(path: Path) -> Path:
+    """UniProt columns only (no pfam_best_ievalue); pfam filled, GO/InterPro empty."""
+    _hmmer_file(path, marker_column=False)
+    sha = hashlib.sha256(path.read_bytes()).hexdigest()
+    path.with_name(path.name + ".provenance.yaml").write_text(FILL_SIDECAR.format(sha=sha))
+    return path
+
+
+def test_fill_empty_uniprot_file_is_hmmer_pfam(tmp_path):
+    f = _filled_uniprot_file(tmp_path / "UP001658139.tsv.gz")
+    assert file_source(f) == "hmmer-pfam"
+    _, rows, _ = _merge(tmp_path, [_uniprot_file(tmp_path / "UP1.tsv"), f],
+                        ["sp|P00498|HIS1_YEAST", "OUM56101.1"])
+    by_id = {r["protein_id"]: r["annotation_source"] for r in rows}
+    assert by_id == {"sp|P00498|HIS1_YEAST": "uniprot", "OUM56101.1": "hmmer-pfam"}
+
+
+def test_fill_empty_sidecar_is_ignored_after_file_is_rewritten(tmp_path):
+    # build_study_config.py rewrites the file from the .dat.gz; the old sidecar
+    # stays. Checksum mismatch -> the file is UniProt again.
+    f = _filled_uniprot_file(tmp_path / "UP001658139.tsv.gz")
+    plain = _uniprot_file(tmp_path / "rewritten.tsv")
+    f.write_bytes(gzip.compress(plain.read_bytes()))
+    assert file_source(f) == "uniprot"
+
+
+def test_fill_empty_sidecar_needs_go_not_available(tmp_path):
+    f = _filled_uniprot_file(tmp_path / "UP9.tsv.gz")
+    side = tmp_path / "UP9.tsv.gz.provenance.yaml"
+    side.write_text(side.read_text().replace("- go\n", ""))
+    assert file_source(f) == "uniprot"
+
+
+LOCAL_SPECIES = ("Short,Species,Protein_Source,Protein_Accession\n"
+                 "KoxO_050916275,Klebsiella oxytoca,local_faa,/x/outgroup_faa/GCF_050916275.1.faa\n"
+                 "UHM22bin8,Klebsiella oxytoca,local_faa,/x/bins/UHM22.bin.8.faa.gz\n"
+                 "Sacccere,Saccharomyces cerevisiae,uniprot,UP1\n")
+
+
+def test_species_labels_map_local_fasta_annotation_names(tmp_path):
+    species = tmp_path / "species.csv"
+    species.write_text(LOCAL_SPECIES)
+    labels = species_labels(species)
+    assert file_accession(tmp_path / "GCF_050916275.1.tsv.gz") == "GCF_050916275.1"
+    assert labels["GCF_050916275.1"] == "Klebsiella oxytoca (KoxO_050916275)"
+    assert labels["UHM22.bin.8"] == "Klebsiella oxytoca (UHM22bin8)"
+    assert labels["UP1"] == "Saccharomyces cerevisiae (Sacccere)"
+    assert labels["/x/outgroup_faa/GCF_050916275.1.faa"] == "Klebsiella oxytoca (KoxO_050916275)"
+
+
+def test_note_names_local_fasta_species_from_annotation_files(tmp_path):
+    species = tmp_path / "species.csv"
+    species.write_text(LOCAL_SPECIES)
+    page = tmp_path / "novelties.html"
+    page.write_text(PAGE)
+    annots = [_uniprot_file(tmp_path / "UP1.tsv"), _hmmer_file(tmp_path / "UHM22.bin.8.tsv.gz")]
+    subprocess.run([sys.executable, str(NOTE_BIN), "--annotations", *[str(a) for a in annots],
+                    "--species", str(species), "--html", str(page)], check=True)
+    assert "for: Klebsiella oxytoca (UHM22bin8)." in page.read_text()
