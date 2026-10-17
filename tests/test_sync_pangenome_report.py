@@ -543,3 +543,118 @@ def test_publish_script_ships_starship_overlap():
     assert "starship_overlap starship_overlap.html; do" in publish
     assert "docs/*/*/*/starship_overlap/\n" in gitignore
     assert "docs/*/*/*/starship_overlap.html\n" in gitignore
+
+
+# ---- separate SM dir (Af293 antiSMASH, full_v072_antismash/ schema of 2026-10-17) ----
+# Rows copied from studies/fungi/Afumigatus_pangenome/analysis/starship_island_overlap/
+# full_v072_antismash/ (summary.tsv, sm_by_type.tsv, sm_starship_overlap.tsv,
+# sm_permutation.tsv, sm_family_class_direction.tsv).
+
+_AS_SUMMARY = (
+    "metric\tvalue\tsource\n"
+    "antismash_version\t8.0.4\tAf293.json.gz\n"
+    "af293_cds_in_antismash\t9630\tCDS features in antiSMASH JSON (from GFF3)\n"
+    "af293_cds_mapped_to_member\t9627\tcoord:9623; fasta_GN:4; none:3\n"
+    "sm_clusters\t44\tantiSMASH regions (sm_clusters.tsv.gz)\n"
+    "sm_clusters_overlap_ge1gene\t3\trule A (sm_clusters.tsv.gz)\n"
+    "sm_clusters_overlap_ge50pct\t1\trule B (sm_clusters.tsv.gz)\n"
+    "sm_clusters_with_captain\t3\tDUF3435 hit E<=1e-5 in a cluster gene\n")
+_AS_BY_TYPE = (
+    "type\tn_clusters\tn_overlap_ge1gene\tn_overlap_ge50pct\tn_with_captain\n"
+    "terpene\t12\t1\t0\t1\n"
+    "T1PKS\t8\t1\t1\t1\n"
+    "NRPS\t6\t0\t0\t0\n"
+    "ALL\t44\t3\t1\t3\n")
+_AS_PER_ELEMENT = (
+    "element_id\tlabel\tconfidence\tcontig\tstart\tend\tn_genes_in_element\tn_sm_clusters_ge1gene\t"
+    "n_sm_clusters_ge50pct\tsm_clusters\tn_sm_cluster_genes_in_element\tcaptain_genes_in_element\n"
+    "AF293_e00029\tLamia h4\thigh\tCM000169.1\t6458\t394211\t71\t1\t1\t"
+    "CM000169.1.region001(T1PKS;13/13 genes)\t13\tAFUA_1G00890\n"
+    "AF293_e00039\tGnosis h1\thigh\tCM000174.1\t2214324\t2290180\t21\t0\t0\t\t0\tAFUA_6G09300\n"
+    "AF293_e00041\tJanus (likely) h2 (likely)\tunknown\tCM000175.1\t1807654\t1860556\t6\t0\t0\t\t0\t\n")
+_AS_PERM = (
+    "statistic\tobserved\tn_perm\tseed\tnull_mean\tnull_q95\tnull_max\tp_perm_greater\tp_perm_less\n"
+    "clusters_overlap_ge1gene\t3\t1000\t20261017\t1.884\t4\t6\t0.28272\t0.8951\n"
+    "clusters_overlap_ge50pct\t1\t1000\t20261017\t1.206\t3\t5\t0.71528\t0.64036\n")
+_AS_FAM = (
+    "gene_set\tbin\tdirection\tin_island\tn_families\n"
+    "core_gene_families\tcloud\tgain\tno\t3\n"
+    "core_gene_families\tcloud\tgain\tyes\t3\n"
+    "core_gene_families\tcore\tconserved\tno\t44\n")
+
+
+def _antismash_dir(root: Path) -> Path:
+    d = root / "analysis" / "starship_island_overlap" / "r1_antismash"
+    (d / "figures").mkdir(parents=True)
+    (d / "summary.tsv").write_text(_AS_SUMMARY)
+    (d / "sm_by_type.tsv").write_text(_AS_BY_TYPE)
+    (d / "sm_starship_overlap.tsv").write_text(_AS_PER_ELEMENT)
+    (d / "sm_permutation.tsv").write_text(_AS_PERM)
+    (d / "sm_family_class_direction.tsv").write_text(_AS_FAM)
+    (d / "PROVENANCE.yaml").write_text("antismash:\n  version: antiSMASH 8.0.4\n")
+    (d / "PROVENANCE_analysis.yaml").write_text("derived_by: antismash_sm_starship.py\n")
+    (d / "figures" / "af293_antismash_sm_starship.png").write_bytes(b"png")
+    return d
+
+
+def test_stage_starship_overlap_separate_antismash_dir(tmp_path, capsys):
+    import re as _re
+    import sync_pangenome_report as sp
+    d = _sso_dir(tmp_path, with_sm=False)
+    a = _antismash_dir(tmp_path)
+    run = tmp_path / "run"
+    run.mkdir()
+    assert sp.stage_starship_overlap(d, run, a)
+    dest = run / "starship_overlap"
+    # the overlap dir's own summary/provenance are not overwritten by the SM dir's
+    assert (dest / "summary.tsv").read_text() == _SSO_SUMMARY
+    assert (dest / "sm_summary.tsv").read_text() == _AS_SUMMARY
+    assert (dest / "PROVENANCE_sm.yaml").read_text().startswith("antismash:")
+    assert (dest / "PROVENANCE_sm_analysis.yaml").is_file()
+    assert (dest / "af293_antismash_sm_starship.png").is_file()
+    page = (run / "starship_overlap.html").read_text()
+    assert "antiSMASH 8.0.4 regions" in page
+    assert "Table S7 elements and SM clusters" in page and "CM000169.1.region001(T1PKS;13/13 genes)" in page
+    assert "SM cluster position permutation" in page and "0.28272" in page
+    assert "SM core-gene families by class, direction and island" in page
+    assert "<td>sm_clusters_overlap_ge1gene</td><td class=\"n\">3</td>" in page
+    assert "<td>sm_clusters</td><td class=\"n\">44</td>" in page
+    assert "does not map SM cluster genes" not in page
+    assert "mapped to pangenome families" in page and "9627 of 9630" in page
+    assert "WARNING" not in capsys.readouterr().err
+    for href in _re.findall(r'(?:href|src)="(starship_overlap/[^"]+)"', page):
+        assert (run / href).is_file(), href
+
+
+def test_stage_starship_overlap_metric_schema_still_works(tmp_path):
+    import sync_pangenome_report as sp
+    d = _sso_dir(tmp_path, with_sm=True)   # cocci-style metric/value/definition table
+    run = tmp_path / "run"
+    run.mkdir()
+    assert sp.stage_starship_overlap(d, run)
+    page = (run / "starship_overlap.html").read_text()
+    assert "antiSMASH 8.0.1 regions" in page
+    assert "Table S7 elements and SM clusters" not in page
+    assert "does not map SM cluster genes" in page   # no sm_family_class_direction.tsv
+
+
+def test_stage_starship_overlap_unexpected_schemas_do_not_crash(tmp_path, capsys):
+    import sync_pangenome_report as sp
+    d = _sso_dir(tmp_path, with_sm=False)
+    (d / "enrichment.tsv").write_text("foo\tbar\n1\t2\n")
+    a = _antismash_dir(tmp_path)
+    (a / "sm_starship_overlap.tsv").write_text("foo\tbar\n1\t2\n")
+    (a / "summary.tsv").write_text("name\tnumber\nx\t1\n")
+    run = tmp_path / "run"
+    run.mkdir()
+    assert sp.stage_starship_overlap(d, run, a)
+    page = (run / "starship_overlap.html").read_text()
+    assert "Not available: sm_starship_overlap.tsv has unexpected columns foo, bar." in page
+    assert "enrichment.tsv: not available" in page
+    err = capsys.readouterr().err
+    assert "sm_starship_overlap.tsv: unexpected columns" in err and "expected columns" in err
+    (d / "summary.tsv").write_text("a\tb\n1\t2\n")          # overlap summary itself wrong: no page
+    run2 = tmp_path / "run2"
+    run2.mkdir()
+    assert not sp.stage_starship_overlap(d, run2, a)
+    assert not (run2 / "starship_overlap.html").exists()
