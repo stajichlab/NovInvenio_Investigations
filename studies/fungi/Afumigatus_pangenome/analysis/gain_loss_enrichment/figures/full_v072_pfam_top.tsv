@@ -1,0 +1,21 @@
+label	scope	test_set	vocab	term	name	k	n_set	K	M	fold	p	q
+full_v072	shell+soft_core	gain	pfam	PF12796	Ank_2: Ankyrin repeats (3 copies)	49	2213	55	3580	1.441235673	5.611321426e-06	0.001458943571
+full_v072	shell+soft_core	gain	pfam	PF13637	Ank_4: Ankyrin repeats (many copies)	35	2213	38	3580	1.489999287	2.433625355e-05	0.003163712961
+full_v072	shell+soft_core	gain	pfam	PF00023	Ank: Ankyrin repeat	47	2213	54	3580	1.408009908	3.683214333e-05	0.003192119088
+full_v072	shell+soft_core	gain	pfam	PF11917	DUF3435: Protein of unknown function (DUF3435)	20	2213	20	3580	1.617713511	6.421876288e-05	0.004174219587
+full_v072	shell+soft_core	gain	pfam	PF24883	NPHP3_N: Nephrocystin 3, N-terminal	22	2213	23	3580	1.547378141	0.0002303084546	0.01197603964
+full_v072	shell+soft_core	gain	pfam	PF13606	Ank_3: Ankyrin repeat	27	2213	30	3580	1.45594216	0.0005925759395	0.02567829071
+full_v072	shell+soft_core	gain	pfam	PF12520	DUF3723: Protein of unknown function (DUF3723) central domain	14	2213	14	3580	1.617713511	0.001170943005	0.03952363512
+full_v072	shell+soft_core	gain	pfam	PF00069	Pkinase: Protein kinase domain	42	2213	51	3580	1.332234656	0.00121611185	0.03952363512
+full_v072	shell+soft_core	gain	pfam	PF01636	APH: Phosphotransferase enzyme family	15	2213	16	3580	1.516606417	0.004875242279	0.1408403325
+full_v072	shell+soft_core	gain	pfam	PF13857	Ank_5: Ankyrin repeats (many copies)	18	2213	20	3580	1.45594216	0.005595581395	0.1454851163
+full_v072	shell+soft_core	loss	pfam	PF01042	Ribonuc_L-PSP: Endoribonuclease L-PSP	4	869	6	3580	2.74645186	0.03377357535	1
+full_v072	shell+soft_core	loss	pfam	PF04116	FA_hydroxylase: Fatty acid hydroxylase	4	869	6	3580	2.74645186	0.03377357535	1
+full_v072	shell+soft_core	loss	pfam	PF07653	SH3_2: Variant SH3 domain	4	869	6	3580	2.74645186	0.03377357535	1
+full_v072	shell+soft_core	loss	pfam	PF00018	SH3_1: SH3 domain	5	869	9	3580	2.288709884	0.04328228809	1
+full_v072	shell+soft_core	loss	pfam	PF00441	Acyl-CoA_dh_1: Acyl-CoA dehydrogenase, C-terminal domain	3	869	5	3580	2.471806674	0.09585888549	1
+full_v072	shell+soft_core	loss	pfam	PF02770	Acyl-CoA_dh_M: Acyl-CoA dehydrogenase, middle domain	3	869	5	3580	2.471806674	0.09585888549	1
+full_v072	shell+soft_core	loss	pfam	PF02771	Acyl-CoA_dh_N: Acyl-CoA dehydrogenase, N-terminal domain	3	869	5	3580	2.471806674	0.09585888549	1
+full_v072	shell+soft_core	loss	pfam	PF08028	Acyl-CoA_dh_2: Acyl-CoA dehydrogenase, C-terminal domain	3	869	5	3580	2.471806674	0.09585888549	1
+full_v072	shell+soft_core	loss	pfam	PF13279	4HBT_2: Thioesterase-like superfamily	3	869	5	3580	2.471806674	0.09585888549	1
+full_v072	shell+soft_core	loss	pfam	PF01408	GFO_IDH_MocA: Oxidoreductase family, NAD-binding Rossmann fold	4	869	8	3580	2.059838895	0.1037665922	1

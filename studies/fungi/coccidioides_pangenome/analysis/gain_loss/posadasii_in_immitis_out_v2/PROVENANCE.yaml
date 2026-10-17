@@ -1,0 +1,65 @@
+script: bin/pangenome_gain_loss.py
+script_sha256: 8c90bb28deaad63a01ee547647e92018f54a7e1e6c9080971422991cab1dec6c
+command: bin/pangenome_gain_loss.py --run-dir studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2
+  --out-dir studies/fungi/coccidioides_pangenome/analysis/gain_loss/posadasii_in_immitis_out_v2
+  --label posadasii_in_immitis_out_v2
+date_utc: '2026-10-17T14:02:08Z'
+host: i29
+derived_by: bin/pangenome_gain_loss.py (outgroup-frequency rule copied from nf_NovInvenio
+  bin/pangenome_cooccurrence.py polarize_by_frequency)
+parameters:
+  loss_min_frac: 0.9
+  gain_max_frac: 0.1
+  selected_classes:
+  - soft_core
+  - shell
+  - cloud
+  - singleton
+  outgroup_strains: all
+  ingroup_label: IN
+  outgroup_label: OUT
+rule: 'outgroup_frequency: frac=carriers/2 OUT strains (all); loss if frac>=0.9, gain
+  if frac<=0.1, else ambiguous'
+strain_counts:
+  matrix_strains: 362
+  in_rep: 278
+  in_nonrep: 82
+  out_all: 2
+  out_rep: 2
+checks:
+  families_in_frequency_table: 35747
+  families_missing_from_matrix: 0
+  ingroup_rep_count_mismatch_vs_frequency_table: 0
+  pair_family_a_label_conflicts: 0
+clade_tables:
+- clade_counts.stratum.tsv
+- clade_counts.mash_clade.tsv
+inputs:
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/frequency_table.tsv
+  sha256: 90da50dadbfad374337e7a8807c40e22d1f03e7d92b89d1838383491b2c21f9b
+  bytes: 1916889
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/presence_matrix.rescued.tsv
+  sha256: ea85609168b438f80a0349987766f90989e4686448cde2c83360958aff953374
+  bytes: 96444605
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/samplesheet.with_clades.csv
+  sha256: 1ba98592590af70c634fd9ab09592d3b4493b890ff522ec865dc0ab6ecad003d
+  bytes: 44623
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/strain_inventory.tsv
+  sha256: 18c1807001fb9d69c55286e76a2590d6c868636741a48c91e1d02bfd21967c24
+  bytes: 12653
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/clade_assignments.tsv
+  sha256: ad463ad7f4d179cca53b43e7c0c760778c5696e3c777bac9785c78598ca1d2a3
+  bytes: 19952
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/cooccurring_pairs.tsv.zst
+  sha256: 3644506cf73d186515d1dcf3531518c1199a703226e3ad9a23795fd2f8399586
+  bytes: 6884637
+outputs:
+- clade_counts.mash_clade.tsv
+- clade_counts.stratum.tsv
+- family_gain_loss.tsv.gz
+- outgroup_fraction_distribution.tsv
+- summary_direction_by_class.tsv
+- summary_scopes.tsv
+- summary_size_distribution.tsv
+- validation.tsv
+license: derived from the lab's own pipeline output; no external redistribution terms

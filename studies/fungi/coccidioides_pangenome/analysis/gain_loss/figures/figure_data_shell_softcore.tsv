@@ -11,3 +11,9 @@ C. immitis	shell+soft_core	ambiguous	1395	0.300971
 C. immitis	cloud+singleton	gain	13043	0.895441
 C. immitis	cloud+singleton	loss	216	0.014829
 C. immitis	cloud+singleton	ambiguous	1307	0.089730
+C. posadasii	shell+soft_core	gain	2968	0.600567
+C. posadasii	shell+soft_core	loss	1369	0.277013
+C. posadasii	shell+soft_core	ambiguous	605	0.122420
+C. posadasii	cloud+singleton	gain	18506	0.942405
+C. posadasii	cloud+singleton	loss	430	0.021897
+C. posadasii	cloud+singleton	ambiguous	701	0.035698

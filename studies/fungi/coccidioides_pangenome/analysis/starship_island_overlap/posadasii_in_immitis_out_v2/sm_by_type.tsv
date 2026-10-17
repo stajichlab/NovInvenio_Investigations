@@ -1,0 +1,106 @@
+species	sm_type	n_clusters	n_with_captain_gene	pct_with_captain_gene
+all	T1PKS	1823	3	0.16
+all	terpene	1287	9	0.70
+all	terpene-precursor	1003	0	0.00
+all	NRPS	671	0	0.00
+all	hybrid:NRP-metallophore+NRPS	660	0	0.00
+all	NRPS-like	400	0	0.00
+all	hybrid:NRPS+T1PKS	354	0	0.00
+all	betalactone	334	0	0.00
+all	T3PKS	330	4	1.21
+all	fungal_CDPS	328	0	0.00
+all	isocyanide	318	0	0.00
+all	hybrid:NRPS+indole	312	0	0.00
+all	hybrid:NRPS-like+T1PKS	302	4	1.32
+all	hybrid:NRPS+T1PKS+terpene	295	2	0.68
+all	isocyanide-nrp	254	0	0.00
+all	hybrid:NRPS-like+T1PKS+terpene	31	0	0.00
+all	RiPP-like	3	0	0.00
+all	NI-siderophore	3	0	0.00
+all	hybrid:NRPS+T3PKS	2	0	0.00
+all	hybrid:T3PKS+isocyanide-nrp	2	0	0.00
+all	hybrid:NRPS+T1PKS+fungal_CDPS	2	0	0.00
+all	ranthipeptide	2	0	0.00
+all	hybrid:NRPS+fungal_CDPS+indole	1	0	0.00
+all	hybrid:T1PKS+T3PKS	1	0	0.00
+all	hybrid:NRP-metallophore+NRPS+T1PKS	1	0	0.00
+all	hybrid:isocyanide+terpene	1	0	0.00
+all	hybrid:T1PKS+terpene	1	0	0.00
+all	hybrid:T1PKS+fungal_CDPS	1	0	0.00
+all	hybrid:T1PKS+isocyanide	1	0	0.00
+all	hybrid:NRPS-like+T1PKS+fungal_CDPS	1	0	0.00
+all	hybrid:NRP-metallophore+NRPS+isocyanide-nrp	1	0	0.00
+all	hybrid:T1PKS+terpene-precursor	1	0	0.00
+all	hybrid:NRPS-like+isocyanide	1	0	0.00
+all	hybrid:NRPS-like+terpene-precursor	1	0	0.00
+all	hybrid:NRP-metallophore+NRPS+betalactone	1	0	0.00
+all	redox-cofactor	1	0	0.00
+all	NAGGN	1	0	0.00
+all	arylpolyene	1	0	0.00
+all	phosphonate	1	0	0.00
+all	hybrid:NRPS+NRPS-like	1	0	0.00
+all	hybrid:azole-containing-RiPP+terpene	1	0	0.00
+all	hybrid:NRPS+indole+terpene-precursor	1	0	0.00
+all	fungal-RiPP	1	0	0.00
+all	hybrid:NRPS+indole+isocyanide	1	0	0.00
+all	hybrid:NRPS+T1PKS+terpene-precursor	1	0	0.00
+Coccidioides immitis	T1PKS	12	1	8.33
+Coccidioides immitis	terpene	7	0	0.00
+Coccidioides immitis	terpene-precursor	6	0	0.00
+Coccidioides immitis	NRPS	4	0	0.00
+Coccidioides immitis	hybrid:NRP-metallophore+NRPS	4	0	0.00
+Coccidioides immitis	NRPS-like	3	0	0.00
+Coccidioides immitis	T3PKS	2	0	0.00
+Coccidioides immitis	isocyanide	2	0	0.00
+Coccidioides immitis	hybrid:NRPS+T1PKS+terpene	2	0	0.00
+Coccidioides immitis	fungal_CDPS	2	0	0.00
+Coccidioides immitis	hybrid:NRPS+indole	2	0	0.00
+Coccidioides immitis	hybrid:NRPS-like+T1PKS	2	0	0.00
+Coccidioides immitis	hybrid:NRPS+T1PKS	2	0	0.00
+Coccidioides immitis	betalactone	2	0	0.00
+Coccidioides immitis	isocyanide-nrp	1	0	0.00
+Coccidioides posadasii	T1PKS	1811	2	0.11
+Coccidioides posadasii	terpene	1280	9	0.70
+Coccidioides posadasii	terpene-precursor	997	0	0.00
+Coccidioides posadasii	NRPS	667	0	0.00
+Coccidioides posadasii	hybrid:NRP-metallophore+NRPS	656	0	0.00
+Coccidioides posadasii	NRPS-like	397	0	0.00
+Coccidioides posadasii	hybrid:NRPS+T1PKS	352	0	0.00
+Coccidioides posadasii	betalactone	332	0	0.00
+Coccidioides posadasii	T3PKS	328	4	1.22
+Coccidioides posadasii	fungal_CDPS	326	0	0.00
+Coccidioides posadasii	isocyanide	316	0	0.00
+Coccidioides posadasii	hybrid:NRPS+indole	310	0	0.00
+Coccidioides posadasii	hybrid:NRPS-like+T1PKS	300	4	1.33
+Coccidioides posadasii	hybrid:NRPS+T1PKS+terpene	293	2	0.68
+Coccidioides posadasii	isocyanide-nrp	253	0	0.00
+Coccidioides posadasii	hybrid:NRPS-like+T1PKS+terpene	31	0	0.00
+Coccidioides posadasii	RiPP-like	3	0	0.00
+Coccidioides posadasii	NI-siderophore	3	0	0.00
+Coccidioides posadasii	hybrid:NRPS+T3PKS	2	0	0.00
+Coccidioides posadasii	hybrid:T3PKS+isocyanide-nrp	2	0	0.00
+Coccidioides posadasii	hybrid:NRPS+T1PKS+fungal_CDPS	2	0	0.00
+Coccidioides posadasii	ranthipeptide	2	0	0.00
+Coccidioides posadasii	hybrid:NRPS+fungal_CDPS+indole	1	0	0.00
+Coccidioides posadasii	hybrid:T1PKS+T3PKS	1	0	0.00
+Coccidioides posadasii	hybrid:NRP-metallophore+NRPS+T1PKS	1	0	0.00
+Coccidioides posadasii	hybrid:isocyanide+terpene	1	0	0.00
+Coccidioides posadasii	hybrid:T1PKS+terpene	1	0	0.00
+Coccidioides posadasii	hybrid:T1PKS+fungal_CDPS	1	0	0.00
+Coccidioides posadasii	hybrid:T1PKS+isocyanide	1	0	0.00
+Coccidioides posadasii	hybrid:NRPS-like+T1PKS+fungal_CDPS	1	0	0.00
+Coccidioides posadasii	hybrid:NRP-metallophore+NRPS+isocyanide-nrp	1	0	0.00
+Coccidioides posadasii	hybrid:T1PKS+terpene-precursor	1	0	0.00
+Coccidioides posadasii	hybrid:NRPS-like+isocyanide	1	0	0.00
+Coccidioides posadasii	hybrid:NRPS-like+terpene-precursor	1	0	0.00
+Coccidioides posadasii	hybrid:NRP-metallophore+NRPS+betalactone	1	0	0.00
+Coccidioides posadasii	redox-cofactor	1	0	0.00
+Coccidioides posadasii	NAGGN	1	0	0.00
+Coccidioides posadasii	arylpolyene	1	0	0.00
+Coccidioides posadasii	phosphonate	1	0	0.00
+Coccidioides posadasii	hybrid:NRPS+NRPS-like	1	0	0.00
+Coccidioides posadasii	hybrid:azole-containing-RiPP+terpene	1	0	0.00
+Coccidioides posadasii	hybrid:NRPS+indole+terpene-precursor	1	0	0.00
+Coccidioides posadasii	fungal-RiPP	1	0	0.00
+Coccidioides posadasii	hybrid:NRPS+indole+isocyanide	1	0	0.00
+Coccidioides posadasii	hybrid:NRPS+T1PKS+terpene-precursor	1	0	0.00

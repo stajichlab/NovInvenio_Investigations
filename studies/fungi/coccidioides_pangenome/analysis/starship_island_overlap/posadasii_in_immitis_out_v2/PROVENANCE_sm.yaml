@@ -1,0 +1,20 @@
+derived_by: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/starship_island_overlap/scripts/sm_captain_overlap.py
+date: 2026-10-17
+command: scripts/sm_captain_overlap.py --antismash-dir inputs/antismash --captain-tblout inputs/DUF3435_vs_antismash_annotation.tblout.zst --config ../../config_posadasii_in_RS_WA211_out.csv --out-dir posadasii_in_immitis_out_v2
+source_annotation: /bigdata/stajichlab/shared/projects/Coccidioides/PopGenomics/2025_All_Cocci/Assembly/annotation/<strain>/{antismash_local,annotate_misc,annotate_results} (antiSMASH 8.0.1, funannotate 1.8.17; not the 20260112 freeze used by the pangenome runs)
+inputs:
+  sm_regions.tsv.gz:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/starship_island_overlap/inputs/antismash/sm_regions.tsv.gz
+    sha256: d8d24e911c9d39d9fa78837bb0741f541bd1d256a3ea41b990a47e08d0c061f1
+  sm_region_genes.tsv.gz:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/starship_island_overlap/inputs/antismash/sm_region_genes.tsv.gz
+    sha256: 8553408c8a913341c9187b3ca0ed0eb6a4839b52a4e136354c99be575035814a
+  gene_counts.tsv:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/starship_island_overlap/inputs/antismash/gene_counts.tsv
+    sha256: bbbddc1411a2282381d7c084634e322f469dbe98510dbba9e0901f41b9c14e42
+  captain_tblout:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/starship_island_overlap/inputs/DUF3435_vs_antismash_annotation.tblout.zst
+    sha256: 0be53835d7a6d8b540ccdf9658cf146ab2239de37a3c470b6df5c9a259826d18
+  config:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/config_posadasii_in_RS_WA211_out.csv
+    sha256: 1443369af52d0863fe319131af52868b0c131437571d459e0e05e4a435e68d8c

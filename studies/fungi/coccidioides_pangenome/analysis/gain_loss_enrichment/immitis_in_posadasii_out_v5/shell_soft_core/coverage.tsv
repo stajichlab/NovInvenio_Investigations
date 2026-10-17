@@ -1,0 +1,5 @@
+label	scope	direction	n_families	n_with_pfam	frac_with_pfam	n_with_pfam_clan	frac_with_pfam_clan
+immitis_in_posadasii_out_v5	shell+soft_core	ambiguous	1395	635	0.4552	521	0.3735
+immitis_in_posadasii_out_v5	shell+soft_core	gain	2491	778	0.3123	637	0.2557
+immitis_in_posadasii_out_v5	shell+soft_core	loss	749	494	0.6595	390	0.5207
+immitis_in_posadasii_out_v5	shell+soft_core	ALL	4635	1907	0.4114	1548	0.3340

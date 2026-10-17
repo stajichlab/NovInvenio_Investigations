@@ -1,0 +1,5 @@
+label	scope	direction	n_families	n_with_pfam	frac_with_pfam	n_with_pfam_clan	frac_with_pfam_clan
+full_v072	soft_core+shell+cloud+singleton	ambiguous	1550	1232	0.7948	1007	0.6497
+full_v072	soft_core+shell+cloud+singleton	gain	26267	13823	0.5262	11711	0.4458
+full_v072	soft_core+shell+cloud+singleton	loss	1320	1159	0.8780	934	0.7076
+full_v072	soft_core+shell+cloud+singleton	ALL	29137	16214	0.5565	13652	0.4685

@@ -1,0 +1,16 @@
+script: bin/pangenome_gain_loss_enrichment_figures.py
+script_sha256: d1a3262dbeb1271c1a644fc75d3f2a24b8e8e278355a039e6f906934bee784c6
+command: bash studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/make_figures.sh
+date_utc: '2026-10-17'
+derived_by: bin/pangenome_gain_loss_enrichment_figures.py (top 10 Pfam by p per test set, bars = -log10 BH q)
+figures:
+  immitis_in_posadasii_out_v5_pfam_top: {png, svg, pdf, tsv (numbers drawn)}
+  posadasii_in_immitis_out_v2_pfam_top: {png, svg, pdf, tsv (numbers drawn)}
+inputs:
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/immitis_in_posadasii_out_v5/shell_soft_core/enrichment_domains.tsv.gz
+  sha256: db00f074d963cb67ee3462a8454e5ad059cc2def26718acdb4b6793f9e871ca0
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/shell_soft_core/enrichment_domains.tsv.gz
+  sha256: bbd2f36e4d2e6c1faf466534986053ab3697603fe3494a38e9cb3b729d246a27
+- note: also coverage.tsv, tests.tsv, PROVENANCE.yaml of the same dirs, and analysis/gain_loss/<run>/PROVENANCE.yaml (genome counts, rule)
+scope: shell + soft-core families (primary test); annotation = family representative protein only
+license: derived from the lab's own pipeline output and Pfam (CC0 1.0)

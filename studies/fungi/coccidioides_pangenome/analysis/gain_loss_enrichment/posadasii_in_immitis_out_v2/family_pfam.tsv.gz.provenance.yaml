@@ -1,0 +1,77 @@
+local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/family_pfam.tsv.gz
+source_url: file:///bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/pfam_hmmsearch/chunk_000.domtbl.zst;
+  file:///bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/pfam_hmmsearch/chunk_001.domtbl.zst
+source_release: Pfam 38.2 (from directory name 2026-01-27-Pfam38.2); HMMER 3.4 (Aug
+  2023) (hmmsearch)
+access_date: '2026-10-17T14:39:49Z'
+checksum_sha256: d0e74a97e1e468f994d5584f8248b231a7aebaebae7a0b3f977781659096db2c
+license: 'Pfam data: CC0 1.0 (https://www.ebi.ac.uk/interpro/about/pfam/)'
+derived_by: 'bin/hmm_domtbl_to_annotations.py: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/bin/hmm_domtbl_to_annotations.py
+  --domtbl /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/pfam_hmmsearch/chunk_000.domtbl.zst
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/pfam_hmmsearch/chunk_001.domtbl.zst
+  --fasta /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/cluster/tier1_rep_seq.fasta
+  --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/family_pfam.tsv.gz
+  --pfam-hmm /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm'
+pulled_with: hmm_domtbl_to_annotations.py on i29
+annotation_source: Pfam-A HMM search (hmmsearch); Pfam only
+vocabularies_available:
+- pfam
+- pfam_clan (derived from Pfam-A.hmm.dat by the reader)
+vocabularies_not_available:
+- go
+- interpro
+statement: 'GO and InterPro are not available for this source: the annotation comes
+  from a Pfam-A HMM search only. The go_ids and interpro_ids columns are empty for
+  every protein.'
+thresholds: used as given in the domain table (no new threshold applied); see hmmer_command
+  (--cut_ga = Pfam gathering thresholds)
+pfam_hmm: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm
+pfam_release: Pfam 38.2 (from directory name 2026-01-27-Pfam38.2)
+source_domtbl:
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/pfam_hmmsearch/chunk_000.domtbl.zst
+  sha256: 6d75ba17f7969d9754c320b33023d3adaa8c85df9fd6a21280949b62d260a9b2
+  layout: hmmsearch
+  program: hmmsearch
+  hmmer_version: 3.4 (Aug 2023)
+  hmmer_command: hmmsearch -o /dev/null --domtblout /scratch/jstajich/30034375/pfam_reps_30034375/out.domtbl
+    --noali --cut_ga --cpu 8 /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm
+    /scratch/jstajich/30034375/pfam_reps_30034375/in.fa
+  cut_ga_in_command: true
+  run_date: Sat Oct 17 07:29:12 2026
+  n_domain_rows: 18111
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/pfam_hmmsearch/chunk_001.domtbl.zst
+  sha256: 4ad37d569cf0b4f8036951f8ccb2f25325c7a5a84f8e0b4a9672909e0cc1caab
+  layout: hmmsearch
+  program: hmmsearch
+  hmmer_version: 3.4 (Aug 2023)
+  hmmer_command: hmmsearch -o /dev/null --domtblout /scratch/jstajich/30034376/pfam_reps_30034376/out.domtbl
+    --noali --cut_ga --cpu 8 /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm
+    /scratch/jstajich/30034376/pfam_reps_30034376/in.fa
+  cut_ga_in_command: true
+  run_date: Sat Oct 17 07:28:07 2026
+  n_domain_rows: 17258
+protein_fasta:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/cluster/tier1_rep_seq.fasta
+  sha256: 6b699d075b59a72f8589bd5c8ac38cf995deacd3d8e3bd4991f8df140ccbd597
+taxon_id: null
+columns:
+- accession
+- taxon_id
+- gene_name
+- description
+- go_ids
+- pfam_ids
+- pfam_names
+- interpro_ids
+- ec_numbers
+- alphafold_id
+- xrefs
+- pfam_best_ievalue
+- pfam_best_domain_score
+counts:
+  n_rows: 35747
+  n_proteins_with_pfam: 15900
+  n_domain_rows: 35369
+  n_pfam_families: 4904
+  n_fasta_proteins: 35747

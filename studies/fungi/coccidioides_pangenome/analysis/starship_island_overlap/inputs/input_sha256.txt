@@ -1,0 +1,4 @@
+ab785c0360077ba53a49cea1423d3bbcaacc722232212ce5ada1e071c5d88733  /scratch/jstajich/30034540/cocci_captain_sm/study_proteins.faa
+64ac8d59c1528ecefc3ea908d5e0521ad87d632b4be88bfb24c27e74aa965804  /scratch/jstajich/30034540/cocci_captain_sm/antismash/all_proteins.faa
+7232b269ff30ce490ad97b146fa983baa4a3e6413ac5cb8f901f16615c2bfa2c  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/captain_gene/DUF3435.hmm
+4047000

@@ -1,0 +1,30 @@
+# Inputs for analysis/starship_island_overlap (created 2026-10-17)
+af293_starships_table_s7.elements.tsv:
+  sha256: 285270131d443597ce67cc7c9559b0eec722eaedbe1e0641adae504faed2f493
+  derived_from: analysis/island_genome_count/inputs/af293_starships_table_s7.tsv
+  derived_from_sha256: 9e0df961c196c06788485cac73ff07e1a8731f0bc8d1fa1b7709d88383b5d6c8
+  source: Gluck-Thaler et al. 2025 mBio doi:10.1128/mbio.01092-25, Table S7 (mbio.01092-25-s0002.xlsx,
+    sha256 40d9e5258c6fe68c6f89ad733dda726bef87b3586aaf91148b29aeae5dc0b920, CC BY 4.0; see DATA_MANIFEST.yaml)
+  derived_by: "awk column reorder: element_id=starship_id, label=name+haplotype, confidence, Short=Asfu_Af293, contig, start, end"
+af293_unplaced_swissprot_coords.tsv:
+  sha256: bf2880672c5d1c44d72e0187258da38bd14ed17c732bf0e4fa10ff665a35f627
+  derived_by: scripts/af293_missing_coords.py --cluster-tsv results/full_v072/config/pangenome/cluster/tier1_cluster.tsv
+    --gene-positions results/full_v072/config/pangenome/gene_positions.tsv.zst --uniprot-tsv annotations/UP000002530.tsv.gz
+    --gff3 data_dir/gff3/UP000002530_330879.gff3
+  inputs:
+    annotations/UP000002530.tsv.gz:
+      sha256: 8331c991baa8ad647a69e7798bbdb9369b5176776e9e82ea98c64d2d441d19fa
+      provenance: NOT FOUND (no DATA_MANIFEST entry, no sidecar). UniProt release and download date unknown.
+    data_dir/gff3/UP000002530_330879.gff3:
+      sha256: 6a8675f860af7c99b4b72439688cbb6adbd7172375755f2adc8f32631834585e
+  result: 961 Af293 cluster members absent from gene_positions; 941 recovered via KEGG:afm locus tag -> GFF3 gene
+strains_full_v070.txt / strains_full_v072.txt:
+  sha256: 3319ea88be2282008ea35c554eb40e6de6eafe5eb3620e42a3978b4aa3325afa
+  derived_by: "tail -n +2 results/<run>/config/pangenome/strain_inventory.tsv | cut -f1"
+other_inputs_used_in_place:
+  results/captain_gene/DUF3435_vs_study.tblout:
+    sha256: 11ef6436a703329c1dd04c995f09951e08f03aeb153036800eab6577126e2c4f
+    note: hmmsearch PF11917.14 (DUF3435) vs results/full_293run/all_strains.fa (2,788,402 proteins); ad hoc command, no script (NEXTFLOW_MIGRATION_NOTES.md:39-40)
+  results/sm_backbone/SM_backbone_vs_study.tblout:
+    sha256: ac3914eb1df2d1e6b9680499c339a3332951a5fbcc3a8f2bc9b7ac539acafd96
+    note: hmmsearch PF00109 + PF00668 vs the same proteins (PANGENOME_CLUSTER_PROFILE_NOTES.md:1222-1227)

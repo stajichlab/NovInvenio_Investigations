@@ -1,0 +1,13 @@
+script: bin/pangenome_gain_loss_enrichment_figures.py
+script_sha256: d1a3262dbeb1271c1a644fc75d3f2a24b8e8e278355a039e6f906934bee784c6
+command: bash studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/make_figures.sh
+date_utc: '2026-10-17'
+derived_by: bin/pangenome_gain_loss_enrichment_figures.py (top 10 Pfam by p per test set, bars = -log10 BH q)
+figures:
+  full_v072_pfam_top: {png, svg, pdf, tsv (numbers drawn)}
+inputs:
+- path: studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/shell_soft_core/enrichment_domains.tsv.gz
+  sha256: 7f2206637da6def662b114a32a5398ef29c5f938132bd509db8758dcdc220fda
+- note: also coverage.tsv, tests.tsv, PROVENANCE.yaml of the same dir, and analysis/gain_loss/full_v072/PROVENANCE.yaml (genome counts, rule)
+scope: shell + soft-core families (primary test); annotation = family representative protein only
+license: derived from the lab's own pipeline output and Pfam (CC0 1.0)

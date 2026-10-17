@@ -1,0 +1,4 @@
+label	clade_source	clade	n_ingroup_reps	present_gain	present_loss	present_ambiguous	private_gain	private_loss	private_ambiguous
+posadasii_in_immitis_out_v2	stratum	clade_0	50	9504	1583	1021	1459	12	22
+posadasii_in_immitis_out_v2	stratum	clade_1	221	18987	1785	1275	10184	175	241
+posadasii_in_immitis_out_v2	stratum	clade_2	7	6197	1452	830	919	0	7

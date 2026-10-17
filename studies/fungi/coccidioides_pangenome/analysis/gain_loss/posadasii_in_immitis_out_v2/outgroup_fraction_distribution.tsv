@@ -1,0 +1,4 @@
+label	scope	outgroup_carriers	n_families	rule_freq
+posadasii_in_immitis_out_v2	selected	0/2	21474	gain
+posadasii_in_immitis_out_v2	selected	1/2	1306	ambiguous
+posadasii_in_immitis_out_v2	selected	2/2	1799	loss

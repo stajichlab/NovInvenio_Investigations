@@ -1,0 +1,77 @@
+local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/family_pfam.tsv.gz
+source_url: file:///bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/pfam_hmmsearch/chunk_000.domtbl.zst;
+  file:///bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/pfam_hmmsearch/chunk_001.domtbl.zst
+source_release: Pfam 38.2 (from directory name 2026-01-27-Pfam38.2); HMMER 3.4 (Aug
+  2023) (hmmsearch)
+access_date: '2026-10-17T14:39:26Z'
+checksum_sha256: 3edb9dd7a05e64f4fe6213d4141787096f587dc7154a49edf5a6f4450e8cd3cd
+license: 'Pfam data: CC0 1.0 (https://www.ebi.ac.uk/interpro/about/pfam/)'
+derived_by: 'bin/hmm_domtbl_to_annotations.py: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/bin/hmm_domtbl_to_annotations.py
+  --domtbl /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/pfam_hmmsearch/chunk_000.domtbl.zst
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/pfam_hmmsearch/chunk_001.domtbl.zst
+  --fasta /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/cluster/tier1_rep_seq.fasta
+  --out /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/family_pfam.tsv.gz
+  --pfam-hmm /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm'
+pulled_with: hmm_domtbl_to_annotations.py on i29
+annotation_source: Pfam-A HMM search (hmmsearch); Pfam only
+vocabularies_available:
+- pfam
+- pfam_clan (derived from Pfam-A.hmm.dat by the reader)
+vocabularies_not_available:
+- go
+- interpro
+statement: 'GO and InterPro are not available for this source: the annotation comes
+  from a Pfam-A HMM search only. The go_ids and interpro_ids columns are empty for
+  every protein.'
+thresholds: used as given in the domain table (no new threshold applied); see hmmer_command
+  (--cut_ga = Pfam gathering thresholds)
+pfam_hmm: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm
+pfam_release: Pfam 38.2 (from directory name 2026-01-27-Pfam38.2)
+source_domtbl:
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/pfam_hmmsearch/chunk_000.domtbl.zst
+  sha256: 920080b32af65bee6b232be8469c00c84e6d5a01874d860e8aa57672ff7a308e
+  layout: hmmsearch
+  program: hmmsearch
+  hmmer_version: 3.4 (Aug 2023)
+  hmmer_command: hmmsearch -o /dev/null --domtblout /scratch/jstajich/30034371/pfam_reps_30034371/out.domtbl
+    --noali --cut_ga --cpu 8 /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm
+    /scratch/jstajich/30034371/pfam_reps_30034371/in.fa
+  cut_ga_in_command: true
+  run_date: Sat Oct 17 07:38:53 2026
+  n_domain_rows: 30789
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/pfam_hmmsearch/chunk_001.domtbl.zst
+  sha256: c6345121783024b9cbaae27c1be96231aa5b6bf1af33991876c65c80094fd71c
+  layout: hmmsearch
+  program: hmmsearch
+  hmmer_version: 3.4 (Aug 2023)
+  hmmer_command: hmmsearch -o /dev/null --domtblout /scratch/jstajich/30034372/pfam_reps_30034372/out.domtbl
+    --noali --cut_ga --cpu 8 /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm
+    /scratch/jstajich/30034372/pfam_reps_30034372/in.fa
+  cut_ga_in_command: true
+  run_date: Sat Oct 17 07:37:24 2026
+  n_domain_rows: 29221
+protein_fasta:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/cluster/tier1_rep_seq.fasta
+  sha256: a9e1ef787690a2d586774c6f6c4197887c491b37738ec65032f2bcd48c44cbca
+taxon_id: null
+columns:
+- accession
+- taxon_id
+- gene_name
+- description
+- go_ids
+- pfam_ids
+- pfam_names
+- interpro_ids
+- ec_numbers
+- alphafold_id
+- xrefs
+- pfam_best_ievalue
+- pfam_best_domain_score
+counts:
+  n_rows: 47954
+  n_proteins_with_pfam: 28636
+  n_domain_rows: 60010
+  n_pfam_families: 5852
+  n_fasta_proteins: 47954

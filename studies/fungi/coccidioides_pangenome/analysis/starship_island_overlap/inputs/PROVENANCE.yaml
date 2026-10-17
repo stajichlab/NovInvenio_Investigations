@@ -1,0 +1,28 @@
+# Inputs for analysis/starship_island_overlap (created 2026-10-17, SLURM 30034540)
+derived_by: scripts/run_captain_antismash.sh
+hmm:
+  path: studies/fungi/Afumigatus_pangenome/results/captain_gene/DUF3435.hmm (Pfam PF11917.14)
+  sha256: 7232b269ff30ce490ad97b146fa983baa4a3e6413ac5cb8f901f16615c2bfa2c
+DUF3435_vs_study.tblout.zst:
+  sha256: faac599c55fc358aa5efc4712bf22d65182d84220525341ec62bf64dea874ae0
+  target: data_dir/pep/<Protein> of config_immitis_in_posadasii_out.csv (529 strains, 4,504,703 proteins,
+    headers rewritten to Short|protein_id; FASTA sha256 ab785c0360077ba53a49cea1423d3bbcaacc722232212ce5ada1e071c5d88733, kept on node scratch only)
+  tool: hmmsearch (HMMER 3.4, NII pixi env), --tblout, no E cutoff at search time; downstream full-sequence E <= 1e-5
+DUF3435_vs_antismash_annotation.tblout.zst:
+  sha256: 0be53835d7a6d8b540ccdf9658cf146ab2239de37a3c470b6df5c9a259826d18
+  target: annotate_misc/genome.proteins.fasta of 479 strains (4,047,000 proteins; FASTA sha256
+    64ac8d59c1528ecefc3ea908d5e0521ad87d632b4be88bfb24c27e74aa965804, node scratch only)
+antismash/:
+  derived_by: scripts/parse_antismash.py --annotation-root
+    /bigdata/stajichlab/shared/projects/Coccidioides/PopGenomics/2025_All_Cocci/Assembly/annotation
+    --config config_immitis_in_posadasii_out.csv
+  source: per-strain funannotate 1.8.17 + antiSMASH 8.0.1 output (region .gbk headers 'Run date 2025-07-28');
+    NOT the annotation freeze 20260112 used by the pangenome runs (contig names and gene models differ;
+    exact protein-sequence match of antiSMASH region CDS to freeze proteins: 457/2332 in 1M0, 457/2274 in RS, 445/2227 in B3245)
+  sha256:
+    sm_regions.tsv.gz: d8d24e911c9d39d9fa78837bb0741f541bd1d256a3ea41b990a47e08d0c061f1
+    sm_region_genes.tsv.gz: 8553408c8a913341c9187b3ca0ed0eb6a4839b52a4e136354c99be575035814a
+    gene_coords.tsv.gz: 922f270577b13bb2567c9bceb1f012678d870445718256e7d9666c02b6857463
+    gene_counts.tsv: bbbddc1411a2282381d7c084634e322f469dbe98510dbba9e0901f41b9c14e42
+    strain_map.tsv: fe1bc9a6621a42d9d14ead024ab03b563d07dca711cd8a3c7b924e88cc68bee6
+  license: internal lab data (Stajich lab)
