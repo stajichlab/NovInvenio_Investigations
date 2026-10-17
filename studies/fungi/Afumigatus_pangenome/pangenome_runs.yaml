@@ -27,5 +27,6 @@ runs:
     current: true
     locus_summary_dir: analysis/locus_summary/fig
     starship_overlap_dir: analysis/starship_island_overlap/full_v072
+    starship_sm_dir: analysis/starship_island_overlap/full_v072_antismash
     params:
       pangenome_island_reference_strains: Asfu_Af293,Asfu_A1163

@@ -1,0 +1,40 @@
+host: r07  cpus: 8  job: 30035698
+/opt/linux/rocky/8.x/x86_64/pkgs/antismash/8.0.4/bin/antismash
+antiSMASH 8.0.4
+start: 2026-10-17T08:21:28-07:00
+command: antismash --taxon fungi --genefinding-gff3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/data_dir/gff3/UP000002530_330879.gff3 --output-dir /scratch/jstajich/30035698/af293_antismash/run --output-basename Af293 --fullhmmer --clusterhmmer --cb-general --cb-knownclusters --cb-subclusters --asf --pfam2go -c 8 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/data_dir/dna/UP000002530_330879.dna.fa
+end: 2026-10-17T09:30:33-07:00
+runtime_seconds: 4145
+272M	/scratch/jstajich/30035698/af293_antismash/run
+300K	/scratch/jstajich/30035698/af293_antismash/run/CM000171.1.region005.gbk
+312K	/scratch/jstajich/30035698/af293_antismash/run/CM000170.1.region001.gbk
+312K	/scratch/jstajich/30035698/af293_antismash/run/CM000171.1.region006.gbk
+328K	/scratch/jstajich/30035698/af293_antismash/run/CM000169.1.region006.gbk
+332K	/scratch/jstajich/30035698/af293_antismash/run/CM000175.1.region001.gbk
+336K	/scratch/jstajich/30035698/af293_antismash/run/CM000174.1.region005.gbk
+348K	/scratch/jstajich/30035698/af293_antismash/run/CM000171.1.region003.gbk
+356K	/scratch/jstajich/30035698/af293_antismash/run/CM000169.1.region003.gbk
+372K	/scratch/jstajich/30035698/af293_antismash/run/CM000174.1.region004.gbk
+384K	/scratch/jstajich/30035698/af293_antismash/run/CM000171.1.region002.gbk
+384K	/scratch/jstajich/30035698/af293_antismash/run/js
+400K	/scratch/jstajich/30035698/af293_antismash/run/CM000173.1.region007.gbk
+692K	/scratch/jstajich/30035698/af293_antismash/run/CM000176.1.region001.gbk
+1.1M	/scratch/jstajich/30035698/af293_antismash/run/index.html
+1.6M	/scratch/jstajich/30035698/af293_antismash/run/clusterblast
+12M	/scratch/jstajich/30035698/af293_antismash/run/regions.js
+20M	/scratch/jstajich/30035698/af293_antismash/run/knownclusterblast
+47M	/scratch/jstajich/30035698/af293_antismash/run/Af293.zip
+90M	/scratch/jstajich/30035698/af293_antismash/run/Af293.gbk
+92M	/scratch/jstajich/30035698/af293_antismash/run/Af293.json
+Af293.gbk 93470105 bytes > 20 MB: not copied
+total 25604
+drwxrwx--- 2 jstajich stajichlab     4096 Oct 17 09:30 .
+drwxrwx--- 5 jstajich stajichlab     4096 Oct 17 08:17 ..
+-rw-rw---- 1 jstajich stajichlab 21387116 Oct 17 09:30 Af293.json.gz
+-rw-rw---- 1 jstajich stajichlab     2226 Oct 17 09:30 antismash.30035698.log
+-rw-rw---- 1 jstajich stajichlab  1937735 Oct 17 09:30 clusterblast_txt.tar.gz
+-rw-rw---- 1 jstajich stajichlab      499 Oct 17 09:30 command.txt
+-rw-rw---- 1 jstajich stajichlab      407 Oct 17 09:30 inputs.sha256
+-rw-rw---- 1 jstajich stajichlab  2139740 Oct 17 09:30 region_gbks.tar.gz
+-rw-rw---- 1 jstajich stajichlab       22 Oct 17 09:30 runtime.txt
+-rw-rw---- 1 jstajich stajichlab       16 Oct 17 09:30 version.txt
