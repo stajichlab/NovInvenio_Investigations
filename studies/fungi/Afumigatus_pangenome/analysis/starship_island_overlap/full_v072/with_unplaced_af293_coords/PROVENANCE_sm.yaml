@@ -1,0 +1,19 @@
+derived_by: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/starship_island_overlap/scripts/sm_backbone_starship.py
+date: 2026-10-17
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/starship_island_overlap/scripts/sm_backbone_starship.py --run-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome --starship-annotation /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/starship_island_overlap/inputs/af293_starships_table_s7.elements.tsv --sm-tblout /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/sm_backbone/SM_backbone_vs_study.tblout --captain-tblout /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/captain_gene/DUF3435_vs_study.tblout --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/starship_island_overlap/full_v072/with_unplaced_af293_coords --extra-gene-positions /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/starship_island_overlap/inputs/af293_unplaced_swissprot_coords.tsv
+inputs:
+  run_dir_frequency_table:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/frequency_table.tsv
+    sha256: 531f4e90c22fcf3296e2de84fb1764d5120d612109a78b186b59e6674f1dbbd9
+  significant_islands:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/significant_islands.tsv
+    sha256: 2d49972a2e7d6302d4c6e453cef8c7dc3d16adc43c206a5231cf5f87ec403201
+  starship_annotation:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/starship_island_overlap/inputs/af293_starships_table_s7.elements.tsv
+    sha256: 285270131d443597ce67cc7c9559b0eec722eaedbe1e0641adae504faed2f493
+  sm_tblout:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/sm_backbone/SM_backbone_vs_study.tblout
+    sha256: ac3914eb1df2d1e6b9680499c339a3332951a5fbcc3a8f2bc9b7ac539acafd96
+  captain_tblout:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/captain_gene/DUF3435_vs_study.tblout
+    sha256: 11ef6436a703329c1dd04c995f09951e08f03aeb153036800eab6577126e2c4f

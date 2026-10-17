@@ -1,0 +1,5 @@
+label	scope	test_set	vocab	M_universe_annotated	N_set_annotated	n_set_all	n_terms_tested	n_fdr05	n_fdr05_k3	n_fdr05_fold_gt1
+full_v072	cloud+singleton	gain	pfam	12634	11610	22605	841	2	2	2
+full_v072	cloud+singleton	gain	pfam_clan	10661	9830	22605	285	1	1	1
+full_v072	cloud+singleton	loss	pfam	12634	290	333	841	0	0	0
+full_v072	cloud+singleton	loss	pfam_clan	10661	222	333	285	0	0	0

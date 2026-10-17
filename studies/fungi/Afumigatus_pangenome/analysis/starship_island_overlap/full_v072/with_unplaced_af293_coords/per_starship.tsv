@@ -1,0 +1,9 @@
+element_id	label	confidence	Short	contig	start	end	length_bp	n_genes	n_families	n_noncore_families	n_families_in_island	frac_families_in_island	n_islands_hit_family_level	n_island_instances_overlapping	n_genes_inside_island_instances	frac_genes_inside_island_instances	bins
+AF293_e00029	Lamia h4	high	Asfu_Af293	CM000169.1	6458	394211	387754	71	71	67	67	0.9437	306	2	67	0.9437	cloud:39;core:3;shell:12;singleton:16;soft_core:1
+AF293_e00039	Gnosis h1	high	Asfu_Af293	CM000174.1	2214324	2290180	75857	21	21	21	21	1.0	219	1	21	1.0	cloud:12;shell:9
+AF293_e00041	Janus (likely) h2 (likely)	unknown	Asfu_Af293	CM000175.1	1807654	1860556	52903	6	6	6	6	1.0	93	1	6	1.0	cloud:4;shell:1;singleton:1
+AF293_s00031	Nebuchadnezzar h2	high	Asfu_Af293	CM000169.1	4343057	4400402	57346	20	20	20	20	1.0	24	1	20	1.0	cloud:16;singleton:4
+AF293_s00032	Osiris h4	high	Asfu_Af293	CM000171.1	639099	688497	49399	12	12	12	12	1.0	118	1	12	1.0	cloud:1;shell:10;singleton:1
+AF293_s00035	Osiris h3	high	Asfu_Af293	CM000171.1	1012445	1089733	77289	3	3	3	3	1.0	21	1	3	1.0	cloud:1;singleton:2
+AF293_s00037	Nebuchadnezzar h1	high	Asfu_Af293	CM000173.1	3842374	3895486	53113	19	19	19	18	0.9474	48	1	19	1.0	cloud:18;singleton:1
+AF293_s00042	Tardis h1	high	Asfu_Af293	CM000176.1	1455665	1544699	89035	25	25	25	25	1.0	196	1	25	1.0	cloud:14;shell:9;singleton:2

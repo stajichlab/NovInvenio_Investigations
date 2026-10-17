@@ -1,0 +1,8 @@
+label	scope	n_families	freq_gain	freq_loss	freq_ambiguous	strict_gain	strict_loss	strict_ambiguous
+posadasii_in_immitis_out_v2	selected:soft_core+shell+cloud+singleton	24579	21474	1799	1306	21474	1799	1306
+posadasii_in_immitis_out_v2	selected+nonrep_only	27941	24790	1815	1336	24790	1815	1336
+posadasii_in_immitis_out_v2	nonrep_only	3362	3316	16	30	3316	16	30
+posadasii_in_immitis_out_v2	outgroup_only(rule_freq)	1435	0	570	865	0	570	865
+posadasii_in_immitis_out_v2	ingroup_only(rule_freq)	0	0	0	0	0	0	0
+posadasii_in_immitis_out_v2	core(rule_freq)	6371	387	5751	233	387	5751	233
+posadasii_in_immitis_out_v2	pair_family_a	7090	5576	816	698	5576	816	698

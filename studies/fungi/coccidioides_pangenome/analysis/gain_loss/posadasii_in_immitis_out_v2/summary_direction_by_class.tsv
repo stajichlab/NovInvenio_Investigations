@@ -1,0 +1,8 @@
+label	class	n_families	direction_gain	direction_loss	direction_ambiguous	direction_conserved	direction_absent	rule_freq_gain	rule_freq_loss	rule_freq_ambiguous
+posadasii_in_immitis_out_v2	core	6371	0	0	0	6371	0	387	5751	233
+posadasii_in_immitis_out_v2	soft_core	609	195	357	57	0	0	195	357	57
+posadasii_in_immitis_out_v2	shell	4333	2773	1012	548	0	0	2773	1012	548
+posadasii_in_immitis_out_v2	cloud	11368	10451	346	571	0	0	10451	346	571
+posadasii_in_immitis_out_v2	singleton	8269	8055	84	130	0	0	8055	84	130
+posadasii_in_immitis_out_v2	nonrep_only	3362	3316	16	30	0	0	3316	16	30
+posadasii_in_immitis_out_v2	outgroup_only	1435	0	0	0	0	1435	0	570	865

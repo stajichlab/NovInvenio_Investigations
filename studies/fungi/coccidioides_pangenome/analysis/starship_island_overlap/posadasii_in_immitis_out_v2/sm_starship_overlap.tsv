@@ -1,0 +1,15 @@
+metric	value	definition
+strains_in_run	362	rows of the run samplesheet
+strains_with_antismash	335	exact name match to an annotation dir with antiSMASH output
+strains_without_antismash	Coahuila_2,UTAH_20380X1,UTAH_20380X2,UTAH_20380X5,UTAH_23742X12,UTAH_23742X144,UTAH_23742X160,UTAH_23742X163,UTAH_23742X165,UTAH_23742X168,UTAH_23742X18,UTAH_23742X189,UTAH_23742X19,UTAH_23742X195,UTAH_23742X199,UTAH_23742X208,UTAH_23742X209,UTAH_23742X246,UTAH_23742X253,UTAH_23742X38,UTAH_23742X40,UTAH_23742X44,UTAH_23742X51,UTAH_23742X6,UTAH_23742X7,UTAH_23742X83,UTAH_23742X84	
+sm_clusters	8739	antiSMASH 8.0.1 regions
+sm_clusters_with_captain_gene	22	region CDS include a DUF3435 hit
+sm_clusters_overlapping_starship_ge1gene	NA	no Starship element calls for Coccidioides
+sm_clusters_overlapping_starship_ge50pct	NA	no Starship element calls for Coccidioides
+genes_total	2819145	proteins in the included strains' annotations
+captain_genes	3674	DUF3435 hits, E <= 1e-05
+genes_in_sm_clusters	163152	
+captain_genes_in_sm_clusters	26	
+expected_captain_genes_in_sm_clusters	212.62	K*n/N
+p_hypergeom_greater	1	pooled over strains
+p_hypergeom_less	2.69e-61	pooled over strains (depletion)

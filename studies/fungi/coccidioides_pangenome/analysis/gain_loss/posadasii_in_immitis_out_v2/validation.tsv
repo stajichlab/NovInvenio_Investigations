@@ -1,0 +1,12 @@
+label	column	value	pipeline	this_script
+posadasii_in_immitis_out_v2	direction_a_freq	gain	5576	5576
+posadasii_in_immitis_out_v2	direction_a_freq	loss	816	816
+posadasii_in_immitis_out_v2	direction_a_freq	ambiguous	698	698
+posadasii_in_immitis_out_v2	direction_a_freq	family_mismatches	0	0
+posadasii_in_immitis_out_v2	direction_a	gain	5576	5576
+posadasii_in_immitis_out_v2	direction_a	loss	816	816
+posadasii_in_immitis_out_v2	direction_a	ambiguous	698	698
+posadasii_in_immitis_out_v2	direction_a	family_mismatches	0	0
+posadasii_in_immitis_out_v2	asymmetry_a	4dp_mismatches	0	0
+posadasii_in_immitis_out_v2	pairs	unique_family_a	7090	7090
+posadasii_in_immitis_out_v2	pairs	family_a_label_conflicts	0	

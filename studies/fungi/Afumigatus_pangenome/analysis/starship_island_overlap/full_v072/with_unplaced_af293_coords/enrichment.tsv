@@ -1,0 +1,11 @@
+annotation	universe	N_universe	K_annotated	n_island	k_both	expected_k	fold	odds_ratio	p_hypergeom_greater	frac_annotated_in_island	frac_universe_in_island
+starship_all	cooc_eligible	8452	93	5681	93	62.51	1.488	inf	7.02e-17	1.0	0.6721
+starship_all	cooc_eligible_in_annotated_strain	1945	93	1407	93	67.28	1.382	inf	3.48e-14	1.0	0.7234
+starship_all	noncore	40122	168	11683	167	48.92	3.414	412.395	1.69e-88	0.994	0.2912
+starship_all	noncore_in_annotated_strain	3017	168	1707	167	95.05	1.757	141.95	9.35e-42	0.994	0.5658
+starship_high	cooc_eligible	8452	89	5681	89	59.82	1.488	inf	3.51e-16	1.0	0.6721
+starship_high	cooc_eligible_in_annotated_strain	1945	89	1407	89	64.38	1.382	inf	1.37e-13	1.0	0.7234
+starship_high	noncore	40122	162	11683	161	47.17	3.413	397.372	2.84e-85	0.9938	0.2912
+starship_high	noncore_in_annotated_strain	3017	162	1707	161	91.66	1.757	136.319	3.59e-40	0.9938	0.5658
+captain	cooc_eligible	8452	45	5681	45	30.25	1.488	inf	1.63e-08	1.0	0.6721
+captain	noncore	40122	217	11683	122	63.19	1.931	3.148	6.78e-17	0.5622	0.2912

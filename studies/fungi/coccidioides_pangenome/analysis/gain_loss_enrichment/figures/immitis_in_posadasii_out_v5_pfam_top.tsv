@@ -1,0 +1,21 @@
+label	scope	test_set	vocab	term	name	k	n_set	K	M	fold	p	q
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF11917	DUF3435: Protein of unknown function (DUF3435)	30	778	33	1907	2.228324375	1.882509322e-09	1.957809695e-07
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF17667	Pkinase_fungal: Fungal protein kinase	14	778	16	1907	2.144762211	0.0001540499915	0.008010599559
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF27653	SPOK2_N: Spore killer 2 N-terminal domain	5	778	5	1907	2.451156812	0.01121581142	0.2484310007
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF28515	HrmA: Subtelomeric hrmA-associated cluster protein	5	778	5	1907	2.451156812	0.01121581142	0.2484310007
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF00069	Pkinase: Protein kinase domain	42	778	78	1907	1.319853668	0.01194379811	0.2484310007
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF00561	Abhydrolase_1: alpha/beta hydrolase fold	6	778	7	1907	2.100991553	0.02080113566	0.3217664968
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF00004	AAA: ATPase family associated with various cellular activities (AAA)	7	778	9	1907	1.906455298	0.02784517761	0.3217664968
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF00176	SNF2-rel_dom: SNF2-related domain	7	778	9	1907	1.906455298	0.02784517761	0.3217664968
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF20174	DUF6540: Family of unknown function (DUF6540)	7	778	9	1907	1.906455298	0.02784517761	0.3217664968
+immitis_in_posadasii_out_v5	shell+soft_core	gain	pfam	PF00350	Dynamin_N: Dynamin family	5	778	6	1907	2.042630677	0.04450353774	0.4628367925
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF00018	SH3_1: SH3 domain	4	494	5	1907	3.088259109	0.0177166102	1
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF07992	Pyr_redox_2: Pyridine nucleotide-disulphide oxidoreductase	4	494	6	1907	2.573549258	0.04231533011	1
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF00550	PP-binding: Phosphopantetheine attachment site	3	494	5	1907	2.316194332	0.1130053378	1
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF12937	F-box-like: F-box-like	5	494	11	1907	1.754692676	0.129038309	1
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF13391	HNH_2: HNH endonuclease	5	494	11	1907	1.754692676	0.129038309	1
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF00400	WD40: WD domain, G-beta repeat	4	494	9	1907	1.715699505	0.1825534139	1
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF20434	BD-FAE: BD-FAE	3	494	6	1907	1.930161943	0.1836953455	1
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF00082	Peptidase_S8: Subtilase family	4	494	10	1907	1.544129555	0.2451996059	1
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF00135	COesterase: Carboxylesterase family	3	494	7	1907	1.654424523	0.2623430921	1
+immitis_in_posadasii_out_v5	shell+soft_core	loss	pfam	PF00271	Helicase_C: Helicase conserved C-terminal domain	3	494	7	1907	1.654424523	0.2623430921	1

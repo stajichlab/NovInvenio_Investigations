@@ -1,0 +1,47 @@
+script: bin/pangenome_gain_loss_enrichment.py
+script_sha256: fd2c99d67bd9eb307d15e73d0e4750bf9359b7cfe23d38c4517945e56949a1d6
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/bin/pangenome_gain_loss_enrichment.py
+  --gain-loss-table /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss/posadasii_in_immitis_out_v2/family_gain_loss.tsv.gz
+  --family-annotation /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/family_pfam.tsv.gz
+  --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/cloud_singleton
+  --classes cloud,singleton --label posadasii_in_immitis_out_v2
+date_utc: '2026-10-17T14:39:57Z'
+host: i29
+label: posadasii_in_immitis_out_v2
+parameters:
+  classes:
+  - cloud
+  - singleton
+  direction_column: rule_freq
+  test_sets:
+  - gain
+  - loss
+  min_universe: 5
+  report_ids_fdr: 0.05
+  vocabularies:
+  - pfam
+  - pfam_clan
+definitions:
+  scope: families with class in ['cloud', 'singleton'] (19637 families)
+  universe: 'per vocabulary: scope families with >= 1 term of that vocabulary'
+  test_set: scope families with rule_freq == <test_set>, inside the universe
+  statistic: one-sided hypergeometric P(X >= k) = scipy.stats.hypergeom.sf(k-1, M,
+    K, N); BH FDR (lib/stats_util.bh_fdr) within each (test_set, vocab)
+  annotation_unit: family representative protein (mmseqs cluster representative);
+    other family members are not annotated
+  go_note: GO terms used as given, no propagation to parent terms
+inputs:
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss/posadasii_in_immitis_out_v2/family_gain_loss.tsv.gz
+  sha256: 47f366979b956003d4c84109837bd67c464c9ae9a1049d39e073699df6ed5c80
+  bytes: 231584
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/family_pfam.tsv.gz
+  sha256: d0e74a97e1e468f994d5584f8248b231a7aebaebae7a0b3f977781659096db2c
+  bytes: 623058
+- path: /bigdata/operations/pkgadmin/srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  bytes: 4855750
+outputs:
+- coverage.tsv
+- enrichment_domains.tsv.gz
+- tests.tsv
+license: derived from the lab's own pipeline output and Pfam (CC0 1.0)

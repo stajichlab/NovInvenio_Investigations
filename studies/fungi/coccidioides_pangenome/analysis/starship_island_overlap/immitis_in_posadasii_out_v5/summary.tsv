@@ -1,0 +1,14 @@
+run	metric	value	definition
+immitis_in_posadasii_out_v5	n_families	47780	rows of frequency_table.tsv
+immitis_in_posadasii_out_v5	n_islands	11968	rows of significant_islands.tsv
+immitis_in_posadasii_out_v5	n_islands_multi_strain	4112	islands with n_strains >= 2
+immitis_in_posadasii_out_v5	n_island_families	9394	families in >= 1 island (and in frequency_table)
+immitis_in_posadasii_out_v5	n_island_families_multi_strain	4432	families in >= 1 island with n_strains >= 2
+immitis_in_posadasii_out_v5	captain_hits	6292	tblout targets with full-sequence E <= 1e-05
+immitis_in_posadasii_out_v5	captain_hits_unmapped	0	hits whose target is not a cluster member
+immitis_in_posadasii_out_v5	n_captain_families	358	families in the annotation set
+immitis_in_posadasii_out_v5	n_captain_families_in_island	238	of those, in >= 1 island
+immitis_in_posadasii_out_v5	n_captain_families_in_multi_strain_island	75	of those, in >= 1 island with n_strains >= 2
+immitis_in_posadasii_out_v5	n_islands_with_captain_family	863	islands with >= 1 member family in the set
+immitis_in_posadasii_out_v5	frac_islands_with_captain_family	0.0721	
+immitis_in_posadasii_out_v5	frac_island_families_captain	0.0253	

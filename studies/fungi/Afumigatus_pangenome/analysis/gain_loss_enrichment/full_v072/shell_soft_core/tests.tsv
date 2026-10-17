@@ -1,0 +1,5 @@
+label	scope	test_set	vocab	M_universe_annotated	N_set_annotated	n_set_all	n_terms_tested	n_fdr05	n_fdr05_k3	n_fdr05_fold_gt1
+full_v072	shell+soft_core	gain	pfam	3580	2213	3662	260	8	8	8
+full_v072	shell+soft_core	gain	pfam_clan	2991	1881	3662	155	3	3	3
+full_v072	shell+soft_core	loss	pfam	3580	869	987	260	0	0	0
+full_v072	shell+soft_core	loss	pfam_clan	2991	712	987	155	0	0	0

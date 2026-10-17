@@ -1,0 +1,15 @@
+metric	value	definition
+strains_in_run	529	rows of the run samplesheet
+strains_with_antismash	479	exact name match to an annotation dir with antiSMASH output
+strains_without_antismash	Coahuila_2,UTAH_20380X1,UTAH_20380X10,UTAH_20380X16,UTAH_20380X2,UTAH_20380X5,UTAH_23742X111,UTAH_23742X12,UTAH_23742X123,UTAH_23742X138,UTAH_23742X144,UTAH_23742X153,UTAH_23742X160,UTAH_23742X162,UTAH_23742X163,UTAH_23742X165,UTAH_23742X168,UTAH_23742X170,UTAH_23742X18,UTAH_23742X189,UTAH_23742X19,UTAH_23742X195,UTAH_23742X199,UTAH_23742X205,UTAH_23742X206,UTAH_23742X208,UTAH_23742X209,UTAH_23742X211,UTAH_23742X214,UTAH_23742X223,UTAH_23742X225,UTAH_23742X227,UTAH_23742X235,UTAH_23742X241,UTAH_23742X242,UTAH_23742X246,UTAH_23742X253,UTAH_23742X255,UTAH_23742X257,UTAH_23742X260,UTAH_23742X31,UTAH_23742X38,UTAH_23742X40,UTAH_23742X44,UTAH_23742X51,UTAH_23742X6,UTAH_23742X7,UTAH_23742X71,UTAH_23742X83,UTAH_23742X84	
+sm_clusters	12528	antiSMASH 8.0.1 regions
+sm_clusters_with_captain_gene	113	region CDS include a DUF3435 hit
+sm_clusters_overlapping_starship_ge1gene	NA	no Starship element calls for Coccidioides
+sm_clusters_overlapping_starship_ge50pct	NA	no Starship element calls for Coccidioides
+genes_total	4047000	proteins in the included strains' annotations
+captain_genes	5660	DUF3435 hits, E <= 1e-05
+genes_in_sm_clusters	235390	
+captain_genes_in_sm_clusters	155	
+expected_captain_genes_in_sm_clusters	329.21	K*n/N
+p_hypergeom_greater	1	pooled over strains
+p_hypergeom_less	3.71e-28	pooled over strains (depletion)

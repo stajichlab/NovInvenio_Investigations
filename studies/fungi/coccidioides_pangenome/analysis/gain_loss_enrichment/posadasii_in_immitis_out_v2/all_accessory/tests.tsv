@@ -1,0 +1,5 @@
+label	scope	test_set	vocab	M_universe_annotated	N_set_annotated	n_set_all	n_terms_tested	n_fdr05	n_fdr05_k3	n_fdr05_fold_gt1
+posadasii_in_immitis_out_v2	soft_core+shell+cloud+singleton	gain	pfam	9000	7384	21474	597	7	7	7
+posadasii_in_immitis_out_v2	soft_core+shell+cloud+singleton	gain	pfam_clan	7388	6064	21474	220	4	4	4
+posadasii_in_immitis_out_v2	soft_core+shell+cloud+singleton	loss	pfam	9000	1021	1799	597	0	0	0
+posadasii_in_immitis_out_v2	soft_core+shell+cloud+singleton	loss	pfam_clan	7388	821	1799	220	0	0	0

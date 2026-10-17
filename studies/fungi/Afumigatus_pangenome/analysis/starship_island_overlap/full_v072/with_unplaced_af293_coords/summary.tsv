@@ -1,0 +1,38 @@
+run	metric	value	definition
+full_v072with_unplaced_af293_coords	n_families	47954	rows of frequency_table.tsv
+full_v072with_unplaced_af293_coords	n_islands	11676	rows of significant_islands.tsv
+full_v072with_unplaced_af293_coords	n_islands_multi_strain	4709	islands with n_strains >= 2
+full_v072with_unplaced_af293_coords	n_island_families	11683	families in >= 1 island (and in frequency_table)
+full_v072with_unplaced_af293_coords	n_island_families_multi_strain	5844	families in >= 1 island with n_strains >= 2
+full_v072with_unplaced_af293_coords	n_extra_gene_positions_used	941	annotated-strain genes added from --extra-gene-positions (not used for island instances)
+full_v072with_unplaced_af293_coords	annotated_strains	Asfu_Af293	strains with called elements
+full_v072with_unplaced_af293_coords	n_elements	8	rows of --starship-annotation
+full_v072with_unplaced_af293_coords	n_elements_high	7	confidence == high
+full_v072with_unplaced_af293_coords	n_genes_in_elements	177	annotated-strain genes with midpoint in an element
+full_v072with_unplaced_af293_coords	captain_hits	2233	tblout targets with full-sequence E <= 1e-05
+full_v072with_unplaced_af293_coords	captain_hits_unmapped	0	hits whose target is not a cluster member
+full_v072with_unplaced_af293_coords	n_starship_all_families	172	families in the annotation set
+full_v072with_unplaced_af293_coords	n_starship_all_families_in_island	167	of those, in >= 1 island
+full_v072with_unplaced_af293_coords	n_starship_all_families_in_multi_strain_island	56	of those, in >= 1 island with n_strains >= 2
+full_v072with_unplaced_af293_coords	n_islands_with_starship_all_family	984	islands with >= 1 member family in the set
+full_v072with_unplaced_af293_coords	frac_islands_with_starship_all_family	0.0843	
+full_v072with_unplaced_af293_coords	frac_island_families_starship_all	0.0143	
+full_v072with_unplaced_af293_coords	n_starship_high_families	166	families in the annotation set
+full_v072with_unplaced_af293_coords	n_starship_high_families_in_island	161	of those, in >= 1 island
+full_v072with_unplaced_af293_coords	n_starship_high_families_in_multi_strain_island	54	of those, in >= 1 island with n_strains >= 2
+full_v072with_unplaced_af293_coords	n_islands_with_starship_high_family	898	islands with >= 1 member family in the set
+full_v072with_unplaced_af293_coords	frac_islands_with_starship_high_family	0.0769	
+full_v072with_unplaced_af293_coords	frac_island_families_starship_high	0.0138	
+full_v072with_unplaced_af293_coords	n_captain_families	218	families in the annotation set
+full_v072with_unplaced_af293_coords	n_captain_families_in_island	122	of those, in >= 1 island
+full_v072with_unplaced_af293_coords	n_captain_families_in_multi_strain_island	46	of those, in >= 1 island with n_strains >= 2
+full_v072with_unplaced_af293_coords	n_islands_with_captain_family	906	islands with >= 1 member family in the set
+full_v072with_unplaced_af293_coords	frac_islands_with_captain_family	0.0776	
+full_v072with_unplaced_af293_coords	frac_island_families_captain	0.0104	
+full_v072with_unplaced_af293_coords	n_island_instances_in_annotated_strains	364	non-core runs in annotated strains equal to an island member set
+full_v072with_unplaced_af293_coords	n_islands_hit_family_level	984	islands with >= 1 member family that is a Starship family
+full_v072with_unplaced_af293_coords	n_islands_overlapping_element_in_annotated_strain	9	islands with an instance in an annotated strain overlapping an element by >= 1 bp
+full_v072with_unplaced_af293_coords	n_high_elements_hit_family_level	7	
+full_v072with_unplaced_af293_coords	n_high_elements_overlapped_by_instance	7	
+full_v072with_unplaced_af293_coords	island_gene_frac_in_starship_sweep_metric	0.2106	sum over islands of annotated-strain genes of member families inside elements / all such genes (3636/17263)
+full_v072with_unplaced_af293_coords	noncore_gene_frac_in_starship_sweep_metric	0.0576	annotated-strain genes of non-core families inside elements (173/3005)

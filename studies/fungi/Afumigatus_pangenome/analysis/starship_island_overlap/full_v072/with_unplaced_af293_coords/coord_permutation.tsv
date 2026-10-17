@@ -1,0 +1,2 @@
+statistic	observed	observed_noncore_genes_inside	n_perm	seed	null_mean	null_q95	null_max	p_perm_greater
+annotated-strain genes in island families inside elements	172	173	1000	20261017	50.38	86	117	0.001

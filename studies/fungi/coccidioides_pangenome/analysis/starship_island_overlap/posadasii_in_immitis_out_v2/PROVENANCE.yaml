@@ -1,0 +1,29 @@
+derived_by: bin/starship_island_overlap.py
+date: 2026-10-17
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/bin/starship_island_overlap.py --run-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome --captain-tblout /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/starship_island_overlap/inputs/DUF3435_vs_study.tblout.zst --gain-loss /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss/posadasii_in_immitis_out_v2/family_gain_loss.tsv.gz --run-label posadasii_in_immitis_out_v2 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/starship_island_overlap/posadasii_in_immitis_out_v2
+parameters: {min_carriers: 5, captain_evalue: 1e-05, n_perm: 1000, seed: 20261017}
+inputs:
+  frequency_table:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/frequency_table.tsv
+    sha256: 90da50dadbfad374337e7a8807c40e22d1f03e7d92b89d1838383491b2c21f9b
+  significant_islands:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/significant_islands.tsv
+    sha256: f601c116000361f68a7e49cb41f14ccf23390d3785acec377c0fb3f6b7d311d4
+  tier1_cluster:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/cluster/tier1_cluster.tsv
+    sha256: 252024069e501ed347aee2cdf6322eb2c2e3c999cc32459d10878262c30e7862
+  gene_positions:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/gene_positions.tsv.zst
+    sha256: c618b23dfc0bb090447a3b98059756d802d68c71bff00a7b1fa4e737c8ccf897
+  family_positions:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/family_positions.tsv.zst
+    sha256: d3c84b281dc1fa72e0d461ec5de2cebabd0f5186b3508f5ddaf2ea0079b16207
+  rescue_positions:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/rescue_positions.tsv
+    sha256: 9dca1b4a26abab5bea9efd462562363f6dbc386ac1b42ea87d486a7c4a9b3b73
+  captain_tblout:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/starship_island_overlap/inputs/DUF3435_vs_study.tblout.zst
+    sha256: faac599c55fc358aa5efc4712bf22d65182d84220525341ec62bf64dea874ae0
+  gain_loss:
+    path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/coccidioides_pangenome/analysis/gain_loss/posadasii_in_immitis_out_v2/family_gain_loss.tsv.gz
+    sha256: 47f366979b956003d4c84109837bd67c464c9ae9a1049d39e073699df6ed5c80

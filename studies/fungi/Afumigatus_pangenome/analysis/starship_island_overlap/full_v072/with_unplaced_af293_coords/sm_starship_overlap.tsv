@@ -1,0 +1,16 @@
+metric	value	definition
+af293_genes	9627	Af293 rows of gene_positions + --extra-gene-positions
+af293_genes_in_starships	177	gene midpoint inside a Table S7 element (8 elements)
+af293_captain_genes	7	DUF3435 hit, E <= 1e-5
+af293_captain_genes_in_starships	6	
+af293_sm_backbone_genes	32	PKS KS or NRPS C hit, E <= 1e-5
+af293_sm_backbone_genes_in_starships	2	
+hypergeom_af293_genes	{'N': 9627, 'K': 177, 'n': 32, 'k': 2, 'expected': 0.59, 'fold': 3.4, 'p_greater': '0.117'}	universe: all Af293 genes in gene_positions
+hypergeom_af293_noncore_genes	{'N': 3005, 'K': 173, 'n': 9, 'k': 2, 'expected': 0.52, 'fold': 3.86, 'p_greater': '0.0909'}	universe: Af293 genes of non-core families
+starships_with_sm_backbone_gene	2 of 8	AF293_e00029,AF293_s00032
+sm_backbone_families	335	families with >= 1 member hit (any strain)
+sm_backbone_families_starship	2	also a Starship family (Af293 gene in an element)
+sm_backbone_families_captain	0	also a DUF3435 family
+sm_backbone_families_in_island	90	
+sm_backbone_families_noncore	308	
+hypergeom_family_island_noncore	{'N': 40122, 'K': 308, 'n': 11683, 'k': 90, 'expected': 89.69, 'fold': 1.0, 'p_greater': '0.506'}	universe: non-core families; K = SM backbone families; n = island families

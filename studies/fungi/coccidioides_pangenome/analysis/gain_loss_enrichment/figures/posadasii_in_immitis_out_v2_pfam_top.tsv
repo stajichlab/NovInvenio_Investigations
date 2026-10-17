@@ -1,0 +1,21 @@
+label	scope	test_set	vocab	term	name	k	n_set	K	M	fold	p	q
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF17667	Pkinase_fungal: Fungal protein kinase	15	908	18	2034	1.866740088	0.0008593015283	0.09624177117
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF01636	APH: Phosphotransferase enzyme family	42	908	71	2034	1.325122541	0.008750632126	0.490035399
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF00246	Peptidase_M14: Zinc carboxypeptidase	6	908	7	2034	1.920075519	0.03396647123	0.9462941137
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF13637	Ank_4: Ankyrin repeats (many copies)	10	908	15	2034	1.49339207	0.07215963332	0.9462941137
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF11917	DUF3435: Protein of unknown function (DUF3435)	13	908	21	2034	1.386721208	0.08429289221	0.9462941137
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF12796	Ank_2: Ankyrin repeats (3 copies)	13	908	21	2034	1.386721208	0.08429289221	0.9462941137
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF00249	Myb_DNA-binding: Myb-like DNA-binding domain	6	908	8	2034	1.680066079	0.08471396074	0.9462941137
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF13921	Myb_DNA-bind_6: Myb-like DNA-binding domain	6	908	8	2034	1.680066079	0.08471396074	0.9462941137
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF27653	SPOK2_N: Spore killer 2 N-terminal domain	6	908	8	2034	1.680066079	0.08471396074	0.9462941137
+posadasii_in_immitis_out_v2	shell+soft_core	gain	pfam	PF00005	ABC_tran: ABC transporter	7	908	10	2034	1.568061674	0.09733811386	0.9462941137
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF13391	HNH_2: HNH endonuclease	11	845	16	2034	1.654881657	0.02555262428	1
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF00271	Helicase_C: Helicase conserved C-terminal domain	8	845	11	2034	1.750618612	0.03682491311	1
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF00076	RRM_1: RNA recognition motif	11	845	17	2034	1.557535677	0.04565823184	1
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF01423	LSM: LSM domain	5	845	6	2034	2.00591716	0.04829598296	1
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF00227	Proteasome: Proteasome subunit	4	845	5	2034	1.925680473	0.09915958143	1
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF00550	PP-binding: Phosphopantetheine attachment site	4	845	5	2034	1.925680473	0.09915958143	1
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF00646	F-box: F-box domain	4	845	5	2034	1.925680473	0.09915958143	1
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF00400	WD40: WD domain, G-beta repeat	5	845	7	2034	1.719357566	0.111574513	1
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF08659	KR: KR domain	9	845	15	2034	1.444260355	0.1171176369	1
+posadasii_in_immitis_out_v2	shell+soft_core	loss	pfam	PF00270	DEAD: DEAD/DEAH box helicase	7	845	11	2034	1.531791286	0.118884059	1
