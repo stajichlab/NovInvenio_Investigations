@@ -1,0 +1,191 @@
+created: '2026-10-17T19:59:58+00:00'
+author: Claude Code agent for Jason Stajich (not committed)
+purpose: Pfam domains / homologous families over-represented in A. fumigatus full_v072 and in both Coccidioides
+  runs (immitis_in_posadasii_out_v5, posadasii_in_immitis_out_v2)
+derived_by:
+  scripts:
+  - scripts/run_mmseqs_search.sbatch
+  - scripts/xsp_domains.py
+  - scripts/xsp_families.py
+  - scripts/xsp_figures.py
+  - scripts/xsp_summary.py
+  - scripts/write_provenance.py
+  commands:
+  - 'sbatch scripts/run_mmseqs_search.sbatch  # SLURM job 30041523, partition stajichlab, milan'
+  - 'python3 scripts/xsp_domains.py   # login node'
+  - 'python3 scripts/xsp_families.py  # login node'
+  - 'python3 scripts/xsp_figures.py   # login node'
+  - 'python3 scripts/xsp_summary.py   # login node'
+  - python3 scripts/write_provenance.py
+  python: 3.12.14
+  python_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3
+  packages:
+    scipy: 1.18.1
+    numpy: 2.5.2
+    pandas: 3.0.3
+    matplotlib: 3.11.2
+  mmseqs_version: 18.8cc5c
+  mmseqs_parameters: easy-search -e 1e-5 -c 0.5 --cov-mode 0 (query and target coverage >= 0.5), default
+    -s 5.7, default --max-seqs 300, --threads 32; searches af_vs_v5, v5_vs_af, af_vs_v2, v2_vs_af of tier1_rep_seq.fasta
+  best_hit_rule: highest bits per query; ties by lower evalue then target id
+  rbh_rule: best(Af family) = C and best(C) = Af family
+  slurm_job_ids:
+  - 30041523
+definitions:
+  A: pipeline island test recomputed from pfam.domtblout (hmmscan --domE 1e-3, i-Evalue <= 1e-3, shell+cloud
+    representatives), one-sided Fisher, BH over terms in >= 1 island family; counts match island_pfam_enrichment.tsv
+    exactly; clan level new
+  B: bin/pangenome_gain_loss_enrichment.py outputs (hypergeometric, BH per test set and vocab, K >= 5),
+    scopes shell_soft_core and all_accessory, gain and loss, Pfam and clan
+  C: 'new: hypergeometric one-sided, BH, K >= 5; accessory (soft_core+shell+cloud+singleton) vs universe
+    core+soft_core+shell+cloud+singleton families with >= 1 Pfam (cut_ga); shell+cloud vs universe core+shell+cloud
+    with >= 1 Pfam'
+  tiers: '1: q<0.05 in Af, v5 and v2; 2: q<0.05 in Af and exactly one of v5/v2; 3: p<0.05 in all three
+    and not tier 1/2; only terms tested in >= 2 runs'
+license: derived from NII pangenome outputs; Pfam 38.2 annotation (CC0)
+inputs:
+- path: studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/frequency_table.tsv
+  sha256: 531f4e90c22fcf3296e2de84fb1764d5120d612109a78b186b59e6674f1dbbd9
+- path: studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/significant_islands.tsv
+  sha256: 2d49972a2e7d6302d4c6e453cef8c7dc3d16adc43c206a5231cf5f87ec403201
+- path: studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/pfam.domtblout
+  sha256: b1e8800dbecc5b9701462c6517ac3192d3c25a4f8bb8555b81de14fb37892c15
+- path: studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/island_pfam_enrichment.tsv
+  sha256: 30101c3bfde6803592bb63a232d12c0d2649076012d1436cc81eef1665adad76
+- path: studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/cluster/tier1_rep_seq.fasta
+  sha256: a9e1ef787690a2d586774c6f6c4197887c491b37738ec65032f2bcd48c44cbca
+- path: studies/fungi/Afumigatus_pangenome/analysis/gain_loss/full_v072/family_gain_loss.tsv.gz
+  sha256: 6769be90cf6a679b168a3798f35790cfe0ab5adf31e449d2ab659b97e1d6c6e2
+- path: studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/family_pfam.tsv.gz
+  sha256: 3edb9dd7a05e64f4fe6213d4141787096f587dc7154a49edf5a6f4450e8cd3cd
+- path: studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/shell_soft_core/enrichment_domains.tsv.gz
+  sha256: 7f2206637da6def662b114a32a5398ef29c5f938132bd509db8758dcdc220fda
+- path: studies/fungi/Afumigatus_pangenome/analysis/gain_loss_enrichment/full_v072/all_accessory/enrichment_domains.tsv.gz
+  sha256: 83436ce8703ef6aaa820277266bf4f7a3d9aa230893bcfcee0a04cef2d26bfcc
+- path: studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v5/config_immitis_in_posadasii_out/pangenome/frequency_table.tsv
+  sha256: b5e278303d02c79cc032b55e570bde080949b9a5aef35fc2c34ed17c5777da59
+- path: studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v5/config_immitis_in_posadasii_out/pangenome/significant_islands.tsv
+  sha256: 11fa3f1f570dda88c504316c165e2cc768f6df14bca6d2d9a9edd0814cf4a644
+- path: studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v5/config_immitis_in_posadasii_out/pangenome/pfam.domtblout
+  sha256: 2f226dfd70cff430200fa7c2edf8744b11beb885023f75e8a0f915363910aab4
+- path: studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v5/config_immitis_in_posadasii_out/pangenome/island_pfam_enrichment.tsv
+  sha256: ffd4a4b3712204fbb0c9d41a3c83b0defe4b8a0f9e55347cd8cdc4a74e570a4b
+- path: studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v5/config_immitis_in_posadasii_out/pangenome/cluster/tier1_rep_seq.fasta
+  sha256: 304d113ec01bdaf1555f5a3aae32a49bc2f872591132fc8aa235b79a2eb84559
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss/immitis_in_posadasii_out_v5/family_gain_loss.tsv.gz
+  sha256: 40d7d8803b7f74903543fb1a1874928f8cf55545a8dbb7b814cba1b32163fa80
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/immitis_in_posadasii_out_v5/family_pfam.tsv.gz
+  sha256: 4cba9a3e83b2f2d1e99d855bcdedb01d827d359ecfef4d8ac998c4cc54c5eab3
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/immitis_in_posadasii_out_v5/shell_soft_core/enrichment_domains.tsv.gz
+  sha256: db00f074d963cb67ee3462a8454e5ad059cc2def26718acdb4b6793f9e871ca0
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/immitis_in_posadasii_out_v5/all_accessory/enrichment_domains.tsv.gz
+  sha256: 1c0068dc9ebabaf71da1e665d00dfbd1134d76623677ce63303bf078f61c4832
+- path: studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/frequency_table.tsv
+  sha256: 90da50dadbfad374337e7a8807c40e22d1f03e7d92b89d1838383491b2c21f9b
+- path: studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/significant_islands.tsv
+  sha256: f601c116000361f68a7e49cb41f14ccf23390d3785acec377c0fb3f6b7d311d4
+- path: studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/pfam.domtblout
+  sha256: cb6872d134a678ca0b82b385ea1acf6f20b1d1a1760e706e35f6b86ac687e05b
+- path: studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/island_pfam_enrichment.tsv
+  sha256: c454a71cd6b1b951d1e30b9d2eb95ffc5f3974ea896709eb365a5c40de26a6e8
+- path: studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome/cluster/tier1_rep_seq.fasta
+  sha256: 6b699d075b59a72f8589bd5c8ac38cf995deacd3d8e3bd4991f8df140ccbd597
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss/posadasii_in_immitis_out_v2/family_gain_loss.tsv.gz
+  sha256: 47f366979b956003d4c84109837bd67c464c9ae9a1049d39e073699df6ed5c80
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/family_pfam.tsv.gz
+  sha256: d0e74a97e1e468f994d5584f8248b231a7aebaebae7a0b3f977781659096db2c
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/shell_soft_core/enrichment_domains.tsv.gz
+  sha256: bbd2f36e4d2e6c1faf466534986053ab3697603fe3494a38e9cb3b729d246a27
+- path: studies/fungi/coccidioides_pangenome/analysis/gain_loss_enrichment/posadasii_in_immitis_out_v2/all_accessory/enrichment_domains.tsv.gz
+  sha256: ee0e96d2709dc8f22401c03b4809906833bd54980b3a14db6ce5d7453a6e262b
+- path: studies/fungi/Afumigatus_pangenome/analysis/starship_island_overlap/full_v072/annotated_families.tsv.gz
+  sha256: e35dea25a7a15e0d6b37ae676fe129e6e36d60cdce61aef2a8a721581416fb3e
+- path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+- path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-C
+  sha256: 6077c203ffdf516724addf2f7b6e8ec25eed68a8a21244fe8fc971311b40d561
+outputs:
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/cross_genus_island_families.tsv
+  sha256: 33ab8b68e42a8c4d1b850dcfada1e3eacd3528e103eb506345a39a510e66fb91
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_A_island_clan.tsv
+  sha256: edd5a7958a1df3def1579d84a82387c8c0d6129b5f1270336fc89cdcf2aa3352
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_A_island_pfam.tsv
+  sha256: ecf6a8f27d8a78b6a756a4402ca03aa6e39e833ea5c79c5da52ae26f60e9be1d
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_B_all_accessory_gain_clan.tsv
+  sha256: 868d4bbd75c1a85094ffa36dda46589386d32b96e42a4f08324a46a1cf34f047
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_B_all_accessory_gain_pfam.tsv
+  sha256: d2e639863eec88564fb449b951ee7caf4e36a0701d98d7f1b3f8184c56097d67
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_B_all_accessory_loss_clan.tsv
+  sha256: 35ed008921ac6002f698a88bd7f298c198b8e0959b149f308771a073cc48ed6b
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_B_all_accessory_loss_pfam.tsv
+  sha256: d9e5ff51a5fd8ac7377a04ac8ce3998d6526610aee4fbb23fd0b24c11435e24b
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_B_shell_soft_core_gain_clan.tsv
+  sha256: 0d5f953d4d65d81dbb2446122fbc87f28bcb9bf8c1392379af5a262285f1fdf6
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_B_shell_soft_core_gain_pfam.tsv
+  sha256: 6f078c2410cc2d75ea540b40f434138f60e5bb26e8b06cde0b9b46fe6cb0a59f
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_B_shell_soft_core_loss_clan.tsv
+  sha256: db90751f997b94dbe71d4bbd9fe10c159166860cb295528366b8b281be87faa1
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_B_shell_soft_core_loss_pfam.tsv
+  sha256: c68666dc6f51cb0018cfacb17dbc9876fb0b923bbfcc7d8e215e193fcab57112
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_C_accessory_vs_all_pfam.tsv
+  sha256: 278bdd00b04d26ae18265821b141e40cd5832ae06242d6ab6089840631c8b7f7
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/domains_C_shellcloud_vs_core_pfam.tsv
+  sha256: f9170192fd85eca057d8c1c40160bb96ff2b0b98670dcf09f85ae7d12373f085
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/family_besthit_components_top15.tsv
+  sha256: b887340e9ac92e494c8add9b585e938880ea9ec66a18cf2dca40d04a7c290ba8
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/family_pairs.tsv.gz
+  sha256: f1dc207f134adbd72c5838f97107678b9c25b7f0a52abbb7bd05d72ba0c43134
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/family_partner_coverage.tsv
+  sha256: 1d1d8786d3e9b83aa89521ee3ec7f2c7511eda625b8ca9c2539b92461af603d0
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/family_tests.tsv
+  sha256: 6eb97f64e2d812910443c5ae6ce883bd7aa87d307d8cb7275480b15055d3cd29
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/figures/fig1_tiers_A_B.pdf
+  sha256: 9643c44a8380b127737c1cc4da5fe49dbd23f75fafa63d893a3f6a02ace739d7
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/figures/fig1_tiers_A_B.png
+  sha256: 1f30cebd9284b5ea387bb0e45450a4a4339f274e8195a4086f8fe625ae20f84a
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/figures/fig1_tiers_C.pdf
+  sha256: 3aa27a778f48525f61b7b9093a90a39e03cc5054997ddc52128285efdfd2a7a6
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/figures/fig1_tiers_C.png
+  sha256: 3bdb4b47f61dde8cbc44abbbf921a509098100814bbf0052b823f815dc818d93
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/figures/fig2_upset_A.pdf
+  sha256: 38b1f53ebd9095c5b34d302d66cd2f845d319c0468646fe447eaf7e8f265fe92
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/figures/fig2_upset_A.png
+  sha256: 21c9aa9240fa1f62245164aef2402da307a4f227d8fd7b9c6466e2a0232defc2
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/figures/fig3_family_island.pdf
+  sha256: 71d39579b17cccafba0349bfffa41688fe702e82afef36ca3da7a8c70aa87e30
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/figures/fig3_family_island.png
+  sha256: 6b92adf1a921f8b1f34bd18f61aad2ec331759cf2024220851da07037dfe3fad
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/logs/check_island_recompute.tsv
+  sha256: a15f989830b2203c86c93213cc1d6ed830a5226b46e09d861b06d6a85b6afe9b
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/logs/domains.log
+  sha256: ff47af531a2d571be78f028026963d47dbf0d7ea48fdb0fd76edc6d3f0d13222
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/logs/families.log
+  sha256: 560c19c8f15ccec7f6d40271b8fcdb1433deb839eec1d42e236438c51cac0d4c
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/logs/mmseqs.30041523.out
+  sha256: aa50b10c712b494c364473c93562347756994d82ffa78739adb3a4c4da10e13d
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/mmseqs/af_vs_v2.m8.zst
+  sha256: 8bb578b421250601f9f63e1d8e0fa7f80d4b4b3b5b51cf5e27c425819e2d29f3
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/mmseqs/af_vs_v5.m8.zst
+  sha256: 0af8ad11bb3af7ff53f45fb6a82b563cc625256c89f44a8bef6e428f4eb8d09f
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/mmseqs/v2_vs_af.m8.zst
+  sha256: c483205ff65628e79508bc2f52468a8af11f566a851f7d1ced9248f40b4f3f47
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/mmseqs/v5_vs_af.m8.zst
+  sha256: f952dfa0551cc89856df4e3f6b825ba49e7734a506ba2550b231409501eb7120
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/scripts/run_mmseqs_search.sbatch
+  sha256: 2ae30399127dff8d43526899a5b6aae2469b47008a89673a0f129a0713419ef3
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/scripts/write_provenance.py
+  sha256: 6f4e6729c1cb8f162d56f629cdef837039a89b7d62e5622f1c006955f896a569
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/scripts/xsp_domains.py
+  sha256: a1fd425d71d073b66936ab67f3f098e375a543def1b8a79cc2267e7138cfab4b
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/scripts/xsp_families.py
+  sha256: 8f129a95351c9fd62a665cadf8ef96a6180fea62f38894c8002b400b79415485
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/scripts/xsp_figures.py
+  sha256: b55ae3538aa7be4b400d1f3b409a205c6d49de8740f77425fb74719f1030e4cc
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/scripts/xsp_summary.py
+  sha256: 4e6e9ec6ba67acb93f368182019b7a3f47dd0ea951dc0f8afcd546ac0ebf49d0
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/summary.tsv
+  sha256: 4eba13b2d82a852449ef1fb51404cc5d4dbeb5cf0c6e8e07afbfd093232619d7
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/summary_domains.tsv
+  sha256: 295727a72ae7f78f98b213f307212bc6a1f616f9f977623f7655bba2a8909968
+- path: studies/fungi/coccidioides_pangenome/analysis/cross_species_overrep/tiers.tsv
+  sha256: 34dd3c416cbede0d92619ec89a3e9bec243905a0705da23877d51c3f399365d9

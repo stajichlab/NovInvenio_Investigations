@@ -1,0 +1,112 @@
+af_family	af_bin	af_strains	af_direction	af_pfam	af_starship_elements	af_captain	v5_family	v5_bin	v5_strains	v5_direction	v5_pfam	v2_family	v2_bin	v2_strains	v2_direction	v2_pfam
+Asfu_0040679185_AFU_3006|KAJ8207415.1	cloud	4	gain	Glyco_hydro_3	not_listed	not_listed	409B-0_L_OLD_CPA0011|C90261E_005401-T1	outgroup_only	0	gain	Glyco_hydro_3	409B-0_L_OLD_CPA0011|C90261E_005401-T1	nonrep_only	0	gain	Glyco_hydro_3
+Asfu_4710|KAK9547576.1	shell	80	gain	zf-C3HC4_3|zf-RING_5	not_listed	not_listed	4545-MICE|CB4077B_008474-T1	cloud	8	gain		4545-MICE|CB4077B_008474-T1	cloud	23	ambiguous	
+Asfu_4710|KAK9547717.1	shell	83	gain	DUF3435		yes	4545-MICE|CB4077B_008216-T1	cloud	6	gain	DUF3435	4545-MICE|CB4077B_008216-T1	cloud	16	ambiguous	DUF3435
+Asfu_4710|KAK9566876.1	cloud	3	gain	Glyco_transf_28	not_listed	not_listed	5SD|CCCC1E1_002716-T1	cloud	14	gain	Glyco_transf_28	730334_Guatemala|C5AD400_004238-T1	cloud	32	loss	Glyco_transf_28
+Asfu_4710|KAK9571214.1	cloud	3	gain		not_listed	not_listed	21SD|C5E6681_001384-T1	shell	72	ambiguous		COCSP-3478|C07E340_007233-T1	shell	67	gain	
+Asfu_474|KAK9565193.1	shell	29	gain		not_listed	not_listed	4M3|CB16A6A_002501-T1	shell	50	gain		RS|C3CED3A_006294-T1	outgroup_only	0	ambiguous	
+Asfu_474|KAK9571628.1	cloud	11	gain	HNH_2	not_listed	not_listed	409B-0_S_OLD_CPA0012|CD06E9E_001731-T1	cloud	3	ambiguous	HNH_2	409B-0_S_OLD_CPA0012|CD06E9E_001731-T1	shell	124	gain	HNH_2
+Asfu_A1163|EDP48562.1	cloud	8	gain	Glyco_hydro_18	AF293_e00039	no	B3246|C90A8A7_000236-T1	outgroup_only	0	gain	Glyco_hydro_18	B3246|C90A8A7_000236-T1	cloud	12	gain	Glyco_hydro_18
+Asfu_A343s1|KAH3001231.1	cloud	9	gain		not_listed	not_listed	COCPO_34698|C69E555_008663-T1	outgroup_only	0	gain		COCPO_34698|C69E555_008663-T1	nonrep_only	0	gain	
+Asfu_AF1009B|XBQ89477.1	nonrep_only	0	gain	ABC_membrane|ABC_tran	not_listed	not_listed	B11871|CA42FC6_006227-T1	cloud	5	gain	ABC_membrane|ABC_tran	B11871|CA42FC6_006227-T1	cloud	11	gain	ABC_membrane|ABC_tran
+Asfu_ATCC_13073|KAK9576946.1	cloud	3	gain	FAD_binding_8|NAD_binding_6	not_listed	not_listed	UTAH_23742X51|C229CD7_006321-T1	outgroup_only	0	gain	FAD_binding_8|NAD_binding_6	UTAH_23742X51|C229CD7_006321-T1	cloud	7	gain	FAD_binding_8|NAD_binding_6
+Asfu_ATCC_13073|KAK9592962.1	cloud	5	gain	TPR_8|TPR_12|TPR_10|TPR_7	not_listed	not_listed	B10919|C0D52B0_004360-T1	singleton	1	gain	TPR_10	B10919|C0D52B0_004360-T1	cloud	16	gain	TPR_10
+Asfu_ATCC_42202|KAK9578578.1	cloud	6	gain	HAC6_N|HAC6_helical	AF293_s00031	no	3M3|CC2BDEF_008669-T1	shell	114	ambiguous	HAC6_N|HAC6_helical	RS|C3CED3A_008695-T1	shell	196	loss	HAC6_N|HAC6_helical
+Asfu_ATCC_42202|KAK9590905.1	cloud	13	ambiguous	PCNA_N|Rad1|Rad9|PCNA_C	not_listed	not_listed	Phoenix_7|CEAC1FB_001961-T1	shell	105	ambiguous	PCNA_N|PCNA_C	Phoenix_7|CEAC1FB_001961-T1	shell	242	loss	PCNA_N|PCNA_C
+Asfu_ATCC_42202|KAK9600785.1	singleton	1	gain	Glyco_transf_90	not_listed	not_listed	B15368|C7009D6_006711-T1	shell	24	ambiguous		409B-0_L_OLD_CPA0011|C90261E_002754-T1	shell	92	ambiguous	
+Asfu_ATCC_46645|KAK9604423.1	singleton	1	gain	Ses_B|DUF7779|TPR_10|TPR_4|TPR_7|TPR_12	not_listed	not_listed	B3269|C180A32_006687-T1	outgroup_only	0	gain	TPR_12|TPR_10	B3269|C180A32_006687-T1	cloud	11	gain	TPR_12|TPR_10
+Asfu_Af293|tr|A4D9N9|A4D9N9_ASPFU	cloud	2	gain		AF293_e00039	no	UTAH_350355|C31EB65_007414-T1	singleton	1	gain		UTAH_350355|C31EB65_007414-T1	cloud	12	gain	
+Asfu_Af293|tr|Q4WJT0|Q4WJT0_ASPFU	cloud	5	loss	Vezatin	not_listed	not_listed	3M3|CC2BDEF_000397-T1	shell	106	ambiguous	Vezatin	407-0_S_OLD_CPA0002|C577643_001683-T1	shell	243	loss	Vezatin
+Asfu_Af293|tr|Q4WL47|Q4WL47_ASPFU	cloud	2	gain		AF293_e00029	no	B12219|CCF25C2_001701-T1	cloud	8	gain		B14134|C6821F5_002072-T1	cloud	15	gain	
+Asfu_Af293|tr|Q4WNB7|Q4WNB7_ASPFU	cloud	13	loss	Formyl_trans_N	not_listed	not_listed	3M3|CC2BDEF_001071-T1	shell	100	ambiguous	Formyl_trans_N	485B-1_L_OLD_CPA0023|C4025D1_002087-T1	shell	49	loss	Formyl_trans_N
+Asfu_Af293|tr|Q4WNE2|Q4WNE2_ASPFU	shell	63	loss	MFS_1|Sugar_tr	not_listed	not_listed	B14286|CC2BA17_002854-T1	shell	28	gain	MFS_1|Sugar_tr	WA_211|C937D92_007992-T1	cloud	5	loss	MFS_1|Sugar_tr
+Asfu_Af293|tr|Q4WRJ7|Q4WRJ7_ASPFU	cloud	7	gain	DUF3723_N|DUF3723	AF293_s00031,AF293_s00037	no	4545-MICE|CB4077B_007276-T1	cloud	3	ambiguous	DUF3723_N|DUF3723	B3269|C180A32_006696-T1	cloud	31	gain	DUF3723_N|DUF3723
+Asfu_Af293|tr|Q4WTM7|Q4WTM7_ASPFU	cloud	2	gain	Mac_assoc|Mac|Hexapep_2	not_listed	not_listed	B3215|C363309_008313-T1	cloud	4	gain		B3215|C363309_008313-T1	cloud	14	gain	
+Asfu_Af293|tr|Q4WWK2|Q4WWK2_ASPFU	cloud	10	gain	HMG_box_2|HMG_box	not_listed	not_listed	409B-0_L_OLD_CPA0011|C90261E_007888-T1	shell	65	ambiguous	HMG_box_2|HMG_box	409B-0_L_OLD_CPA0011|C90261E_007888-T1	shell	137	ambiguous	HMG_box_2|HMG_box
+Asfu_AfB2|KAM0116637.1	cloud	2	gain	MSC	not_listed	not_listed	A391|C68FCBD_000805-T1	cloud	16	gain	MSC	B12471|CD39253_001243-T1	cloud	10	ambiguous	MSC
+Asfu_AfB8|KAM0089972.1	shell	55	ambiguous	bZIP_2	not_listed	not_listed	COCPO_195881|C49B345_004214-T1	shell	41	ambiguous		KJH004|C7F4AC7_006972-T1	cloud	34	gain	
+Asfu_B1275|KAH1289502.1	shell	22	gain	Pkinase|PK_Tyr_Ser-Thr	not_listed	not_listed	574-1_L_NEW_CPA0040|CDD7BF6_003323-T1	outgroup_only	0	gain		573-1_L_NEW_CPA0031|C24A26E_005873-T1	cloud	8	gain	
+Asfu_B1301|KAH3113789.1	shell	53	gain	DUF3435	AF293_e00039	yes	Beeville|C6949CF_000184-T1	outgroup_only	0	ambiguous	DUF3435	Beeville|C6949CF_000184-T1	shell	56	gain	DUF3435
+Asfu_B1431|KAH1378552.1	nonrep_only	0	gain	AAA_lid_BCS1	not_listed	not_listed	730332_Guatemala|C45F23D_007193-T1	outgroup_only	0	gain	AAA_lid_BCS1	730332_Guatemala|C45F23D_007193-T1	cloud	8	gain	AAA_lid_BCS1
+Asfu_B1431|KAH1396256.1	shell	20	gain		not_listed	not_listed	TX2|C022B0B_008663-T1	singleton	1	gain		TX2|C022B0B_008663-T1	cloud	8	gain	
+Asfu_B1455|KAH1353395.1	shell	22	gain	DUF7587	not_listed	not_listed	GT-136|C825514_008430-T1	outgroup_only	0	ambiguous	DUF7587	GT-136|C825514_008430-T1	shell	239	gain	DUF7587
+Asfu_B175L1|KAH1744791.1	cloud	4	gain	AAA	not_listed	not_listed	B17635|C3DCA43_000265-T1	cloud	5	gain	AAA	RS|C3CED3A_007422-T1	outgroup_only	0	ambiguous	AAA
+Asfu_B178L1|KAH3605298.1	cloud	5	gain	DUF676|PGAP1	not_listed	not_listed	COCPO_103744|CB62C31_005879-T1	outgroup_only	0	gain	DUF676	COCPO_103744|CB62C31_005879-T1	cloud	4	gain	DUF676
+Asfu_B178L1|KAH3615371.1	cloud	2	gain		not_listed	not_listed	UTAH_23742X84|C8152C6_002868-T1	shell	117	ambiguous	WW	UTAH_23742X84|C8152C6_002868-T1	shell	82	loss	WW
+Asfu_C127s1|KAH1590565.1	cloud	12	ambiguous	ZnF_RZ-type	not_listed	not_listed	3M3|CC2BDEF_005448-T1	shell	119	gain	ZnF_RZ-type	WA_211|C937D92_005213-T1	cloud	17	loss	ZnF_RZ-type
+Asfu_C128L2|KAH1633892.1	singleton	1	gain	DUF3723_N|DUF3723	not_listed	not_listed	Beeville|C6949CF_008310-T1	outgroup_only	0	gain	DUF3723_N|DUF3723	UTAH_23742X208|CEA4F92_008441-T1	cloud	11	gain	DUF3723_N|DUF3723
+Asfu_C151s1|KAH1487516.1	cloud	2	ambiguous		not_listed	not_listed	730332_Guatemala|C45F23D_004360-T1	cloud	14	ambiguous		730332_Guatemala|C45F23D_004360-T1	cloud	40	gain	
+Asfu_C16s2|KAH1595898.1	cloud	4	gain		AF293_s00042	no	4545-MICE|CB4077B_007995-T1	singleton	1	gain		4545-MICE|CB4077B_007995-T1	cloud	6	gain	
+Asfu_C16s2|KAH1598469.1	cloud	8	gain		not_listed	not_listed	B14292|C2831F5_004538-T1	shell	72	ambiguous		B14292|C2831F5_004538-T1	shell	224	ambiguous	
+Asfu_C172L1|KAH1519479.1	cloud	5	gain	DUF3435		yes	4545-MICE|CB4077B_008509-T1	cloud	9	gain	DUF3435	4545-MICE|CB4077B_008509-T1	cloud	24	gain	DUF3435
+Asfu_C193L3|KAH1413703.1	shell	38	gain	PGAP1|DUF676	not_listed	not_listed	3M3|CC2BDEF_006962-T1	shell	28	gain	PGAP1|DUF676|Abhydrolase_6	RS|C3CED3A_006166-T1	outgroup_only	0	ambiguous	PGAP1|DUF676|Abhydrolase_6
+Asfu_C193L3|KAH1414703.1	cloud	5	gain	Orn_Arg_deC_N|Orn_DAP_Arg_deC	not_listed	not_listed	B11035|C5FC1D8_003106-T1	shell	58	ambiguous	Orn_DAP_Arg_deC|Orn_Arg_deC_N	409B-0_L_OLD_CPA0011|C90261E_005726-T1	shell	245	loss	Orn_DAP_Arg_deC|Orn_Arg_deC_N
+Asfu_C193L3|KAH1414973.1	cloud	6	gain		not_listed	not_listed	407-0_S_OLD_CPA0002|C577643_004001-T1	cloud	7	ambiguous		409B-0_L_OLD_CPA0011|C90261E_005666-T1	shell	74	ambiguous	
+Asfu_C193L3|KAH1416402.1	shell	33	gain	DUF7025|AAA	not_listed	not_listed	M214|CEF67E7_008566-T1	singleton	1	gain	DUF7025|AAA	Tucson_14|CBC5942_008311-T1	cloud	8	ambiguous	DUF7025|AAA
+Asfu_CNMCM8057|KAF4260667.1	shell	69	gain	Patatin	not_listed	not_listed	B11019|C42083A_008407-T1	cloud	3	gain	Patatin	M197|C813B11_008314-T1	cloud	3	gain	Patatin
+Asfu_CNMCM8686|KAF4293000.1	shell	69	gain		AF293_s00042	no	COCPO_34698|C69E555_006825-T1	cloud	11	gain		COCPO_34698|C69E555_006825-T1	cloud	7	ambiguous	
+Asfu_CNMCM8689|KAF4277283.1	shell	33	gain		not_listed	not_listed	B11002|C5E4193_007810-T1	cloud	18	gain		B15369|C717ABB_002136-T1	cloud	8	gain	
+Asfu_CNMCM8689|KAF4283536.1	shell	32	gain		not_listed	not_listed	Tucson_8|CCBD0CE_006636-T1	singleton	1	gain		Tucson_8|CCBD0CE_006636-T1	cloud	10	gain	
+Asfu_CNMCM8714|KAF4255228.1	shell	21	gain	PK_Tyr_Ser-Thr|Pkinase|Fic	not_listed	not_listed	SDVA8|C4076F5_008843-T1	shell	23	ambiguous	Pkinase|PK_Tyr_Ser-Thr	SDVA8|C4076F5_008843-T1	shell	43	ambiguous	Pkinase|PK_Tyr_Ser-Thr
+Asfu_CNMCM8812|KAF4256603.1	shell	41	gain	APH	not_listed	not_listed	A391|C68FCBD_004836-T1	shell	70	gain	APH	B3224|CAFF422_001570-T1	cloud	3	ambiguous	APH
+Asfu_CNMCM8812|KAF4270818.1	shell	58	ambiguous		not_listed	not_listed	409B-0_L_OLD_CPA0011|C90261E_007889-T1	shell	66	ambiguous		409B-0_L_OLD_CPA0011|C90261E_007889-T1	shell	138	loss	
+Asfu_D141|KAK9658053.1	cloud	7	ambiguous	ASTER	not_listed	not_listed	485B-4_S_NEW_CPA0029|CFB3627_000478-T1	cloud	8	ambiguous	ASTER	485B-0_S_OLD_CPA0021|CFE8A8D_000359-T1	shell	242	gain	ASTER
+Asfu_D223L5|KAH1436598.1	singleton	1	gain		not_listed	not_listed	UTAH_23742X160|C49A606_008479-T1	outgroup_only	0	gain	DIOX_N	UTAH_23742X160|C49A606_008479-T1	cloud	8	gain	DIOX_N
+Asfu_D223L5|KAH1436600.1	singleton	1	gain	PKS_DH_N|PS-DH	not_listed	not_listed	M220|C78293C_008192-T1	cloud	3	gain	PKS_DH_N|PS-DH	M220|C78293C_008192-T1	cloud	7	ambiguous	PKS_DH_N|PS-DH
+Asfu_E12510|KAH1438806.1	cloud	7	gain		not_listed	not_listed	GT-125|C1C7FC0_000676-T1	singleton	1	gain		573-1_L_NEW_CPA0031|C24A26E_007220-T1	shell	60	ambiguous	
+Asfu_E133L1|KAH1604415.1	cloud	2	gain		not_listed	not_listed	5SD|CCCC1E1_000115-T1	cloud	2	gain	DUF3435	Tucson_24|C55FEA8_003482-T1	cloud	2	gain	
+Asfu_E1462|KAH3057602.1	shell	28	gain	FAD_binding_8|NAD_binding_6	not_listed	not_listed	B12219|CCF25C2_001715-T1	cloud	2	gain	FAD_binding_8|NAD_binding_6	B14134|C6821F5_002086-T1	cloud	4	gain	FAD_binding_8|NAD_binding_6
+Asfu_E1462|KAH3060270.1	cloud	2	gain	DUF3723_N|DUF3723	not_listed	not_listed	B12219|CCF25C2_001708-T1	cloud	2	gain	DUF3723_N|DUF3723	M214|CEF67E7_006448-T1	cloud	7	gain	DUF3723_N|DUF3723
+Asfu_E156s1|KAH1482932.1	singleton	1	gain		not_listed	not_listed	B15369|C717ABB_007951-T1	shell	77	gain		B15369|C717ABB_007951-T1	cloud	19	ambiguous	
+Asfu_E165L2|KAH1350777.1	cloud	15	gain		not_listed	not_listed	B12526|CF6BC4C_000234-T1	cloud	14	gain		4545-MICE|CB4077B_008000-T1	cloud	18	ambiguous	
+Asfu_E165L4|KAH1316901.1	shell	36	gain		not_listed	not_listed	M195|C2FDFE7_001409-T1	outgroup_only	0	gain		M195|C2FDFE7_001409-T1	singleton	1	gain	
+Asfu_E166s1|KAH2573463.1	shell	45	ambiguous	Microtub_bd|Kinesin	not_listed	not_listed	407-1_S_OLD_CPA0004|CC44035_003259-T1	cloud	6	ambiguous	Microtub_bd|Kinesin	407-1_S_OLD_CPA0004|CC44035_003259-T1	shell	43	gain	Microtub_bd|Kinesin
+Asfu_E175s2|KAH1284511.1	singleton	1	ambiguous	Peptidase_M14	not_listed	not_listed	B3224|CAFF422_001351-T1	shell	53	ambiguous	Peptidase_M14	B3224|CAFF422_001351-T1	shell	241	gain	Peptidase_M14
+Asfu_E175s2|KAH1288530.1	shell	28	gain	DUF6540	not_listed	not_listed	4545-MICE|CB4077B_007767-T1	cloud	6	gain	DUF6540	4545-MICE|CB4077B_007767-T1	cloud	13	gain	DUF6540
+Asfu_E175s2|KAH1294042.1	cloud	17	gain		not_listed	not_listed	M198|C35C849_006469-T1	outgroup_only	0	gain		M198|C35C849_006469-T1	cloud	4	ambiguous	
+Asfu_F113L3|KAH3241835.1	cloud	10	ambiguous	Ferric_reduct|FAD_binding_8|NAD_binding_6	not_listed	not_listed	574-1_L_NEW_CPA0040|CDD7BF6_000761-T1	outgroup_only	0	gain	FAD_binding_8|NAD_binding_6	574-1_L_NEW_CPA0040|CDD7BF6_000761-T1	cloud	3	gain	FAD_binding_8|NAD_binding_6
+Asfu_F1422|KAH2467818.1	cloud	7	gain		not_listed	not_listed	B3269|C180A32_006690-T1	singleton	1	gain		B3269|C180A32_006690-T1	cloud	11	gain	
+Asfu_F1422|KAH2467820.1	cloud	7	gain	APH	not_listed	not_listed	21SD|C5E6681_007054-T1	cloud	7	ambiguous	APH	B10919|C0D52B0_000752-T1	cloud	31	gain	APH
+Asfu_H237|KAK9622306.1	shell	21	ambiguous	DDE_1	not_listed	not_listed	B11002|C5E4193_002671-T1	shell	68	ambiguous		WA_211|C937D92_000199-T1	cloud	3	ambiguous	
+Asfu_H237|KAK9640489.1	cloud	3	gain		not_listed	not_listed	730332_Guatemala|C45F23D_006110-T1	cloud	9	gain		730332_Guatemala|C45F23D_006110-T1	cloud	8	gain	
+Asfu_HMR_AF_270|OXN24577.1	shell	43	gain	MoaC	not_listed	not_listed	B11587|CED3F3F_005038-T1	shell	84	ambiguous	MoaC	UTAH_20380X1|CF4A409_004977-T1	shell	93	loss	MoaC
+Asfu_HMR_AF_270|OXN27236.1	cloud	11	gain		not_listed	not_listed	B11019|C42083A_007533-T1	cloud	4	gain		Phoenix_3|CBCE13E_008598-T1	cloud	4	gain	
+Asfu_HMR_AF_270|OXN27753.1	shell	55	gain		not_listed	not_listed	B14130|CA3266D_002249-T1	cloud	2	gain		B14130|CA3266D_002249-T1	cloud	17	gain	
+Asfu_HMR_AF_270|OXN27770.1	shell	61	gain	AA_permease	not_listed	not_listed	3M3|CC2BDEF_006320-T1	shell	53	ambiguous	AA_permease	407-1_S_OLD_CPA0004|CC44035_000648-T1	cloud	37	ambiguous	
+Asfu_HMR_AF_270|OXN29601.1	shell	30	ambiguous	FOL3_C	not_listed	not_listed	SDVA38|CE6DD8A_000924-T1	shell	41	ambiguous		4545-MICE|CB4077B_004224-T1	shell	61	ambiguous	
+Asfu_HMR_AF_706|OXN02776.1	cloud	14	gain		not_listed	not_listed	B12219|CCF25C2_004312-T1	cloud	3	gain	Myb_DNA-binding|Myb_DNA-bind_6	573-1_L_NEW_CPA0031|C24A26E_001747-T1	shell	113	gain	
+Asfu_HMR_AF_706|OXN08457.1	shell	78	gain	MFS_1	not_listed	not_listed	UCSF_5AZ|C4980C8_007019-T1	cloud	5	ambiguous	MFS_1	UCSF_5AZ|C4980C8_007019-T1	shell	85	gain	MFS_1
+Asfu_HMR_AF_706|OXN08548.1	shell	32	gain	CDO_I	not_listed	not_listed	3M3|CC2BDEF_005221-T1	cloud	15	ambiguous	CDO_I	485B-0_S_OLD_CPA0021|CFE8A8D_001222-T1	shell	167	gain	CDO_I
+Asfu_I1493|KAH2790292.1	cloud	4	gain	Pkinase	not_listed	not_listed	B0858-Guatemala|CBD0EE9_005362-T1	cloud	4	ambiguous	Pkinase	B10919|C0D52B0_002948-T1	cloud	33	gain	Pkinase
+Asfu_K11L2|KAH2877212.1	nonrep_only	0	gain		not_listed	not_listed	3M3|CC2BDEF_002734-T1	shell	114	ambiguous		409B-0_L_OLD_CPA0011|C90261E_006851-T1	shell	242	ambiguous	
+Asfu_L2241|KAH3006743.1	cloud	6	gain		not_listed	not_listed	21SD|C5E6681_005643-T1	shell	22	ambiguous		409B-0_L_OLD_CPA0011|C90261E_008349-T1	shell	75	ambiguous	
+Asfu_L3131|KAH2639346.1	singleton	1	gain	MATalpha_HMGbox	not_listed	not_listed	3M3|CC2BDEF_002972-T1	shell	68	ambiguous	MATalpha_HMGbox	409B-0_L_OLD_CPA0011|C90261E_005568-T1	shell	141	gain	MATalpha_HMGbox
+Asfu_L3152|KAH2662851.1	shell	26	loss		not_listed	not_listed	TX8|C5FF6CA_007459-T1	shell	99	gain		TX8|C5FF6CA_007459-T1	cloud	15	loss	
+Asfu_NRZ2016071|KAH1893074.1	cloud	2	gain		not_listed	not_listed	B0727_Argentina|C5AAF22_000474-T1	cloud	5	gain		B0858-Guatemala|CBD0EE9_001127-T1	singleton	1	gain	
+Asfu_NRZ2017339|KAH1972937.1	cloud	2	gain		not_listed	not_listed	578-1_L_NEW_CPA0049|C79DB71_000443-T1	outgroup_only	0	gain		578-1_L_NEW_CPA0049|C79DB71_000443-T1	cloud	8	gain	
+Asfu_NRZ2017534|KAH2167662.1	shell	60	gain		not_listed	not_listed	B11019|C42083A_008402-T1	cloud	3	gain		M197|C813B11_008309-T1	cloud	3	gain	
+Asfu_NRZ2018290|KAH2020794.1	cloud	5	gain	FAD_binding_8|NAD_binding_6	not_listed	not_listed	B11019|C42083A_007193-T1	cloud	2	gain	FAD_binding_8|NAD_binding_6	Phoenix_9|CD578F3_007908-T1	cloud	28	ambiguous	FAD_binding_8|NAD_binding_6
+Asfu_NRZ2018326|KAH1968450.1	singleton	1	gain	DUF3435		yes	574-1_L_NEW_CPA0040|CDD7BF6_000719-T1	shell	109	ambiguous	DUF3435	UTAH_23742X38|CD23EB4_001207-T1	cloud	29	ambiguous	DUF3435
+Asfu_NRZ2018649|KAH1912930.1	cloud	4	gain	Ank|Ank_2|Ank_4|Ank_5	not_listed	not_listed	B3221|C17BDF0_002624-T1	shell	67	gain	Ank_2|Ank_4|Ank|Ank_3	B3221|C17BDF0_002624-T1	cloud	28	loss	Ank_2|Ank_4|Ank|Ank_3
+Asfu_NRZ2018649|KAH1917523.1	singleton	1	gain		not_listed	not_listed	730332_Guatemala|C45F23D_002596-T1	cloud	13	gain		730332_Guatemala|C45F23D_002596-T1	cloud	10	gain	
+Asfu_UD1|KAL3412680.1	singleton	1	gain	SRF-TF	not_listed	not_listed	573-1_S_NEW_CPA0033|CA22261_007891-T1	cloud	8	ambiguous	SRF-TF	573-1_L_NEW_CPA0031|C24A26E_005875-T1	shell	74	gain	SRF-TF
+Asfu_UD1|KAL3412687.1	singleton	1	gain		not_listed	not_listed	B11019|C42083A_006970-T1	cloud	6	gain		730332_Guatemala|C45F23D_006705-T1	singleton	1	gain	
+Asfu_W72310|KAK9640677.1	cloud	3	gain		not_listed	not_listed	730334_Guatemala|C5AD400_006505-T1	outgroup_only	0	ambiguous		730334_Guatemala|C5AD400_006505-T1	shell	48	gain	
+Asfu_W72310|KAK9642590.1	cloud	4	gain		not_listed	not_listed	B0727_Argentina|C5AAF22_006736-T1	cloud	8	gain		B15369|C717ABB_006020-T1	cloud	5	gain	
+Asfu_W72310|KAK9646481.1	nonrep_only	0	gain		not_listed	not_listed	B11019|C42083A_008404-T1	cloud	3	gain		M197|C813B11_008311-T1	cloud	3	gain	
+Asfu_W72310|KAK9647125.1	cloud	5	gain	RAI1	not_listed	not_listed	Nuevo_Leon_2|CB39D8F_002401-T1	shell	112	ambiguous	RAI1	Tucson_13|CD60681_005762-T1	shell	135	loss	RAI1
+Asfu_W72310|KAK9657021.1	cloud	4	gain		not_listed	not_listed	730332_Guatemala|C45F23D_000035-T1	cloud	4	gain		730332_Guatemala|C45F23D_000035-T1	cloud	14	gain	
+Asfu_eAF1023|MIC0745864.1	nonrep_only	0	gain		not_listed	not_listed	573-1_L_NEW_CPA0031|C24A26E_008064-T1	outgroup_only	0	gain		573-1_L_NEW_CPA0031|C24A26E_008064-T1	cloud	28	gain	
+Asfu_eAF1090|MIC0762705.1	cloud	7	gain	Exo5	not_listed	not_listed	B3476|CE9CA74_002243-T1	shell	34	ambiguous	Exo5	COCPO_175714|C2600DC_001399-T1	shell	186	gain	Exo5
+Asfu_eAF1090|MIC0763136.1	singleton	1	gain	Acyl_transf_1	not_listed	not_listed	B11299|C72C725_004071-T1	outgroup_only	0	ambiguous	Acyl_transf_1	B11299|C72C725_004071-T1	cloud	35	gain	Acyl_transf_1
+Asfu_niveus|KEY75519.1	shell	24	gain	BTB	not_listed	not_listed	B14286|CC2BA17_006385-T1	cloud	10	ambiguous	BTB	4545-MICE|CB4077B_001362-T1	shell	65	ambiguous	BTB
+Asfu_niveus|KEY79985.1	cloud	3	gain	Mannosyl_trans3	not_listed	not_listed	730333_Guatemala|C537722_001620-T1	shell	49	ambiguous	Mannosyl_trans3	730333_Guatemala|C537722_001620-T1	shell	112	ambiguous	Mannosyl_trans3
+Asfu_niveus|KEY81944.1	shell	49	gain	APH	not_listed	not_listed	B17554|C3D42E5_008099-T1	shell	107	ambiguous	APH	B1249_Guatemala|C40D72F_007004-T1	shell	61	loss	APH
+Aslen_ref|tr|A0AAN6BLQ9|A0AAN6BLQ9_ASPLE	outgroup_only	0	ambiguous	Fung_rhodopsin	not_listed	not_listed	CA2|CD8B963_000990-T1	shell	76	ambiguous	Fung_rhodopsin	UCSF_5AZ|C4980C8_007918-T1	shell	228	ambiguous	Fung_rhodopsin
+Aslen_ref|tr|A0ABQ0ZUU0|A0ABQ0ZUU0_ASPLE	outgroup_only	0	ambiguous	SNF2-rel_dom	not_listed	not_listed	GT-157|CC4F2AA_005111-T1	shell	34	gain	SNF2-rel_dom	GT-157|CC4F2AA_005111-T1	cloud	7	gain	SNF2-rel_dom
+Aslen_ref|tr|A0ABQ1A5J3|A0ABQ1A5J3_ASPLE	outgroup_only	0	ambiguous	DUF676|PGAP1|DUF7779	not_listed	not_listed	B11002|C5E4193_001202-T1	shell	77	ambiguous	DUF7779	B11300|C7C73A6_003636-T1	shell	157	ambiguous	DUF676|DUF7779
+Neofi_ref|tr|A1D1T4|A1D1T4_ASPF1	shell	86	loss	Metallophos	not_listed	not_listed	UTAH_23742X12|C5A33A5_004248-T1	shell	32	ambiguous	Metallophos	UTAH_23742X12|C5A33A5_004248-T1	shell	217	loss	Metallophos
+Neofi_ref|tr|A1D2X7|A1D2X7_ASPF1	outgroup_only	0	ambiguous		not_listed	not_listed	21SD|C5E6681_001188-T1	cloud	13	gain		B12216|CA3ACD6_007350-T1	cloud	17	gain	
+Neofi_ref|tr|A1D5N1|A1D5N1_ASPF1	outgroup_only	0	ambiguous	PK_Tyr_Ser-Thr|Pkinase|Kdo	not_listed	not_listed	UTAH_23742X44|CC2E89F_005166-T1	cloud	2	gain	PK_Tyr_Ser-Thr|Pkinase|Kdo	UTAH_23742X44|CC2E89F_005166-T1	cloud	12	gain	PK_Tyr_Ser-Thr|Pkinase|Kdo
+Neofi_ref|tr|A1D8J7|A1D8J7_ASPF1	outgroup_only	0	ambiguous		not_listed	not_listed	730332_Guatemala|C45F23D_004481-T1	outgroup_only	0	gain		730332_Guatemala|C45F23D_004481-T1	cloud	6	gain	
+Neofi_ref|tr|A1DA32|A1DA32_ASPF1	outgroup_only	0	ambiguous		not_listed	not_listed	Guerrero_1|C3F11B8_008641-T1	cloud	11	gain		730332_Guatemala|C45F23D_004771-T1	cloud	6	gain	

@@ -1,0 +1,95 @@
+definition	term	name	description	clan	n_runs_tested	tier	af_k	af_K	af_N	af_M	af_fold	af_p	af_q	af_n_families_all	v5_k	v5_K	v5_N	v5_M	v5_fold	v5_p	v5_q	v5_n_families_all	v2_k	v2_K	v2_N	v2_M	v2_fold	v2_p	v2_q	v2_n_families_all
+B_shell_soft_core_loss_clan	CL0020	TPR	Tetratrico peptide repeat superfamily (804 Pfam-A members)	CL0020	3		32	79	712	2991	1.702	6.240e-04	0.09672	728	18	63	390	1548	1.134	0.3088	1	778	28	59	673	1650	1.164	0.1768	0.7422	628
+B_shell_soft_core_loss_clan	CL0108	Actin_ATPase	Actin-like ATPase Superfamily (47 Pfam-A members)	CL0108	2		7	13	712	2991	2.262	0.0184	0.8324	98	4	6	390	1548	2.646	0.03833	0.8144	100								75
+B_shell_soft_core_loss_clan	CL0010	SH3	Src homology-3 domain (249 Pfam-A members)	CL0010	3		11	26	712	2991	1.777	0.02805	0.8324	190	8	15	390	1548	2.117	0.01764	0.4998	154	5	8	673	1650	1.532	0.1855	0.7422	130
+B_shell_soft_core_loss_clan	CL0214	UBA	UBA superfamily (61 Pfam-A members)	CL0214	2		8	18	712	2991	1.867	0.0433	0.8324	83								74	3	7	673	1650	1.051	0.5974	0.9816	61
+B_shell_soft_core_loss_clan	CL0061	PLP_aminotran	PLP dependent aminotransferase superfamily (23 Pfam-A members)	CL0061	3		12	31	712	2991	1.626	0.04536	0.8324	198	2	9	390	1548	0.882	0.7051	1	155	6	12	673	1650	1.226	0.3554	0.899	118
+B_shell_soft_core_loss_clan	CL0072	Ubiquitin	Ubiquitin superfamily (138 Pfam-A members)	CL0072	3		11	29	712	2991	1.593	0.06244	0.8324	145	4	9	390	1548	1.764	0.1688	0.9144	124	6	12	673	1650	1.226	0.3554	0.899	103
+B_shell_soft_core_loss_clan	CL0073	P53-like	Beta-sandwich DNA-binding domain (17 Pfam-A members)	CL0073	3		3	5	712	2991	2.521	0.09114	0.8324	37	1	6	390	1548	0.662	0.8253	1	49	3	5	673	1650	1.471	0.3309	0.8894	43
+B_shell_soft_core_loss_clan	CL0183	PAS_Fold	PAS domain clan (31 Pfam-A members)	CL0183	2		3	5	712	2991	2.521	0.09114	0.8324	45	0	6	390	1548	0	1	1	34								24
+B_shell_soft_core_loss_clan	CL0126	Peptidase_MA	Peptidase clan MA (92 Pfam-A members)	CL0126	2		9	25	712	2991	1.512	0.1171	1	116								66	4	6	673	1650	1.634	0.1899	0.7422	58
+B_shell_soft_core_loss_clan	CL0511	Retroviral_zf	Retrovirus zinc finger-like domains (11 Pfam-A members)	CL0511	3		4	9	712	2991	1.867	0.1438	1	45	2	9	390	1548	0.882	0.7051	1	39	2	6	673	1650	0.817	0.7792	0.9816	29
+B_shell_soft_core_loss_clan	CL0052	NTN	NTN hydrolase superfamily (21 Pfam-A members)	CL0052	3		3	6	712	2991	2.1	0.1508	1	58	2	8	390	1548	0.992	0.6383	1	66	6	7	673	1650	2.101	0.02075	0.6282	45
+B_shell_soft_core_loss_clan	CL0364	Leu-IlvD	LeuD/IlvD-like (15 Pfam-A members)	CL0364	3		5	13	712	2991	1.616	0.1765	1	78	1	5	390	1548	0.794	0.7663	1	40	1	5	673	1650	0.49	0.9275	1	32
+B_shell_soft_core_loss_clan	CL0986	Sm-like	Sm-like superfamily (27 Pfam-A members)	CL0986	2		5	13	712	2991	1.616	0.1765	1	44								43	5	6	673	1650	2.043	0.04442	0.6367	37
+B_shell_soft_core_loss_clan	CL0266	PH	PH domain-like superfamily (226 Pfam-A members)	CL0266	3		7	20	712	2991	1.47	0.1774	1	130	7	12	390	1548	2.315	0.01454	0.4998	152	7	11	673	1650	1.56	0.1086	0.7422	121
+B_shell_soft_core_loss_clan	CL0306	HeH	LEM/SAP HeH motif (23 Pfam-A members)	CL0306	2		4	10	712	2991	1.68	0.1966	1	30	3	5	390	1548	2.382	0.1052	0.8944	18								15
+B_shell_soft_core_loss_clan	CL0172	Thioredoxin	Thioredoxin-like (90 Pfam-A members)	CL0172	3		9	28	712	2991	1.35	0.203	1	238	7	15	390	1548	1.852	0.05788	0.8944	137	5	11	673	1650	1.114	0.489	0.9143	108
+B_shell_soft_core_loss_clan	CL0159	E-set	Ig-like fold superfamily (E-set) (845 Pfam-A members)	CL0159	3		10	32	712	2991	1.313	0.212	1	270	6	20	390	1548	1.191	0.3904	1	171	13	27	673	1650	1.18	0.2763	0.8894	148
+B_shell_soft_core_loss_clan	CL0261	NUDIX	NUDIX superfamily (12 Pfam-A members)	CL0261	2		3	7	712	2991	1.8	0.219	1	46								30	3	6	673	1650	1.226	0.472	0.9021	25
+B_shell_soft_core_loss_clan	CL0525	pap2	Acid phosphatase/Vanadium-dependent haloperoxidase (8 Pfam-A members)	CL0525	2		3	7	712	2991	1.8	0.219	1	25								22	5	8	673	1650	1.532	0.1855	0.7422	19
+B_shell_soft_core_loss_clan	CL0039	HUP	HUP - HIGH-signature proteins, UspA, and PP-ATPase. (39 Pfam-A members)	CL0039	3		5	14	712	2991	1.5	0.2238	1	118	2	10	390	1548	0.794	0.7612	1	95	2	9	673	1650	0.545	0.9361	1	76
+B_shell_soft_core_loss_clan	CL0229	RING	Ring-finger/U-box superfamily (109 Pfam-A members)	CL0229	3		15	52	712	2991	1.212	0.2386	1	246	5	20	390	1548	0.992	0.594	1	227	11	29	673	1650	0.93	0.6903	0.9816	186
+B_shell_soft_core_loss_clan	CL0163	Calcineurin	Calcineurin-like phosphoesterase superfamily (11 Pfam-A members)	CL0163	3		5	15	712	2991	1.4	0.2744	1	86	2	6	390	1548	1.323	0.4709	1	91	6	7	673	1650	2.101	0.02075	0.6282	75
+B_shell_soft_core_loss_clan	CL0113	GT-B	Glycosyl transferase clan GT-B (81 Pfam-A members)	CL0113	3		6	19	712	2991	1.327	0.2875	1	122	0	8	390	1548	0	1	1	66	2	6	673	1650	0.817	0.7792	0.9816	46
+B_shell_soft_core_loss_clan	CL0221	RRM	RRM-like clan (73 Pfam-A members)	CL0221	3		9	31	712	2991	1.22	0.3077	1	212	6	21	390	1548	1.134	0.4417	1	193	12	22	673	1650	1.337	0.1353	0.7422	162
+B_shell_soft_core_loss_clan	CL0021	OB	OB fold (220 Pfam-A members)	CL0021	3		4	12	712	2991	1.4	0.3144	1	150	3	12	390	1548	0.992	0.6161	1	136	12	21	673	1650	1.401	0.09584	0.7422	118
+B_shell_soft_core_loss_clan	CL0025	His_Kinase_A	His Kinase A (phospho-acceptor) domain (14 Pfam-A members)	CL0025	2		2	5	712	2991	1.68	0.342	1	95	1	5	390	1548	0.794	0.7663	1	50								38
+B_shell_soft_core_loss_clan	CL0179	ATP-grasp	ATP-grasp superfamily (45 Pfam-A members)	CL0179	2		2	5	712	2991	1.68	0.342	1	87								78	3	6	673	1650	1.226	0.472	0.9021	56
+B_shell_soft_core_loss_clan	CL0260	NTP_transf	Nucleotidyltransferase superfamily (49 Pfam-A members)	CL0260	2		2	5	712	2991	1.68	0.342	1	36	1	8	390	1548	0.496	0.9025	1	48								38
+B_shell_soft_core_loss_clan	CL0028	AB_hydrolase	Alpha/Beta hydrolase fold (88 Pfam-A members)	CL0028	3		22	85	712	2991	1.087	0.3647	1	711	9	36	390	1548	0.992	0.5757	1	359	16	48	673	1650	0.817	0.8889	1	295
+B_shell_soft_core_loss_clan	CL0431	PF	Profilin-like superfamily (31 Pfam-A members)	CL0431	3		3	9	712	2991	1.4	0.3658	1	47	1	7	390	1548	0.567	0.8695	1	42	4	8	673	1650	1.226	0.4242	0.9021	32
+B_shell_soft_core_loss_clan	CL0050	HotDog	HotDog superfamily (28 Pfam-A members)	CL0050	3		6	21	712	2991	1.2	0.3826	1	150	0	5	390	1548	0	1	1	72	1	6	673	1650	0.409	0.9572	1	60
+B_shell_soft_core_loss_clan	CL0369	GHD	Glycosyl hydrolase domain superfamily (67 Pfam-A members)	CL0369	2		5	18	712	2991	1.167	0.4336	1	113								41	2	6	673	1650	0.817	0.7792	0.9816	36
+B_shell_soft_core_loss_clan	CL0671	AAA_lid	AAA+ ATPase lid domain superfamily (54 Pfam-A members)	CL0671	3		4	14	712	2991	1.2	0.4363	1	103	1	7	390	1548	0.567	0.8695	1	104	3	8	673	1650	0.919	0.7014	0.9816	82
+B_shell_soft_core_loss_clan	CL0445	SNARE-fusion	SNARE-fusion membrane complex superfamily (15 Pfam-A members)	CL0445	2		2	6	712	2991	1.4	0.4376	1	36								48	2	5	673	1650	0.981	0.6768	0.9816	40
+B_shell_soft_core_loss_clan	CL0186	Beta_propeller	Beta propeller clan (317 Pfam-A members)	CL0186	3		14	55	712	2991	1.069	0.4378	1	518	7	22	390	1548	1.263	0.3073	1	366	13	23	673	1650	1.386	0.09233	0.7422	297
+B_shell_soft_core_loss_clan	CL0839	Tbcl_zf	Treble clef zinc fingers (41 Pfam-A members)	CL0839	3		3	10	712	2991	1.26	0.4383	1	50	2	7	390	1548	1.134	0.5603	1	53	3	5	673	1650	1.471	0.3309	0.8894	37
+B_shell_soft_core_loss_clan	CL0361	C2H2-zf	Classical C2H2 and C2HC zinc fingers (151 Pfam-A members)	CL0361	3		7	27	712	2991	1.089	0.4711	1	172	2	6	390	1548	1.323	0.4709	1	130	9	15	673	1650	1.471	0.1053	0.7422	107
+B_shell_soft_core_loss_clan	CL0184	DMT	Drug/Metabolite transporter superfamily (23 Pfam-A members)	CL0184	3		4	15	712	2991	1.12	0.4952	1	95	2	6	390	1548	1.323	0.4709	1	62	5	14	673	1650	0.876	0.7417	0.9816	56
+B_shell_soft_core_loss_clan	CL0062	APC	APC superfamily (23 Pfam-A members)	CL0062	3		16	66	712	2991	1.018	0.5148	1	398	4	25	390	1548	0.635	0.9092	1	235	6	19	673	1650	0.774	0.8551	1	187
+B_shell_soft_core_loss_clan	CL0866	ALR_C-like	Alanine racemase C-terminal domain superfamily (55 Pfam-A members)	CL0866	3		6	24	712	2991	1.05	0.5239	1	206	2	10	390	1548	0.794	0.7612	1	102	3	8	673	1650	0.919	0.7014	0.9816	85
+B_shell_soft_core_loss_clan	CL0865	ZnExoPePases	Zn-dependent exopeptidases (18 Pfam-A members)	CL0865	3		2	7	712	2991	1.2	0.525	1	65	1	5	390	1548	0.794	0.7663	1	55	3	9	673	1650	0.817	0.7834	0.9816	44
+B_shell_soft_core_loss_clan	CL0077	FAD_PCMH	PCMH-like FAD binding (2 Pfam-A members)	CL0077	2		4	16	712	2991	1.05	0.5513	1	133								51	3	5	673	1650	1.471	0.3309	0.8894	41
+B_shell_soft_core_loss_clan	CL0271	F-box	F-box-like domain (9 Pfam-A members)	CL0271	3		4	16	712	2991	1.05	0.5513	1	99	5	14	390	1548	1.418	0.2635	1	98	5	6	673	1650	2.043	0.04442	0.6367	75
+B_shell_soft_core_loss_clan	CL0105	Hybrid	Barrel sandwich hybrid superfamily (41 Pfam-A members)	CL0105	3		2	8	712	2991	1.05	0.6027	1	63	2	6	390	1548	1.323	0.4709	1	56	3	6	673	1650	1.226	0.472	0.9021	40
+B_shell_soft_core_loss_clan	CL0220	EF_hand	EF-hand like superfamily (62 Pfam-A members)	CL0220	2		2	8	712	2991	1.05	0.6027	1	62								56	3	6	673	1650	1.226	0.472	0.9021	44
+B_shell_soft_core_loss_clan	CL0063	NADP_Rossmann	FAD/NAD(P)-binding Rossmann fold Superfamily (323 Pfam-A members)	CL0063	3		76	329	712	2991	0.97	0.6475	1	2541	36	145	390	1548	0.985	0.5769	1	1332	62	147	673	1650	1.034	0.3916	0.9021	1053
+B_shell_soft_core_loss_clan	CL0040	tRNA_synt_II	Class II aminoacyl-tRNA and Biotin synthetases (12 Pfam-A members)	CL0040	2		2	9	712	2991	0.934	0.6704	1	57								49	3	6	673	1650	1.226	0.472	0.9021	41
+B_shell_soft_core_loss_clan	CL0071	His_phosphatase	Histidine phosphatase superfamily (2 Pfam-A members)	CL0071	3		3	14	712	2991	0.9	0.6836	1	84	0	6	390	1548	0	1	1	36	3	10	673	1650	0.736	0.8459	1	34
+B_shell_soft_core_loss_clan	CL0015	MFS	Major Facilitator Superfamily (31 Pfam-A members)	CL0015	3		37	165	712	2991	0.942	0.6955	1	1345	17	84	390	1548	0.803	0.8879	1	660	32	110	673	1650	0.713	0.9968	1	543
+B_shell_soft_core_loss_clan	CL0323	Patatin	Patatin/FabD/lysophospholipase-like superfamily (6 Pfam-A members)	CL0323	3		4	19	712	2991	0.884	0.6971	1	190	2	6	390	1548	1.323	0.4709	1	114	2	8	673	1650	0.613	0.9022	1	84
+B_shell_soft_core_loss_clan	CL0029	Cupin	Cupin fold (85 Pfam-A members)	CL0029	3		13	60	712	2991	0.91	0.7009	1	366	5	18	390	1548	1.103	0.4894	1	150	4	11	673	1650	0.892	0.7228	0.9816	116
+B_shell_soft_core_loss_clan	CL0059	6_Hairpin	Six-hairpin glycosidase superfamily (53 Pfam-A members)	CL0059	3		6	29	712	2991	0.869	0.7222	1	249	2	7	390	1548	1.134	0.5603	1	104	6	10	673	1650	1.471	0.179	0.7422	74
+B_shell_soft_core_loss_clan	CL0381	Metallo-HOrase	Metallo-hydrolase/oxidoreductase superfamily (13 Pfam-A members)	CL0381	2		2	10	712	2991	0.84	0.7284	1	73	2	5	390	1548	1.588	0.3713	1	28								16
+B_shell_soft_core_loss_clan	CL0314	PP-binding	ACP-like superfamily (6 Pfam-A members)	CL0314	3		4	20	712	2991	0.84	0.7374	1	308	3	5	390	1548	2.382	0.1052	0.8944	602	5	6	673	1650	2.043	0.04442	0.6367	391
+B_shell_soft_core_loss_clan	CL0012	Histone	Histone superfamily (18 Pfam-A members)	CL0012	3		1	5	712	2991	0.84	0.7434	1	52	3	5	390	1548	2.382	0.1052	0.8944	49	6	8	673	1650	1.839	0.05443	0.6687	45
+B_shell_soft_core_loss_clan	CL0111	GT-C	Glycosyl transferase GT-C superfamily (35 Pfam-A members)	CL0111	2		1	5	712	2991	0.84	0.7434	1	38	2	7	390	1548	1.134	0.5603	1	41								32
+B_shell_soft_core_loss_clan	CL0531	AMP-binding_C	AMP-binding enzyme C-terminal domain superfamily (7 Pfam-A members)	CL0531	3		1	5	712	2991	0.84	0.7434	1	88	2	7	390	1548	1.134	0.5603	1	86	5	9	673	1650	1.362	0.2828	0.8894	71
+B_shell_soft_core_loss_clan	CL0023	P-loop_NTPase	P-loop containing nucleoside triphosphate hydrolase superfamily (316 Pfam-A members)	CL0023	3		36	166	712	2991	0.911	0.7723	1	1679	22	87	390	1548	1.004	0.5349	1	1003	24	77	673	1650	0.764	0.9713	1	790
+B_shell_soft_core_loss_clan	CL0208	UBC	Ubiquitin conjugating enzyme like superfamily (19 Pfam-A members)	CL0208	3		4	21	712	2991	0.8	0.7735	1	78	3	9	390	1548	1.323	0.4048	1	90	5	8	673	1650	1.532	0.1855	0.7422	72
+B_shell_soft_core_loss_clan	CL0788	CorA-like	CorA-like superfamily (3 Pfam-A members)	CL0788	2		1	6	712	2991	0.7	0.8046	1	49	1	7	390	1548	0.567	0.8695	1	22								19
+B_shell_soft_core_loss_clan	CL0296	GroES	GroES-like superfamily (3 Pfam-A members)	CL0296	3		4	22	712	2991	0.764	0.8055	1	230	3	10	390	1548	1.191	0.4805	1	81	3	11	673	1650	0.669	0.892	1	62
+B_shell_soft_core_loss_clan	CL0167	Zn_Beta_Ribbon	Zinc beta-ribbon (158 Pfam-A members)	CL0167	3		5	27	712	2991	0.778	0.8065	1	114	6	9	390	1548	2.646	0.0102	0.4998	71	3	9	673	1650	0.817	0.7834	0.9816	63
+B_shell_soft_core_loss_clan	CL0202	GBD	Galactose-binding domain-like superfamily (167 Pfam-A members)	CL0202	2		2	12	712	2991	0.7	0.8187	1	96	2	5	390	1548	1.588	0.3713	1	36								27
+B_shell_soft_core_loss_clan	CL0036	TIM_barrel	Common phosphate binding-site TIM barrel superfamily (226 Pfam-A members)	CL0036	3		30	143	712	2991	0.881	0.8189	1	1218	17	53	390	1548	1.273	0.1554	0.9144	535	27	63	673	1650	1.051	0.4141	0.9021	424
+B_shell_soft_core_loss_clan	CL0046	Thiolase	Thiolase-like Superfamily (19 Pfam-A members)	CL0046	3		3	18	712	2991	0.7	0.8393	1	167	4	12	390	1548	1.323	0.357	1	133	2	6	673	1650	0.817	0.7792	0.9816	98
+B_shell_soft_core_loss_clan	CL0236	PDDEXK	PD-(D/E)XK nuclease superfamily (202 Pfam-A members)	CL0236	3		1	7	712	2991	0.6	0.8512	1	53	2	10	390	1548	0.794	0.7612	1	126	5	13	673	1650	0.943	0.6692	0.9816	105
+B_shell_soft_core_loss_clan	CL0110	GT-A	Glycosyl transferase clan GT-A (75 Pfam-A members)	CL0110	3		6	34	712	2991	0.741	0.8545	1	198	1	7	390	1548	0.567	0.8695	1	156	7	17	673	1650	1.01	0.5791	0.9816	124
+B_shell_soft_core_loss_clan	CL0914	Zn2_Cys6	Zn(2)-Cys(6) binuclear cluster superfamily (2 Pfam-A members)	CL0914	3		27	135	712	2991	0.84	0.8795	1	769	6	29	390	1548	0.821	0.7779	1	222	15	28	673	1650	1.313	0.1168	0.7422	180
+B_shell_soft_core_loss_clan	CL0497	GST_C	Glutathione S-transferase, C-terminal domain (14 Pfam-A members)	CL0497	2		2	14	712	2991	0.6	0.8811	1	94	3	5	390	1548	2.382	0.1052	0.8944	46								38
+B_shell_soft_core_loss_clan	CL0031	Phosphatase	Phosphatase superfamily (27 Pfam-A members)	CL0031	2		3	20	712	2991	0.63	0.8886	1	91								62	3	6	673	1650	1.226	0.472	0.9021	57
+B_shell_soft_core_loss_clan	CL0257	Acetyltrans	N-acetyltransferase like (68 Pfam-A members)	CL0257	2		6	38	712	2991	0.663	0.9187	1	210	4	11	390	1548	1.443	0.2916	1	97								81
+B_shell_soft_core_loss_clan	CL0241	ABC_membrane	ABC transporter membrane domain clan (4 Pfam-A members)	CL0241	2		2	16	712	2991	0.525	0.9231	1	119								83	2	5	673	1650	0.981	0.6768	0.9816	66
+B_shell_soft_core_loss_clan	CL0004	Concanavalin	Concanavalin-like lectin/glucanase superfamily (89 Pfam-A members)	CL0004	3		3	22	712	2991	0.573	0.9239	1	173	2	6	390	1548	1.323	0.4709	1	48	4	7	673	1650	1.401	0.3049	0.8894	36
+B_shell_soft_core_loss_clan	CL0137	HAD	HAD superfamily (35 Pfam-A members)	CL0137	3		3	22	712	2991	0.573	0.9239	1	183	1	6	390	1548	0.662	0.8253	1	120	6	11	673	1650	1.337	0.2635	0.8894	95
+B_shell_soft_core_loss_clan	CL0080	Beta-tent	Beta-tent fold (12 Pfam-A members)	CL0080	3		2	17	712	2991	0.494	0.9384	1	75	1	8	390	1548	0.496	0.9025	1	33	3	8	673	1650	0.919	0.7014	0.9816	30
+B_shell_soft_core_loss_clan	CL0378	ANL	ANL superfamily (5 Pfam-A members)	CL0378	3		2	17	712	2991	0.494	0.9384	1	380	2	7	390	1548	1.134	0.5603	1	643	8	15	673	1650	1.308	0.2312	0.8643	433
+B_shell_soft_core_loss_clan	CL0125	Peptidase_CA	Peptidase clan CA (119 Pfam-A members)	CL0125	3		5	35	712	2991	0.6	0.9444	1	166	3	23	390	1548	0.518	0.954	1	183	8	23	673	1650	0.853	0.7875	0.9816	153
+B_shell_soft_core_loss_clan	CL0123	HTH	Helix-turn-helix clan (698 Pfam-A members)	CL0123	3		13	80	712	2991	0.683	0.9639	1	702	13	39	390	1548	1.323	0.1585	0.9144	445	23	54	673	1650	1.044	0.4438	0.9021	357
+B_shell_soft_core_loss_clan	CL0016	PKinase	Protein kinase superfamily (48 Pfam-A members)	CL0016	3		10	74	712	2991	0.568	0.991	1	648	21	146	390	1548	0.571	0.9997	1	1244	46	178	673	1650	0.634	1	1	979
+B_shell_soft_core_loss_clan	CL0192	GPCR_A	Family A G protein-coupled receptor-like superfamily (61 Pfam-A members)	CL0192	3		9	70	712	2991	0.54	0.9931	1	422	2	20	390	1548	0.397	0.9773	1	155	10	31	673	1650	0.791	0.878	1	128
+B_shell_soft_core_loss_clan	CL0507	Fungal_trans	Fungal specific transcription factor domain (4 Pfam-A members)	CL0507	3		29	182	712	2991	0.669	0.9972	1	1043	6	23	390	1548	1.035	0.5409	1	233	13	25	673	1650	1.275	0.1722	0.7422	196
+B_shell_soft_core_loss_clan	CL0219	RNase_H	Ribonuclease H-like superfamily (121 Pfam-A members)	CL0219	3		4	48	712	2991	0.35	0.9987	1	252	4	7	390	1548	2.268	0.07191	0.8944	77	4	7	673	1650	1.401	0.3049	0.8894	58
+B_shell_soft_core_loss_clan	CL0465	Ank	Ankyrin repeat superfamily (13 Pfam-A members)	CL0465	3		3	57	712	2991	0.221	1	1	538	5	27	390	1548	0.735	0.8493	1	235	4	23	673	1650	0.426	0.996	1	189
+B_shell_soft_core_loss_clan	CL0018	bZIP	bZIP-like leucine zipper (4 Pfam-A members)	CL0018	2		0	7	712	2991	0	1	1	50								29	3	7	673	1650	1.051	0.5974	0.9816	24
+B_shell_soft_core_loss_clan	CL0033	POZ	POZ domain superfamily (12 Pfam-A members)	CL0033	3		0	10	712	2991	0	1	1	79	2	10	390	1548	0.794	0.7612	1	70	3	13	673	1650	0.566	0.949	1	61
+B_shell_soft_core_loss_clan	CL0084	ADP-ribosyl	ADP-ribosylation Superfamily (35 Pfam-A members)	CL0084	3		0	5	712	2991	0	1	1	34	0	6	390	1548	0	1	1	39	6	9	673	1650	1.634	0.1078	0.7422	30
+B_shell_soft_core_loss_clan	CL0104	Glyoxalase	VOC superfamily (26 Pfam-A members)	CL0104	2		0	5	712	2991	0	1	1	40	2	5	390	1548	1.588	0.3713	1	19								14
+B_shell_soft_core_loss_clan	CL0128	vWA-like	von Willebrand factor type A (37 Pfam-A members)	CL0128	2									28	0	5	390	1548	0	1	1	34	1	6	673	1650	0.409	0.9572	1	28
+B_shell_soft_core_loss_clan	CL0154	C2	C2 superfamily (50 Pfam-A members)	CL0154	2									34	1	8	390	1548	0.496	0.9025	1	54	4	6	673	1650	1.634	0.1899	0.7422	45
+B_shell_soft_core_loss_clan	CL0198	HHH	Helix-hairpin-helix superfamily (44 Pfam-A members)	CL0198	2		0	5	712	2991	0	1	1	43	3	6	390	1548	1.985	0.1721	0.9144	31								25
+B_shell_soft_core_loss_clan	CL0263	His-Me_finger	His-Me finger endonuclease superfamily (28 Pfam-A members)	CL0263	3		0	6	712	2991	0	1	1	50	5	11	390	1548	1.804	0.117	0.9039	91	11	16	673	1650	1.686	0.02191	0.6282	75
+B_shell_soft_core_loss_clan	CL0382	DNA-mend	DNA breaking-rejoining enzyme superfamily (11 Pfam-A members)	CL0382	3		0	20	712	2991	0	1	1	248	0	33	390	1548	0	1	1	377	2	21	673	1650	0.233	0.9998	1	282
+B_shell_soft_core_loss_clan	CL0570	PPP-I	Protease propeptides/inhibitors (15 Pfam-A members)	CL0570	2									24	3	6	390	1548	1.985	0.1721	0.9144	49	4	9	673	1650	1.09	0.5373	0.9816	41
+B_shell_soft_core_loss_clan	CL0862	LTE-like	Lipid-translocating exporter superfamily (3 Pfam-A members)	CL0862	3		0	15	712	2991	0	1	1	120	1	5	390	1548	0.794	0.7663	1	29	2	6	673	1650	0.817	0.7792	0.9816	25
