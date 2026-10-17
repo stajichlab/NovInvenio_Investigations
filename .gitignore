@@ -112,6 +112,8 @@ docs/*/*/*/island_synteny.html
 docs/*/*/*/clinker/
 docs/*/*/*/locus_summary/
 docs/*/*/*/locus_summary.html
+docs/*/*/*/starship_overlap/
+docs/*/*/*/starship_overlap.html
 docs/*/*/*/assembly_quality.html
 
 # pixi

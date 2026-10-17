@@ -27,7 +27,10 @@ DEFAULT_HEAD_JOB = {"partition": "stajichlab", "account": None, "time": "30-00:0
                     "mem": "8G", "cpus": 1}
 DEFAULT_KEYS = {"pipeline", "pipeline_commit", "pfam_hmm", "queue_config", "data_dir",
                 "head_job", "params"}
-RUN_KEYS = DEFAULT_KEYS | {"samplesheet", "species_tree", "publish", "current"}
+# Optional site pages for `ni pangenome stage` (bin/sync_pangenome_report.py flags of the
+# same name). Run-level only: each points at one run's analysis output.
+STAGE_DIR_KEYS = ("locus_summary_dir", "starship_overlap_dir", "starship_sm_dir")
+RUN_KEYS = DEFAULT_KEYS | {"samplesheet", "species_tree", "publish", "current"} | set(STAGE_DIR_KEYS)
 
 
 class RunsFileError(ValueError):
@@ -49,6 +52,9 @@ class RunSpec:
     params: dict
     publish: bool
     current: bool
+    locus_summary_dir: Path | None = None
+    starship_overlap_dir: Path | None = None
+    starship_sm_dir: Path | None = None
 
 
 def _study_path(study_dir: Path, value: str | None) -> Path | None:
@@ -110,6 +116,7 @@ def load_runs_file(study_dir: Path) -> dict[str, RunSpec]:
             params=merged["params"],
             publish=bool(merged.get("publish", False)),
             current=bool(merged.get("current", False)),
+            **{k: _study_path(study_dir, merged.get(k)) for k in STAGE_DIR_KEYS},
         )
     currents = [s.name for s in specs.values() if s.current]
     if len(currents) > 1:
@@ -445,6 +452,10 @@ def stage_command(spec: RunSpec, repo_root: Path) -> list[str]:
            "--study", _study_rel(spec, repo_root), "--run", spec.name]
     if spec.current:
         cmd.append("--current")
+    for key in STAGE_DIR_KEYS:
+        value = getattr(spec, key)
+        if value is not None:
+            cmd += [f"--{key}", str(value)]
     return cmd
 
 
