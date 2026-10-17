@@ -102,7 +102,30 @@ STARSHIP_OVERLAP_FILES = ["summary.tsv", "enrichment.tsv", "per_starship.tsv", "
                           "coord_permutation.tsv", "per_island.tsv.gz", "annotated_families.tsv.gz",
                           "PROVENANCE.yaml"]
 STARSHIP_SM_FILES = ["sm_by_type.tsv", "sm_starship_overlap.tsv", "sm_clusters.tsv.gz",
+                     "sm_permutation.tsv", "sm_family_class_direction.tsv", "sm_core_families.tsv.gz",
                      "PROVENANCE_sm.yaml"]
+# Only when --starship_sm_dir is a separate dir (e.g. full_v072_antismash/): its
+# own summary/provenance files, renamed so they do not overwrite the overlap
+# dir's files of the same name. (source name, published name).
+STARSHIP_SM_RENAMED = [("summary.tsv", "sm_summary.tsv"), ("PROVENANCE.yaml", "PROVENANCE_sm.yaml"),
+                       ("PROVENANCE_analysis.yaml", "PROVENANCE_sm_analysis.yaml")]
+# sm summary metrics shown in the SM key-metrics table when present (both schemas).
+STARSHIP_SM_KEY_METRICS = [
+    "antismash_version", "strains_in_run", "strains_with_antismash", "sm_clusters",
+    "sm_clusters_overlap_ge1gene", "sm_clusters_overlap_ge50pct",
+    "sm_clusters_overlapping_starship_ge1gene", "sm_clusters_overlapping_starship_ge50pct",
+    "sm_clusters_with_captain", "sm_clusters_with_captain_gene", "sm_cluster_genes", "sm_core_genes",
+    "elements_with_sm_cluster_ge1gene", "elements_with_sm_cluster_ge50pct",
+    "hypergeom_sm_cluster_genes_in_starships_k", "hypergeom_sm_cluster_genes_in_starships_expected",
+    "hypergeom_sm_cluster_genes_in_starships_p_greater",
+    "sm_core_families", "sm_core_families_noncore", "sm_core_families_noncore_in_island",
+    "hypergeom_core_families_in_islands_noncore_expected",
+    "hypergeom_core_families_in_islands_noncore_p_greater",
+    "hypergeom_cluster_gene_families_in_islands_noncore_k",
+    "hypergeom_cluster_gene_families_in_islands_noncore_K",
+    "hypergeom_cluster_gene_families_in_islands_noncore_expected",
+    "hypergeom_cluster_gene_families_in_islands_noncore_p_greater",
+    "captain_genes_in_sm_clusters", "expected_captain_genes_in_sm_clusters", "p_hypergeom_less"]
 STARSHIP_SETS = [("starship_all", "Starship families, all elements"),
                  ("starship_high", "Starship families, high-confidence elements"),
                  ("captain", "Captain-gene (DUF3435) families")]
@@ -307,6 +330,19 @@ def _html_table(cols: list[str], rows: list[list[str]], sortable: bool = False,
     return f'<div class="wrap"><table{cls}><thead><tr>{head}</tr></thead><tbody>{trs}</tbody></table></div>'
 
 
+def _has_cols(rows: list[dict] | None, path: Path, cols: tuple[str, ...]) -> bool:
+    """True when the table's header has every column in `cols`; otherwise
+    print a warning naming the columns found (an unexpected schema must not
+    crash a sync). An empty table (header only) has no row to check: True."""
+    if not rows:
+        return True
+    have = list(rows[0].keys())
+    if all(c in have for c in cols):
+        return True
+    print(f"WARNING: {path}: expected columns {list(cols)}, found {have}", file=sys.stderr)
+    return False
+
+
 def _find_named_figure(overlap_dir: Path, suffix: str) -> Path | None:
     """make_figures.py writes <figures>/<label>_<suffix> next to (or above) the
     overlap dir, with <label> = the overlap dir's path below that parent joined
@@ -326,25 +362,37 @@ def _find_named_figure(overlap_dir: Path, suffix: str) -> Path | None:
 def stage_starship_overlap(overlap_dir: Path, run_docs: Path, sm_dir: Path | None = None) -> bool:
     """Copy a bin/starship_island_overlap.py output dir's small tables and PNGs
     into run_docs/starship_overlap/ and write run_docs/starship_overlap.html.
-    SM tables (sm_by_type.tsv, sm_starship_overlap.tsv, sm_clusters.tsv.gz,
-    PROVENANCE_sm.yaml, figures) come from `sm_dir` (default: overlap_dir).
-    Every input except summary.tsv is optional; a missing one gives a
-    'not available' line. Returns False (no page) when summary.tsv is missing."""
+    SM tables (STARSHIP_SM_FILES, figures) come from `sm_dir` (default:
+    overlap_dir). A separate sm_dir also contributes its summary.tsv
+    (metric/value/source) and PROVENANCE*.yaml under new names
+    (STARSHIP_SM_RENAMED). sm_starship_overlap.tsv may be a metric table
+    (metric/value/definition) or a per-element table (element_id, ...).
+    Every input except summary.tsv is optional; a missing one, or one with
+    unexpected columns, gives a warning and a 'not available' line, never an
+    exception. Returns False (no page) when summary.tsv is missing or has no
+    metric/value columns."""
     import html
     summary_rows = _read_tsv(overlap_dir / "summary.tsv")
     if summary_rows is None:
         print(f"WARNING: {overlap_dir}/summary.tsv not found -- no starship_overlap page",
               file=sys.stderr)
         return False
+    if not _has_cols(summary_rows, overlap_dir / "summary.tsv", ("metric", "value")):
+        print(f"WARNING: {overlap_dir}/summary.tsv has no metric/value columns -- no starship_overlap page",
+              file=sys.stderr)
+        return False
     sm_dir = sm_dir or overlap_dir
+    separate_sm = sm_dir.resolve() != overlap_dir.resolve()
     dest = run_docs / "starship_overlap"
     dest.mkdir(exist_ok=True)
     copied: set[str] = set()
-    for src_dir, names in ((overlap_dir, STARSHIP_OVERLAP_FILES), (sm_dir, STARSHIP_SM_FILES)):
-        for f in names:
-            if (src_dir / f).is_file():
-                shutil.copyfile(src_dir / f, dest / f)
-                copied.add(f)
+    pairs = [(overlap_dir / f, f) for f in STARSHIP_OVERLAP_FILES] + [(sm_dir / f, f) for f in STARSHIP_SM_FILES]
+    if separate_sm:
+        pairs += [(sm_dir / s, d) for s, d in STARSHIP_SM_RENAMED]
+    for src, name in pairs:
+        if src.is_file() and name not in copied:
+            shutil.copyfile(src, dest / name)
+            copied.add(name)
     inputs_prov = next((a / "inputs" / "PROVENANCE.yaml" for a in [overlap_dir, *list(overlap_dir.parents)[:2]]
                         if (a / "inputs" / "PROVENANCE.yaml").is_file()), None)
     if inputs_prov is not None:
@@ -358,15 +406,17 @@ def stage_starship_overlap(overlap_dir: Path, run_docs: Path, sm_dir: Path | Non
     if named_sm is not None:
         shutil.copyfile(named_sm, dest / "sm.png")
         sm_figs.append("sm.png")
-    if sm_dir != overlap_dir:
-        for p in sorted(sm_dir.glob("*.png")):
-            if p.name not in ("sm.png", "starship_islands.png"):
+    if separate_sm:
+        for p in sorted([*sm_dir.glob("*.png"), *sm_dir.glob("figures/*.png")]):
+            if p.name not in ("sm.png", "starship_islands.png") and p.name not in sm_figs:
                 shutil.copyfile(p, dest / p.name)
                 sm_figs.append(p.name)
 
     S = {r["metric"]: r["value"] for r in summary_rows}
     D = {r["metric"]: r.get("definition") or "" for r in summary_rows}
     enr = _read_tsv(overlap_dir / "enrichment.tsv") or []
+    if enr and not _has_cols(enr, overlap_dir / "enrichment.tsv", ("annotation", "universe")):
+        enr = []
     E = {(r["annotation"], r["universe"]): r for r in enr}
     sets = [(k, lab) for k, lab in STARSHIP_SETS if f"n_{k}_families" in S]
     run_label = summary_rows[0].get("run", "") if summary_rows else ""
@@ -473,46 +523,92 @@ def stage_starship_overlap(overlap_dir: Path, run_docs: Path, sm_dir: Path | Non
                     f'alt="{cap}" style="max-width:100%"></p>')
 
     body.append("<h2>Secondary-metabolite (SM) clusters</h2>")
+    # SM metrics, two schemas: (a) sm_starship_overlap.tsv with metric/value/definition
+    # (Coccidioides), (b) a separate SM dir whose summary.tsv has metric/value/source and
+    # whose sm_starship_overlap.tsv is a per-element table (Af293 antiSMASH).
+    M: dict[str, tuple[str, str]] = {}
+    per_element: list[dict] | None = None
+    smo_path = sm_dir / "sm_starship_overlap.tsv"
+    smo = _read_tsv(smo_path) or []
+    smo_note = ""
+    if smo:
+        cols0 = list(smo[0].keys())
+        if "metric" in cols0:
+            M.update({r["metric"]: (r.get("value") or "", r.get("definition") or "") for r in smo})
+        elif "element_id" in cols0:
+            per_element = smo
+        else:
+            print(f"WARNING: {smo_path}: unexpected columns {cols0}", file=sys.stderr)
+            smo_note = ("Not available: sm_starship_overlap.tsv has unexpected columns "
+                        + ", ".join(cols0) + ".")
+    if separate_sm:
+        sm_sum = _read_tsv(sm_dir / "summary.tsv") or []
+        if sm_sum and _has_cols(sm_sum, sm_dir / "summary.tsv", ("metric", "value")):
+            M.update({r["metric"]: (r.get("value") or "", r.get("source") or r.get("definition") or "")
+                      for r in sm_sum})
+    prov_sm = (dest / "PROVENANCE_sm.yaml").read_text() if "PROVENANCE_sm.yaml" in copied else ""
+    has_family_map = (sm_dir / "sm_family_class_direction.tsv").is_file()
     sm = _read_tsv(sm_dir / "sm_by_type.tsv")
-    smo = _read_tsv(sm_dir / "sm_starship_overlap.tsv") or []
-    M = {r["metric"]: (r.get("value") or "", r.get("definition") or "") for r in smo}
-    prov_sm_path = sm_dir / "PROVENANCE_sm.yaml"
-    prov_sm = prov_sm_path.read_text() if prov_sm_path.is_file() else ""
     if sm is None:
         sm_kind = "not available (no sm_by_type.tsv)"
         body.append(na("Not available: no sm_by_type.tsv for this run."))
     else:
         cols = list(sm[0].keys()) if sm else []
         if "n_clusters" in cols:
-            ver = re.search(r"antiSMASH \d[\d.]*\d", prov_sm + " " + " ".join(d for _, d in M.values()))
-            sm_kind = (ver.group(0) if ver else "antiSMASH") + " regions"
+            if M.get("antismash_version", ("", ""))[0]:
+                ver = "antiSMASH " + M["antismash_version"][0]
+            else:
+                m_ver = re.search(r"antiSMASH \d[\d.]*\d", prov_sm + " " + " ".join(d for _, d in M.values()))
+                ver = m_ver.group(0) if m_ver else "antiSMASH"
+            sm_kind = ver + " regions"
         elif "af293_genes" in cols:
             sm_kind = ("proxy: PKS KS (PF00109) and NRPS C (PF00668) backbone genes only, "
                        "not antiSMASH clusters")
         else:
-            sm_kind = "unknown source (see PROVENANCE_sm.yaml)"
+            sm_kind = "unknown source (see the SM provenance file)"
         body.append(f"<p>Source: {html.escape(sm_kind)}.</p>")
-        if not any("starship" in c.lower() for c in cols):
-            ge1 = M.get("sm_clusters_overlapping_starship_ge1gene")
-            ge50 = M.get("sm_clusters_overlapping_starship_ge50pct")
+        key = [[k, M[k][0][:300], M[k][1]] for k in STARSHIP_SM_KEY_METRICS if k in M]
+        if key:
+            body.append("<h3>SM key metrics</h3>" + _html_table(["metric", "value", "definition / source"], key))
+        if not any("starship" in c.lower() or "overlap" in c.lower() for c in cols):
+            ge1 = M.get("sm_clusters_overlapping_starship_ge1gene") or M.get("sm_clusters_overlap_ge1gene")
+            ge50 = M.get("sm_clusters_overlapping_starship_ge50pct") or M.get("sm_clusters_overlap_ge50pct")
             if ge1 or ge50:
                 body.append(na("Overlap with a Starship: &gt;= 1 gene rule: "
                                f"{html.escape(' '.join(ge1 or ('NA', '')).strip())}; &gt;= 50% rule: "
                                f"{html.escape(' '.join(ge50 or ('NA', '')).strip())}."))
             else:
                 body.append(na("Overlap with a Starship: not available for this SM table."))
+        body.append("<h3>SM clusters by type</h3>")
         if sm:
             body.append(_html_table(cols, [[r.get(c, "") for c in cols] for r in sm], sortable=True))
         else:
             body.append(na("sm_by_type.tsv has no rows."))
-        if smo:
-            body.append("<details><summary>SM summary metrics (sm_starship_overlap.tsv)</summary>"
-                        + _html_table(["metric", "value", "definition"],
-                                      [[r.get("metric", ""), (r.get("value") or "")[:300],
-                                        r.get("definition") or ""] for r in smo]) + "</details>")
-        for f in sm_figs:
-            body.append(f'<p><img src="starship_overlap/{html.escape(f)}" alt="SM clusters figure" '
-                        'style="max-width:100%"></p>')
+    if per_element:
+        cols = list(per_element[0].keys())
+        body.append("<h3>Table S7 elements and SM clusters</h3>"
+                    + _html_table(cols, [[r.get(c, "") for c in cols] for r in per_element], sortable=True))
+    if smo_note:
+        body.append(na(html.escape(smo_note)))
+    perm_sm = _read_tsv(sm_dir / "sm_permutation.tsv")
+    if perm_sm:
+        cols = list(perm_sm[0].keys())
+        body.append("<h3>SM cluster position permutation</h3>"
+                    + _html_table(cols, [[r.get(c, "") for c in cols] for r in perm_sm]))
+    fam = _read_tsv(sm_dir / "sm_family_class_direction.tsv")
+    if fam:
+        cols = list(fam[0].keys())
+        body.append("<details><summary>SM core-gene families by class, direction and island "
+                    "(sm_family_class_direction.tsv)</summary>"
+                    + _html_table(cols, [[r.get(c, "") for c in cols] for r in fam], sortable=True)
+                    + "</details>")
+    if M:
+        body.append("<details><summary>All SM summary metrics</summary>"
+                    + _html_table(["metric", "value", "definition / source"],
+                                  [[k, v[:300], d] for k, (v, d) in M.items()]) + "</details>")
+    for f in sm_figs:
+        body.append(f'<p><img src="starship_overlap/{html.escape(f)}" alt="SM clusters figure" '
+                    'style="max-width:100%"></p>')
 
     lim = ["<h2>Data and limits</h2>", '<div class="limits"><ul>']
     if ship_sets:
@@ -527,18 +623,29 @@ def stage_starship_overlap(overlap_dir: Path, run_docs: Path, sm_dir: Path | Non
     lim.append(f"<li>SM annotation: {html.escape(sm_kind)}.</li>")
     m_src = re.search(r"^source_annotation:\s*(.+)$", prov_sm, re.M)
     if m_src:
-        lim.append("<li>SM annotation source (PROVENANCE_sm.yaml): "
-                   f"<code>{html.escape(m_src.group(1).strip())}</code>. This page does not map SM cluster "
-                   "genes to the pangenome run's protein IDs or to islands.</li>")
+        lim.append("<li>SM annotation source (SM provenance): "
+                   f"<code>{html.escape(m_src.group(1).strip())}</code>.</li>")
+    if has_family_map:
+        mapped = next(((k, v) for k, (v, _) in M.items() if k.endswith("_cds_mapped_to_member")), None)
+        total = next((v for k, (v, _) in M.items() if k.endswith("_cds_in_antismash")), None)
+        extra = (f" ({html.escape(mapped[0])}: {html.escape(mapped[1])} of {html.escape(total or 'NA')} CDS)"
+                 if mapped else "")
+        lim.append("<li>SM cluster genes are mapped to pangenome families of this run"
+                   f"{extra}; see sm_family_class_direction.tsv.</li>")
+    elif m_src:
+        lim.append("<li>This page does not map SM cluster genes to the pangenome run's protein IDs "
+                   "or to islands.</li>")
     if "strains_with_antismash" in M:
         lim.append(f"<li>Strains with SM annotation: {html.escape(M['strains_with_antismash'][0])} of "
                    f"{html.escape(M.get('strains_in_run', ('NA', ''))[0])}.</li>")
-    prov = [f for f in ("PROVENANCE.yaml", "PROVENANCE_sm.yaml", "inputs_PROVENANCE.yaml") if f in copied]
+    prov = [f for f in ("PROVENANCE.yaml", "PROVENANCE_sm.yaml", "PROVENANCE_sm_analysis.yaml",
+                        "inputs_PROVENANCE.yaml") if f in copied]
     lim.append("<li>Provenance: " + (", ".join(link(f) for f in prov) if prov else "not available")
                + ".</li>")
     lim.append("</ul></div>")
     body.extend(lim)
-    tables = [f for f in STARSHIP_OVERLAP_FILES + STARSHIP_SM_FILES if f in copied and not f.endswith(".yaml")]
+    published = STARSHIP_OVERLAP_FILES + STARSHIP_SM_FILES + [d for _, d in STARSHIP_SM_RENAMED]
+    tables = [f for f in dict.fromkeys(published) if f in copied and not f.endswith(".yaml")]
     body.append("<h2>Tables</h2><ul>" + "".join(f"<li>{link(f)}</li>" for f in tables) + "</ul>")
     body.append("</div>")
     body.append(_SORT_JS)
