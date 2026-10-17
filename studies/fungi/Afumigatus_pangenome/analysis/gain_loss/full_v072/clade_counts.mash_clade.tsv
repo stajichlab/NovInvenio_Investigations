@@ -1,0 +1,5 @@
+label	clade_source	clade	n_ingroup_reps	present_gain	present_loss	present_ambiguous	private_gain	private_loss	private_ambiguous
+full_v072	mash_clade	clade_0	28	11238	1193	1073	3085	20	75
+full_v072	mash_clade	clade_1	2	4279	1084	695	756	8	13
+full_v072	mash_clade	clade_2	40	13224	1213	1148	4167	12	78
+full_v072	mash_clade	clade_3	51	17207	1263	1330	7634	54	234

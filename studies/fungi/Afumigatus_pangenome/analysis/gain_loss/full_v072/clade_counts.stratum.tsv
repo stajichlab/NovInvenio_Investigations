@@ -1,0 +1,15 @@
+label	clade_source	clade	n_ingroup_reps	present_gain	present_loss	present_ambiguous	private_gain	private_loss	private_ambiguous
+full_v072	stratum	Barber_cluster1	1	2281	693	412	213	2	2
+full_v072	stratum	Barber_cluster2	21	6706	992	708	1016	1	10
+full_v072	stratum	Barber_cluster3	15	6572	1004	700	999	2	10
+full_v072	stratum	Barber_cluster4	11	5000	970	636	483	1	2
+full_v072	stratum	Barber_cluster5	22	9939	1015	793	3326	1	26
+full_v072	stratum	Barber_cluster6	3	3358	864	534	95	0	0
+full_v072	stratum	Barber_cluster7	23	7844	1014	788	1743	3	26
+full_v072	stratum	DAPC_Clade_1	3	5739	1177	1012	1334	33	108
+full_v072	stratum	DAPC_Clade_2	1	3249	960	571	370	1	3
+full_v072	stratum	DAPC_Clade_3	3	4879	1088	744	709	5	20
+full_v072	stratum	Mash_clade_0	4	6001	1033	816	1411	10	55
+full_v072	stratum	Mash_clade_1	1	2976	991	561	493	3	6
+full_v072	stratum	Mash_clade_2	5	6310	1147	885	870	3	28
+full_v072	stratum	Mash_clade_3	8	7637	1163	962	1415	6	30

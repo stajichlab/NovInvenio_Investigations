@@ -1,0 +1,12 @@
+label	class	ingroup_rep_strains_bin	gain	loss	ambiguous
+full_v072	soft_core	>100	303	252	112
+full_v072	shell	11-20	183	7	11
+full_v072	shell	21-50	1603	160	187
+full_v072	shell	51-100	1310	460	258
+full_v072	shell	>100	263	108	62
+full_v072	cloud	2	3718	52	201
+full_v072	cloud	3-5	3206	52	195
+full_v072	cloud	6-10	1623	61	147
+full_v072	cloud	11-20	1073	107	126
+full_v072	singleton	1	12985	61	251
+full_v072	nonrep_only	0	5723	22	69

@@ -1,0 +1,4 @@
+label	scope	outgroup_carriers	n_families	rule_freq
+full_v072	selected	0/2	26267	gain
+full_v072	selected	1/2	1550	ambiguous
+full_v072	selected	2/2	1320	loss
