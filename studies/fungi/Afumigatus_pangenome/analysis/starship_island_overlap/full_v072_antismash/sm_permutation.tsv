@@ -1,0 +1,4 @@
+statistic	observed	n_perm	seed	null_mean	null_q95	null_max	p_perm_greater	p_perm_less
+clusters_overlap_ge1gene	3	1000	20261017	1.884	4	6	0.28272	0.8951
+clusters_overlap_ge50pct	1	1000	20261017	1.206	3	5	0.71528	0.64036
+sm_cluster_genes_in_elements	28	1000	20261017	24.019	62	93	0.38262	0.63636

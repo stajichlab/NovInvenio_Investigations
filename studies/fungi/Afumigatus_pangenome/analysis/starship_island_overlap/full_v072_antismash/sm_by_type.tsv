@@ -1,0 +1,17 @@
+type	n_clusters	n_overlap_ge1gene	n_overlap_ge50pct	n_with_captain
+terpene	12	1	0	1
+T1PKS	8	1	1	1
+NRPS	6	0	0	0
+NRPS-like	4	0	0	0
+T1PKS+terpene	2	0	0	0
+isocyanide	2	0	0	0
+terpene-precursor	2	0	0	0
+NRPS+indole	1	0	0	0
+NRPS+indole+T1PKS+terpene	1	0	0	0
+NRPS+terpene	1	0	0	0
+T1PKS+NRPS-like	1	1	0	1
+T1PKS+indole+terpene	1	0	0	0
+betalactone	1	0	0	0
+indole	1	0	0	0
+isocyanide-nrp+NRPS	1	0	0	0
+ALL	44	3	1	3
