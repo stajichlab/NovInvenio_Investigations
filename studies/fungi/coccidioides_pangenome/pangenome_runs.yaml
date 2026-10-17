@@ -37,10 +37,14 @@ runs:
     params:
       pangenome_island_reference_strains: RS,WA_211
       pangenome_stratum_source: mash_clade
-  posadasii_in_immitis_out_v2:
-    samplesheet: config_posadasii_in_immitis_out.csv
-    species_tree: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
+  posadasii_in_immitis_out_v2:   # outgroup = the 2 C. immitis reference strains RS and WA_211 only
+    samplesheet: config_posadasii_in_RS_WA211_out.csv
+    species_tree: analysis/species_tree/coccidioides_posadasii_in_RS_WA211_out.full.nwk
+    pipeline_commit: a2836adb5b4a8dace999d0d0699a3b23bcf1d0bc
     publish: true
+    params:
+      pangenome_island_reference_strains: B3245,COCPO_Galgiani
+      pangenome_stratum_source: mash_clade
   immitis_only_v2:
     samplesheet: config_immitis.csv
     publish: true
