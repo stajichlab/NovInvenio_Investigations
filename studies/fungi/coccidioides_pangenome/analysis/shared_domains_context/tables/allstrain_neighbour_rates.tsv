@@ -1,0 +1,243 @@
+genus	label_a	label_b	n_genes_a_placed	n_with_b_within_5	frac
+Aspergillus fumigatus (293)	APH	APH	3593	10	0.0028
+Aspergillus fumigatus (293)	APH	DUF3435	3593	83	0.0231
+Aspergillus fumigatus (293)	APH	DUF3723	3593	98	0.0273
+Aspergillus fumigatus (293)	APH	DUF3723_N	3593	57	0.0159
+Aspergillus fumigatus (293)	APH	PF11001	3593	57	0.0159
+Aspergillus fumigatus (293)	APH	HrmA	3593	149	0.0415
+Aspergillus fumigatus (293)	APH	NPHP3_N	3593	295	0.0821
+Aspergillus fumigatus (293)	APH	Condensation	3593	0	0.0
+Aspergillus fumigatus (293)	APH	PP-binding	3593	212	0.059
+Aspergillus fumigatus (293)	APH	AMP-binding	3593	4	0.0011
+Aspergillus fumigatus (293)	APH	SPOK2_N	3593	332	0.0924
+Aspergillus fumigatus (293)	DUF3435	APH	2234	82	0.0367
+Aspergillus fumigatus (293)	DUF3435	DUF3435	2234	572	0.256
+Aspergillus fumigatus (293)	DUF3435	DUF3723	2234	189	0.0846
+Aspergillus fumigatus (293)	DUF3435	DUF3723_N	2234	86	0.0385
+Aspergillus fumigatus (293)	DUF3435	PF11001	2234	95	0.0425
+Aspergillus fumigatus (293)	DUF3435	HrmA	2234	74	0.0331
+Aspergillus fumigatus (293)	DUF3435	NPHP3_N	2234	132	0.0591
+Aspergillus fumigatus (293)	DUF3435	Condensation	2234	2	0.0009
+Aspergillus fumigatus (293)	DUF3435	PP-binding	2234	64	0.0286
+Aspergillus fumigatus (293)	DUF3435	AMP-binding	2234	449	0.201
+Aspergillus fumigatus (293)	DUF3435	SPOK2_N	2234	97	0.0434
+Aspergillus fumigatus (293)	DUF3723	APH	978	96	0.0982
+Aspergillus fumigatus (293)	DUF3723	DUF3435	978	180	0.184
+Aspergillus fumigatus (293)	DUF3723	DUF3723	978	98	0.1002
+Aspergillus fumigatus (293)	DUF3723	DUF3723_N	978	13	0.0133
+Aspergillus fumigatus (293)	DUF3723	PF11001	978	58	0.0593
+Aspergillus fumigatus (293)	DUF3723	HrmA	978	21	0.0215
+Aspergillus fumigatus (293)	DUF3723	NPHP3_N	978	47	0.0481
+Aspergillus fumigatus (293)	DUF3723	Condensation	978	0	0.0
+Aspergillus fumigatus (293)	DUF3723	PP-binding	978	0	0.0
+Aspergillus fumigatus (293)	DUF3723	AMP-binding	978	0	0.0
+Aspergillus fumigatus (293)	DUF3723	SPOK2_N	978	21	0.0215
+Aspergillus fumigatus (293)	DUF3723_N	APH	555	55	0.0991
+Aspergillus fumigatus (293)	DUF3723_N	DUF3435	555	85	0.1532
+Aspergillus fumigatus (293)	DUF3723_N	DUF3723	555	13	0.0234
+Aspergillus fumigatus (293)	DUF3723_N	DUF3723_N	555	0	0.0
+Aspergillus fumigatus (293)	DUF3723_N	PF11001	555	51	0.0919
+Aspergillus fumigatus (293)	DUF3723_N	HrmA	555	16	0.0288
+Aspergillus fumigatus (293)	DUF3723_N	NPHP3_N	555	44	0.0793
+Aspergillus fumigatus (293)	DUF3723_N	Condensation	555	0	0.0
+Aspergillus fumigatus (293)	DUF3723_N	PP-binding	555	0	0.0
+Aspergillus fumigatus (293)	DUF3723_N	AMP-binding	555	0	0.0
+Aspergillus fumigatus (293)	DUF3723_N	SPOK2_N	555	17	0.0306
+Aspergillus fumigatus (293)	PF11001	APH	1125	57	0.0507
+Aspergillus fumigatus (293)	PF11001	DUF3435	1125	89	0.0791
+Aspergillus fumigatus (293)	PF11001	DUF3723	1125	57	0.0507
+Aspergillus fumigatus (293)	PF11001	DUF3723_N	1125	51	0.0453
+Aspergillus fumigatus (293)	PF11001	PF11001	1125	19	0.0169
+Aspergillus fumigatus (293)	PF11001	HrmA	1125	104	0.0924
+Aspergillus fumigatus (293)	PF11001	NPHP3_N	1125	3	0.0027
+Aspergillus fumigatus (293)	PF11001	Condensation	1125	0	0.0
+Aspergillus fumigatus (293)	PF11001	PP-binding	1125	1	0.0009
+Aspergillus fumigatus (293)	PF11001	AMP-binding	1125	0	0.0
+Aspergillus fumigatus (293)	PF11001	SPOK2_N	1125	4	0.0036
+Aspergillus fumigatus (293)	HrmA	APH	302	153	0.5066
+Aspergillus fumigatus (293)	HrmA	DUF3435	302	95	0.3146
+Aspergillus fumigatus (293)	HrmA	DUF3723	302	19	0.0629
+Aspergillus fumigatus (293)	HrmA	DUF3723_N	302	16	0.053
+Aspergillus fumigatus (293)	HrmA	PF11001	302	135	0.447
+Aspergillus fumigatus (293)	HrmA	HrmA	302	64	0.2119
+Aspergillus fumigatus (293)	HrmA	NPHP3_N	302	5	0.0166
+Aspergillus fumigatus (293)	HrmA	Condensation	302	0	0.0
+Aspergillus fumigatus (293)	HrmA	PP-binding	302	1	0.0033
+Aspergillus fumigatus (293)	HrmA	AMP-binding	302	0	0.0
+Aspergillus fumigatus (293)	HrmA	SPOK2_N	302	11	0.0364
+Aspergillus fumigatus (293)	NPHP3_N	APH	4801	293	0.061
+Aspergillus fumigatus (293)	NPHP3_N	DUF3435	4801	126	0.0262
+Aspergillus fumigatus (293)	NPHP3_N	DUF3723	4801	47	0.0098
+Aspergillus fumigatus (293)	NPHP3_N	DUF3723_N	4801	44	0.0092
+Aspergillus fumigatus (293)	NPHP3_N	PF11001	4801	3	0.0006
+Aspergillus fumigatus (293)	NPHP3_N	HrmA	4801	5	0.001
+Aspergillus fumigatus (293)	NPHP3_N	NPHP3_N	4801	457	0.0952
+Aspergillus fumigatus (293)	NPHP3_N	Condensation	4801	0	0.0
+Aspergillus fumigatus (293)	NPHP3_N	PP-binding	4801	16	0.0033
+Aspergillus fumigatus (293)	NPHP3_N	AMP-binding	4801	266	0.0554
+Aspergillus fumigatus (293)	NPHP3_N	SPOK2_N	4801	192	0.04
+Aspergillus fumigatus (293)	Condensation	APH	5055	0	0.0
+Aspergillus fumigatus (293)	Condensation	DUF3435	5055	4	0.0008
+Aspergillus fumigatus (293)	Condensation	DUF3723	5055	0	0.0
+Aspergillus fumigatus (293)	Condensation	DUF3723_N	5055	0	0.0
+Aspergillus fumigatus (293)	Condensation	PF11001	5055	0	0.0
+Aspergillus fumigatus (293)	Condensation	HrmA	5055	0	0.0
+Aspergillus fumigatus (293)	Condensation	NPHP3_N	5055	0	0.0
+Aspergillus fumigatus (293)	Condensation	Condensation	5055	1105	0.2186
+Aspergillus fumigatus (293)	Condensation	PP-binding	5055	1653	0.327
+Aspergillus fumigatus (293)	Condensation	AMP-binding	5055	2318	0.4586
+Aspergillus fumigatus (293)	Condensation	SPOK2_N	5055	0	0.0
+Aspergillus fumigatus (293)	PP-binding	APH	11753	211	0.018
+Aspergillus fumigatus (293)	PP-binding	DUF3435	11753	66	0.0056
+Aspergillus fumigatus (293)	PP-binding	DUF3723	11753	0	0.0
+Aspergillus fumigatus (293)	PP-binding	DUF3723_N	11753	0	0.0
+Aspergillus fumigatus (293)	PP-binding	PF11001	11753	1	0.0001
+Aspergillus fumigatus (293)	PP-binding	HrmA	11753	1	0.0001
+Aspergillus fumigatus (293)	PP-binding	NPHP3_N	11753	16	0.0014
+Aspergillus fumigatus (293)	PP-binding	Condensation	11753	1553	0.1321
+Aspergillus fumigatus (293)	PP-binding	PP-binding	11753	1776	0.1511
+Aspergillus fumigatus (293)	PP-binding	AMP-binding	11753	2709	0.2305
+Aspergillus fumigatus (293)	PP-binding	SPOK2_N	11753	3	0.0003
+Aspergillus fumigatus (293)	AMP-binding	APH	15295	4	0.0003
+Aspergillus fumigatus (293)	AMP-binding	DUF3435	15295	244	0.016
+Aspergillus fumigatus (293)	AMP-binding	DUF3723	15295	0	0.0
+Aspergillus fumigatus (293)	AMP-binding	DUF3723_N	15295	0	0.0
+Aspergillus fumigatus (293)	AMP-binding	PF11001	15295	0	0.0
+Aspergillus fumigatus (293)	AMP-binding	HrmA	15295	0	0.0
+Aspergillus fumigatus (293)	AMP-binding	NPHP3_N	15295	266	0.0174
+Aspergillus fumigatus (293)	AMP-binding	Condensation	15295	2376	0.1553
+Aspergillus fumigatus (293)	AMP-binding	PP-binding	15295	2868	0.1875
+Aspergillus fumigatus (293)	AMP-binding	AMP-binding	15295	3148	0.2058
+Aspergillus fumigatus (293)	AMP-binding	SPOK2_N	15295	0	0.0
+Aspergillus fumigatus (293)	SPOK2_N	APH	743	331	0.4455
+Aspergillus fumigatus (293)	SPOK2_N	DUF3435	743	97	0.1306
+Aspergillus fumigatus (293)	SPOK2_N	DUF3723	743	21	0.0283
+Aspergillus fumigatus (293)	SPOK2_N	DUF3723_N	743	17	0.0229
+Aspergillus fumigatus (293)	SPOK2_N	PF11001	743	4	0.0054
+Aspergillus fumigatus (293)	SPOK2_N	HrmA	743	11	0.0148
+Aspergillus fumigatus (293)	SPOK2_N	NPHP3_N	743	192	0.2584
+Aspergillus fumigatus (293)	SPOK2_N	Condensation	743	0	0.0
+Aspergillus fumigatus (293)	SPOK2_N	PP-binding	743	3	0.004
+Aspergillus fumigatus (293)	SPOK2_N	AMP-binding	743	0	0.0
+Aspergillus fumigatus (293)	SPOK2_N	SPOK2_N	743	2	0.0027
+Coccidioides (529)	APH	APH	27437	5634	0.2053
+Coccidioides (529)	APH	DUF3435	27437	1729	0.063
+Coccidioides (529)	APH	DUF3723	27437	477	0.0174
+Coccidioides (529)	APH	DUF3723_N	27437	202	0.0074
+Coccidioides (529)	APH	PF11001	27437	34	0.0012
+Coccidioides (529)	APH	HrmA	27437	1988	0.0725
+Coccidioides (529)	APH	NPHP3_N	27437	50	0.0018
+Coccidioides (529)	APH	Condensation	27437	1	0.0
+Coccidioides (529)	APH	PP-binding	27437	318	0.0116
+Coccidioides (529)	APH	AMP-binding	27437	427	0.0156
+Coccidioides (529)	APH	SPOK2_N	27437	1542	0.0562
+Coccidioides (529)	DUF3435	APH	6594	2458	0.3728
+Coccidioides (529)	DUF3435	DUF3435	6594	2806	0.4255
+Coccidioides (529)	DUF3435	DUF3723	6594	84	0.0127
+Coccidioides (529)	DUF3435	DUF3723_N	6594	14	0.0021
+Coccidioides (529)	DUF3435	PF11001	6594	18	0.0027
+Coccidioides (529)	DUF3435	HrmA	6594	322	0.0488
+Coccidioides (529)	DUF3435	NPHP3_N	6594	0	0.0
+Coccidioides (529)	DUF3435	Condensation	6594	0	0.0
+Coccidioides (529)	DUF3435	PP-binding	6594	14	0.0021
+Coccidioides (529)	DUF3435	AMP-binding	6594	4	0.0006
+Coccidioides (529)	DUF3435	SPOK2_N	6594	194	0.0294
+Coccidioides (529)	DUF3723	APH	1230	491	0.3992
+Coccidioides (529)	DUF3723	DUF3435	1230	66	0.0537
+Coccidioides (529)	DUF3723	DUF3723	1230	132	0.1073
+Coccidioides (529)	DUF3723	DUF3723_N	1230	74	0.0602
+Coccidioides (529)	DUF3723	PF11001	1230	0	0.0
+Coccidioides (529)	DUF3723	HrmA	1230	0	0.0
+Coccidioides (529)	DUF3723	NPHP3_N	1230	0	0.0
+Coccidioides (529)	DUF3723	Condensation	1230	0	0.0
+Coccidioides (529)	DUF3723	PP-binding	1230	0	0.0
+Coccidioides (529)	DUF3723	AMP-binding	1230	13	0.0106
+Coccidioides (529)	DUF3723	SPOK2_N	1230	56	0.0455
+Coccidioides (529)	DUF3723_N	APH	546	201	0.3681
+Coccidioides (529)	DUF3723_N	DUF3435	546	14	0.0256
+Coccidioides (529)	DUF3723_N	DUF3723	546	69	0.1264
+Coccidioides (529)	DUF3723_N	DUF3723_N	546	2	0.0037
+Coccidioides (529)	DUF3723_N	PF11001	546	0	0.0
+Coccidioides (529)	DUF3723_N	HrmA	546	0	0.0
+Coccidioides (529)	DUF3723_N	NPHP3_N	546	0	0.0
+Coccidioides (529)	DUF3723_N	Condensation	546	0	0.0
+Coccidioides (529)	DUF3723_N	PP-binding	546	0	0.0
+Coccidioides (529)	DUF3723_N	AMP-binding	546	0	0.0
+Coccidioides (529)	DUF3723_N	SPOK2_N	546	55	0.1007
+Coccidioides (529)	PF11001	APH	913	33	0.0361
+Coccidioides (529)	PF11001	DUF3435	913	16	0.0175
+Coccidioides (529)	PF11001	DUF3723	913	0	0.0
+Coccidioides (529)	PF11001	DUF3723_N	913	0	0.0
+Coccidioides (529)	PF11001	PF11001	913	0	0.0
+Coccidioides (529)	PF11001	HrmA	913	8	0.0088
+Coccidioides (529)	PF11001	NPHP3_N	913	517	0.5663
+Coccidioides (529)	PF11001	Condensation	913	0	0.0
+Coccidioides (529)	PF11001	PP-binding	913	0	0.0
+Coccidioides (529)	PF11001	AMP-binding	913	3	0.0033
+Coccidioides (529)	PF11001	SPOK2_N	913	4	0.0044
+Coccidioides (529)	HrmA	APH	2168	1847	0.8519
+Coccidioides (529)	HrmA	DUF3435	2168	311	0.1435
+Coccidioides (529)	HrmA	DUF3723	2168	0	0.0
+Coccidioides (529)	HrmA	DUF3723_N	2168	0	0.0
+Coccidioides (529)	HrmA	PF11001	2168	8	0.0037
+Coccidioides (529)	HrmA	HrmA	2168	0	0.0
+Coccidioides (529)	HrmA	NPHP3_N	2168	0	0.0
+Coccidioides (529)	HrmA	Condensation	2168	0	0.0
+Coccidioides (529)	HrmA	PP-binding	2168	0	0.0
+Coccidioides (529)	HrmA	AMP-binding	2168	1	0.0005
+Coccidioides (529)	HrmA	SPOK2_N	2168	3	0.0014
+Coccidioides (529)	NPHP3_N	APH	3117	50	0.016
+Coccidioides (529)	NPHP3_N	DUF3435	3117	0	0.0
+Coccidioides (529)	NPHP3_N	DUF3723	3117	0	0.0
+Coccidioides (529)	NPHP3_N	DUF3723_N	3117	0	0.0
+Coccidioides (529)	NPHP3_N	PF11001	3117	517	0.1659
+Coccidioides (529)	NPHP3_N	HrmA	3117	0	0.0
+Coccidioides (529)	NPHP3_N	NPHP3_N	3117	0	0.0
+Coccidioides (529)	NPHP3_N	Condensation	3117	0	0.0
+Coccidioides (529)	NPHP3_N	PP-binding	3117	2	0.0006
+Coccidioides (529)	NPHP3_N	AMP-binding	3117	2	0.0006
+Coccidioides (529)	NPHP3_N	SPOK2_N	3117	0	0.0
+Coccidioides (529)	Condensation	APH	3667	1	0.0003
+Coccidioides (529)	Condensation	DUF3435	3667	0	0.0
+Coccidioides (529)	Condensation	DUF3723	3667	0	0.0
+Coccidioides (529)	Condensation	DUF3723_N	3667	0	0.0
+Coccidioides (529)	Condensation	PF11001	3667	0	0.0
+Coccidioides (529)	Condensation	HrmA	3667	0	0.0
+Coccidioides (529)	Condensation	NPHP3_N	3667	0	0.0
+Coccidioides (529)	Condensation	Condensation	3667	8	0.0022
+Coccidioides (529)	Condensation	PP-binding	3667	6	0.0016
+Coccidioides (529)	Condensation	AMP-binding	3667	464	0.1265
+Coccidioides (529)	Condensation	SPOK2_N	3667	0	0.0
+Coccidioides (529)	PP-binding	APH	10401	318	0.0306
+Coccidioides (529)	PP-binding	DUF3435	10401	15	0.0014
+Coccidioides (529)	PP-binding	DUF3723	10401	0	0.0
+Coccidioides (529)	PP-binding	DUF3723_N	10401	0	0.0
+Coccidioides (529)	PP-binding	PF11001	10401	0	0.0
+Coccidioides (529)	PP-binding	HrmA	10401	0	0.0
+Coccidioides (529)	PP-binding	NPHP3_N	10401	2	0.0002
+Coccidioides (529)	PP-binding	Condensation	10401	6	0.0006
+Coccidioides (529)	PP-binding	PP-binding	10401	1990	0.1913
+Coccidioides (529)	PP-binding	AMP-binding	10401	1530	0.1471
+Coccidioides (529)	PP-binding	SPOK2_N	10401	0	0.0
+Coccidioides (529)	AMP-binding	APH	21142	427	0.0202
+Coccidioides (529)	AMP-binding	DUF3435	21142	4	0.0002
+Coccidioides (529)	AMP-binding	DUF3723	21142	13	0.0006
+Coccidioides (529)	AMP-binding	DUF3723_N	21142	0	0.0
+Coccidioides (529)	AMP-binding	PF11001	21142	3	0.0001
+Coccidioides (529)	AMP-binding	HrmA	21142	1	0.0
+Coccidioides (529)	AMP-binding	NPHP3_N	21142	2	0.0001
+Coccidioides (529)	AMP-binding	Condensation	21142	564	0.0267
+Coccidioides (529)	AMP-binding	PP-binding	21142	1628	0.077
+Coccidioides (529)	AMP-binding	AMP-binding	21142	2529	0.1196
+Coccidioides (529)	AMP-binding	SPOK2_N	21142	178	0.0084
+Coccidioides (529)	SPOK2_N	APH	5119	1540	0.3008
+Coccidioides (529)	SPOK2_N	DUF3435	5119	167	0.0326
+Coccidioides (529)	SPOK2_N	DUF3723	5119	56	0.0109
+Coccidioides (529)	SPOK2_N	DUF3723_N	5119	55	0.0107
+Coccidioides (529)	SPOK2_N	PF11001	5119	4	0.0008
+Coccidioides (529)	SPOK2_N	HrmA	5119	3	0.0006
+Coccidioides (529)	SPOK2_N	NPHP3_N	5119	0	0.0
+Coccidioides (529)	SPOK2_N	Condensation	5119	0	0.0
+Coccidioides (529)	SPOK2_N	PP-binding	5119	0	0.0
+Coccidioides (529)	SPOK2_N	AMP-binding	5119	178	0.0348
+Coccidioides (529)	SPOK2_N	SPOK2_N	5119	16	0.0031

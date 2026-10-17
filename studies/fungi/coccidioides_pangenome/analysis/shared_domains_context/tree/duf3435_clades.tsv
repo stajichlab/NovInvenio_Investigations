@@ -1,0 +1,26 @@
+group	clade	n_tips	support	tips	composition
+A. fumigatus Af293	1	1		Asfu_Af293__tr_A4DA40_A4DA40_ASPFU__d1	
+A. fumigatus Af293	2	3	0.967	Asfu_Af293__tr_Q4WRI6_Q4WRI6_ASPFU__d1,Asfu_Af293__tr_Q4WWB1_Q4WWB1_ASPFU__d1,Asfu_Af293__tr_Q4WWB1_Q4WWB1_ASPFU__d2	
+A. fumigatus Af293	3	1		Asfu_Af293__tr_Q4WQY0_Q4WQY0_ASPFU__d1	
+A. fumigatus Af293	4	1		Asfu_Af293__tr_Q4WQY0_Q4WQY0_ASPFU__d2	
+A. fumigatus Af293	5	1		Asfu_Af293__tr_Q4WMN5_Q4WMN5_ASPFU__d1	
+A. fumigatus Af293	6	1		Asfu_Af293__tr_Q4WH41_Q4WH41_ASPFU__d1	
+A. fumigatus Af293	7	1		Asfu_Af293__tr_Q4WFD9_Q4WFD9_ASPFU__d1	
+A. fumigatus Af293	8	1		Asfu_Af293__tr_Q4WKY1_Q4WKY1_ASPFU__d1	
+Coccidioides	1	3	1.0	RS__C3CED3A_001633-T1__d1,RS__C3CED3A_006298-T1__d1,RS__C3CED3A_007193-T1__d1	
+Coccidioides	2	3	0.996	RS__C3CED3A_004523-T1__d1,RS__C3CED3A_006411-T1__d1,UCSF_Cp_Silveira__C282BBF_001791-T1__d1	
+Coccidioides	3	4	0.944	RS__C3CED3A_000535-T1__d1,RS__C3CED3A_000536-T1__d1,RS__C3CED3A_005222-T1__d1,UCSF_Cp_Silveira__C282BBF_006118-T1__d1	
+Coccidioides	4	1		RS__C3CED3A_001544-T1__d1	
+Coccidioides	5	1		RS__C3CED3A_001543-T1__d1	
+Coccidioides	6	2	0.946	RS__C3CED3A_007350-T1__d1,UCSF_Cp_Silveira__C282BBF_008593-T1__d1	
+Coccidioides	7	1		RS__C3CED3A_002663-T1__d1	
+Coccidioides	8	5	1.0	RS__C3CED3A_001333-T1__d1,RS__C3CED3A_002764-T1__d1,RS__C3CED3A_005698-T1__d1,RS__C3CED3A_005699-T1__d1,UCSF_Cp_Silveira__C282BBF_000592-T1__d1	
+Coccidioides	9	1		UCSF_Cp_Silveira__C282BBF_001880-T1__d1	
+Coccidioides	10	1		UCSF_Cp_Silveira__C282BBF_001879-T1__d1	
+Coccidioides	11	2	1.0	RS__C3CED3A_006358-T1__d1,UCSF_Cp_Silveira__C282BBF_005752-T1__d1	
+Coccidioides	12	2	0.221	RS__C3CED3A_002664-T1__d1,UCSF_Cp_Silveira__C282BBF_002669-T1__d1	
+smallest_mixed_Af293_Cocci		5	1.0	Asfu_Af293__tr_A4DA40_A4DA40_ASPFU__d1,RS__C3CED3A_000535-T1__d1,RS__C3CED3A_000536-T1__d1,RS__C3CED3A_005222-T1__d1,UCSF_Cp_Silveira__C282BBF_006118-T1__d1	Coccidioides:4,A. fumigatus Af293:1
+smallest_mixed_Af293_Cocci		4	0.946	Asfu_Af293__tr_Q4WRI6_Q4WRI6_ASPFU__d1,Asfu_Af293__tr_Q4WWB1_Q4WWB1_ASPFU__d1,Asfu_Af293__tr_Q4WWB1_Q4WWB1_ASPFU__d2,RS__C3CED3A_001544-T1__d1	A. fumigatus Af293:3,Coccidioides:1
+smallest_mixed_Af293_Cocci		3	0.211	Asfu_Af293__tr_Q4WQY0_Q4WQY0_ASPFU__d2,RS__C3CED3A_007350-T1__d1,UCSF_Cp_Silveira__C282BBF_008593-T1__d1	Coccidioides:2,A. fumigatus Af293:1
+smallest_mixed_Af293_Cocci		2	0.981	Asfu_Af293__tr_Q4WMN5_Q4WMN5_ASPFU__d1,RS__C3CED3A_002663-T1__d1	A. fumigatus Af293:1,Coccidioides:1
+smallest_mixed_Af293_Cocci		8	0.507	Anid__tr_Q5ARR5_Q5ARR5_EMENI__d1,Asfu_Af293__tr_Q4WFD9_Q4WFD9_ASPFU__d1,Clonrose__tr_A0ACA9TEL9_A0ACA9TEL9_BIOOC__d1,Cryppara__tr_A0A9P4XSN8_A0A9P4XSN8_CRYP1__d1,Metaanis__tr_A0A0D9NJZ0_A0A0D9NJZ0_METAN__d1,RS__C3CED3A_002664-T1__d1,UCSF_Cp_Silveira__C282BBF_002669-T1__d1,Vertdahl__tr_G2X4T7_G2X4T7_VERDV__d1	other Dikarya:5,Coccidioides:2,A. fumigatus Af293:1

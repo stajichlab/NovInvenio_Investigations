@@ -1,0 +1,56 @@
+group	label	n_proteomes	n_with_ge1	median	min	max	total
+A. fumigatus (293)	APH	293	293	12	8	20	3593
+A. fumigatus (293)	DUF3435	293	293	7	2	23	2234
+A. fumigatus (293)	DUF3723	293	275	3	0	11	978
+A. fumigatus (293)	DUF3723_N	293	224	2	0	9	555
+A. fumigatus (293)	PF11001	293	293	3	3	12	1125
+A. fumigatus (293)	HrmA	293	171	1	0	6	302
+A. fumigatus (293)	NPHP3_N	293	293	16	11	25	4801
+A. fumigatus (293)	Condensation	293	293	17	13	22	5055
+A. fumigatus (293)	PP-binding	293	293	40	33	45	11753
+A. fumigatus (293)	AMP-binding	293	293	52	46	69	15295
+A. fumigatus (293)	SPOK2_N	293	262	3	0	6	743
+A. fumigatus outgroups (A. fischeri, A. lentulus)	APH	2	2	16.5	16	17	33
+A. fumigatus outgroups (A. fischeri, A. lentulus)	DUF3435	2	2	4.5	1	8	9
+A. fumigatus outgroups (A. fischeri, A. lentulus)	DUF3723	2	1	2.5	0	5	5
+A. fumigatus outgroups (A. fischeri, A. lentulus)	DUF3723_N	2	1	1.0	0	2	2
+A. fumigatus outgroups (A. fischeri, A. lentulus)	PF11001	2	2	4.0	3	5	8
+A. fumigatus outgroups (A. fischeri, A. lentulus)	HrmA	2	0	0.0	0	0	0
+A. fumigatus outgroups (A. fischeri, A. lentulus)	NPHP3_N	2	2	32.5	32	33	65
+A. fumigatus outgroups (A. fischeri, A. lentulus)	Condensation	2	2	21.5	20	23	43
+A. fumigatus outgroups (A. fischeri, A. lentulus)	PP-binding	2	2	49.0	48	50	98
+A. fumigatus outgroups (A. fischeri, A. lentulus)	AMP-binding	2	2	60.5	60	61	121
+A. fumigatus outgroups (A. fischeri, A. lentulus)	SPOK2_N	2	0	0.0	0	0	0
+Coccidioides all (529)	APH	529	529	52	40	64	27437
+Coccidioides all (529)	DUF3435	529	529	12	6	24	6594
+Coccidioides all (529)	DUF3723	529	518	2	0	11	1230
+Coccidioides all (529)	DUF3723_N	529	353	1	0	6	546
+Coccidioides all (529)	PF11001	529	524	2	0	6	913
+Coccidioides all (529)	HrmA	529	529	4	1	8	2168
+Coccidioides all (529)	NPHP3_N	529	529	6	4	8	3117
+Coccidioides all (529)	Condensation	529	529	7	6	12	3667
+Coccidioides all (529)	PP-binding	529	529	20	16	25	10401
+Coccidioides all (529)	AMP-binding	529	529	40	37	43	21142
+Coccidioides all (529)	SPOK2_N	529	529	9	5	18	5119
+C. immitis (169)	APH	169	169	54	48	64	9234
+C. immitis (169)	DUF3435	169	169	15	9	24	2566
+C. immitis (169)	DUF3723	169	159	2	0	7	415
+C. immitis (169)	DUF3723_N	169	107	1	0	4	161
+C. immitis (169)	PF11001	169	168	1	0	4	277
+C. immitis (169)	HrmA	169	169	6	4	8	1019
+C. immitis (169)	NPHP3_N	169	169	6	5	7	999
+C. immitis (169)	Condensation	169	169	7	6	12	1182
+C. immitis (169)	PP-binding	169	169	20	16	25	3301
+C. immitis (169)	AMP-binding	169	169	40	37	43	6715
+C. immitis (169)	SPOK2_N	169	169	10	8	18	1764
+C. posadasii (360)	APH	360	360	50.0	40	64	18203
+C. posadasii (360)	DUF3435	360	360	11.0	6	22	4028
+C. posadasii (360)	DUF3723	360	359	2.0	0	11	815
+C. posadasii (360)	DUF3723_N	360	246	1.0	0	6	385
+C. posadasii (360)	PF11001	360	356	2.0	0	6	636
+C. posadasii (360)	HrmA	360	360	3.0	1	7	1149
+C. posadasii (360)	NPHP3_N	360	360	6.0	4	8	2118
+C. posadasii (360)	Condensation	360	360	7.0	6	9	2485
+C. posadasii (360)	PP-binding	360	360	20.0	17	22	7100
+C. posadasii (360)	AMP-binding	360	360	40.0	37	43	14427
+C. posadasii (360)	SPOK2_N	360	360	9.0	5	17	3355

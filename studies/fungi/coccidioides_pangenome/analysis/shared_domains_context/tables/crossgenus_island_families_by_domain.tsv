@@ -1,0 +1,12 @@
+label	n_cross_genus_island_af_families	n_total_rows	v5_partner_has_label	v2_partner_has_label	af_families	af_bins	af_starship_elements	af_captain
+APH	3	111	3	3	Asfu_CNMCM8812|KAF4256603.1;Asfu_F1422|KAH2467820.1;Asfu_niveus|KEY81944.1	shell;cloud;shell	not_listed;not_listed;not_listed	not_listed;not_listed;not_listed
+DUF3435	4	111	4	4	Asfu_4710|KAK9547717.1;Asfu_B1301|KAH3113789.1;Asfu_C172L1|KAH1519479.1;Asfu_NRZ2018326|KAH1968450.1	shell;shell;cloud;singleton	-;AF293_e00039;-;-	yes;yes;yes;yes
+DUF3723	3	111	3	3	Asfu_Af293|tr|Q4WRJ7|Q4WRJ7_ASPFU;Asfu_C128L2|KAH1633892.1;Asfu_E1462|KAH3060270.1	cloud;singleton;cloud	AF293_s00031,AF293_s00037;not_listed;not_listed	no;not_listed;not_listed
+DUF3723_N	3	111	3	3	Asfu_Af293|tr|Q4WRJ7|Q4WRJ7_ASPFU;Asfu_C128L2|KAH1633892.1;Asfu_E1462|KAH3060270.1	cloud;singleton;cloud	AF293_s00031,AF293_s00037;not_listed;not_listed	no;not_listed;not_listed
+PF11001	0	111	0	0				
+HrmA	0	111	0	0				
+NPHP3_N	0	111	0	0				
+Condensation	0	111	0	0				
+PP-binding	0	111	0	0				
+AMP-binding	0	111	0	0				
+SPOK2_N	0	111	0	0				
