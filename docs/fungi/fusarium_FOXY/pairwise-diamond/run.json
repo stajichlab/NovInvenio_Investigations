@@ -11,5 +11,5 @@
     "--swissprot_dmnd /bigdata/stajichlab/jstajich/projects/NovInvenio/db/uniprot/uniprot_sprot.fasta.dmnd"
   ],
   "n_species": 23,
-  "report_sha256": "ac928631b231f6903fc86274fdef6f8799430c8edf609c4b24c07694d423f531"
+  "report_sha256": "3bec18a6dad11b20826122c14273d492668865cecdf9b55b1512ffe158ab0d10"
 }

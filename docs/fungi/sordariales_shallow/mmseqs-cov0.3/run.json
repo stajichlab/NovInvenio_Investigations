@@ -11,6 +11,6 @@
     "--hmm_presence_min_residues 100"
   ],
   "n_species": 12,
-  "report_sha256": "05e83f82c662b5152fcc979243f11db3b863e4922ba2dfa0876cc58296750f00",
+  "report_sha256": "c4cbb4833106a0c1a70153e52c44b39807e3d18ead7e360a70bd8096c08838d4",
   "note": "migrated from docs/fungi/sordariales_shallow_cluster/ on 2026-09-24; params read from run_params.txt at migration time"
 }

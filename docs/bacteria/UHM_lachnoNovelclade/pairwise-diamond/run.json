@@ -11,6 +11,6 @@
     "--swissprot_dmnd /bigdata/stajichlab/jstajich/projects/NovInvenio/db/uniprot/uniprot_sprot.fasta.dmnd"
   ],
   "n_species": 9,
-  "report_sha256": "200778ee3771212dbbc888c51277599d8bea0e9c3ea28461063f3991b7681327",
+  "report_sha256": "4879b2f3b8415b59e5e5cff08f0786bcdad7bfd5bdad1837264cf8b42a7f1801",
   "note": "migrated from docs/bacteria/UHM_lachnoNovelclade/ on 2026-09-24; params read from run_params.txt at migration time"
 }

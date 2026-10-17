@@ -10,6 +10,6 @@
     "--hmm_presence_domain_evalue 0.01"
   ],
   "n_species": 8,
-  "report_sha256": "fd4198efdfaba56c43cd2f4500774f458239df57574c851e7d9f4bcdca9452e1",
+  "report_sha256": "8b597b1675b7f018cd889269ef71b927832b1fbd499cc91851288a2ec6625931",
   "note": "migrated from docs/fungi/agaricomycetes_novelty_discovery/ on 2026-09-24; params read from run_params.txt at migration time"
 }
