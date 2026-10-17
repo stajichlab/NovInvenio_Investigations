@@ -1,0 +1,13 @@
+APH
+DUF3435
+DUF3723
+DUF3723_N
+AFUB_07903_YDR124W_hel
+HrmA
+HrmA_middle
+HrmA_N
+NPHP3_N
+Condensation
+PP-binding
+AMP-binding
+SPOK2_N

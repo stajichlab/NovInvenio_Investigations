@@ -1,0 +1,13 @@
+run	tag	n_tier1_labels	n_islands	n_islands_total	n_islands_with_tier1
+full_v072	af	1	1016	11676	1642
+full_v072	af	2	390	11676	1642
+full_v072	af	3	176	11676	1642
+full_v072	af	4	60	11676	1642
+immitis_in_posadasii_out_v5	v5	1	1922	11968	2614
+immitis_in_posadasii_out_v5	v5	2	498	11968	2614
+immitis_in_posadasii_out_v5	v5	3	167	11968	2614
+immitis_in_posadasii_out_v5	v5	4	27	11968	2614
+posadasii_in_immitis_out_v2	v2	1	2520	16014	3144
+posadasii_in_immitis_out_v2	v2	2	491	16014	3144
+posadasii_in_immitis_out_v2	v2	3	110	16014	3144
+posadasii_in_immitis_out_v2	v2	4	23	16014	3144

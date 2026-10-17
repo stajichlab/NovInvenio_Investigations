@@ -1,0 +1,25 @@
+generated: '2026-10-17'
+purpose: genomic context of domains shared by A. fumigatus and Coccidioides island/accessory tests; see notes/shared_domains_context_2026-10-17.md
+class: analysis output (not committed)
+hmm: hmm/shared_domains.hmm = hmmfetch -f /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm hmm/domain_names.txt (Pfam 38.2; 13 models; sha256 60c90f0ccaa75fa8d41d2ab45a4615c85af5553d926ee3beea1fefe1377aada9)
+models: APH PF01636.30, DUF3435 PF11917.14, DUF3723 PF12520.15, DUF3723_N PF29418.1, AFUB_07903_YDR124W_hel PF11001.15, HrmA PF28515.1, HrmA_middle PF28646.1, HrmA_N PF28647.1, NPHP3_N PF24883.3, Condensation PF00668.26, PP-binding PF00550.32, AMP-binding PF00501.35, SPOK2_N PF27653.1
+hmmer: 3.4 (Aug 2023), .pixi/envs/default/bin
+manifest: hmmsearch/manifest.tsv = copy of studies/fungi/Afumigatus_pangenome/analysis/pf11001/hmmsearch/manifest.tsv (295 A. fumigatus-study, 529 Coccidioides, 144 survey proteomes; sha256 a90cbaea59d6c3809da4cc02489f5ce88b0a20cf14b3e2f6a7d85e53e7c1a2b6)
+steps:
+  - scripts/run_hmmsearch.sbatch (SLURM 30042262; submitted to epyc/milan, moved to partition short/qos short because of AssocGrpMemLimit; ran on c09, 00:05:26) -> hmmsearch/all_proteomes.shared_domains.domtbl.idx.zst (hmmsearch --cut_ga --noali)
+  - scripts/run_genes.sbatch -> scripts/sdc_genes.py (SLURM 30042356, short, 1:12, max RSS 5.7 GB) -> tables/genes.{afum,cocci,survey}.tsv.gz, genome_counts.tsv.gz, reference_gene_order.tsv.gz
+  - scripts/sdc_islands.py (login node) -> tables/island_*, family_label_counts.tsv, crossgenus_*
+  - scripts/sdc_gene_analysis.py (login node) -> tables/genes_per_genome_summary.tsv, gene_family_class_split.tsv, same_protein_combinations.tsv, reference_window_pairs.tsv, allstrain_neighbour_rates.tsv
+  - scripts/sdc_duf3435_tree.py (login node; hmmalign --trim, esl-reformat, FastTree 2.2.0 -lg -gamma) -> tree/
+  - scripts/sdc_figures.py -> figures/
+random_seed: 20261017 (1,000 permutations in sdc_islands.py and sdc_gene_analysis.py)
+pipeline_inputs:
+  - studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome
+  - studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v5/config_immitis_in_posadasii_out/pangenome
+  - studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome
+other_inputs:
+  - analysis/gain_loss_enrichment/<run>/family_pfam.tsv.gz (family representative hmmsearch --cut_ga, Pfam 38.2)
+  - Afumigatus_pangenome/analysis/starship_island_overlap/full_v072/with_unplaced_af293_coords/per_island.tsv.gz
+  - coccidioides_pangenome/analysis/starship_island_overlap/<run>/per_island.tsv.gz
+  - Afumigatus_pangenome/analysis/starship_island_overlap/inputs/af293_unplaced_swissprot_coords.tsv
+  - coccidioides_pangenome/analysis/cross_species_overrep/family_pairs.tsv.gz, cross_genus_island_families.tsv

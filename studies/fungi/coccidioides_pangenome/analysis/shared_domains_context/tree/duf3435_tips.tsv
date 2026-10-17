@@ -1,0 +1,90 @@
+tip	short	species	group	protein_id	env	dom_score	nearest_tip	nearest_tip_group	nearest_distance
+Asfu_Af293__tr_A4DA40_A4DA40_ASPFU__d1	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|A4DA40|A4DA40_ASPFU	39-455	419.4	RS__C3CED3A_005222-T1__d1	Coccidioides	0.9445
+Asfu_Af293__tr_Q4WFD9_Q4WFD9_ASPFU__d1	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|Q4WFD9|Q4WFD9_ASPFU	216-392	41.9	Anid__tr_Q5ARR5_Q5ARR5_EMENI__d1	other Dikarya	0.9655
+Asfu_Af293__tr_Q4WH41_Q4WH41_ASPFU__d1	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|Q4WH41|Q4WH41_ASPFU	1-38	30.9	Asfu_Af293__tr_Q4WQY0_Q4WQY0_ASPFU__d1	A. fumigatus Af293	0.8814
+Asfu_Af293__tr_Q4WKY1_Q4WKY1_ASPFU__d1	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|Q4WKY1|Q4WKY1_ASPFU	211-538	70.9	Collhigg__tr_A0A1B7XQR1_A0A1B7XQR1_COLHI__d1	other Dikarya	1.6898
+Asfu_Af293__tr_Q4WMN5_Q4WMN5_ASPFU__d1	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|Q4WMN5|Q4WMN5_ASPFU	228-636	528.5	RS__C3CED3A_002663-T1__d1	Coccidioides	0.5879
+Asfu_Af293__tr_Q4WQY0_Q4WQY0_ASPFU__d1	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|Q4WQY0|Q4WQY0_ASPFU	188-314	318.3	Asfu_Af293__tr_Q4WQY0_Q4WQY0_ASPFU__d2	A. fumigatus Af293	0.8575
+Asfu_Af293__tr_Q4WQY0_Q4WQY0_ASPFU__d2	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|Q4WQY0|Q4WQY0_ASPFU	311-575	318.3	Asfu_Af293__tr_Q4WQY0_Q4WQY0_ASPFU__d1	A. fumigatus Af293	0.8575
+Asfu_Af293__tr_Q4WRI6_Q4WRI6_ASPFU__d1	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|Q4WRI6|Q4WRI6_ASPFU	184-613	395.2	Asfu_Af293__tr_Q4WWB1_Q4WWB1_ASPFU__d1	A. fumigatus Af293	0.0189
+Asfu_Af293__tr_Q4WWB1_Q4WWB1_ASPFU__d1	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|Q4WWB1|Q4WWB1_ASPFU	184-520	332.9	Asfu_Af293__tr_Q4WRI6_Q4WRI6_ASPFU__d1	A. fumigatus Af293	0.0189
+Asfu_Af293__tr_Q4WWB1_Q4WWB1_ASPFU__d2	Asfu_Af293	Aspergillus fumigatus	A. fumigatus Af293	tr|Q4WWB1|Q4WWB1_ASPFU	518-577	332.9	Asfu_Af293__tr_Q4WRI6_Q4WRI6_ASPFU__d1	A. fumigatus Af293	0.0201
+RS__C3CED3A_000535-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_000535-T1	6-177	94.4	UCSF_Cp_Silveira__C282BBF_006118-T1__d1	Coccidioides	0.0533
+RS__C3CED3A_000536-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_000536-T1	164-378	166.6	UCSF_Cp_Silveira__C282BBF_006118-T1__d1	Coccidioides	0.1037
+RS__C3CED3A_001333-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_001333-T1	207-659	516.1	RS__C3CED3A_002764-T1__d1	Coccidioides	0.4647
+RS__C3CED3A_001543-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_001543-T1	40-180	28.1	Asfu_Af293__tr_Q4WRI6_Q4WRI6_ASPFU__d1	A. fumigatus Af293	2.1635
+RS__C3CED3A_001544-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_001544-T1	6-175	106.1	Asfu_Af293__tr_Q4WRI6_Q4WRI6_ASPFU__d1	A. fumigatus Af293	1.2105
+RS__C3CED3A_001633-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_001633-T1	51-246	54.7	RS__C3CED3A_007193-T1__d1	Coccidioides	1.3153
+RS__C3CED3A_002663-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_002663-T1	114-213	100.4	Asfu_Af293__tr_Q4WMN5_Q4WMN5_ASPFU__d1	A. fumigatus Af293	0.5879
+RS__C3CED3A_002664-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_002664-T1	1-73	38.3	UCSF_Cp_Silveira__C282BBF_002669-T1__d1	Coccidioides	1.4296
+RS__C3CED3A_002764-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_002764-T1	1-227	159.8	RS__C3CED3A_005698-T1__d1	Coccidioides	0.1084
+RS__C3CED3A_004523-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_004523-T1	1-58	59.1	UCSF_Cp_Silveira__C282BBF_001791-T1__d1	Coccidioides	0.4639
+RS__C3CED3A_005222-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_005222-T1	144-565	322.0	RS__C3CED3A_000536-T1__d1	Coccidioides	0.846
+RS__C3CED3A_005698-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_005698-T1	1-46	28.7	RS__C3CED3A_002764-T1__d1	Coccidioides	0.1084
+RS__C3CED3A_005699-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_005699-T1	167-446	176.7	UCSF_Cp_Silveira__C282BBF_000592-T1__d1	Coccidioides	0.4555
+RS__C3CED3A_006298-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_006298-T1	1-168	66.3	RS__C3CED3A_007193-T1__d1	Coccidioides	1.0203
+RS__C3CED3A_006358-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_006358-T1	1-141	126.5	UCSF_Cp_Silveira__C282BBF_005752-T1__d1	Coccidioides	0.0079
+RS__C3CED3A_006411-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_006411-T1	105-531	458.8	UCSF_Cp_Silveira__C282BBF_001791-T1__d1	Coccidioides	0.0132
+RS__C3CED3A_007193-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_007193-T1	347-737	144.0	RS__C3CED3A_006298-T1__d1	Coccidioides	1.0203
+RS__C3CED3A_007350-T1__d1	RS	Coccidioides immitis	Coccidioides	C3CED3A_007350-T1	1-113	92.2	UCSF_Cp_Silveira__C282BBF_008593-T1__d1	Coccidioides	0.8561
+UCSF_Cp_Silveira__C282BBF_000592-T1__d1	UCSF_Cp_Silveira	Coccidioides posadasii	Coccidioides	C282BBF_000592-T1	1-243	142.6	RS__C3CED3A_005699-T1__d1	Coccidioides	0.4555
+UCSF_Cp_Silveira__C282BBF_001791-T1__d1	UCSF_Cp_Silveira	Coccidioides posadasii	Coccidioides	C282BBF_001791-T1	159-585	461.8	RS__C3CED3A_006411-T1__d1	Coccidioides	0.0132
+UCSF_Cp_Silveira__C282BBF_001879-T1__d1	UCSF_Cp_Silveira	Coccidioides posadasii	Coccidioides	C282BBF_001879-T1	208-429	280.8	Anid__tr_Q5B7D4_Q5B7D4_EMENI__d1	other Dikarya	0.2952
+UCSF_Cp_Silveira__C282BBF_001880-T1__d1	UCSF_Cp_Silveira	Coccidioides posadasii	Coccidioides	C282BBF_001880-T1	1-107	37.2	Anid__tr_Q5B7D4_Q5B7D4_EMENI__d1	other Dikarya	0.6554
+UCSF_Cp_Silveira__C282BBF_002669-T1__d1	UCSF_Cp_Silveira	Coccidioides posadasii	Coccidioides	C282BBF_002669-T1	135-552	60.8	RS__C3CED3A_002664-T1__d1	Coccidioides	1.4296
+UCSF_Cp_Silveira__C282BBF_005752-T1__d1	UCSF_Cp_Silveira	Coccidioides posadasii	Coccidioides	C282BBF_005752-T1	1-141	124.0	RS__C3CED3A_006358-T1__d1	Coccidioides	0.0079
+UCSF_Cp_Silveira__C282BBF_006118-T1__d1	UCSF_Cp_Silveira	Coccidioides posadasii	Coccidioides	C282BBF_006118-T1	105-405	264.4	RS__C3CED3A_000535-T1__d1	Coccidioides	0.0533
+UCSF_Cp_Silveira__C282BBF_008593-T1__d1	UCSF_Cp_Silveira	Coccidioides posadasii	Coccidioides	C282BBF_008593-T1	1-140	131.6	RS__C3CED3A_007350-T1__d1	Coccidioides	0.8561
+Tillcari__tr_A0ABN7IJI5_A0ABN7IJI5_9BASI__d1	Tillcari	Tilletia caries	other Dikarya	tr|A0ABN7IJI5|A0ABN7IJI5_9BASI	83-282	44.9			
+Violpalu__tr_A0ACD0NQI7_A0ACD0NQI7_9BASI__d1	Violpalu	Violaceomyces palustris	other Dikarya	tr|A0ACD0NQI7|A0ACD0NQI7_9BASI	213-484	46.7			
+Violpalu__tr_A0ACD0P7E9_A0ACD0P7E9_9BASI__d1	Violpalu	Violaceomyces palustris	other Dikarya	tr|A0ACD0P7E9|A0ACD0P7E9_9BASI	346-706	75.3			
+Amega__tr_A0ACF5BTD1_A0ACF5BTD1_9PEZI__d1	Amega	Arthrobotrys megalospora	other Dikarya	tr|A0ACF5BTD1|A0ACF5BTD1_9PEZI	222-353	27.1			
+Amega__tr_A0ACF5C6V0_A0ACF5C6V0_9PEZI__d1	Amega	Arthrobotrys megalospora	other Dikarya	tr|A0ACF5C6V0|A0ACF5C6V0_9PEZI	148-558	191.5			
+Ztri__tr_F9XEB8_F9XEB8_ZYMTI__d1	Ztri	Zymoseptoria tritici	other Dikarya	tr|F9XEB8|F9XEB8_ZYMTI	174-524	46.6			
+Ztri__tr_F9XGE2_F9XGE2_ZYMTI__d1	Ztri	Zymoseptoria tritici	other Dikarya	tr|F9XGE2|F9XGE2_ZYMTI	124-403	129.7			
+Ztri__tr_F9XQM4_F9XQM4_ZYMTI__d1	Ztri	Zymoseptoria tritici	other Dikarya	tr|F9XQM4|F9XQM4_ZYMTI	72-486	283.6			
+Chaeglob__tr_Q2H9H1_Q2H9H1_CHAGB__d1	Chaeglob	Chaetomium globosum	other Dikarya	tr|Q2H9H1|Q2H9H1_CHAGB	283-549	82.2			
+Clonrose__tr_A0ACA9TCF0_A0ACA9TCF0_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9TCF0|A0ACA9TCF0_BIOOC	212-432	212.0			
+Clonrose__tr_A0ACA9TEL9_A0ACA9TEL9_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9TEL9|A0ACA9TEL9_BIOOC	7-296	31.6			
+Clonrose__tr_A0ACA9TX33_A0ACA9TX33_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9TX33|A0ACA9TX33_BIOOC	248-341	26.7			
+Clonrose__tr_A0ACA9U003_A0ACA9U003_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9U003|A0ACA9U003_BIOOC	181-451	54.1			
+Clonrose__tr_A0ACA9UA12_A0ACA9UA12_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9UA12|A0ACA9UA12_BIOOC	91-506	172.8			
+Clonrose__tr_A0ACA9UC76_A0ACA9UC76_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9UC76|A0ACA9UC76_BIOOC	182-518	74.4			
+Clonrose__tr_A0ACA9UCW6_A0ACA9UCW6_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9UCW6|A0ACA9UCW6_BIOOC	212-330	114.7			
+Clonrose__tr_A0ACA9UD09_A0ACA9UD09_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9UD09|A0ACA9UD09_BIOOC	212-610	341.5			
+Clonrose__tr_A0ACA9UDT6_A0ACA9UDT6_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9UDT6|A0ACA9UDT6_BIOOC	101-178	26.4			
+Clonrose__tr_A0ACA9UFX1_A0ACA9UFX1_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9UFX1|A0ACA9UFX1_BIOOC	176-636	194.3			
+Clonrose__tr_A0ACA9UGN6_A0ACA9UGN6_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9UGN6|A0ACA9UGN6_BIOOC	256-627	205.9			
+Clonrose__tr_A0ACA9UJ82_A0ACA9UJ82_BIOOC__d1	Clonrose	Clonostachys rosea	other Dikarya	tr|A0ACA9UJ82|A0ACA9UJ82_BIOOC	212-610	341.5			
+Collhigg__tr_A0A1B7XQR1_A0A1B7XQR1_COLHI__d1	Collhigg	Colletotrichum higginsianum	other Dikarya	tr|A0A1B7XQR1|A0A1B7XQR1_COLHI	142-248	27.8			
+Collhigg__tr_H1V1H0_H1V1H0_COLHI__d1	Collhigg	Colletotrichum higginsianum	other Dikarya	tr|H1V1H0|H1V1H0_COLHI	174-625	215.1			
+Collhigg__tr_H1VMK0_H1VMK0_COLHI__d1	Collhigg	Colletotrichum higginsianum	other Dikarya	tr|H1VMK0|H1VMK0_COLHI	216-614	354.3			
+Collhigg__tr_H1VPX4_H1VPX4_COLHI__d1	Collhigg	Colletotrichum higginsianum	other Dikarya	tr|H1VPX4|H1VPX4_COLHI	216-614	359.4			
+Conilign__tr_A0A1J7IFJ6_A0A1J7IFJ6_9PEZI__d1	Conilign	Coniochaeta ligniaria	other Dikarya	tr|A0A1J7IFJ6|A0A1J7IFJ6_9PEZI	81-240	31.5			
+Conilign__tr_A0A1J7IQN3_A0A1J7IQN3_9PEZI__d1	Conilign	Coniochaeta ligniaria	other Dikarya	tr|A0A1J7IQN3|A0A1J7IQN3_9PEZI	204-583	41.8			
+Cryppara__tr_A0A9P4XSN8_A0A9P4XSN8_CRYP1__d1	Cryppara	Cryphonectria parasitica	other Dikarya	tr|A0A9P4XSN8|A0A9P4XSN8_CRYP1	22-164	45.6			
+Cryppara__tr_A0A9P4XYB0_A0A9P4XYB0_CRYP1__d1	Cryppara	Cryphonectria parasitica	other Dikarya	tr|A0A9P4XYB0|A0A9P4XYB0_CRYP1	58-260	58.5			
+Cryppara__tr_A0A9P4XZ24_A0A9P4XZ24_CRYP1__d1	Cryppara	Cryphonectria parasitica	other Dikarya	tr|A0A9P4XZ24|A0A9P4XZ24_CRYP1	1-299	125.5			
+Cryppara__tr_A0A9P4XZR5_A0A9P4XZR5_CRYP1__d1	Cryppara	Cryphonectria parasitica	other Dikarya	tr|A0A9P4XZR5|A0A9P4XZR5_CRYP1	9-210	70.1			
+Cryppara__tr_A0A9P4Y8A2_A0A9P4Y8A2_CRYP1__d1	Cryppara	Cryphonectria parasitica	other Dikarya	tr|A0A9P4Y8A2|A0A9P4Y8A2_CRYP1	184-459	96.8			
+Cryppara__tr_A0A9P4Y8A6_A0A9P4Y8A6_CRYP1__d1	Cryppara	Cryphonectria parasitica	other Dikarya	tr|A0A9P4Y8A6|A0A9P4Y8A6_CRYP1	96-554	199.6			
+Cryppara__tr_A0A9P4Y8F3_A0A9P4Y8F3_CRYP1__d1	Cryppara	Cryphonectria parasitica	other Dikarya	tr|A0A9P4Y8F3|A0A9P4Y8F3_CRYP1	230-541	244.9			
+Cryppara__tr_A0A9P4Y8F3_A0A9P4Y8F3_CRYP1__d2	Cryppara	Cryphonectria parasitica	other Dikarya	tr|A0A9P4Y8F3|A0A9P4Y8F3_CRYP1	524-628	244.9			
+Cryppara__tr_A0A9P5CLA5_A0A9P5CLA5_CRYP1__d1	Cryppara	Cryphonectria parasitica	other Dikarya	tr|A0A9P5CLA5|A0A9P5CLA5_CRYP1	107-439	93.3			
+Metaanis__tr_A0A0D9NHH8_A0A0D9NHH8_METAN__d1	Metaanis	Metarhizium anisopliae	other Dikarya	tr|A0A0D9NHH8|A0A0D9NHH8_METAN	73-527	272.8			
+Metaanis__tr_A0A0D9NI28_A0A0D9NI28_METAN__d1	Metaanis	Metarhizium anisopliae	other Dikarya	tr|A0A0D9NI28|A0A0D9NI28_METAN	145-599	277.5			
+Metaanis__tr_A0A0D9NI89_A0A0D9NI89_METAN__d1	Metaanis	Metarhizium anisopliae	other Dikarya	tr|A0A0D9NI89|A0A0D9NI89_METAN	204-602	355.4			
+Metaanis__tr_A0A0D9NJZ0_A0A0D9NJZ0_METAN__d1	Metaanis	Metarhizium anisopliae	other Dikarya	tr|A0A0D9NJZ0|A0A0D9NJZ0_METAN	168-550	47.1			
+Metaanis__tr_A0A0D9NLE6_A0A0D9NLE6_METAN__d1	Metaanis	Metarhizium anisopliae	other Dikarya	tr|A0A0D9NLE6|A0A0D9NLE6_METAN	607-870	90.7			
+Metaanis__tr_A0A0D9NM13_A0A0D9NM13_METAN__d1	Metaanis	Metarhizium anisopliae	other Dikarya	tr|A0A0D9NM13|A0A0D9NM13_METAN	161-244	55.4			
+Metaanis__tr_A0A0D9NM13_A0A0D9NM13_METAN__d2	Metaanis	Metarhizium anisopliae	other Dikarya	tr|A0A0D9NM13|A0A0D9NM13_METAN	245-419	55.4			
+Metaanis__tr_A0A0D9NUM0_A0A0D9NUM0_METAN__d1	Metaanis	Metarhizium anisopliae	other Dikarya	tr|A0A0D9NUM0|A0A0D9NUM0_METAN	196-556	77.6			
+Metaanis__tr_A0A0D9NVF6_A0A0D9NVF6_METAN__d1	Metaanis	Metarhizium anisopliae	other Dikarya	tr|A0A0D9NVF6|A0A0D9NVF6_METAN	196-558	70.9			
+Vertdahl__tr_A0ACM9P9Z8_A0ACM9P9Z8_VERDV__d1	Vertdahl	Verticillium dahliae	other Dikarya	tr|A0ACM9P9Z8|A0ACM9P9Z8_VERDV	360-485	70.0			
+Vertdahl__tr_G2WXL3_G2WXL3_VERDV__d1	Vertdahl	Verticillium dahliae	other Dikarya	tr|G2WXL3|G2WXL3_VERDV	1-157	100.0			
+Vertdahl__tr_G2X4T7_G2X4T7_VERDV__d1	Vertdahl	Verticillium dahliae	other Dikarya	tr|G2X4T7|G2X4T7_VERDV	260-379	33.1			
+Vertdahl__tr_G2X525_G2X525_VERDV__d1	Vertdahl	Verticillium dahliae	other Dikarya	tr|G2X525|G2X525_VERDV	169-636	187.1			
+Vertdahl__tr_G2XFR2_G2XFR2_VERDV__d1	Vertdahl	Verticillium dahliae	other Dikarya	tr|G2XFR2|G2XFR2_VERDV	35-264	110.1			
+Vertdahl__tr_G2XFR2_G2XFR2_VERDV__d2	Vertdahl	Verticillium dahliae	other Dikarya	tr|G2XFR2|G2XFR2_VERDV	272-429	110.1			
+Anid__tr_Q5ARR5_Q5ARR5_EMENI__d1	Anid	Aspergillus nidulans	other Dikarya	tr|Q5ARR5|Q5ARR5_EMENI	198-583	97.5			
+Anid__tr_Q5B7D4_Q5B7D4_EMENI__d1	Anid	Aspergillus nidulans	other Dikarya	tr|Q5B7D4|Q5B7D4_EMENI	209-663	537.4			
