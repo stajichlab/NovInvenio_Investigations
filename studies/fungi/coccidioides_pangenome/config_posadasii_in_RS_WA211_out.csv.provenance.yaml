@@ -1,0 +1,7 @@
+derived_by: studies/fungi/coccidioides_pangenome (manual derivation for run posadasii_in_immitis_out_v2, 2026-10-16)
+derived_from: config_posadasii_in_immitis_out.csv
+derived_from_sha256: 7b1553dae019b67221e4726e1f5b37472c39b7ec6b6e63787b47e37b21b4eeee
+sha256: 1443369af52d0863fe319131af52868b0c131437571d459e0e05e4a435e68d8c
+date: '2026-10-17T05:24:30Z'
+description: 'IN rows copied unchanged (360 C. posadasii); OUT rows reduced to the 2 C. immitis reference strains RS and WA_211 (the other 167 immitis strains are not in this run).'
+note: the pruned tree helper script was written in a Claude session scratchpad and is not in the repo

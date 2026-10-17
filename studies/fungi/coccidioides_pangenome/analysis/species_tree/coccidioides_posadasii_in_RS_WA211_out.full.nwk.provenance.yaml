@@ -1,0 +1,7 @@
+derived_by: studies/fungi/coccidioides_pangenome (manual derivation for run posadasii_in_immitis_out_v2, 2026-10-16)
+derived_from: analysis/species_tree/coccidioides_coccidioides_only.full.nwk
+derived_from_sha256: bd53141a8ec9494dce9f97b9ffbe072ac7c51f684b14029ad0b13e5f4ba9e9b5
+sha256: 24bb6d16b7df5447464ce65cea2e388f593cf3820e1ed09d83e064aaca8d9107
+date: '2026-10-17T05:24:30Z'
+description: 'Tree pruned to the 362 Short IDs of config_posadasii_in_RS_WA211_out.csv (529 tips -> 362); branch lengths and support values kept.'
+note: the pruned tree helper script was written in a Claude session scratchpad and is not in the repo
