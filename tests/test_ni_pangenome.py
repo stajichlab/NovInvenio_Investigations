@@ -479,6 +479,40 @@ def test_stage_command(tmp_path):
     cmd = nip.stage_command(spec, root)
     assert cmd == [nip.PYTHON, str(root / "bin" / "sync_pangenome_report.py"),
                    "--study", "fungi/s1", "--run", "r1", "--current"]
+    assert spec.locus_summary_dir is None and spec.starship_overlap_dir is None
+    assert spec.starship_sm_dir is None
+
+
+def test_stage_command_passes_page_dirs_resolved_from_study(tmp_path):
+    root, spec = repo_study(tmp_path, locus_summary_dir="analysis/locus_summary/fig",
+                            starship_overlap_dir="analysis/sio/r1",
+                            starship_sm_dir="/abs/sm_dir")
+    study = root / "studies" / "fungi" / "s1"
+    assert spec.locus_summary_dir == study / "analysis/locus_summary/fig"
+    assert spec.starship_sm_dir == Path("/abs/sm_dir")
+    cmd = nip.stage_command(spec, root)
+    assert cmd[-6:] == ["--locus_summary_dir", str(study / "analysis/locus_summary/fig"),
+                        "--starship_overlap_dir", str(study / "analysis/sio/r1"),
+                        "--starship_sm_dir", "/abs/sm_dir"]
+
+
+def test_stage_command_passes_only_set_page_dirs(tmp_path):
+    root, spec = repo_study(tmp_path, starship_overlap_dir="analysis/sio/r1")
+    cmd = nip.stage_command(spec, root)
+    assert "--locus_summary_dir" not in cmd and "--starship_sm_dir" not in cmd
+    assert cmd[-2:] == ["--starship_overlap_dir", str(root / "studies/fungi/s1/analysis/sio/r1")]
+
+
+def test_page_dir_keys_are_run_level_only_and_typos_rejected(tmp_path):
+    study = tmp_path / "s1"
+    write_runs(study, base_doc(starship_overlap_directory="x"))
+    with pytest.raises(nip.RunsFileError, match="starship_overlap_directory"):
+        nip.load_runs_file(study)
+    doc = base_doc()
+    doc["defaults"]["locus_summary_dir"] = "x"
+    write_runs(tmp_path / "s2", doc)
+    with pytest.raises(nip.RunsFileError, match="locus_summary_dir"):
+        nip.load_runs_file(tmp_path / "s2")
 
 
 def test_publish_refuses_unstaged_and_unpublishable(tmp_path):

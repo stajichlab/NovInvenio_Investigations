@@ -10,9 +10,9 @@
 #        bin/publish_report_release.sh <domain>/<set_name>/<run>
 #
 # The 3-part form publishes one pangenome.nf run's release-only files
-# (docs/<domain>/<set>/<run>/{figures,figures_pdf,archive,clinker}/, island_synteny.html,
-# assembly_quality.html -- staged by bin/sync_pangenome_report.py). Tag:
-# reports-<domain>-<set>--<run>; manifest.json then also carries "run", and
+# (docs/<domain>/<set>/<run>/{figures,figures_pdf,archive,clinker,locus_summary,starship_overlap}/,
+# island_synteny.html, assembly_quality.html, locus_summary.html, starship_overlap.html --
+# staged by bin/sync_pangenome_report.py). Tag: reports-<domain>-<set>--<run>; manifest.json then also carries "run", and
 # static.yml merges the files into docs/<domain>/<set>/<run>/.
 #
 # Tag: reports-<domain>-<set> (one release per study, overwritten in place on
@@ -57,7 +57,8 @@ DOCS_DIR="$REPO_ROOT/docs/$STUDY"
 REPORT_FILES=()
 if [ -n "$RUN" ]; then
     for f in novelties.html core.html losses.html summary.pdf \
-             figures figures_pdf archive clinker locus_summary island_synteny.html assembly_quality.html locus_summary.html; do
+             figures figures_pdf archive clinker locus_summary island_synteny.html assembly_quality.html locus_summary.html \
+             starship_overlap starship_overlap.html; do
         [ -e "$DOCS_DIR/$f" ] && REPORT_FILES+=("$f")
     done
 else

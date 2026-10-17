@@ -261,8 +261,8 @@ def test_publish_script_and_pages_deploy_ship_clinker():
     static = (REPO_ROOT / ".github" / "workflows" / "static.yml").read_text()
     assert "archive clinker locus_summary island_synteny.html" in publish
     assert "locus_summary.html" in publish
-    assert "for d in figures figures_pdf archive clinker locus_summary; do" in static
-    assert "assembly_quality.html locus_summary.html; do" in static
+    assert "for d in figures figures_pdf archive clinker locus_summary starship_overlap; do" in static
+    assert "assembly_quality.html locus_summary.html starship_overlap.html; do" in static
 
 
 # ---- N4: NII publishes clinker pages for the top 25 loci only ----
@@ -423,3 +423,123 @@ def test_stage_locus_summary_publishes_subset(tmp_path):
     page = (run / "locus_summary.html").read_text()
     assert "swap_candidate 1" in page and "Lamia-h4" in page
     assert not sp.stage_locus_summary(tmp_path / "missing", run)
+
+
+# ---- Starships, islands and SM clusters page (--starship_overlap_dir) ----
+
+_SSO_SUMMARY = (
+    "run\tmetric\tvalue\tdefinition\n"
+    "r1\tn_families\t100\trows\n"
+    "r1\tn_islands\t20\trows\n"
+    "r1\tannotated_strains\tAf293\tstrains with called elements\n"
+    "r1\tn_elements\t2\t\n"
+    "r1\tn_elements_high\t1\t\n"
+    "r1\tcaptain_hits\t7\ttblout targets with full-sequence E <= 1e-05\n"
+    "r1\tcaptain_hits_unmapped\t0\t\n"
+    "r1\tn_starship_all_families\t5\t\n"
+    "r1\tn_starship_all_families_in_island\t4\t\n"
+    "r1\tn_islands_with_starship_all_family\t3\t\n"
+    "r1\tn_captain_families\t6\t\n"
+    "r1\tn_captain_families_in_island\t2\t\n"
+    "r1\tn_islands_with_captain_family\t2\t\n")
+_SSO_ENR = (
+    "annotation\tuniverse\tN_universe\tK_annotated\tn_island\tk_both\texpected_k\tfold\todds_ratio\t"
+    "p_hypergeom_greater\tfrac_annotated_in_island\tfrac_universe_in_island\n"
+    "starship_all\tnoncore\t80\t5\t30\t4\t1.88\t2.13\tinf\t1.23e-02\t0.8\t0.375\n"
+    "captain\tnoncore\t80\t6\t30\t2\t2.25\t0.89\t0.8\t6.54e-01\t0.3333\t0.375\n")
+
+
+def _sso_dir(root: Path, with_sm: bool) -> Path:
+    d = root / "analysis" / "starship_island_overlap" / "r1"
+    d.mkdir(parents=True)
+    (d / "summary.tsv").write_text(_SSO_SUMMARY)
+    (d / "enrichment.tsv").write_text(_SSO_ENR)
+    (d / "per_starship.tsv").write_text("element_id\tlabel\tconfidence\tn_families\nE1\tLamia h4\thigh\t3\n")
+    (d / "PROVENANCE.yaml").write_text("derived_by: bin/starship_island_overlap.py\n")
+    (d / "per_island.tsv.gz").write_bytes(gzip.compress(b"island_idx\n0\n"))
+    figs = d.parent / "figures"
+    figs.mkdir()
+    (figs / "r1_starship_islands.png").write_bytes(b"png")
+    (figs / "r1_extra_starship_islands.png").write_bytes(b"other run")
+    if with_sm:
+        (d / "sm_by_type.tsv").write_text(
+            "species\tsm_type\tn_clusters\tn_with_captain_gene\tpct_with_captain_gene\n"
+            "all\tT1PKS\t12\t3\t25.00\n")
+        (d / "sm_starship_overlap.tsv").write_text(
+            "metric\tvalue\tdefinition\nsm_clusters\t12\tantiSMASH 8.0.1 regions\n"
+            "sm_clusters_overlapping_starship_ge1gene\tNA\tno Starship element calls\n"
+            "sm_clusters_overlapping_starship_ge50pct\tNA\tno Starship element calls\n")
+        (d / "PROVENANCE_sm.yaml").write_text("source_annotation: own funannotate (not the freeze)\n")
+        (figs / "r1_sm.png").write_bytes(b"png")
+    return d
+
+
+def test_stage_starship_overlap_with_sm_tables(tmp_path):
+    import re as _re
+    import sync_pangenome_report as sp
+    d = _sso_dir(tmp_path, with_sm=True)
+    run = tmp_path / "docs" / "set" / "run"
+    run.mkdir(parents=True)
+    assert sp.stage_starship_overlap(d, run)
+    dest = run / "starship_overlap"
+    for f in ("summary.tsv", "enrichment.tsv", "per_starship.tsv", "per_island.tsv.gz",
+              "sm_by_type.tsv", "PROVENANCE.yaml", "PROVENANCE_sm.yaml", "starship_islands.png", "sm.png"):
+        assert (dest / f).is_file(), f
+    assert (dest / "starship_islands.png").read_bytes() == b"png"   # exact-name figure, not r1_extra_
+    page = (run / "starship_overlap.html").read_text()
+    assert "Starship families, all elements" in page and "1.23e-02" in page
+    assert "4 of 5 (0.8)" in page and "30 of 80 (0.375)" in page and "3 of 20" in page
+    assert "Lamia h4" in page and "Captain-gene (DUF3435) families" in page
+    assert "antiSMASH 8.0.1 regions" in page and "T1PKS" in page
+    assert "no Starship element calls" in page          # >= 1 gene / >= 50% rule lines
+    assert "own funannotate (not the freeze)" in page
+    assert "Data and limits" in page and "exist only for Af293" in page
+    assert "<script src" not in page and "http" not in page.split("<footer>")[0]
+    for href in _re.findall(r'(?:href|src)="(starship_overlap/[^"]+)"', page):
+        assert (run / href).is_file(), href
+
+
+def test_stage_starship_overlap_without_sm_or_optional_tables(tmp_path):
+    import sync_pangenome_report as sp
+    d = _sso_dir(tmp_path, with_sm=False)
+    for f in ("enrichment.tsv", "per_starship.tsv"):
+        (d / f).unlink()
+    (d / "summary.tsv").write_text("\n".join(l for l in _SSO_SUMMARY.splitlines()
+                                             if "starship" not in l) + "\n")
+    run = tmp_path / "run"
+    run.mkdir()
+    assert sp.stage_starship_overlap(d, run)
+    page = (run / "starship_overlap.html").read_text()
+    assert "no Starship element coordinates" in page
+    assert "Not available: no sm_by_type.tsv" in page
+    assert "enrichment.tsv: not available" in page
+    assert not (run / "starship_overlap" / "sm.png").exists()
+
+
+def test_stage_starship_overlap_needs_summary(tmp_path):
+    import sync_pangenome_report as sp
+    run = tmp_path / "run"
+    run.mkdir()
+    assert not sp.stage_starship_overlap(tmp_path / "missing", run)
+    assert not (run / "starship_overlap.html").exists()
+
+
+def test_starship_overlap_page_is_linked_and_removed_on_resync(tmp_path):
+    _fake_study(tmp_path)
+    d = _sso_dir(tmp_path, with_sm=True)
+    run_docs = tmp_path / "docs" / "fungi" / "demo_pangenome" / "run_a"
+    assert _run(tmp_path, "--run", "run_a", "--starship_overlap_dir", str(d)) == 0
+    assert 'href="starship_overlap.html"' in (run_docs / "report.html").read_text()
+    assert (run_docs / "starship_overlap" / "summary.tsv").is_file()
+    assert _run(tmp_path, "--run", "run_a") == 0     # no option: page and dir are gone
+    assert "starship_overlap" not in (run_docs / "report.html").read_text()
+    assert not (run_docs / "starship_overlap").exists()
+    assert not (run_docs / "starship_overlap.html").exists()
+
+
+def test_publish_script_ships_starship_overlap():
+    publish = (REPO_ROOT / "bin" / "publish_report_release.sh").read_text()
+    gitignore = (REPO_ROOT / ".gitignore").read_text()
+    assert "starship_overlap starship_overlap.html; do" in publish
+    assert "docs/*/*/*/starship_overlap/\n" in gitignore
+    assert "docs/*/*/*/starship_overlap.html\n" in gitignore

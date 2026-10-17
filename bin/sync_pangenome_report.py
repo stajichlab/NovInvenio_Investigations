@@ -27,6 +27,10 @@ Steps, for --study <domain>/<folder> --run <run>:
      (window.CLINKER_PUBLISHED / window.CLINKER_FULL_DIR) so an
      unpublished locus shows a note pointing at that full folder instead
      of a broken iframe (N3, NovInvenio#202).
+     Optional pages, only when their dir is passed (never auto-detected):
+     --locus_summary_dir -> locus_summary.html + locus_summary/;
+     --starship_overlap_dir (+ --starship_sm_dir) -> starship_overlap.html +
+     starship_overlap/ (stage_starship_overlap()). Both are release assets.
   3. Render docs/<domain>/<set>/<run>/report.html from report/report.md, and
      write run.json (source path, sha256 of report.md, counts, and, when
      clinker/ exists, clinker_published/clinker_total/clinker_full_dir).
@@ -87,7 +91,51 @@ ARCHIVE_TABLES = [
 # --clinker_publish_top loci' pages are copied, not the whole directory.
 ASSET_DIRS = [("report/figures", "figures"), ("report/figures_pdf", "figures_pdf")]
 RELEASE_ONLY = ["figures", "figures_pdf", "archive", "clinker", "island_synteny.html",
-                "assembly_quality.html", "locus_summary", "locus_summary.html"]
+                "assembly_quality.html", "locus_summary", "locus_summary.html",
+                "starship_overlap", "starship_overlap.html"]
+
+# Files of a bin/starship_island_overlap.py output dir (--starship_overlap_dir)
+# and of an SM table dir (--starship_sm_dir, default: the same dir) that are
+# copied into run_docs/starship_overlap/. Small aggregate tables plus the
+# per-island/per-cluster gz tables (< 1 MB each for the runs of 2026-10-17).
+STARSHIP_OVERLAP_FILES = ["summary.tsv", "enrichment.tsv", "per_starship.tsv", "class_breakdown.tsv",
+                          "coord_permutation.tsv", "per_island.tsv.gz", "annotated_families.tsv.gz",
+                          "PROVENANCE.yaml"]
+STARSHIP_SM_FILES = ["sm_by_type.tsv", "sm_starship_overlap.tsv", "sm_clusters.tsv.gz",
+                     "PROVENANCE_sm.yaml"]
+STARSHIP_SETS = [("starship_all", "Starship families, all elements"),
+                 ("starship_high", "Starship families, high-confidence elements"),
+                 ("captain", "Captain-gene (DUF3435) families")]
+STARSHIP_ELEMENT_COLS = ["element_id", "label", "confidence", "contig", "start", "end", "length_bp",
+                         "n_genes", "n_families", "n_noncore_families", "n_families_in_island",
+                         "frac_families_in_island", "n_islands_hit_family_level",
+                         "n_island_instances_overlapping", "frac_genes_inside_island_instances", "bins"]
+STARSHIP_COORD_METRICS = ["n_island_instances_in_annotated_strains",
+                          "n_islands_overlapping_element_in_annotated_strain",
+                          "n_high_elements_hit_family_level", "n_high_elements_overlapped_by_instance",
+                          "island_gene_frac_in_starship_sweep_metric",
+                          "noncore_gene_frac_in_starship_sweep_metric"]
+STARSHIP_PAGE_CSS = """<style>
+.sso table { border-collapse: collapse; margin: 0.5rem 0 1.2rem; font-size: 0.9rem; }
+.sso th, .sso td { border: 1px solid #ccc; padding: 0.25rem 0.5rem; text-align: left; vertical-align: top; }
+.sso th { background: #eee; }
+.sso table.sort th { cursor: pointer; }
+.sso td.n { text-align: right; font-variant-numeric: tabular-nums; }
+.sso .limits { border: 1px solid #c9a227; background: #fff8e1; border-radius: 8px; padding: 0.6rem 1rem; }
+.sso .na { color: #8a5a00; }
+.sso .wrap { overflow-x: auto; max-width: 100%; }
+@media (prefers-color-scheme: dark) {
+  .sso th, .sso td { border-color: #444; }
+  .sso th { background: #2a2d33; }
+  .sso .limits { background: #2b2614; border-color: #8a6d12; }
+  .sso .na { color: #e0b252; }
+}
+</style>"""
+_SORT_JS = ("<script>document.querySelectorAll('.sso table.sort').forEach(t=>t.querySelectorAll('th')"
+            ".forEach((th,i)=>th.onclick=()=>{const b=t.tBodies[0],d=th.dataset.d=th.dataset.d==='1'?-1:1;"
+            "[...b.rows].sort((x,y)=>{const a=x.cells[i].textContent,c=y.cells[i].textContent,"
+            "n=parseFloat(a)-parseFloat(c);return d*(isNaN(n)?a.localeCompare(c):n)})"
+            ".forEach(r=>b.appendChild(r))}));</script>")
 
 # Files of a locus-summary fig/ dir (studies/*/analysis/locus_summary/make_locus_figures.py)
 # that are published. The per-locus PNGs (about 0.5 MB each) are not; the PDF has them all.
@@ -233,10 +281,278 @@ def stage_locus_summary(fig_dir: Path, run_docs: Path) -> bool:
     return True
 
 
+def _read_tsv(path: Path) -> list[dict] | None:
+    import csv
+    if not path.is_file():
+        return None
+    with open(path, newline="") as fh:
+        return list(csv.DictReader(fh, delimiter="\t"))
+
+
+_NUM_RE = re.compile(r"-?[\d.]+(e[-+]?\d+)?|inf|NA")
+
+
+def _html_table(cols: list[str], rows: list[list[str]], sortable: bool = False,
+                headers: list[str] | None = None) -> str:
+    import html
+    cls = ' class="sort"' if sortable else ""
+    head = "".join(f"<th>{html.escape(h)}</th>" for h in (headers or cols))
+
+    def td(v) -> str:
+        v = "" if v is None else str(v)
+        if v and _NUM_RE.fullmatch(v):
+            return f'<td class="n">{html.escape(v)}</td>'
+        return f"<td>{html.escape(v)}</td>"
+    trs = "".join("<tr>" + "".join(td(v) for v in r) + "</tr>" for r in rows)
+    return f'<div class="wrap"><table{cls}><thead><tr>{head}</tr></thead><tbody>{trs}</tbody></table></div>'
+
+
+def _find_named_figure(overlap_dir: Path, suffix: str) -> Path | None:
+    """make_figures.py writes <figures>/<label>_<suffix> next to (or above) the
+    overlap dir, with <label> = the overlap dir's path below that parent joined
+    by '_' (full_v072 -> full_v072_starship_islands.png;
+    full_v072/with_unplaced_af293_coords -> full_v072_with_unplaced_af293_coords_sm.png).
+    Exact names only, so full_v072 never picks up the with_unplaced figure.
+    A file named <suffix> inside the dir itself wins."""
+    if (overlap_dir / suffix).is_file():
+        return overlap_dir / suffix
+    for anc in list(overlap_dir.parents)[:3]:
+        cand = anc / "figures" / ("_".join(overlap_dir.relative_to(anc).parts) + "_" + suffix)
+        if cand.is_file():
+            return cand
+    return None
+
+
+def stage_starship_overlap(overlap_dir: Path, run_docs: Path, sm_dir: Path | None = None) -> bool:
+    """Copy a bin/starship_island_overlap.py output dir's small tables and PNGs
+    into run_docs/starship_overlap/ and write run_docs/starship_overlap.html.
+    SM tables (sm_by_type.tsv, sm_starship_overlap.tsv, sm_clusters.tsv.gz,
+    PROVENANCE_sm.yaml, figures) come from `sm_dir` (default: overlap_dir).
+    Every input except summary.tsv is optional; a missing one gives a
+    'not available' line. Returns False (no page) when summary.tsv is missing."""
+    import html
+    summary_rows = _read_tsv(overlap_dir / "summary.tsv")
+    if summary_rows is None:
+        print(f"WARNING: {overlap_dir}/summary.tsv not found -- no starship_overlap page",
+              file=sys.stderr)
+        return False
+    sm_dir = sm_dir or overlap_dir
+    dest = run_docs / "starship_overlap"
+    dest.mkdir(exist_ok=True)
+    copied: set[str] = set()
+    for src_dir, names in ((overlap_dir, STARSHIP_OVERLAP_FILES), (sm_dir, STARSHIP_SM_FILES)):
+        for f in names:
+            if (src_dir / f).is_file():
+                shutil.copyfile(src_dir / f, dest / f)
+                copied.add(f)
+    inputs_prov = next((a / "inputs" / "PROVENANCE.yaml" for a in [overlap_dir, *list(overlap_dir.parents)[:2]]
+                        if (a / "inputs" / "PROVENANCE.yaml").is_file()), None)
+    if inputs_prov is not None:
+        shutil.copyfile(inputs_prov, dest / "inputs_PROVENANCE.yaml")
+        copied.add("inputs_PROVENANCE.yaml")
+    isl_fig = _find_named_figure(overlap_dir, "starship_islands.png")
+    if isl_fig is not None:
+        shutil.copyfile(isl_fig, dest / "starship_islands.png")
+    sm_figs: list[str] = []
+    named_sm = _find_named_figure(sm_dir, "sm.png")
+    if named_sm is not None:
+        shutil.copyfile(named_sm, dest / "sm.png")
+        sm_figs.append("sm.png")
+    if sm_dir != overlap_dir:
+        for p in sorted(sm_dir.glob("*.png")):
+            if p.name not in ("sm.png", "starship_islands.png"):
+                shutil.copyfile(p, dest / p.name)
+                sm_figs.append(p.name)
+
+    S = {r["metric"]: r["value"] for r in summary_rows}
+    D = {r["metric"]: r.get("definition") or "" for r in summary_rows}
+    enr = _read_tsv(overlap_dir / "enrichment.tsv") or []
+    E = {(r["annotation"], r["universe"]): r for r in enr}
+    sets = [(k, lab) for k, lab in STARSHIP_SETS if f"n_{k}_families" in S]
+    run_label = summary_rows[0].get("run", "") if summary_rows else ""
+
+    def na(text: str) -> str:
+        return f'<p class="na">{text}</p>'
+
+    def link(f: str) -> str:
+        return f'<a href="starship_overlap/{f}">{html.escape(f)}</a>'
+
+    def headline(keys: list[tuple[str, str]]) -> str:
+        cols = ["set", "families", "in >= 1 island", "in >= 1 multi-strain island",
+                "islands with >= 1 family of the set", "non-core: set families in islands",
+                "non-core: all families in islands (background)", "fold",
+                "hypergeometric p (greater)"]
+        rows = []
+        for k, lab in keys:
+            e = E.get((k, "noncore"), {})
+            rows.append([lab, S.get(f"n_{k}_families", ""), S.get(f"n_{k}_families_in_island", ""),
+                         S.get(f"n_{k}_families_in_multi_strain_island", ""),
+                         f"{S.get(f'n_islands_with_{k}_family', 'NA')} of {S.get('n_islands', 'NA')}",
+                         f"{e.get('k_both', 'NA')} of {e.get('K_annotated', 'NA')} "
+                         f"({e.get('frac_annotated_in_island', 'NA')})",
+                         f"{e.get('n_island', 'NA')} of {e.get('N_universe', 'NA')} "
+                         f"({e.get('frac_universe_in_island', 'NA')})",
+                         e.get("fold", "NA"), e.get("p_hypergeom_greater", "NA")])
+        return _html_table(cols, rows)
+
+    def enrichment_rows(keys: list[str]) -> str:
+        rows = [r for r in enr if r["annotation"] in keys]
+        if not rows:
+            return na("enrichment.tsv: not available.")
+        cols = ["annotation", "universe", "N_universe", "K_annotated", "n_island", "k_both", "expected_k",
+                "fold", "odds_ratio", "p_hypergeom_greater"]
+        return ("<details><summary>All universes (enrichment.tsv)</summary>"
+                + _html_table(cols, [[r.get(c, "") for c in cols] for r in rows]) + "</details>")
+
+    body = [STARSHIP_PAGE_CSS, '<div class="sso">',
+            '<p><a href="report.html">back to run report</a></p>',
+            "<h1>Starships, islands and secondary-metabolite clusters</h1>",
+            f"<p>Source: <code>bin/starship_island_overlap.py</code> output for run "
+            f"<code>{html.escape(run_label)}</code>. A family is 'in an island' when it is a member of "
+            "&gt;= 1 row of significant_islands.tsv. Background: all non-core families of the run "
+            "(enrichment.tsv, universe <code>noncore</code>). Exploratory analysis; read the "
+            "'Data and limits' box.</p>"]
+    run_cols = [("n_families", "families"), ("n_islands", "islands"),
+                ("n_islands_multi_strain", "islands with >= 2 strains"),
+                ("n_island_families", "families in >= 1 island"),
+                ("n_island_families_multi_strain", "families in >= 1 multi-strain island")]
+    present_cols = [(c, h) for c, h in run_cols if c in S]
+    if present_cols:
+        body.append(_html_table([c for c, _ in present_cols], [[S[c] for c, _ in present_cols]],
+                                headers=[h for _, h in present_cols]))
+
+    body.append("<h2>Starship families in islands</h2>")
+    ship_sets = [s for s in sets if s[0].startswith("starship")]
+    if ship_sets:
+        body.append(f"<p>Starship family: a family with &gt;= 1 gene of "
+                    f"{html.escape(S.get('annotated_strains', 'NA'))} whose midpoint lies inside one of "
+                    f"{html.escape(S.get('n_elements', 'NA'))} element(s) "
+                    f"({html.escape(S.get('n_elements_high', 'NA'))} high confidence).</p>")
+        body.append(headline(ship_sets))
+        body.append(enrichment_rows([k for k, _ in ship_sets]))
+        coord = [[m, S[m], D.get(m, "")] for m in STARSHIP_COORD_METRICS if m in S]
+        if coord:
+            body.append("<h3>Coordinate checks in the annotated strain</h3>")
+            body.append(_html_table(["metric", "value", "definition"], coord))
+        perm = _read_tsv(overlap_dir / "coord_permutation.tsv")
+        if perm:
+            cols = list(perm[0].keys())
+            body.append("<h3>Coordinate permutation</h3>"
+                        + _html_table(cols, [[r[c] for c in cols] for r in perm]))
+        per = _read_tsv(overlap_dir / "per_starship.tsv")
+        body.append("<h3>Per element</h3>")
+        if per:
+            cols = [c for c in STARSHIP_ELEMENT_COLS if c in per[0]]
+            body.append(_html_table(cols, [[r.get(c, "") for c in cols] for r in per], sortable=True))
+        else:
+            body.append(na("per_starship.tsv: not available."))
+    else:
+        body.append(na("Not available: this run has no Starship element coordinates "
+                       "(summary.tsv has no starship_* metrics). The captain-gene families below are "
+                       "the only Starship proxy."))
+
+    body.append("<h2>Captain-gene families (non-core) in islands</h2>")
+    if any(k == "captain" for k, _ in sets):
+        body.append(f"<p>Captain gene: {html.escape(D.get('captain_hits') or 'DUF3435 hit')}; "
+                    f"{html.escape(S.get('captain_hits', 'NA'))} hits, "
+                    f"{html.escape(S.get('captain_hits_unmapped', 'NA'))} not mapped to a family "
+                    "of this run.</p>")
+        body.append(headline([s for s in sets if s[0] == "captain"]))
+        body.append(enrichment_rows(["captain"]))
+    else:
+        body.append(na("Not available: summary.tsv has no captain metrics."))
+    cb = _read_tsv(overlap_dir / "class_breakdown.tsv")
+    if cb:
+        cols = list(cb[0].keys())
+        body.append("<details><summary>Frequency bin and gain/loss direction (class_breakdown.tsv)"
+                    "</summary>" + _html_table(cols, [[r[c] for c in cols] for r in cb], sortable=True)
+                    + "</details>")
+    if isl_fig is not None:
+        cap = "Families in islands by annotation set (per element when element coordinates exist)."
+        body.append(f'<h3>{cap}</h3><p><img src="starship_overlap/starship_islands.png" '
+                    f'alt="{cap}" style="max-width:100%"></p>')
+
+    body.append("<h2>Secondary-metabolite (SM) clusters</h2>")
+    sm = _read_tsv(sm_dir / "sm_by_type.tsv")
+    smo = _read_tsv(sm_dir / "sm_starship_overlap.tsv") or []
+    M = {r["metric"]: (r.get("value") or "", r.get("definition") or "") for r in smo}
+    prov_sm_path = sm_dir / "PROVENANCE_sm.yaml"
+    prov_sm = prov_sm_path.read_text() if prov_sm_path.is_file() else ""
+    if sm is None:
+        sm_kind = "not available (no sm_by_type.tsv)"
+        body.append(na("Not available: no sm_by_type.tsv for this run."))
+    else:
+        cols = list(sm[0].keys()) if sm else []
+        if "n_clusters" in cols:
+            ver = re.search(r"antiSMASH \d[\d.]*\d", prov_sm + " " + " ".join(d for _, d in M.values()))
+            sm_kind = (ver.group(0) if ver else "antiSMASH") + " regions"
+        elif "af293_genes" in cols:
+            sm_kind = ("proxy: PKS KS (PF00109) and NRPS C (PF00668) backbone genes only, "
+                       "not antiSMASH clusters")
+        else:
+            sm_kind = "unknown source (see PROVENANCE_sm.yaml)"
+        body.append(f"<p>Source: {html.escape(sm_kind)}.</p>")
+        if not any("starship" in c.lower() for c in cols):
+            ge1 = M.get("sm_clusters_overlapping_starship_ge1gene")
+            ge50 = M.get("sm_clusters_overlapping_starship_ge50pct")
+            if ge1 or ge50:
+                body.append(na("Overlap with a Starship: &gt;= 1 gene rule: "
+                               f"{html.escape(' '.join(ge1 or ('NA', '')).strip())}; &gt;= 50% rule: "
+                               f"{html.escape(' '.join(ge50 or ('NA', '')).strip())}."))
+            else:
+                body.append(na("Overlap with a Starship: not available for this SM table."))
+        if sm:
+            body.append(_html_table(cols, [[r.get(c, "") for c in cols] for r in sm], sortable=True))
+        else:
+            body.append(na("sm_by_type.tsv has no rows."))
+        if smo:
+            body.append("<details><summary>SM summary metrics (sm_starship_overlap.tsv)</summary>"
+                        + _html_table(["metric", "value", "definition"],
+                                      [[r.get("metric", ""), (r.get("value") or "")[:300],
+                                        r.get("definition") or ""] for r in smo]) + "</details>")
+        for f in sm_figs:
+            body.append(f'<p><img src="starship_overlap/{html.escape(f)}" alt="SM clusters figure" '
+                        'style="max-width:100%"></p>')
+
+    lim = ["<h2>Data and limits</h2>", '<div class="limits"><ul>']
+    if ship_sets:
+        lim.append(f"<li>Starship element coordinates exist only for "
+                   f"{html.escape(S.get('annotated_strains', 'NA'))} "
+                   f"({html.escape(S.get('n_elements', 'NA'))} elements). Family-level results transfer "
+                   "these calls to all strains through family membership; coordinate-level results apply "
+                   "to that strain only.</li>")
+    else:
+        lim.append("<li>No genome of this run has Starship element coordinates. Captain-gene (DUF3435) "
+                   "families are a proxy: a captain gene marks a possible Starship, not its span.</li>")
+    lim.append(f"<li>SM annotation: {html.escape(sm_kind)}.</li>")
+    m_src = re.search(r"^source_annotation:\s*(.+)$", prov_sm, re.M)
+    if m_src:
+        lim.append("<li>SM annotation source (PROVENANCE_sm.yaml): "
+                   f"<code>{html.escape(m_src.group(1).strip())}</code>. This page does not map SM cluster "
+                   "genes to the pangenome run's protein IDs or to islands.</li>")
+    if "strains_with_antismash" in M:
+        lim.append(f"<li>Strains with SM annotation: {html.escape(M['strains_with_antismash'][0])} of "
+                   f"{html.escape(M.get('strains_in_run', ('NA', ''))[0])}.</li>")
+    prov = [f for f in ("PROVENANCE.yaml", "PROVENANCE_sm.yaml", "inputs_PROVENANCE.yaml") if f in copied]
+    lim.append("<li>Provenance: " + (", ".join(link(f) for f in prov) if prov else "not available")
+               + ".</li>")
+    lim.append("</ul></div>")
+    body.extend(lim)
+    tables = [f for f in STARSHIP_OVERLAP_FILES + STARSHIP_SM_FILES if f in copied and not f.endswith(".yaml")]
+    body.append("<h2>Tables</h2><ul>" + "".join(f"<li>{link(f)}</li>" for f in tables) + "</ul>")
+    body.append("</div>")
+    body.append(_SORT_JS)
+    (run_docs / "starship_overlap.html").write_text(_page(
+        f"{run_docs.parent.name} / {run_docs.name} / Starships, islands and SM clusters", "\n".join(body)))
+    return True
+
+
 def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, run: str,
               source_label: str, today: str, run_record: Path | None = None,
               clinker_publish_top: int = DEFAULT_CLINKER_PUBLISH_TOP,
-              locus_summary_dir: Path | None = None) -> dict:
+              locus_summary_dir: Path | None = None,
+              starship_overlap_dir: Path | None = None,
+              starship_sm_dir: Path | None = None) -> dict:
     run_docs.mkdir(parents=True, exist_ok=True)
     for name in RELEASE_ONLY:
         target = run_docs / name
@@ -272,6 +588,9 @@ def stage_run(pangenome_dir: Path, run_docs: Path, domain: str, set_name: str, r
         extra_pages.append(("Island synteny viewer", "island_synteny.html"))
     if locus_summary_dir is not None and stage_locus_summary(locus_summary_dir, run_docs):
         extra_pages.append(("Locus summary", "locus_summary.html"))
+    if starship_overlap_dir is not None and stage_starship_overlap(starship_overlap_dir, run_docs,
+                                                                   starship_sm_dir):
+        extra_pages.append(("Starships, islands and SM clusters", "starship_overlap.html"))
     aq_md = pangenome_dir / "assembly_quality_report.md"
     if aq_md.is_file():
         (run_docs / "assembly_quality.html").write_text(_page(
@@ -327,6 +646,12 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--locus_summary_dir", type=Path, default=None,
                     help="fig/ dir written by make_locus_figures.py; adds a Locus summary page "
                          "(release asset only). Not auto-detected, so a stale dir is never published.")
+    ap.add_argument("--starship_overlap_dir", type=Path, default=None,
+                    help="bin/starship_island_overlap.py --out-dir of this run; adds a 'Starships, "
+                         "islands and SM clusters' page (release asset only). Not auto-detected.")
+    ap.add_argument("--starship_sm_dir", type=Path, default=None,
+                    help="dir with sm_by_type.tsv / sm_starship_overlap.tsv / sm_clusters.tsv.gz / "
+                         "PROVENANCE_sm.yaml / *.png for that page (default: --starship_overlap_dir)")
     ap.add_argument("--repo-root", type=Path, default=REPO_ROOT, help=argparse.SUPPRESS)
     args = ap.parse_args(argv)
 
@@ -362,7 +687,9 @@ def main(argv: list[str] | None = None) -> int:
                      source_label, today,
                      run_record=study_dir / ".nf_launch" / args.run / "ni_run.json",
                      clinker_publish_top=args.clinker_publish_top,
-                     locus_summary_dir=args.locus_summary_dir)
+                     locus_summary_dir=args.locus_summary_dir,
+                     starship_overlap_dir=args.starship_overlap_dir,
+                     starship_sm_dir=args.starship_sm_dir)
     if args.current:
         set_current(study_docs, args.run)
     runs = rebuild_study_pages(study_docs, domain, set_name)
