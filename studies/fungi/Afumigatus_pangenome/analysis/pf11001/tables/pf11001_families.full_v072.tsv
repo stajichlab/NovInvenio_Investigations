@@ -1,0 +1,58 @@
+run	family	bin	strain_count	frequency	bin_out	in_pipeline_background	pipeline_hmmscan_hit	pipeline_i_Evalue	pipeline_dom_score	pipeline_counted	cutga_hmmsearch_hit	n_islands	n_islands_single_strain	n_islands_multi_strain	max_island_n_strains	island_idx	gl_class	direction	outgroup_count	n_member_proteins	n_member_strains
+full_v072	Asfu_0040675686_AFU_3006|KAJ8200351.1	cloud	2	0.0165	-	True	True	0.00023	21.9	True	False	1	1	0	1	11009	cloud	gain	0	1	1
+full_v072	Asfu_0040676907_AFU_2506|KAJ8226360.1	cloud	3	0.0248	-	True	True	6.8e-35	120.9	True	True	3	3	0	1	9331,9505,11464	cloud	gain	0	4	4
+full_v072	Asfu_4710|KAK9553961.1	singleton	1	0.0083	-	False	False			False	True	0	0	0	0		singleton	gain	0	1	1
+full_v072	Asfu_474|KAK9562178.1	cloud	11	0.0909	-	True	True	4e-53	180.1	True	True	11	10	1	3	3019,5054,5545,6493,7114,7380,8258,8427,8821,8981,9868	cloud	gain	0	13	13
+full_v072	Asfu_51TA|KAJ8189560.1	nonrep_only	0	0.0000	-	False	False			False	True	2	2	0	1	7412,9347	nonrep_only	gain	0	2	2
+full_v072	Asfu_A1163|EDP49504.1	cloud	2	0.0165	-	True	True	4.6e-48	163.6	True	True	2	2	0	1	10651,11419	cloud	gain	0	2	2
+full_v072	Asfu_A1163|EDP50758.1	singleton	1	0.0083	-	False	False			False	True	1	1	0	1	11417	singleton	gain	0	1	1
+full_v072	Asfu_ATCC_42202|KAK9577986.1	singleton	1	0.0083	-	False	False			False	True	1	1	0	1	9699	singleton	gain	0	1	1
+full_v072	Asfu_ATCC_42202|KAK9578577.1	cloud	3	0.0248	-	True	True	1.1e-52	178.6	True	True	3	3	0	1	5534,9082,9709	cloud	gain	0	3	3
+full_v072	Asfu_Af293|tr|Q4WKZ0|Q4WKZ0_ASPFU	singleton	1	0.0083	-	False	False			False	True	1	1	0	1	11464	singleton	gain	0	1	1
+full_v072	Asfu_Af293|tr|Q4WUC6|Q4WUC6_ASPFU	core	119	0.9835	-	False	False			False	True	0	0	0	0		core	conserved	1	292	290
+full_v072	Asfu_AfB2|KAM0120679.1	singleton	1	0.0083	-	False	False			False	True	0	0	0	0		singleton	gain	0	1	1
+full_v072	Asfu_AfB6|KAM0111604.1	core	121	1.0000	-	False	False			False	True	0	0	0	0		core	conserved	2	299	295
+full_v072	Asfu_AfB6|KAM0112314.1	cloud	7	0.0579	-	True	True	3.3e-52	177.1	True	True	9	9	0	1	6167,7412,9347,9741,9963,10275,10942,11393,11668	cloud	gain	0	7	7
+full_v072	Asfu_AfB6|KAM0112873.1	singleton	1	0.0083	-	False	False			False	True	1	1	0	1	10936	singleton	gain	0	1	1
+full_v072	Asfu_AfB8|KAM0094554.1	singleton	1	0.0083	-	False	False			False	True	0	0	0	0		singleton	gain	0	3	3
+full_v072	Asfu_B1431|KAH1396266.1	cloud	11	0.0909	-	True	True	3.2e-52	177.1	True	True	18	18	0	1	5437,5627,5979,6156,6564,6834,7488,7563,7613,7997,8041,8088,8208,8975,9073,9237,9255,9446	cloud	gain	0	19	19
+full_v072	Asfu_B171L1|KAH1808672.1	cloud	4	0.0331	-	True	True	1.9e-51	174.6	True	True	9	9	0	1	6061,6091,6285,7189,7297,7927,8972,9323,9499	cloud	gain	0	10	10
+full_v072	Asfu_B178L1|KAH3605939.1	nonrep_only	0	0.0000	-	False	False			False	True	0	0	0	0		nonrep_only	gain	0	2	2
+full_v072	Asfu_C124L3|KAH2777167.1	singleton	1	0.0083	-	False	False			False	True	2	2	0	1	7396,7937	singleton	gain	0	2	2
+full_v072	Asfu_C128L2|KAH1632629.1	cloud	2	0.0165	-	True	True	7.8e-30	104.5	True	True	2	2	0	1	9222,10291	cloud	gain	0	6	6
+full_v072	Asfu_C128L2|KAH1633317.1	singleton	1	0.0083	-	False	False			False	True	0	0	0	0		singleton	gain	0	5	5
+full_v072	Asfu_C169s1|KAH2472211.1	nonrep_only	0	0.0000	-	False	False			False	True	0	0	0	0		nonrep_only	gain	0	1	1
+full_v072	Asfu_C193L3|KAH1415438.1	cloud	7	0.0579	-	True	True	1.8e-54	184.4	True	True	13	13	0	1	5842,5889,7002,7179,7559,7708,8124,8496,8638,9013,9312,9394,11418	cloud	gain	0	16	16
+full_v072	Asfu_CNMCM8714|KAF4269845.1	cloud	2	0.0165	-	True	True	1.6e-53	181.3	True	True	5	4	1	2	4323,5169,9308,9375,9469	cloud	gain	0	6	6
+full_v072	Asfu_D223L5|KAH1423306.1	cloud	4	0.0331	-	True	True	0.0035	18.1	False	False	4	4	0	1	5571,6143,7104,7807	cloud	gain	0	4	4
+full_v072	Asfu_D248L1|KAH2361949.1	cloud	2	0.0165	-	True	True	4.8e-24	85.7	True	True	1	1	0	1	11419	cloud	gain	0	1	1
+full_v072	Asfu_D248L1|KAH2362064.1	cloud	2	0.0165	-	True	True	1.4e-37	129.6	True	True	0	0	0	0		cloud	gain	0	5	5
+full_v072	Asfu_D248L1|KAH2363167.1	nonrep_only	0	0.0000	-	False	False			False	True	1	1	0	1	7256	nonrep_only	gain	0	1	1
+full_v072	Asfu_D248L1|KAH2363660.1	cloud	5	0.0413	-	True	True	2.4e-41	141.8	True	True	18	15	3	2	4167,4214,4334,4925,5679,5845,7182,7248,7698,8369,8500,8564,9099,9397,9412,10449,11094,11189	cloud	gain	0	21	21
+full_v072	Asfu_E1141|KAH1472991.1	core	119	0.9835	-	False	False			False	True	0	0	0	0		core	conserved	0	288	288
+full_v072	Asfu_E133L1|KAH1626759.1	singleton	1	0.0083	-	False	False			False	True	1	1	0	1	5948	singleton	gain	0	2	2
+full_v072	Asfu_E137L2|KAH3060145.1	nonrep_only	0	0.0000	-	False	False			False	True	0	0	0	0		nonrep_only	gain	0	1	1
+full_v072	Asfu_E137L2|KAH3070549.1	singleton	1	0.0083	-	False	False			False	True	1	1	0	1	8440	singleton	gain	0	1	1
+full_v072	Asfu_E1462|KAH3056187.1	cloud	3	0.0248	-	True	True	1.4e-52	178.2	True	True	4	4	0	1	5455,6703,7662,8457	cloud	gain	0	6	6
+full_v072	Asfu_E165L2|KAH1339673.1	shell	21	0.1736	-	True	True	5e-54	183.0	True	True	49	43	6	6	2082,2533,3008,3591,3887,4279,5272,5359,5385,5405,5651,5702,5815,6048,6102,6759,6891,6954,7000,7080,7217,7245,7300,7407,7412,7422,7450,7745,7928,8025,8070,8096,8111,8203,8258,8368,8412,8480,8548,8581,8690,8788,8853,8930,8986,9012,9169,9252,9347	shell	gain	0	60	60
+full_v072	Asfu_E165L4|KAH1304351.1	singleton	1	0.0083	-	False	False			False	True	0	0	0	0		singleton	gain	0	1	1
+full_v072	Asfu_E171|KAH1452265.1	cloud	2	0.0165	-	True	True	1.2e-53	181.8	True	True	2	2	0	1	5625,8720	cloud	gain	0	3	3
+full_v072	Asfu_E175s2|KAH1295657.1	singleton	1	0.0083	-	False	False			False	True	0	0	0	0		singleton	gain	0	2	2
+full_v072	Asfu_F1422|KAH2437350.1	singleton	1	0.0083	-	False	False			False	True	0	0	0	0		singleton	gain	0	1	1
+full_v072	Asfu_I1224|KAH3180448.1	nonrep_only	0	0.0000	-	False	False			False	True	1	1	0	1	4925	nonrep_only	gain	0	2	2
+full_v072	Asfu_I1493|KAH2790296.1	cloud	4	0.0331	-	True	True	5.2e-52	176.4	True	True	4	4	0	1	7949,8956,9106,11451	cloud	gain	0	6	6
+full_v072	Asfu_K14s1_2|KAH3295787.1	singleton	1	0.0083	-	False	False			False	True	1	1	0	1	8811	singleton	gain	0	1	1
+full_v072	Asfu_K14s1|KAH3429045.1	nonrep_only	0	0.0000	-	False	False			False	True	1	1	0	1	8965	nonrep_only	gain	0	1	1
+full_v072	Asfu_K18L1|KAH3452642.1	cloud	5	0.0413	-	True	True	1.2e-36	126.6	True	True	5	5	0	1	5044,5197,10028,10111,10211	cloud	gain	0	1	1
+full_v072	Asfu_L2114|KAH3359280.1	singleton	1	0.0083	-	False	False			False	True	4	4	0	1	7907,8332,8847,8928	singleton	gain	0	4	4
+full_v072	Asfu_NRZ2016141|KAH1865605.1	cloud	5	0.0413	-	True	True	1.1e-52	178.7	True	True	8	8	0	1	6100,7739,8722,8781,9014,9313,9509,11417	cloud	gain	0	7	7
+full_v072	Asfu_NRZ2018649|KAH1908467.1	singleton	1	0.0083	-	False	False			False	True	0	0	0	0		singleton	gain	0	1	1
+full_v072	Asfu_NRZ2018649|KAH1912482.1	singleton	1	0.0083	-	False	False			False	True	0	0	0	0		singleton	gain	0	1	1
+full_v072	Asfu_Z5|KMK55501.1	cloud	2	0.0165	-	True	True	2.3e-34	119.2	True	True	2	2	0	1	5948,11662	cloud	gain	0	1	1
+full_v072	Asfu_eAF1023|MIC0743858.1	cloud	2	0.0165	-	True	True	4.7e-56	189.6	True	True	0	0	0	0		cloud	gain	0	4	4
+full_v072	Asfu_eAF1436|MIC0756647.1	cloud	2	0.0165	-	True	True	3.9e-52	176.8	True	True	0	0	0	0		cloud	gain	0	1	1
+full_v072	Asfu_niveus|KEY83301.1	cloud	5	0.0413	-	True	True	9.6e-47	159.3	True	True	7	7	0	1	4956,6480,10288,10414,10682,11427,11544	cloud	gain	0	7	7
+full_v072	Aslen_ref|tr|A0AAN6BQ65|A0AAN6BQ65_ASPLE	outgroup_only	0	0.0000	-	False	False			False	True	1	1	0	1	4857	outgroup_only	absent	2	2	2
+full_v072	Aslen_ref|tr|A0ABQ1AYF3|A0ABQ1AYF3_ASPLE	outgroup_only	0	0.0000	-	False	False			False	True	0	0	0	0		outgroup_only	absent	1	1	1
+full_v072	Neofi_ref|tr|A1DA31|A1DA31_ASPF1	outgroup_only	0	0.0000	-	False	False			False	True	1	1	0	1	4866	outgroup_only	absent	1	1	1
+full_v072	Neofi_ref|tr|A1DP83|A1DP83_ASPF1	outgroup_only	0	0.0000	-	False	False			False	True	0	0	0	0		outgroup_only	absent	1	1	1

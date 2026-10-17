@@ -1,0 +1,19 @@
+generated: '2026-10-17'
+purpose: PF11001 (AFUB_07903_YDR124W_hel) island-enrichment check; see notes/pf11001_2026-10-17.md
+class: analysis output (not committed)
+hmm: hmm/PF11001.hmm = hmmfetch /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm AFUB_07903_YDR124W_hel (Pfam 38.2, PF11001.15, GA 31.3)
+hmmer: 3.4 (Aug 2023), .pixi/envs/default/bin
+steps:
+  - scripts/build_manifest.py -> hmmsearch/manifest.tsv (295 A. fumigatus-study, 529 Coccidioides, 144 survey proteomes from studies/*/data_dir/pep)
+  - scripts/run_hmmsearch.sbatch (SLURM 30037334) -> hmmsearch/all_proteomes.PF11001.domtbl.idx.zst, seq_counts.tsv (hmmsearch --cut_ga)
+  - scripts/run_hmmscan_hits.sbatch (SLURM 30037441) -> hmmsearch/hit_proteins.fa.zst, hit_proteins_vs_PfamA.cutga.domtbl.zst (hmmscan --cut_ga, full Pfam-A 38.2)
+  - scripts/pf11001_island_tests.py -> tables/island_*, cross_run_selection.tsv, pf11001_families.*, pf11001_islands.* (both studies)
+  - scripts/pf11001_island_components.py -> tables/pf11001_family_island_groups.tsv
+  - scripts/pf11001_genes.py (run on login node; RSS 5.3 GB) -> genes.*, af293/cocci reference tables, neighbourhood_marks.tsv, starship_captain_overlap.tsv, survey tables
+  - scripts/pf11001_summary_numbers.py -> tables/survey_by_species_dedup.tsv, logs/summary_numbers.log
+  - scripts/pf11001_figures.py -> figures/fig1_island_fraction.*, fig2_af293_chromosome_map.*
+pipeline_inputs:
+  - studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome
+  - studies/fungi/coccidioides_pangenome/results/immitis_in_posadasii_out_v5/config_immitis_in_posadasii_out/pangenome
+  - studies/fungi/coccidioides_pangenome/results/posadasii_in_immitis_out_v2/config_posadasii_in_RS_WA211_out/pangenome
+  - pipeline code read from clone a2836adb5b4a8dace999d0d0699a3b23bcf1d0bc
