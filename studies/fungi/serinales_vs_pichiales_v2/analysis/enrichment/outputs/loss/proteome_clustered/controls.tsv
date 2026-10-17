@@ -1,0 +1,20 @@
+control	pfam_ids	desc_regex	OUT_universe	OUT_in_matrix	OUT_pass_outgroup_rule	candidates	near_miss_in1	near_miss_in2	n_Babjinos	n_Komaphaf	n_Kuracaps	n_Pichmemb	n_Pichkudr	n_Bretnaar	n_Ogatpoly	n_Pachtann	n_Sacccere	n_Kluylact	n_Lachther	n_Candglab	n_Torudelb	n_Candalbi	n_Loddelon	n_Meyeguil	n_Debahans	n_Schestip	n_Spatpass	n_Candtenu	n_Diutrugo	n_Yamajaro	n_Candauri	n_Clavlusi	n_Metsbicu	n_Lizaspar	candidate_ids	near_miss_in1_ids
+Arp2/3 ARPC2 (P34-Arc)	PF04045		13	13	13	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC3 (P21-Arc)	PF04062		13	13	13	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1		
+Arp2/3 ARPC4	PF05856		13	13	13	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC5 (P16-Arc)	PF04699		13	13	13	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1		
+Arp2/3 ARPC1 (description only)		arp2/3 complex.*(41|p41|subunit 1)|ARPC1	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Arp2 / Arp3 (description only)		actin-related protein (2|3)\b|\bARP[23]\b	87	87	87	0	0	0	7	8	7	7	5	6	7	7	7	6	6	7	7	7	7	7	6	6	7	5	7	7	6	6	4	7		
+WAVE complex NCKAP1	PF09735		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WAVE complex CYFIP (FragX_IP)	PF05994		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WAVE complex ABI	PF07815|PF27594		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+SCAR/WAVE (SCAR_helical)	PF27569		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+WASP family (WH1)	PF00568		13	13	13	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	1	1	1	1	1	1		
+WH2 motif (WASP, WAVE, others)	PF02205		22	22	22	0	0	0	1	2	2	2	2	1	1	1	2	2	2	2	2	2	3	0	2	2	1	0	2	2	2	1	1	1		
+Formin FH2	PF02181		26	26	26	0	0	0	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	2	1	2	2	2	2		
+Formin Drf_GBD / Drf_FH3 / Drf_DAD	PF06371|PF06367|PF06345		22	22	22	0	0	0	2	2	2	2	1	2	1	2	1	2	2	1	2	2	2	2	2	2	2	0	2	0	2	2	2	2		
+Ena/VASP (VASP_tetra)	PF08776		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Coronin (description only)		coronin	13	13	13	0	0	0	1	1	1	1	1	1	1	1	1	1	1	1	1	1	0	0	1	0	1	1	1	1	1	0	1	1		
+Cortactin (HS1_rep)	PF02218		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Myosin 2 tail (Myosin_tail_1)	PF01576		0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0		
+Myosin head (all myosins)	PF00063		43	43	43	0	0	0	3	3	3	2	4	3	3	3	5	3	3	5	3	3	3	3	3	3	3	0	3	3	3	3	2	3		

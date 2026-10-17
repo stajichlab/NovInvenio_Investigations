@@ -1,0 +1,328 @@
+generated: '2026-10-16T22:53:03'
+study: serinales_vs_pichiales_v2
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2 --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations
+  --study serinales_vs_pichiales_v2 --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/analysis/enrichment/outputs/cache
+  --threads 8 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/analysis/enrichment/outputs/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: novelty
+target_group:
+  label: IN
+  species:
+  - Candalbi
+  - Loddelon
+  - Meyeguil
+  - Debahans
+  - Schestip
+  - Spatpass
+  - Candtenu
+  - Diutrugo
+  - Yamajaro
+  - Candauri
+  - Clavlusi
+  - Metsbicu
+  - Lizaspar
+other_group:
+  label: OUT
+  species:
+  - Babjinos
+  - Komaphaf
+  - Kuracaps
+  - Pichmemb
+  - Pichkudr
+  - Bretnaar
+  - Ogatpoly
+  - Pachtann
+  - Sacccere
+  - Kluylact
+  - Lachther
+  - Candglab
+  - Torudelb
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations
+annotation_files:
+  Candalbi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000559.tsv.gz
+  Loddelon: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000001996.tsv.gz
+  Meyeguil: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000001997.tsv.gz
+  Debahans: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000599.tsv.gz
+  Schestip: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000002258.tsv.gz
+  Spatpass: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000709.tsv.gz
+  Candtenu: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000707.tsv.gz
+  Diutrugo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000449547.tsv.gz
+  Yamajaro: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP001152531.tsv.gz
+  Candauri: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000230249.tsv.gz
+  Clavlusi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000007703.tsv.gz
+  Metsbicu: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000092555.tsv.gz
+  Lizaspar: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000790833.tsv.gz
+  Babjinos: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000094336.tsv.gz
+  Komaphaf: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000314.tsv.gz
+  Kuracaps: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000019384.tsv.gz
+  Pichmemb: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000094455.tsv.gz
+  Pichkudr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000249293.tsv.gz
+  Bretnaar: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000290900.tsv.gz
+  Ogatpoly: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000788993.tsv.gz
+  Pachtann: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000094236.tsv.gz
+  Sacccere: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000002311.tsv.gz
+  Kluylact: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000598.tsv.gz
+  Lachther: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000002036.tsv.gz
+  Candglab: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000002428.tsv.gz
+  Torudelb: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000005627.tsv.gz
+annotation_sources:
+  Candalbi: not recorded (no sidecar)
+  Loddelon: not recorded (no sidecar)
+  Meyeguil: not recorded (no sidecar)
+  Debahans: not recorded (no sidecar)
+  Schestip: not recorded (no sidecar)
+  Spatpass: not recorded (no sidecar)
+  Candtenu: not recorded (no sidecar)
+  Diutrugo: not recorded (no sidecar)
+  Yamajaro: not recorded (no sidecar)
+  Candauri: not recorded (no sidecar)
+  Clavlusi: not recorded (no sidecar)
+  Metsbicu: not recorded (no sidecar)
+  Lizaspar: not recorded (no sidecar)
+  Babjinos: not recorded (no sidecar)
+  Komaphaf: not recorded (no sidecar)
+  Kuracaps: not recorded (no sidecar)
+  Pichmemb: not recorded (no sidecar)
+  Pichkudr: not recorded (no sidecar)
+  Bretnaar: not recorded (no sidecar)
+  Ogatpoly: not recorded (no sidecar)
+  Pachtann: not recorded (no sidecar)
+  Sacccere: not recorded (no sidecar)
+  Kluylact: not recorded (no sidecar)
+  Lachther: not recorded (no sidecar)
+  Candglab: not recorded (no sidecar)
+  Torudelb: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Candalbi
+    - Loddelon
+    - Meyeguil
+    - Debahans
+    - Schestip
+    - Spatpass
+    - Candtenu
+    - Diutrugo
+    - Yamajaro
+    - Candauri
+    - Clavlusi
+    - Metsbicu
+    - Lizaspar
+    species_without_terms: []
+    n_with: 13
+    n_species: 13
+  pfam_clan:
+    species_with_terms:
+    - Candalbi
+    - Loddelon
+    - Meyeguil
+    - Debahans
+    - Schestip
+    - Spatpass
+    - Candtenu
+    - Diutrugo
+    - Yamajaro
+    - Candauri
+    - Clavlusi
+    - Metsbicu
+    - Lizaspar
+    species_without_terms: []
+    n_with: 13
+    n_species: 13
+  interpro:
+    species_with_terms:
+    - Candalbi
+    - Loddelon
+    - Meyeguil
+    - Debahans
+    - Schestip
+    - Spatpass
+    - Candtenu
+    - Diutrugo
+    - Yamajaro
+    - Candauri
+    - Clavlusi
+    - Metsbicu
+    - Lizaspar
+    species_without_terms: []
+    n_with: 13
+    n_species: 13
+  go:
+    species_with_terms:
+    - Candalbi
+    - Loddelon
+    - Meyeguil
+    - Debahans
+    - Schestip
+    - Spatpass
+    - Candtenu
+    - Diutrugo
+    - Yamajaro
+    - Candauri
+    - Clavlusi
+    - Metsbicu
+    - Lizaspar
+    species_without_terms: []
+    n_with: 13
+    n_species: 13
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 1864
+  candidates_txt: 1864
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/presence_matrix.uniprot.tsv
+  rule: IN count / 13 >= 0.75 and OUT count / 13 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: c2e2aaa891a31d60
+  n_sequences: 73331
+  n_clusters: 18151
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 45.4
+  threads: 8
+  created: '2026-10-16T22:52:47'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/config.csv: 85a71d46e3871a66aace8b86654dbd5f37f2bcb71d5e5910367fa9b4aa59d9b8
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/candidates.txt: 759bd6e8744fa1c198dbce5ea9f645b1c246ffb73f5412fe20baaa8884aed0de
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Candalbi.tsv: 3eccd1e9291b9a4f15a34b2f9800bb9b1046e012e691614da6ea6b231d73eab7
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Loddelon.tsv: bfbb345c965c74fae4d7722b554410739f378d1d5a3870470e81fef67ec168a3
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Meyeguil.tsv: ee412e2c6293357f6e874383a26196d6e45ea0f07a78cbd6d3462570f758b873
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Debahans.tsv: c28efbc2f7a4e30b651cfc7c36809add6e8b23de6cacaac52d87f5581225ec74
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Schestip.tsv: 803b399938b7c921d74961175b794e7c03ec2efd249e8f65bb09e3046fe215a6
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Spatpass.tsv: fa7fa0466a2775f229c692042b8c35695f07d34314597b964353c9ae021ab59a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Candtenu.tsv: 9e38374004639b4e270585e89e4428a04913a88b874a34706adbaa0637aa9862
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Diutrugo.tsv: 1d9dbd0049e655a651b6c1cf210f15a901bf2f0a39c65239600fadc668a0ef7b
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Yamajaro.tsv: 84bf3e64bc648d5ec99b701eadb5a7b1bc08f23c2833082a1bc43e469cf40f9f
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Candauri.tsv: c81cf96b212792e91fcd23b0e5fd01597057b2c546ae2ba525d66e8d5523f680
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Clavlusi.tsv: f07d7687ac0f7e88f1898789941fd3fb7074b692f3f1bf2f4dac5d9eec8af987
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Metsbicu.tsv: 46bbcba4c8037d489cc9bf76e8ffeeda269dc6b27a552a0d56949979160354f3
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/novelties.Lizaspar.tsv: 43e8c4c33454ea53060646a2ac9a444bd9beac32598e70433f2e4f78b1b4baf6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/serinales_vs_pichiales_v2/presence_matrix.uniprot.tsv
+  : db9ae2079719672815bebbb736584ef4f83568201f53c13b25866036f2e5f449
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000000559_237561.pep.fa
+  : 603def324372fc7aab183f6d4cf3a482c1e97a43e99f018b0d96d47011832090
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000001996_379508.pep.fa
+  : e932d838ed35103900697f1a75571c3660d05d976caa8d254c5b57e1a28abb63
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000001997_294746.pep.fa
+  : c8c4a7fc6219926ee81696e4db4ef4823943776651ad89f3ff5a5b6342deaceb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000000599_284592.pep.fa
+  : 93f0aedfdd287fd685e562f5f0ee73ea3d2f18f772f59cc2494f91ad869d82f1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000002258_322104.pep.fa
+  : 41ec693ffb6e89daf85eff111171ee67c548c02bdb8e25b0d9d08626c9a7bb93
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000000709_619300.pep.fa
+  : 4974bf62e540da7da5da50ce6706cedfd5fcee1b7a7286af4df1651a3b7e0ab3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000000707_590646.pep.fa
+  : 2b0312cd9892bec29a7cba7cde31601c434d2283bb2304f0e1e0eae473e62058
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000449547_5481.pep.fa
+  : 5f1addabf5bb3e22bba5ae187f96dd8a59a9e1f73a6c488de9cbeb4cf2965608
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP001152531_467808.pep.fa
+  : 8e950523f8cb44a0f4d7207dadcfb18ce623a4cc5b2939a69275a72a248a89ba
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000230249_498019.pep.fa
+  : 799d98487da7b3910cdc0c6ecda422fa09abef2ae2b5fbfaa834d24062d2ad35
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000007703_306902.pep.fa
+  : d3d90d6fda95cc970ae025d05d356d383ed6eee2be02aa2164b4de2e528c6c38
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000092555_869754.pep.fa
+  : fa7f44d522e79e944b174567f9e9075b45c2e7866d51d3c840f1ee5947310ca1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/data_dir/pep/UP000790833_45513.pep.fa
+  : f1b2c1431b3c80e4d2d25aad4deefd094cb38d5792273d52fb3de7f4b9628f2d
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/species.csv: be78abd8966008ea7bc6fb05670cc15e3ea042aa1c15b4474538f86d2fd8866d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000559.tsv.gz
+  : 92a2c273b29f5b2dd9a4fb43a142df209a7ff1b19105af4dcd8a619da92e6a9c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000001996.tsv.gz
+  : 30ba0ccfa87450a57c79ba91cfac135b949b811a7f55e01ef9df1fde62a07c1e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000001997.tsv.gz
+  : 3971afaf1838b33d861cbc5c19d0faf46e82e8c38ce69e61757e5762d300f546
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000599.tsv.gz
+  : 544cdbf9c443506a8826f6fd0d6a6386b5e48f9132ff5feeea50d8fb8e1581d7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000002258.tsv.gz
+  : 24099db94360b13792bef773e098a6f045908f3920404141662c04a1e39df6c5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000709.tsv.gz
+  : 09d46f111dd598c4f778377570524d24cc9589cee79261877478e764ecf9c2ed
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000707.tsv.gz
+  : a568eff26e91bae29cda42fa9375bfdefef2bbf4d24b566edef44a386e2263f1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000449547.tsv.gz
+  : 585410970b3ee6fc466bfac4513f791bbe93b142b7a886973b6076e46d7a5beb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP001152531.tsv.gz
+  : d1665295b58dc0767ca240da4e038d7432b40c659a5e40856db16e60ea2b232d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000230249.tsv.gz
+  : c07735e0c63ebe63ace314c9d578b501ff3f3635dc457b64a5239a8e9a5d8e23
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000007703.tsv.gz
+  : d2b4bf3ffb08d083e0eaf6fbdaddb0b78bda1b80f2860ca48de510676a0e230c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000092555.tsv.gz
+  : 566c2106dd5e8a1f82379977199d2067161ccd05ac62501847a3e8e9e98bd155
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000790833.tsv.gz
+  : 17fe12be5204ee68e8cd287d5991dbee6fdd90670a1a14cdecfc423c1fa13a38
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000094336.tsv.gz
+  : 3a8523541760d2228bd5e9da8da735b2a70c45700a3e8c4ffd1894ebf716e00d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000314.tsv.gz
+  : a8045c9f5e987c4eceb543a48d126ffb924affe1e3f951db9d51b827c9ed50eb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000019384.tsv.gz
+  : fdb4918e817ea2b3ab067bda113d2a51fdea09660f3de26980ec5d2a51b0b6e5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000094455.tsv.gz
+  : 8827c3836d44fd9c4cda567ecbf674cc208c41c0c99e9099d1151fd6ba61e254
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000249293.tsv.gz
+  : 57230d5df9535ecb2fa8282bebf01dc01f8a83733d9c22dd4b90f02e7d7adb88
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000290900.tsv.gz
+  : e9066e9c52e22fef007e217654563b0a6c14b2fcd01e0db87386c35d1111e0f3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000788993.tsv.gz
+  : 9936a9a4660ed0a6ec11dc5e363ab220d5e2cfb09155d4feabbeb67d7f057f7c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000094236.tsv.gz
+  : c0fea3825fe605931de2a51dd318e03a16fab89f71c6bb182d2fc9399632855b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000002311.tsv.gz
+  : de0746d5bc99a06a46f2adee0a7b60156bfc33cc5e9e8c1654a3269d17fb16fe
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000000598.tsv.gz
+  : ac247e22d94eb651da9095b8974727cf3c7314b1e3e064b671d402e87aa9964f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000002036.tsv.gz
+  : 2f707f353c4cf8d912d1eb99c9a1d9436cf65576ad1ba7b6f64277e3674174c9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000002428.tsv.gz
+  : 9a373544cbee6710eed7d4667f49cbe65ac3a91030955eb60690dc7b0327b4b5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/serinales_vs_pichiales_v2/annotations/UP000005627.tsv.gz
+  : bb8d37fb77f7924e0c0afe78eb7e80fdd355422c9e5549c0373766ffc1ddf03f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 15.2
+  background_cluster_s: 46.1
+  tests_s: 12.2
+  total_s: 77.5
+host: r11
+slurm_job: '30027698'
