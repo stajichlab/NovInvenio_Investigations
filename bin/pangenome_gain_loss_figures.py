@@ -6,9 +6,13 @@ Usage:
       --study "A. fumigatus=studies/fungi/Afumigatus_pangenome/analysis/gain_loss/full_v072" \\
       --study "C. immitis=studies/fungi/coccidioides_pangenome/analysis/gain_loss/immitis_in_posadasii_out_v5"
 
-Writes fig1_gain_loss_by_study, fig2_gain_loss_by_class, fig3_size_distribution
-(.png, .svg, .pdf) and figure_data.tsv (the numbers drawn). Counts only; no
-biological interpretation.
+Writes fig1_gain_loss_by_study, fig2_gain_loss_by_class, fig3_size_distribution,
+fig4_gain_loss_shell_softcore (.png, .svg, .pdf), figure_data.tsv (the numbers
+drawn in fig1-3) and figure_data_shell_softcore.tsv (the numbers drawn in fig4).
+Counts only; no biological interpretation.
+
+fig4 keeps the persistent accessory classes (shell + soft-core) apart from the
+rare classes (cloud + singleton), counts and 100%-stacked shares.
 """
 from __future__ import annotations
 
@@ -27,6 +31,9 @@ COLORS = {"gain": "#2a78d6", "loss": "#eb6834", "ambiguous": "#1baf7a"}
 DIRS = ("gain", "loss", "ambiguous")
 CLASSES = ("soft_core", "shell", "cloud", "singleton")
 SIZE_ORDER = ("1", "2", "3-5", "6-10", "11-20", "21-50", "51-100", ">100")
+# fig4 class groups (order = panel order). Never mixed in one bar.
+CLASS_GROUPS = (("shell+soft_core", ("shell", "soft_core")),
+                ("cloud+singleton", ("cloud", "singleton")))
 INK, INK2, GRID, SURF = "#0b0b0b", "#52514e", "#e4e3df", "#fcfcfb"
 
 plt.rcParams.update({
@@ -101,6 +108,130 @@ def save(fig, out: Path, stem: str):
         md = {"Date": None} if ext == "svg" else ({"CreationDate": None} if ext == "pdf" else {})
         fig.savefig(out / f"{stem}.{ext}", facecolor=SURF, metadata=md, **kw)
     plt.close(fig)
+
+
+# Ingroup frequency-bin cutoffs (fraction of ingroup representative genomes) of
+# nf_NovInvenio bin/pangenome_frequency_bins.py. Not stored in the gain_loss
+# outputs; the default values below match the full_v072 and
+# immitis_in_posadasii_out_v5 Nextflow run reports. Used for title text only.
+BIN_CUTOFFS = {"core": 0.95, "soft_core": 0.90, "shell": 0.15}
+GROUP_TEXT = {
+    "shell+soft_core": (f"shell + soft-core families\nin {BIN_CUTOFFS['shell']:.0%} to "
+                        f"<{BIN_CUTOFFS['core']:.0%} of ingroup rep. genomes"),
+    "cloud+singleton": (f"cloud + singleton families\nin <{BIN_CUTOFFS['shell']:.0%} of "
+                        f"ingroup rep. genomes (singleton: 1 genome)"),
+}
+
+
+def class_group_counts(bycls: dict, groups=CLASS_GROUPS) -> dict:
+    """bycls: class -> summary_direction_by_class.tsv row. Returns
+    {group: {direction: int}} summed over the group's classes (gain/loss/ambiguous)."""
+    out = {}
+    for g, members in groups:
+        out[g] = {dd: sum(int(bycls[c][f"direction_{dd}"]) for c in members) for dd in DIRS}
+    return out
+
+
+def class_group_rows(studies, groups=CLASS_GROUPS) -> list[list]:
+    """Tidy rows [study, class_group, direction, count, fraction] (fraction of the
+    study's class-group total; 0 when the group is empty)."""
+    rows = []
+    for name, d in studies:
+        for g, v in class_group_counts(d["bycls"], groups).items():
+            tot = sum(v.values())
+            for dd in DIRS:
+                rows.append([name, g, dd, v[dd], f"{(v[dd] / tot if tot else 0.0):.6f}"])
+    return rows
+
+
+def _spread(ys: list[float], gap: float) -> list[float]:
+    """Push label y positions upward so neighbours are at least `gap` apart."""
+    out = []
+    for y in ys:
+        out.append(max(y, out[-1] + gap) if out else y)
+    return out
+
+
+def _stack_panel(ax, names, vals: list[dict], pct: bool, width=0.5, min_frac=0.10):
+    """One bar per study, stacked gain/loss/ambiguous. Segment labels inside when the
+    segment is >= min_frac of the axis height, else beside the bar: a square in the
+    series colour plus the value in text ink, spread apart vertically."""
+    tots = [sum(v.values()) for v in vals]
+    ymax = 100.0 if pct else max(tots + [1])
+    for i, (v, tot) in enumerate(zip(vals, tots)):
+        bottom, side = 0.0, []
+        for dd in DIRS:
+            h = (100.0 * v[dd] / tot if tot else 0.0) if pct else v[dd]
+            ax.bar(i, h, width, bottom=bottom, color=COLORS[dd], edgecolor=SURF, linewidth=2,
+                   label=dd if i == 0 else None)
+            txt = f"{100.0 * v[dd] / tot:.1f}%" if pct else f"{v[dd]:,}"
+            if v[dd] and h / ymax >= min_frac:
+                ax.text(i, bottom + h / 2, txt, ha="center", va="center", color="white",
+                        fontsize=14, fontweight="bold")
+            elif v[dd]:
+                side.append((bottom + h / 2, dd, txt))
+            bottom += h
+        ys = _spread([y for y, _, _ in side], 0.12 * ymax)
+        if ys and ys[-1] > 0.97 * ymax:   # keep side labels inside the axes: shift down
+            ys = [y - (ys[-1] - 0.97 * ymax) for y in ys]
+        for y, (_, dd, t) in zip(ys, side):
+            ax.plot([i + width / 2 + 0.08], [y], marker="s", markersize=10, color=COLORS[dd],
+                    linestyle="none", clip_on=False)
+            ax.text(i + width / 2 + 0.15, y, t, ha="left", va="center", color=INK, fontsize=14)
+    ax.set_xlim(-0.45, len(names) - 0.5 + 0.35)
+    ax.set_ylim(0, 100 if pct else ymax * 1.12)
+    ax.set_xticks(range(len(names)), [f"{n}\nn={t:,}" for n, t in zip(names, tots)])
+    for lab in ax.get_xticklabels():
+        lab.set_fontstyle("italic")
+    style(ax)
+
+
+def limitation_text(studies) -> str:
+    """One line per small outgroup size (< 10 genomes: the 0.1 / 0.9 rule cannot
+    resolve finer than 1/n)."""
+    by_n: dict[int, list[str]] = {}
+    for name, d in studies:
+        n = d["prov"]["strain_counts"]["out_all"]
+        if n < 10:
+            by_n.setdefault(n, []).append(name)
+    lines = []
+    for n, names in sorted(by_n.items()):
+        vals = ", ".join(f"{k}/{n}" for k in range(n + 1))
+        lines.append(f"Limitation: {' and '.join(names)}: outgroup = {n} genomes, so outgroup "
+                     f"frequency is only {vals}.\n    gain = in no outgroup genome, "
+                     f"loss = in all {n}, ambiguous = in some but not all.")
+    return "\n".join(lines)
+
+
+def fig4(studies, out_dir: Path, rule: str, subs: str):
+    names = [n for n, _ in studies]
+    counts = [class_group_counts(d["bycls"]) for _, d in studies]
+    fig, axes = plt.subplots(2, 2, figsize=(13.333, 7.5), sharex="col")
+    for col, (g, _) in enumerate(CLASS_GROUPS):
+        bw = 0.5 if len(names) <= 2 else 0.56   # wider bars when 3 studies share a panel
+        vals = [c[g] for c in counts]
+        _stack_panel(axes[0][col], names, vals, pct=False, width=bw)
+        _stack_panel(axes[1][col], names, vals, pct=True, width=bw)
+        axes[0][col].set_title(GROUP_TEXT[g], loc="left", fontsize=14)
+        axes[0][col].tick_params(labelbottom=False)
+    axes[0][0].set_ylabel("gene families")
+    axes[1][0].set_ylabel("% of bar")
+    h, lab = axes[0][0].get_legend_handles_labels()
+    fig.suptitle("Gain / loss labels: shell + soft-core families shown apart from cloud + "
+                 f"singleton families\n{rule}", x=0.01, y=0.99, ha="left", va="top", fontsize=15)
+    lim = limitation_text(studies)
+    foot = subs + ("\n" + lim if lim else "")
+    fig.text(0.01, 0.01, foot, fontsize=13, color=INK2, va="bottom")
+    nfoot = foot.count("\n") + 1
+    bottom = 0.105 + 0.03 * nfoot
+    fig.subplots_adjust(left=0.08, right=0.98, top=0.80, bottom=bottom, hspace=0.1, wspace=0.22)
+    fig.legend(h, lab, frameon=False, loc="lower right", ncol=3, bbox_to_anchor=(0.99, 0.87),
+               fontsize=14, handlelength=1.2, columnspacing=1.2)
+    save(fig, out_dir, "fig4_gain_loss_shell_softcore")
+    with open(out_dir / "figure_data_shell_softcore.tsv", "w") as fh:
+        fh.write("study\tclass_group\tdirection\tcount\tfraction\n")
+        for r in class_group_rows(studies):
+            fh.write("\t".join(str(x) for x in r) + "\n")
 
 
 def main(argv=None) -> int:
@@ -213,6 +344,7 @@ def main(argv=None) -> int:
         fh.write("figure\tstudy\tgroup\tdirection\tn_families\n")
         for r in data_rows:
             fh.write("\t".join(str(x) for x in r) + "\n")
+    fig4(studies, args.out_dir, rule, subs)
     print(f"wrote figures to {args.out_dir}", file=sys.stderr)
     return 0
 
