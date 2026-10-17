@@ -1,0 +1,9 @@
+element_id	label	confidence	contig	start	end	n_genes_in_element	n_sm_clusters_ge1gene	n_sm_clusters_ge50pct	sm_clusters	n_sm_cluster_genes_in_element	captain_genes_in_element
+AF293_e00029	Lamia h4	high	CM000169.1	6458	394211	71	1	1	CM000169.1.region001(T1PKS;13/13 genes)	13	AFUA_1G00890
+AF293_e00039	Gnosis h1	high	CM000174.1	2214324	2290180	21	0	0		0	AFUA_6G09300
+AF293_e00041	Janus (likely) h2 (likely)	unknown	CM000175.1	1807654	1860556	6	0	0		0	
+AF293_s00031	Nebuchadnezzar h2	high	CM000169.1	4343057	4400402	20	0	0		0	AFUA_1G16170
+AF293_s00032	Osiris h4	high	CM000171.1	639099	688497	12	1	0	CM000171.1.region002(T1PKS+NRPS-like;12/30 genes)	12	AFUA_3G02550
+AF293_s00035	Osiris h3	high	CM000171.1	1012445	1089733	3	0	0		0	
+AF293_s00037	Nebuchadnezzar h1	high	CM000173.1	3842374	3895486	19	1	0	CM000173.1.region009(terpene;3/7 genes)	3	AFUA_5G15040
+AF293_s00042	Tardis h1	high	CM000176.1	1455665	1544699	25	0	0		0	AFUA_8G06132

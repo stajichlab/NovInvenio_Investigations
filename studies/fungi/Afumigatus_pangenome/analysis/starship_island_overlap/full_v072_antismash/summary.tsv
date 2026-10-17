@@ -1,0 +1,64 @@
+metric	value	source
+antismash_version	8.0.4	Af293.json.gz
+af293_cds_in_antismash	9630	CDS features in antiSMASH JSON (from GFF3)
+af293_cds_mapped_to_member	9627	coord:9623; fasta_GN:4; none:3
+af293_cds_with_family	9627	member in tier1_cluster.tsv
+sm_clusters	44	antiSMASH regions (sm_clusters.tsv.gz)
+sm_cluster_genes	873	CDS inside regions
+sm_core_genes	66	CDS with a rule definition domain
+sm_clusters_contig_edge	3	region qualifier contig_edge
+starship_elements	8	Table S7 (inputs/af293_starships_table_s7.elements.tsv)
+af293_cds_in_starships	177	CDS midpoint inside an element
+sm_clusters_overlap_ge1gene	3	rule A (sm_clusters.tsv.gz)
+sm_clusters_overlap_ge50pct	1	rule B (sm_clusters.tsv.gz)
+sm_clusters_with_captain	3	DUF3435 hit E<=1e-5 in a cluster gene
+af293_captain_cds	7	Af293 CDS whose member has a DUF3435 hit
+elements_with_sm_cluster_ge1gene	3	sm_starship_overlap.tsv
+elements_with_sm_cluster_ge50pct	1	sm_starship_overlap.tsv
+perm_clusters_overlap_ge1gene_observed	3	sm_permutation.tsv
+perm_clusters_overlap_ge1gene_null_mean	1.884	sm_permutation.tsv
+perm_clusters_overlap_ge1gene_p_greater	0.28272	sm_permutation.tsv
+perm_clusters_overlap_ge1gene_p_less	0.8951	sm_permutation.tsv
+perm_clusters_overlap_ge50pct_observed	1	sm_permutation.tsv
+perm_clusters_overlap_ge50pct_null_mean	1.206	sm_permutation.tsv
+perm_clusters_overlap_ge50pct_p_greater	0.71528	sm_permutation.tsv
+perm_clusters_overlap_ge50pct_p_less	0.64036	sm_permutation.tsv
+perm_sm_cluster_genes_in_elements_observed	28	sm_permutation.tsv
+perm_sm_cluster_genes_in_elements_null_mean	24.019	sm_permutation.tsv
+perm_sm_cluster_genes_in_elements_p_greater	0.38262	sm_permutation.tsv
+perm_sm_cluster_genes_in_elements_p_less	0.63636	sm_permutation.tsv
+hypergeom_sm_cluster_genes_in_starships_N	9630	universe: all Af293 CDS
+hypergeom_sm_cluster_genes_in_starships_K	177	universe: all Af293 CDS
+hypergeom_sm_cluster_genes_in_starships_n	873	universe: all Af293 CDS
+hypergeom_sm_cluster_genes_in_starships_k	28	universe: all Af293 CDS
+hypergeom_sm_cluster_genes_in_starships_expected	16.05	universe: all Af293 CDS
+hypergeom_sm_cluster_genes_in_starships_fold	1.75	universe: all Af293 CDS
+hypergeom_sm_cluster_genes_in_starships_p_greater	0.00247	universe: all Af293 CDS
+hypergeom_sm_core_genes_in_starships_N	9630	universe: all Af293 CDS
+hypergeom_sm_core_genes_in_starships_K	177	universe: all Af293 CDS
+hypergeom_sm_core_genes_in_starships_n	66	universe: all Af293 CDS
+hypergeom_sm_core_genes_in_starships_k	2	universe: all Af293 CDS
+hypergeom_sm_core_genes_in_starships_expected	1.21	universe: all Af293 CDS
+hypergeom_sm_core_genes_in_starships_fold	1.65	universe: all Af293 CDS
+hypergeom_sm_core_genes_in_starships_p_greater	0.343	universe: all Af293 CDS
+hypergeom_core_families_in_islands_noncore_N	40122	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_core_families_in_islands_noncore_K	15	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_core_families_in_islands_noncore_n	11683	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_core_families_in_islands_noncore_k	10	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_core_families_in_islands_noncore_expected	4.37	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_core_families_in_islands_noncore_fold	2.29	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_core_families_in_islands_noncore_p_greater	0.00286	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_cluster_gene_families_in_islands_noncore_N	40122	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_cluster_gene_families_in_islands_noncore_K	310	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_cluster_gene_families_in_islands_noncore_n	11683	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_cluster_gene_families_in_islands_noncore_k	212	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_cluster_gene_families_in_islands_noncore_expected	90.27	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_cluster_gene_families_in_islands_noncore_fold	2.35	universe: non-core families; K = SM families (Af293 genes); n = island families
+hypergeom_cluster_gene_families_in_islands_noncore_p_greater	1.39e-46	universe: non-core families; K = SM families (Af293 genes); n = island families
+sm_core_families	65	families of core genes (sm_core_families.tsv.gz)
+sm_core_families_noncore	15	
+sm_core_families_noncore_in_island	10	
+proxy_backbone_genes	32	full_v072/with_unplaced_af293_coords/sm_backbone_af293_genes.tsv.gz
+proxy_backbone_genes_in_antismash_region	28	proxy gene member -> locus tag in a region
+proxy_backbone_genes_antismash_core	27	proxy gene is an antiSMASH core gene
+proxy_backbone_genes_in_starships	2	proxy result

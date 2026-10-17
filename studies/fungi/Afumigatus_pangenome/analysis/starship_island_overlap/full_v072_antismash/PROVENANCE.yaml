@@ -1,0 +1,35 @@
+# antiSMASH SM regions for A. fumigatus Af293 vs Table S7 Starships (created 2026-10-17)
+antismash:
+  version: antiSMASH 8.0.4 (`antismash --version`; HPCC module antismash/8.0.4;
+    /opt/linux/rocky/8.x/x86_64/pkgs/antismash/8.0.4 is a symlink to 8.0.1/, which now holds 8.0.4.
+    The 2025_All_Cocci runs report "antiSMASH version 8.0.1" in their index.html.)
+  databases: /opt/linux/rocky/8.x/x86_64/pkgs/antismash/8.0.1/lib/python3.11/site-packages/antismash/databases
+    (pfam/35.0, knownclusterblast/4.0, clusterblast, clustercompare/mibig, mite/1.3; `antismash --check-prereqs`: All prerequisites satisfied)
+  command: >-
+    antismash --taxon fungi --genefinding-gff3 data_dir/gff3/UP000002530_330879.gff3
+    --output-dir $SCRATCH/af293_antismash/run --output-basename Af293
+    --fullhmmer --clusterhmmer --cb-general --cb-knownclusters --cb-subclusters --asf --pfam2go
+    -c 8 data_dir/dna/UP000002530_330879.dna.fa
+  job_script: full_v072_antismash/scripts/run_antismash_af293.sh
+  slurm_job_id: 30035698
+  partition: short (submitted to stajichlab; moved to epyc, which held it with AssocGrpMemLimit; then to short with qos=short), node r07, 8 cpus, --constraint=milan
+  start: 2026-10-17T08:21:28-07:00
+  end: 2026-10-17T09:30:33-07:00
+  runtime_seconds: 4145
+  sacct_elapsed: "01:10:10"
+inputs:
+  data_dir/dna/UP000002530_330879.dna.fa:
+    sha256: f0676167216552e371c3010981feb37a534cdb7f2d24df031f4af8880e2b6abd
+  data_dir/gff3/UP000002530_330879.gff3:
+    sha256: 6a8675f860af7c99b4b72439688cbb6adbd7172375755f2adc8f32631834585e
+    note: NCBI GenBank annotation (gene locus_tag AFUA_*); 9,630 CDS-bearing models read by antiSMASH
+antismash_run_outputs_kept:
+  antismash_run/Af293.json.gz: {sha256: fbd9cf45f4972265f8ddd8330ccae28ef5db7b14930b01472e1fcae301931b8f, note: full antiSMASH JSON, 21 MB gzipped}
+  antismash_run/region_gbks.tar.gz: {sha256: a9480a7888a11b7276f5dd2f757f320a77f346fd585fb2a4e3d8b2efaca40801}
+  antismash_run/clusterblast_txt.tar.gz: {sha256: a08ba94369cde71b16cdd8c0144d8e78a5bbca8a7925bad5e54bc35a7a2b774f}
+  not_kept: Af293.gbk (93 MB), Af293.zip (47 MB), index.html + regions.js + js/ (HTML tree)
+analysis:
+  derived_by: full_v072_antismash/scripts/antismash_sm_starship.py (inputs + sha256 in PROVENANCE_analysis.yaml)
+  figure: full_v072_antismash/scripts/make_sm_figure.py --dir full_v072_antismash --out-prefix figures/af293_antismash_sm_starship
+  wrapper: full_v072_antismash/scripts/run_analysis.sh
+  parameters: {captain_evalue: 1e-5, n_perm: 1000, seed: 20261017}
