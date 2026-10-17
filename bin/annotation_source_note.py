@@ -4,7 +4,8 @@
 bin/sync_reports.sh merges every annotations/*.tsv(.gz) into the uniprot_*
 columns (bin/merge_uniprot_annotations.py), and nf_NovInvenio's make_report.py /
 make_core_report.py / make_losses_report.py draw novelties/core/losses.html from
-those columns. Files from bin/hmm_domtbl_to_annotations.py have Pfam only. This
+those columns. Files from bin/hmm_domtbl_to_annotations.py, and UniProt files
+filled by bin/annotate_proteomes_pfam.py --fill-empty-uniprot, have Pfam only. This
 script puts a note under each page's header that names those species:
 
   Annotation source: Pfam from a HMMER search (no GO/InterPro) for: <species>. ...
@@ -12,7 +13,8 @@ script puts a note under each page's header that names those species:
 Which species: with --matrix (preferred), the source_proteome values of the
 rows that bin/merge_uniprot_annotations.py labelled `hmmer-pfam` in the matrix
 the page was drawn from. Without --matrix, every species with a Pfam-only file
-in --annotations.
+in --annotations; the file name is mapped to the species with
+lib/annotation_names.py (via species_labels), so local-FASTA studies work too.
 
 The page generators live in the nf_NovInvenio repo; this NII-side step edits
 the generated HTML, between marker comments, after they run (same pattern as

@@ -47,7 +47,7 @@ import yaml
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "lib"))
-from study_runs import inject_run_report_links, load_publish_target  # noqa: E402
+from study_runs import inject_run_report_links, load_publish_target, vocab_meta_tag  # noqa: E402
 
 # candidate_ids cells in the enrichment tables can exceed csv's default 128 KB field limit.
 csv.field_size_limit(sys.maxsize)
@@ -247,13 +247,17 @@ def coverage_table(cov: list[dict]) -> str:
     return table(["Species", "Set", "Proteins", "Pfam", "Pfam clan", "InterPro", "GO", "Any"], rows, "cov")
 
 
-def low_annotation(cov: list[dict]) -> list[str]:
-    """Whole-set candidate annotation fractions below LOW_ANNOT."""
+def low_annotation(cov: list[dict], skip: set[str] | frozenset[str] = frozenset()) -> list[str]:
+    """Whole-set candidate annotation fractions below LOW_ANNOT. `skip`: vocabularies
+    (pfam, interpro, go) to leave out, e.g. ones that the page already lists as
+    not available."""
     out = []
     for r in cov:
         if r["subset"] == "candidates" and r["species"].startswith("ALL_"):
             for col, label in (("frac_pfam", "Pfam"), ("frac_interpro", "InterPro"),
                                ("frac_go", "GO"), ("frac_any", "any vocabulary")):
+                if col[len("frac_"):] in skip:
+                    continue
                 x = fnum(r[col])
                 if x == x and x < LOW_ANNOT:
                     out.append(f"{label} {100 * x:.1f}%")
@@ -304,6 +308,14 @@ def unavailable_vocabs(cov: list[dict]) -> set[str]:
     if not rows:
         return set()
     return {v for v, _ in GAP_VOCABS if all(fnum(r[f"frac_{v}"]) == 0 for r in rows)}
+
+
+def available_vocabs(cov: list[dict]) -> list[str]:
+    """pfam / interpro / go that have a term in the candidate source group (not in
+    unavailable_vocabs). Written into the page as a <meta> tag; lib/study_runs.py reads
+    it for the link text."""
+    na = unavailable_vocabs(cov)
+    return [v for v in ("pfam", "interpro", "go") if v not in na]
 
 
 def all_sources_hmm(prov: dict) -> bool:
@@ -384,8 +396,10 @@ def render(study: str, direction: str, run: str, prov: dict, cov: list[dict], te
            if bgc.get("n_clusters") else "")
         + ". Family level: one unit per candidate family and per background cluster."
     )
-    low = low_annotation(cov)
     na = unavailable_vocabs(cov)
+    # GO and InterPro both not available: the vocabulary-gap line already says so;
+    # their 0% would only repeat it in the low-annotation line.
+    low = low_annotation(cov, skip={"go", "interpro"} if {"go", "interpro"} <= na else set())
     caveats = [
         ("Annotation: Pfam-A HMM search (hmmsearch, Pfam gathering thresholds) for every species; "
          "no UniProt annotation. Each annotation file has a provenance sidecar (domain table, HMMER "
@@ -416,6 +430,7 @@ def render(study: str, direction: str, run: str, prov: dict, cov: list[dict], te
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{vocab_meta_tag(available_vocabs(cov))}
 <title>{escape(study)} enrichment ({escape(direction)})</title>
 <style>{CSS}</style>
 </head>

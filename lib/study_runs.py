@@ -111,9 +111,64 @@ RUN_EXTRA_PAGES = (
 )
 
 
+# bin/generate_enrichment_page.py writes the vocabularies that have data into
+# each page as <meta name="nii-enrichment-vocabularies" content="pfam,interpro,go">.
+# The link text names them when one or more is missing. A page without the
+# tag (written before 2026-10-16) keeps the RUN_EXTRA_PAGES text.
+VOCAB_META_NAME = "nii-enrichment-vocabularies"
+VOCAB_LABELS = (("pfam", "Pfam"), ("interpro", "InterPro"), ("go", "GO"))
+_VOCAB_META_RE = re.compile(
+    r'<meta name="' + re.escape(VOCAB_META_NAME) + r'" content="([^"]*)"\s*/?>')
+
+
+def vocab_meta_tag(vocabs: list[str] | tuple[str, ...] | set[str]) -> str:
+    """The <meta> tag for the available vocabularies, in VOCAB_LABELS order."""
+    keys = [k for k, _ in VOCAB_LABELS if k in set(vocabs)]
+    return f'<meta name="{VOCAB_META_NAME}" content="{",".join(keys)}">'
+
+
+def page_vocabularies(page: Path) -> list[str] | None:
+    """Vocabularies from the page's meta tag, or None when the page has no tag."""
+    try:
+        head = page.read_text(encoding="utf-8", errors="replace")[:4096]
+    except OSError:
+        return None
+    m = _VOCAB_META_RE.search(head)
+    if m is None:
+        return None
+    return [v.strip() for v in m.group(1).split(",") if v.strip()]
+
+
+def _join_labels(labels: list[str]) -> str:
+    return labels[0] if len(labels) == 1 else ", ".join(labels[:-1]) + " and " + labels[-1]
+
+
+def extra_page_text(run_dir: Path, fname: str, label: str, title: str, desc: str) -> tuple[str, str, str]:
+    """(short label, title, description) for one RUN_EXTRA_PAGES entry. Unchanged
+    when the page has no vocabulary tag or has all of Pfam, InterPro and GO."""
+    vocabs = page_vocabularies(run_dir / fname)
+    if vocabs is None:
+        return label, title, desc
+    have = [lbl for key, lbl in VOCAB_LABELS if key in vocabs]
+    missing = [lbl for key, lbl in VOCAB_LABELS if key not in vocabs]
+    if not missing:
+        return label, title, desc
+    what = desc.split(" term enrichment ", 1)[1] if " term enrichment " in desc else ""
+    if not have:
+        return (f"{label} (no annotation)", title,
+                "No Pfam, InterPro or GO annotation; no enrichment test was run.")
+    names = _join_labels(have)
+    new_desc = (f"{names} term enrichment {what}" if what else f"{names} term enrichment.")
+    new_desc += f" {_join_labels(missing)}: not available."
+    return f"{label} ({names} only)", title, new_desc
+
+
 def run_extra_links(run_dir: Path) -> list[tuple[str, str]]:
-    """[(filename, short label), ...] for the RUN_EXTRA_PAGES that exist in run_dir."""
-    return [(fname, label) for fname, label, _, _ in RUN_EXTRA_PAGES if (run_dir / fname).is_file()]
+    """[(filename, short label), ...] for the RUN_EXTRA_PAGES that exist in run_dir.
+    The label names the vocabularies when the page has fewer than all three
+    (extra_page_text)."""
+    return [(fname, extra_page_text(run_dir, fname, label, title, desc)[0])
+            for fname, label, title, desc in RUN_EXTRA_PAGES if (run_dir / fname).is_file()]
 
 
 _LINKS_START = "<!-- nii-run-extra-links:start -->"
@@ -149,7 +204,7 @@ def inject_run_report_links(run_dir: Path) -> str:
     old_bytes = report.read_bytes()
     old = old_bytes.decode("utf-8")
     text = _LINKS_BLOCK_RE.sub("", old)
-    pages = [p for p in RUN_EXTRA_PAGES if (run_dir / p[0]).is_file()]
+    pages = [(p[0], *extra_page_text(run_dir, *p)) for p in RUN_EXTRA_PAGES if (run_dir / p[0]).is_file()]
     if pages:
         anchors = list(_CARD_LINK_RE.finditer(text))
         if not anchors:

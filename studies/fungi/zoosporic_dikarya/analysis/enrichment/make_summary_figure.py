@@ -7,6 +7,11 @@ Panels, stacked in rows (one full-width panel per row; the figure height grows w
   B  top Pfam families in the whole candidate set, family-level test (PRIMARY result)
   C  top GO terms, whole set, family-level test (SECONDARY; IEA-only terms marked)
 
+Panel A rows are labelled with the config Species. When two or more rows would get the
+same label, those rows get ' (<Short>)' appended; unique labels stay unchanged. Panel C's
+heading reads 'GO: not available (Pfam-only annotation)' when no unit of the study has a
+GO term (GO test M_units_annotated == 0 or no GO test row).
+
 Figure width is 14 in. At the saved size, labels and tick labels are 14 pt, panel titles
 17 pt, the figure title 18 pt and the footnote 14 pt. Long term names wrap to 2 lines.
 A panel with no term to show prints a message in place of an empty axis.
@@ -169,7 +174,9 @@ def bars_h(labels):
 
 A_TITLE = f"A  {total:,} candidates in {len(IN)} {a.group} species"
 B_TITLE = textwrap.wrap("B  Pfam families enriched in candidates (primary; family units on both sides)", 95)
-C_TITLE = textwrap.wrap("C  GO terms (secondary; UniProt computational evidence)", 95)
+GO_TEST = tests.get(("whole_set", "family", "go"))
+C_TITLE = textwrap.wrap("C  GO: not available (Pfam-only annotation)" if not_available(GO_TEST)
+                        else "C  GO terms (secondary; UniProt computational evidence)", 95)
 B_SUB = textwrap.wrap(stats_line(tests.get(("whole_set", "family", "pfam"))), 120)
 C_SUB = textwrap.wrap(stats_line(tests.get(("whole_set", "family", "go"))), 120)
 
@@ -233,7 +240,11 @@ for y, s in zip(ys, IN):
     ax.text(n + xmax * 0.015, y, f"{n:,}{frac}; proteome {float(u['frac_any']):.0%}",
             va="center", fontsize=FS)
 ax.set_yticks(ys)
-ax.set_yticklabels([f"{LABEL[s]}" for s in IN], style="italic")
+_label_count = {}
+for s in IN:
+    _label_count[LABEL[s]] = _label_count.get(LABEL[s], 0) + 1
+A_LABELS = [f"{LABEL[s]} ({s})" if _label_count[LABEL[s]] > 1 else f"{LABEL[s]}" for s in IN]
+ax.set_yticklabels(A_LABELS, style="italic")
 ax.set_xlabel(a.candidate_label)
 ax.set_xlim(0, xmax * 1.55)
 ax.set_ylim(-0.6, len(IN) - 0.4)

@@ -18,8 +18,9 @@ last, annotation_source.
 
 annotation_source (added 2026-10-14) says which producer made the file the row's
 annotation came from: `uniprot` (bin/extract_dat_annotations.py: GO, Pfam,
-InterPro) or `hmmer-pfam` (bin/hmm_domtbl_to_annotations.py: Pfam only, GO and
-InterPro empty). The uniprot_* columns hold both; this column tells them apart.
+InterPro) or `hmmer-pfam` (bin/hmm_domtbl_to_annotations.py, or a UniProt file
+filled by bin/annotate_proteomes_pfam.py --fill-empty-uniprot: Pfam from HMMER, GO
+and InterPro empty). The uniprot_* columns hold both; this column tells them apart.
 Empty when the protein has no annotation. Detection: lib/annotation_sources.py.
 A protein_id with no matching
 UniProt annotation (shouldn't happen for a study built entirely from UniProt
