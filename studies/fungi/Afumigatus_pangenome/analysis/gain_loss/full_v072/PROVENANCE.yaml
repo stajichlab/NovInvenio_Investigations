@@ -1,0 +1,65 @@
+script: bin/pangenome_gain_loss.py
+script_sha256: 8c90bb28deaad63a01ee547647e92018f54a7e1e6c9080971422991cab1dec6c
+command: bin/pangenome_gain_loss.py --run-dir studies/fungi/Afumigatus_pangenome/results/full_v072
+  --out-dir studies/fungi/Afumigatus_pangenome/analysis/gain_loss/full_v072 --label
+  full_v072
+date_utc: '2026-10-17T05:26:08Z'
+host: i29
+derived_by: bin/pangenome_gain_loss.py (outgroup-frequency rule copied from nf_NovInvenio
+  bin/pangenome_cooccurrence.py polarize_by_frequency)
+parameters:
+  loss_min_frac: 0.9
+  gain_max_frac: 0.1
+  selected_classes:
+  - soft_core
+  - shell
+  - cloud
+  - singleton
+  outgroup_strains: all
+  ingroup_label: IN
+  outgroup_label: OUT
+rule: 'outgroup_frequency: frac=carriers/2 OUT strains (all); loss if frac>=0.9, gain
+  if frac<=0.1, else ambiguous'
+strain_counts:
+  matrix_strains: 295
+  in_rep: 121
+  in_nonrep: 172
+  out_all: 2
+  out_rep: 2
+checks:
+  families_in_frequency_table: 47954
+  families_missing_from_matrix: 0
+  ingroup_rep_count_mismatch_vs_frequency_table: 0
+  pair_family_a_label_conflicts: 0
+clade_tables:
+- clade_counts.stratum.tsv
+- clade_counts.mash_clade.tsv
+inputs:
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/frequency_table.tsv
+  sha256: 531f4e90c22fcf3296e2de84fb1764d5120d612109a78b186b59e6674f1dbbd9
+  bytes: 2472362
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/presence_matrix.rescued.tsv
+  sha256: 6fee9c8aa4fc902f4cf4e622f9c624c028f62c184ba9ed1306754b13639c2cb7
+  bytes: 104568864
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/samplesheet.with_clades.csv
+  sha256: fec21f1fb48c3d1904731ebee8399b2de87f09e4f0ac591f079202394cae2663
+  bytes: 35956
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/strain_inventory.tsv
+  sha256: 789f985fb1812536033a312bbdc0fa87e8c4d5751cf7a983fd7a0e601572f643
+  bytes: 11184
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/clade_assignments.tsv
+  sha256: 46f99b4dbabb22131abfdfc5664225561c4f743936a9be098587341022d5b402
+  bytes: 17418
+- path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/results/full_v072/config/pangenome/cooccurring_pairs.tsv.zst
+  sha256: 0cbb29766abccd9d8677b5ae1e5e90bbcef60f345bf147794faed7333b3fd416
+  bytes: 21111149
+outputs:
+- clade_counts.mash_clade.tsv
+- clade_counts.stratum.tsv
+- family_gain_loss.tsv.gz
+- outgroup_fraction_distribution.tsv
+- summary_direction_by_class.tsv
+- summary_scopes.tsv
+- summary_size_distribution.tsv
+- validation.tsv
+license: derived from the lab's own pipeline output; no external redistribution terms

@@ -1,0 +1,8 @@
+label	class	n_families	direction_gain	direction_loss	direction_ambiguous	direction_conserved	direction_absent	rule_freq_gain	rule_freq_loss	rule_freq_ambiguous
+full_v072	core	7165	0	0	0	7165	0	1376	4956	833
+full_v072	soft_core	667	303	252	112	0	0	303	252	112
+full_v072	shell	4612	3359	735	518	0	0	3359	735	518
+full_v072	cloud	10561	9620	272	669	0	0	9620	272	669
+full_v072	singleton	13297	12985	61	251	0	0	12985	61	251
+full_v072	nonrep_only	5814	5723	22	69	0	0	5723	22	69
+full_v072	outgroup_only	5838	0	0	0	0	5838	0	771	5067

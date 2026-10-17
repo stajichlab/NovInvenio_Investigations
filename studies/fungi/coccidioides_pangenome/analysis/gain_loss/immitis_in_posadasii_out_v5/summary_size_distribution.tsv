@@ -1,0 +1,12 @@
+label	class	ingroup_rep_strains_bin	gain	loss	ambiguous
+immitis_in_posadasii_out_v5	soft_core	>100	182	250	178
+immitis_in_posadasii_out_v5	shell	11-20	65	5	26
+immitis_in_posadasii_out_v5	shell	21-50	1190	71	436
+immitis_in_posadasii_out_v5	shell	51-100	769	233	498
+immitis_in_posadasii_out_v5	shell	>100	285	190	257
+immitis_in_posadasii_out_v5	cloud	2	1787	26	169
+immitis_in_posadasii_out_v5	cloud	3-5	1909	36	286
+immitis_in_posadasii_out_v5	cloud	6-10	1105	38	225
+immitis_in_posadasii_out_v5	cloud	11-20	916	40	227
+immitis_in_posadasii_out_v5	singleton	1	7326	76	400
+immitis_in_posadasii_out_v5	nonrep_only	0	1362	4	40

@@ -1,0 +1,6 @@
+label	clade_source	clade	n_ingroup_reps	present_gain	present_loss	present_ambiguous	private_gain	private_loss	private_ambiguous
+immitis_in_posadasii_out_v5	mash_clade	clade_0	35	7437	841	2031	1428	6	60
+immitis_in_posadasii_out_v5	mash_clade	clade_1	10	3847	780	1649	365	8	70
+immitis_in_posadasii_out_v5	mash_clade	clade_2	35	9566	905	2262	3293	48	205
+immitis_in_posadasii_out_v5	mash_clade	clade_3	13	4891	815	1743	615	4	41
+immitis_in_posadasii_out_v5	mash_clade	clade_4	40	8627	878	2208	2378	20	114

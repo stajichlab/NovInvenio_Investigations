@@ -1,0 +1,8 @@
+label	scope	n_families	freq_gain	freq_loss	freq_ambiguous	strict_gain	strict_loss	strict_ambiguous
+full_v072	selected:soft_core+shell+cloud+singleton	29137	26267	1320	1550	26267	1320	1550
+full_v072	selected+nonrep_only	34951	31990	1342	1619	31990	1342	1619
+full_v072	nonrep_only	5814	5723	22	69	5723	22	69
+full_v072	outgroup_only(rule_freq)	5838	0	771	5067	0	771	5067
+full_v072	ingroup_only(rule_freq)	0	0	0	0	0	0	0
+full_v072	core(rule_freq)	7165	1376	4956	833	1376	4956	833
+full_v072	pair_family_a	8232	6575	874	783	6575	874	783

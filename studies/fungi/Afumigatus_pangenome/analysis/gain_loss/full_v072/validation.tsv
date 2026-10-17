@@ -1,0 +1,12 @@
+label	column	value	pipeline	this_script
+full_v072	direction_a_freq	gain	6575	6575
+full_v072	direction_a_freq	loss	874	874
+full_v072	direction_a_freq	ambiguous	783	783
+full_v072	direction_a_freq	family_mismatches	0	0
+full_v072	direction_a	gain	6575	6575
+full_v072	direction_a	loss	874	874
+full_v072	direction_a	ambiguous	783	783
+full_v072	direction_a	family_mismatches	0	0
+full_v072	asymmetry_a	4dp_mismatches	0	0
+full_v072	pairs	unique_family_a	8232	8232
+full_v072	pairs	family_a_label_conflicts	0	

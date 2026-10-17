@@ -1,0 +1,13 @@
+study	class_group	direction	count	fraction
+A. fumigatus	shell+soft_core	gain	3662	0.693692
+A. fumigatus	shell+soft_core	loss	987	0.186967
+A. fumigatus	shell+soft_core	ambiguous	630	0.119341
+A. fumigatus	cloud+singleton	gain	22605	0.947481
+A. fumigatus	cloud+singleton	loss	333	0.013958
+A. fumigatus	cloud+singleton	ambiguous	920	0.038561
+C. immitis	shell+soft_core	gain	2491	0.537433
+C. immitis	shell+soft_core	loss	749	0.161597
+C. immitis	shell+soft_core	ambiguous	1395	0.300971
+C. immitis	cloud+singleton	gain	13043	0.895441
+C. immitis	cloud+singleton	loss	216	0.014829
+C. immitis	cloud+singleton	ambiguous	1307	0.089730
