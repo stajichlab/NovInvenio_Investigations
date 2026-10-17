@@ -1,0 +1,41 @@
+taxon_group_first_seen	n_species	n_with_hit	counts
+Agaricales	3	0	Agaricus bisporus var. burnettii=0;Laccaria bicolor=0;Schizophyllum commune=0
+Alaninales	1	1	Pachysolen tannophilus=1
+Candidozyma	4	0	Candidozyma auris=0;Candidozyma duobushaemuli=0;Candidozyma haemuli=0;Candidozyma pseudohaemuli=0
+Ceraceosorales_Violaceomycetales	2	2	Ceraceosorus bombacis=1;Violaceomyces palustris=1
+Choanoflagellata	2	0	Monosiga brevicollis=0;Salpingoeca rosetta=0
+Coniochaetales	1	1	Coniochaeta ligniaria=1
+Diaporthales	1	1	Cryphonectria parasitica=1
+Dikarya_Ascomycota	4	3	Aspergillus nidulans=3;Neurospora crassa=1;Saccharomyces cerevisiae=1;Schizosaccharomyces pombe=0
+Dikarya_Basidiomycota	3	2	Coprinopsis cinerea=0;Cryptococcus neoformans=1;Mycosarcoma maydis=1
+Exobasidiomycetes	5	5	Acaromyces ingoldii=1;Jaminaea rosea=1;Meira miltonrushii=1;Microstroma glucosiphilum=1;Tilletiopsis washingtonensis=1
+Filasterea_Ichthyosporea	2	0	Capsaspora owczarzaki=0;Sphaeroforma arctica=0
+Glomerellales	2	2	Colletotrichum higginsianum=1;Verticillium dahliae=1
+Hypocreales	3	3	Clonostachys rosea=4;Cordyceps militaris=1;Metarhizium anisopliae=3
+Malasseziales	10	10	Malassezia arunalokei=1;Malassezia brasiliensis=1;Malassezia furfur=1;Malassezia globosa=1;Malassezia japonica=1;Malassezia nana=1;Malassezia pachydermatis=1;Malassezia restricta=1;Malassezia sympodialis=1;Malassezia vespertilionis=1
+Metazoa_bilateria	3	0	Caenorhabditis elegans=0;Drosophila melanogaster=0;Homo sapiens=0
+Metazoa_early	4	0	Amphimedon queenslandica=0;Mnemiopsis leidyi=0;Nematostella vectensis=0;Trichoplax adhaerens=0
+Metschnikowiaceae_other	5	0	Australozyma saopauloensis=0;Clavispora lusitaniae=0;Metschnikowia aff.=0;Metschnikowia bicuspidata=0;Sungouiella intermedia=0
+Mortierellomycotina_Umbelopsidomycotina	2	0	Mortierella isabellina=0;Umbelopsis vinacea=0
+Mucoromycotina	8	0	Absidia glauca=0;Choanephora cucurbitarum=0;Hesseltinella vesiculosa=0;Lichtheimia corymbifera=0;Mucor circinelloides=0;Phycomyces blakesleeanus=0;Rhizopus delemar=0;Syncephalastrum racemosum=0
+Neocallimastigomycota	5	0	Anaeromyces robustus=0;Neocallimastix californiae=0;Neocallimastix lanati=0;Neocallimastix sp. 'constans'=0;Piromyces sp. E2=0
+Pezizomycotina	4	4	Arthrobotrys megalospora=1;Aspergillus fumigatus=5;Coccidioides immitis=4;Zymoseptoria tritici=1
+Pichiales	7	6	Brettanomyces naardenensis=1;Komagataella phaffii=1;Kuraishia capsulata=1;Ogataea parapolymorpha=1;Ogataea polymorpha=1;Pichia kudriavzevii=1;Pichia membranifaciens=0
+Pucciniomycotina	1	1	Rhodotorula toruloides=1
+Saccharomycetaceae	4	2	Candida glabrata=0;Kluyveromyces lactis=0;Lachancea thermotolerans=1;Torulaspora delbrueckii=1
+Saccharomycotina	1	1	Yarrowia lipolytica=1
+Serinales_Babjeviella_outgroup	1	1	Babjeviella inositovora=1
+Serinales_Debaryomycetaceae	1	1	Candida tenuis=1
+Serinales_other	10	9	Candida albicans=1;Candida tropicalis=1;Debaryomyces hansenii=1;Diutina rugosa=1;Lizanozyma spartinae=1;Lodderomyces elongisporus=1;Meyerozyma guilliermondii=1;Scheffersomyces stipitis=1;Spathaspora passalidarum=0;Yamadazyma jaroonii=1
+Sordariales	3	3	Chaetomium globosum=2;Podospora anserina=1;Sordaria macrospora=1
+Taphrinomycotina	1	1	Neolecta irregularis=1
+Tilletiales	2	0	Tilletia caries=0;Tilletia indica=0
+Tilletiariales	1	0	Tilletiaria anomala=0
+Tremellomycetes	1	1	Tremella mesenterica=1
+Ustilaginales	7	7	Kalmanozyma brasiliensis=1;Moesziomyces aphidis=1;Pseudozyma flocculosa=1;Sporisorium graminicola=1;Sporisorium reilianum=1;Testicularia cyperi=1;Ustilago hordei=1
+Ustilaginomycotina	1	1	Ustilago maydis=1
+Xylariales	1	0	Eutypa lata=0
+Zoopagomycota	1	0	Thamnocephalis sphaerospora=0
+Zoosporic_Blastocladiomycota	2	0	Allomyces macrogynus=0;Catenaria anguillulae=0
+Zoosporic_Chytridiomycota	11	0	Batrachochytrium dendrobatidis=0;Batrachochytrium salamandrivorans=0;Chytriomyces confervae=0;Geranomyces variabilis=0;Polyrhizophydium stewartii=0;Powellomyces hirtus=0;Rhizoclosmatium globosum=0;Rhizophlyctis rosea=0;Spizellomyces punctatus=0;Synchytrium endobioticum=0;Synchytrium microbalum=0
+Zoosporic_Neocallimastigomycota	1	0	Piromyces finnis=0

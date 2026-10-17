@@ -1,0 +1,11 @@
+set	run_for_positions_and_families	mark	n_pf11001_genes_placed	n_with_mark_within_5	frac	n_all_genes	n_all_genes_with_mark_within_5	frac_all	fisher_p_greater	note
+afum	full_v072	APH	1133	57	0.0503	2787902	24837	0.0089	8.28e-25	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)
+afum	full_v072	DUF3723	1133	58	0.0512	2787902	5711	0.002	2.35e-59	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)
+afum	full_v072	HrmA	1133	104	0.0918	2787902	1636	0.0006	3.76e-186	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)
+afum	full_v072	DUF3435	1133	89	0.0786	2787902	10151	0.0036	3.45e-85	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)
+afum	full_v072	PF11001	1133	19	0.0168	2787902	8637	0.0031	6.27e-09	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)
+cocci	immitis_in_posadasii_out_v5	APH	913	33	0.0361	4504703	197842	0.0439	0.893	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)
+cocci	immitis_in_posadasii_out_v5	DUF3723	913	0	0.0	4504703	9372	0.0021	1	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)
+cocci	immitis_in_posadasii_out_v5	HrmA	913	0	0.0	4504703	16450	0.0037	1	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)
+cocci	immitis_in_posadasii_out_v5	DUF3435	913	16	0.0175	4504703	41571	0.0092	0.0125	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)
+cocci	immitis_in_posadasii_out_v5	PF11001	913	0	0.0	4504703	7623	0.0017	1	all-genes row includes the PF11001 genes; marks are family-rep Pfam (cut_ga)

@@ -1,0 +1,30 @@
+run	family	bin	strain_count	frequency	bin_out	in_pipeline_background	pipeline_hmmscan_hit	pipeline_i_Evalue	pipeline_dom_score	pipeline_counted	cutga_hmmsearch_hit	n_islands	n_islands_single_strain	n_islands_multi_strain	max_island_n_strains	island_idx	gl_class	direction	outgroup_count	n_member_proteins	n_member_strains
+immitis_in_posadasii_out_v5	21SD|C5E6681_007755-T1	shell	44	0.3308	cloud	True	True	1.8e-55	187.7	True	True	95	89	6	3	2422,3026,3588,3737,3872,3905,4360,4373,4404,4585,4613,4696,4761,4945,5177,5363,5601,5620,5786,5806,5842,5885,5921,6064,6086,6117,6147,6309,6515,6641,6880,6902,7006,7126,7765,7801,7866,7886,7921,8038,8213,8326,8388,8392,8685,8731,8804,8846,8981,9038,...	shell	ambiguous	49	105	105
+immitis_in_posadasii_out_v5	409B-0_S_OLD_CPA0012|CD06E9E_008090-T1	outgroup_only	0	0.0000	singleton	False	False			False	True	1	1	0	1	4236	outgroup_only	absent	1	1	1
+immitis_in_posadasii_out_v5	B0727_Argentina|C5AAF22_003999-T1	cloud	5	0.0376	singleton	True	True	7e-57	192.2	True	True	6	6	0	1	4579,6360,6734,8705,9628,9918	cloud	gain	2	6	6
+immitis_in_posadasii_out_v5	B0858-Guatemala|CBD0EE9_009151-T1	outgroup_only	0	0.0000	singleton	False	False			False	True	0	0	0	0		outgroup_only	absent	1	1	1
+immitis_in_posadasii_out_v5	B11019|C42083A_008881-T1	singleton	1	0.0075	ingroup_only	False	False			False	True	0	0	0	0		singleton	gain	0	3	3
+immitis_in_posadasii_out_v5	B11299|C72C725_000603-T1	outgroup_only	0	0.0000	cloud	False	False			False	True	3	3	0	1	4240,4854,5155	outgroup_only	absent	3	1	1
+immitis_in_posadasii_out_v5	B11518|CF63038_004419-T1	nonrep_only	0	0.0000	ingroup_only	False	False			False	True	2	2	0	1	4704,4929	nonrep_only	gain	0	2	2
+immitis_in_posadasii_out_v5	B12400|C21A9A5_002620-T1	outgroup_only	0	0.0000	cloud	False	False			False	True	7	7	0	1	4487,4615,5155,5250,8456,8695,10655	outgroup_only	absent	7	7	7
+immitis_in_posadasii_out_v5	B1249_Guatemala|C40D72F_009052-T1	outgroup_only	0	0.0000	singleton	False	False			False	True	0	0	0	0		outgroup_only	absent	2	1	1
+immitis_in_posadasii_out_v5	B14104|CB13135_006014-T1	outgroup_only	0	0.0000	cloud	False	False			False	True	5	5	0	1	8108,8461,10676,11868,11881	outgroup_only	absent	7	7	7
+immitis_in_posadasii_out_v5	B14134|C6821F5_005947-T1	nonrep_only	0	0.0000	cloud	False	False			False	True	17	14	3	3	2887,3522,3827,5416,5685,5811,5850,6087,7638,8044,9367,10452,10463,10547,10746,11415,11564	nonrep_only	gain	19	21	21
+immitis_in_posadasii_out_v5	B16293|C591B16_000854-T1	outgroup_only	0	0.0000	cloud	False	False			False	True	57	56	1	2	4031,4275,4283,4306,4370,4372,4388,4398,4401,4419,4431,4444,4855,5022,5340,5358,5422,5703,5899,5913,6004,6079,6176,6181,6271,6305,6316,6409,6424,6492,6582,6602,7591,8111,8327,8477,8921,9167,10158,10172,10185,10191,10229,10508,10521,10544,10560,10605,10627,10716,...	outgroup_only	absent	58	58	58
+immitis_in_posadasii_out_v5	B16339|CC95159_006461-T1	cloud	2	0.0150	cloud	True	True	2.3e-49	167.9	True	True	15	15	0	1	4522,4645,4937,5030,5734,6111,6400,8319,8800,9346,10358,10437,11153,11561,11674	cloud	ambiguous	41	48	46
+immitis_in_posadasii_out_v5	B3244|CC6B4BB_003223-T1	cloud	15	0.1128	cloud	True	True	4.6e-58	196.1	True	True	23	23	0	1	4136,5330,6015,6745,6896,7057,7079,7430,7529,7993,8570,8859,9381,9511,9544,9663,9700,9727,9823,9853,9880,11360,11401	cloud	gain	6	23	23
+immitis_in_posadasii_out_v5	B3292|C780200_001675-T1	outgroup_only	0	0.0000	cloud	False	False			False	True	3	3	0	1	4456,6155,8588	outgroup_only	absent	3	3	3
+immitis_in_posadasii_out_v5	B3315|C362512_007086-T1	outgroup_only	0	0.0000	singleton	False	False			False	True	1	1	0	1	6199	outgroup_only	absent	1	1	1
+immitis_in_posadasii_out_v5	B3335|C104461_007668-T1	outgroup_only	0	0.0000	singleton	False	False			False	True	0	0	0	0		outgroup_only	absent	1	1	1
+immitis_in_posadasii_out_v5	B3359|CD2AA35_005216-T1	singleton	1	0.0075	cloud	False	False			False	True	2	2	0	1	6329,7508	singleton	gain	2	3	3
+immitis_in_posadasii_out_v5	B3374|CBF548A_004884-T1	cloud	10	0.0752	cloud	True	True	7.9e-58	195.3	True	True	17	17	0	1	4136,4886,6015,6349,6571,6745,6896,7079,7529,7993,8456,8859,9381,9544,9727,9776,11360	cloud	gain	6	4	4
+immitis_in_posadasii_out_v5	CA26|C27950D_007735-T1	cloud	7	0.0526	cloud	True	True	2.8e-54	183.8	True	True	14	13	1	2	3900,4490,4513,6888,7424,8250,8908,8914,9398,9735,9847,9868,10929,11584	cloud	gain	6	13	13
+immitis_in_posadasii_out_v5	COCPO_195881|C49B345_008079-T1	outgroup_only	0	0.0000	nonrep_only	False	False			False	True	0	0	0	0		outgroup_only	absent	1	1	1
+immitis_in_posadasii_out_v5	COCSP-3505|C3BD8F1_002906-T1	singleton	1	0.0075	ingroup_only	False	False			False	True	0	0	0	0		singleton	gain	0	1	1
+immitis_in_posadasii_out_v5	GT-106|C4E1ADA_006921-T1	cloud	2	0.0150	cloud	True	True	3.7e-54	183.4	True	True	27	25	2	2	3899,3900,4268,4490,4513,4625,4982,5275,7361,7375,7402,7528,7590,7772,8007,8495,8578,8755,8786,8914,9130,9150,9409,9756,10653,11539,11584	cloud	gain	26	24	24
+immitis_in_posadasii_out_v5	GT-144|C904920_007961-T1	outgroup_only	0	0.0000	singleton	False	False			False	True	3	3	0	1	4506,8049,8350	outgroup_only	absent	3	3	3
+immitis_in_posadasii_out_v5	NM_9837|CEFF44F_007913-T1	outgroup_only	0	0.0000	cloud	False	False			False	True	45	44	1	2	3648,4169,4189,4227,4240,4251,6061,6143,6360,7210,7226,7237,7252,7261,7277,7303,7313,7320,7343,7371,7557,7586,7657,8210,8277,8293,8749,8781,8806,8842,8977,8993,9035,9126,9145,9190,9216,9235,9328,9401,9437,10150,10372,10406,10658	outgroup_only	absent	49	48	48
+immitis_in_posadasii_out_v5	UTAH_23742X138|C48ED4E_001250-T1	cloud	2	0.0150	singleton	True	True	4.6e-33	115.0	True	True	3	3	0	1	4982,10120,10979	cloud	gain	1	3	3
+immitis_in_posadasii_out_v5	UTAH_23742X209|C79CE6E_004723-T1	core	132	0.9925	core	False	False			False	True	0	0	0	0		core	conserved	353	520	520
+immitis_in_posadasii_out_v5	UTAH_9737|C729F85_007375-T1	singleton	1	0.0075	singleton	False	False			False	True	0	0	0	0		singleton	gain	2	3	3
+immitis_in_posadasii_out_v5	VFC085_CPA0068|CB235D1_008266-T1	outgroup_only	0	0.0000	singleton	False	False			False	True	0	0	0	0		outgroup_only	absent	1	1	1

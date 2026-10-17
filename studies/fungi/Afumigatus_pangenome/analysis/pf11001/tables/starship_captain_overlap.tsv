@@ -1,0 +1,25 @@
+run	annotation	pf11001_definition	universe	n_universe	n_pf11001	n_annotated	n_both	expected_both	fisher_p_greater	both_families
+full_v072	starship_element_family(Af293 S7)	rep_PF11001	all_families	47954	57	167	2	0.199	0.017	Asfu_Af293|tr|Q4WKZ0|Q4WKZ0_ASPFU,Asfu_niveus|KEY83301.1
+full_v072	starship_element_family(Af293 S7)	rep_PF11001	noncore(not core/soft_core)	40122	54	163	2	0.219	0.0204	Asfu_Af293|tr|Q4WKZ0|Q4WKZ0_ASPFU,Asfu_niveus|KEY83301.1
+full_v072	starship_element_family(Af293 S7)	rep_PF11001	shell+cloud	15173	25	137	1	0.226	0.203	Asfu_niveus|KEY83301.1
+full_v072	starship_element_family(Af293 S7)	any_member_PF11001_hit	all_families	47954	55	167	2	0.192	0.0159	Asfu_Af293|tr|Q4WKZ0|Q4WKZ0_ASPFU,Asfu_niveus|KEY83301.1
+full_v072	starship_element_family(Af293 S7)	any_member_PF11001_hit	noncore(not core/soft_core)	40122	52	163	2	0.211	0.019	Asfu_Af293|tr|Q4WKZ0|Q4WKZ0_ASPFU,Asfu_niveus|KEY83301.1
+full_v072	starship_element_family(Af293 S7)	any_member_PF11001_hit	shell+cloud	15173	23	137	1	0.208	0.188	Asfu_niveus|KEY83301.1
+full_v072	DUF3435_captain_family	rep_PF11001	all_families	47954	57	218	0	0.259	1	
+full_v072	DUF3435_captain_family	rep_PF11001	noncore(not core/soft_core)	40122	54	217	0	0.292	1	
+full_v072	DUF3435_captain_family	rep_PF11001	shell+cloud	15173	25	103	0	0.17	1	
+full_v072	DUF3435_captain_family	any_member_PF11001_hit	all_families	47954	55	218	0	0.25	1	
+full_v072	DUF3435_captain_family	any_member_PF11001_hit	noncore(not core/soft_core)	40122	52	217	0	0.281	1	
+full_v072	DUF3435_captain_family	any_member_PF11001_hit	shell+cloud	15173	23	103	0	0.156	1	
+immitis_in_posadasii_out_v5	DUF3435_captain_family	rep_PF11001	all_families	47780	29	358	0	0.217	1	
+immitis_in_posadasii_out_v5	DUF3435_captain_family	rep_PF11001	noncore(not core/soft_core)	40324	28	354	0	0.246	1	
+immitis_in_posadasii_out_v5	DUF3435_captain_family	rep_PF11001	shell+cloud	10789	8	100	0	0.074	1	
+immitis_in_posadasii_out_v5	DUF3435_captain_family	any_member_PF11001_hit	all_families	47780	29	358	0	0.217	1	
+immitis_in_posadasii_out_v5	DUF3435_captain_family	any_member_PF11001_hit	noncore(not core/soft_core)	40324	28	354	0	0.246	1	
+immitis_in_posadasii_out_v5	DUF3435_captain_family	any_member_PF11001_hit	shell+cloud	10789	8	100	0	0.074	1	
+posadasii_in_immitis_out_v2	DUF3435_captain_family	rep_PF11001	all_families	35747	24	273	0	0.183	1	
+posadasii_in_immitis_out_v2	DUF3435_captain_family	rep_PF11001	noncore(not core/soft_core)	28767	23	270	0	0.216	1	
+posadasii_in_immitis_out_v2	DUF3435_captain_family	rep_PF11001	shell+cloud	15701	14	167	0	0.149	1	
+posadasii_in_immitis_out_v2	DUF3435_captain_family	any_member_PF11001_hit	all_families	35747	24	273	0	0.183	1	
+posadasii_in_immitis_out_v2	DUF3435_captain_family	any_member_PF11001_hit	noncore(not core/soft_core)	28767	23	270	0	0.216	1	
+posadasii_in_immitis_out_v2	DUF3435_captain_family	any_member_PF11001_hit	shell+cloud	15701	14	167	0	0.149	1	

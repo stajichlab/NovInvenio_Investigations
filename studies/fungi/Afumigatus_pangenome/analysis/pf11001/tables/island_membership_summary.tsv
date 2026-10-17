@@ -1,0 +1,4 @@
+run	n_pf11001_families_any_source	n_pf11001_families_in_any_island	n_islands_with_pf11001	n_islands_single_strain	n_islands_multi_strain	n_islands_with_ge2_pf11001_families	n_components_islands_sharing_any_family	largest_component_n_islands
+full_v072	57	37	190	179	11	8	1	190
+immitis_in_posadasii_out_v5	29	20	324	311	13	22	1	324
+posadasii_in_immitis_out_v2	24	18	263	248	15	18	1	263

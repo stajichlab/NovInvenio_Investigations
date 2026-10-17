@@ -1,0 +1,7 @@
+#                                                                                        --- full sequence --- -------------- this domain -------------   hmm coord   ali coord   env coord
+# target name                  accession   tlen query name             accession   qlen   E-value  score  bias   #  of  c-Evalue  i-Evalue  score  bias  from    to  from    to  from    to  acc description of target
+#          ------------------- ---------- -----   -------------------- ---------- ----- --------- ------ ----- --- --- --------- --------- ------ ----- ----- ----- ----- ----- ----- ----- ---- ---------------------
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Option settings: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/hmmsearch -o /dev/null --domtblout /scratch/jstajich/30037334/pf11001/out/1.domtbl --noali --cut_ga --cpu 1 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/analysis/pf11001/hmm/PF11001.hmm /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/Afumigatus_pangenome/data_dir/pep/UP000465220_293939.pep.fa 
+# Date:            Sat Oct 17 09:25:59 2026
