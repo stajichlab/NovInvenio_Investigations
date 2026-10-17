@@ -1,0 +1,104 @@
+definition	term	name	description	clan	n_runs_tested	tier	af_k	af_K	af_N	af_M	af_fold	af_p	af_q	af_n_families_all	v5_k	v5_K	v5_N	v5_M	v5_fold	v5_p	v5_q	v5_n_families_all	v2_k	v2_K	v2_N	v2_M	v2_fold	v2_p	v2_q	v2_n_families_all
+B_shell_soft_core_loss_pfam	PF00018	SH3_1	SH3 domain	CL0010	2		5	9	869	3580	2.289	0.04328	1	42	4	5	494	1907	3.088	0.01772	1	48								39
+B_shell_soft_core_loss_pfam	PF00098	zf-CCHC	Zinc knuckle	CL0511	3		3	6	869	3580	2.06	0.1579	1	34	1	8	494	1907	0.483	0.9096	1	34	2	6	845	2034	0.802	0.7903	1	24
+B_shell_soft_core_loss_pfam	PF13738	Pyr_redox_3	Pyridine nucleotide-disulphide oxidoreductase	CL0063	3		3	6	869	3580	2.06	0.1579	1	53	2	5	494	1907	1.544	0.3863	1	25	3	9	845	2034	0.802	0.7967	1	22
+B_shell_soft_core_loss_pfam	PF01423	LSM	LSM domain	CL0986	2		5	13	869	3580	1.584	0.1878	1	37								31	5	6	845	2034	2.006	0.0483	1	28
+B_shell_soft_core_loss_pfam	PF13923	zf-C3HC4_2	Zinc finger, C3HC4 type (RING finger)	CL0229	2		5	13	869	3580	1.584	0.1878	1	45								33	4	8	845	2034	1.204	0.4419	1	30
+B_shell_soft_core_loss_pfam	PF00083	Sugar_tr	Sugar (and other) transporter	CL0015	3		20	68	869	3580	1.212	0.1945	1	636	7	38	494	1907	0.711	0.8983	1	279	17	50	845	2034	0.818	0.8938	1	241
+B_shell_soft_core_loss_pfam	PF13920	zf-C3HC4_3	Zinc finger, C3HC4 type (RING finger)	CL0229	2		4	10	869	3580	1.648	0.2072	1	27								31	2	6	845	2034	0.802	0.7903	1	26
+B_shell_soft_core_loss_pfam	PF01569	PAP2	PAP2 superfamily	CL0525	2		3	7	869	3580	1.766	0.2285	1	15								18	5	8	845	2034	1.504	0.198	1	16
+B_shell_soft_core_loss_pfam	PF13445	zf-RING_UBOX	RING-type zinc-finger	CL0229	2		4	11	869	3580	1.498	0.2667	1	47								30	2	6	845	2034	0.802	0.7903	1	25
+B_shell_soft_core_loss_pfam	PF00743	FMO-like	Flavin-binding monooxygenase-like	CL0063	3		3	8	869	3580	1.545	0.3034	1	67	3	7	494	1907	1.654	0.2623	1	42	4	10	845	2034	0.963	0.6561	1	38
+B_shell_soft_core_loss_pfam	PF00153	Mito_carr	Mitochondrial carrier protein		3		6	19	869	3580	1.301	0.3048	1	104	1	6	494	1907	0.643	0.835	1	101	4	10	845	2034	0.963	0.6561	1	87
+B_shell_soft_core_loss_pfam	PF00076	RRM_1	RNA recognition motif	CL0221	3		7	23	869	3580	1.254	0.3157	1	171	5	18	494	1907	1.072	0.5175	1	155	11	17	845	2034	1.558	0.04566	1	132
+B_shell_soft_core_loss_pfam	PF00149	Metallophos	Calcineurin-like phosphoesterase	CL0163	2		4	12	869	3580	1.373	0.3287	1	62	1	5	494	1907	0.772	0.7771	1	53								45
+B_shell_soft_core_loss_pfam	PF06609	TRI12	Fungal trichothecene efflux pump (TRI12)	CL0015	3		4	12	869	3580	1.373	0.3287	1	106	2	15	494	1907	0.515	0.9312	1	100	4	22	845	2034	0.438	0.9951	1	85
+B_shell_soft_core_loss_pfam	PF08477	Roc	Ras of Complex, Roc, domain of DAPkinase	CL0023	2		6	20	869	3580	1.236	0.3534	1	85								51	2	5	845	2034	0.963	0.6895	1	47
+B_shell_soft_core_loss_pfam	PF00324	AA_permease	Amino acid permease	CL0062	3		11	40	869	3580	1.133	0.374	1	189	1	15	494	1907	0.257	0.9891	1	129	3	13	845	2034	0.555	0.9543	1	102
+B_shell_soft_core_loss_pfam	PF00300	His_Phos_1	Histidine phosphatase superfamily (branch 1)	CL0071	2		3	9	869	3580	1.373	0.3789	1	42								22	2	5	845	2034	0.963	0.6895	1	19
+B_shell_soft_core_loss_pfam	PF01926	MMR_HSR1	50S ribosome-binding GTPase	CL0023	2		3	9	869	3580	1.373	0.3789	1	74	2	5	494	1907	1.544	0.3863	1	56								49
+B_shell_soft_core_loss_pfam	PF00646	F-box	F-box domain	CL0271	3		4	13	869	3580	1.268	0.3914	1	75	3	12	494	1907	0.965	0.6375	1	80	4	5	845	2034	1.926	0.09916	1	63
+B_shell_soft_core_loss_pfam	PF13639	zf-RING_2	Ring finger domain	CL0229	3		5	17	869	3580	1.212	0.3983	1	70	2	6	494	1907	1.287	0.4876	1	49	3	6	845	2034	1.204	0.4877	1	42
+B_shell_soft_core_loss_pfam	PF00097	zf-C3HC4	Zinc finger, C3HC4 type (RING finger)	CL0229	3		6	21	869	3580	1.177	0.4025	1	84	2	6	494	1907	1.287	0.4876	1	64	6	12	845	2034	1.204	0.3761	1	55
+B_shell_soft_core_loss_pfam	PF13520	AA_permease_2	Amino acid permease	CL0062	3		10	37	869	3580	1.113	0.4087	1	201	1	14	494	1907	0.276	0.9852	1	142	4	16	845	2034	0.602	0.9497	1	123
+B_shell_soft_core_loss_pfam	PF00004	AAA	ATPase family associated with various cellular activities (AAA)	CL0023	3		5	18	869	3580	1.144	0.4524	1	132	1	9	494	1907	0.429	0.9331	1	147	5	12	845	2034	1.003	0.6054	1	112
+B_shell_soft_core_loss_pfam	PF12937	F-box-like	F-box-like	CL0271	2		4	14	869	3580	1.177	0.453	1	73	5	11	494	1907	1.755	0.129	1	71								57
+B_shell_soft_core_loss_pfam	PF00071	Ras	Ras family	CL0023	3		6	23	869	3580	1.075	0.4992	1	98	2	5	494	1907	1.544	0.3863	1	60	2	6	845	2034	0.802	0.7903	1	54
+B_shell_soft_core_loss_pfam	PF00400	WD40	WD domain, G-beta repeat	CL0186	3		5	19	869	3580	1.084	0.5051	1	279	4	9	494	1907	1.716	0.1826	1	193	5	7	845	2034	1.719	0.1116	1	162
+B_shell_soft_core_loss_pfam	PF07992	Pyr_redox_2	Pyridine nucleotide-disulphide oxidoreductase	CL0063	3		4	15	869	3580	1.099	0.5125	1	135	4	6	494	1907	2.574	0.04232	1	56	3	10	845	2034	0.722	0.857	1	47
+B_shell_soft_core_loss_pfam	PF07690	MFS_1	Major Facilitator Superfamily	CL0015	3		33	135	869	3580	1.007	0.5155	1	1134	15	70	494	1907	0.827	0.844	1	511	29	94	845	2034	0.743	0.9891	1	421
+B_shell_soft_core_loss_pfam	PF00155	Aminotran_1_2	Aminotransferase class I and II	CL0061	3		3	11	869	3580	1.124	0.5223	1	102	0	5	494	1907	0	1	1	80	5	9	845	2034	1.337	0.2993	1	66
+B_shell_soft_core_loss_pfam	PF12697	Abhydrolase_6	Alpha/beta hydrolase family	CL0028	3		5	20	869	3580	1.03	0.5557	1	139	1	10	494	1907	0.386	0.9505	1	80	4	11	845	2034	0.875	0.7397	1	61
+B_shell_soft_core_loss_pfam	PF01565	FAD_binding_4	FAD binding domain	CL0077	2		4	16	869	3580	1.03	0.5688	1	131								48	3	5	845	2034	1.444	0.3443	1	38
+B_shell_soft_core_loss_pfam	PF07714	PK_Tyr_Ser-Thr	Protein tyrosine and serine/threonine kinase	CL0016	3		8	33	869	3580	0.999	0.569	1	316	13	64	494	1907	0.784	0.8839	1	386	16	53	845	2034	0.727	0.9691	1	320
+B_shell_soft_core_loss_pfam	PF05368	NmrA	NmrA-like family	CL0063	2		3	12	869	3580	1.03	0.5868	1	131								32	2	6	845	2034	0.802	0.7903	1	29
+B_shell_soft_core_loss_pfam	PF00561	Abhydrolase_1	alpha/beta hydrolase fold	CL0028	3		6	25	869	3580	0.989	0.5898	1	163	1	7	494	1907	0.551	0.8779	1	69	3	8	845	2034	0.903	0.7165	1	54
+B_shell_soft_core_loss_pfam	PF13561	adh_short_C2	Enoyl-(Acyl carrier protein) reductase	CL0063	3		21	89	869	3580	0.972	0.6014	1	539	5	17	494	1907	1.135	0.4608	1	178	12	26	845	2034	1.111	0.3862	1	148
+B_shell_soft_core_loss_pfam	PF13450	NAD_binding_8	NAD(P)-binding Rossmann-like domain	CL0063	3		6	27	869	3580	0.915	0.671	1	217	2	9	494	1907	0.858	0.7215	1	115	6	17	845	2034	0.85	0.7777	1	104
+B_shell_soft_core_loss_pfam	PF00173	Cyt-b5	Cytochrome b5-like Heme/Steroid binding domain		2		2	9	869	3580	0.915	0.6822	1	46	1	5	494	1907	0.772	0.7771	1	40								35
+B_shell_soft_core_loss_pfam	PF00890	FAD_binding_2	FAD binding domain	CL0063	3		2	10	869	3580	0.824	0.7396	1	100	2	8	494	1907	0.965	0.6556	1	57	3	8	845	2034	0.903	0.7165	1	43
+B_shell_soft_core_loss_pfam	PF07859	Abhydrolase_3	alpha/beta hydrolase fold	CL0028	3		2	10	869	3580	0.824	0.7396	1	106	3	7	494	1907	1.654	0.2623	1	47	2	5	845	2034	0.963	0.6895	1	35
+B_shell_soft_core_loss_pfam	PF00270	DEAD	DEAD/DEAH box helicase	CL0023	2		1	5	869	3580	0.824	0.7512	1	198								110	7	11	845	2034	1.532	0.1189	1	92
+B_shell_soft_core_loss_pfam	PF04851	ResIII	Type III restriction enzyme, res subunit	CL0023	2		1	5	869	3580	0.824	0.7512	1	100								80	5	8	845	2034	1.504	0.198	1	71
+B_shell_soft_core_loss_pfam	PF00005	ABC_tran	ABC transporter	CL0023	3		4	20	869	3580	0.824	0.7528	1	221	3	9	494	1907	1.287	0.4247	1	165	2	10	845	2034	0.481	0.9626	1	129
+B_shell_soft_core_loss_pfam	PF08240	ADH_N	Alcohol dehydrogenase GroES-like domain	CL0296	3		4	20	869	3580	0.824	0.7528	1	214	3	10	494	1907	1.158	0.5017	1	79	3	11	845	2034	0.656	0.9009	1	60
+B_shell_soft_core_loss_pfam	PF08659	KR	KR domain	CL0063	3		15	71	869	3580	0.87	0.7747	1	438	4	12	494	1907	1.287	0.3793	1	116	9	15	845	2034	1.444	0.1171	1	101
+B_shell_soft_core_loss_pfam	PF00106	adh_short	short chain dehydrogenase	CL0063	3		21	98	869	3580	0.883	0.7817	1	626	5	19	494	1907	1.016	0.5714	1	207	11	23	845	2034	1.151	0.3406	1	170
+B_shell_soft_core_loss_pfam	PF00248	Aldo_ket_red	Aldo/keto reductase family	CL0036	2		3	16	869	3580	0.772	0.7848	1	109								55	4	8	845	2034	1.204	0.4419	1	43
+B_shell_soft_core_loss_pfam	PF01370	Epimerase	NAD dependent epimerase/dehydratase family	CL0063	3		6	31	869	3580	0.797	0.8	1	240	3	13	494	1907	0.891	0.6949	1	84	3	6	845	2034	1.204	0.4877	1	68
+B_shell_soft_core_loss_pfam	PF00152	tRNA-synt_2	tRNA synthetases class II (D, K and N)	CL0040	2		1	6	869	3580	0.687	0.8117	1	22								22	3	5	845	2034	1.444	0.3443	1	19
+B_shell_soft_core_loss_pfam	PF00450	Peptidase_S10	Serine carboxypeptidase	CL0028	3		1	6	869	3580	0.687	0.8117	1	40	1	5	494	1907	0.772	0.7771	1	62	0	5	845	2034	0	1	1	45
+B_shell_soft_core_loss_pfam	PF13508	Acetyltransf_7	Acetyltransferase (GNAT) domain	CL0257	2		3	17	869	3580	0.727	0.8198	1	87	2	7	494	1907	1.103	0.5777	1	44								35
+B_shell_soft_core_loss_pfam	PF00550	PP-binding	Phosphopantetheine attachment site	CL0314	3		3	18	869	3580	0.687	0.8499	1	304	3	5	494	1907	2.316	0.113	1	594	4	5	845	2034	1.926	0.09916	1	385
+B_shell_soft_core_loss_pfam	PF00176	SNF2-rel_dom	SNF2-related domain	CL0023	2		1	7	869	3580	0.589	0.8575	1	106	1	9	494	1907	0.429	0.9331	1	60								54
+B_shell_soft_core_loss_pfam	PF01266	DAO	FAD dependent oxidoreductase	CL0063	3		1	7	869	3580	0.589	0.8575	1	104	2	6	494	1907	1.287	0.4876	1	63	3	6	845	2034	1.204	0.4877	1	55
+B_shell_soft_core_loss_pfam	PF00179	UQ_con	Ubiquitin-conjugating enzyme	CL0208	3		3	19	869	3580	0.65	0.8754	1	65	3	8	494	1907	1.448	0.344	1	76	5	8	845	2034	1.504	0.198	1	61
+B_shell_soft_core_loss_pfam	PF00107	ADH_zinc_N	Zinc-binding dehydrogenase	CL0063	3		2	14	869	3580	0.589	0.8886	1	175	3	8	494	1907	1.448	0.344	1	73	3	9	845	2034	0.802	0.7967	1	62
+B_shell_soft_core_loss_pfam	PF00271	Helicase_C	Helicase conserved C-terminal domain	CL0023	3		2	14	869	3580	0.589	0.8886	1	295	3	7	494	1907	1.654	0.2623	1	146	8	11	845	2034	1.751	0.03682	1	125
+B_shell_soft_core_loss_pfam	PF13673	Acetyltransf_10	Acetyltransferase (GNAT) domain	CL0257	2		2	14	869	3580	0.589	0.8886	1	69	2	7	494	1907	1.103	0.5777	1	40								33
+B_shell_soft_core_loss_pfam	PF20434	BD-FAE	BD-FAE	CL0028	3		2	14	869	3580	0.589	0.8886	1	101	3	6	494	1907	1.93	0.1837	1	35	2	5	845	2034	0.963	0.6895	1	27
+B_shell_soft_core_loss_pfam	PF00350	Dynamin_N	Dynamin family	CL0023	2		1	8	869	3580	0.515	0.8921	1	69	1	6	494	1907	0.643	0.835	1	57								33
+B_shell_soft_core_loss_pfam	PF13847	Methyltransf_31	Methyltransferase domain	CL0063	3		3	20	869	3580	0.618	0.8971	1	109	1	9	494	1907	0.429	0.9331	1	73	5	13	845	2034	0.926	0.6892	1	64
+B_shell_soft_core_loss_pfam	PF00172	Zn_clus	Fungal Zn(2)-Cys(6) binuclear cluster domain	CL0914	3		27	135	869	3580	0.824	0.9024	1	769	6	29	494	1907	0.799	0.8024	1	222	15	28	845	2034	1.29	0.1344	1	180
+B_shell_soft_core_loss_pfam	PF00069	Pkinase	Protein kinase domain	CL0016	3		9	51	869	3580	0.727	0.9029	1	405	15	78	494	1907	0.742	0.9377	1	526	20	74	845	2034	0.651	0.9971	1	427
+B_shell_soft_core_loss_pfam	PF00109	ketoacyl-synt	Beta-ketoacyl synthase, N-terminal domain	CL0046	2		2	16	869	3580	0.515	0.9288	1	126	1	5	494	1907	0.772	0.7771	1	97								67
+B_shell_soft_core_loss_pfam	PF00664	ABC_membrane	ABC transporter transmembrane region	CL0241	2		2	16	869	3580	0.515	0.9288	1	114								80	2	5	845	2034	0.963	0.6895	1	64
+B_shell_soft_core_loss_pfam	PF00583	Acetyltransf_1	Acetyltransferase (GNAT) family	CL0257	2		5	33	869	3580	0.624	0.9307	1	157	2	7	494	1907	1.103	0.5777	1	65								53
+B_shell_soft_core_loss_pfam	PF00501	AMP-binding	AMP-binding enzyme	CL0378	3		2	17	869	3580	0.485	0.9433	1	379	2	7	494	1907	1.103	0.5777	1	643	8	15	845	2034	1.284	0.2504	1	433
+B_shell_soft_core_loss_pfam	PF13649	Methyltransf_25	Methyltransferase domain	CL0063	3		3	24	869	3580	0.515	0.9537	1	175	2	21	494	1907	0.368	0.985	1	121	10	22	845	2034	1.094	0.4333	1	101
+B_shell_soft_core_loss_pfam	PF00704	Glyco_hydro_18	Glycosyl hydrolases family 18	CL0036	3		3	25	869	3580	0.494	0.9623	1	177	0	6	494	1907	0	1	1	40	3	7	845	2034	1.032	0.6135	1	35
+B_shell_soft_core_loss_pfam	PF00135	COesterase	Carboxylesterase family	CL0028	3		1	12	869	3580	0.343	0.9647	1	96	3	7	494	1907	1.654	0.2623	1	22	1	6	845	2034	0.401	0.9603	1	20
+B_shell_soft_core_loss_pfam	PF08242	Methyltransf_12	Methyltransferase domain	CL0063	3		1	12	869	3580	0.343	0.9647	1	120	2	13	494	1907	0.594	0.8883	1	67	5	11	845	2034	1.094	0.5099	1	58
+B_shell_soft_core_loss_pfam	PF04082	Fungal_trans	Fungal specific transcription factor domain	CL0507	3		25	137	869	3580	0.752	0.9656	1	721	6	21	494	1907	1.103	0.472	1	174	8	16	845	2034	1.204	0.3284	1	143
+B_shell_soft_core_loss_pfam	PF04828	GFA	Glutathione-dependent formaldehyde-activating enzyme	CL0080	3		1	13	869	3580	0.317	0.9733	1	58	1	8	494	1907	0.483	0.9096	1	26	3	8	845	2034	0.903	0.7165	1	23
+B_shell_soft_core_loss_pfam	PF01494	FAD_binding_3	FAD binding domain	CL0063	3		3	28	869	3580	0.441	0.9801	1	203	1	5	494	1907	0.772	0.7771	1	54	4	13	845	2034	0.741	0.8591	1	49
+B_shell_soft_core_loss_pfam	PF08241	Methyltransf_11	Methyltransferase domain	CL0063	3		2	23	869	3580	0.358	0.9862	1	184	4	23	494	1907	0.671	0.8844	1	122	10	21	845	2034	1.146	0.3613	1	99
+B_shell_soft_core_loss_pfam	PF13489	Methyltransf_23	Methyltransferase domain	CL0063	3		1	19	869	3580	0.217	0.995	1	165	3	25	494	1907	0.463	0.9749	1	125	10	23	845	2034	1.047	0.5045	1	103
+B_shell_soft_core_loss_pfam	PF00067	p450	Cytochrome P450		3		5	48	869	3580	0.429	0.9958	1	385	5	21	494	1907	0.919	0.6689	1	163	8	21	845	2034	0.917	0.7034	1	131
+B_shell_soft_core_loss_pfam	PF13857	Ank_5	Ankyrin repeats (many copies)	CL0465	3		1	20	869	3580	0.206	0.9962	1	187	3	10	494	1907	1.158	0.5017	1	82	2	10	845	2034	0.481	0.9626	1	66
+B_shell_soft_core_loss_pfam	PF11951	Fungal_trans_2	Fungal specific transcription factor domain	CL0507	2		4	45	869	3580	0.366	0.9979	1	317								59	5	9	845	2034	1.337	0.2993	1	53
+B_shell_soft_core_loss_pfam	PF20684	Fung_rhodopsin	Fungal rhodopsin domain	CL0192	3		5	52	869	3580	0.396	0.9981	1	333	2	17	494	1907	0.454	0.9582	1	109	8	24	845	2034	0.802	0.8485	1	86
+B_shell_soft_core_loss_pfam	PF13637	Ank_4	Ankyrin repeats (many copies)	CL0465	3		2	38	869	3580	0.217	0.9997	1	375	2	17	494	1907	0.454	0.9582	1	126	3	15	845	2034	0.481	0.9798	1	101
+B_shell_soft_core_loss_pfam	PF13606	Ank_3	Ankyrin repeat	CL0465	3		1	30	869	3580	0.137	0.9998	1	294	3	13	494	1907	0.891	0.6949	1	120	4	15	845	2034	0.642	0.9282	1	101
+B_shell_soft_core_loss_pfam	PF00023	Ank	Ankyrin repeat	CL0465	3		3	54	869	3580	0.229	1	1	485	4	21	494	1907	0.735	0.834	1	165	4	19	845	2034	0.507	0.9837	1	133
+B_shell_soft_core_loss_pfam	PF12796	Ank_2	Ankyrin repeats (3 copies)	CL0465	3		2	55	869	3580	0.15	1	1	483	5	21	494	1907	0.919	0.6689	1	161	4	21	845	2034	0.458	0.9926	1	134
+B_shell_soft_core_loss_pfam	PF00082	Peptidase_S8	Subtilase family		2									24	4	10	494	1907	1.544	0.2452	1	72	3	8	845	2034	0.903	0.7165	1	57
+B_shell_soft_core_loss_pfam	PF00096	zf-C2H2	Zinc finger, C2H2 type	CL0361	2		0	13	869	3580	0	1	1	79								61	5	8	845	2034	1.504	0.198	1	53
+B_shell_soft_core_loss_pfam	PF00227	Proteasome	Proteasome subunit	CL0052	2									21	1	5	494	1907	0.772	0.7771	1	32	4	5	845	2034	1.926	0.09916	1	23
+B_shell_soft_core_loss_pfam	PF00328	His_Phos_2	Histidine phosphatase superfamily (branch 2)	CL0071	2		0	5	869	3580	0	1	1	42								14	1	5	845	2034	0.481	0.932	1	15
+B_shell_soft_core_loss_pfam	PF00651	BTB	BTB/POZ domain	CL0033	3		0	7	869	3580	0	1	1	43	1	5	494	1907	0.772	0.7771	1	50	2	8	845	2034	0.602	0.9093	1	44
+B_shell_soft_core_loss_pfam	PF01636	APH	Phosphotransferase enzyme family	CL0016	3		0	16	869	3580	0	1	1	121	5	38	494	1907	0.508	0.9832	1	365	21	71	845	2034	0.712	0.9875	1	292
+B_shell_soft_core_loss_pfam	PF04479	RTA1	RTA1 like protein	CL0862	2		0	10	869	3580	0	1	1	91								22	2	6	845	2034	0.802	0.7903	1	20
+B_shell_soft_core_loss_pfam	PF05057	DUF676	Putative serine esterase (DUF676)	CL0028	2									27	0	5	494	1907	0	1	1	28	0	9	845	2034	0	1	1	23
+B_shell_soft_core_loss_pfam	PF11917	DUF3435	Protein of unknown function (DUF3435)	CL0382	3		0	20	869	3580	0	1	1	224	0	33	494	1907	0	1	1	374	2	21	845	2034	0.229	0.9998	1	281
+B_shell_soft_core_loss_pfam	PF13193	AMP-binding_C	AMP-binding enzyme C-terminal domain	CL0531	2									73	1	6	494	1907	0.643	0.835	1	73	5	9	845	2034	1.337	0.2993	1	62
+B_shell_soft_core_loss_pfam	PF13374	TPR_10	Tetratricopeptide repeat	CL0020	2		0	8	869	3580	0	1	1	72	1	8	494	1907	0.483	0.9096	1	31								18
+B_shell_soft_core_loss_pfam	PF13391	HNH_2	HNH endonuclease	CL0263	3		0	6	869	3580	0	1	1	45	5	11	494	1907	1.755	0.129	1	86	11	16	845	2034	1.655	0.02555	1	73
+B_shell_soft_core_loss_pfam	PF17667	Pkinase_fungal	Fungal protein kinase	CL0016	2									34	0	16	494	1907	0	1	1	230	2	18	845	2034	0.267	0.9992	1	161
+B_shell_soft_core_loss_pfam	PF20174	DUF6540	Family of unknown function (DUF6540)	CL0125	3		0	7	869	3580	0	1	1	20	0	9	494	1907	0	1	1	52	2	10	845	2034	0.481	0.9626	1	48
+B_shell_soft_core_loss_pfam	PF21858	DUF6914	Family of unknown function (DUF6914)	CL0125	2									19	1	6	494	1907	0.643	0.835	1	19	1	6	845	2034	0.401	0.9603	1	18
+B_shell_soft_core_loss_pfam	PF22939	WHD_GPIID	GPI inositol-deacylase, winged helix domain	CL0123	3		0	13	869	3580	0	1	1	98	0	6	494	1907	0	1	1	18	0	5	845	2034	0	1	1	14
+B_shell_soft_core_loss_pfam	PF24883	NPHP3_N	Nephrocystin 3, N-terminal	CL0023	3		0	23	869	3580	0	1	1	216	0	10	494	1907	0	1	1	44	0	8	845	2034	0	1	1	35
+B_shell_soft_core_loss_pfam	PF25000	DUF7779	Domain of unknown function (DUF7779)	CL0123	2									21	0	7	494	1907	0	1	1	19	1	6	845	2034	0.401	0.9603	1	17
+B_shell_soft_core_loss_pfam	PF27653	SPOK2_N	Spore killer 2 N-terminal domain		3		0	5	869	3580	0	1	1	38	0	5	494	1907	0	1	1	122	2	8	845	2034	0.602	0.9093	1	101
+B_shell_soft_core_loss_pfam	PF28515	HrmA	Subtelomeric hrmA-associated cluster protein		2									16	0	5	494	1907	0	1	1	38	0	5	845	2034	0	1	1	26

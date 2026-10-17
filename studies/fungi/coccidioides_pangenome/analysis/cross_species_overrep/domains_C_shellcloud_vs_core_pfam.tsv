@@ -1,0 +1,714 @@
+definition	term	name	description	clan	n_runs_tested	tier	af_k	af_K	af_N	af_M	af_fold	af_p	af_q	af_n_families_all	v5_k	v5_K	v5_N	v5_M	v5_fold	v5_p	v5_q	v5_n_families_all	v2_k	v2_K	v2_N	v2_M	v2_fold	v2_p	v2_q	v2_n_families_all
+C_shellcloud_vs_core_pfam	PF11917	DUF3435	Protein of unknown function (DUF3435)	CL0382	3	1	103	104	9000	15032	1.654	3.815e-22	4.273e-19	224	110	113	3973	9269	2.271	6.520e-37	4.284e-34	374	168	169	5574	10657	1.901	1.259e-46	9.403e-44	281
+C_shellcloud_vs_core_pfam	PF24883	NPHP3_N	Nephrocystin 3, N-terminal	CL0023	3	1	89	97	9000	15032	1.532	1.458e-12	3.266e-10	216	14	16	3973	9269	2.041	3.026e-04	0.01105	44	22	24	5574	10657	1.753	4.364e-05	0.001955	35
+C_shellcloud_vs_core_pfam	PF20684	Fung_rhodopsin	Fungal rhodopsin domain	CL0192	3	1	147	180	9000	15032	1.364	2.350e-10	4.386e-08	333	37	55	3973	9269	1.569	2.161e-04	0.008351	109	49	63	5574	10657	1.487	2.577e-05	0.001283	86
+C_shellcloud_vs_core_pfam	PF12520	DUF3723	Protein of unknown function (DUF3723) central domain		3	1	39	39	9000	15032	1.67	1.983e-09	2.221e-07	122	36	36	3973	9269	2.333	5.195e-14	1.138e-11	99	48	49	5574	10657	1.873	6.724e-13	1.005e-10	66
+C_shellcloud_vs_core_pfam	PF01636	APH	Phosphotransferase enzyme family	CL0016	3	1	57	64	9000	15032	1.488	2.408e-07	1.586e-05	121	90	126	3973	9269	1.666	6.228e-11	1.023e-08	365	192	207	5574	10657	1.773	9.779e-38	3.652e-35	292
+C_shellcloud_vs_core_pfam	PF29418	DUF3723_N	Protein of unknown function (DUF3723) N-terminal domain	CL0248	3	1	28	28	9000	15032	1.67	5.688e-07	3.185e-05	62	17	17	3973	9269	2.333	5.457e-07	5.975e-05	46	24	24	5574	10657	1.912	1.716e-07	1.282e-05	31
+C_shellcloud_vs_core_pfam	PF27653	SPOK2_N	Spore killer 2 N-terminal domain		3	1	22	22	9000	15032	1.67	1.243e-05	5.569e-04	38	26	33	3973	9269	1.838	2.755e-05	0.001646	122	61	65	5574	10657	1.794	2.225e-13	4.154e-11	101
+C_shellcloud_vs_core_pfam	PF00098	zf-CCHC	Zinc knuckle	CL0511	3	1	18	18	9000	15032	1.67	9.707e-05	0.003624	34	19	20	3973	9269	2.216	1.185e-06	9.731e-05	34	17	19	5574	10657	1.711	7.141e-04	0.02319	24
+C_shellcloud_vs_core_pfam	PF23397	DUF7104	Domain of unknown function (DUF7104)	CL0465	3	1	13	13	9000	15032	1.67	0.001266	0.03297	22	8	8	3973	9269	2.333	0.001135	0.02982	53	23	23	5574	10657	1.912	3.287e-07	2.232e-05	41
+C_shellcloud_vs_core_pfam	PF13391	HNH_2	HNH endonuclease	CL0263	3	2	24	25	9000	15032	1.603	4.734e-05	0.001894	45	22	35	3973	9269	1.466	0.01347	0.1416	86	46	51	5574	10657	1.724	6.887e-09	6.431e-07	73
+C_shellcloud_vs_core_pfam	PF13520	AA_permease_2	Amino acid permease	CL0062	3	2	91	120	9000	15032	1.267	1.642e-04	0.005748	201	35	58	3973	9269	1.408	0.005367	0.09666	142	60	80	5574	10657	1.434	2.446e-05	0.001283	123
+C_shellcloud_vs_core_pfam	PF00187	Chitin_bind_1	Chitin recognition protein		3	2	21	22	9000	15032	1.594	1.961e-04	0.006657	38	5	6	3973	9269	1.944	0.05575	0.3455	17	11	11	5574	10657	1.912	7.976e-04	0.02383	17
+C_shellcloud_vs_core_pfam	PF11001	AFUB_07903_YDR124W_hel	YDR124W-like, helical bundle domain		3	2	23	26	9000	15032	1.478	0.001517	0.03776	55	8	9	3973	9269	2.074	0.006327	0.09666	29	14	15	5574	10657	1.784	8.745e-04	0.0242	24
+C_shellcloud_vs_core_pfam	PF12796	Ank_2	Ankyrin repeats (3 copies)	CL0465	3	3	187	217	9000	15032	1.439	1.318e-17	7.383e-15	483	38	68	3973	9269	1.304	0.02048	0.1794	161	56	88	5574	10657	1.217	0.02061	0.2025	134
+C_shellcloud_vs_core_pfam	PF00023	Ank	Ankyrin repeat	CL0465	3	3	184	215	9000	15032	1.429	1.140e-16	4.257e-14	485	38	68	3973	9269	1.304	0.02048	0.1794	165	55	86	5574	10657	1.223	0.01897	0.2025	133
+C_shellcloud_vs_core_pfam	PF00704	Glyco_hydro_18	Glycosyl hydrolases family 18	CL0036	3	3	75	83	9000	15032	1.509	5.615e-10	7.862e-08	177	15	22	3973	9269	1.591	0.01465	0.1416	40	19	23	5574	10657	1.579	0.002564	0.05594	35
+C_shellcloud_vs_core_pfam	PF22939	WHD_GPIID	GPI inositol-deacylase, winged helix domain	CL0123	3	3	38	41	9000	15032	1.548	2.586e-06	1.316e-04	98	8	10	3973	9269	1.866	0.01969	0.1794	18	10	12	5574	10657	1.593	0.02794	0.2515	14
+C_shellcloud_vs_core_pfam	PF28613	HAC6_helical	HAC6 small helical domain		3	3	23	23	9000	15032	1.67	7.435e-06	3.470e-04	36	7	7	3973	9269	2.333	0.00265	0.05617	12	7	7	5574	10657	1.912	0.01069	0.1248	9
+C_shellcloud_vs_core_pfam	PF01734	Patatin	Patatin-like phospholipase	CL0323	3	3	36	40	9000	15032	1.503	2.623e-05	0.00113	74	12	18	3973	9269	1.555	0.03614	0.2668	34	14	19	5574	10657	1.409	0.04882	0.2871	30
+C_shellcloud_vs_core_pfam	PF30957	HAC6_N	HAC6 N-terminal domain	CL0033	3	3	20	20	9000	15032	1.67	3.474e-05	0.001441	30	5	5	3973	9269	2.333	0.01445	0.1416	11	5	5	5574	10657	1.912	0.03911	0.2563	9
+C_shellcloud_vs_core_pfam	PF00324	AA_permease	Amino acid permease	CL0062	3	3	87	114	9000	15032	1.275	1.541e-04	0.005567	189	30	52	3973	9269	1.346	0.0219	0.1869	129	43	63	5574	10657	1.305	0.007314	0.1115	102
+C_shellcloud_vs_core_pfam	PF13857	Ank_5	Ankyrin repeats (many copies)	CL0465	3	3	62	81	9000	15032	1.278	0.001164	0.0329	187	21	35	3973	9269	1.4	0.03059	0.231	82	29	43	5574	10657	1.289	0.03194	0.2563	66
+C_shellcloud_vs_core_pfam	PF08030	NAD_binding_6	Ferric reductase NAD binding domain	CL0091	3	3	35	43	9000	15032	1.359	0.002232	0.04807	87	13	20	3973	9269	1.516	0.03844	0.2745	45	19	27	5574	10657	1.345	0.04413	0.2773	36
+C_shellcloud_vs_core_pfam	PF21858	DUF6914	Family of unknown function (DUF6914)	CL0125	3	3	9	9	9000	15032	1.67	0.00987	0.1494	19	11	11	3973	9269	2.333	8.902e-05	0.004178	19	13	14	5574	10657	1.775	0.00157	0.03909	18
+C_shellcloud_vs_core_pfam	PF28515	HrmA	Subtelomeric hrmA-associated cluster protein		3	3	9	9	9000	15032	1.67	0.00987	0.1494	16	10	14	3973	9269	1.666	0.02961	0.2262	38	13	14	5574	10657	1.775	0.00157	0.03909	26
+C_shellcloud_vs_core_pfam	PF06293	Kdo	Lipopolysaccharide kinase (Kdo/WaaP) family	CL0016	3	3	10	11	9000	15032	1.518	0.02963	0.2989	30	11	15	3973	9269	1.711	0.01687	0.1607	40	24	27	5574	10657	1.699	6.262e-05	0.002462	31
+C_shellcloud_vs_core_pfam	PF25000	DUF7779	Domain of unknown function (DUF7779)	CL0123	3	3	10	11	9000	15032	1.518	0.02963	0.2989	21	11	11	3973	9269	2.333	8.902e-05	0.004178	19	12	13	5574	10657	1.765	0.002805	0.05594	17
+C_shellcloud_vs_core_pfam	PF04828	GFA	Glutathione-dependent formaldehyde-activating enzyme	CL0080	3	3	25	33	9000	15032	1.265	0.04289	0.3631	58	11	16	3973	9269	1.604	0.03324	0.2481	26	14	17	5574	10657	1.575	0.01054	0.1248	23
+C_shellcloud_vs_core_pfam	PF00230	MIP	Major intrinsic protein	CL0716	3	3	9	10	9000	15032	1.503	0.04554	0.3631	22	8	9	3973	9269	2.074	0.006327	0.09666	17	5	5	5574	10657	1.912	0.03911	0.2563	6
+C_shellcloud_vs_core_pfam	PF13637	Ank_4	Ankyrin repeats (many copies)	CL0465	3		131	158	9000	15032	1.385	3.067e-10	4.907e-08	375	30	57	3973	9269	1.228	0.08739	0.4785	126	35	63	5574	10657	1.062	0.3484	1	101
+C_shellcloud_vs_core_pfam	PF13606	Ank_3	Ankyrin repeat	CL0465	3		105	124	9000	15032	1.414	1.613e-09	2.007e-07	294	30	52	3973	9269	1.346	0.0219	0.1869	120	38	60	5574	10657	1.211	0.05568	0.3224	101
+C_shellcloud_vs_core_pfam	PF01048	PNP_UDP_1	Phosphorylase superfamily	CL0408	2		40	41	9000	15032	1.629	2.026e-08	2.063e-06	105								9	5	7	5574	10657	1.366	0.266	0.8245	8
+C_shellcloud_vs_core_pfam	PF04082	Fungal_trans	Fungal specific transcription factor domain	CL0507	3		276	378	9000	15032	1.22	4.344e-08	3.743e-06	721	40	91	3973	9269	1.025	0.4562	1	174	50	101	5574	10657	0.946	0.7474	1	143
+C_shellcloud_vs_core_pfam	PF00106	adh_short	short chain dehydrogenase	CL0063	3		224	302	9000	15032	1.239	1.005e-07	8.040e-06	626	53	107	3973	9269	1.156	0.09655	0.5057	207	59	107	5574	10657	1.054	0.3114	0.9419	170
+C_shellcloud_vs_core_pfam	PF13561	adh_short_C2	Enoyl-(Acyl carrier protein) reductase	CL0063	3		201	268	9000	15032	1.253	1.099e-07	8.204e-06	539	49	95	3973	9269	1.203	0.05308	0.3455	178	54	94	5574	10657	1.098	0.1844	0.7407	148
+C_shellcloud_vs_core_pfam	PF28402	GloB_C	Pneumocandin biosynthesis cluster protein B C-terminal domain		2		28	28	9000	15032	1.67	5.688e-07	3.185e-05	50								12	8	8	5574	10657	1.912	0.005587	0.08695	9
+C_shellcloud_vs_core_pfam	PF01476	LysM	LysM domain	CL0187	2		33	35	9000	15032	1.575	4.564e-06	2.223e-04	92								11	4	7	5574	10657	1.093	0.5503	1	8
+C_shellcloud_vs_core_pfam	PF08022	FAD_binding_8	FAD-binding domain	CL0866	3		40	48	9000	15032	1.392	4.227e-04	0.01393	91	6	12	3973	9269	1.166	0.4129	1	25	10	16	5574	10657	1.195	0.2871	0.8827	23
+C_shellcloud_vs_core_pfam	PF00651	BTB	BTB/POZ domain	CL0033	3		24	27	9000	15032	1.485	0.001013	0.03123	43	9	20	3973	9269	1.05	0.5087	1	50	22	30	5574	10657	1.402	0.01543	0.1773	44
+C_shellcloud_vs_core_pfam	PF00172	Zn_clus	Fungal Zn(2)-Cys(6) binuclear cluster domain	CL0914	3		251	371	9000	15032	1.13	0.001044	0.03123	769	47	118	3973	9269	0.929	0.7768	1	222	64	127	5574	10657	0.963	0.6997	1	180
+C_shellcloud_vs_core_pfam	PF11951	Fungal_trans_2	Fungal specific transcription factor domain	CL0507	3		105	145	9000	15032	1.209	0.001059	0.03123	317	7	29	3973	9269	0.563	0.9892	1	59	18	35	5574	10657	0.983	0.6084	1	53
+C_shellcloud_vs_core_pfam	PF08659	KR	KR domain	CL0063	3		148	211	9000	15032	1.172	0.001175	0.0329	438	26	69	3973	9269	0.879	0.8402	1	116	29	68	5574	10657	0.815	0.9574	1	101
+C_shellcloud_vs_core_pfam	PF00668	Condensation	Condensation domain	CL0149	3		44	55	9000	15032	1.336	0.001231	0.03297	222	1	9	3973	9269	0.259	0.9935	1	552	10	15	5574	10657	1.275	0.1968	0.7443	354
+C_shellcloud_vs_core_pfam	PF00137	ATP-synt_C	ATP synthase subunit C		3		13	13	9000	15032	1.67	0.001266	0.03297	15	5	7	3973	9269	1.666	0.1266	0.5471	15	5	7	5574	10657	1.366	0.266	0.8245	13
+C_shellcloud_vs_core_pfam	PF00067	p450	Cytochrome P450		3		138	197	9000	15032	1.17	0.001835	0.04469	385	36	73	3973	9269	1.151	0.1587	0.6519	163	61	94	5574	10657	1.241	0.008945	0.1248	131
+C_shellcloud_vs_core_pfam	PF00931	NB-ARC	NB-ARC domain	CL0023	2		12	12	9000	15032	1.67	0.002116	0.04646	32								16	11	12	5574	10657	1.753	0.004987	0.08695	13
+C_shellcloud_vs_core_pfam	PF13279	4HBT_2	Thioesterase-like superfamily	CL0050	3		12	12	9000	15032	1.67	0.002116	0.04646	20	1	5	3973	9269	0.467	0.9392	1	7	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF01031	Dynamin_M	Dynamin central region		3		24	28	9000	15032	1.432	0.003049	0.06442	55	8	14	3973	9269	1.333	0.2081	0.7371	45	12	18	5574	10657	1.275	0.1625	0.7057	29
+C_shellcloud_vs_core_pfam	PF07971	Glyco_hydro_92	Glycosyl hydrolase family 92 catalytic domain	CL0059	2		21	24	9000	15032	1.461	0.003359	0.06946	35	3	6	3973	9269	1.166	0.5149	1	12								6
+C_shellcloud_vs_core_pfam	PF24494	DUF7587	Domain of unknown function (DUF7587)	CL0084	2		11	11	9000	15032	1.67	0.003535	0.06946	21								8	3	5	5574	10657	1.147	0.5431	1	7
+C_shellcloud_vs_core_pfam	PF03171	2OG-FeII_Oxy	2OG-Fe(II) oxygenase superfamily	CL0029	3		23	27	9000	15032	1.423	0.004415	0.08382	51	0	7	3973	9269	0	1	1	12	2	9	5574	10657	0.425	0.9861	1	12
+C_shellcloud_vs_core_pfam	PF13302	Acetyltransf_3	Acetyltransferase (GNAT) domain	CL0257	3		19	22	9000	15032	1.442	0.007291	0.1276	42	2	8	3973	9269	0.583	0.9206	1	12	6	10	5574	10657	1.147	0.4347	1	12
+C_shellcloud_vs_core_pfam	PF00350	Dynamin_N	Dynamin family	CL0023	3		24	29	9000	15032	1.382	0.007628	0.1314	69	16	23	3973	9269	1.623	0.008812	0.1232	57	15	23	5574	10657	1.247	0.1509	0.6592	33
+C_shellcloud_vs_core_pfam	PF13374	TPR_10	Tetratricopeptide repeat	CL0020	3		26	32	9000	15032	1.357	0.008742	0.144	72	9	11	3973	9269	1.909	0.01014	0.1306	31	9	13	5574	10657	1.324	0.1728	0.7138	18
+C_shellcloud_vs_core_pfam	PF13350	Y_phosphatase3	Tyrosine phosphatase family	CL0031	2		9	9	9000	15032	1.67	0.00987	0.1494	15								6	2	5	5574	10657	0.765	0.84	1	5
+C_shellcloud_vs_core_pfam	PF00075	RNase_H	RNase H	CL0219	2		12	13	9000	15032	1.542	0.01231	0.1791	24	3	5	3973	9269	1.4	0.368	0.9588	14								7
+C_shellcloud_vs_core_pfam	PF00550	PP-binding	Phosphopantetheine attachment site	CL0314	3		65	91	9000	15032	1.193	0.01452	0.2085	304	12	30	3973	9269	0.933	0.6895	1	594	18	35	5574	10657	0.983	0.6084	1	385
+C_shellcloud_vs_core_pfam	PF00144	Beta-lactamase	Beta-lactamase	CL0013	3		17	20	9000	15032	1.42	0.01547	0.2173	42	8	12	3973	9269	1.555	0.08518	0.4703	21	6	10	5574	10657	1.147	0.4347	1	12
+C_shellcloud_vs_core_pfam	PF08631	SPO22	Meiosis protein SPO22/ZIP4 like	CL0020	2		8	8	9000	15032	1.67	0.01649	0.2173	11								11	6	6	5574	10657	1.912	0.02045	0.2025	9
+C_shellcloud_vs_core_pfam	PF13424	TPR_12	Tetratricopeptide repeat	CL0020	3		23	29	9000	15032	1.325	0.02249	0.2884	65	4	7	3973	9269	1.333	0.347	0.9588	15	4	9	5574	10657	0.85	0.7894	1	10
+C_shellcloud_vs_core_pfam	PF05730	CFEM	CFEM domain		3		13	15	9000	15032	1.448	0.02646	0.2884	37	1	9	3973	9269	0.259	0.9935	1	20	5	11	5574	10657	0.869	0.7752	1	16
+C_shellcloud_vs_core_pfam	PF00698	Acyl_transf_1	Acyl transferase domain	CL0323	3		33	44	9000	15032	1.253	0.0265	0.2884	97	9	20	3973	9269	1.05	0.5087	1	52	11	21	5574	10657	1.001	0.5847	1	36
+C_shellcloud_vs_core_pfam	PF02801	Ketoacyl-synt_C	Beta-ketoacyl synthase, C-terminal domain	CL0046	3		33	44	9000	15032	1.253	0.0265	0.2884	97	9	21	3973	9269	1	0.5832	1	69	14	25	5574	10657	1.071	0.4339	1	46
+C_shellcloud_vs_core_pfam	PF01026	TatD_DNase	TatD related DNase	CL0036	2		7	7	9000	15032	1.67	0.02755	0.2884	10								7	5	6	5574	10657	1.593	0.1324	0.5959	7
+C_shellcloud_vs_core_pfam	PF04791	LMBR1	LMBR1-like membrane protein		2		7	7	9000	15032	1.67	0.02755	0.2884	8	4	5	3973	9269	1.866	0.1108	0.5057	9								4
+C_shellcloud_vs_core_pfam	PF12340	DUF3638	Protein of unknown function (DUF3638)		2		7	7	9000	15032	1.67	0.02755	0.2884	16								9	3	5	5574	10657	1.147	0.5431	1	7
+C_shellcloud_vs_core_pfam	PF11807	UstYa	Mycotoxin biosynthesis protein UstYa		3		10	11	9000	15032	1.518	0.02963	0.2989	22	9	11	3973	9269	1.909	0.01014	0.1306	15	4	6	5574	10657	1.275	0.3878	1	11
+C_shellcloud_vs_core_pfam	PF01042	Ribonuc_L-PSP	Endoribonuclease L-PSP	CL0534	3		15	18	9000	15032	1.392	0.03193	0.3193	33	2	6	3973	9269	0.778	0.8087	1	11	3	8	5574	10657	0.717	0.8837	1	8
+C_shellcloud_vs_core_pfam	PF00135	COesterase	Carboxylesterase family	CL0028	3		36	49	9000	15032	1.227	0.03367	0.3321	96	12	16	3973	9269	1.75	0.009437	0.1292	22	11	17	5574	10657	1.237	0.2182	0.7443	20
+C_shellcloud_vs_core_pfam	PF01490	Aa_trans	Transmembrane amino acid transporter protein	CL0062	3		30	40	9000	15032	1.253	0.03381	0.3321	78	6	10	3973	9269	1.4	0.2179	0.7371	22	6	11	5574	10657	1.043	0.5622	1	15
+C_shellcloud_vs_core_pfam	PF01565	FAD_binding_4	FAD binding domain	CL0077	3		47	66	9000	15032	1.189	0.03746	0.3631	131	11	25	3973	9269	1.027	0.5308	1	48	11	24	5574	10657	0.876	0.7995	1	38
+C_shellcloud_vs_core_pfam	PF00753	Lactamase_B	Metallo-beta-lactamase superfamily	CL0381	3		21	27	9000	15032	1.299	0.04078	0.3631	44	6	9	3973	9269	1.555	0.1346	0.5671	17	3	7	5574	10657	0.819	0.8095	1	10
+C_shellcloud_vs_core_pfam	PF01794	Ferric_reduct	Ferric reductase like transmembrane component	CL0328	3		27	36	9000	15032	1.253	0.04328	0.3631	71	3	11	3973	9269	0.636	0.9149	1	22	3	11	5574	10657	0.521	0.977	1	21
+C_shellcloud_vs_core_pfam	PF12894	ANAPC4_WD40	Anaphase-promoting complex subunit 4 WD40 domain	CL0186	3		27	36	9000	15032	1.253	0.04328	0.3631	65	2	15	3973	9269	0.311	0.9973	1	26	5	20	5574	10657	0.478	0.9968	1	23
+C_shellcloud_vs_core_pfam	PF02784	Orn_Arg_deC_N	Pyridoxal-dependent decarboxylase, pyridoxal binding domain	CL0036	2		9	10	9000	15032	1.503	0.04554	0.3631	15	5	6	3973	9269	1.944	0.05575	0.3455	8								5
+C_shellcloud_vs_core_pfam	PF05875	Ceramidase	Ceramidase	CL0192	3		9	10	9000	15032	1.503	0.04554	0.3631	19	2	6	3973	9269	0.778	0.8087	1	11	6	8	5574	10657	1.434	0.1768	0.7138	12
+C_shellcloud_vs_core_pfam	PF20255	DUF6606	Family of unknown function (DUF6606)		2		6	6	9000	15032	1.67	0.04603	0.3631	16								11	6	7	5574	10657	1.639	0.079	0.4042	9
+C_shellcloud_vs_core_pfam	PF30480	LysM4_N	Secreted LysM effector N-terminal domain		2		6	6	9000	15032	1.67	0.04603	0.3631	18								10	4	6	5574	10657	1.275	0.3878	1	8
+C_shellcloud_vs_core_pfam	PF13847	Methyltransf_31	Methyltransferase domain	CL0063	3		44	62	9000	15032	1.185	0.04686	0.367	109	23	45	3973	9269	1.192	0.166	0.6774	73	27	49	5574	10657	1.054	0.4023	1	64
+C_shellcloud_vs_core_pfam	PF14226	DIOX_N	non-haem dioxygenase in morphine synthesis N-terminal	CL0029	3		16	20	9000	15032	1.336	0.04966	0.3836	38	1	8	3973	9269	0.292	0.9887	1	12	2	9	5574	10657	0.425	0.9861	1	11
+C_shellcloud_vs_core_pfam	PF06687	SUR7	SUR7/PalI family	CL0375	2		18	23	9000	15032	1.307	0.05251	0.4001	38								12	2	5	5574	10657	0.765	0.84	1	11
+C_shellcloud_vs_core_pfam	PF13489	Methyltransf_23	Methyltransferase domain	CL0063	3		65	95	9000	15032	1.143	0.05329	0.4027	165	45	71	3973	9269	1.479	3.777e-04	0.01306	125	45	73	5574	10657	1.179	0.06813	0.3855	103
+C_shellcloud_vs_core_pfam	PF07690	MFS_1	Major Facilitator Superfamily	CL0015	3		386	612	9000	15032	1.053	0.05358	0.4027	1134	145	253	3973	9269	1.337	1.966e-06	1.435e-04	511	197	292	5574	10657	1.29	7.118e-08	5.908e-06	421
+C_shellcloud_vs_core_pfam	PF00501	AMP-binding	AMP-binding enzyme	CL0378	3		84	125	9000	15032	1.122	0.05504	0.411	379	18	54	3973	9269	0.778	0.9418	1	643	35	67	5574	10657	0.999	0.5537	1	433
+C_shellcloud_vs_core_pfam	PF04199	Cyclase	Putative cyclase	CL0364	3		11	13	9000	15032	1.413	0.05677	0.4183	16	8	9	3973	9269	2.074	0.006327	0.09666	14	7	8	5574	10657	1.673	0.0464	0.2773	11
+C_shellcloud_vs_core_pfam	PF00109	ketoacyl-synt	Beta-ketoacyl synthase, N-terminal domain	CL0046	3		37	52	9000	15032	1.188	0.06212	0.4463	126	16	29	3973	9269	1.287	0.1247	0.5471	97	23	35	5574	10657	1.256	0.07669	0.4042	67
+C_shellcloud_vs_core_pfam	PF05686	Glyco_transf_90	Glycosyl transferase family 90	CL0113	3		15	19	9000	15032	1.319	0.06801	0.4463	38	7	10	3973	9269	1.633	0.07913	0.4443	16	6	9	5574	10657	1.275	0.3012	0.9146	9
+C_shellcloud_vs_core_pfam	PF00179	UQ_con	Ubiquitin-conjugating enzyme	CL0208	3		29	40	9000	15032	1.211	0.06851	0.4463	65	17	33	3973	9269	1.202	0.2027	0.7371	76	29	44	5574	10657	1.26	0.04754	0.2819	61
+C_shellcloud_vs_core_pfam	PF14521	Aspzincin_M35	Lysine-specific metallo-endopeptidase	CL0126	3		8	9	9000	15032	1.485	0.06946	0.4463	19	2	7	3973	9269	0.667	0.8758	1	14	4	9	5574	10657	0.85	0.7894	1	14
+C_shellcloud_vs_core_pfam	PF01070	FMN_dh	FMN-dependent dehydrogenase	CL0036	3		19	25	9000	15032	1.269	0.07163	0.4463	51	1	7	3973	9269	0.333	0.9802	1	14	3	8	5574	10657	0.717	0.8837	1	14
+C_shellcloud_vs_core_pfam	PF00955	HCO3_cotransp	HCO3- transporter integral membrane domain	CL0062	2		5	5	9000	15032	1.67	0.0769	0.4463	8	3	5	3973	9269	1.4	0.368	0.9588	8								5
+C_shellcloud_vs_core_pfam	PF09365	DUF2461	Conserved hypothetical protein (DUF2461)	CL0995	2		5	5	9000	15032	1.67	0.0769	0.4463	8	7	7	3973	9269	2.333	0.00265	0.05617	9								5
+C_shellcloud_vs_core_pfam	PF12770	CHAT	CHAT domain	CL0093	3		5	5	9000	15032	1.67	0.0769	0.4463	17	5	6	3973	9269	1.944	0.05575	0.3455	16	7	7	5574	10657	1.912	0.01069	0.1248	11
+C_shellcloud_vs_core_pfam	PF01569	PAP2	PAP2 superfamily	CL0525	3		10	12	9000	15032	1.392	0.08201	0.4686	15	5	11	3973	9269	1.06	0.5458	1	18	11	12	5574	10657	1.753	0.004987	0.08695	16
+C_shellcloud_vs_core_pfam	PF13813	MBOAT_2	Membrane bound O-acyl transferase family	CL0517	3		10	12	9000	15032	1.392	0.08201	0.4686	25	3	7	3973	9269	1	0.6408	1	10	1	6	5574	10657	0.319	0.9882	1	9
+C_shellcloud_vs_core_pfam	PF05057	DUF676	Putative serine esterase (DUF676)	CL0028	3		12	15	9000	15032	1.336	0.08878	0.5001	27	8	10	3973	9269	1.866	0.01969	0.1794	28	18	19	5574	10657	1.811	8.131e-05	0.003037	23
+C_shellcloud_vs_core_pfam	PF17667	Pkinase_fungal	Fungal protein kinase	CL0016	3		12	15	9000	15032	1.336	0.08878	0.5001	34	67	78	3973	9269	2.004	3.271e-15	1.075e-12	230	96	102	5574	10657	1.799	1.150e-20	2.864e-18	161
+C_shellcloud_vs_core_pfam	PF13639	zf-RING_2	Ring finger domain	CL0229	3		37	53	9000	15032	1.166	0.08885	0.5001	70	10	25	3973	9269	0.933	0.6855	1	49	13	29	5574	10657	0.857	0.8397	1	42
+C_shellcloud_vs_core_pfam	PF00891	Methyltransf_2	O-methyltransferase domain	CL0063	3		24	33	9000	15032	1.215	0.08966	0.5021	50	9	13	3973	9269	1.615	0.05085	0.3455	34	6	10	5574	10657	1.147	0.4347	1	15
+C_shellcloud_vs_core_pfam	PF03446	NAD_binding_2	NAD binding domain of 6-phosphogluconate dehydrogenase	CL0063	3		22	30	9000	15032	1.225	0.09145	0.5088	49	0	9	3973	9269	0	1	1	13	2	10	5574	10657	0.382	0.9927	1	10
+C_shellcloud_vs_core_pfam	PF03595	SLAC1	Voltage-dependent anion channel		3		14	18	9000	15032	1.299	0.09222	0.5088	32	4	7	3973	9269	1.333	0.347	0.9588	28	14	17	5574	10657	1.575	0.01054	0.1248	26
+C_shellcloud_vs_core_pfam	PF00664	ABC_membrane	ABC transporter transmembrane region	CL0241	3		42	61	9000	15032	1.15	0.09501	0.5216	114	14	29	3973	9269	1.126	0.3414	0.9588	80	22	36	5574	10657	1.168	0.1863	0.7442	64
+C_shellcloud_vs_core_pfam	PF02102	Peptidase_M35	Deuterolysin metalloprotease (M35) family	CL0126	3		7	8	9000	15032	1.461	0.105	0.5495	15	2	7	3973	9269	0.667	0.8758	1	18	7	12	5574	10657	1.115	0.4507	1	18
+C_shellcloud_vs_core_pfam	PF02260	FATC	FATC domain		2		7	8	9000	15032	1.461	0.105	0.5495	11	3	5	3973	9269	1.4	0.368	0.9588	11								8
+C_shellcloud_vs_core_pfam	PF00069	Pkinase	Protein kinase domain	CL0016	3		157	246	9000	15032	1.066	0.113	0.5831	405	150	250	3973	9269	1.4	2.494e-08	3.277e-06	526	199	301	5574	10657	1.264	5.996e-07	3.733e-05	427
+C_shellcloud_vs_core_pfam	PF13649	Methyltransf_25	Methyltransferase domain	CL0063	3		65	98	9000	15032	1.108	0.1135	0.5831	175	40	70	3973	9269	1.333	0.01103	0.1393	121	42	71	5574	10657	1.131	0.149	0.6547	101
+C_shellcloud_vs_core_pfam	PF01423	LSM	LSM domain	CL0986	3		21	29	9000	15032	1.209	0.1157	0.5831	37	6	21	3973	9269	0.667	0.9419	1	31	9	22	5574	10657	0.782	0.9007	1	28
+C_shellcloud_vs_core_pfam	PF00583	Acetyltransf_1	Acetyltransferase (GNAT) family	CL0257	3		58	87	9000	15032	1.113	0.1169	0.5831	157	15	48	3973	9269	0.729	0.964	1	65	9	42	5574	10657	0.41	1	1	53
+C_shellcloud_vs_core_pfam	PF00241	Cofilin_ADF	Cofilin/tropomyosin-type actin-binding protein	CL0092	2		9	11	9000	15032	1.367	0.1171	0.5831	15								9	3	6	5574	10657	0.956	0.6984	1	7
+C_shellcloud_vs_core_pfam	PF02902	Peptidase_C48	Ulp1 protease family, C-terminal catalytic domain	CL0125	3		9	11	9000	15032	1.367	0.1171	0.5831	17	6	7	3973	9269	2	0.02742	0.2144	16	8	9	5574	10657	1.699	0.02692	0.2483	11
+C_shellcloud_vs_core_pfam	PF12678	zf-rbx1	RING-H2 zinc finger domain	CL0229	2		9	11	9000	15032	1.367	0.1171	0.5831	13								7	1	5	5574	10657	0.382	0.9753	1	6
+C_shellcloud_vs_core_pfam	PF20174	DUF6540	Family of unknown function (DUF6540)	CL0125	3		9	11	9000	15032	1.367	0.1171	0.5831	20	22	28	3973	9269	1.833	1.271e-04	0.005567	52	27	32	5574	10657	1.613	1.506e-04	0.005358	48
+C_shellcloud_vs_core_pfam	PF02913	FAD-oxidase_C	FAD linked oxidases, C-terminal domain	CL0277	2		11	14	9000	15032	1.312	0.1222	0.5967	23								11	1	5	5574	10657	0.382	0.9753	1	9
+C_shellcloud_vs_core_pfam	PF07731	Cu-oxidase_2	Multicopper oxidase	CL0026	2		11	14	9000	15032	1.312	0.1222	0.5967	30								9	3	5	5574	10657	1.147	0.5431	1	9
+C_shellcloud_vs_core_pfam	PF13176	TPR_7	Tetratricopeptide repeat	CL0020	3		11	14	9000	15032	1.312	0.1222	0.5967	34	9	12	3973	9269	1.75	0.02513	0.209	21	8	14	5574	10657	1.093	0.4641	1	20
+C_shellcloud_vs_core_pfam	PF00657	Lipase_GDSL	GDSL-like Lipase/Acylhydrolase	CL0264	2		15	20	9000	15032	1.253	0.1231	0.5967	34								10	5	6	5574	10657	1.593	0.1324	0.5959	8
+C_shellcloud_vs_core_pfam	PF01135	PCMT	Protein-L-isoaspartate(D-aspartate) O-methyltransferase (PCMT)	CL0063	3		15	20	9000	15032	1.253	0.1231	0.5967	32	3	6	3973	9269	1.166	0.5149	1	13	2	6	5574	10657	0.637	0.9108	1	12
+C_shellcloud_vs_core_pfam	PF13086	AAA_11	AAA domain	CL0023	3		15	20	9000	15032	1.253	0.1231	0.5967	31	1	7	3973	9269	0.333	0.9802	1	12	4	9	5574	10657	0.85	0.7894	1	11
+C_shellcloud_vs_core_pfam	PF00300	His_Phos_1	Histidine phosphatase superfamily (branch 1)	CL0071	3		18	25	9000	15032	1.203	0.1503	0.6707	42	3	10	3973	9269	0.7	0.8747	1	22	6	11	5574	10657	1.043	0.5622	1	19
+C_shellcloud_vs_core_pfam	PF00328	His_Phos_2	Histidine phosphatase superfamily (branch 2)	CL0071	3		18	25	9000	15032	1.203	0.1503	0.6707	42	6	10	3973	9269	1.4	0.2179	0.7371	14	8	12	5574	10657	1.275	0.2413	0.8011	15
+C_shellcloud_vs_core_pfam	PF00561	Abhydrolase_1	alpha/beta hydrolase fold	CL0028	3		56	85	9000	15032	1.1	0.1531	0.6707	163	14	38	3973	9269	0.86	0.8197	1	69	16	37	5574	10657	0.827	0.898	1	54
+C_shellcloud_vs_core_pfam	PF00425	Chorismate_bind	chorismate binding enzyme	CL0969	3		6	7	9000	15032	1.432	0.1569	0.6707	11	3	5	3973	9269	1.4	0.368	0.9588	12	6	8	5574	10657	1.434	0.1768	0.7138	10
+C_shellcloud_vs_core_pfam	PF01244	Peptidase_M19	Membrane dipeptidase (Peptidase family M19)	CL0036	3		6	7	9000	15032	1.432	0.1569	0.6707	9	11	12	3973	9269	2.139	6.492e-04	0.02031	19	4	5	5574	10657	1.53	0.2176	0.7443	12
+C_shellcloud_vs_core_pfam	PF04188	Mannosyl_trans2	Mannosyltransferase (PIG-V)	CL0111	2		6	7	9000	15032	1.432	0.1569	0.6707	12	5	5	3973	9269	2.333	0.01445	0.1416	8								5
+C_shellcloud_vs_core_pfam	PF05577	Peptidase_S28	Serine carboxypeptidase S28	CL0028	2		6	7	9000	15032	1.432	0.1569	0.6707	9								8	2	5	5574	10657	0.765	0.84	1	8
+C_shellcloud_vs_core_pfam	PF05995	CDO_I	Cysteine dioxygenase type I	CL0029	2		6	7	9000	15032	1.432	0.1569	0.6707	11								9	5	5	5574	10657	1.912	0.03911	0.2563	7
+C_shellcloud_vs_core_pfam	PF14555	UBA_4	UBA-like domain	CL0214	3		6	7	9000	15032	1.432	0.1569	0.6707	9	0	5	3973	9269	0	1	1	10	3	7	5574	10657	0.819	0.8095	1	10
+C_shellcloud_vs_core_pfam	PF17109	Goodbye	fungal STAND N-terminal Goodbye domain	CL0864	3		6	7	9000	15032	1.432	0.1569	0.6707	22	6	6	3973	9269	2.333	0.006188	0.09666	9	5	5	5574	10657	1.912	0.03911	0.2563	6
+C_shellcloud_vs_core_pfam	PF27504	DUF8348	Domain of unknown function (DUF8348)		2		6	7	9000	15032	1.432	0.1569	0.6707	20								6	6	6	5574	10657	1.912	0.02045	0.2025	7
+C_shellcloud_vs_core_pfam	PF07716	bZIP_2	Basic region leucine zipper	CL0018	2		14	19	9000	15032	1.231	0.16	0.6737	31								10	5	7	5574	10657	1.366	0.266	0.8245	10
+C_shellcloud_vs_core_pfam	PF13245	AAA_19	AAA domain	CL0023	3		14	19	9000	15032	1.231	0.16	0.6737	27	1	5	3973	9269	0.467	0.9392	1	10	4	8	5574	10657	0.956	0.6859	1	10
+C_shellcloud_vs_core_pfam	PF16197	KAsynt_C_assoc	Ketoacyl-synthetase C-terminal extension	CL0046	3		14	19	9000	15032	1.231	0.16	0.6737	46	3	8	3973	9269	0.875	0.7416	1	25	5	10	5574	10657	0.956	0.6784	1	18
+C_shellcloud_vs_core_pfam	PF22621	CurL-like_PKS_C	CurL-like, PKS C-terminal	CL0046	2		14	19	9000	15032	1.231	0.16	0.6737	47								11	4	5	5574	10657	1.53	0.2176	0.7443	8
+C_shellcloud_vs_core_pfam	PF08445	FR47	FR47-like protein	CL0257	3		12	16	9000	15032	1.253	0.1639	0.6866	24	7	14	3973	9269	1.166	0.3896	1	21	3	11	5574	10657	0.521	0.977	1	14
+C_shellcloud_vs_core_pfam	PF01263	Aldose_epim	Aldose 1-epimerase	CL0103	2		8	10	9000	15032	1.336	0.1652	0.6866	16								7	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF00282	Pyridoxal_deC	Pyridoxal-dependent decarboxylase conserved domain	CL0061	3		10	13	9000	15032	1.285	0.1661	0.6866	15	4	9	3973	9269	1.037	0.5881	1	20	2	7	5574	10657	0.546	0.9513	1	13
+C_shellcloud_vs_core_pfam	PF00535	Glycos_transf_2	Glycosyl transferase family 2	CL0110	3		10	13	9000	15032	1.285	0.1661	0.6866	26	3	5	3973	9269	1.4	0.368	0.9588	17	5	8	5574	10657	1.195	0.4147	1	15
+C_shellcloud_vs_core_pfam	PF01494	FAD_binding_3	FAD binding domain	CL0063	3		60	92	9000	15032	1.089	0.1732	0.7117	203	12	26	3973	9269	1.077	0.4404	1	54	23	35	5574	10657	1.256	0.07669	0.4042	49
+C_shellcloud_vs_core_pfam	PF00933	Glyco_hydro_3	Glycosyl hydrolase family 3 N terminal domain	CL0036	3		28	41	9000	15032	1.141	0.1735	0.7117	67	1	6	3973	9269	0.389	0.9652	1	15	3	7	5574	10657	0.819	0.8095	1	12
+C_shellcloud_vs_core_pfam	PF00097	zf-C3HC4	Zinc finger, C3HC4 type (RING finger)	CL0229	3		38	57	9000	15032	1.113	0.181	0.74	84	9	32	3973	9269	0.656	0.9714	1	64	19	41	5574	10657	0.886	0.8219	1	55
+C_shellcloud_vs_core_pfam	PF00170	bZIP_1	bZIP transcription factor	CL0018	3		15	21	9000	15032	1.193	0.1968	0.7663	33	5	9	3973	9269	1.296	0.329	0.9588	22	8	11	5574	10657	1.39	0.1456	0.6438	18
+C_shellcloud_vs_core_pfam	PF00180	Iso_dh	Isocitrate/isopropylmalate dehydrogenase	CL0270	3		15	21	9000	15032	1.193	0.1968	0.7663	33	7	12	3973	9269	1.361	0.2134	0.7371	21	7	11	5574	10657	1.217	0.3286	0.9778	14
+C_shellcloud_vs_core_pfam	PF08031	BBE	Berberine and berberine like	CL0277	3		22	32	9000	15032	1.148	0.2002	0.7663	70	3	7	3973	9269	1	0.6408	1	12	2	5	5574	10657	0.765	0.84	1	7
+C_shellcloud_vs_core_pfam	PF13921	Myb_DNA-bind_6	Myb-like DNA-binding domain	CL0123	3		22	32	9000	15032	1.148	0.2002	0.7663	45	9	17	3973	9269	1.235	0.274	0.8955	42	22	29	5574	10657	1.45	0.008087	0.1208	35
+C_shellcloud_vs_core_pfam	PF00083	Sugar_tr	Sugar (and other) transporter	CL0015	3		203	326	9000	15032	1.04	0.2019	0.7663	636	76	129	3973	9269	1.374	1.604e-04	0.006586	279	126	168	5574	10657	1.434	9.588e-10	1.023e-07	241
+C_shellcloud_vs_core_pfam	PF00481	PP2C	Protein phosphatase 2C	CL0238	3		13	18	9000	15032	1.206	0.2055	0.7663	27	0	6	3973	9269	0	1	1	18	9	14	5574	10657	1.229	0.2659	0.8245	17
+C_shellcloud_vs_core_pfam	PF13087	AAA_12	AAA domain	CL0023	3		13	18	9000	15032	1.206	0.2055	0.7663	26	1	7	3973	9269	0.333	0.9802	1	11	4	9	5574	10657	0.85	0.7894	1	10
+C_shellcloud_vs_core_pfam	PF00488	MutS_V	MutS domain V	CL0023	3		11	15	9000	15032	1.225	0.2142	0.7663	26	2	6	3973	9269	0.778	0.8087	1	15	5	11	5574	10657	0.869	0.7752	1	14
+C_shellcloud_vs_core_pfam	PF01179	Cu_amine_oxid	Copper amine oxidase, enzyme domain	CL0103	3		11	15	9000	15032	1.225	0.2142	0.7663	33	3	8	3973	9269	0.875	0.7416	1	17	3	9	5574	10657	0.637	0.9309	1	12
+C_shellcloud_vs_core_pfam	PF13460	NAD_binding_10	NAD(P)H-binding	CL0063	3		50	77	9000	15032	1.085	0.2151	0.7663	153	2	13	3973	9269	0.359	0.9926	1	30	5	15	5574	10657	0.637	0.9592	1	27
+C_shellcloud_vs_core_pfam	PF00071	Ras	Ras family	CL0023	3		45	69	9000	15032	1.089	0.2173	0.7663	98	8	37	3973	9269	0.504	0.9981	1	60	14	41	5574	10657	0.653	0.9938	1	54
+C_shellcloud_vs_core_pfam	PF00549	Ligase_CoA	CoA-ligase	CL0506	3		9	12	9000	15032	1.253	0.2225	0.7663	24	1	5	3973	9269	0.467	0.9392	1	9	3	6	5574	10657	0.956	0.6984	1	6
+C_shellcloud_vs_core_pfam	PF01066	CDP-OH_P_transf	CDP-alcohol phosphatidyltransferase		3		9	12	9000	15032	1.253	0.2225	0.7663	18	3	7	3973	9269	1	0.6408	1	20	7	10	5574	10657	1.338	0.2122	0.7443	13
+C_shellcloud_vs_core_pfam	PF02728	Cu_amine_oxidN3	Copper amine oxidase, N3 domain	CL0047	2		9	12	9000	15032	1.253	0.2225	0.7663	23								9	1	5	5574	10657	0.382	0.9753	1	7
+C_shellcloud_vs_core_pfam	PF09011	HMG_box_2	HMG-box domain	CL0114	3		9	12	9000	15032	1.253	0.2225	0.7663	23	2	6	3973	9269	0.778	0.8087	1	10	2	6	5574	10657	0.637	0.9108	1	9
+C_shellcloud_vs_core_pfam	PF13894	zf-C2H2_4	C2H2-type zinc finger	CL0361	3		9	12	9000	15032	1.253	0.2225	0.7663	20	6	10	3973	9269	1.4	0.2179	0.7371	19	7	10	5574	10657	1.338	0.2122	0.7443	14
+C_shellcloud_vs_core_pfam	PF13445	zf-RING_UBOX	RING-type zinc-finger	CL0229	3		23	34	9000	15032	1.13	0.2282	0.7663	47	7	20	3973	9269	0.817	0.8252	1	30	10	21	5574	10657	0.91	0.7419	1	25
+C_shellcloud_vs_core_pfam	PF00909	Ammonium_transp	Ammonium Transporter Family		3		7	9	9000	15032	1.299	0.2293	0.7663	13	4	5	3973	9269	1.866	0.1108	0.5057	11	3	5	5574	10657	1.147	0.5431	1	10
+C_shellcloud_vs_core_pfam	PF03105	SPX	SPX domain		3		7	9	9000	15032	1.299	0.2293	0.7663	13	0	5	3973	9269	0	1	1	14	2	5	5574	10657	0.765	0.84	1	12
+C_shellcloud_vs_core_pfam	PF11735	CAP59_mtransfer	Cryptococcal mannosyltransferase 1	CL0110	3		7	9	9000	15032	1.299	0.2293	0.7663	15	1	5	3973	9269	0.467	0.9392	1	10	4	7	5574	10657	1.093	0.5503	1	9
+C_shellcloud_vs_core_pfam	PF00551	Formyl_trans_N	Formyl transferase		3		5	6	9000	15032	1.392	0.2312	0.7663	9	4	5	3973	9269	1.866	0.1108	0.5057	17	9	9	5574	10657	1.912	0.00292	0.05594	14
+C_shellcloud_vs_core_pfam	PF00892	EamA	EamA-like transporter family	CL0184	2		5	6	9000	15032	1.392	0.2312	0.7663	17								5	3	5	5574	10657	1.147	0.5431	1	5
+C_shellcloud_vs_core_pfam	PF03033	Glyco_transf_28	Glycosyltransferase family 28 N-terminal domain	CL0113	2		5	6	9000	15032	1.392	0.2312	0.7663	12	5	6	3973	9269	1.944	0.05575	0.3455	9								5
+C_shellcloud_vs_core_pfam	PF04099	Sybindin	Sybindin-like family	CL0431	3		5	6	9000	15032	1.392	0.2312	0.7663	10	6	7	3973	9269	2	0.02742	0.2144	11	8	8	5574	10657	1.912	0.005587	0.08695	9
+C_shellcloud_vs_core_pfam	PF04516	CP2	CP2 transcription factor	CL0073	2		5	6	9000	15032	1.392	0.2312	0.7663	12	5	5	3973	9269	2.333	0.01445	0.1416	7								5
+C_shellcloud_vs_core_pfam	PF18130	ATPgrasp_N	ATP-grasp N-terminal domain		2		5	6	9000	15032	1.392	0.2312	0.7663	15								6	4	5	5574	10657	1.53	0.2176	0.7443	7
+C_shellcloud_vs_core_pfam	PF22924	ACOX_C_alpha1	Acyl-CoA oxidase, C-alpha1 domain	CL0087	3		5	6	9000	15032	1.392	0.2312	0.7663	12	3	6	3973	9269	1.166	0.5149	1	12	2	5	5574	10657	0.765	0.84	1	9
+C_shellcloud_vs_core_pfam	PF00450	Peptidase_S10	Serine carboxypeptidase	CL0028	3		16	23	9000	15032	1.162	0.2332	0.7706	40	15	23	3973	9269	1.522	0.02561	0.2103	62	20	28	5574	10657	1.366	0.03142	0.2563	45
+C_shellcloud_vs_core_pfam	PF01209	Ubie_methyltran	ubiE/COQ5 methyltransferase family	CL0063	3		24	36	9000	15032	1.113	0.2562	0.8439	73	6	16	3973	9269	0.875	0.751	1	29	4	14	5574	10657	0.546	0.981	1	22
+C_shellcloud_vs_core_pfam	PF03061	4HBT	Thioesterase superfamily	CL0050	3		12	17	9000	15032	1.179	0.2603	0.8524	36	2	8	3973	9269	0.583	0.9206	1	16	7	12	5574	10657	1.115	0.4507	1	14
+C_shellcloud_vs_core_pfam	PF13472	Lipase_GDSL_2	GDSL-like Lipase/Acylhydrolase family	CL0264	2		12	17	9000	15032	1.179	0.2603	0.8524	35								9	4	5	5574	10657	1.53	0.2176	0.7443	7
+C_shellcloud_vs_core_pfam	PF01915	Glyco_hydro_3_C	Glycosyl hydrolase family 3 C-terminal domain		3		22	33	9000	15032	1.113	0.2706	0.8836	59	2	5	3973	9269	0.933	0.7108	1	10	3	5	5574	10657	1.147	0.5431	1	7
+C_shellcloud_vs_core_pfam	PF00505	HMG_box	HMG (high mobility group) box	CL0114	3		10	14	9000	15032	1.193	0.2759	0.8956	27	2	8	3973	9269	0.583	0.9206	1	12	2	7	5574	10657	0.546	0.9513	1	10
+C_shellcloud_vs_core_pfam	PF05192	MutS_III	MutS domain III		3		10	14	9000	15032	1.193	0.2759	0.8956	27	2	6	3973	9269	0.778	0.8087	1	14	3	9	5574	10657	0.637	0.9309	1	13
+C_shellcloud_vs_core_pfam	PF03807	F420_oxidored	NADP oxidoreductase coenzyme F420-dependent	CL0063	3		8	11	9000	15032	1.215	0.2932	0.9099	17	2	5	3973	9269	0.933	0.7108	1	9	4	9	5574	10657	0.85	0.7894	1	11
+C_shellcloud_vs_core_pfam	PF07724	AAA_2	AAA domain (Cdc48 subfamily)	CL0023	3		8	11	9000	15032	1.215	0.2932	0.9099	17	1	6	3973	9269	0.389	0.9652	1	13	1	6	5574	10657	0.319	0.9882	1	9
+C_shellcloud_vs_core_pfam	PF12831	FAD_oxidored	FAD dependent oxidoreductase	CL0063	3		8	11	9000	15032	1.215	0.2932	0.9099	25	1	10	3973	9269	0.233	0.9963	1	22	4	13	5574	10657	0.588	0.9679	1	17
+C_shellcloud_vs_core_pfam	PF20434	BD-FAE	BD-FAE	CL0028	3		36	56	9000	15032	1.074	0.2975	0.9099	101	9	20	3973	9269	1.05	0.5087	1	35	8	21	5574	10657	0.728	0.9366	1	27
+C_shellcloud_vs_core_pfam	PF23441	SDR	SDR-like rossmann domain	CL0063	3		18	27	9000	15032	1.113	0.3038	0.9099	43	3	8	3973	9269	0.875	0.7416	1	13	2	8	5574	10657	0.478	0.9739	1	10
+C_shellcloud_vs_core_pfam	PF07859	Abhydrolase_3	alpha/beta hydrolase fold	CL0028	3		34	53	9000	15032	1.071	0.3126	0.9099	106	12	26	3973	9269	1.077	0.4404	1	47	9	24	5574	10657	0.717	0.9518	1	35
+C_shellcloud_vs_core_pfam	PF00102	Y_phosphatase	Protein-tyrosine phosphatase	CL0031	2		6	8	9000	15032	1.253	0.3127	0.9099	11								15	8	10	5574	10657	1.53	0.07275	0.4025	16
+C_shellcloud_vs_core_pfam	PF00250	Forkhead	Forkhead domain	CL0123	2		6	8	9000	15032	1.253	0.3127	0.9099	9								11	4	7	5574	10657	1.093	0.5503	1	9
+C_shellcloud_vs_core_pfam	PF01134	GIDA	Glucose inhibited division protein A	CL0063	2		6	8	9000	15032	1.253	0.3127	0.9099	17								11	1	5	5574	10657	0.382	0.9753	1	8
+C_shellcloud_vs_core_pfam	PF01323	DSBA	DSBA-like thioredoxin domain	CL0172	3		6	8	9000	15032	1.253	0.3127	0.9099	14	3	5	3973	9269	1.4	0.368	0.9588	9	2	5	5574	10657	0.765	0.84	1	5
+C_shellcloud_vs_core_pfam	PF05922	Inhibitor_I9	Peptidase inhibitor I9	CL0570	3		6	8	9000	15032	1.253	0.3127	0.9099	10	4	17	3973	9269	0.549	0.9723	1	33	8	19	5574	10657	0.805	0.8688	1	27
+C_shellcloud_vs_core_pfam	PF14634	zf-RING_5	zinc-RING finger domain	CL0229	3		6	8	9000	15032	1.253	0.3127	0.9099	12	1	6	3973	9269	0.389	0.9652	1	9	6	8	5574	10657	1.434	0.1768	0.7138	8
+C_shellcloud_vs_core_pfam	PF06985	HET	Heterokaryon incompatibility protein (HET)		2		11	16	9000	15032	1.148	0.325	0.9099	46								8	7	7	5574	10657	1.912	0.01069	0.1248	8
+C_shellcloud_vs_core_pfam	PF13508	Acetyltransf_7	Acetyltransferase (GNAT) domain	CL0257	3		32	50	9000	15032	1.069	0.3286	0.9099	87	13	35	3973	9269	0.867	0.8033	1	44	5	29	5574	10657	0.33	1	1	35
+C_shellcloud_vs_core_pfam	PF01019	G_glu_transpept	Gamma-glutamyltranspeptidase	CL0052	2		4	5	9000	15032	1.336	0.3347	0.9099	13								10	4	5	5574	10657	1.53	0.2176	0.7443	5
+C_shellcloud_vs_core_pfam	PF22942	DUF7025	Domain of unknown function (DUF7025)		3		4	5	9000	15032	1.336	0.3347	0.9099	18	10	11	3973	9269	2.121	0.001398	0.03401	27	8	9	5574	10657	1.699	0.02692	0.2483	17
+C_shellcloud_vs_core_pfam	PF01425	Amidase	Amidase		3		27	42	9000	15032	1.074	0.3382	0.9171	95	6	20	3973	9269	0.7	0.9202	1	50	10	24	5574	10657	0.797	0.8943	1	47
+C_shellcloud_vs_core_pfam	PF00581	Rhodanese	Rhodanese-like domain	CL0031	3		14	21	9000	15032	1.113	0.345	0.9266	29	0	7	3973	9269	0	1	1	13	3	10	5574	10657	0.574	0.9598	1	13
+C_shellcloud_vs_core_pfam	PF00795	CN_hydrolase	Carbon-nitrogen hydrolase		3		14	21	9000	15032	1.113	0.345	0.9266	41	0	5	3973	9269	0	1	1	9	0	5	5574	10657	0	1	1	8
+C_shellcloud_vs_core_pfam	PF00857	Isochorismatase	Isochorismatase domain		3		14	21	9000	15032	1.113	0.345	0.9266	37	1	6	3973	9269	0.389	0.9652	1	9	2	7	5574	10657	0.546	0.9513	1	8
+C_shellcloud_vs_core_pfam	PF01284	MARVEL	Membrane-associating domain	CL0396	2		14	21	9000	15032	1.113	0.345	0.9266	28	0	5	3973	9269	0	1	1	7								4
+C_shellcloud_vs_core_pfam	PF00385	Chromo	Chromo (CHRromatin Organisation MOdifier) domain	CL0010	3		9	13	9000	15032	1.156	0.3494	0.9318	22	11	14	3973	9269	1.833	0.007337	0.1048	22	9	14	5574	10657	1.229	0.2659	0.8245	17
+C_shellcloud_vs_core_pfam	PF10294	Methyltransf_16	Lysine methyltransferase	CL0063	3		9	13	9000	15032	1.156	0.3494	0.9318	20	3	7	3973	9269	1	0.6408	1	14	3	7	5574	10657	0.819	0.8095	1	10
+C_shellcloud_vs_core_pfam	PF13923	zf-C3HC4_2	Zinc finger, C3HC4 type (RING finger)	CL0229	3		20	31	9000	15032	1.078	0.3696	0.9796	45	7	21	3973	9269	0.778	0.8659	1	33	11	24	5574	10657	0.876	0.7995	1	30
+C_shellcloud_vs_core_pfam	PF04193	PQ-loop	PQ loop repeat	CL0141	3		12	18	9000	15032	1.113	0.37	0.9796	22	1	8	3973	9269	0.292	0.9887	1	16	2	9	5574	10657	0.425	0.9861	1	11
+C_shellcloud_vs_core_pfam	PF00806	PUF	Pumilio-family RNA binding repeat	CL0020	3		7	10	9000	15032	1.169	0.379	0.9827	14	4	7	3973	9269	1.333	0.347	0.9588	12	1	6	5574	10657	0.319	0.9882	1	8
+C_shellcloud_vs_core_pfam	PF02373	JmjC	JmjC domain, hydroxylase	CL0029	3		7	10	9000	15032	1.169	0.379	0.9827	14	6	10	3973	9269	1.4	0.2179	0.7371	18	1	6	5574	10657	0.319	0.9882	1	13
+C_shellcloud_vs_core_pfam	PF03953	Tubulin_C	Tubulin C-terminal domain	CL0442	2		7	10	9000	15032	1.169	0.379	0.9827	19								8	1	5	5574	10657	0.382	0.9753	1	7
+C_shellcloud_vs_core_pfam	PF13532	2OG-FeII_Oxy_2	2OG-Fe(II) oxygenase superfamily	CL0029	3		7	10	9000	15032	1.169	0.379	0.9827	19	1	6	3973	9269	0.389	0.9652	1	10	2	6	5574	10657	0.637	0.9108	1	8
+C_shellcloud_vs_core_pfam	PF00202	Aminotran_3	Aminotransferase class-III	CL0061	3		10	15	9000	15032	1.113	0.3992	1	28	10	14	3973	9269	1.666	0.02961	0.2262	25	3	8	5574	10657	0.717	0.8837	1	13
+C_shellcloud_vs_core_pfam	PF11905	DUF3425	Domain of unknown function (DUF3425)		3		10	15	9000	15032	1.113	0.3992	1	37	4	6	3973	9269	1.555	0.221	0.7371	12	4	5	5574	10657	1.53	0.2176	0.7443	9
+C_shellcloud_vs_core_pfam	PF00264	Tyrosinase	Common central domain of tyrosinase	CL0205	3		5	7	9000	15032	1.193	0.4171	1	18	4	7	3973	9269	1.333	0.347	0.9588	12	4	5	5574	10657	1.53	0.2176	0.7443	9
+C_shellcloud_vs_core_pfam	PF01039	Carboxyl_trans	Carboxyl transferase domain	CL0127	2		5	7	9000	15032	1.193	0.4171	1	17								11	6	7	5574	10657	1.639	0.079	0.4042	10
+C_shellcloud_vs_core_pfam	PF23445	WHD_SNRNP200	Winged Helix-turn-helix domain	CL0123	2		5	7	9000	15032	1.193	0.4171	1	11								7	4	6	5574	10657	1.275	0.3878	1	7
+C_shellcloud_vs_core_pfam	PF14310	Fn3-like	Fibronectin type III-like domain	CL0159	2		19	30	9000	15032	1.058	0.4254	1	50								8	3	5	5574	10657	1.147	0.5431	1	7
+C_shellcloud_vs_core_pfam	PF23098	Beta-prop_NOL10_N	Nucleolar protein 10-like, N-terminal domain	CL0186	3		19	30	9000	15032	1.058	0.4254	1	45	1	11	3973	9269	0.212	0.9979	1	17	2	11	5574	10657	0.348	0.9962	1	14
+C_shellcloud_vs_core_pfam	PF01217	Clat_adaptor_s	Clathrin adaptor complex small chain	CL0431	3		8	12	9000	15032	1.113	0.4345	1	15	3	9	3973	9269	0.778	0.8183	1	11	2	7	5574	10657	0.546	0.9513	1	7
+C_shellcloud_vs_core_pfam	PF02714	RSN1_7TM	Calcium-dependent channel, 7TM region, putative phosphate	CL0416	3		8	12	9000	15032	1.113	0.4345	1	17	5	10	3973	9269	1.166	0.44	1	13	1	6	5574	10657	0.319	0.9882	1	8
+C_shellcloud_vs_core_pfam	PF08264	Anticodon_1	Anticodon-binding domain of tRNA ligase	CL0258	2		8	12	9000	15032	1.113	0.4345	1	15								10	0	5	5574	10657	0	1	1	8
+C_shellcloud_vs_core_pfam	PF08241	Methyltransf_11	Methyltransferase domain	CL0063	3		63	103	9000	15032	1.022	0.436	1	184	38	68	3973	9269	1.304	0.02048	0.1794	122	41	72	5574	10657	1.089	0.251	0.8245	99
+C_shellcloud_vs_core_pfam	PF01545	Cation_efflux	Cation efflux transmembrane domain		3		11	17	9000	15032	1.081	0.4435	1	28	9	14	3973	9269	1.5	0.08908	0.4837	28	12	16	5574	10657	1.434	0.05629	0.3234	21
+C_shellcloud_vs_core_pfam	PF13920	zf-C3HC4_3	Zinc finger, C3HC4 type (RING finger)	CL0229	3		11	17	9000	15032	1.081	0.4435	1	27	3	13	3973	9269	0.538	0.9623	1	31	9	17	5574	10657	1.012	0.5765	1	26
+C_shellcloud_vs_core_pfam	PF00091	Tubulin	Tubulin/FtsZ family, GTPase domain	CL0063	2		6	9	9000	15032	1.113	0.4794	1	18								9	1	5	5574	10657	0.382	0.9753	1	8
+C_shellcloud_vs_core_pfam	PF00403	HMA	Heavy-metal-associated domain	CL0704	3		6	9	9000	15032	1.113	0.4794	1	16	2	7	3973	9269	0.667	0.8758	1	11	1	6	5574	10657	0.319	0.9882	1	9
+C_shellcloud_vs_core_pfam	PF00579	tRNA-synt_1b	tRNA synthetases class I (W and Y)	CL0039	2		6	9	9000	15032	1.113	0.4794	1	14								10	5	8	5574	10657	1.195	0.4147	1	10
+C_shellcloud_vs_core_pfam	PF01222	ERG4_ERG24	Ergosterol biosynthesis ERG4/ERG24 family	CL0115	2		6	9	9000	15032	1.113	0.4794	1	15	2	5	3973	9269	0.933	0.7108	1	12								9
+C_shellcloud_vs_core_pfam	PF02259	FAT	FAT domain	CL0020	3		6	9	9000	15032	1.113	0.4794	1	13	4	7	3973	9269	1.333	0.347	0.9588	12	1	5	5574	10657	0.382	0.9753	1	9
+C_shellcloud_vs_core_pfam	PF03006	HlyIII	Haemolysin-III related	CL0192	3		6	9	9000	15032	1.113	0.4794	1	14	4	7	3973	9269	1.333	0.347	0.9588	11	6	8	5574	10657	1.434	0.1768	0.7138	9
+C_shellcloud_vs_core_pfam	PF08389	Xpo1	Exportin 1-like protein	CL0020	3		6	9	9000	15032	1.113	0.4794	1	11	0	5	3973	9269	0	1	1	8	2	6	5574	10657	0.637	0.9108	1	8
+C_shellcloud_vs_core_pfam	PF12763	EH	EH domain	CL0220	2		6	9	9000	15032	1.113	0.4794	1	12	2	6	3973	9269	0.778	0.8087	1	12								8
+C_shellcloud_vs_core_pfam	PF14765	PS-DH	Polyketide synthase dehydratase N-terminal domain	CL0050	3		12	19	9000	15032	1.055	0.4832	1	58	7	13	3973	9269	1.256	0.2989	0.9588	24	7	13	5574	10657	1.029	0.5673	1	19
+C_shellcloud_vs_core_pfam	PF00326	Peptidase_S9	Prolyl oligopeptidase family	CL0028	3		18	29	9000	15032	1.037	0.4844	1	48	5	12	3973	9269	0.972	0.6408	1	27	4	13	5574	10657	0.588	0.9679	1	19
+C_shellcloud_vs_core_pfam	PF00743	FMO-like	Flavin-binding monooxygenase-like	CL0063	3		21	34	9000	15032	1.032	0.4846	1	67	11	22	3973	9269	1.166	0.3198	0.9588	42	20	29	5574	10657	1.319	0.05208	0.3039	38
+C_shellcloud_vs_core_pfam	PF08242	Methyltransf_12	Methyltransferase domain	CL0063	3		39	64	9000	15032	1.018	0.4848	1	120	23	44	3973	9269	1.22	0.1334	0.5671	67	22	44	5574	10657	0.956	0.6769	1	58
+C_shellcloud_vs_core_pfam	PF05368	NmrA	NmrA-like family	CL0063	3		40	66	9000	15032	1.012	0.5049	1	131	3	13	3973	9269	0.538	0.9623	1	32	7	16	5574	10657	0.836	0.8252	1	29
+C_shellcloud_vs_core_pfam	PF05199	GMC_oxred_C	GMC oxidoreductase	CL0063	3		16	26	9000	15032	1.028	0.516	1	66	2	5	3973	9269	0.933	0.7108	1	20	8	12	5574	10657	1.275	0.2413	0.8011	17
+C_shellcloud_vs_core_pfam	PF00082	Peptidase_S8	Subtilase family		3		10	16	9000	15032	1.044	0.5229	1	24	15	28	3973	9269	1.25	0.1695	0.6875	72	27	42	5574	10657	1.229	0.07956	0.4043	57
+C_shellcloud_vs_core_pfam	PF00854	PTR2	POT family	CL0015	3		10	16	9000	15032	1.044	0.5229	1	31	9	12	3973	9269	1.75	0.02513	0.209	24	15	19	5574	10657	1.509	0.01598	0.1808	21
+C_shellcloud_vs_core_pfam	PF21089	PKS_DH_N	Polyketide synthase dehydratase domain	CL0050	3		10	16	9000	15032	1.044	0.5229	1	50	4	8	3973	9269	1.166	0.4729	1	12	2	6	5574	10657	0.637	0.9108	1	10
+C_shellcloud_vs_core_pfam	PF01728	FtsJ	FtsJ-like methyltransferase	CL0063	3		7	11	9000	15032	1.063	0.5292	1	15	2	8	3973	9269	0.583	0.9206	1	12	1	7	5574	10657	0.273	0.9944	1	9
+C_shellcloud_vs_core_pfam	PF00190	Cupin_1	Cupin	CL0029	2		4	6	9000	15032	1.113	0.5417	1	10	4	5	3973	9269	1.866	0.1108	0.5057	9								7
+C_shellcloud_vs_core_pfam	PF00994	MoCF_biosynth	Probable molybdopterin binding domain		2		4	6	9000	15032	1.113	0.5417	1	12								8	4	5	5574	10657	1.53	0.2176	0.7443	5
+C_shellcloud_vs_core_pfam	PF01480	PWI	PWI domain	CL0805	2		4	6	9000	15032	1.113	0.5417	1	11	5	8	3973	9269	1.458	0.221	0.7371	10								4
+C_shellcloud_vs_core_pfam	PF01633	Choline_kinase	Choline/ethanolamine kinase	CL0016	2		4	6	9000	15032	1.113	0.5417	1	7								11	3	5	5574	10657	1.147	0.5431	1	11
+C_shellcloud_vs_core_pfam	PF02301	HORMA	HORMA domain	CL0651	2		4	6	9000	15032	1.113	0.5417	1	6								14	5	8	5574	10657	1.195	0.4147	1	12
+C_shellcloud_vs_core_pfam	PF02854	MIF4G	MIF4G domain	CL0020	3		4	6	9000	15032	1.113	0.5417	1	7	1	5	3973	9269	0.467	0.9392	1	7	1	5	5574	10657	0.382	0.9753	1	6
+C_shellcloud_vs_core_pfam	PF12352	V-SNARE_C	Snare region anchored in the vesicle membrane C-terminus	CL0445	3		4	6	9000	15032	1.113	0.5417	1	8	3	6	3973	9269	1.166	0.5149	1	8	5	7	5574	10657	1.366	0.266	0.8245	8
+C_shellcloud_vs_core_pfam	PF12697	Abhydrolase_6	Alpha/beta hydrolase family	CL0028	3		42	70	9000	15032	1.002	0.5431	1	139	17	40	3973	9269	0.992	0.5788	1	80	22	41	5574	10657	1.026	0.494	1	61
+C_shellcloud_vs_core_pfam	PF13191	AAA_16	AAA ATPase domain	CL0023	3		11	18	9000	15032	1.021	0.559	1	31	1	7	3973	9269	0.333	0.9802	1	8	2	8	5574	10657	0.478	0.9739	1	8
+C_shellcloud_vs_core_pfam	PF00005	ABC_tran	ABC transporter	CL0023	3		65	109	9000	15032	0.996	0.5617	1	221	32	62	3973	9269	1.204	0.1028	0.5057	165	48	80	5574	10657	1.147	0.1015	0.5022	129
+C_shellcloud_vs_core_pfam	PF00133	tRNA-synt_1	tRNA synthetases class I (I, L, M and V)	CL0039	3		8	13	9000	15032	1.028	0.5706	1	18	1	7	3973	9269	0.333	0.9802	1	15	0	7	5574	10657	0	1	1	12
+C_shellcloud_vs_core_pfam	PF09334	tRNA-synt_1g	tRNA synthetases class I (M)	CL0039	3		8	13	9000	15032	1.028	0.5706	1	20	1	7	3973	9269	0.333	0.9802	1	14	0	7	5574	10657	0	1	1	10
+C_shellcloud_vs_core_pfam	PF13641	Glyco_tranf_2_3	Glycosyltransferase like family 2	CL0110	3		8	13	9000	15032	1.028	0.5706	1	28	19	22	3973	9269	2.015	3.229e-05	0.001768	53	27	31	5574	10657	1.665	4.712e-05	0.001955	43
+C_shellcloud_vs_core_pfam	PF00732	GMC_oxred_N	GMC oxidoreductase	CL0063	3		15	25	9000	15032	1.002	0.5807	1	51	2	6	3973	9269	0.778	0.8087	1	18	4	8	5574	10657	0.956	0.6859	1	13
+C_shellcloud_vs_core_pfam	PF08477	Roc	Ras of Complex, Roc, domain of DAPkinase	CL0023	3		35	59	9000	15032	0.991	0.59	1	85	6	34	3973	9269	0.412	0.9996	1	51	12	39	5574	10657	0.588	0.998	1	47
+C_shellcloud_vs_core_pfam	PF00498	FHA	FHA domain	CL0357	3		12	20	9000	15032	1.002	0.591	1	30	3	16	3973	9269	0.437	0.9897	1	37	8	18	5574	10657	0.85	0.817	1	27
+C_shellcloud_vs_core_pfam	PF00569	ZZ	Zinc finger, ZZ type	CL0229	3		5	8	9000	15032	1.044	0.5911	1	13	2	5	3973	9269	0.933	0.7108	1	13	2	5	5574	10657	0.765	0.84	1	11
+C_shellcloud_vs_core_pfam	PF00789	UBX	UBX domain	CL0072	3		5	8	9000	15032	1.044	0.5911	1	12	0	6	3973	9269	0	1	1	7	0	6	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF00916	Sulfate_transp	Sulfate permease family	CL0062	3		5	8	9000	15032	1.044	0.5911	1	15	5	8	3973	9269	1.458	0.221	0.7371	15	2	6	5574	10657	0.637	0.9108	1	13
+C_shellcloud_vs_core_pfam	PF01068	DNA_ligase_A_M	ATP dependent DNA ligase domain	CL0179	3		5	8	9000	15032	1.044	0.5911	1	15	1	5	3973	9269	0.467	0.9392	1	10	3	7	5574	10657	0.819	0.8095	1	8
+C_shellcloud_vs_core_pfam	PF01822	WSC	WSC domain		3		5	8	9000	15032	1.044	0.5911	1	13	5	8	3973	9269	1.458	0.221	0.7371	12	4	7	5574	10657	1.093	0.5503	1	11
+C_shellcloud_vs_core_pfam	PF02878	PGM_PMM_I	Phosphoglucomutase/phosphomannomutase, alpha/beta/alpha domain I	CL0754	2		5	8	9000	15032	1.044	0.5911	1	12								9	2	5	5574	10657	0.765	0.84	1	7
+C_shellcloud_vs_core_pfam	PF02889	Sec63	Sec63 Brl domain		2		5	8	9000	15032	1.044	0.5911	1	13								6	3	5	5574	10657	1.147	0.5431	1	6
+C_shellcloud_vs_core_pfam	PF11927	HODM_asu-like	Haem-dependent oxidative N-demethylase, alpha subunit-like	CL0183	3		5	8	9000	15032	1.044	0.5911	1	16	2	5	3973	9269	0.933	0.7108	1	17	6	10	5574	10657	1.147	0.4347	1	13
+C_shellcloud_vs_core_pfam	PF13091	PLDc_2	Cardiolipin synthase, PLD-like domain	CL0479	2		5	8	9000	15032	1.044	0.5911	1	15	4	6	3973	9269	1.555	0.221	0.7371	8								6
+C_shellcloud_vs_core_pfam	PF25087	GMPPB_C	GMPPB C-terminal domain	CL0536	3		5	8	9000	15032	1.044	0.5911	1	17	1	5	3973	9269	0.467	0.9392	1	6	1	5	5574	10657	0.382	0.9753	1	5
+C_shellcloud_vs_core_pfam	PF06609	TRI12	Fungal trichothecene efflux pump (TRI12)	CL0015	3		32	54	9000	15032	0.99	0.5946	1	106	30	46	3973	9269	1.522	0.001815	0.04259	100	54	67	5574	10657	1.541	1.324e-06	7.608e-05	85
+C_shellcloud_vs_core_pfam	PF00043	GST_C	Glutathione S-transferase, C-terminal domain	CL0497	3		19	32	9000	15032	0.992	0.5982	1	66	3	11	3973	9269	0.636	0.9149	1	22	6	14	5574	10657	0.819	0.8353	1	19
+C_shellcloud_vs_core_pfam	PF00240	ubiquitin	Ubiquitin family	CL0072	3		9	15	9000	15032	1.002	0.6059	1	20	0	6	3973	9269	0	1	1	11	3	9	5574	10657	0.637	0.9309	1	11
+C_shellcloud_vs_core_pfam	PF00364	Biotin_lipoyl	Biotin-requiring enzyme	CL0105	3		9	15	9000	15032	1.002	0.6059	1	22	1	8	3973	9269	0.292	0.9887	1	20	3	9	5574	10657	0.637	0.9309	1	12
+C_shellcloud_vs_core_pfam	PF00441	Acyl-CoA_dh_1	Acyl-CoA dehydrogenase, C-terminal domain	CL0087	3		9	15	9000	15032	1.002	0.6059	1	37	2	13	3973	9269	0.359	0.9926	1	22	4	14	5574	10657	0.546	0.981	1	20
+C_shellcloud_vs_core_pfam	PF00722	Glyco_hydro_16	Glycosyl hydrolases family 16	CL0004	3		9	15	9000	15032	1.002	0.6059	1	20	6	8	3973	9269	1.75	0.06989	0.4064	14	6	8	5574	10657	1.434	0.1768	0.7138	10
+C_shellcloud_vs_core_pfam	PF00903	Glyoxalase	Glyoxalase/Bleomycin resistance protein/Dioxygenase superfamily	CL0104	3		9	15	9000	15032	1.002	0.6059	1	32	4	10	3973	9269	0.933	0.6868	1	17	5	10	5574	10657	0.956	0.6784	1	12
+C_shellcloud_vs_core_pfam	PF00999	Na_H_Exchanger	Sodium/hydrogen exchanger, transmembrane	CL0064	3		9	15	9000	15032	1.002	0.6059	1	26	3	8	3973	9269	0.875	0.7416	1	14	2	7	5574	10657	0.546	0.9513	1	12
+C_shellcloud_vs_core_pfam	PF02770	Acyl-CoA_dh_M	Acyl-CoA dehydrogenase, middle domain		3		9	15	9000	15032	1.002	0.6059	1	34	5	17	3973	9269	0.686	0.9168	1	24	4	16	5574	10657	0.478	0.9936	1	22
+C_shellcloud_vs_core_pfam	PF02771	Acyl-CoA_dh_N	Acyl-CoA dehydrogenase, N-terminal domain	CL0544	3		9	15	9000	15032	1.002	0.6059	1	36	3	11	3973	9269	0.636	0.9149	1	17	4	12	5574	10657	0.637	0.9469	1	15
+C_shellcloud_vs_core_pfam	PF00890	FAD_binding_2	FAD binding domain	CL0063	3		26	44	9000	15032	0.987	0.606	1	100	13	28	3973	9269	1.083	0.4212	1	57	17	32	5574	10657	1.016	0.5345	1	43
+C_shellcloud_vs_core_pfam	PF03959	FSH1	Serine hydrolase (FSH1)	CL0028	3		13	22	9000	15032	0.987	0.6197	1	38	3	7	3973	9269	1	0.6408	1	13	6	10	5574	10657	1.147	0.4347	1	11
+C_shellcloud_vs_core_pfam	PF13409	GST_N_2	Glutathione S-transferase, N-terminal domain	CL0172	3		20	34	9000	15032	0.982	0.6217	1	64	7	16	3973	9269	1.021	0.5668	1	31	10	21	5574	10657	0.91	0.7419	1	28
+C_shellcloud_vs_core_pfam	PF00248	Aldo_ket_red	Aldo/keto reductase family	CL0036	3		34	58	9000	15032	0.979	0.6317	1	109	8	22	3973	9269	0.848	0.7962	1	55	21	32	5574	10657	1.255	0.09035	0.453	43
+C_shellcloud_vs_core_pfam	PF13417	GST_N_3	Glutathione S-transferase, N-terminal domain	CL0172	3		17	29	9000	15032	0.979	0.6322	1	56	9	16	3973	9269	1.312	0.2026	0.7371	29	10	18	5574	10657	1.062	0.4855	1	23
+C_shellcloud_vs_core_pfam	PF00515	TPR_1	Tetratricopeptide repeat	CL0020	3		10	17	9000	15032	0.982	0.6365	1	31	6	9	3973	9269	1.555	0.1346	0.5671	17	5	9	5574	10657	1.062	0.5566	1	13
+C_shellcloud_vs_core_pfam	PF03169	OPT	OPT oligopeptide transporter protein	CL0962	2		10	17	9000	15032	0.982	0.6365	1	35								12	3	5	5574	10657	1.147	0.5431	1	9
+C_shellcloud_vs_core_pfam	PF05721	PhyH	Phytanoyl-CoA dioxygenase (PhyH)	CL0029	3		10	17	9000	15032	0.982	0.6365	1	26	5	7	3973	9269	1.666	0.1266	0.5471	14	6	9	5574	10657	1.275	0.3012	0.9146	12
+C_shellcloud_vs_core_pfam	PF13833	EF-hand_8	EF-hand domain pair	CL0220	3		10	17	9000	15032	0.982	0.6365	1	26	5	12	3973	9269	0.972	0.6408	1	17	8	14	5574	10657	1.093	0.4641	1	15
+C_shellcloud_vs_core_pfam	PF00026	Asp	Eukaryotic aspartyl protease	CL0129	3		7	12	9000	15032	0.974	0.6619	1	28	0	7	3973	9269	0	1	1	16	2	9	5574	10657	0.425	0.9861	1	14
+C_shellcloud_vs_core_pfam	PF00615	RGS	Regulator of G protein signaling domain	CL0272	3		7	12	9000	15032	0.974	0.6619	1	16	2	5	3973	9269	0.933	0.7108	1	12	1	5	5574	10657	0.382	0.9753	1	9
+C_shellcloud_vs_core_pfam	PF08028	Acyl-CoA_dh_2	Acyl-CoA dehydrogenase, C-terminal domain	CL0087	3		7	12	9000	15032	0.974	0.6619	1	30	2	10	3973	9269	0.467	0.9685	1	17	4	11	5574	10657	0.695	0.9139	1	15
+C_shellcloud_vs_core_pfam	PF13622	4HBT_3	Acyl-CoA thioesterase N-terminal domain	CL0050	3		7	12	9000	15032	0.974	0.6619	1	16	3	6	3973	9269	1.166	0.5149	1	10	5	8	5574	10657	1.195	0.4147	1	9
+C_shellcloud_vs_core_pfam	PF20789	4HBT_3C	Acyl-CoA thioesterase C-terminal domain	CL0050	2		7	12	9000	15032	0.974	0.6619	1	17								6	3	5	5574	10657	1.147	0.5431	1	6
+C_shellcloud_vs_core_pfam	PF00225	Kinesin	Kinesin motor domain	CL0023	3		11	19	9000	15032	0.967	0.6633	1	25	5	14	3973	9269	0.833	0.7894	1	27	3	13	5574	10657	0.441	0.9928	1	21
+C_shellcloud_vs_core_pfam	PF04116	FA_hydroxylase	Fatty acid hydroxylase	CL0713	3		11	19	9000	15032	0.967	0.6633	1	31	5	14	3973	9269	0.833	0.7894	1	23	4	12	5574	10657	0.637	0.9469	1	16
+C_shellcloud_vs_core_pfam	PF00465	Fe-ADH	Iron-containing alcohol dehydrogenase	CL0224	2		3	5	9000	15032	1.002	0.6804	1	8	4	5	3973	9269	1.866	0.1108	0.5057	5								5
+C_shellcloud_vs_core_pfam	PF00491	Arginase	Arginase family	CL0302	2		3	5	9000	15032	1.002	0.6804	1	12								9	3	5	5574	10657	1.147	0.5431	1	7
+C_shellcloud_vs_core_pfam	PF00564	PB1	PB1 domain	CL0072	2		3	5	9000	15032	1.002	0.6804	1	5								9	4	7	5574	10657	1.093	0.5503	1	8
+C_shellcloud_vs_core_pfam	PF01184	Gpr1_Fun34_YaaH	GPR1/FUN34/yaaH family	CL0997	2		3	5	9000	15032	1.002	0.6804	1	9	4	5	3973	9269	1.866	0.1108	0.5057	8								5
+C_shellcloud_vs_core_pfam	PF01553	Acyltransferase	Acyltransferase	CL0228	3		3	5	9000	15032	1.002	0.6804	1	9	2	5	3973	9269	0.933	0.7108	1	8	1	5	5574	10657	0.382	0.9753	1	6
+C_shellcloud_vs_core_pfam	PF01591	6PF2K	6-phosphofructo-2-kinase	CL0023	2		3	5	9000	15032	1.002	0.6804	1	10	3	5	3973	9269	1.4	0.368	0.9588	7								6
+C_shellcloud_vs_core_pfam	PF02466	Tim17	Tim17/Tim22/Tim23/Pmp24 family	CL0990	3		3	5	9000	15032	1.002	0.6804	1	7	4	8	3973	9269	1.166	0.4729	1	12	4	7	5574	10657	1.093	0.5503	1	9
+C_shellcloud_vs_core_pfam	PF03452	Anp1	Anp1	CL0110	2		3	5	9000	15032	1.002	0.6804	1	7								6	2	5	5574	10657	0.765	0.84	1	5
+C_shellcloud_vs_core_pfam	PF04142	Nuc_sug_transp	Nucleotide-sugar transporter	CL0184	2		3	5	9000	15032	1.002	0.6804	1	12								7	6	7	5574	10657	1.639	0.079	0.4042	7
+C_shellcloud_vs_core_pfam	PF05648	PEX11	Peroxisomal biogenesis factor 11 (PEX11)		2		3	5	9000	15032	1.002	0.6804	1	10								7	2	5	5574	10657	0.765	0.84	1	7
+C_shellcloud_vs_core_pfam	PF07819	PGAP1	PGAP1-like alpha/beta domain	CL0028	2		3	5	9000	15032	1.002	0.6804	1	9								12	6	8	5574	10657	1.434	0.1768	0.7138	11
+C_shellcloud_vs_core_pfam	PF09423	PhoD	PhoD-like phosphatase	CL0163	3		3	5	9000	15032	1.002	0.6804	1	6	2	5	3973	9269	0.933	0.7108	1	15	9	11	5574	10657	1.564	0.04541	0.2773	13
+C_shellcloud_vs_core_pfam	PF10436	BCDHK_Adom3	Mitochondrial branched-chain alpha-ketoacid dehydrogenase kinase		3		3	5	9000	15032	1.002	0.6804	1	8	4	6	3973	9269	1.555	0.221	0.7371	11	5	7	5574	10657	1.366	0.266	0.8245	9
+C_shellcloud_vs_core_pfam	PF13347	MFS_2	MFS/sugar transport protein	CL0015	2		3	5	9000	15032	1.002	0.6804	1	9								8	4	6	5574	10657	1.275	0.3878	1	8
+C_shellcloud_vs_core_pfam	PF13621	Cupin_8	Cupin-like domain	CL0029	3		3	5	9000	15032	1.002	0.6804	1	11	5	9	3973	9269	1.296	0.329	0.9588	15	4	8	5574	10657	0.956	0.6859	1	11
+C_shellcloud_vs_core_pfam	PF13771	zf-HC5HC2H	PHD-like zinc-binding domain	CL0229	2		3	5	9000	15032	1.002	0.6804	1	6	2	5	3973	9269	0.933	0.7108	1	6								5
+C_shellcloud_vs_core_pfam	PF13832	zf-HC5HC2H_2	PHD-zinc-finger like domain	CL0229	2		3	5	9000	15032	1.002	0.6804	1	6	2	5	3973	9269	0.933	0.7108	1	6								5
+C_shellcloud_vs_core_pfam	PF19327	Ap4A_phos_N	Ap4A phosphorylase N-terminal domain	CL0265	2		3	5	9000	15032	1.002	0.6804	1	9	4	5	3973	9269	1.866	0.1108	0.5057	7								6
+C_shellcloud_vs_core_pfam	PF24357	TMD0_ABC	ABC transporter TMD0 domain	CL0853	3		3	5	9000	15032	1.002	0.6804	1	7	4	6	3973	9269	1.555	0.221	0.7371	12	2	5	5574	10657	0.765	0.84	1	10
+C_shellcloud_vs_core_pfam	PF05347	Complex1_LYR	Complex 1 protein (LYR family)	CL0491	3		8	14	9000	15032	0.954	0.689	1	17	5	10	3973	9269	1.166	0.44	1	11	0	6	5574	10657	0	1	1	8
+C_shellcloud_vs_core_pfam	PF16073	SAT	Starter unit:ACP transacylase in aflatoxin biosynthesis	CL0323	3		8	14	9000	15032	0.954	0.689	1	27	5	11	3973	9269	1.06	0.5458	1	31	7	12	5574	10657	1.115	0.4507	1	21
+C_shellcloud_vs_core_pfam	PF13410	GST_C_2	Glutathione S-transferase, C-terminal domain	CL0497	3		16	28	9000	15032	0.954	0.6902	1	53	5	9	3973	9269	1.296	0.329	0.9588	24	11	16	5574	10657	1.314	0.1426	0.6343	20
+C_shellcloud_vs_core_pfam	PF04616	Glyco_hydro_43	Glycosyl hydrolases family 43	CL0143	2		20	35	9000	15032	0.954	0.695	1	63								6	5	5	5574	10657	1.912	0.03911	0.2563	6
+C_shellcloud_vs_core_pfam	PF00383	dCMP_cyt_deam_1	Cytidine and deoxycytidylate deaminase zinc-binding region	CL0109	3		4	7	9000	15032	0.954	0.7078	1	13	7	10	3973	9269	1.633	0.07913	0.4443	14	4	8	5574	10657	0.956	0.6859	1	12
+C_shellcloud_vs_core_pfam	PF00412	LIM	LIM domain	CL0839	2		4	7	9000	15032	0.954	0.7078	1	8	2	5	3973	9269	0.933	0.7108	1	9								6
+C_shellcloud_vs_core_pfam	PF00514	Arm	Armadillo/beta-catenin-like repeat	CL0020	2		4	7	9000	15032	0.954	0.7078	1	12								11	7	8	5574	10657	1.673	0.0464	0.2773	11
+C_shellcloud_vs_core_pfam	PF00817	IMS	impB/mucB/samB family		3		4	7	9000	15032	0.954	0.7078	1	9	9	11	3973	9269	1.909	0.01014	0.1306	16	1	5	5574	10657	0.382	0.9753	1	9
+C_shellcloud_vs_core_pfam	PF01105	EMP24_GP25L	emp24/gp25L/p24 family/GOLD	CL0521	2		4	7	9000	15032	0.954	0.7078	1	8								6	1	5	5574	10657	0.382	0.9753	1	6
+C_shellcloud_vs_core_pfam	PF01424	R3H	R3H domain	CL0879	2		4	7	9000	15032	0.954	0.7078	1	12								8	4	7	5574	10657	1.093	0.5503	1	9
+C_shellcloud_vs_core_pfam	PF02230	Abhydrolase_2	Phospholipase/Carboxylesterase	CL0028	3		4	7	9000	15032	0.954	0.7078	1	18	3	6	3973	9269	1.166	0.5149	1	14	1	5	5574	10657	0.382	0.9753	1	12
+C_shellcloud_vs_core_pfam	PF04191	PEMT	Phospholipid methyltransferase	CL0115	2		4	7	9000	15032	0.954	0.7078	1	11	5	7	3973	9269	1.666	0.1266	0.5471	7								5
+C_shellcloud_vs_core_pfam	PF04675	DNA_ligase_A_N	DNA ligase N terminus		2		4	7	9000	15032	0.954	0.7078	1	9								10	3	6	5574	10657	0.956	0.6984	1	8
+C_shellcloud_vs_core_pfam	PF11799	IMS_C	impB/mucB/samB family C-terminal domain		2		4	7	9000	15032	0.954	0.7078	1	9	6	8	3973	9269	1.75	0.06989	0.4064	12								5
+C_shellcloud_vs_core_pfam	PF13177	DNA_pol3_delta2	DNA polymerase III, delta subunit	CL0023	2		4	7	9000	15032	0.954	0.7078	1	14								6	4	5	5574	10657	1.53	0.2176	0.7443	5
+C_shellcloud_vs_core_pfam	PF13414	TPR_11	TPR repeat	CL0020	2		4	7	9000	15032	0.954	0.7078	1	11	2	5	3973	9269	0.933	0.7108	1	8								5
+C_shellcloud_vs_core_pfam	PF00152	tRNA-synt_2	tRNA synthetases class II (D, K and N)	CL0040	3		9	16	9000	15032	0.94	0.7125	1	22	3	8	3973	9269	0.875	0.7416	1	22	8	12	5574	10657	1.275	0.2413	0.8011	19
+C_shellcloud_vs_core_pfam	PF01522	Polysacc_deac_1	Polysaccharide deacetylase	CL0158	3		9	16	9000	15032	0.94	0.7125	1	19	1	5	3973	9269	0.467	0.9392	1	8	2	6	5574	10657	0.637	0.9108	1	7
+C_shellcloud_vs_core_pfam	PF13423	UCH_1	Ubiquitin carboxyl-terminal hydrolase	CL0125	3		9	16	9000	15032	0.94	0.7125	1	20	0	10	3973	9269	0	1	1	21	6	14	5574	10657	0.819	0.8353	1	19
+C_shellcloud_vs_core_pfam	PF13673	Acetyltransf_10	Acetyltransferase (GNAT) domain	CL0257	3		21	37	9000	15032	0.948	0.7129	1	69	12	31	3973	9269	0.903	0.7401	1	40	5	26	5574	10657	0.368	0.9999	1	33
+C_shellcloud_vs_core_pfam	PF07714	PK_Tyr_Ser-Thr	Protein tyrosine and serine/threonine kinase	CL0016	3		114	196	9000	15032	0.971	0.7149	1	316	106	196	3973	9269	1.262	9.136e-04	0.02728	386	135	227	5574	10657	1.137	0.01681	0.1875	320
+C_shellcloud_vs_core_pfam	PF13738	Pyr_redox_3	Pyridine nucleotide-disulphide oxidoreductase	CL0063	3		14	25	9000	15032	0.935	0.7281	1	53	9	18	3973	9269	1.166	0.3511	0.9588	25	13	19	5574	10657	1.308	0.1188	0.58	22
+C_shellcloud_vs_core_pfam	PF14497	GST_C_3	Glutathione S-transferase, C-terminal domain	CL0497	3		14	25	9000	15032	0.935	0.7281	1	50	2	7	3973	9269	0.667	0.8758	1	14	5	10	5574	10657	0.956	0.6784	1	13
+C_shellcloud_vs_core_pfam	PF13450	NAD_binding_8	NAD(P)-binding Rossmann-like domain	CL0063	3		65	113	9000	15032	0.961	0.7296	1	217	22	58	3973	9269	0.885	0.8141	1	115	45	79	5574	10657	1.089	0.2364	0.8011	104
+C_shellcloud_vs_core_pfam	PF00339	Arrestin_N	Arrestin (or S-antigen), N-terminal domain	CL0135	3		5	9	9000	15032	0.928	0.7308	1	10	1	5	3973	9269	0.467	0.9392	1	11	2	6	5574	10657	0.637	0.9108	1	7
+C_shellcloud_vs_core_pfam	PF00467	KOW	KOW motif	CL0010	2		5	9	9000	15032	0.928	0.7308	1	10								6	2	6	5574	10657	0.637	0.9108	1	6
+C_shellcloud_vs_core_pfam	PF00730	HhH-GPD	HhH-GPD superfamily base excision DNA repair protein	CL0198	3		5	9	9000	15032	0.928	0.7308	1	13	4	8	3973	9269	1.166	0.4729	1	11	0	5	5574	10657	0	1	1	8
+C_shellcloud_vs_core_pfam	PF01485	IBR	IBR domain, a half RING-finger domain	CL0229	3		5	9	9000	15032	0.928	0.7308	1	19	1	7	3973	9269	0.333	0.9802	1	17	7	11	5574	10657	1.217	0.3286	0.9778	15
+C_shellcloud_vs_core_pfam	PF03151	TPT	Triose-phosphate Transporter family	CL0184	2		5	9	9000	15032	0.928	0.7308	1	11								8	3	6	5574	10657	0.956	0.6984	1	7
+C_shellcloud_vs_core_pfam	PF03765	CRAL_TRIO_N	CRAL/TRIO, N-terminal domain	CL0214	3		5	9	9000	15032	0.928	0.7308	1	17	1	5	3973	9269	0.467	0.9392	1	19	4	8	5574	10657	0.956	0.6859	1	10
+C_shellcloud_vs_core_pfam	PF13519	VWA_2	von Willebrand factor type A domain	CL0128	3		5	9	9000	15032	0.928	0.7308	1	17	2	5	3973	9269	0.933	0.7108	1	11	4	7	5574	10657	1.093	0.5503	1	10
+C_shellcloud_vs_core_pfam	PF13604	AAA_30	AAA domain	CL0023	2		5	9	9000	15032	0.928	0.7308	1	16								8	4	6	5574	10657	1.275	0.3878	1	7
+C_shellcloud_vs_core_pfam	PF13967	RSN1_TM	Late exocytosis, associated with Golgi transport		3		5	9	9000	15032	0.928	0.7308	1	10	2	7	3973	9269	0.667	0.8758	1	9	1	6	5574	10657	0.319	0.9882	1	6
+C_shellcloud_vs_core_pfam	PF22669	Exo_endo_phos2	Endonuclease/Exonuclease/phosphatase family 2	CL0530	2		5	9	9000	15032	0.928	0.7308	1	18	0	5	3973	9269	0	1	1	10								6
+C_shellcloud_vs_core_pfam	PF13405	EF-hand_6	EF-hand domain	CL0220	3		10	18	9000	15032	0.928	0.7333	1	26	5	13	3973	9269	0.897	0.7222	1	24	8	16	5574	10657	0.956	0.6687	1	19
+C_shellcloud_vs_core_pfam	PF13419	HAD_2	Haloacid dehalogenase-like hydrolase	CL0137	3		10	18	9000	15032	0.928	0.7333	1	27	4	7	3973	9269	1.333	0.347	0.9588	12	3	7	5574	10657	0.819	0.8095	1	8
+C_shellcloud_vs_core_pfam	PF12146	Hydrolase_4	Serine aminopeptidase, S33	CL0028	3		19	34	9000	15032	0.933	0.7441	1	72	2	12	3973	9269	0.389	0.9879	1	24	4	14	5574	10657	0.546	0.981	1	22
+C_shellcloud_vs_core_pfam	PF00439	Bromodomain	Bromodomain		3		6	11	9000	15032	0.911	0.7507	1	16	1	9	3973	9269	0.259	0.9935	1	14	0	8	5574	10657	0	1	1	10
+C_shellcloud_vs_core_pfam	PF00682	HMGL-like	HMGL-like	CL0036	3		6	11	9000	15032	0.911	0.7507	1	15	3	6	3973	9269	1.166	0.5149	1	20	4	7	5574	10657	1.093	0.5503	1	15
+C_shellcloud_vs_core_pfam	PF00929	RNase_T	Exonuclease	CL0219	3		6	11	9000	15032	0.911	0.7507	1	15	2	6	3973	9269	0.778	0.8087	1	8	2	5	5574	10657	0.765	0.84	1	8
+C_shellcloud_vs_core_pfam	PF04909	Amidohydro_2	Amidohydrolase	CL0036	3		6	11	9000	15032	0.911	0.7507	1	20	1	5	3973	9269	0.467	0.9392	1	6	5	7	5574	10657	1.366	0.266	0.8245	8
+C_shellcloud_vs_core_pfam	PF08881	CVNH	CVNH domain		2		6	11	9000	15032	0.911	0.7507	1	16	3	5	3973	9269	1.4	0.368	0.9588	10								5
+C_shellcloud_vs_core_pfam	PF12171	zf-C2H2_jaz	Zinc-finger double-stranded RNA-binding	CL0361	3		6	11	9000	15032	0.911	0.7507	1	12	0	5	3973	9269	0	1	1	7	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF00856	SET	SET domain	CL0489	3		16	29	9000	15032	0.922	0.7617	1	48	6	19	3973	9269	0.737	0.8917	1	31	6	21	5574	10657	0.546	0.9924	1	27
+C_shellcloud_vs_core_pfam	PF00454	PI3_PI4_kinase	Phosphatidylinositol 3- and 4-kinase	CL0016	3		7	13	9000	15032	0.899	0.7683	1	19	4	10	3973	9269	0.933	0.6868	1	19	1	8	5574	10657	0.239	0.9973	1	15
+C_shellcloud_vs_core_pfam	PF01965	DJ-1_PfpI	DJ-1/PfpI family	CL0014	2		7	13	9000	15032	0.899	0.7683	1	31	2	6	3973	9269	0.778	0.8087	1	8								6
+C_shellcloud_vs_core_pfam	PF04117	Mpv17_PMP22	Mpv17 / PMP22 family		3		7	13	9000	15032	0.899	0.7683	1	26	3	6	3973	9269	1.166	0.5149	1	9	1	5	5574	10657	0.382	0.9753	1	7
+C_shellcloud_vs_core_pfam	PF00291	PALP	Pyridoxal-phosphate dependent enzyme	CL0063	3		13	24	9000	15032	0.905	0.7834	1	41	6	19	3973	9269	0.737	0.8917	1	29	7	17	5574	10657	0.787	0.8775	1	23
+C_shellcloud_vs_core_pfam	PF13401	AAA_22	AAA domain	CL0023	3		8	15	9000	15032	0.891	0.784	1	32	0	5	3973	9269	0	1	1	9	2	6	5574	10657	0.637	0.9108	1	8
+C_shellcloud_vs_core_pfam	PF17123	zf-RING_11	RING-like zinc finger	CL0229	3		9	17	9000	15032	0.884	0.7981	1	25	1	8	3973	9269	0.292	0.9887	1	13	4	10	5574	10657	0.765	0.8634	1	12
+C_shellcloud_vs_core_pfam	PF04479	RTA1	RTA1 like protein	CL0862	3		24	44	9000	15032	0.911	0.81	1	91	9	15	3973	9269	1.4	0.1401	0.5789	22	11	15	5574	10657	1.402	0.08328	0.4203	20
+C_shellcloud_vs_core_pfam	PF00596	Aldolase_II	Class II Aldolase and Adducin N-terminal domain	CL0898	2		3	6	9000	15032	0.835	0.8191	1	13	3	5	3973	9269	1.4	0.368	0.9588	6								5
+C_shellcloud_vs_core_pfam	PF01193	RNA_pol_L	RNA polymerase Rpb3/Rpb11 dimerisation domain	CL0509	2		3	6	9000	15032	0.835	0.8191	1	9	3	6	3973	9269	1.166	0.5149	1	11								6
+C_shellcloud_vs_core_pfam	PF01758	SBF	Sodium Bile acid symporter family	CL0064	2		3	6	9000	15032	0.835	0.8191	1	11								6	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF02353	CMAS	Mycolic acid cyclopropane synthetase	CL0063	2		3	6	9000	15032	0.835	0.8191	1	14	2	6	3973	9269	0.778	0.8087	1	9								7
+C_shellcloud_vs_core_pfam	PF05916	Sld5	GINS complex protein helical bundle domain		3		3	6	9000	15032	0.835	0.8191	1	11	3	5	3973	9269	1.4	0.368	0.9588	8	3	6	5574	10657	0.956	0.6984	1	8
+C_shellcloud_vs_core_pfam	PF08407	Chitin_synth_1N	Chitin synthase N-terminal		2		3	6	9000	15032	0.835	0.8191	1	11								10	5	6	5574	10657	1.593	0.1324	0.5959	9
+C_shellcloud_vs_core_pfam	PF13174	TPR_6	Tetratricopeptide repeat	CL0020	3		3	6	9000	15032	0.835	0.8191	1	10	6	7	3973	9269	2	0.02742	0.2144	13	3	6	5574	10657	0.956	0.6984	1	9
+C_shellcloud_vs_core_pfam	PF14622	Ribonucleas_3_3	Ribonuclease-III-like	CL0539	2		3	6	9000	15032	0.835	0.8191	1	12	1	5	3973	9269	0.467	0.9392	1	7								7
+C_shellcloud_vs_core_pfam	PF16589	BRCT_2	BRCT domain	CL0459	3		3	6	9000	15032	0.835	0.8191	1	12	4	9	3973	9269	1.037	0.5881	1	15	4	8	5574	10657	0.956	0.6859	1	12
+C_shellcloud_vs_core_pfam	PF23562	AMP-binding_C_3	AMP-binding enzyme C-terminal domain	CL0531	2		3	6	9000	15032	0.835	0.8191	1	13	4	6	3973	9269	1.555	0.221	0.7371	10								6
+C_shellcloud_vs_core_pfam	PF00018	SH3_1	SH3 domain	CL0010	3		16	30	9000	15032	0.891	0.8211	1	42	5	21	3973	9269	0.555	0.9797	1	48	6	25	5574	10657	0.459	0.999	1	39
+C_shellcloud_vs_core_pfam	PF00689	Cation_ATPase_C	Cation transporting ATPase, C-terminus		3		11	21	9000	15032	0.875	0.8226	1	38	1	9	3973	9269	0.259	0.9935	1	18	5	12	5574	10657	0.797	0.8477	1	13
+C_shellcloud_vs_core_pfam	PF01212	Beta_elim_lyase	Beta-eliminating lyase	CL0061	3		4	8	9000	15032	0.835	0.8244	1	14	1	6	3973	9269	0.389	0.9652	1	10	2	8	5574	10657	0.478	0.9739	1	8
+C_shellcloud_vs_core_pfam	PF01585	G-patch	G-patch domain	CL0449	3		4	8	9000	15032	0.835	0.8244	1	18	1	7	3973	9269	0.333	0.9802	1	13	3	8	5574	10657	0.717	0.8837	1	9
+C_shellcloud_vs_core_pfam	PF02779	Transket_pyr	Transketolase, pyrimidine binding domain	CL0254	2		4	8	9000	15032	0.835	0.8244	1	16	1	5	3973	9269	0.467	0.9392	1	6								4
+C_shellcloud_vs_core_pfam	PF02785	Biotin_carb_C	Biotin carboxylase C-terminal domain	CL0105	3		4	8	9000	15032	0.835	0.8244	1	13	2	6	3973	9269	0.778	0.8087	1	13	3	6	5574	10657	0.956	0.6984	1	8
+C_shellcloud_vs_core_pfam	PF06912	DUF1275	Protein of unknown function (DUF1275)	CL0142	3		4	8	9000	15032	0.835	0.8244	1	19	9	9	3973	9269	2.333	4.859e-04	0.01596	13	6	7	5574	10657	1.639	0.079	0.4042	11
+C_shellcloud_vs_core_pfam	PF12738	PTCB-BRCT	twin BRCT domain	CL0459	3		4	8	9000	15032	0.835	0.8244	1	12	1	7	3973	9269	0.333	0.9802	1	11	2	7	5574	10657	0.546	0.9513	1	10
+C_shellcloud_vs_core_pfam	PF13233	Complex1_LYR_2	Complex1_LYR-like	CL0491	3		4	8	9000	15032	0.835	0.8244	1	10	6	11	3973	9269	1.273	0.3131	0.9588	17	4	9	5574	10657	0.85	0.7894	1	11
+C_shellcloud_vs_core_pfam	PF24864	DUF7730	Domain of unknown function (DUF7730)	CL0870	3		4	8	9000	15032	0.835	0.8244	1	22	2	7	3973	9269	0.667	0.8758	1	13	5	8	5574	10657	1.195	0.4147	1	12
+C_shellcloud_vs_core_pfam	PF01248	Ribosomal_L7Ae	Ribosomal protein L7Ae/L30e/S12e/Gadd45 family	CL0101	3		5	10	9000	15032	0.835	0.8317	1	12	4	8	3973	9269	1.166	0.4729	1	11	3	8	5574	10657	0.717	0.8837	1	9
+C_shellcloud_vs_core_pfam	PF01532	Glyco_hydro_47	Glycosyl hydrolase family 47	CL0059	3		5	10	9000	15032	0.835	0.8317	1	24	3	8	3973	9269	0.875	0.7416	1	26	7	10	5574	10657	1.338	0.2122	0.7443	20
+C_shellcloud_vs_core_pfam	PF01699	Na_Ca_ex	Sodium/calcium exchanger protein		3		5	10	9000	15032	0.835	0.8317	1	17	2	7	3973	9269	0.667	0.8758	1	26	10	14	5574	10657	1.366	0.1211	0.5876	23
+C_shellcloud_vs_core_pfam	PF07647	SAM_2	SAM domain (Sterile alpha motif)	CL0003	3		5	10	9000	15032	0.835	0.8317	1	24	2	6	3973	9269	0.778	0.8087	1	11	3	7	5574	10657	0.819	0.8095	1	7
+C_shellcloud_vs_core_pfam	PF08613	Cyclin	Cyclin	CL0065	3		5	10	9000	15032	0.835	0.8317	1	13	2	8	3973	9269	0.583	0.9206	1	17	1	7	5574	10657	0.273	0.9944	1	15
+C_shellcloud_vs_core_pfam	PF12710	HAD	haloacid dehalogenase-like hydrolase	CL0137	3		5	10	9000	15032	0.835	0.8317	1	16	2	5	3973	9269	0.933	0.7108	1	7	3	5	5574	10657	1.147	0.5431	1	6
+C_shellcloud_vs_core_pfam	PF31024	Fungal_trans_C	Fungal transcription factor C-terminal domain		3		5	10	9000	15032	0.835	0.8317	1	16	1	5	3973	9269	0.467	0.9392	1	10	2	5	5574	10657	0.765	0.84	1	8
+C_shellcloud_vs_core_pfam	PF02668	TauD	Taurine catabolism dioxygenase TauD, TfdA family	CL0029	3		12	23	9000	15032	0.871	0.8334	1	45	1	6	3973	9269	0.389	0.9652	1	8	0	5	5574	10657	0	1	1	6
+C_shellcloud_vs_core_pfam	PF07883	Cupin_2	Cupin domain	CL0029	3		12	23	9000	15032	0.871	0.8334	1	39	2	5	3973	9269	0.933	0.7108	1	7	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF00389	2-Hacid_dh	D-isomer specific 2-hydroxyacid dehydrogenase, catalytic domain	CL0063	3		6	12	9000	15032	0.835	0.8396	1	24	1	9	3973	9269	0.259	0.9935	1	17	3	11	5574	10657	0.521	0.977	1	14
+C_shellcloud_vs_core_pfam	PF00650	CRAL_TRIO	CRAL/TRIO domain	CL0512	3		6	12	9000	15032	0.835	0.8396	1	21	1	6	3973	9269	0.389	0.9652	1	21	6	10	5574	10657	1.147	0.4347	1	13
+C_shellcloud_vs_core_pfam	PF01053	Cys_Met_Meta_PP	Cys/Met metabolism PLP-dependent enzyme	CL0061	3		6	12	9000	15032	0.835	0.8396	1	26	3	11	3973	9269	0.636	0.9149	1	20	4	12	5574	10657	0.637	0.9469	1	18
+C_shellcloud_vs_core_pfam	PF01398	JAB	JAB1/Mov34/MPN/PAD-1 ubiquitin protease	CL0366	3		6	12	9000	15032	0.835	0.8396	1	13	1	8	3973	9269	0.292	0.9887	1	10	2	8	5574	10657	0.478	0.9739	1	8
+C_shellcloud_vs_core_pfam	PF03198	Glyco_hydro_72	Glucanosyltransferase	CL0036	3		6	12	9000	15032	0.835	0.8396	1	17	6	10	3973	9269	1.4	0.2179	0.7371	18	9	11	5574	10657	1.564	0.04541	0.2773	17
+C_shellcloud_vs_core_pfam	PF00036	EF-hand_1	EF hand domain	CL0220	3		7	14	9000	15032	0.835	0.8476	1	22	5	13	3973	9269	0.897	0.7222	1	21	8	16	5574	10657	0.956	0.6687	1	18
+C_shellcloud_vs_core_pfam	PF00108	Thiolase_N	Thiolase, N-terminal domain	CL0046	3		7	14	9000	15032	0.835	0.8476	1	32	12	17	3973	9269	1.647	0.01963	0.1794	29	10	16	5574	10657	1.195	0.2871	0.8827	23
+C_shellcloud_vs_core_pfam	PF00117	GATase	Glutamine amidotransferase class-I	CL0014	3		7	14	9000	15032	0.835	0.8476	1	23	0	8	3973	9269	0	1	1	12	0	8	5574	10657	0	1	1	10
+C_shellcloud_vs_core_pfam	PF00899	ThiF	ThiF family	CL0063	3		7	14	9000	15032	0.835	0.8476	1	22	1	8	3973	9269	0.292	0.9887	1	11	1	8	5574	10657	0.239	0.9973	1	11
+C_shellcloud_vs_core_pfam	PF13202	EF-hand_5	EF hand	CL0220	3		7	14	9000	15032	0.835	0.8476	1	21	5	11	3973	9269	1.06	0.5458	1	17	6	12	5574	10657	0.956	0.6736	1	13
+C_shellcloud_vs_core_pfam	PF13632	Glyco_trans_2_3	Glycosyl transferase family group 2	CL0110	3		7	14	9000	15032	0.835	0.8476	1	19	2	8	3973	9269	0.583	0.9206	1	17	6	10	5574	10657	1.147	0.4347	1	13
+C_shellcloud_vs_core_pfam	PF00443	UCH	Ubiquitin carboxyl-terminal hydrolase	CL0125	3		14	27	9000	15032	0.866	0.8524	1	39	2	18	3973	9269	0.259	0.9994	1	44	11	25	5574	10657	0.841	0.8491	1	37
+C_shellcloud_vs_core_pfam	PF02798	GST_N	Glutathione S-transferase, N-terminal domain	CL0172	3		14	27	9000	15032	0.866	0.8524	1	56	6	13	3973	9269	1.077	0.5106	1	22	6	14	5574	10657	0.819	0.8353	1	17
+C_shellcloud_vs_core_pfam	PF01544	CorA	CorA-like Mg2+ transporter protein	CL0788	3		8	16	9000	15032	0.835	0.8554	1	36	10	13	3973	9269	1.795	0.0137	0.1416	20	12	15	5574	10657	1.53	0.02673	0.2483	18
+C_shellcloud_vs_core_pfam	PF16796	Microtub_bd	Microtubule binding	CL0023	3		8	16	9000	15032	0.835	0.8554	1	22	3	12	3973	9269	0.583	0.943	1	20	3	13	5574	10657	0.441	0.9928	1	18
+C_shellcloud_vs_core_pfam	PF13246	Cation_ATPase	P-type ATPase, cytoplasmic domain N	CL0137	3		15	29	9000	15032	0.864	0.8609	1	45	1	14	3973	9269	0.167	0.9996	1	26	4	15	5574	10657	0.51	0.9889	1	20
+C_shellcloud_vs_core_pfam	PF00557	Peptidase_M24	Metallopeptidase family M24		3		9	18	9000	15032	0.835	0.863	1	30	6	14	3973	9269	1	0.6013	1	24	7	12	5574	10657	1.115	0.4507	1	23
+C_shellcloud_vs_core_pfam	PF00176	SNF2-rel_dom	SNF2-related domain	CL0023	3		27	51	9000	15032	0.884	0.8754	1	106	14	36	3973	9269	0.907	0.7408	1	60	9	32	5574	10657	0.538	0.9985	1	54
+C_shellcloud_vs_core_pfam	PF00787	PX	PX domain		3		11	22	9000	15032	0.835	0.8769	1	25	0	12	3973	9269	0	1	1	20	0	11	5574	10657	0	1	1	17
+C_shellcloud_vs_core_pfam	PF16363	GDP_Man_Dehyd	GDP-mannose 4,6 dehydratase	CL0063	3		11	22	9000	15032	0.835	0.8769	1	39	6	12	3973	9269	1.166	0.4129	1	22	2	8	5574	10657	0.478	0.9739	1	16
+C_shellcloud_vs_core_pfam	PF00271	Helicase_C	Helicase conserved C-terminal domain	CL0023	3		86	155	9000	15032	0.927	0.8851	1	295	18	85	3973	9269	0.494	1	1	146	26	88	5574	10657	0.565	1	1	125
+C_shellcloud_vs_core_pfam	PF00153	Mito_carr	Mitochondrial carrier protein		3		34	64	9000	15032	0.887	0.8903	1	104	12	43	3973	9269	0.651	0.9856	1	101	31	60	5574	10657	0.988	0.591	1	87
+C_shellcloud_vs_core_pfam	PF07992	Pyr_redox_2	Pyridine nucleotide-disulphide oxidoreductase	CL0063	3		34	64	9000	15032	0.887	0.8903	1	135	12	33	3973	9269	0.848	0.8239	1	56	20	40	5574	10657	0.956	0.6744	1	47
+C_shellcloud_vs_core_pfam	PF00646	F-box	F-box domain	CL0271	3		25	48	9000	15032	0.87	0.8936	1	75	19	47	3973	9269	0.943	0.6845	1	80	12	39	5574	10657	0.588	0.998	1	63
+C_shellcloud_vs_core_pfam	PF00120	Gln-synt_C	Glutamine synthetase, catalytic domain	CL0286	2		5	11	9000	15032	0.759	0.8992	1	15	4	6	3973	9269	1.555	0.221	0.7371	10								6
+C_shellcloud_vs_core_pfam	PF00205	TPP_enzyme_M	Thiamine pyrophosphate enzyme, central domain	CL0063	3		5	11	9000	15032	0.759	0.8992	1	19	2	7	3973	9269	0.667	0.8758	1	14	2	7	5574	10657	0.546	0.9513	1	9
+C_shellcloud_vs_core_pfam	PF00463	ICL	Isocitrate lyase family	CL0036	3		5	11	9000	15032	0.759	0.8992	1	14	7	9	3973	9269	1.815	0.03752	0.2709	18	3	6	5574	10657	0.956	0.6984	1	10
+C_shellcloud_vs_core_pfam	PF01645	Glu_synthase	Conserved region in glutamate synthase	CL0036	3		5	11	9000	15032	0.759	0.8992	1	23	2	6	3973	9269	0.778	0.8087	1	10	3	6	5574	10657	0.956	0.6984	1	9
+C_shellcloud_vs_core_pfam	PF01738	DLH	Dienelactone hydrolase family	CL0028	3		5	11	9000	15032	0.759	0.8992	1	27	4	7	3973	9269	1.333	0.347	0.9588	19	7	11	5574	10657	1.217	0.3286	0.9778	15
+C_shellcloud_vs_core_pfam	PF02803	Thiolase_C	Thiolase, C-terminal domain	CL0046	3		5	11	9000	15032	0.759	0.8992	1	20	8	12	3973	9269	1.555	0.08518	0.4703	19	8	13	5574	10657	1.177	0.3508	1	18
+C_shellcloud_vs_core_pfam	PF11913	DUF3431	Protein of unknown function (DUF3431)		3		5	11	9000	15032	0.759	0.8992	1	18	5	7	3973	9269	1.666	0.1266	0.5471	10	4	6	5574	10657	1.275	0.3878	1	7
+C_shellcloud_vs_core_pfam	PF00571	CBS	CBS domain		3		4	9	9000	15032	0.742	0.8993	1	19	0	6	3973	9269	0	1	1	9	0	6	5574	10657	0	1	1	8
+C_shellcloud_vs_core_pfam	PF02222	ATP-grasp	ATP-grasp domain	CL0179	3		4	9	9000	15032	0.742	0.8993	1	12	1	7	3973	9269	0.333	0.9802	1	14	0	6	5574	10657	0	1	1	9
+C_shellcloud_vs_core_pfam	PF08100	Dimerisation	O-methyltransferase dimerisation domain	CL0123	3		4	9	9000	15032	0.742	0.8993	1	15	6	8	3973	9269	1.75	0.06989	0.4064	22	4	6	5574	10657	1.275	0.3878	1	8
+C_shellcloud_vs_core_pfam	PF13646	HEAT_2	HEAT repeats	CL0020	3		4	9	9000	15032	0.742	0.8993	1	16	1	6	3973	9269	0.389	0.9652	1	11	3	8	5574	10657	0.717	0.8837	1	10
+C_shellcloud_vs_core_pfam	PF00294	PfkB	pfkB family carbohydrate kinase	CL0118	3		6	13	9000	15032	0.771	0.9007	1	21	2	5	3973	9269	0.933	0.7108	1	12	5	7	5574	10657	1.366	0.266	0.8245	11
+C_shellcloud_vs_core_pfam	PF00487	FA_desaturase	Fatty acid desaturase	CL0713	3		6	13	9000	15032	0.771	0.9007	1	20	0	6	3973	9269	0	1	1	11	2	8	5574	10657	0.478	0.9739	1	10
+C_shellcloud_vs_core_pfam	PF02133	Transp_cyt_pur	Permease for cytosine/purines, uracil, thiamine, allantoin	CL0062	3		6	13	9000	15032	0.771	0.9007	1	18	3	7	3973	9269	1	0.6408	1	14	3	7	5574	10657	0.819	0.8095	1	11
+C_shellcloud_vs_core_pfam	PF00013	KH_1	KH domain	CL0007	3		3	7	9000	15032	0.716	0.9026	1	12	4	8	3973	9269	1.166	0.4729	1	20	4	10	5574	10657	0.765	0.8634	1	15
+C_shellcloud_vs_core_pfam	PF00289	Biotin_carb_N	Biotin carboxylase, N-terminal domain	CL0063	3		3	7	9000	15032	0.716	0.9026	1	11	2	5	3973	9269	0.933	0.7108	1	14	3	6	5574	10657	0.956	0.6984	1	9
+C_shellcloud_vs_core_pfam	PF00478	IMPDH	IMP dehydrogenase / GMP reductase domain	CL0036	3		3	7	9000	15032	0.716	0.9026	1	16	0	6	3973	9269	0	1	1	7	2	6	5574	10657	0.637	0.9108	1	6
+C_shellcloud_vs_core_pfam	PF00850	Hist_deacetyl	Histone deacetylase domain	CL0302	3		3	7	9000	15032	0.716	0.9026	1	9	2	5	3973	9269	0.933	0.7108	1	10	2	6	5574	10657	0.637	0.9108	1	9
+C_shellcloud_vs_core_pfam	PF01078	Mg_chelatase	Magnesium chelatase, subunit ChlI	CL0023	3		3	7	9000	15032	0.716	0.9026	1	11	1	6	3973	9269	0.389	0.9652	1	10	0	6	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF01363	FYVE	FYVE zinc finger	CL0229	3		3	7	9000	15032	0.716	0.9026	1	10	4	8	3973	9269	1.166	0.4729	1	9	2	6	5574	10657	0.637	0.9108	1	9
+C_shellcloud_vs_core_pfam	PF01412	ArfGap	Putative GTPase activating protein for Arf		3		3	7	9000	15032	0.716	0.9026	1	11	1	6	3973	9269	0.389	0.9652	1	11	2	6	5574	10657	0.637	0.9108	1	12
+C_shellcloud_vs_core_pfam	PF01529	DHHC	DHHC palmitoyltransferase		3		3	7	9000	15032	0.716	0.9026	1	9	2	7	3973	9269	0.667	0.8758	1	11	4	8	5574	10657	0.956	0.6859	1	9
+C_shellcloud_vs_core_pfam	PF01920	Prefoldin_2	Prefoldin subunit	CL0200	3		3	7	9000	15032	0.716	0.9026	1	9	2	5	3973	9269	0.933	0.7108	1	8	5	7	5574	10657	1.366	0.266	0.8245	7
+C_shellcloud_vs_core_pfam	PF04427	Brix	Brix domain	CL0458	2		3	7	9000	15032	0.716	0.9026	1	10								5	0	5	5574	10657	0	1	1	5
+C_shellcloud_vs_core_pfam	PF10607	CTLH	CTLH/CRA C-terminal to LisH motif domain	CL0825	3		3	7	9000	15032	0.716	0.9026	1	10	2	6	3973	9269	0.778	0.8087	1	9	2	6	5574	10657	0.637	0.9108	1	9
+C_shellcloud_vs_core_pfam	PF14703	PHM7_cyt	Cytosolic domain of 10TM putative phosphate transporter	CL0221	3		3	7	9000	15032	0.716	0.9026	1	9	3	8	3973	9269	0.875	0.7416	1	10	1	6	5574	10657	0.319	0.9882	1	7
+C_shellcloud_vs_core_pfam	PF16177	ACAS_N	Acetyl-coenzyme A synthetase N-terminus	CL0378	2		3	7	9000	15032	0.716	0.9026	1	11	3	5	3973	9269	1.4	0.368	0.9588	8								8
+C_shellcloud_vs_core_pfam	PF29664	BtgE-BtgC_glyc-hydro	BtgE/BtgC glycoside hydrolase domain	CL0036	2		3	7	9000	15032	0.716	0.9026	1	11	1	5	3973	9269	0.467	0.9392	1	13								7
+C_shellcloud_vs_core_pfam	PF13434	Lys_Orn_oxgnase	L-lysine 6-monooxygenase/L-ornithine 5-monooxygenase	CL0063	3		7	15	9000	15032	0.779	0.9033	1	40	2	9	3973	9269	0.518	0.9498	1	13	4	10	5574	10657	0.765	0.8634	1	10
+C_shellcloud_vs_core_pfam	PF02826	2-Hacid_dh_C	D-isomer specific 2-hydroxyacid dehydrogenase, NAD binding domain	CL0063	3		8	17	9000	15032	0.786	0.9064	1	34	1	10	3973	9269	0.233	0.9963	1	22	5	14	5574	10657	0.683	0.9354	1	18
+C_shellcloud_vs_core_pfam	PF04389	Peptidase_M28	Peptidase family M28	CL0865	3		8	17	9000	15032	0.786	0.9064	1	33	5	15	3973	9269	0.778	0.8431	1	29	8	18	5574	10657	0.85	0.817	1	22
+C_shellcloud_vs_core_pfam	PF00160	Pro_isomerase	Cyclophilin type peptidyl-prolyl cis-trans isomerase/CLD	CL0475	3		9	19	9000	15032	0.791	0.9098	1	24	5	13	3973	9269	0.897	0.7222	1	22	6	15	5574	10657	0.765	0.8877	1	19
+C_shellcloud_vs_core_pfam	PF01370	Epimerase	NAD dependent epimerase/dehydratase family	CL0063	3		60	111	9000	15032	0.903	0.9112	1	240	25	47	3973	9269	1.241	0.09963	0.5057	84	18	41	5574	10657	0.839	0.8917	1	68
+C_shellcloud_vs_core_pfam	PF00654	Voltage_CLC	Voltage gated chloride channel		2		2	5	9000	15032	0.668	0.912	1	7								6	4	6	5574	10657	1.275	0.3878	1	6
+C_shellcloud_vs_core_pfam	PF01369	Sec7	Sec7 domain		2		2	5	9000	15032	0.668	0.912	1	8	1	5	3973	9269	0.467	0.9392	1	8								6
+C_shellcloud_vs_core_pfam	PF01433	Peptidase_M1	Peptidase family M1 domain	CL0126	2		2	5	9000	15032	0.668	0.912	1	6	2	5	3973	9269	0.933	0.7108	1	7								6
+C_shellcloud_vs_core_pfam	PF02194	PXA	PXA domain		2		2	5	9000	15032	0.668	0.912	1	7								7	4	6	5574	10657	1.275	0.3878	1	7
+C_shellcloud_vs_core_pfam	PF02421	FeoB_N	Ferrous iron transport protein B	CL0023	2		2	5	9000	15032	0.668	0.912	1	12	2	6	3973	9269	0.778	0.8087	1	8								5
+C_shellcloud_vs_core_pfam	PF02953	zf-Tim10_DDP	Tim10/DDP family zinc finger		3		2	5	9000	15032	0.668	0.912	1	6	1	5	3973	9269	0.467	0.9392	1	10	6	8	5574	10657	1.434	0.1768	0.7138	10
+C_shellcloud_vs_core_pfam	PF03901	Glyco_transf_22	Alg9-like mannosyltransferase family	CL0111	2		2	5	9000	15032	0.668	0.912	1	8								8	2	6	5574	10657	0.637	0.9108	1	7
+C_shellcloud_vs_core_pfam	PF04564	U-box	U-box domain	CL0229	2		2	5	9000	15032	0.668	0.912	1	7	2	5	3973	9269	0.933	0.7108	1	7								4
+C_shellcloud_vs_core_pfam	PF04628	Sedlin_N	Sedlin	CL0431	3		2	5	9000	15032	0.668	0.912	1	8	6	8	3973	9269	1.75	0.06989	0.4064	9	5	7	5574	10657	1.366	0.266	0.8245	7
+C_shellcloud_vs_core_pfam	PF08513	LisH	LisH	CL0561	2		2	5	9000	15032	0.668	0.912	1	8								5	2	5	5574	10657	0.765	0.84	1	5
+C_shellcloud_vs_core_pfam	PF08662	eIF2A	Eukaryotic translation initiation factor eIF2A	CL0186	2		2	5	9000	15032	0.668	0.912	1	14								8	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF08740	BCS1_N	BCS1 N terminal		2		2	5	9000	15032	0.668	0.912	1	10								11	7	8	5574	10657	1.673	0.0464	0.2773	10
+C_shellcloud_vs_core_pfam	PF12895	ANAPC3	Anaphase-promoting complex, cyclosome, subunit 3	CL0020	3		2	5	9000	15032	0.668	0.912	1	7	4	6	3973	9269	1.555	0.221	0.7371	13	4	7	5574	10657	1.093	0.5503	1	9
+C_shellcloud_vs_core_pfam	PF13593	SBF_like	SBF-like CPA transporter family (DUF4137)	CL0064	2		2	5	9000	15032	0.668	0.912	1	8								5	3	5	5574	10657	1.147	0.5431	1	5
+C_shellcloud_vs_core_pfam	PF13716	CRAL_TRIO_2	Divergent CRAL/TRIO domain	CL0512	2		2	5	9000	15032	0.668	0.912	1	6								14	4	5	5574	10657	1.53	0.2176	0.7443	7
+C_shellcloud_vs_core_pfam	PF25426	AAA_lid_BCS1	Mitochondrial chaperone BCS1-like, ATPase lid domain	CL0671	2		2	5	9000	15032	0.668	0.912	1	7								14	8	9	5574	10657	1.699	0.02692	0.2483	13
+C_shellcloud_vs_core_pfam	PF25574	TPR_IMB1	Importin subunit beta-1-like, TPR repeats	CL0020	3		2	5	9000	15032	0.668	0.912	1	5	4	7	3973	9269	1.333	0.347	0.9588	14	3	7	5574	10657	0.819	0.8095	1	8
+C_shellcloud_vs_core_pfam	PF00128	Alpha-amylase	Alpha amylase, catalytic domain	CL0036	3		10	21	9000	15032	0.795	0.9133	1	49	5	8	3973	9269	1.458	0.221	0.7371	22	9	11	5574	10657	1.564	0.04541	0.2773	16
+C_shellcloud_vs_core_pfam	PF01061	ABC2_membrane	ABC-2 type transporter	CL0181	3		12	25	9000	15032	0.802	0.9204	1	54	8	13	3973	9269	1.436	0.1401	0.5789	32	7	15	5574	10657	0.892	0.7567	1	23
+C_shellcloud_vs_core_pfam	PF00076	RRM_1	RNA recognition motif	CL0221	3		59	110	9000	15032	0.896	0.9238	1	171	23	75	3973	9269	0.715	0.9891	1	155	37	87	5574	10657	0.813	0.9739	1	132
+C_shellcloud_vs_core_pfam	PF00266	Aminotran_5	Aminotransferase class-V	CL0061	3		13	27	9000	15032	0.804	0.9239	1	50	3	13	3973	9269	0.538	0.9623	1	18	3	13	5574	10657	0.441	0.9928	1	16
+C_shellcloud_vs_core_pfam	PF00012	HSP70	Hsp70 protein	CL0108	3		6	14	9000	15032	0.716	0.9406	1	26	1	9	3973	9269	0.259	0.9935	1	23	0	8	5574	10657	0	1	1	15
+C_shellcloud_vs_core_pfam	PF14510	ABC_trans_N	ABC-transporter N-terminal		3		8	18	9000	15032	0.742	0.9411	1	26	7	9	3973	9269	1.815	0.03752	0.2709	20	4	8	5574	10657	0.956	0.6859	1	12
+C_shellcloud_vs_core_pfam	PF00134	Cyclin_N	Cyclin, N-terminal domain	CL0065	3		5	12	9000	15032	0.696	0.9417	1	14	0	6	3973	9269	0	1	1	14	2	8	5574	10657	0.478	0.9739	1	13
+C_shellcloud_vs_core_pfam	PF00808	CBFD_NFYB_HMF	Histone-like transcription factor (CBF/NF-Y) and archaeal histone	CL0012	3		5	12	9000	15032	0.696	0.9417	1	17	6	15	3973	9269	0.933	0.6819	1	20	6	14	5574	10657	0.819	0.8353	1	18
+C_shellcloud_vs_core_pfam	PF02535	Zip	ZIP Zinc transporter	CL0184	3		5	12	9000	15032	0.696	0.9417	1	25	3	10	3973	9269	0.7	0.8747	1	21	6	13	5574	10657	0.882	0.7647	1	18
+C_shellcloud_vs_core_pfam	PF02786	CPSase_L_D2	Carbamoyl-phosphate synthase L chain, ATP binding domain	CL0179	3		5	12	9000	15032	0.696	0.9417	1	20	2	9	3973	9269	0.518	0.9498	1	25	4	10	5574	10657	0.765	0.8634	1	16
+C_shellcloud_vs_core_pfam	PF02985	HEAT	HEAT repeat	CL0020	2		5	12	9000	15032	0.696	0.9417	1	20								7	1	5	5574	10657	0.382	0.9753	1	6
+C_shellcloud_vs_core_pfam	PF07478	Dala_Dala_lig_C	D-ala D-ala ligase C-terminus	CL0179	3		5	12	9000	15032	0.696	0.9417	1	20	3	7	3973	9269	1	0.6408	1	20	4	9	5574	10657	0.85	0.7894	1	14
+C_shellcloud_vs_core_pfam	PF00249	Myb_DNA-binding	Myb-like DNA-binding domain	CL0123	3		9	20	9000	15032	0.752	0.9422	1	27	8	19	3973	9269	0.982	0.613	1	41	19	29	5574	10657	1.253	0.1068	0.5248	34
+C_shellcloud_vs_core_pfam	PF01546	Peptidase_M20	Peptidase family M20/M25/M40	CL0865	3		9	20	9000	15032	0.752	0.9422	1	43	0	6	3973	9269	0	1	1	14	2	7	5574	10657	0.546	0.9513	1	11
+C_shellcloud_vs_core_pfam	PF06422	PDR_CDR	CDR ABC transporter	CL0181	3		9	20	9000	15032	0.752	0.9422	1	35	6	8	3973	9269	1.75	0.06989	0.4064	18	5	9	5574	10657	1.062	0.5566	1	13
+C_shellcloud_vs_core_pfam	PF00169	PH	PH domain	CL0266	3		10	22	9000	15032	0.759	0.9436	1	34	6	18	3973	9269	0.778	0.8549	1	32	6	19	5574	10657	0.604	0.9802	1	27
+C_shellcloud_vs_core_pfam	PF01593	Amino_oxidase	Flavin containing amine oxidoreductase	CL0063	3		10	22	9000	15032	0.759	0.9436	1	43	0	12	3973	9269	0	1	1	26	8	20	5574	10657	0.765	0.9079	1	24
+C_shellcloud_vs_core_pfam	PF00432	Prenyltrans	Prenyltransferase alpha-alpha toroid domain	CL0059	3		4	10	9000	15032	0.668	0.9443	1	18	10	12	3973	9269	1.944	0.00514	0.09666	24	10	11	5574	10657	1.738	0.008813	0.1248	16
+C_shellcloud_vs_core_pfam	PF00627	UBA	UBA/TS-N domain	CL0214	3		4	10	9000	15032	0.668	0.9443	1	14	1	7	3973	9269	0.333	0.9802	1	12	2	7	5574	10657	0.546	0.9513	1	11
+C_shellcloud_vs_core_pfam	PF01557	FAA_hydrolase	Fumarylacetoacetate (FAA) hydrolase C-terminal	CL0377	3		4	10	9000	15032	0.668	0.9443	1	22	2	5	3973	9269	0.933	0.7108	1	9	4	6	5574	10657	1.275	0.3878	1	8
+C_shellcloud_vs_core_pfam	PF02775	TPP_enzyme_C	Thiamine pyrophosphate enzyme, C-terminal TPP binding domain	CL0254	3		4	10	9000	15032	0.668	0.9443	1	20	5	10	3973	9269	1.166	0.44	1	22	4	9	5574	10657	0.85	0.7894	1	14
+C_shellcloud_vs_core_pfam	PF00171	Aldedh	Aldehyde dehydrogenase family	CL0099	3		21	43	9000	15032	0.816	0.9477	1	94	4	18	3973	9269	0.518	0.9813	1	48	8	22	5574	10657	0.695	0.9571	1	38
+C_shellcloud_vs_core_pfam	PF00493	MCM	MCM P-loop domain	CL0023	3		3	8	9000	15032	0.626	0.9494	1	12	1	6	3973	9269	0.389	0.9652	1	12	0	6	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF00632	HECT	HECT-domain (ubiquitin-transferase)	CL0552	3		3	8	9000	15032	0.626	0.9494	1	12	1	7	3973	9269	0.333	0.9802	1	11	1	7	5574	10657	0.273	0.9944	1	10
+C_shellcloud_vs_core_pfam	PF01237	Oxysterol_BP	Oxysterol-binding protein		3		3	8	9000	15032	0.626	0.9494	1	12	0	5	3973	9269	0	1	1	9	0	5	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF02146	SIR2	Sir2 family	CL0063	3		3	8	9000	15032	0.626	0.9494	1	15	0	5	3973	9269	0	1	1	10	1	6	5574	10657	0.319	0.9882	1	8
+C_shellcloud_vs_core_pfam	PF02463	SMC_N	RecF/RecN/SMC N terminal domain	CL0023	3		3	8	9000	15032	0.626	0.9494	1	15	0	6	3973	9269	0	1	1	11	0	6	5574	10657	0	1	1	11
+C_shellcloud_vs_core_pfam	PF02492	cobW	CobW/HypB/UreG, nucleotide-binding domain	CL0023	3		3	8	9000	15032	0.626	0.9494	1	18	0	5	3973	9269	0	1	1	8	1	6	5574	10657	0.319	0.9882	1	8
+C_shellcloud_vs_core_pfam	PF04145	Ctr	Ctr copper transporter family		2		3	8	9000	15032	0.626	0.9494	1	16	4	6	3973	9269	1.555	0.221	0.7371	9								6
+C_shellcloud_vs_core_pfam	PF14551	MCM_N	MCM N-terminal domain	CL0903	3		3	8	9000	15032	0.626	0.9494	1	13	1	6	3973	9269	0.389	0.9652	1	10	0	6	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF17207	MCM_OB	MCM OB domain	CL0021	3		3	8	9000	15032	0.626	0.9494	1	11	1	6	3973	9269	0.389	0.9652	1	10	0	6	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF17855	MCM_lid	MCM AAA-lid domain	CL0671	3		3	8	9000	15032	0.626	0.9494	1	11	1	6	3973	9269	0.389	0.9652	1	10	0	6	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF23240	HAT_PRP39_N	PRP39 N-terminal HAT repeat	CL0020	2		3	8	9000	15032	0.626	0.9494	1	8	1	5	3973	9269	0.467	0.9392	1	9								8
+C_shellcloud_vs_core_pfam	PF00027	cNMP_binding	Cyclic nucleotide-binding domain	CL0029	3		2	6	9000	15032	0.557	0.9585	1	12	2	5	3973	9269	0.933	0.7108	1	9	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF00156	Pribosyltran	Phosphoribosyl transferase domain	CL0533	3		2	6	9000	15032	0.557	0.9585	1	8	2	8	3973	9269	0.583	0.9206	1	8	0	6	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF00611	FCH	Fes/CIP4, and EFC/F-BAR homology domain	CL0145	3		2	6	9000	15032	0.557	0.9585	1	7	1	6	3973	9269	0.389	0.9652	1	11	0	5	5574	10657	0	1	1	10
+C_shellcloud_vs_core_pfam	PF00752	XPG_N	XPG N-terminal domain	CL0280	3		2	6	9000	15032	0.557	0.9585	1	8	2	5	3973	9269	0.933	0.7108	1	7	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF00995	Sec1	Sec1 family		3		2	6	9000	15032	0.557	0.9585	1	7	5	8	3973	9269	1.458	0.221	0.7371	13	2	6	5574	10657	0.637	0.9108	1	9
+C_shellcloud_vs_core_pfam	PF01467	CTP_transf_like	Cytidylyltransferase-like	CL0039	3		2	6	9000	15032	0.557	0.9585	1	9	4	6	3973	9269	1.555	0.221	0.7371	8	4	6	5574	10657	1.275	0.3878	1	7
+C_shellcloud_vs_core_pfam	PF02225	PA	PA domain	CL0364	3		2	6	9000	15032	0.557	0.9585	1	11	1	5	3973	9269	0.467	0.9392	1	8	1	6	5574	10657	0.319	0.9882	1	6
+C_shellcloud_vs_core_pfam	PF05188	MutS_II	MutS domain II	CL0219	2		2	6	9000	15032	0.557	0.9585	1	7								8	2	6	5574	10657	0.637	0.9108	1	8
+C_shellcloud_vs_core_pfam	PF05978	UNC-93	Ion channel regulatory protein UNC-93	CL0015	2		2	6	9000	15032	0.557	0.9585	1	11								7	4	5	5574	10657	1.53	0.2176	0.7443	6
+C_shellcloud_vs_core_pfam	PF08282	Hydrolase_3	haloacid dehalogenase-like hydrolase	CL0137	3		2	6	9000	15032	0.557	0.9585	1	11	1	5	3973	9269	0.467	0.9392	1	10	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF11754	Velvet	Velvet factor	CL0073	3		2	6	9000	15032	0.557	0.9585	1	12	11	14	3973	9269	1.833	0.007337	0.1048	35	11	14	5574	10657	1.502	0.04181	0.2716	23
+C_shellcloud_vs_core_pfam	PF12717	Cnd1	non-SMC mitotic condensation complex subunit 1	CL0020	3		2	6	9000	15032	0.557	0.9585	1	9	0	5	3973	9269	0	1	1	6	0	5	5574	10657	0	1	1	5
+C_shellcloud_vs_core_pfam	PF13959	CTE_SPB4	ATP-dependent rRNA helicase SPB4-like, C-terminal extension		2		2	6	9000	15032	0.557	0.9585	1	7								8	3	6	5574	10657	0.956	0.6984	1	7
+C_shellcloud_vs_core_pfam	PF14378	PAP2_3	PAP2 superfamily	CL0525	2		2	6	9000	15032	0.557	0.9585	1	8								7	4	5	5574	10657	1.53	0.2176	0.7443	6
+C_shellcloud_vs_core_pfam	PF22594	GTP-eEF1A_C	GTP-eEF1A C-terminal domain-like	CL0740	3		2	6	9000	15032	0.557	0.9585	1	8	4	5	3973	9269	1.866	0.1108	0.5057	8	3	5	5574	10657	1.147	0.5431	1	7
+C_shellcloud_vs_core_pfam	PF00293	NUDIX	NUDIX domain	CL0261	3		9	21	9000	15032	0.716	0.9639	1	39	3	11	3973	9269	0.636	0.9149	1	19	4	11	5574	10657	0.695	0.9139	1	15
+C_shellcloud_vs_core_pfam	PF07653	SH3_2	Variant SH3 domain	CL0010	3		10	23	9000	15032	0.726	0.9642	1	33	3	16	3973	9269	0.437	0.9897	1	42	5	20	5574	10657	0.478	0.9968	1	34
+C_shellcloud_vs_core_pfam	PF00025	Arf	ADP-ribosylation factor family	CL0023	3		22	46	9000	15032	0.799	0.9645	1	73	6	35	3973	9269	0.4	0.9997	1	45	10	38	5574	10657	0.503	0.9997	1	44
+C_shellcloud_vs_core_pfam	PF00070	Pyr_redox	Pyridine nucleotide-disulphide oxidoreductase	CL0063	3		11	25	9000	15032	0.735	0.9647	1	52	6	14	3973	9269	1	0.6013	1	27	12	20	5574	10657	1.147	0.3223	0.9708	24
+C_shellcloud_vs_core_pfam	PF00168	C2	C2 domain	CL0154	3		6	15	9000	15032	0.668	0.9654	1	17	8	16	3973	9269	1.166	0.3692	0.9588	30	9	17	5574	10657	1.012	0.5765	1	23
+C_shellcloud_vs_core_pfam	PF13499	EF-hand_7	EF-hand domain pair	CL0220	3		6	15	9000	15032	0.668	0.9654	1	25	5	14	3973	9269	0.833	0.7894	1	23	8	16	5574	10657	0.956	0.6687	1	19
+C_shellcloud_vs_core_pfam	PF00096	zf-C2H2	Zinc finger, C2H2 type	CL0361	3		23	48	9000	15032	0.8	0.966	1	79	11	30	3973	9269	0.855	0.8075	1	61	21	37	5574	10657	1.085	0.3537	1	53
+C_shellcloud_vs_core_pfam	PF00122	E1-E2_ATPase	P-type ATPase actuator domain		3		13	29	9000	15032	0.749	0.9662	1	50	1	15	3973	9269	0.156	0.9998	1	33	6	18	5574	10657	0.637	0.9686	1	25
+C_shellcloud_vs_core_pfam	PF07993	NAD_binding_4	Male sterility protein	CL0063	3		14	31	9000	15032	0.754	0.9671	1	79	11	21	3973	9269	1.222	0.2527	0.8385	38	6	17	5574	10657	0.675	0.9511	1	28
+C_shellcloud_vs_core_pfam	PF13181	TPR_8	Tetratricopeptide repeat	CL0020	3		14	31	9000	15032	0.754	0.9671	1	61	11	25	3973	9269	1.027	0.5308	1	47	7	23	5574	10657	0.582	0.9902	1	31
+C_shellcloud_vs_core_pfam	PF07719	TPR_2	Tetratricopeptide repeat	CL0020	3		5	13	9000	15032	0.642	0.9673	1	28	7	13	3973	9269	1.256	0.2989	0.9588	24	6	12	5574	10657	0.956	0.6736	1	18
+C_shellcloud_vs_core_pfam	PF00149	Metallophos	Calcineurin-like phosphoesterase	CL0163	3		17	37	9000	15032	0.767	0.97	1	62	6	28	3973	9269	0.5	0.9951	1	53	7	28	5574	10657	0.478	0.9992	1	45
+C_shellcloud_vs_core_pfam	PF00349	Hexokinase_1	Hexokinase	CL0108	3		4	11	9000	15032	0.607	0.9702	1	14	0	5	3973	9269	0	1	1	12	0	5	5574	10657	0	1	1	10
+C_shellcloud_vs_core_pfam	PF00534	Glycos_transf_1	Glycosyl transferases group 1	CL0113	3		4	11	9000	15032	0.607	0.9702	1	24	2	6	3973	9269	0.778	0.8087	1	16	5	9	5574	10657	1.062	0.5566	1	13
+C_shellcloud_vs_core_pfam	PF00724	Oxidored_FMN	NADH:flavin oxidoreductase / NADH oxidase family	CL0036	2		4	11	9000	15032	0.607	0.9702	1	16								9	5	6	5574	10657	1.593	0.1324	0.5959	8
+C_shellcloud_vs_core_pfam	PF01644	Chitin_synth_1	Chitin synthase-like glycosyltransferase domain	CL0110	3		4	11	9000	15032	0.607	0.9702	1	16	4	10	3973	9269	0.933	0.6868	1	21	9	13	5574	10657	1.324	0.1728	0.7138	17
+C_shellcloud_vs_core_pfam	PF02434	Fringe	Fringe-like	CL0110	2		4	11	9000	15032	0.607	0.9702	1	15								6	4	5	5574	10657	1.53	0.2176	0.7443	6
+C_shellcloud_vs_core_pfam	PF03142	Chitin_synth_2	Chitin synthase	CL0110	3		4	11	9000	15032	0.607	0.9702	1	16	4	10	3973	9269	0.933	0.6868	1	20	8	12	5574	10657	1.275	0.2413	0.8011	15
+C_shellcloud_vs_core_pfam	PF03727	Hexokinase_2	Hexokinase	CL0108	3		4	11	9000	15032	0.607	0.9702	1	14	0	5	3973	9269	0	1	1	11	0	5	5574	10657	0	1	1	9
+C_shellcloud_vs_core_pfam	PF03810	IBN_N	Importin-beta N-terminal domain	CL0020	3		4	11	9000	15032	0.607	0.9702	1	14	1	8	3973	9269	0.292	0.9887	1	21	6	12	5574	10657	0.956	0.6736	1	16
+C_shellcloud_vs_core_pfam	PF14559	TPR_19	Tetratricopeptide repeat	CL0020	3		4	11	9000	15032	0.607	0.9702	1	18	4	8	3973	9269	1.166	0.4729	1	15	3	8	5574	10657	0.717	0.8837	1	9
+C_shellcloud_vs_core_pfam	PF00320	GATA	GATA zinc finger	CL0839	3		3	9	9000	15032	0.557	0.9745	1	13	3	6	3973	9269	1.166	0.5149	1	18	6	8	5574	10657	1.434	0.1768	0.7138	10
+C_shellcloud_vs_core_pfam	PF00348	polyprenyl_synt	Polyprenyl synthetase	CL0613	3		3	9	9000	15032	0.557	0.9745	1	26	2	6	3973	9269	0.778	0.8087	1	17	4	8	5574	10657	0.956	0.6859	1	14
+C_shellcloud_vs_core_pfam	PF00642	zf-CCCH	Zinc finger C-x8-C-x5-C-x3-H type (and similar)	CL0537	3		3	9	9000	15032	0.557	0.9745	1	13	0	6	3973	9269	0	1	1	12	1	9	5574	10657	0.212	0.9987	1	10
+C_shellcloud_vs_core_pfam	PF01663	Phosphodiest	Type I phosphodiesterase / nucleotide pyrophosphatase	CL0088	3		3	9	9000	15032	0.557	0.9745	1	17	1	6	3973	9269	0.389	0.9652	1	10	0	6	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF02776	TPP_enzyme_N	Thiamine pyrophosphate enzyme, N-terminal TPP binding domain	CL0254	3		3	9	9000	15032	0.557	0.9745	1	15	1	6	3973	9269	0.389	0.9652	1	10	1	6	5574	10657	0.319	0.9882	1	6
+C_shellcloud_vs_core_pfam	PF03372	Exo_endo_phos	Endonuclease/Exonuclease/phosphatase family	CL0530	3		3	9	9000	15032	0.557	0.9745	1	15	2	7	3973	9269	0.667	0.8758	1	13	3	7	5574	10657	0.819	0.8095	1	12
+C_shellcloud_vs_core_pfam	PF05739	SNARE	SNARE domain	CL0445	3		3	9	9000	15032	0.557	0.9745	1	11	2	7	3973	9269	0.667	0.8758	1	18	5	10	5574	10657	0.956	0.6784	1	15
+C_shellcloud_vs_core_pfam	PF08423	Rad51	Rad51	CL0023	3		3	9	9000	15032	0.557	0.9745	1	16	4	6	3973	9269	1.555	0.221	0.7371	9	4	6	5574	10657	1.275	0.3878	1	9
+C_shellcloud_vs_core_pfam	PF17862	AAA_lid_3	AAA+ lid domain	CL0671	3		10	24	9000	15032	0.696	0.9777	1	30	0	16	3973	9269	0	1	1	27	1	16	5574	10657	0.119	1	1	19
+C_shellcloud_vs_core_pfam	PF01073	3Beta_HSD	3-beta hydroxysteroid dehydrogenase/isomerase family	CL0063	3		17	38	9000	15032	0.747	0.9799	1	73	1	11	3973	9269	0.212	0.9979	1	26	4	15	5574	10657	0.51	0.9889	1	25
+C_shellcloud_vs_core_pfam	PF07687	M20_dimer	Peptidase dimerisation domain		3		6	16	9000	15032	0.626	0.9804	1	28	2	7	3973	9269	0.667	0.8758	1	11	2	6	5574	10657	0.637	0.9108	1	9
+C_shellcloud_vs_core_pfam	PF14604	SH3_9	Variant SH3 domain	CL0010	3		6	16	9000	15032	0.626	0.9804	1	24	2	14	3973	9269	0.333	0.9955	1	34	3	15	5574	10657	0.382	0.9979	1	27
+C_shellcloud_vs_core_pfam	PF16113	ECH_2	Enoyl-CoA hydratase/isomerase	CL0127	3		6	16	9000	15032	0.626	0.9804	1	40	3	13	3973	9269	0.538	0.9623	1	19	2	12	5574	10657	0.319	0.998	1	15
+C_shellcloud_vs_core_pfam	PF00258	Flavodoxin_1	Flavodoxin	CL0042	3		2	7	9000	15032	0.477	0.9808	1	10	2	6	3973	9269	0.778	0.8087	1	9	0	5	5574	10657	0	1	1	8
+C_shellcloud_vs_core_pfam	PF00288	GHMP_kinases_N	GHMP kinases N terminal domain	CL0329	3		2	7	9000	15032	0.477	0.9808	1	8	2	7	3973	9269	0.667	0.8758	1	9	0	5	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF00617	RasGEF	RasGEF domain		3		2	7	9000	15032	0.477	0.9808	1	8	3	7	3973	9269	1	0.6408	1	12	1	5	5574	10657	0.382	0.9753	1	8
+C_shellcloud_vs_core_pfam	PF00621	RhoGEF	RhoGEF domain	CL0852	3		2	7	9000	15032	0.477	0.9808	1	8	3	8	3973	9269	0.875	0.7416	1	17	3	9	5574	10657	0.637	0.9309	1	15
+C_shellcloud_vs_core_pfam	PF00675	Peptidase_M16	Insulinase (Peptidase family M16)	CL0094	3		2	7	9000	15032	0.477	0.9808	1	11	1	5	3973	9269	0.467	0.9392	1	16	2	7	5574	10657	0.546	0.9513	1	10
+C_shellcloud_vs_core_pfam	PF01145	Band_7	SPFH domain / Band 7 family	CL0433	3		2	7	9000	15032	0.477	0.9808	1	9	2	6	3973	9269	0.778	0.8087	1	12	1	6	5574	10657	0.319	0.9882	1	6
+C_shellcloud_vs_core_pfam	PF02515	CoA_transf_3	CoA-transferase family III		3		2	7	9000	15032	0.477	0.9808	1	16	6	11	3973	9269	1.273	0.3131	0.9588	17	4	10	5574	10657	0.765	0.8634	1	14
+C_shellcloud_vs_core_pfam	PF03031	NIF	NLI interacting factor-like phosphatase	CL0137	3		2	7	9000	15032	0.477	0.9808	1	9	0	5	3973	9269	0	1	1	11	5	9	5574	10657	1.062	0.5566	1	10
+C_shellcloud_vs_core_pfam	PF03143	GTP_EFTU_D3	Elongation factor Tu C-terminal domain	CL0740	3		2	7	9000	15032	0.477	0.9808	1	10	4	6	3973	9269	1.555	0.221	0.7371	11	3	6	5574	10657	0.956	0.6984	1	8
+C_shellcloud_vs_core_pfam	PF04055	Radical_SAM	Radical SAM superfamily	CL0036	3		2	7	9000	15032	0.477	0.9808	1	12	5	10	3973	9269	1.166	0.44	1	13	4	10	5574	10657	0.765	0.8634	1	11
+C_shellcloud_vs_core_pfam	PF04818	CID	CID domain	CL0020	3		2	7	9000	15032	0.477	0.9808	1	11	4	7	3973	9269	1.333	0.347	0.9588	10	3	6	5574	10657	0.956	0.6984	1	9
+C_shellcloud_vs_core_pfam	PF06723	MreB_Mbl	MreB/Mbl protein	CL0108	3		2	7	9000	15032	0.477	0.9808	1	10	0	6	3973	9269	0	1	1	12	0	6	5574	10657	0	1	1	9
+C_shellcloud_vs_core_pfam	PF09439	SRPRB	Signal recognition particle receptor beta subunit	CL0023	3		2	7	9000	15032	0.477	0.9808	1	9	1	8	3973	9269	0.292	0.9887	1	11	3	8	5574	10657	0.717	0.8837	1	10
+C_shellcloud_vs_core_pfam	PF13476	AAA_23	AAA domain	CL0023	3		2	7	9000	15032	0.477	0.9808	1	12	0	5	3973	9269	0	1	1	10	1	6	5574	10657	0.319	0.9882	1	9
+C_shellcloud_vs_core_pfam	PF00022	Actin	Actin	CL0108	3		5	14	9000	15032	0.597	0.9821	1	15	3	12	3973	9269	0.583	0.943	1	20	1	11	5574	10657	0.174	0.9997	1	15
+C_shellcloud_vs_core_pfam	PF13714	PEP_mutase	Phosphoenolpyruvate phosphomutase	CL0036	3		5	14	9000	15032	0.597	0.9821	1	17	8	13	3973	9269	1.436	0.1401	0.5789	19	2	8	5574	10657	0.478	0.9739	1	12
+C_shellcloud_vs_core_pfam	PF01266	DAO	FAD dependent oxidoreductase	CL0063	3		21	46	9000	15032	0.762	0.9822	1	104	16	32	3973	9269	1.166	0.2603	0.8552	63	20	36	5574	10657	1.062	0.4125	1	55
+C_shellcloud_vs_core_pfam	PF00155	Aminotran_1_2	Aminotransferase class I and II	CL0061	3		22	48	9000	15032	0.766	0.9828	1	102	12	33	3973	9269	0.848	0.8239	1	80	30	49	5574	10657	1.171	0.1334	0.5965	66
+C_shellcloud_vs_core_pfam	PF12937	F-box-like	F-box-like	CL0271	3		22	48	9000	15032	0.766	0.9828	1	73	18	39	3973	9269	1.077	0.3972	1	71	14	36	5574	10657	0.744	0.9628	1	57
+C_shellcloud_vs_core_pfam	PF13692	Glyco_trans_1_4	Glycosyl transferases group 1	CL0113	3		4	12	9000	15032	0.557	0.9844	1	27	1	5	3973	9269	0.467	0.9392	1	13	2	6	5574	10657	0.637	0.9108	1	11
+C_shellcloud_vs_core_pfam	PF14531	Kinase-like	Kinase-like	CL0016	3		4	12	9000	15032	0.557	0.9844	1	20	8	16	3973	9269	1.166	0.3692	0.9588	25	10	18	5574	10657	1.062	0.4855	1	22
+C_shellcloud_vs_core_pfam	PF07728	AAA_5	AAA domain (dynein-related subfamily)	CL0023	3		14	33	9000	15032	0.709	0.9862	1	49	3	21	3973	9269	0.333	0.999	1	43	4	21	5574	10657	0.364	0.9996	1	31
+C_shellcloud_vs_core_pfam	PF13193	AMP-binding_C	AMP-binding enzyme C-terminal domain	CL0531	3		14	33	9000	15032	0.709	0.9862	1	73	13	33	3973	9269	0.919	0.7167	1	73	24	44	5574	10657	1.043	0.4425	1	62
+C_shellcloud_vs_core_pfam	PF00072	Response_reg	Response regulator receiver domain	CL0304	3		8	21	9000	15032	0.636	0.9874	1	60	2	8	3973	9269	0.583	0.9206	1	19	3	9	5574	10657	0.637	0.9309	1	15
+C_shellcloud_vs_core_pfam	PF00620	RhoGAP	RhoGAP domain	CL0409	3		3	10	9000	15032	0.501	0.9875	1	14	0	6	3973	9269	0	1	1	14	0	6	5574	10657	0	1	1	11
+C_shellcloud_vs_core_pfam	PF00982	Glyco_transf_20	Glycosyltransferase family 20	CL0113	2		3	10	9000	15032	0.501	0.9875	1	15	3	6	3973	9269	1.166	0.5149	1	7								5
+C_shellcloud_vs_core_pfam	PF01602	Adaptin_N	Adaptin N terminal region	CL0020	3		3	10	9000	15032	0.501	0.9875	1	14	5	11	3973	9269	1.06	0.5458	1	17	3	10	5574	10657	0.574	0.9598	1	12
+C_shellcloud_vs_core_pfam	PF19055	ABC2_membrane_7	ABC-2 type transporter	CL0181	3		7	19	9000	15032	0.615	0.9881	1	36	7	12	3973	9269	1.361	0.2134	0.7371	21	4	11	5574	10657	0.695	0.9139	1	15
+C_shellcloud_vs_core_pfam	PF00085	Thioredoxin	Thioredoxin	CL0172	3		6	17	9000	15032	0.589	0.9891	1	31	4	10	3973	9269	0.933	0.6868	1	14	3	10	5574	10657	0.574	0.9598	1	11
+C_shellcloud_vs_core_pfam	PF00378	ECH_1	Enoyl-CoA hydratase/isomerase	CL0127	3		6	17	9000	15032	0.589	0.9891	1	50	3	14	3973	9269	0.5	0.9753	1	22	2	13	5574	10657	0.294	0.999	1	16
+C_shellcloud_vs_core_pfam	PF00370	FGGY_N	FGGY family of carbohydrate kinases, N-terminal domain	CL0108	3		1	5	9000	15032	0.334	0.9896	1	7	4	7	3973	9269	1.333	0.347	0.9588	9	2	5	5574	10657	0.765	0.84	1	7
+C_shellcloud_vs_core_pfam	PF00433	Pkinase_C	Protein kinase C terminal domain		3		1	5	9000	15032	0.334	0.9896	1	5	4	7	3973	9269	1.333	0.347	0.9588	9	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF00462	Glutaredoxin	Glutaredoxin	CL0172	3		1	5	9000	15032	0.334	0.9896	1	8	3	5	3973	9269	1.4	0.368	0.9588	16	4	7	5574	10657	1.093	0.5503	1	14
+C_shellcloud_vs_core_pfam	PF00618	RasGEF_N	RasGEF N-terminal motif	CL0542	2		1	5	9000	15032	0.334	0.9896	1	6	3	6	3973	9269	1.166	0.5149	1	8								6
+C_shellcloud_vs_core_pfam	PF00790	VHS	VHS domain	CL0020	3		1	5	9000	15032	0.334	0.9896	1	6	2	5	3973	9269	0.933	0.7108	1	10	4	7	5574	10657	1.093	0.5503	1	10
+C_shellcloud_vs_core_pfam	PF00867	XPG_I	XPG I-region	CL0464	3		1	5	9000	15032	0.334	0.9896	1	6	2	5	3973	9269	0.933	0.7108	1	7	2	5	5574	10657	0.765	0.84	1	6
+C_shellcloud_vs_core_pfam	PF01535	PPR	PPR repeat	CL0020	3		1	5	9000	15032	0.334	0.9896	1	8	0	7	3973	9269	0	1	1	17	1	7	5574	10657	0.273	0.9944	1	15
+C_shellcloud_vs_core_pfam	PF02752	Arrestin_C	Arrestin (or S-antigen), C-terminal domain	CL0135	2		1	5	9000	15032	0.334	0.9896	1	6								8	1	5	5574	10657	0.382	0.9753	1	8
+C_shellcloud_vs_core_pfam	PF02782	FGGY_C	FGGY family of carbohydrate kinases, C-terminal domain	CL0108	3		1	5	9000	15032	0.334	0.9896	1	7	4	7	3973	9269	1.333	0.347	0.9588	11	3	6	5574	10657	0.956	0.6984	1	9
+C_shellcloud_vs_core_pfam	PF05920	Homeobox_KN	Homeobox KN domain	CL0123	2		1	5	9000	15032	0.334	0.9896	1	9								16	8	9	5574	10657	1.699	0.02692	0.2483	15
+C_shellcloud_vs_core_pfam	PF08544	GHMP_kinases_C	GHMP kinases C terminal	CL0677	2		1	5	9000	15032	0.334	0.9896	1	5	2	5	3973	9269	0.933	0.7108	1	7								4
+C_shellcloud_vs_core_pfam	PF13207	AAA_17	AAA domain	CL0023	3		1	5	9000	15032	0.334	0.9896	1	6	7	12	3973	9269	1.361	0.2134	0.7371	17	2	6	5574	10657	0.637	0.9108	1	11
+C_shellcloud_vs_core_pfam	PF13516	LRR_6	Leucine Rich repeat	CL0022	2		1	5	9000	15032	0.334	0.9896	1	9								7	2	5	5574	10657	0.765	0.84	1	7
+C_shellcloud_vs_core_pfam	PF26557	Cullin_AB	Cullin alpha+beta domain		2		1	5	9000	15032	0.334	0.9896	1	6								5	2	5	5574	10657	0.765	0.84	1	5
+C_shellcloud_vs_core_pfam	PF08240	ADH_N	Alcohol dehydrogenase GroES-like domain	CL0296	3		44	91	9000	15032	0.808	0.9902	1	214	29	47	3973	9269	1.44	0.007036	0.1048	79	32	50	5574	10657	1.224	0.06375	0.3635	60
+C_shellcloud_vs_core_pfam	PF00046	Homeodomain	Homeodomain	CL0123	3		2	8	9000	15032	0.418	0.9913	1	15	2	7	3973	9269	0.667	0.8758	1	24	8	12	5574	10657	1.275	0.2413	0.8011	22
+C_shellcloud_vs_core_pfam	PF02666	PS_Dcarbxylase	Phosphatidylserine decarboxylase	CL0105	3		2	8	9000	15032	0.418	0.9913	1	17	6	8	3973	9269	1.75	0.06989	0.4064	17	8	10	5574	10657	1.53	0.07275	0.4025	13
+C_shellcloud_vs_core_pfam	PF03114	BAR	BAR domain	CL0145	3		2	8	9000	15032	0.418	0.9913	1	9	0	5	3973	9269	0	1	1	11	2	7	5574	10657	0.546	0.9513	1	10
+C_shellcloud_vs_core_pfam	PF04408	WHD_HA2	Helicase associated domain (HA2), winged-helix	CL0123	3		2	8	9000	15032	0.418	0.9913	1	11	1	8	3973	9269	0.292	0.9887	1	11	0	7	5574	10657	0	1	1	9
+C_shellcloud_vs_core_pfam	PF05193	Peptidase_M16_C	Peptidase M16 inactive domain	CL0094	3		2	8	9000	15032	0.418	0.9913	1	12	2	7	3973	9269	0.667	0.8758	1	18	2	8	5574	10657	0.478	0.9739	1	13
+C_shellcloud_vs_core_pfam	PF24681	Kelch_KLHDC2_KLHL20_DRC7	KLHDC2/KLHL20/DRC7 Kelch-repeats domain	CL0186	3		2	8	9000	15032	0.418	0.9913	1	11	0	6	3973	9269	0	1	1	13	4	9	5574	10657	0.85	0.7894	1	11
+C_shellcloud_vs_core_pfam	PF01926	MMR_HSR1	50S ribosome-binding GTPase	CL0023	3		20	46	9000	15032	0.726	0.9917	1	74	8	39	3973	9269	0.479	0.9991	1	56	7	38	5574	10657	0.352	1	1	49
+C_shellcloud_vs_core_pfam	PF00010	HLH	Helix-loop-helix DNA-binding domain	CL0827	3		4	13	9000	15032	0.514	0.992	1	16	5	13	3973	9269	0.897	0.7222	1	21	7	14	5574	10657	0.956	0.6706	1	18
+C_shellcloud_vs_core_pfam	PF00125	Histone	Core histone H2A/H2B/H3/H4 domain	CL0012	3		4	13	9000	15032	0.514	0.992	1	15	6	13	3973	9269	1.077	0.5106	1	19	6	13	5574	10657	0.882	0.7647	1	17
+C_shellcloud_vs_core_pfam	PF00702	Hydrolase	haloacid dehalogenase-like hydrolase	CL0137	3		22	50	9000	15032	0.735	0.9921	1	81	6	26	3973	9269	0.538	0.9897	1	51	14	32	5574	10657	0.836	0.8744	1	39
+C_shellcloud_vs_core_pfam	PF00004	AAA	ATPase family associated with various cellular activities (AAA)	CL0023	3		36	77	9000	15032	0.781	0.9928	1	132	28	71	3973	9269	0.92	0.7589	1	147	38	77	5574	10657	0.944	0.7375	1	112
+C_shellcloud_vs_core_pfam	PF13432	TPR_16	Tetratricopeptide repeat	CL0020	3		7	20	9000	15032	0.585	0.9933	1	42	7	18	3973	9269	0.907	0.7155	1	31	4	17	5574	10657	0.45	0.9963	1	21
+C_shellcloud_vs_core_pfam	PF00270	DEAD	DEAD/DEAH box helicase	CL0023	3		48	100	9000	15032	0.802	0.9939	1	198	11	63	3973	9269	0.407	1	1	110	22	68	5574	10657	0.619	0.9997	1	92
+C_shellcloud_vs_core_pfam	PF01979	Amidohydro_1	Amidohydrolase family	CL0036	2		3	11	9000	15032	0.456	0.9939	1	30	1	5	3973	9269	0.467	0.9392	1	10								6
+C_shellcloud_vs_core_pfam	PF10342	Kre9_KNH	Kre9/KNH-like N-terminal Ig-like domain	CL0159	3		3	11	9000	15032	0.456	0.9939	1	26	6	9	3973	9269	1.555	0.1346	0.5671	21	7	12	5574	10657	1.115	0.4507	1	18
+C_shellcloud_vs_core_pfam	PF13602	ADH_zinc_N_2	Zinc-binding dehydrogenase	CL0063	3		15	37	9000	15032	0.677	0.9945	1	83	8	21	3973	9269	0.889	0.7438	1	39	13	24	5574	10657	1.036	0.5099	1	32
+C_shellcloud_vs_core_pfam	PF00226	DnaJ	DnaJ domain	CL0392	3		14	35	9000	15032	0.668	0.9945	1	50	10	32	3973	9269	0.729	0.9364	1	49	8	28	5574	10657	0.546	0.9969	1	39
+C_shellcloud_vs_core_pfam	PF12874	zf-met	Zinc-finger of C2H2 type	CL0361	3		5	16	9000	15032	0.522	0.995	1	23	6	14	3973	9269	1	0.6013	1	24	5	12	5574	10657	0.797	0.8477	1	18
+C_shellcloud_vs_core_pfam	PF00957	Synaptobrevin	Synaptobrevin	CL0445	2		1	6	9000	15032	0.278	0.9958	1	10								5	2	5	5574	10657	0.765	0.84	1	5
+C_shellcloud_vs_core_pfam	PF01008	IF-2B	Initiation factor 2 subunit family	CL0063	3		1	6	9000	15032	0.278	0.9958	1	10	1	6	3973	9269	0.389	0.9652	1	10	0	5	5574	10657	0	1	1	6
+C_shellcloud_vs_core_pfam	PF04130	GCP_C_terminal	Gamma tubulin complex component C-terminal	CL0540	3		1	6	9000	15032	0.278	0.9958	1	17	0	5	3973	9269	0	1	1	9	2	6	5574	10657	0.637	0.9108	1	8
+C_shellcloud_vs_core_pfam	PF13589	HATPase_c_3	Histidine kinase-, DNA gyrase B-, and HSP90-like ATPase	CL0025	3		1	6	9000	15032	0.278	0.9958	1	14	4	8	3973	9269	1.166	0.4729	1	13	4	8	5574	10657	0.956	0.6859	1	12
+C_shellcloud_vs_core_pfam	PF14420	Clr5	Clr5 domain		3		1	6	9000	15032	0.278	0.9958	1	11	7	8	3973	9269	2.041	0.01326	0.1416	22	6	8	5574	10657	1.434	0.1768	0.7138	19
+C_shellcloud_vs_core_pfam	PF16450	Prot_ATP_ID_OB_C	Proteasomal ATPase OB C-terminal domain	CL0021	3		1	6	9000	15032	0.278	0.9958	1	9	1	6	3973	9269	0.389	0.9652	1	8	1	5	5574	10657	0.382	0.9753	1	8
+C_shellcloud_vs_core_pfam	PF17681	GCP_N_terminal	Gamma tubulin complex component N-terminal	CL0540	3		1	6	9000	15032	0.278	0.9958	1	15	0	5	3973	9269	0	1	1	10	2	6	5574	10657	0.637	0.9108	1	9
+C_shellcloud_vs_core_pfam	PF00533	BRCT	BRCA1 C Terminus (BRCT) domain	CL0459	3		4	14	9000	15032	0.477	0.996	1	24	6	14	3973	9269	1	0.6013	1	25	8	16	5574	10657	0.956	0.6687	1	23
+C_shellcloud_vs_core_pfam	PF13513	HEAT_EZ	HEAT-like repeat	CL0020	3		4	14	9000	15032	0.477	0.996	1	19	0	8	3973	9269	0	1	1	16	1	9	5574	10657	0.212	0.9987	1	12
+C_shellcloud_vs_core_pfam	PF00587	tRNA-synt_2b	tRNA synthetase class II core domain (G, H, P, S and T)	CL0040	3		2	9	9000	15032	0.371	0.9961	1	12	0	7	3973	9269	0	1	1	11	0	7	5574	10657	0	1	1	10
+C_shellcloud_vs_core_pfam	PF00173	Cyt-b5	Cytochrome b5-like Heme/Steroid binding domain		3		12	32	9000	15032	0.626	0.9969	1	46	6	22	3973	9269	0.636	0.9581	1	40	9	25	5574	10657	0.688	0.9672	1	35
+C_shellcloud_vs_core_pfam	PF03663	Glyco_hydro_76	Glycosyl hydrolase family 76	CL0059	3		3	12	9000	15032	0.418	0.9971	1	26	3	6	3973	9269	1.166	0.5149	1	12	5	8	5574	10657	1.195	0.4147	1	8
+C_shellcloud_vs_core_pfam	PF04670	Gtr1_RagA	Gtr1/RagA G protein conserved region	CL0023	3		3	12	9000	15032	0.418	0.9971	1	17	2	12	3973	9269	0.389	0.9879	1	18	4	13	5574	10657	0.588	0.9679	1	17
+C_shellcloud_vs_core_pfam	PF00400	WD40	WD domain, G-beta repeat	CL0186	3		90	180	9000	15032	0.835	0.9972	1	279	18	112	3973	9269	0.375	1	1	193	21	114	5574	10657	0.352	1	1	162
+C_shellcloud_vs_core_pfam	PF00227	Proteasome	Proteasome subunit	CL0052	3		5	17	9000	15032	0.491	0.9974	1	21	10	22	3973	9269	1.06	0.4838	1	32	8	17	5574	10657	0.9	0.7506	1	23
+C_shellcloud_vs_core_pfam	PF03109	ABC1	ABC1 atypical kinase-like domain	CL0016	3		4	15	9000	15032	0.445	0.998	1	19	10	20	3973	9269	1.166	0.3347	0.9588	38	10	20	5574	10657	0.956	0.6671	1	30
+C_shellcloud_vs_core_pfam	PF00679	EFG_C	Elongation factor G C-terminus	CL0437	3		1	7	9000	15032	0.239	0.9983	1	10	0	6	3973	9269	0	1	1	9	2	8	5574	10657	0.478	0.9739	1	9
+C_shellcloud_vs_core_pfam	PF01041	DegT_DnrJ_EryC1	DegT/DnrJ/EryC1/StrS aminotransferase family	CL0061	2		1	7	9000	15032	0.239	0.9983	1	21								11	4	8	5574	10657	0.956	0.6859	1	10
+C_shellcloud_vs_core_pfam	PF01055	Glyco_hydro_31_2nd	Glycosyl hydrolases family 31 TIM-barrel domain	CL0036	2		1	7	9000	15032	0.239	0.9983	1	14								15	12	13	5574	10657	1.765	0.002805	0.05594	15
+C_shellcloud_vs_core_pfam	PF02656	DUF202	Domain of unknown function (DUF202)		3		1	7	9000	15032	0.239	0.9983	1	13	4	9	3973	9269	1.037	0.5881	1	12	2	7	5574	10657	0.546	0.9513	1	8
+C_shellcloud_vs_core_pfam	PF03129	HGTP_anticodon	Anticodon binding domain	CL0458	3		1	7	9000	15032	0.239	0.9983	1	10	1	6	3973	9269	0.389	0.9652	1	8	0	6	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF04851	ResIII	Type III restriction enzyme, res subunit	CL0023	3		25	60	9000	15032	0.696	0.9986	1	100	6	48	3973	9269	0.292	1	1	80	12	51	5574	10657	0.45	1	1	71
+C_shellcloud_vs_core_pfam	PF00009	GTP_EFTU	Elongation factor Tu GTP binding domain	CL0023	3		10	30	9000	15032	0.557	0.9991	1	45	5	24	3973	9269	0.486	0.9936	1	31	4	24	5574	10657	0.319	0.9999	1	27
+C_shellcloud_vs_core_pfam	PF00107	ADH_zinc_N	Zinc-binding dehydrogenase	CL0063	3		32	75	9000	15032	0.713	0.9991	1	175	21	43	3973	9269	1.139	0.2602	0.8552	73	29	49	5574	10657	1.132	0.2056	0.7443	62
+C_shellcloud_vs_core_pfam	PF00118	Cpn60_TCP1	TCP-1/cpn60 chaperonin family		3		2	11	9000	15032	0.304	0.9992	1	20	0	10	3973	9269	0	1	1	20	1	11	5574	10657	0.174	0.9997	1	15
+C_shellcloud_vs_core_pfam	PF07717	OB_NTP_bind	Oligonucleotide/oligosaccharide-binding (OB)-fold	CL0021	3		2	11	9000	15032	0.304	0.9992	1	14	2	11	3973	9269	0.424	0.9805	1	14	1	10	5574	10657	0.191	0.9994	1	12
+C_shellcloud_vs_core_pfam	PF21010	HA2_C	Helicase associated domain (HA2), ratchet-like		3		2	11	9000	15032	0.304	0.9992	1	14	2	11	3973	9269	0.424	0.9805	1	14	1	10	5574	10657	0.191	0.9994	1	12
+C_shellcloud_vs_core_pfam	PF00782	DSPc	Dual specificity phosphatase, catalytic domain	CL0031	3		1	8	9000	15032	0.209	0.9993	1	21	5	12	3973	9269	0.972	0.6408	1	20	7	13	5574	10657	1.029	0.5673	1	20
+C_shellcloud_vs_core_pfam	PF00970	FAD_binding_6	Oxidoreductase FAD-binding domain	CL0866	2		1	8	9000	15032	0.209	0.9993	1	13								8	1	5	5574	10657	0.382	0.9753	1	7
+C_shellcloud_vs_core_pfam	PF08238	Sel1	Sel1 repeat	CL0020	3		1	8	9000	15032	0.209	0.9993	1	12	3	8	3973	9269	0.875	0.7416	1	17	1	7	5574	10657	0.273	0.9944	1	8
+C_shellcloud_vs_core_pfam	PF00690	Cation_ATPase_N	Cation transporter/ATPase, N-terminus		3		4	17	9000	15032	0.393	0.9995	1	31	5	14	3973	9269	0.833	0.7894	1	24	9	17	5574	10657	1.012	0.5765	1	21
+C_shellcloud_vs_core_pfam	PF02518	HATPase_c	Histidine kinase-, DNA gyrase B-, and HSP90-like ATPase	CL0025	3		9	29	9000	15032	0.518	0.9996	1	78	8	20	3973	9269	0.933	0.6826	1	40	8	20	5574	10657	0.765	0.9079	1	34
+C_shellcloud_vs_core_pfam	PF03144	GTP_EFTU_D2	Elongation factor Tu domain 2	CL0866	3		2	12	9000	15032	0.278	0.9997	1	17	4	13	3973	9269	0.718	0.8789	1	17	4	14	5574	10657	0.546	0.981	1	16
+C_shellcloud_vs_core_pfam	PF00566	RabGAP-TBC	Rab-GTPase-TBC domain	CL0816	3		3	15	9000	15032	0.334	0.9997	1	26	5	16	3973	9269	0.729	0.8849	1	34	11	21	5574	10657	1.001	0.5847	1	28
+C_shellcloud_vs_core_pfam	PF13242	Hydrolase_like	HAD-hyrolase-like	CL0137	3		3	15	9000	15032	0.334	0.9997	1	23	1	7	3973	9269	0.333	0.9802	1	15	2	8	5574	10657	0.478	0.9739	1	13
+C_shellcloud_vs_core_pfam	PF00397	WW	WW domain	CL0680	3		1	9	9000	15032	0.186	0.9997	1	13	5	11	3973	9269	1.06	0.5458	1	16	3	8	5574	10657	0.717	0.8837	1	13
+C_shellcloud_vs_core_pfam	PF02719	Polysacc_synt_2	Polysaccharide biosynthesis protein	CL0063	3		1	9	9000	15032	0.186	0.9997	1	21	1	5	3973	9269	0.467	0.9392	1	8	3	7	5574	10657	0.819	0.8095	1	8
+C_shellcloud_vs_core_pfam	PF23436	RabGap-TBC_2	RabGAP TBC domain	CL0816	3		2	13	9000	15032	0.257	0.9999	1	20	0	9	3973	9269	0	1	1	24	9	17	5574	10657	1.012	0.5765	1	20
+C_shellcloud_vs_core_pfam	PF00628	PHD	PHD-finger	CL0229	3		3	16	9000	15032	0.313	0.9999	1	20	6	16	3973	9269	0.875	0.751	1	27	1	13	5574	10657	0.147	0.9999	1	19
+C_shellcloud_vs_core_pfam	PF00175	NAD_binding_1	Oxidoreductase NAD-binding domain	CL0091	3		4	20	9000	15032	0.334	1	1	32	0	8	3973	9269	0	1	1	14	1	9	5574	10657	0.212	0.9987	1	11
+C_shellcloud_vs_core_pfam	PF00092	VWA	von Willebrand factor type A domain	CL0128	2									11	3	6	3973	9269	1.166	0.5149	1	11	5	8	5574	10657	1.195	0.4147	1	10
+C_shellcloud_vs_core_pfam	PF00145	DNA_methylase	C-5 cytosine-specific DNA methylase	CL0063	2									7	7	10	3973	9269	1.633	0.07913	0.4443	22	9	12	5574	10657	1.434	0.09782	0.4871	16
+C_shellcloud_vs_core_pfam	PF00246	Peptidase_M14	Zinc carboxypeptidase	CL0865	2									4	3	5	3973	9269	1.4	0.368	0.9588	13	10	11	5574	10657	1.738	0.008813	0.1248	12
+C_shellcloud_vs_core_pfam	PF00254	FKBP_C	FKBP-type peptidyl-prolyl cis-trans isomerase	CL0487	2									8	9	13	3973	9269	1.615	0.05085	0.3455	29	10	12	5574	10657	1.593	0.02794	0.2515	23
+C_shellcloud_vs_core_pfam	PF00297	Ribosomal_L3	Ribosomal protein L3	CL0866	2									3	9	10	3973	9269	2.1	0.002987	0.06132	15	6	7	5574	10657	1.639	0.079	0.4042	10
+C_shellcloud_vs_core_pfam	PF00494	SQS_PSY	Squalene/phytoene synthase	CL0613	2									2	3	5	3973	9269	1.4	0.368	0.9588	10	4	6	5574	10657	1.275	0.3878	1	9
+C_shellcloud_vs_core_pfam	PF00560	LRR_1	Leucine Rich Repeat	CL0022	3		0	5	9000	15032	0	1	1	7	0	5	3973	9269	0	1	1	8	0	6	5574	10657	0	1	1	9
+C_shellcloud_vs_core_pfam	PF00684	DnaJ_CXXCXGXG	DnaJ central domain	CL0895	3		0	5	9000	15032	0	1	1	7	1	5	3973	9269	0.467	0.9392	1	8	1	5	5574	10657	0.382	0.9753	1	6
+C_shellcloud_vs_core_pfam	PF00728	Glyco_hydro_20	Glycosyl hydrolase family 20, catalytic domain	CL0036	2									5	5	7	3973	9269	1.666	0.1266	0.5471	16	6	8	5574	10657	1.434	0.1768	0.7138	11
+C_shellcloud_vs_core_pfam	PF00735	Septin	Septin	CL0023	3		0	7	9000	15032	0	1	1	9	4	8	3973	9269	1.166	0.4729	1	14	5	9	5574	10657	1.062	0.5566	1	11
+C_shellcloud_vs_core_pfam	PF00828	Ribosomal_L27A	Ribosomal proteins 50S-L15, 50S-L18e, 60S-L27A	CL0588	2									6	3	5	3973	9269	1.4	0.368	0.9588	6	3	5	5574	10657	1.147	0.5431	1	6
+C_shellcloud_vs_core_pfam	PF00884	Sulfatase	Sulfatase	CL0088	3		0	8	9000	15032	0	1	1	17	3	7	3973	9269	1	0.6408	1	11	0	5	5574	10657	0	1	1	7
+C_shellcloud_vs_core_pfam	PF01119	DNA_mis_repair	DNA mismatch repair protein, C-terminal domain	CL0329	2									9	3	5	3973	9269	1.4	0.368	0.9588	8	3	5	5574	10657	1.147	0.5431	1	7
+C_shellcloud_vs_core_pfam	PF01156	IU_nuc_hydro	Inosine-uridine preferring nucleoside hydrolase	CL0727	2									7	4	5	3973	9269	1.866	0.1108	0.5057	12	4	6	5574	10657	1.275	0.3878	1	10
+C_shellcloud_vs_core_pfam	PF01230	HIT	HIT domain	CL0265	2									6	4	7	3973	9269	1.333	0.347	0.9588	14	6	9	5574	10657	1.275	0.3012	0.9146	11
+C_shellcloud_vs_core_pfam	PF01253	SUI1	Translation initiation factor SUI1		2									7	4	6	3973	9269	1.555	0.221	0.7371	10	4	6	5574	10657	1.275	0.3878	1	8
+C_shellcloud_vs_core_pfam	PF01293	PEPCK_ATP	Phosphoenolpyruvate carboxykinase	CL0374	2									2	8	8	3973	9269	2.333	0.001135	0.02982	20	11	11	5574	10657	1.912	7.976e-04	0.02383	17
+C_shellcloud_vs_core_pfam	PF01336	tRNA_anti-codon	OB-fold nucleic acid binding domain	CL0021	2									5	3	7	3973	9269	1	0.6408	1	15	5	8	5574	10657	1.195	0.4147	1	13
+C_shellcloud_vs_core_pfam	PF01399	PCI	PCI domain	CL0123	3		0	14	9000	15032	0	1	1	19	1	13	3973	9269	0.179	0.9993	1	19	2	16	5574	10657	0.239	0.9999	1	17
+C_shellcloud_vs_core_pfam	PF01556	DnaJ_C	DnaJ C terminal domain		3		0	6	9000	15032	0	1	1	9	1	6	3973	9269	0.389	0.9652	1	12	2	7	5574	10657	0.546	0.9513	1	10
+C_shellcloud_vs_core_pfam	PF01753	zf-MYND	MYND finger	CL0175	2									9	5	8	3973	9269	1.458	0.221	0.7371	11	4	7	5574	10657	1.093	0.5503	1	9
+C_shellcloud_vs_core_pfam	PF01757	Acyl_transf_3	Acyltransferase domain	CL0316	2									7	1	5	3973	9269	0.467	0.9392	1	6	1	5	5574	10657	0.382	0.9753	1	6
+C_shellcloud_vs_core_pfam	PF01946	Thi4	Thi4 family	CL0063	2									9	7	8	3973	9269	2.041	0.01326	0.1416	20	14	15	5574	10657	1.784	8.745e-04	0.0242	18
+C_shellcloud_vs_core_pfam	PF02214	BTB_2	BTB/POZ domain	CL0033	2									1	4	7	3973	9269	1.333	0.347	0.9588	16	7	8	5574	10657	1.673	0.0464	0.2773	15
+C_shellcloud_vs_core_pfam	PF02679	ComA	(2R)-phospho-3-sulfolactate synthase (ComA)	CL0036	2									3	7	7	3973	9269	2.333	0.00265	0.05617	9	5	5	5574	10657	1.912	0.03911	0.2563	7
+C_shellcloud_vs_core_pfam	PF02812	ELFV_dehydrog_N	Glu/Leu/Phe/Val dehydrogenase, dimerisation domain	CL0603	2									2	6	6	3973	9269	2.333	0.006188	0.09666	16	8	8	5574	10657	1.912	0.005587	0.08695	13
+C_shellcloud_vs_core_pfam	PF02845	CUE	CUE domain	CL0214	3		0	7	9000	15032	0	1	1	9	1	6	3973	9269	0.389	0.9652	1	11	2	6	5574	10657	0.637	0.9108	1	9
+C_shellcloud_vs_core_pfam	PF02883	Alpha_adaptinC2	Adaptin C-terminal domain	CL0159	2									4	3	5	3973	9269	1.4	0.368	0.9588	6	3	5	5574	10657	1.147	0.5431	1	6
+C_shellcloud_vs_core_pfam	PF03009	GDPD	Glycerophosphoryl diester phosphodiesterase family	CL0036	2									7	3	8	3973	9269	0.875	0.7416	1	14	1	5	5574	10657	0.382	0.9753	1	14
+C_shellcloud_vs_core_pfam	PF03357	Snf7	Snf7	CL0235	3		0	6	9000	15032	0	1	1	9	2	7	3973	9269	0.667	0.8758	1	13	1	7	5574	10657	0.273	0.9944	1	8
+C_shellcloud_vs_core_pfam	PF03587	EMG1	EMG1/NEP1 methyltransferase	CL0098	2									1	4	5	3973	9269	1.866	0.1108	0.5057	5	5	5	5574	10657	1.912	0.03911	0.2563	5
+C_shellcloud_vs_core_pfam	PF03798	TRAM_LAG1_CLN8	TLC domain		2									7	3	6	3973	9269	1.166	0.5149	1	14	8	10	5574	10657	1.53	0.07275	0.4025	12
+C_shellcloud_vs_core_pfam	PF03881	Fructosamin_kin	Fructosamine kinase	CL0016	2									5	5	6	3973	9269	1.944	0.05575	0.3455	17	10	10	5574	10657	1.912	0.001526	0.03909	14
+C_shellcloud_vs_core_pfam	PF04051	TRAPP	Transport protein particle (TRAPP) component	CL0210	2									5	4	6	3973	9269	1.555	0.221	0.7371	7	3	5	5574	10657	1.147	0.5431	1	6
+C_shellcloud_vs_core_pfam	PF04253	TFR_dimer	Transferrin receptor-like dimerisation domain		2									2	3	5	3973	9269	1.4	0.368	0.9588	9	2	5	5574	10657	0.765	0.84	1	7
+C_shellcloud_vs_core_pfam	PF04752	ChaC	ChaC-like protein	CL0278	2									5	6	6	3973	9269	2.333	0.006188	0.09666	9	7	7	5574	10657	1.912	0.01069	0.1248	7
+C_shellcloud_vs_core_pfam	PF04884	UVB_sens_prot	Vitamin B6 photo-protection and homoeostasis domain	CL0015	2									4	5	5	3973	9269	2.333	0.01445	0.1416	9	5	5	5574	10657	1.912	0.03911	0.2563	6
+C_shellcloud_vs_core_pfam	PF05141	DIT1_PvcA	Pyoverdine/dityrosine biosynthesis protein		2									11	4	6	3973	9269	1.555	0.221	0.7371	11	2	5	5574	10657	0.765	0.84	1	7
+C_shellcloud_vs_core_pfam	PF05724	TPMT	Thiopurine S-methyltransferase (TPMT)	CL0063	2									6	5	7	3973	9269	1.666	0.1266	0.5471	10	6	7	5574	10657	1.639	0.079	0.4042	9
+C_shellcloud_vs_core_pfam	PF05773	RWD	RWD domain	CL0208	3		0	5	9000	15032	0	1	1	6	2	7	3973	9269	0.667	0.8758	1	9	1	6	5574	10657	0.319	0.9882	1	7
+C_shellcloud_vs_core_pfam	PF10373	EST1_DNA_bind	Est1 DNA/RNA binding domain	CL0020	2									3	5	7	3973	9269	1.666	0.1266	0.5471	15	4	6	5574	10657	1.275	0.3878	1	9
+C_shellcloud_vs_core_pfam	PF10584	Proteasome_A_N	Proteasome subunit A N-terminal signature	CL0052	3		0	5	9000	15032	0	1	1	7	3	8	3973	9269	0.875	0.7416	1	9	2	6	5574	10657	0.637	0.9108	1	8
+C_shellcloud_vs_core_pfam	PF10591	SPARC_Ca_bdg	Secreted protein acidic and rich in cysteine Ca binding region	CL0220	2									0	5	5	3973	9269	2.333	0.01445	0.1416	7	6	6	5574	10657	1.912	0.02045	0.2025	7
+C_shellcloud_vs_core_pfam	PF11051	Mannosyl_trans3	Mannosyltransferase putative	CL0110	2									8	2	5	3973	9269	0.933	0.7108	1	14	3	6	5574	10657	0.956	0.6984	1	11
+C_shellcloud_vs_core_pfam	PF12862	ANAPC5	Anaphase-promoting complex subunit 5	CL0020	2									2	6	6	3973	9269	2.333	0.006188	0.09666	12	6	6	5574	10657	1.912	0.02045	0.2025	11
+C_shellcloud_vs_core_pfam	PF13855	LRR_8	Leucine rich repeat	CL0022	3		0	7	9000	15032	0	1	1	11	1	9	3973	9269	0.259	0.9935	1	15	1	9	5574	10657	0.212	0.9987	1	12
+C_shellcloud_vs_core_pfam	PF14437	MafB19-deam	MafB19-like deaminase	CL0109	2									6	5	6	3973	9269	1.944	0.05575	0.3455	9	4	5	5574	10657	1.53	0.2176	0.7443	7
+C_shellcloud_vs_core_pfam	PF14441	OTT_1508_deam	OTT_1508-like deaminase	CL0109	2									5	0	5	3973	9269	0	1	1	11	4	7	5574	10657	1.093	0.5503	1	10
+C_shellcloud_vs_core_pfam	PF14474	RTC4	RTC4-like domain		2									3	16	17	3973	9269	2.196	1.296e-05	8.516e-04	38	19	20	5574	10657	1.816	4.458e-05	0.001955	25
+C_shellcloud_vs_core_pfam	PF14492	EFG_III	Elongation Factor G, domain III	CL0437	2									7	0	5	3973	9269	0	1	1	6	1	6	5574	10657	0.319	0.9882	1	6
+C_shellcloud_vs_core_pfam	PF14523	Syntaxin_2	Syntaxin-like protein	CL0445	2									1	5	6	3973	9269	1.944	0.05575	0.3455	14	4	5	5574	10657	1.53	0.2176	0.7443	10
+C_shellcloud_vs_core_pfam	PF14737	DUF4470	Domain of unknown function (DUF4470)		2									1	4	5	3973	9269	1.866	0.1108	0.5057	8	4	5	5574	10657	1.53	0.2176	0.7443	6
+C_shellcloud_vs_core_pfam	PF14749	Acyl-CoA_ox_N	Acyl-coenzyme A oxidase N-terminal	CL0544	2									3	2	5	3973	9269	0.933	0.7108	1	11	3	6	5574	10657	0.956	0.6984	1	10
+C_shellcloud_vs_core_pfam	PF16189	Creatinase_N_2	Creatinase/Prolidase N-terminal domain	CL0356	2									4	5	5	3973	9269	2.333	0.01445	0.1416	9	5	5	5574	10657	1.912	0.03911	0.2563	7
+C_shellcloud_vs_core_pfam	PF18648	ADPRTs_Tse2	Tse2 ADP-ribosyltransferase toxin	CL0084	2									0	8	8	3973	9269	2.333	0.001135	0.02982	19	7	7	5574	10657	1.912	0.01069	0.1248	13
+C_shellcloud_vs_core_pfam	PF20233	DUF6590	Family of unknown function (DUF6590)		2									10	5	5	3973	9269	2.333	0.01445	0.1416	8	4	5	5574	10657	1.53	0.2176	0.7443	5
+C_shellcloud_vs_core_pfam	PF21365	Glyco_hydro_31_3rd	Glycosyl hydrolase family 31 C-terminal domain	CL0369	2		0	6	9000	15032	0	1	1	9								6	4	5	5574	10657	1.53	0.2176	0.7443	6
+C_shellcloud_vs_core_pfam	PF22893	ULD_2	Ubiquitin-like domain	CL0072	2									7	4	6	3973	9269	1.555	0.221	0.7371	11	5	6	5574	10657	1.593	0.1324	0.5959	7
+C_shellcloud_vs_core_pfam	PF22917	PRISE	PRISE-like Rossmann-fold domain	CL0063	2									8	10	11	3973	9269	2.121	0.001398	0.03401	23	12	14	5574	10657	1.639	0.01022	0.1248	22
+C_shellcloud_vs_core_pfam	PF23114	NAD-bd_HRPKS_sdrA	HRPKS sdrA-like, NAD(P)-binding Rossmann-fold domain	CL0063	2									17	2	6	3973	9269	0.778	0.8087	1	9	2	6	5574	10657	0.637	0.9108	1	8
+C_shellcloud_vs_core_pfam	PF24355	DUF7514	Domain of unknown function (DUF7514)		2									3	4	5	3973	9269	1.866	0.1108	0.5057	9	6	7	5574	10657	1.639	0.079	0.4042	8
+C_shellcloud_vs_core_pfam	PF24476	DUF7580	Domain of unknown function (DUF7580)	CL0016	2									8	3	5	3973	9269	1.4	0.368	0.9588	15	4	6	5574	10657	1.275	0.3878	1	14
+C_shellcloud_vs_core_pfam	PF24483	DUF7582	Domain of unknown function (DUF7582)	CL0260	2									1	2	5	3973	9269	0.933	0.7108	1	14	5	7	5574	10657	1.366	0.266	0.8245	11
+C_shellcloud_vs_core_pfam	PF24948	Citrate_synth_N	ATP-citrate synthase ATP-grasp domain	CL0179	2									1	5	5	3973	9269	2.333	0.01445	0.1416	17	6	7	5574	10657	1.639	0.079	0.4042	12
+C_shellcloud_vs_core_pfam	PF24969	LRR_15	Leucine-rich repeat domain	CL0022	2									9	3	6	3973	9269	1.166	0.5149	1	12	4	6	5574	10657	1.275	0.3878	1	10
+C_shellcloud_vs_core_pfam	PF25324	DUF8573	Domain of unknown function (DUF8573)	CL0072	2									0	3	5	3973	9269	1.4	0.368	0.9588	18	6	7	5574	10657	1.639	0.079	0.4042	11
+C_shellcloud_vs_core_pfam	PF25545	DUF7924	Domain of unknown function (DUF7924)	CL0236	2									5	19	20	3973	9269	2.216	1.185e-06	9.731e-05	81	47	51	5574	10657	1.762	7.762e-10	9.664e-08	70
+C_shellcloud_vs_core_pfam	PF26082	zf-C2H2_AcuF	Oxidoreductase acuF-like, C2H2 type zinc-finger	CL0361	2									6	4	6	3973	9269	1.555	0.221	0.7371	10	5	7	5574	10657	1.366	0.266	0.8245	7
+C_shellcloud_vs_core_pfam	PF26118	DUF8035	Family of unknown function (DUF8035)		2									4	6	8	3973	9269	1.75	0.06989	0.4064	11	6	8	5574	10657	1.434	0.1768	0.7138	9

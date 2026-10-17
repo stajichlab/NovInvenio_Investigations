@@ -1,0 +1,23 @@
+cocci_run	af_set	n_af_families	n_with_best_hit	frac_with_best_hit	n_with_rbh	frac_with_rbh
+immitis_in_posadasii_out_v5	core	7165	5754	0.8031	4002	0.5585
+immitis_in_posadasii_out_v5	soft_core	667	473	0.7091	212	0.3178
+immitis_in_posadasii_out_v5	shell	4612	2584	0.5603	783	0.1698
+immitis_in_posadasii_out_v5	cloud	10561	4971	0.4707	850	0.0805
+immitis_in_posadasii_out_v5	singleton	13297	4428	0.333	696	0.0523
+immitis_in_posadasii_out_v5	nonrep_only	5814	1914	0.3292	247	0.0425
+immitis_in_posadasii_out_v5	outgroup_only	5838	2857	0.4894	728	0.1247
+immitis_in_posadasii_out_v5	ALL	47954	22981	0.4792	7518	0.1568
+immitis_in_posadasii_out_v5	island	11683	5207	0.4457	1057	0.0905
+immitis_in_posadasii_out_v5	shell+cloud island	7983	3790	0.4748	854	0.107
+immitis_in_posadasii_out_v5	shell+cloud non-island	7190	3765	0.5236	779	0.1083
+posadasii_in_immitis_out_v2	core	7165	5730	0.7997	4012	0.5599
+posadasii_in_immitis_out_v2	soft_core	667	465	0.6972	209	0.3133
+posadasii_in_immitis_out_v2	shell	4612	2550	0.5529	776	0.1683
+posadasii_in_immitis_out_v2	cloud	10561	4814	0.4558	784	0.0742
+posadasii_in_immitis_out_v2	singleton	13297	4147	0.3119	560	0.0421
+posadasii_in_immitis_out_v2	nonrep_only	5814	1803	0.3101	218	0.0375
+posadasii_in_immitis_out_v2	outgroup_only	5838	2822	0.4834	708	0.1213
+posadasii_in_immitis_out_v2	ALL	47954	22331	0.4657	7267	0.1515
+posadasii_in_immitis_out_v2	island	11683	5059	0.433	1011	0.0865
+posadasii_in_immitis_out_v2	shell+cloud island	7983	3705	0.4641	827	0.1036
+posadasii_in_immitis_out_v2	shell+cloud non-island	7190	3659	0.5089	733	0.1019

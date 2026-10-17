@@ -1,0 +1,13 @@
+definition	af_n_tested	af_n_q_lt_0.05	v5_n_tested	v5_n_q_lt_0.05	v2_n_tested	v2_n_q_lt_0.05	n_tested_ge2_runs	n_tested_all3	n_tier1	n_tier2	n_tier3	n_af_q_and_any_cocci_q_incl_tier1	n_p_lt_0.05_all3_incl_tier1_2	af_x_v5_universe	af_x_v5_n_af_sig	af_x_v5_n_cocci_sig	af_x_v5_overlap	af_x_v5_expected	af_x_v5_hypergeom_p	af_x_v2_universe	af_x_v2_n_af_sig	af_x_v2_n_cocci_sig	af_x_v2_overlap	af_x_v2_expected	af_x_v2_hypergeom_p	af_x_v5andv2_universe	af_x_v5andv2_n_af_sig	af_x_v5andv2_n_cocci_sig	af_x_v5andv2_overlap	af_x_v5andv2_expected	af_x_v5andv2_hypergeom_p	spearman_af_v5_rho	spearman_af_v5_p	spearman_af_v5_n	spearman_af_v2_rho	spearman_af_v2_p	spearman_af_v2_n
+A_island_pfam	1977	21	928	12	1325	17	1063	437	4	1	12	5	17	549	12	12	4	0.262	5.952e-05	715	15	17	5	0.357	1.050e-05	437	12	8	4	0.22	2.178e-05	0.2357	2.285e-08	549	0.2218	2.045e-09	715
+A_island_clan	336	9	220	6	251	8	250	156	3	1	2	4	5	179	8	6	3	0.268	0.001117	204	9	8	4	0.353	1.161e-04	156	8	5	3	0.256	8.586e-04	0.2915	7.505e-05	179	0.2473	3.622e-04	204
+B_shell_soft_core_gain_pfam	260	8	104	2	112	0	103	65	0	1	0	1	0	77	7	1	1	0.091	0.09091	83	7	0	0	0	1	65	7	0	0	0	1	0.2149	0.06056	77	0.2629	0.01634	83
+B_shell_soft_core_gain_clan	155	3	85	2	86	1	94	64	1	1	0	2	1	77	3	2	2	0.078	0.001025	78	3	1	1	0.038	0.03846	64	3	1	1	0.047	0.04688	0.1819	0.1133	77	0.3462	0.001903	78
+B_shell_soft_core_loss_pfam	260	0	104	0	112	0	103	65	0	0	0	0	0	77	0	0	0	0	1	83	0	0	0	0	1	65	0	0	0	0	1	0.3179	0.004843	77	0.2347	0.03269	83
+B_shell_soft_core_loss_clan	155	0	85	0	86	0	94	64	0	0	0	0	0	77	0	0	0	0	1	78	0	0	0	0	1	64	0	0	0	0	1	0.0816	0.4805	77	0.2006	0.07831	78
+B_all_accessory_gain_pfam	1120	10	528	5	597	7	555	307	3	0	4	3	7	383	10	5	3	0.131	1.256e-04	406	10	6	3	0.148	2.084e-04	307	10	5	3	0.163	2.427e-04	0.1087	0.03343	383	0.2254	4.495e-06	406
+B_all_accessory_gain_clan	325	4	214	4	220	4	231	177	3	0	1	3	4	196	4	4	3	0.082	1.290e-05	201	4	4	3	0.08	1.195e-05	177	4	4	3	0.09	1.753e-05	0.1531	0.03216	196	0.3494	3.709e-07	201
+B_all_accessory_loss_pfam	1120	0	528	0	597	0	555	307	0	0	0	0	0	383	0	0	0	0	1	406	0	0	0	0	1	307	0	0	0	0	1	0.0896	0.07985	383	0.1466	0.003064	406
+B_all_accessory_loss_clan	325	1	214	0	220	0	231	177	0	0	0	0	0	196	1	0	0	0	1	201	1	0	0	0	1	177	1	0	0	0	1	0.054	0.452	196	0.2025	0.00394	201
+C_accessory_vs_all_pfam	1548	38	935	21	976	27	959	678	9	5	15	14	28	765	31	18	10	0.729	8.861e-11	778	31	23	13	0.916	3.402e-14	678	31	15	9	0.686	1.065e-09	0.3514	1.184e-23	765	0.4293	3.135e-36	778
+C_shellcloud_vs_core_pfam	1120	52	657	28	747	30	713	518	9	4	16	13	28	566	37	23	9	1.504	3.433e-06	608	41	24	13	1.618	1.225e-10	518	37	17	9	1.214	2.914e-07	0.3812	5.165e-21	566	0.4301	8.957e-29	608

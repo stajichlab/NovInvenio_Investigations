@@ -1,0 +1,104 @@
+definition	term	name	description	clan	n_runs_tested	tier	af_k	af_K	af_N	af_M	af_fold	af_p	af_q	af_n_families_all	v5_k	v5_K	v5_N	v5_M	v5_fold	v5_p	v5_q	v5_n_families_all	v2_k	v2_K	v2_N	v2_M	v2_fold	v2_p	v2_q	v2_n_families_all
+B_shell_soft_core_gain_pfam	PF11917	DUF3435	Protein of unknown function (DUF3435)	CL0382	3	2	20	20	2213	3580	1.618	6.422e-05	0.004174	224	30	33	778	1907	2.228	1.883e-09	1.958e-07	374	13	21	908	2034	1.387	0.08429	0.9463	281
+B_shell_soft_core_gain_pfam	PF12796	Ank_2	Ankyrin repeats (3 copies)	CL0465	3		49	55	2213	3580	1.441	5.611e-06	0.001459	483	8	21	778	1907	0.934	0.6788	1	161	13	21	908	2034	1.387	0.08429	0.9463	134
+B_shell_soft_core_gain_pfam	PF13637	Ank_4	Ankyrin repeats (many copies)	CL0465	3		35	38	2213	3580	1.49	2.434e-05	0.003164	375	8	17	778	1907	1.153	0.3849	1	126	10	15	908	2034	1.493	0.07216	0.9463	101
+B_shell_soft_core_gain_pfam	PF00023	Ank	Ankyrin repeat	CL0465	3		47	54	2213	3580	1.408	3.683e-05	0.003192	485	8	21	778	1907	0.934	0.6788	1	165	11	19	908	2034	1.297	0.1746	0.9463	133
+B_shell_soft_core_gain_pfam	PF24883	NPHP3_N	Nephrocystin 3, N-terminal	CL0023	3		22	23	2213	3580	1.547	2.303e-04	0.01198	216	3	10	778	1907	0.735	0.8459	1	44	4	8	908	2034	1.12	0.5147	1	35
+B_shell_soft_core_gain_pfam	PF13606	Ank_3	Ankyrin repeat	CL0465	3		27	30	2213	3580	1.456	5.926e-04	0.02568	294	5	13	778	1907	0.943	0.6693	1	120	9	15	908	2034	1.344	0.1734	0.9463	101
+B_shell_soft_core_gain_pfam	PF00069	Pkinase	Protein kinase domain	CL0016	3		42	51	2213	3580	1.332	0.001216	0.03952	405	42	78	778	1907	1.32	0.01194	0.2484	526	37	74	908	2034	1.12	0.2042	0.9463	427
+B_shell_soft_core_gain_pfam	PF01636	APH	Phosphotransferase enzyme family	CL0016	3		15	16	2213	3580	1.517	0.004875	0.1408	121	18	38	778	1907	1.161	0.2512	1	365	42	71	908	2034	1.325	0.008751	0.49	292
+B_shell_soft_core_gain_pfam	PF13857	Ank_5	Ankyrin repeats (many copies)	CL0465	3		18	20	2213	3580	1.456	0.005596	0.1455	187	3	10	778	1907	0.735	0.8459	1	82	6	10	908	2034	1.344	0.2535	0.9463	66
+B_shell_soft_core_gain_pfam	PF04082	Fungal_trans	Fungal specific transcription factor domain	CL0507	3		98	137	2213	3580	1.157	0.009825	0.2322	721	10	21	778	1907	1.167	0.335	1	174	6	16	908	2034	0.84	0.7952	1	143
+B_shell_soft_core_gain_pfam	PF22939	WHD_GPIID	GPI inositol-deacylase, winged helix domain	CL0123	3		12	13	2213	3580	1.493	0.01723	0.327	98	1	6	778	1907	0.409	0.9572	1	18	2	5	908	2034	0.896	0.7387	1	14
+B_shell_soft_core_gain_pfam	PF00501	AMP-binding	AMP-binding enzyme	CL0378	3		15	17	2213	3580	1.427	0.01761	0.327	379	1	7	778	1907	0.35	0.9747	1	643	6	15	908	2034	0.896	0.7308	1	433
+B_shell_soft_core_gain_pfam	PF13374	TPR_10	Tetratricopeptide repeat	CL0020	2		8	8	2213	3580	1.618	0.02122	0.3448	72	3	8	778	1907	0.919	0.7015	1	31								18
+B_shell_soft_core_gain_pfam	PF00109	ketoacyl-synt	Beta-ketoacyl synthase, N-terminal domain	CL0046	2		14	16	2213	3580	1.415	0.02551	0.3885	126	2	5	778	1907	0.98	0.677	1	97								67
+B_shell_soft_core_gain_pfam	PF13489	Methyltransf_23	Methyltransferase domain	CL0063	3		16	19	2213	3580	1.362	0.03255	0.3885	165	4	25	778	1907	0.392	0.9982	1	125	8	23	908	2034	0.779	0.8793	1	103
+B_shell_soft_core_gain_pfam	PF00651	BTB	BTB/POZ domain	CL0033	3		7	7	2213	3580	1.618	0.03436	0.3885	43	2	5	778	1907	0.98	0.677	1	50	3	8	908	2034	0.84	0.7742	1	44
+B_shell_soft_core_gain_pfam	PF20174	DUF6540	Family of unknown function (DUF6540)	CL0125	3		7	7	2213	3580	1.618	0.03436	0.3885	20	7	9	778	1907	1.906	0.02785	0.3218	52	6	10	908	2034	1.344	0.2535	0.9463	48
+B_shell_soft_core_gain_pfam	PF11951	Fungal_trans_2	Fungal specific transcription factor domain	CL0507	2		34	45	2213	3580	1.222	0.03681	0.3904	317								59	3	9	908	2034	0.747	0.8459	1	53
+B_shell_soft_core_gain_pfam	PF00550	PP-binding	Phosphopantetheine attachment site	CL0314	3		15	18	2213	3580	1.348	0.04526	0.4091	304	2	5	778	1907	0.98	0.677	1	594	1	5	908	2034	0.448	0.9482	1	385
+B_shell_soft_core_gain_pfam	PF00271	Helicase_C	Helicase conserved C-terminal domain	CL0023	3		12	14	2213	3580	1.387	0.05245	0.4091	295	3	7	778	1907	1.05	0.5976	1	146	3	11	908	2034	0.611	0.9322	1	125
+B_shell_soft_core_gain_pfam	PF13391	HNH_2	HNH endonuclease	CL0263	3		6	6	2213	3580	1.618	0.05565	0.4091	45	3	11	778	1907	0.668	0.892	1	86	5	16	908	2034	0.7	0.911	1	73
+B_shell_soft_core_gain_pfam	PF04479	RTA1	RTA1 like protein	CL0862	2		9	10	2213	3580	1.456	0.05822	0.4091	91								22	4	6	908	2034	1.493	0.2491	0.9463	20
+B_shell_soft_core_gain_pfam	PF07714	PK_Tyr_Ser-Thr	Protein tyrosine and serine/threonine kinase	CL0016	3		25	33	2213	3580	1.226	0.06695	0.442	316	32	64	778	1907	1.226	0.08237	0.7139	386	21	53	908	2034	0.888	0.8115	1	320
+B_shell_soft_core_gain_pfam	PF00067	p450	Cytochrome P450		3		35	48	2213	3580	1.18	0.07208	0.442	385	10	21	778	1907	1.167	0.335	1	163	9	21	908	2034	0.96	0.6472	1	131
+B_shell_soft_core_gain_pfam	PF00328	His_Phos_2	Histidine phosphatase superfamily (branch 2)	CL0071	2		5	5	2213	3580	1.618	0.0901	0.442	42								14	3	5	908	2034	1.344	0.4002	1	15
+B_shell_soft_core_gain_pfam	PF27653	SPOK2_N	Spore killer 2 N-terminal domain		3		5	5	2213	3580	1.618	0.0901	0.442	38	5	5	778	1907	2.451	0.01122	0.2484	122	6	8	908	2034	1.68	0.08471	0.9463	101
+B_shell_soft_core_gain_pfam	PF00561	Abhydrolase_1	alpha/beta hydrolase fold	CL0028	3		19	25	2213	3580	1.229	0.1018	0.4742	163	6	7	778	1907	2.101	0.0208	0.3218	69	5	8	908	2034	1.4	0.2532	0.9463	54
+B_shell_soft_core_gain_pfam	PF00704	Glyco_hydro_18	Glycosyl hydrolases family 18	CL0036	3		19	25	2213	3580	1.229	0.1018	0.4742	177	2	6	778	1907	0.817	0.7793	1	40	2	7	908	2034	0.64	0.8945	1	35
+B_shell_soft_core_gain_pfam	PF00135	COesterase	Carboxylesterase family	CL0028	3		10	12	2213	3580	1.348	0.1042	0.4742	96	2	7	778	1907	0.7	0.852	1	22	3	6	908	2034	1.12	0.5513	1	20
+B_shell_soft_core_gain_pfam	PF01494	FAD_binding_3	FAD binding domain	CL0063	3		21	28	2213	3580	1.213	0.1043	0.4742	203	3	5	778	1907	1.471	0.3311	1	54	8	13	908	2034	1.379	0.1711	0.9463	49
+B_shell_soft_core_gain_pfam	PF00350	Dynamin_N	Dynamin family	CL0023	2		7	8	2213	3580	1.415	0.1264	0.5301	69	5	6	778	1907	2.043	0.0445	0.4628	57								33
+B_shell_soft_core_gain_pfam	PF00107	ADH_zinc_N	Zinc-binding dehydrogenase	CL0063	3		11	14	2213	3580	1.271	0.1543	0.627	175	2	8	778	1907	0.613	0.9022	1	73	4	9	908	2034	0.996	0.6306	1	62
+B_shell_soft_core_gain_pfam	PF20434	BD-FAE	BD-FAE	CL0028	3		11	14	2213	3580	1.271	0.1543	0.627	101	1	6	778	1907	0.409	0.9572	1	35	2	5	908	2034	0.896	0.7387	1	27
+B_shell_soft_core_gain_pfam	PF12697	Abhydrolase_6	Alpha/beta hydrolase family	CL0028	3		15	20	2213	3580	1.213	0.1622	0.6423	139	7	10	778	1907	1.716	0.06043	0.5714	80	6	11	908	2034	1.222	0.3573	1	61
+B_shell_soft_core_gain_pfam	PF08241	Methyltransf_11	Methyltransferase domain	CL0063	3		17	23	2213	3580	1.196	0.1631	0.6423	184	7	23	778	1907	0.746	0.8925	1	122	8	21	908	2034	0.853	0.7949	1	99
+B_shell_soft_core_gain_pfam	PF00172	Zn_clus	Fungal Zn(2)-Cys(6) binuclear cluster domain	CL0914	3		89	135	2213	3580	1.066	0.1813	0.6715	769	7	29	778	1907	0.592	0.9817	1	222	8	28	908	2034	0.64	0.9744	1	180
+B_shell_soft_core_gain_pfam	PF00176	SNF2-rel_dom	SNF2-related domain	CL0023	2		6	7	2213	3580	1.387	0.1834	0.6715	106	7	9	778	1907	1.906	0.02785	0.3218	60								54
+B_shell_soft_core_gain_pfam	PF01266	DAO	FAD dependent oxidoreductase	CL0063	3		6	7	2213	3580	1.387	0.1834	0.6715	104	2	6	778	1907	0.817	0.7793	1	63	3	6	908	2034	1.12	0.5513	1	55
+B_shell_soft_core_gain_pfam	PF01370	Epimerase	NAD dependent epimerase/dehydratase family	CL0063	3		22	31	2213	3580	1.148	0.1939	0.6878	240	7	13	778	1907	1.32	0.2468	1	84	2	6	908	2034	0.747	0.8323	1	68
+B_shell_soft_core_gain_pfam	PF00096	zf-C2H2	Zinc finger, C2H2 type	CL0361	2		10	13	2213	3580	1.244	0.2039	0.6878	79								61	2	8	908	2034	0.56	0.9347	1	53
+B_shell_soft_core_gain_pfam	PF04828	GFA	Glutathione-dependent formaldehyde-activating enzyme	CL0080	3		10	13	2213	3580	1.244	0.2039	0.6878	58	3	8	778	1907	0.919	0.7015	1	26	3	8	908	2034	0.84	0.7742	1	23
+B_shell_soft_core_gain_pfam	PF00106	adh_short	short chain dehydrogenase	CL0063	3		65	98	2213	3580	1.073	0.205	0.6878	626	9	19	778	1907	1.161	0.3585	1	207	8	23	908	2034	0.779	0.8793	1	170
+B_shell_soft_core_gain_pfam	PF00664	ABC_membrane	ABC transporter transmembrane region	CL0241	2		12	16	2213	3580	1.213	0.2056	0.6878	114								80	3	5	908	2034	1.344	0.4002	1	64
+B_shell_soft_core_gain_pfam	PF00583	Acetyltransf_1	Acetyltransferase (GNAT) family	CL0257	2		23	33	2213	3580	1.127	0.2269	0.6878	157	3	7	778	1907	1.05	0.5976	1	65								53
+B_shell_soft_core_gain_pfam	PF13649	Methyltransf_25	Methyltransferase domain	CL0063	3		17	24	2213	3580	1.146	0.2446	0.6878	175	4	21	778	1907	0.467	0.9912	1	121	8	22	908	2034	0.815	0.8415	1	101
+B_shell_soft_core_gain_pfam	PF00097	zf-C3HC4	Zinc finger, C3HC4 type (RING finger)	CL0229	3		15	21	2213	3580	1.156	0.2505	0.6878	84	1	6	778	1907	0.409	0.9572	1	64	6	12	908	2034	1.12	0.4628	1	55
+B_shell_soft_core_gain_pfam	PF20684	Fung_rhodopsin	Fungal rhodopsin domain	CL0192	3		35	52	2213	3580	1.089	0.2512	0.6878	333	7	17	778	1907	1.009	0.5793	1	109	12	24	908	2034	1.12	0.3706	1	86
+B_shell_soft_core_gain_pfam	PF08659	KR	KR domain	CL0063	3		47	71	2213	3580	1.071	0.2617	0.6878	438	3	12	778	1907	0.613	0.9253	1	116	3	15	908	2034	0.448	0.9888	1	101
+B_shell_soft_core_gain_pfam	PF00450	Peptidase_S10	Serine carboxypeptidase	CL0028	3		5	6	2213	3580	1.348	0.2624	0.6878	40	4	5	778	1907	1.961	0.09302	0.7441	62	4	5	908	2034	1.792	0.1274	0.9463	45
+B_shell_soft_core_gain_pfam	PF08242	Methyltransf_12	Methyltransferase domain	CL0063	3		9	12	2213	3580	1.213	0.2656	0.6878	120	5	13	778	1907	0.943	0.6693	1	67	5	11	908	2034	1.018	0.5937	1	58
+B_shell_soft_core_gain_pfam	PF00173	Cyt-b5	Cytochrome b5-like Heme/Steroid binding domain		2		7	9	2213	3580	1.258	0.2672	0.6878	46	2	5	778	1907	0.98	0.677	1	40								35
+B_shell_soft_core_gain_pfam	PF00005	ABC_tran	ABC transporter	CL0023	3		14	20	2213	3580	1.132	0.3052	0.7493	221	5	9	778	1907	1.362	0.283	1	165	7	10	908	2034	1.568	0.09734	0.9463	129
+B_shell_soft_core_gain_pfam	PF08240	ADH_N	Alcohol dehydrogenase GroES-like domain	CL0296	3		14	20	2213	3580	1.132	0.3052	0.7493	214	2	10	778	1907	0.49	0.9586	1	79	6	11	908	2034	1.222	0.3573	1	60
+B_shell_soft_core_gain_pfam	PF13639	zf-RING_2	Ring finger domain	CL0229	3		12	17	2213	3580	1.142	0.3161	0.7493	70	2	6	778	1907	0.817	0.7793	1	49	3	6	908	2034	1.12	0.5513	1	42
+B_shell_soft_core_gain_pfam	PF12937	F-box-like	F-box-like	CL0271	2		10	14	2213	3580	1.156	0.3278	0.7493	73	4	11	778	1907	0.891	0.7229	1	71								57
+B_shell_soft_core_gain_pfam	PF13673	Acetyltransf_10	Acetyltransferase (GNAT) domain	CL0257	2		10	14	2213	3580	1.156	0.3278	0.7493	69	3	7	778	1907	1.05	0.5976	1	40								33
+B_shell_soft_core_gain_pfam	PF00155	Aminotran_1_2	Aminotransferase class I and II	CL0061	3		8	11	2213	3580	1.177	0.3405	0.7493	102	1	5	778	1907	0.49	0.9275	1	80	4	9	908	2034	0.996	0.6306	1	66
+B_shell_soft_core_gain_pfam	PF00400	WD40	WD domain, G-beta repeat	CL0186	3		13	19	2213	3580	1.107	0.3672	0.7493	279	4	9	778	1907	1.089	0.5375	1	193	0	7	908	2034	0	1	1	162
+B_shell_soft_core_gain_pfam	PF00270	DEAD	DEAD/DEAH box helicase	CL0023	2		4	5	2213	3580	1.294	0.3689	0.7493	198								110	4	11	908	2034	0.815	0.8029	1	92
+B_shell_soft_core_gain_pfam	PF04851	ResIII	Type III restriction enzyme, res subunit	CL0023	2		4	5	2213	3580	1.294	0.3689	0.7493	100								80	3	8	908	2034	0.84	0.7742	1	71
+B_shell_soft_core_gain_pfam	PF00248	Aldo_ket_red	Aldo/keto reductase family	CL0036	2		11	16	2213	3580	1.112	0.3844	0.7689	109								55	4	8	908	2034	1.12	0.5147	1	43
+B_shell_soft_core_gain_pfam	PF01565	FAD_binding_4	FAD binding domain	CL0077	2		11	16	2213	3580	1.112	0.3844	0.7689	131								48	2	5	908	2034	0.896	0.7387	1	38
+B_shell_soft_core_gain_pfam	PF07690	MFS_1	Major Facilitator Superfamily	CL0015	3		85	135	2213	3580	1.019	0.4274	0.8039	1134	28	70	778	1907	0.98	0.6007	1	511	47	94	908	2034	1.12	0.1675	0.9463	421
+B_shell_soft_core_gain_pfam	PF00890	FAD_binding_2	FAD binding domain	CL0063	3		7	10	2213	3580	1.132	0.4286	0.8039	100	2	8	778	1907	0.613	0.9022	1	57	3	8	908	2034	0.84	0.7742	1	43
+B_shell_soft_core_gain_pfam	PF07859	Abhydrolase_3	alpha/beta hydrolase fold	CL0028	3		7	10	2213	3580	1.132	0.4286	0.8039	106	2	7	778	1907	0.7	0.852	1	47	2	5	908	2034	0.896	0.7387	1	35
+B_shell_soft_core_gain_pfam	PF00076	RRM_1	RNA recognition motif	CL0221	3		15	23	2213	3580	1.055	0.4585	0.8039	171	6	18	778	1907	0.817	0.8116	1	155	5	17	908	2034	0.659	0.9376	1	132
+B_shell_soft_core_gain_pfam	PF13561	adh_short_C2	Enoyl-(Acyl carrier protein) reductase	CL0063	3		56	89	2213	3580	1.018	0.4607	0.8039	539	5	17	778	1907	0.721	0.8883	1	178	9	26	908	2034	0.775	0.8924	1	148
+B_shell_soft_core_gain_pfam	PF13847	Methyltransf_31	Methyltransferase domain	CL0063	3		13	20	2213	3580	1.052	0.4822	0.8359	109	1	9	778	1907	0.272	0.9912	1	73	6	13	908	2034	1.034	0.563	1	64
+B_shell_soft_core_gain_pfam	PF13508	Acetyltransf_7	Acetyltransferase (GNAT) domain	CL0257	2		11	17	2213	3580	1.047	0.5097	0.8662	87	3	7	778	1907	1.05	0.5976	1	44								35
+B_shell_soft_core_gain_pfam	PF00300	His_Phos_1	Histidine phosphatase superfamily (branch 1)	CL0071	2		6	9	2213	3580	1.078	0.5284	0.875	42								22	1	5	908	2034	0.448	0.9482	1	19
+B_shell_soft_core_gain_pfam	PF01926	MMR_HSR1	50S ribosome-binding GTPase	CL0023	2		6	9	2213	3580	1.078	0.5284	0.875	74	1	5	778	1907	0.49	0.9275	1	56								49
+B_shell_soft_core_gain_pfam	PF00324	AA_permease	Amino acid permease	CL0062	3		25	40	2213	3580	1.011	0.5345	0.8759	189	8	15	778	1907	1.307	0.2315	1	129	6	13	908	2034	1.034	0.563	1	102
+B_shell_soft_core_gain_pfam	PF13450	NAD_binding_8	NAD(P)-binding Rossmann-like domain	CL0063	3		17	27	2213	3580	1.019	0.5362	0.8759	217	4	9	778	1907	1.089	0.5375	1	115	9	17	908	2034	1.186	0.3258	1	104
+B_shell_soft_core_gain_pfam	PF13520	AA_permease_2	Amino acid permease	CL0062	3		23	37	2213	3580	1.006	0.5554	0.8759	201	8	14	778	1907	1.401	0.1643	1	142	8	16	908	2034	1.12	0.4253	1	123
+B_shell_soft_core_gain_pfam	PF00152	tRNA-synt_2	tRNA synthetases class II (D, K and N)	CL0040	2		4	6	2213	3580	1.078	0.582	0.8759	22								22	2	5	908	2034	0.896	0.7387	1	19
+B_shell_soft_core_gain_pfam	PF13445	zf-RING_UBOX	RING-type zinc-finger	CL0229	2		7	11	2213	3580	1.029	0.5828	0.8759	47								30	3	6	908	2034	1.12	0.5513	1	25
+B_shell_soft_core_gain_pfam	PF00646	F-box	F-box domain	CL0271	3		8	13	2213	3580	0.996	0.6276	0.9271	75	5	12	778	1907	1.021	0.5846	1	80	1	5	908	2034	0.448	0.9482	1	63
+B_shell_soft_core_gain_pfam	PF13923	zf-C3HC4_2	Zinc finger, C3HC4 type (RING finger)	CL0229	2		8	13	2213	3580	0.996	0.6276	0.9271	45								33	4	8	908	2034	1.12	0.5147	1	30
+B_shell_soft_core_gain_pfam	PF07992	Pyr_redox_2	Pyridine nucleotide-disulphide oxidoreductase	CL0063	3		9	15	2213	3580	0.971	0.6653	0.9514	135	0	6	778	1907	0	1	1	56	3	10	908	2034	0.672	0.897	1	47
+B_shell_soft_core_gain_pfam	PF13920	zf-C3HC4_3	Zinc finger, C3HC4 type (RING finger)	CL0229	2		6	10	2213	3580	0.971	0.6781	0.9514	27								31	4	6	908	2034	1.493	0.2491	0.9463	26
+B_shell_soft_core_gain_pfam	PF05368	NmrA	NmrA-like family	CL0063	2		7	12	2213	3580	0.944	0.7124	0.9514	131								32	4	6	908	2034	1.493	0.2491	0.9463	29
+B_shell_soft_core_gain_pfam	PF00083	Sugar_tr	Sugar (and other) transporter	CL0015	3		40	68	2213	3580	0.952	0.7402	0.9633	636	10	38	778	1907	0.645	0.9797	1	279	23	50	908	2034	1.03	0.4775	1	241
+B_shell_soft_core_gain_pfam	PF00071	Ras	Ras family	CL0023	3		13	23	2213	3580	0.914	0.7722	0.9746	98	2	5	778	1907	0.98	0.677	1	60	1	6	908	2034	0.373	0.9714	1	54
+B_shell_soft_core_gain_pfam	PF00004	AAA	ATPase family associated with various cellular activities (AAA)	CL0023	3		10	18	2213	3580	0.899	0.7873	0.9889	132	7	9	778	1907	1.906	0.02785	0.3218	147	6	12	908	2034	1.12	0.4628	1	112
+B_shell_soft_core_gain_pfam	PF08477	Roc	Ras of Complex, Roc, domain of DAPkinase	CL0023	2		11	20	2213	3580	0.89	0.8062	0.9948	85								51	1	5	908	2034	0.448	0.9482	1	47
+B_shell_soft_core_gain_pfam	PF00098	zf-CCHC	Zinc knuckle	CL0511	3		3	6	2213	3580	0.809	0.8451	0.9948	34	1	8	778	1907	0.306	0.9851	1	34	2	6	908	2034	0.747	0.8323	1	24
+B_shell_soft_core_gain_pfam	PF00153	Mito_carr	Mitochondrial carrier protein		3		10	19	2213	3580	0.851	0.8558	0.9948	104	2	6	778	1907	0.817	0.7793	1	101	6	10	908	2034	1.344	0.2535	0.9463	87
+B_shell_soft_core_gain_pfam	PF06609	TRI12	Fungal trichothecene efflux pump (TRI12)	CL0015	3		6	12	2213	3580	0.809	0.8723	0.9948	106	3	15	778	1907	0.49	0.9769	1	100	11	22	908	2034	1.12	0.3826	1	85
+B_shell_soft_core_gain_pfam	PF00018	SH3_1	SH3 domain	CL0010	2		4	9	2213	3580	0.719	0.9198	0.9948	42	1	5	778	1907	0.49	0.9275	1	48								39
+B_shell_soft_core_gain_pfam	PF01569	PAP2	PAP2 superfamily	CL0525	2		3	7	2213	3580	0.693	0.9205	0.9948	15								18	3	8	908	2034	0.84	0.7742	1	16
+B_shell_soft_core_gain_pfam	PF00743	FMO-like	Flavin-binding monooxygenase-like	CL0063	3		3	8	2213	3580	0.607	0.9607	0.9948	67	3	7	778	1907	1.05	0.5976	1	42	5	10	908	2034	1.12	0.4863	1	38
+B_shell_soft_core_gain_pfam	PF13738	Pyr_redox_3	Pyridine nucleotide-disulphide oxidoreductase	CL0063	3		2	6	2213	3580	0.539	0.9669	0.9948	53	0	5	778	1907	0	1	1	25	3	9	908	2034	0.747	0.8459	1	22
+B_shell_soft_core_gain_pfam	PF00179	UQ_con	Ubiquitin-conjugating enzyme	CL0208	3		8	19	2213	3580	0.681	0.9762	0.9948	65	4	8	778	1907	1.226	0.4244	1	76	2	8	908	2034	0.56	0.9347	1	61
+B_shell_soft_core_gain_pfam	PF00149	Metallophos	Calcineurin-like phosphoesterase	CL0163	2		4	12	2213	3580	0.539	0.9893	0.9948	62	2	5	778	1907	0.98	0.677	1	53								45
+B_shell_soft_core_gain_pfam	PF01423	LSM	LSM domain	CL0986	2		4	13	2213	3580	0.498	0.9948	0.9948	37								31	1	6	908	2034	0.373	0.9714	1	28
+B_shell_soft_core_gain_pfam	PF00082	Peptidase_S8	Subtilase family		2									24	6	10	778	1907	1.471	0.1793	1	72	5	8	908	2034	1.4	0.2532	0.9463	57
+B_shell_soft_core_gain_pfam	PF00227	Proteasome	Proteasome subunit	CL0052	2									21	2	5	778	1907	0.98	0.677	1	32	0	5	908	2034	0	1	1	23
+B_shell_soft_core_gain_pfam	PF05057	DUF676	Putative serine esterase (DUF676)	CL0028	2									27	1	5	778	1907	0.49	0.9275	1	28	2	9	908	2034	0.498	0.96	1	23
+B_shell_soft_core_gain_pfam	PF13193	AMP-binding_C	AMP-binding enzyme C-terminal domain	CL0531	2									73	2	6	778	1907	0.817	0.7793	1	73	4	9	908	2034	0.996	0.6306	1	62
+B_shell_soft_core_gain_pfam	PF17667	Pkinase_fungal	Fungal protein kinase	CL0016	2									34	14	16	778	1907	2.145	1.540e-04	0.008011	230	15	18	908	2034	1.867	8.593e-04	0.09624	161
+B_shell_soft_core_gain_pfam	PF21858	DUF6914	Family of unknown function (DUF6914)	CL0125	2									19	2	6	778	1907	0.817	0.7793	1	19	3	6	908	2034	1.12	0.5513	1	18
+B_shell_soft_core_gain_pfam	PF25000	DUF7779	Domain of unknown function (DUF7779)	CL0123	2									21	0	7	778	1907	0	1	1	19	1	6	908	2034	0.373	0.9714	1	17
+B_shell_soft_core_gain_pfam	PF28515	HrmA	Subtelomeric hrmA-associated cluster protein		2									16	5	5	778	1907	2.451	0.01122	0.2484	38	4	5	908	2034	1.792	0.1274	0.9463	26
