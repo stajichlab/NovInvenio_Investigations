@@ -1,0 +1,6 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Eremgoss,Eremothecium gossypii,NRRL Y-1056,IN,Saccharomycotina,uniprot,UP000000591,284811,ncbi,GCA_000091025.4,,
+Kluylact,Kluyveromyces lactis,WM37,OUT,Saccharomycotina,uniprot,UP000000598,284590,ncbi,GCA_000002515.1,,
+Lachther,Lachancea thermotolerans,NRRL Y-8284,OUT,Saccharomycotina,uniprot,UP000002036,559295,ncbi,GCA_000142805.1,,
+Torudelb,Torulaspora delbrueckii,NRRL Y-866,OUT,Saccharomycotina,uniprot,UP000005627,1076872,ncbi,GCA_000243375.1,,
+Scer,Saccharomyces cerevisiae,S288C,OUT,Saccharomycotina,uniprot,UP000002311,559292,ncbi,GCA_000146045.2,,

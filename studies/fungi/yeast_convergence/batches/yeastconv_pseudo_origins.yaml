@@ -1,0 +1,91 @@
+# NULL / CONTROL: "pseudo-origins". Filamentous lineages that went through a
+# large ecological shift with documented gene loss, but no change in growth
+# form. They are run with the same design as the yeast origins (small focal
+# clade IN vs its filamentous sister OUT) so their loss and novelty lists are
+# directly comparable.
+#
+# The question they answer: is the convergent LOSS signal reported for yeast
+# clades (plant-cell-wall-degrading enzymes, hydrophobins, P450s, GSTs;
+# Nagy et al. 2014 Table 1) specific to becoming a yeast, or is it what any
+# lineage loses when it stops decaying plant material or becomes a host
+# specialist? A Pfam/GO term that recurs across yeast origins AND across
+# these controls is scored as "streamlining-generic" by
+# bin/convergence_compare.py, not as yeast-associated.
+#
+# Choice of controls (each matches one confound):
+#   - powdery mildew: obligate biotroph, extreme gene loss, filamentous
+#   - ectomycorrhizal Agaricales: lost most PCWDE families, filamentous
+#   - dermatophytes: small genomes, keratin specialists, filamentous,
+#     close to the dimorphic Onygenales but without the yeast phase
+#
+# Same format and conventions as yeastconv_origins.yaml (see its header).
+
+batch: yeastconv_pseudo_origins
+
+outgroup_pools:
+  leotiomycetes_saprotroph_v1:
+    members:
+      - "Botrytis cinerea"
+      - "Sclerotinia sclerotiorum"
+      - "Aspergillus nidulans"
+  agaricales_saprotroph_v1:
+    members:
+      - "Coprinopsis cinerea"
+      - "Agaricus bisporus var. burnettii"
+      - "Pleurotus ostreatus"
+  eurotiomycetes_saprotroph_v1:
+    members:
+      - "Aspergillus nidulans"
+      - "Talaromyces stipitatus"
+
+studies:
+  - id: yc_pseudo_powdery_mildew
+    origin: none (control)
+    contrast: pseudo_origin_obligate_biotroph
+    focal: Blumeria graminis
+    ingroup_extra:
+      mode: explicit
+      members: []
+      reason: >-
+        Obligate biotroph with large documented gene-family loss and no
+        yeast phase.
+    outgroup_pool: leotiomycetes_saprotroph_v1
+
+  - id: yc_pseudo_ectomycorrhizal
+    origin: none (control)
+    contrast: pseudo_origin_pcwde_loss
+    focal: Laccaria bicolor
+    ingroup_extra:
+      mode: explicit
+      members:
+        - "Hebeloma cylindrosporum"
+      reason: >-
+        Two independent ectomycorrhizal Agaricales lineages; both lost most
+        plant-cell-wall-degrading families but stay filamentous.
+    outgroup_pool: agaricales_saprotroph_v1
+
+  - id: yc_pseudo_dermatophyte
+    origin: none (control)
+    contrast: pseudo_origin_host_specialist
+    focal: Trichophyton rubrum
+    ingroup_extra:
+      mode: explicit
+      members:
+        - "Microsporum canis"
+      reason: >-
+        Filamentous keratinophilic host specialists with compact genomes.
+    outgroup_pool: eurotiomycetes_saprotroph_v1
+
+species:
+  "Blumeria graminis":                {taxon_group: Leotiomycetes, growth_form: filamentous}
+  "Botrytis cinerea":                 {taxon_group: Leotiomycetes, growth_form: filamentous}
+  "Sclerotinia sclerotiorum":         {taxon_group: Leotiomycetes, growth_form: filamentous}
+  "Aspergillus nidulans":             {taxon_group: Eurotiomycetes, growth_form: filamentous}
+  "Laccaria bicolor":                 {taxon_group: Agaricales, growth_form: filamentous}
+  "Hebeloma cylindrosporum":          {taxon_group: Agaricales, growth_form: filamentous}
+  "Coprinopsis cinerea":              {taxon_group: Agaricales, growth_form: filamentous}
+  "Agaricus bisporus var. burnettii": {taxon_group: Agaricales, growth_form: filamentous}
+  "Pleurotus ostreatus":              {taxon_group: Agaricales, growth_form: filamentous}
+  "Trichophyton rubrum":              {taxon_group: Onygenales, growth_form: filamentous}
+  "Microsporum canis":                {taxon_group: Onygenales, growth_form: filamentous}
+  "Talaromyces stipitatus":           {taxon_group: Eurotiales, growth_form: filamentous}

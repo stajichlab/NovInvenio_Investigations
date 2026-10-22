@@ -1,0 +1,6 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Mcir,Mucor circinelloides,1006PhL,IN,Mucorales,uniprot,UP000014254,1220926,ncbi,GCA_000401635.1,,
+Phycblak,Phycomyces blakesleeanus,NRRL 1555,OUT,Mucorales,uniprot,UP000077315,763407,ncbi,GCA_001638985.2,,
+Rhizdele,Rhizopus delemar,NRRL 43880,OUT,Mucorales,uniprot,UP000009138,246409,ncbi,GCA_000149305.1,,
+Lichcory,Lichtheimia corymbifera,,OUT,Mucorales,uniprot,UP000027586,1263082,ncbi,GCA_000723665.1,,
+Absiglau,Absidia glauca,,OUT,Mucorales,uniprot,UP000078561,4829,ncbi,GCA_900079185.1,,

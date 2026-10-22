@@ -1,0 +1,5 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Blumgram,Blumeria graminis,,IN,Leotiomycetes,,,,,,,
+Botrcine,Botrytis cinerea,,OUT,Leotiomycetes,,,,,,,
+Sclescle,Sclerotinia sclerotiorum,,OUT,Leotiomycetes,,,,,,,
+Anid,Aspergillus nidulans,FGSC A4,OUT,Eurotiomycetes,uniprot,UP000000560,227321,ncbi,GCA_000011425.1,,

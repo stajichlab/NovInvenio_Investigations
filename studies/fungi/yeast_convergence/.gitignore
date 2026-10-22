@@ -1,0 +1,15 @@
+# The repo-root .gitignore matches studies/*/*/<x> (two levels). The contrasts in
+# this folder sit one level deeper (studies/fungi/yeast_convergence/<id>/), so the
+# same class-1 (ephemeral, regenerable) rules are repeated here for them.
+# Same reasons as the root file: never commit fetched data, materialized inputs,
+# annotation extracts, enrichment caches or pipeline results.
+*/data/
+*/data_dir
+*/data_dir_*
+*/annotations/
+*/annotations_orig/
+*/results/
+*/analysis/enrichment/outputs/cache/
+*/analysis/pfam_hmmsearch/
+# Cross-contrast comparison working files (the summary tables are tracked).
+analysis/convergence/tmp/
