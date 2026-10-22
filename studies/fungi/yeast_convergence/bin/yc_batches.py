@@ -15,7 +15,7 @@ check   Validate every batch: unique study ids, focal not in its own outgroup,
         study's role (origin / reversal / pseudo-origin). Optional:
         --master-pool  report species missing from NovInvenio's master pool
         --traits       report species with no or a conflicting cell_morphology row
-render  Write <folder>/<id>/species.csv + run_params.txt for every study, plus
+render  Write <folder>/<id>/species.csv, run_params.txt and publish.yaml for every study, plus
         <folder>/study_index.tsv (read by run_all.sh, run_enrichment_all.sh and
         convergence_compare.py). Source columns are prefilled only where another
         tracked studies/*/*/species.csv already uses exactly one UniProt
@@ -54,6 +54,15 @@ RUN_PARAMS = """\
 # diamond for pairwise search and self-search, same as every other
 # yeast_convergence contrast so the runs stay comparable.
 --run_tool diamond
+"""
+PUBLISH_YAML = """\
+# Where this folder publishes on the site (study/run layout,
+# notes/superpowers/specs/2026-09-24-study-run-site-layout-design.md).
+# Written by studies/fungi/yeast_convergence/bin/yc_batches.py render.
+study: {id}
+run: pairwise-diamond
+notes:
+  - "yeast_convergence contrast ({role}): {origin}. Design and caveats: studies/fungi/yeast_convergence/README.md"
 """
 DOMINANT_PHASES = {"yeast", "hyphal"}
 HYPHAL_STATES = {"filamentous", "dimorphic_hyphal"}
@@ -295,6 +304,10 @@ def render(batches, folder: Path, known: dict[str, dict], force: bool) -> list[d
         run_params = study_dir / "run_params.txt"
         if not run_params.exists() or force:
             run_params.write_text(RUN_PARAMS)
+        publish = study_dir / "publish.yaml"
+        if not publish.exists() or force:
+            publish.write_text(PUBLISH_YAML.format(id=sid, role=role_of(s["contrast"]),
+                                                   origin=s["origin"].replace('"', "'")))
         index.append({
             "id": sid, "batch": b["batch"], "role": role_of(s["contrast"]),
             "origin": s["origin"], "contrast": s["contrast"], "compare_with": s.get("compare_with", ""),

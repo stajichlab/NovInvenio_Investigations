@@ -146,13 +146,13 @@ HEADER = ["scope", "level", "vocab", "term", "name", "k_cand_with_term", "N_cand
           "n_bg_with_term", "M_bg_annotated", "expected", "fold", "pvalue", "fdr_bh"]
 
 
-def _table(path, rows):
+def _table(path, rows, vocab="pfam"):
     path.parent.mkdir(parents=True, exist_ok=True)
     with gzip.open(path, "wt", newline="") as fh:
         w = csv.writer(fh, delimiter="\t")
         w.writerow(HEADER)
         for term, k, fold, q in rows:
-            w.writerow(["whole_set", "family", "pfam", term, f"{term} name", k, 100, 10, 1000,
+            w.writerow(["whole_set", "family", vocab, term, f"{term} name", k, 100, 10, 1000,
                         1, fold, q, q])
 
 
@@ -184,7 +184,8 @@ def _synthetic_folder(tmp_path):
 def test_convergence_end_to_end(tmp_path):
     folder = _synthetic_folder(tmp_path)
     out = tmp_path / "out"
-    assert cc.main(["--folder", str(folder), "--out-dir", str(out), "--vocab", "pfam"]) == 0
+    assert cc.main(["--folder", str(folder), "--out-dir", str(out), "--vocab", "pfam",
+                    "--min-in-novelty", "1"]) == 0
     rec = {(r["direction"], r["term"]): r
            for r in csv.DictReader(open(out / "term_recurrence.tsv"), delimiter="\t")}
     assert rec[("loss", "PF00001")]["class"] == "yeast_convergent"
@@ -204,5 +205,68 @@ def test_convergence_reports_missing(tmp_path):
     folder = _synthetic_folder(tmp_path)
     shutil.rmtree(folder / "yc_o3/analysis/enrichment/outputs/novelty")
     out = tmp_path / "out"
-    assert cc.main(["--folder", str(folder), "--out-dir", str(out), "--vocab", "pfam"]) == 0
+    assert cc.main(["--folder", str(folder), "--out-dir", str(out), "--vocab", "pfam",
+                    "--min-in-novelty", "1"]) == 0
     assert "yc_o3/novelty" in (out / "summary.md").read_text()
+
+
+def _species_csv(path, sources):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as fh:
+        fh.write("Short,Species,Group,Protein_Source\n")
+        for i, src in enumerate(sources):
+            fh.write(f"S{i},Sp {i},IN,{src}\n")
+
+
+def test_secondary_vocab_only_for_all_uniprot_contrasts(tmp_path):
+    folder = _synthetic_folder(tmp_path)
+    # o1, o2 all UniProt; o3 has an NCBI proteome; o3 still counts for Pfam.
+    for i in ("yc_o1", "yc_o2", "yc_p1", "yc_r1"):
+        _species_csv(folder / i / "species.csv", ["uniprot", "uniprot"])
+    _species_csv(folder / "yc_o3" / "species.csv", ["uniprot", "ncbi"])
+    for i in ("yc_o1", "yc_o2", "yc_o3"):
+        _table(folder / i / "analysis/enrichment/outputs/loss/proteome_clustered/enrichment_go.tsv.gz",
+               [("GO:0000001", 5, 4.0, 0.001)] + [(f"GO:9{n:06d}", 1, 0.5, 1.0) for n in range(20)],
+               vocab="go")
+    out = tmp_path / "out"
+    assert cc.main(["--folder", str(folder), "--out-dir", str(out), "--vocab", "pfam", "go"]) == 0
+    rec = {(r["vocab"], r["term"]): r for r in csv.DictReader(open(out / "term_recurrence.tsv"), delimiter="\t")
+           if r["direction"] == "loss"}
+    assert rec[("pfam", "PF00001")]["tier"] == "primary"
+    assert rec[("pfam", "PF00001")]["n_origin_tested"] == "3"
+    assert rec[("go", "GO:0000001")]["tier"] == "secondary"
+    assert rec[("go", "GO:0000001")]["n_origin_tested"] == "2"       # yc_o3 excluded
+    cov = {r["id"]: r for r in csv.DictReader(open(out / "annotation_coverage.tsv"), delimiter="\t")}
+    assert cov["yc_o3"]["all_uniprot"] == "False" and cov["yc_o3"]["secondary_vocabs_used"] == "False"
+    assert cov["yc_o1"]["secondary_vocabs_used"] == "True"
+    summary = (out / "summary.md").read_text()
+    assert "excluded: yc_o3" in summary
+
+    out2 = tmp_path / "out2"
+    assert cc.main(["--folder", str(folder), "--out-dir", str(out2), "--vocab", "pfam", "go",
+                    "--include-mixed-annotation"]) == 0
+    rec2 = {(r["vocab"], r["term"]): r for r in csv.DictReader(open(out2 / "term_recurrence.tsv"), delimiter="\t")
+            if r["direction"] == "loss"}
+    assert rec2[("go", "GO:0000001")]["n_origin_tested"] == "3"
+
+
+def test_rendered_publish_yaml_is_valid(tmp_path):
+    import sys
+    sys.path.insert(0, str(NII / "lib"))
+    from study_runs import load_publish_target
+    batches = yc.load_batches(FOLDER / "batches")
+    yc.render(batches, tmp_path, {}, force=True)
+    for sub in sorted(tmp_path.glob("yc_*")):
+        target = load_publish_target(sub)
+        assert target.study == sub.name and target.run == "pairwise-diamond"
+        assert target.notes
+
+
+def test_single_species_ingroup_novelty_ignored(tmp_path):
+    folder = _synthetic_folder(tmp_path)   # every synthetic contrast has n_in=1
+    out = tmp_path / "out"
+    assert cc.main(["--folder", str(folder), "--out-dir", str(out), "--vocab", "pfam"]) == 0
+    assert list(csv.DictReader(open(out / "reversal_overlap.tsv"), delimiter="\t")) == []
+    rows = list(csv.DictReader(open(out / "term_recurrence.tsv"), delimiter="\t"))
+    assert {r["direction"] for r in rows} == {"loss"}
+    assert "Novelty lists not used" in (out / "summary.md").read_text()

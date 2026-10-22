@@ -1,6 +1,9 @@
 Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
 Laccbico,Laccaria bicolor,,IN,Agaricales,,,,,,,
+Laccamet,Laccaria amethystina,,IN,Agaricales,,,,,,,
 Hebecyli,Hebeloma cylindrosporum,,IN,Agaricales,,,,,,,
+Amanmusc,Amanita muscaria,,IN,Agaricales,,,,,,,
+Amanthie,Amanita thiersii,,OUT,Agaricales,,,,,,,
 Ccin,Coprinopsis cinerea,Okayama-7/130,OUT,Agaricales,uniprot,UP000001861,240176,ncbi,GCA_000182895.1,,
 Agbis,Agaricus bisporus var. burnettii,JB137-S8,OUT,Agaricales,uniprot,UP000008493,597362,ncbi,GCA_000300555.1,,
 Pleuostr,Pleurotus ostreatus,,OUT,Agaricales,,,,,,,

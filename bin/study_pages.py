@@ -43,6 +43,17 @@ def split2(value: str, what: str) -> tuple[str, str]:
     return parts[0], parts[1]
 
 
+def split_folder(value: str) -> tuple[str, str]:
+    """<domain>/<folder> for a studies/ folder. The folder may be nested
+    (studies/fungi/yeast_convergence/yc_x -> "fungi", "yeast_convergence/yc_x");
+    the published study name still comes from its publish.yaml, so docs/ keeps
+    the flat docs/<domain>/<study>/<run>/ layout either way."""
+    parts = value.strip("/").split("/")
+    if len(parts) < 2 or not all(parts) or any(p in (".", "..") for p in parts):
+        raise SystemExit(f"ERROR: folder must be <domain>/<name>[/<name>...], got {value!r}")
+    return parts[0], "/".join(parts[1:])
+
+
 def read_params(path: Path) -> list[str]:
     """Non-comment, non-blank lines of a run_params.txt, stripped."""
     if not path.exists():
@@ -71,7 +82,7 @@ def sha256_of(path: Path) -> str:
 
 
 def cmd_target(args, root: Path) -> int:
-    domain, folder = split2(args.folder, "folder")
+    domain, folder = split_folder(args.folder)
     target = load_publish_target(root / "studies" / domain / folder)
     if target is None:
         return 3
@@ -82,7 +93,7 @@ def cmd_target(args, root: Path) -> int:
 
 
 def cmd_record_run(args, root: Path) -> int:
-    domain, folder = split2(args.folder, "folder")
+    domain, folder = split_folder(args.folder)
     folder_dir = root / "studies" / domain / folder
     target = load_publish_target(folder_dir)
     if target is None or target.run is None:
@@ -97,7 +108,7 @@ def cmd_record_run(args, root: Path) -> int:
         "published": args.published or datetime.datetime.now(datetime.UTC).date().isoformat(),
         "pipeline": "main.nf",
         "folder": f"studies/{domain}/{folder}",
-        "source_dir": args.source_dir or f"results/{folder}",
+        "source_dir": args.source_dir or f"results/{Path(folder).name}",
         "params": read_params(folder_dir / "run_params.txt"),
         "n_species": count_species(folder_dir / "species.csv"),
         "report_sha256": sha256_of(report),
@@ -114,7 +125,7 @@ def cmd_record_run(args, root: Path) -> int:
 
 
 def cmd_inject_notes(args, root: Path) -> int:
-    domain, folder = split2(args.folder, "folder")
+    domain, folder = split_folder(args.folder)
     target = load_publish_target(root / "studies" / domain / folder)
     if target is None or target.run is None:
         raise SystemExit(f"ERROR: studies/{domain}/{folder}/publish.yaml missing or has no run")

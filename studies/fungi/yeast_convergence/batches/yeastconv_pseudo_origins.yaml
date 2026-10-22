@@ -30,6 +30,7 @@ outgroup_pools:
       - "Aspergillus nidulans"
   agaricales_saprotroph_v1:
     members:
+      - "Amanita thiersii"        # saprotrophic sister of the ECM Amanita clade
       - "Coprinopsis cinerea"
       - "Agaricus bisporus var. burnettii"
       - "Pleurotus ostreatus"
@@ -45,10 +46,13 @@ studies:
     focal: Blumeria graminis
     ingroup_extra:
       mode: explicit
-      members: []
+      members:
+        - "Blumeria hordei"       # 1KFG "Blumeria graminis f_sp_hordei_DH14"
+        - "Erysiphe necator"
+        - "Golovinomyces orontii"
       reason: >-
-        Obligate biotroph with large documented gene-family loss and no
-        yeast phase.
+        Three powdery-mildew genera: obligate biotrophs with large documented
+        gene-family loss and no yeast phase.
     outgroup_pool: leotiomycetes_saprotroph_v1
 
   - id: yc_pseudo_ectomycorrhizal
@@ -58,9 +62,11 @@ studies:
     ingroup_extra:
       mode: explicit
       members:
+        - "Laccaria amethystina"
         - "Hebeloma cylindrosporum"
+        - "Amanita muscaria"
       reason: >-
-        Two independent ectomycorrhizal Agaricales lineages; both lost most
+        Three independent ectomycorrhizal Agaricales lineages; all lost most
         plant-cell-wall-degrading families but stay filamentous.
     outgroup_pool: agaricales_saprotroph_v1
 
@@ -72,20 +78,30 @@ studies:
       mode: explicit
       members:
         - "Microsporum canis"
+        - "Trichophyton interdigitale"
+        - "Nannizzia gypsea"
       reason: >-
         Filamentous keratinophilic host specialists with compact genomes.
     outgroup_pool: eurotiomycetes_saprotroph_v1
 
 species:
   "Blumeria graminis":                {taxon_group: Leotiomycetes, growth_form: filamentous}
+  "Blumeria hordei":                  {taxon_group: Leotiomycetes, growth_form: filamentous}
+  "Erysiphe necator":                 {taxon_group: Leotiomycetes, growth_form: filamentous}
+  "Golovinomyces orontii":            {taxon_group: Leotiomycetes, growth_form: filamentous}
   "Botrytis cinerea":                 {taxon_group: Leotiomycetes, growth_form: filamentous}
   "Sclerotinia sclerotiorum":         {taxon_group: Leotiomycetes, growth_form: filamentous}
   "Aspergillus nidulans":             {taxon_group: Eurotiomycetes, growth_form: filamentous}
   "Laccaria bicolor":                 {taxon_group: Agaricales, growth_form: filamentous}
   "Hebeloma cylindrosporum":          {taxon_group: Agaricales, growth_form: filamentous}
+  "Laccaria amethystina":             {taxon_group: Agaricales, growth_form: filamentous}
+  "Amanita muscaria":                 {taxon_group: Agaricales, growth_form: filamentous}
+  "Amanita thiersii":                 {taxon_group: Agaricales, growth_form: filamentous}
   "Coprinopsis cinerea":              {taxon_group: Agaricales, growth_form: filamentous}
   "Agaricus bisporus var. burnettii": {taxon_group: Agaricales, growth_form: filamentous}
   "Pleurotus ostreatus":              {taxon_group: Agaricales, growth_form: filamentous}
   "Trichophyton rubrum":              {taxon_group: Onygenales, growth_form: filamentous}
   "Microsporum canis":                {taxon_group: Onygenales, growth_form: filamentous}
+  "Trichophyton interdigitale":       {taxon_group: Onygenales, growth_form: filamentous}
+  "Nannizzia gypsea":                 {taxon_group: Onygenales, growth_form: filamentous}
   "Talaromyces stipitatus":           {taxon_group: Eurotiales, growth_form: filamentous}

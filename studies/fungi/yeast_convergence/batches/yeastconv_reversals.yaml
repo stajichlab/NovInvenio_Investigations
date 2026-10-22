@@ -20,6 +20,11 @@
 # retains the ancestral state is itself open; this pair of runs is meant to
 # show which reading the gene content supports.
 #
+# Eremothecium growth forms: E. gossypii (Ashbya) is strictly hyphal.
+# traits.csv codes E. cymbalariae as yeast from a genus-level FUNGuild call
+# ("Yeast" for all of Eremothecium); it is coded filamentous here. Confirm
+# E. cymbalariae and E. sinecaudum growth forms before reading this run.
+#
 # `compare_with` names the origin study whose LOSS list this reversal's
 # NOVELTY list is read against (bin/convergence_compare.py, reversal_overlap.tsv).
 # Same format and conventions as yeastconv_origins.yaml (see its header).
@@ -36,8 +41,11 @@ outgroup_pools:
   taphrinomycotina_yeasts_v1:
     members:
       - "Schizosaccharomyces pombe"
+      - "Schizosaccharomyces octosporus"
+      - "Schizosaccharomyces japonicus"
       - "Saitoella complicata"
       - "Taphrina deformans"
+      - "Protomyces inouyei"
 
 studies:
   - id: yc_rev_eremothecium
@@ -47,10 +55,13 @@ studies:
     focal: Eremothecium gossypii
     ingroup_extra:
       mode: explicit
-      members: []
+      members:
+        - "Eremothecium cymbalariae"
+        - "Eremothecium sinecaudum"
       reason: >-
-        Ashbya/Eremothecium gossypii grows only as hyphae, nested inside the
-        budding yeasts; its closest yeast relatives form the outgroup.
+        Eremothecium (incl. Ashbya gossypii) grows as hyphae, nested inside the
+        budding yeasts; three species span the genus, and their closest yeast
+        relatives form the outgroup.
     outgroup_pool: saccharomycetaceae_yeasts_v1
 
   - id: yc_rev_neolecta
@@ -63,11 +74,15 @@ studies:
       members: []
       reason: >-
         Neolecta is the only Taphrinomycotina with hyphae and a fruiting
-        body; mirror of yc_taphrinomycotina.
+        body; mirror of yc_taphrinomycotina. Only N. irregularis has a genome,
+        so this run stays single-species: convergence_compare.py uses only its
+        loss list (--min-in-novelty).
     outgroup_pool: taphrinomycotina_yeasts_v1
 
 species:
   "Eremothecium gossypii":     {taxon_group: Saccharomycotina, growth_form: filamentous}
+  "Eremothecium cymbalariae":  {taxon_group: Saccharomycotina, growth_form: filamentous}
+  "Eremothecium sinecaudum":   {taxon_group: Saccharomycotina, growth_form: filamentous}
   "Kluyveromyces lactis":      {taxon_group: Saccharomycotina, growth_form: yeast}
   "Lachancea thermotolerans":  {taxon_group: Saccharomycotina, growth_form: yeast}
   "Torulaspora delbrueckii":   {taxon_group: Saccharomycotina, growth_form: yeast}
@@ -76,3 +91,6 @@ species:
   "Schizosaccharomyces pombe": {taxon_group: Taphrinomycotina, growth_form: yeast}
   "Saitoella complicata":      {taxon_group: Taphrinomycotina, growth_form: yeast}
   "Taphrina deformans":        {taxon_group: Taphrinomycotina, growth_form: dimorphic, dominant_phase: hyphal}
+  "Schizosaccharomyces octosporus": {taxon_group: Taphrinomycotina, growth_form: yeast}
+  "Schizosaccharomyces japonicus":  {taxon_group: Taphrinomycotina, growth_form: dimorphic, dominant_phase: yeast}
+  "Protomyces inouyei":        {taxon_group: Taphrinomycotina, growth_form: dimorphic, dominant_phase: hyphal}

@@ -82,6 +82,7 @@ outgroup_pools:
       - "Ceraceosorus bombacis"      # filamentous Exobasidiomycetes
   pucciniomycotina_filamentous_v1:
     members:
+      - "Microbotryum lychnidis-dioicae"   # same class as the red yeasts; hypha-dominant smut
       - "Puccinia graminis"
       - "Melampsora larici-populina"
   mucorales_filamentous_v1:
@@ -115,11 +116,15 @@ studies:
     ingroup_extra:
       mode: explicit
       members:
+        - "Schizosaccharomyces octosporus"   # local copy in 1KFG_samples.csv
+        - "Schizosaccharomyces japonicus"
         - "Saitoella complicata"
         - "Taphrina deformans"
+        - "Protomyces inouyei"               # local copy in 1KFG_samples.csv
       reason: >-
-        Three independent yeast-form Taphrinomycotina genera; Neolecta (the
-        clade's filamentous member) is the sister-lineage outgroup.
+        Four yeast-form Taphrinomycotina genera (three Schizosaccharomyces
+        species span the genus); Neolecta (the clade's filamentous member) is
+        the sister-lineage outgroup.
     outgroup_pool: taphrino_sister_v1
     notes: >-
       Neolecta is nested inside Taphrinomycotina, so it is either the
@@ -134,6 +139,9 @@ studies:
       mode: explicit
       members:
         - "Exophiala spinifera"
+        - "Exophiala phaeomuriformis"   # sister of E. dermatitidis
+        - "Exophiala oligosperma"
+        - "Exophiala mesophila"
       reason: >-
         Yeast-dominant Exophiala against hypha-dominant Herpotrichiellaceae
         from the same order; the lab's Chaetothyriales_samples.csv has many
@@ -152,6 +160,8 @@ studies:
       mode: explicit
       members:
         - "Aureobasidium melanogenum"
+        - "Aureobasidium namibiae"
+        - "Aureobasidium subglaciale"
       reason: >-
         Yeast-like Aureobasidium against filamentous Dothideomycetes from
         neighbouring orders.
@@ -163,10 +173,12 @@ studies:
     focal: Hortaea werneckii
     ingroup_extra:
       mode: explicit
-      members: []
+      members:
+        - "Hortaea thailandica"
       reason: >-
-        Single-species ingroup: Hortaea is a separate origin from
-        Aureobasidium (different order), so it is not pooled with it.
+        Hortaea is a separate origin from Aureobasidium (different order), so
+        it is not pooled with it. Only two Hortaea species are known to have
+        genomes; no other yeast-dominant Teratosphaeriaceae was found.
     outgroup_pool: capnodiales_filamentous_v1
     notes: >-
       Hortaea is also a halotolerance focal (NovInvenio salt_hortaea.yaml);
@@ -215,9 +227,12 @@ studies:
       mode: explicit
       members:
         - "Rhodotorula mucilaginosa"
+        - "Rhodotorula graminis"          # local copy in 1KFG_samples.csv
         - "Sporobolomyces roseus"
+        - "Leucosporidium creatinivorum"
       reason: >-
-        Sporidiobolales red yeasts against filamentous Pucciniales rusts.
+        Sporidiobolales and Leucosporidiales red yeasts against hypha-dominant
+        Pucciniomycotina.
     outgroup_pool: pucciniomycotina_filamentous_v1
     notes: >-
       Rusts are obligate biotrophs with their own large gene losses, so
@@ -230,12 +245,17 @@ studies:
     focal: Mucor circinelloides
     ingroup_extra:
       mode: explicit
-      members: []
+      members:
+        - "Mucor racemosus"
+        - "Mucor indicus"
       reason: >-
-        Mucor circinelloides is the dimorphic Mucorales model (anaerobic
-        yeast growth); the other Mucorales here have no yeast phase.
+        Three Mucor species with anaerobic or CO2-induced yeast growth; the
+        other Mucorales here have no yeast phase.
     outgroup_pool: mucorales_filamentous_v1
     notes: >-
+      The UniProt proteome reused for "Mucor circinelloides" (UP000014254,
+      taxon 1220926) is strain CBS 277.49, now usually called Mucor
+      lusitanicus, so do not add M. lusitanicus as a fourth species.
       The deepest origin in the set; it anchors whether the toolkit
       predates Dikarya (Nagy et al. placed it at the Mucoromycotina+Dikarya
       node).
@@ -255,21 +275,30 @@ species:
   "Schizosaccharomyces pombe":  {taxon_group: Taphrinomycotina, growth_form: yeast}
   "Saitoella complicata":       {taxon_group: Taphrinomycotina, growth_form: yeast}
   "Taphrina deformans":         {taxon_group: Taphrinomycotina, growth_form: dimorphic, dominant_phase: hyphal}
+  "Schizosaccharomyces octosporus": {taxon_group: Taphrinomycotina, growth_form: yeast}
+  "Schizosaccharomyces japonicus":  {taxon_group: Taphrinomycotina, growth_form: dimorphic, dominant_phase: yeast}
+  "Protomyces inouyei":         {taxon_group: Taphrinomycotina, growth_form: dimorphic, dominant_phase: hyphal}
   "Neolecta irregularis":       {taxon_group: Taphrinomycotina, growth_form: filamentous}
   # Chaetothyriales origin
   "Exophiala dermatitidis":     {taxon_group: Chaetothyriales, growth_form: dimorphic, dominant_phase: yeast}
   "Exophiala spinifera":        {taxon_group: Chaetothyriales, growth_form: dimorphic, dominant_phase: yeast}
+  "Exophiala phaeomuriformis":  {taxon_group: Chaetothyriales, growth_form: dimorphic, dominant_phase: yeast}
+  "Exophiala oligosperma":      {taxon_group: Chaetothyriales, growth_form: dimorphic, dominant_phase: yeast}
+  "Exophiala mesophila":        {taxon_group: Chaetothyriales, growth_form: dimorphic, dominant_phase: yeast}
   "Capronia coronata":          {taxon_group: Chaetothyriales, growth_form: dimorphic, dominant_phase: hyphal}
   "Cladophialophora carrionii": {taxon_group: Chaetothyriales, growth_form: dimorphic, dominant_phase: hyphal}
   "Fonsecaea pedrosoi":         {taxon_group: Chaetothyriales, growth_form: dimorphic, dominant_phase: hyphal}
   # Dothideales origin
   "Aureobasidium pullulans":    {taxon_group: Dothideales, growth_form: dimorphic, dominant_phase: yeast}
   "Aureobasidium melanogenum":  {taxon_group: Dothideales, growth_form: dimorphic, dominant_phase: yeast}
+  "Aureobasidium namibiae":     {taxon_group: Dothideales, growth_form: dimorphic, dominant_phase: yeast}
+  "Aureobasidium subglaciale":  {taxon_group: Dothideales, growth_form: dimorphic, dominant_phase: yeast}
   "Botryosphaeria dothidea":    {taxon_group: Botryosphaeriales, growth_form: filamentous}
   "Parastagonospora nodorum":   {taxon_group: Pleosporales, growth_form: filamentous}
   "Alternaria alternata":       {taxon_group: Pleosporales, growth_form: filamentous}
   # Capnodiales origin
   "Hortaea werneckii":          {taxon_group: Capnodiales, growth_form: dimorphic, dominant_phase: yeast}
+  "Hortaea thailandica":        {taxon_group: Capnodiales, growth_form: dimorphic, dominant_phase: yeast}
   "Pseudocercospora fijiensis": {taxon_group: Capnodiales, growth_form: filamentous}
   "Dothistroma septosporum":    {taxon_group: Capnodiales, growth_form: filamentous}
   "Cladosporium cladosporioides": {taxon_group: Capnodiales, growth_form: filamentous}
@@ -294,10 +323,15 @@ species:
   "Rhodotorula toruloides":     {taxon_group: Sporidiobolales, growth_form: dimorphic, dominant_phase: yeast}
   "Rhodotorula mucilaginosa":   {taxon_group: Sporidiobolales, growth_form: yeast}
   "Sporobolomyces roseus":      {taxon_group: Sporidiobolales, growth_form: yeast}
+  "Rhodotorula graminis":       {taxon_group: Sporidiobolales, growth_form: yeast}
+  "Leucosporidium creatinivorum": {taxon_group: Leucosporidiales, growth_form: yeast}
+  "Microbotryum lychnidis-dioicae": {taxon_group: Microbotryales, growth_form: dimorphic, dominant_phase: hyphal}
   "Puccinia graminis":          {taxon_group: Pucciniales, growth_form: filamentous}
   "Melampsora larici-populina": {taxon_group: Pucciniales, growth_form: filamentous}
   # Mucorales origin
   "Mucor circinelloides":       {taxon_group: Mucorales, growth_form: dimorphic, dominant_phase: hyphal}
+  "Mucor racemosus":            {taxon_group: Mucorales, growth_form: dimorphic, dominant_phase: hyphal}
+  "Mucor indicus":              {taxon_group: Mucorales, growth_form: dimorphic, dominant_phase: hyphal}
   "Phycomyces blakesleeanus":   {taxon_group: Mucorales, growth_form: filamentous}
   "Rhizopus delemar":           {taxon_group: Mucorales, growth_form: filamentous}
   "Lichtheimia corymbifera":    {taxon_group: Mucorales, growth_form: filamentous}

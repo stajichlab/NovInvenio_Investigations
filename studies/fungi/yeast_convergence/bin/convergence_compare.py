@@ -31,6 +31,18 @@ Classification of terms with r_obs >= --min-origins and q_recur <= --alpha:
     yeast_convergent      significant in no pseudo-origin control
     streamlining_generic  also significant in >= 1 pseudo-origin control
 
+Small ingroups: the novelty tables of contrasts with fewer than
+--min-in-novelty ingroup species (default 2) are not read; their loss tables are.
+
+Annotation tiers:
+    primary    pfam, pfam_clan: every contrast.
+    secondary  go, interpro: only contrasts whose species.csv lists every
+               species with Protein_Source=uniprot (all others are excluded
+               from that vocabulary and listed in annotation_coverage.tsv).
+               --include-mixed-annotation turns the exclusion off.
+    Classes are assigned from primary vocabularies; secondary rows carry the
+    same columns but are labelled tier=secondary and are a cross-check.
+
 Outputs (in --out-dir):
     term_recurrence.tsv   one row per (direction, vocab, term) tested in >= 1 origin
     pairwise_jaccard.tsv  Jaccard of significant sets for every contrast pair,
@@ -38,6 +50,8 @@ Outputs (in --out-dir):
     reversal_overlap.tsv  terms LOST in an origin and gained (novelty) in its
                           reversal, and the opposite
     focus_terms.tsv       status of focus_terms.tsv families in every contrast
+    annotation_coverage.tsv  per contrast: species, UniProt species, whether
+                          GO/InterPro were used
     summary.md            counts, coverage, top terms
 """
 from __future__ import annotations
@@ -55,6 +69,12 @@ FOLDER = NII_ROOT / "studies/fungi/yeast_convergence"
 DIRECTIONS = ("novelty", "loss")
 TABLE_FOR_VOCAB = {"pfam": "enrichment_domains.tsv.gz", "pfam_clan": "enrichment_domains.tsv.gz",
                    "interpro": "enrichment_domains.tsv.gz", "go": "enrichment_go.tsv.gz"}
+# Every proteome gets Pfam (UniProt records, or the HMMER step for NCBI/JGI
+# proteomes), so Pfam and Pfam clan are comparable across all contrasts. GO and
+# InterPro exist only for UniProt proteomes (CLAUDE.md "Annotating non-UniProt
+# proteomes"), so a contrast with any non-UniProt species under-calls them.
+PRIMARY_VOCABS = ("pfam", "pfam_clan")
+SECONDARY_VOCABS = ("go", "interpro")
 
 
 def read_index(folder: Path) -> list[dict]:
@@ -112,14 +132,42 @@ def bh(pvals: list[float]) -> list[float]:
     return q
 
 
-def gather(folder: Path, index: list[dict], vocabs, scope, level, fdr, min_k):
-    """calls[(id, direction, vocab)] = (tested, sig); missing = list of (id, direction)."""
+def annotation_coverage(folder: Path, index: list[dict]) -> dict[str, dict]:
+    """Per contrast: number of species and of UniProt-sourced species, from
+    <id>/species.csv. A blank Protein_Source counts as not UniProt."""
+    cov = {}
+    for st in index:
+        path = folder / st["id"] / "species.csv"
+        n = n_up = 0
+        if path.exists():
+            with open(path, newline="") as fh:
+                for row in csv.DictReader(fh):
+                    n += 1
+                    n_up += row.get("Protein_Source") == "uniprot"
+        cov[st["id"]] = {"id": st["id"], "role": st["role"], "n_species": n, "n_uniprot": n_up,
+                         "all_uniprot": n > 0 and n == n_up}
+    return cov
+
+
+def gather(folder: Path, index: list[dict], vocabs, scope, level, fdr, min_k,
+           coverage: dict[str, dict] | None = None, include_mixed: bool = False,
+           min_in_novelty: int = 1):
+    """calls[(id, direction, vocab)] = (tested, sig); missing = list of (id, direction).
+    Secondary vocabularies are skipped for contrasts that are not all-UniProt
+    unless include_mixed. The novelty direction is skipped for contrasts with
+    fewer than min_in_novelty ingroup species: a one-genome "novelty" list is
+    mostly that genome's own orphans and annotation artefacts."""
     calls, missing = {}, []
     for st in index:
+        all_up = include_mixed or coverage is None or coverage[st["id"]]["all_uniprot"]
         for d in DIRECTIONS:
+            if d == "novelty" and int(st.get("n_in") or 0) < min_in_novelty:
+                continue
             base = folder / st["id"] / "analysis/enrichment/outputs" / d / "proteome_clustered"
             got_any = False
             for v in vocabs:
+                if v in SECONDARY_VOCABS and not all_up:
+                    continue
                 table = base / TABLE_FOR_VOCAB[v]
                 if table.exists():
                     calls[(st["id"], d, v)] = load_calls(table, v, scope, level, fdr, min_k)
@@ -151,6 +199,7 @@ def recurrence(index, calls, vocabs, alpha, min_origins):
             ps_sig = [s for s in ps_tested if t in calls[(s, d, v)][1]]
             rv_sig = [s for s in reversals if (s, d, v) in calls and t in calls[(s, d, v)][1]]
             rows.append({
+                "tier": "primary" if v in PRIMARY_VOCABS else "secondary",
                 "direction": d, "vocab": v, "term": t, "name": name,
                 "n_origin_tested": len(tested_in), "n_origin_sig": len(sig_in),
                 "origins_sig": ";".join(sig_in), "p_recur": p, "q_recur": None,
@@ -248,7 +297,7 @@ def write_tsv(path: Path, rows: list[dict], fields: list[str]):
             w.writerow({k: (f"{x:.4g}" if isinstance(x, float) else x) for k, x in r.items()})
 
 
-def summary_md(args, index, missing, rec, jac, rev, focus_rows) -> str:
+def summary_md(args, index, missing, rec, jac, rev, focus_rows, coverage=None) -> str:
     lines = ["# yeast_convergence: cross-contrast comparison", "",
              f"Scope `{args.scope}`, level `{args.level}`, significant = FDR <= {args.fdr}, "
              f"k >= {args.min_k}, fold > 1. Recurrence: Poisson-binomial null, BH q <= {args.alpha}, "
@@ -257,14 +306,29 @@ def summary_md(args, index, missing, rec, jac, rev, focus_rows) -> str:
     for st in index:
         n_by_role[st["role"]] += 1
     lines.append("Contrasts: " + ", ".join(f"{n} {r}" for r, n in sorted(n_by_role.items())))
+    single = [st["id"] for st in index if int(st.get("n_in") or 0) < args.min_in_novelty]
+    if single:
+        lines += ["", f"Novelty lists not used (fewer than {args.min_in_novelty} ingroup species; "
+                  f"losses still used): {', '.join(single)}."]
+    if coverage is not None:
+        mixed = [c["id"] for c in coverage.values() if not c["all_uniprot"]]
+        if args.include_mixed_annotation:
+            lines += ["", "GO/InterPro used for every contrast (--include-mixed-annotation); "
+                      f"{len(mixed)} contrasts have non-UniProt species, so read those vocabularies with care."]
+        else:
+            lines += ["", f"Primary call: {', '.join(PRIMARY_VOCABS)} over all contrasts. "
+                      f"GO/InterPro (secondary) only over the {len(coverage) - len(mixed)} all-UniProt contrasts; "
+                      f"excluded: {', '.join(mixed) if mixed else 'none'}."]
     if missing:
         lines += ["", "Missing tables (left out): " + ", ".join(f"{i}/{d}" for i, d in missing)]
     for d in DIRECTIONS:
         lines += ["", f"## {d}", ""]
         for cls in ("yeast_convergent", "streamlining_generic"):
-            hits = sorted((r for r in rec if r["direction"] == d and r["class"] == cls),
+            hits = sorted((r for r in rec if r["direction"] == d and r["class"] == cls
+                           and r["tier"] == "primary"),
                           key=lambda r: (r["q_recur"], -r["n_origin_sig"]))
-            lines.append(f"**{cls}**: {len(hits)} terms")
+            n_sec = sum(1 for r in rec if r["direction"] == d and r["class"] == cls and r["tier"] == "secondary")
+            lines.append(f"**{cls}** (primary): {len(hits)} terms; secondary GO/InterPro cross-check: {n_sec}")
             for r in hits[:15]:
                 lines.append(f"- {r['vocab']} {r['term']} {r['name']}: {r['n_origin_sig']}/"
                              f"{r['n_origin_tested']} origins, q={r['q_recur']:.3g}, "
@@ -302,13 +366,20 @@ def main(argv=None) -> int:
     ap.add_argument("--min-k", type=int, default=3)
     ap.add_argument("--alpha", type=float, default=0.05)
     ap.add_argument("--min-origins", type=int, default=3)
+    ap.add_argument("--min-in-novelty", type=int, default=2,
+                    help="ignore the novelty tables of contrasts with fewer ingroup species (default 2)")
+    ap.add_argument("--include-mixed-annotation", action="store_true",
+                    help="use GO/InterPro tables even for contrasts with non-UniProt species")
     args = ap.parse_args(argv)
 
     out_dir = args.out_dir or args.folder / "analysis/convergence"
     out_dir.mkdir(parents=True, exist_ok=True)
     index = read_index(args.folder)
     focus = read_focus(args.folder / "focus_terms.tsv")
-    calls, missing = gather(args.folder, index, args.vocab, args.scope, args.level, args.fdr, args.min_k)
+    coverage = annotation_coverage(args.folder, index)
+    calls, missing = gather(args.folder, index, args.vocab, args.scope, args.level, args.fdr, args.min_k,
+                            coverage=coverage, include_mixed=args.include_mixed_annotation,
+                            min_in_novelty=args.min_in_novelty)
     if not calls:
         print("ERROR: no enrichment tables found; run run_enrichment_all.sh first", file=sys.stderr)
         return 1
@@ -319,7 +390,7 @@ def main(argv=None) -> int:
     foc = focus_status(index, calls, focus)
 
     write_tsv(out_dir / "term_recurrence.tsv", rec,
-              ["direction", "vocab", "term", "name", "n_origin_tested", "n_origin_sig", "origins_sig",
+              ["tier", "direction", "vocab", "term", "name", "n_origin_tested", "n_origin_sig", "origins_sig",
                "p_recur", "q_recur", "n_pseudo_tested", "n_pseudo_sig", "pseudo_sig", "reversal_sig", "class"])
     write_tsv(out_dir / "pairwise_jaccard.tsv", jac,
               ["direction", "vocab", "a", "b", "role_pair", "n_shared_tested", "n_sig_a", "n_sig_b",
@@ -329,9 +400,13 @@ def main(argv=None) -> int:
                "reversal_k", "reversal_fdr"])
     write_tsv(out_dir / "focus_terms.tsv", foc,
               ["term", "name", "expected_in_yeast", "id", "role", "direction", "status", "k", "fold", "fdr"])
-    (out_dir / "summary.md").write_text(summary_md(args, index, missing, rec, jac, rev, foc))
+    write_tsv(out_dir / "annotation_coverage.tsv",
+              [dict(c, secondary_vocabs_used=args.include_mixed_annotation or c["all_uniprot"])
+               for c in coverage.values()],
+              ["id", "role", "n_species", "n_uniprot", "all_uniprot", "secondary_vocabs_used"])
+    (out_dir / "summary.md").write_text(summary_md(args, index, missing, rec, jac, rev, foc, coverage))
     print(f"wrote {out_dir}/: term_recurrence.tsv pairwise_jaccard.tsv reversal_overlap.tsv "
-          f"focus_terms.tsv summary.md ({len(missing)} missing tables)")
+          f"focus_terms.tsv annotation_coverage.tsv summary.md ({len(missing)} missing tables)")
     return 0
 
 

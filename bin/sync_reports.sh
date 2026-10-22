@@ -72,7 +72,9 @@ NOVINVENIO_ROOT="${NOVINVENIO_ROOT:?Set NOVINVENIO_ROOT to a local nf_NovInvenio
 
 REPO_ROOT="$(cd "$(dirname "${0}")/.." && pwd)"
 SET_NAME="$(basename "$STUDY")"
-DOMAIN="$(dirname "$STUDY")"
+# First path component: a nested folder (studies/fungi/yeast_convergence/yc_x) still
+# publishes under docs/<domain>/<study>/<run>/, so dirname would be wrong here.
+DOMAIN="${STUDY%%/*}"
 STUDY_DIR="$REPO_ROOT/studies/$STUDY"
 RESULTS_DIR="$REPO_ROOT/results/$SET_NAME"
 # nf_NovInvenio's own hardcoded publishDir for report.html/summary.pdf/
