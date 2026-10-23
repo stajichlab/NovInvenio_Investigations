@@ -17,6 +17,21 @@
 #   - ectomycorrhizal Agaricales: lost most PCWDE families, filamentous
 #   - dermatophytes: small genomes, keratin specialists, filamentous,
 #     close to the dimorphic Onygenales but without the yeast phase
+#   - arbuscular mycorrhizal fungi (Glomeromycotina): DEEP control, a
+#     subphylum-level split like Saccharomycotina vs Pezizomycotina;
+#     obligate symbionts with large losses incl. most PCWDE families,
+#     coenocytic and filamentous throughout
+#   - lichen-forming Lecanoromycetes: DEEP control, class-level split inside
+#     Pezizomycotina; filamentous, reduced PCWDE repertoires
+#
+# The two deep controls exist because the first three are family/order-level
+# splits, which give shorter gain/loss lists than the subphylum-level yeast
+# origins for reasons of depth alone. `split_rank` (every study) records the
+# rank of the IN/OUT split; bin/convergence_compare.py reports, per recurrent
+# term, how many controls at class depth or deeper also call it.
+#
+# Species chosen to avoid reusing any species from the origin runs (item 2 of
+# the review: shared outgroups make runs non-independent).
 #
 # Same format and conventions as yeastconv_origins.yaml (see its header).
 
@@ -38,9 +53,22 @@ outgroup_pools:
     members:
       - "Aspergillus nidulans"
       - "Talaromyces stipitatus"
+  mucoromycota_free_living_v1:
+    members:
+      - "Umbelopsis vinacea"          # Mucoromycotina (Umbelopsidales)
+      - "Umbelopsis ramanniana"       # local copy in 1KFG_samples.csv
+      - "Mortierella elongata"        # Mortierellomycotina
+      - "Lobosporangium transversale" # Mortierellomycotina
+  pezizomycotina_nonlichen_v1:
+    members:
+      - "Penicillium chrysogenum"        # Eurotiomycetes; local copy in 1KFG
+      - "Fusarium graminearum"           # Sordariomycetes; local copy in 1KFG
+      - "Ascocoryne sarcoides"           # Leotiomycetes; local copy in 1KFG
+      - "Pyrenophora tritici-repentis"   # Dothideomycetes; local copy in 1KFG
 
 studies:
   - id: yc_pseudo_powdery_mildew
+    split_rank: family
     origin: none (control)
     contrast: pseudo_origin_obligate_biotroph
     focal: Blumeria graminis
@@ -56,6 +84,7 @@ studies:
     outgroup_pool: leotiomycetes_saprotroph_v1
 
   - id: yc_pseudo_ectomycorrhizal
+    split_rank: family
     origin: none (control)
     contrast: pseudo_origin_pcwde_loss
     focal: Laccaria bicolor
@@ -71,6 +100,7 @@ studies:
     outgroup_pool: agaricales_saprotroph_v1
 
   - id: yc_pseudo_dermatophyte
+    split_rank: order
     origin: none (control)
     contrast: pseudo_origin_host_specialist
     focal: Trichophyton rubrum
@@ -83,6 +113,48 @@ studies:
       reason: >-
         Filamentous keratinophilic host specialists with compact genomes.
     outgroup_pool: eurotiomycetes_saprotroph_v1
+
+  - id: yc_pseudo_arbuscular_mycorrhizal
+    split_rank: subphylum
+    origin: none (control)
+    contrast: pseudo_origin_obligate_symbiont_deep
+    focal: Rhizophagus irregularis      # local copy in 1KFG_samples.csv
+    ingroup_extra:
+      mode: explicit
+      members:
+        - "Gigaspora rosea"
+        - "Diversispora epigaea"
+        - "Geosiphon pyriformis"
+      reason: >-
+        Three Glomeromycotina orders plus Geosiphon (cyanobacterial symbiont);
+        obligate biotrophs with documented loss of plant-cell-wall-degrading
+        enzymes and fatty-acid synthase, never with a yeast phase.
+    outgroup_pool: mucoromycota_free_living_v1
+    notes: >-
+      Glomeromycotina is sister to Mucoromycotina + Mortierellomycotina, so
+      this is the depth of the Saccharomycotina origin and deeper than the
+      Mucor origin. AMF assemblies are large and repeat-rich; check BUSCO
+      before reading losses.
+
+  - id: yc_pseudo_lichen
+    split_rank: class
+    origin: none (control)
+    contrast: pseudo_origin_lichen_deep
+    focal: Cladonia grayi                # local copy in 1KFG_samples.csv
+    ingroup_extra:
+      mode: explicit
+      members:
+        - "Xanthoria parietina"          # local copy in 1KFG_samples.csv
+        - "Umbilicaria pustulata"
+        - "Evernia prunastri"
+      reason: >-
+        Four Lecanoromycetes lichen mycobionts from three orders, against one
+        non-lichen species from each of four other Pezizomycotina classes.
+    outgroup_pool: pezizomycotina_nonlichen_v1
+    notes: >-
+      Use mycobiont-only assemblies (cultured, or with photobiont and
+      bacterial contigs removed); a metagenome-derived proteome would add
+      algal and bacterial "novelties".
 
 species:
   "Blumeria graminis":                {taxon_group: Leotiomycetes, growth_form: filamentous}
@@ -105,3 +177,19 @@ species:
   "Trichophyton interdigitale":       {taxon_group: Onygenales, growth_form: filamentous}
   "Nannizzia gypsea":                 {taxon_group: Onygenales, growth_form: filamentous}
   "Talaromyces stipitatus":           {taxon_group: Eurotiales, growth_form: filamentous}
+  "Rhizophagus irregularis":          {taxon_group: Glomeromycotina, growth_form: filamentous}
+  "Gigaspora rosea":                  {taxon_group: Glomeromycotina, growth_form: filamentous}
+  "Diversispora epigaea":             {taxon_group: Glomeromycotina, growth_form: filamentous}
+  "Geosiphon pyriformis":             {taxon_group: Glomeromycotina, growth_form: filamentous}
+  "Umbelopsis vinacea":               {taxon_group: Mucoromycotina, growth_form: filamentous}
+  "Umbelopsis ramanniana":            {taxon_group: Mucoromycotina, growth_form: filamentous}
+  "Mortierella elongata":             {taxon_group: Mortierellomycotina, growth_form: filamentous}
+  "Lobosporangium transversale":      {taxon_group: Mortierellomycotina, growth_form: filamentous}
+  "Cladonia grayi":                   {taxon_group: Lecanoromycetes, growth_form: filamentous}
+  "Xanthoria parietina":              {taxon_group: Lecanoromycetes, growth_form: filamentous}
+  "Umbilicaria pustulata":            {taxon_group: Lecanoromycetes, growth_form: filamentous}
+  "Evernia prunastri":                {taxon_group: Lecanoromycetes, growth_form: filamentous}
+  "Penicillium chrysogenum":          {taxon_group: Eurotiomycetes, growth_form: filamentous}
+  "Fusarium graminearum":             {taxon_group: Sordariomycetes, growth_form: filamentous}
+  "Ascocoryne sarcoides":             {taxon_group: Leotiomycetes, growth_form: filamentous}
+  "Pyrenophora tritici-repentis":     {taxon_group: Dothideomycetes, growth_form: filamentous}

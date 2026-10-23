@@ -49,6 +49,7 @@ def test_committed_batches_are_novinvenio_compatible():
 
 def _mini_batch(tmp_path, **study_overrides):
     study = {"id": "yc_test", "origin": "x", "contrast": "yeast_vs_filamentous_sister",
+             "split_rank": "family",
              "focal": "Yeast one",
              "ingroup_extra": {"mode": "explicit", "members": [], "reason": "r"},
              "outgroup_pool": "pool"}
@@ -82,6 +83,11 @@ def test_check_rejects_origin_without_yeast(tmp_path):
 def test_capacity_origin_accepts_hyphal_dimorph(tmp_path):
     b = _mini_batch(tmp_path, focal="Dimo hyph", contrast="dimorphic_vs_filamentous_sister")
     assert yc.check(b, GROWTH) == []
+
+
+def test_check_rejects_missing_split_rank(tmp_path):
+    probs = yc.check(_mini_batch(tmp_path, split_rank=None), GROWTH)
+    assert any("split_rank" in p for p in probs)
 
 
 def test_check_rejects_reversal_without_compare_with(tmp_path):
@@ -270,3 +276,31 @@ def test_single_species_ingroup_novelty_ignored(tmp_path):
     rows = list(csv.DictReader(open(out / "term_recurrence.tsv"), delimiter="\t"))
     assert {r["direction"] for r in rows} == {"loss"}
     assert "Novelty lists not used" in (out / "summary.md").read_text()
+
+
+def test_deep_control_counts(tmp_path):
+    folder = _synthetic_folder(tmp_path)
+    lines = (folder / "study_index.tsv").read_text().splitlines()
+    header = lines[0].split("\t")
+    header.insert(5, "split_rank")
+    out_lines = ["\t".join(header)]
+    for ln in lines[1:]:
+        f = ln.split("\t")
+        f.insert(5, "class" if f[0] == "yc_p1" else "family")
+        out_lines.append("\t".join(f))
+    (folder / "study_index.tsv").write_text("\n".join(out_lines) + "\n")
+    out = tmp_path / "out"
+    assert cc.main(["--folder", str(folder), "--out-dir", str(out), "--vocab", "pfam",
+                    "--min-in-novelty", "1"]) == 0
+    rec = {(r["direction"], r["term"]): r
+           for r in csv.DictReader(open(out / "term_recurrence.tsv"), delimiter="\t")}
+    assert rec[("loss", "PF00002")]["n_pseudo_deep_sig"] == "1"
+    assert rec[("loss", "PF00001")]["n_pseudo_deep_tested"] == "1"
+    assert rec[("loss", "PF00001")]["n_pseudo_deep_sig"] == "0"
+    assert "deep 1/1" in (out / "summary.md").read_text()
+
+
+def test_every_study_has_split_rank():
+    for b in yc.load_batches(FOLDER / "batches"):
+        for s in b["studies"]:
+            assert s["split_rank"] in yc.SPLIT_RANKS

@@ -36,6 +36,8 @@ Saccharomycotina/Taphrinomycotina yeasts against one Pezizomycotina panel.
 | `yc_pseudo_powdery_mildew` | pseudo-origin | Blumeria graminis, B. hordei, Erysiphe, Golovinomyces | Botrytis, Sclerotinia, A. nidulans |
 | `yc_pseudo_ectomycorrhizal` | pseudo-origin | Laccaria bicolor, L. amethystina, Hebeloma, Amanita muscaria | Amanita thiersii (saprotroph), Coprinopsis, Agaricus, Pleurotus |
 | `yc_pseudo_dermatophyte` | pseudo-origin | Trichophyton rubrum, T. interdigitale, Microsporum, Nannizzia | A. nidulans, Talaromyces |
+| `yc_pseudo_arbuscular_mycorrhizal` | pseudo-origin (deep) | Rhizophagus, Gigaspora, Diversispora, Geosiphon | Umbelopsis ×2, Mortierella, Lobosporangium |
+| `yc_pseudo_lichen` | pseudo-origin (deep) | Cladonia, Xanthoria, Umbilicaria, Evernia | Penicillium, Fusarium, Ascocoryne, Pyrenophora |
 
 Every run has at least two ingroup species except `yc_rev_neolecta`.
 Hortaea is the smallest origin (two species; no other yeast-dominant
@@ -50,7 +52,16 @@ Teratosphaeriaceae genome was found).
   hyphal genes their yeast relatives lost.
 - **Pseudo-origins** are filamentous lineages with large ecological gene loss
   but no growth-form change. A term that recurs in yeast origins *and* here is
-  streamlining, not yeast biology.
+  streamlining, not yeast biology. The two **deep** controls (arbuscular
+  mycorrhizal fungi, a subphylum-level split; lichen Lecanoromycetes, a
+  class-level split) match the depth of most yeast origins. The other three
+  controls are family- or order-level splits, which give shorter lists for
+  reasons of depth alone.
+
+Each run records `split_rank`, the rank at which its IN and OUT groups split
+(genus to phylum). `convergence_compare.py` reports for every recurrent term how
+many controls at class depth or deeper (`n_pseudo_deep_sig`) also called it.
+The two deep controls share no species with any other run.
 
 Species reasons, caveats and confounds for each run are written next to it in
 the batch YAMLs.
@@ -118,10 +129,12 @@ grouping folder. Each contrast publishes as its own study,
 
 ### Accessions
 
-The 14 contrasts use 90 distinct species: 30 are prefilled, 60 need
+The 16 contrasts use 106 distinct species: 31 are prefilled, 75 need
 `bin/ni resolve`. Several are in the lab's local genome lists
 (`config_support/1KFG_samples.csv`: *S. octosporus*, *Protomyces inouyei*,
-*Rhodotorula graminis*, *Laccaria amethystina*, both *Amanita*, *B. hordei*;
+*Rhodotorula graminis*, *Laccaria amethystina*, both *Amanita*, *B. hordei*,
+*Rhizophagus irregularis*, *Umbelopsis ramanniana*, *Cladonia grayi*,
+*Xanthoria parietina*, and all four lichen-run outgroups;
 `Chaetothyriales_samples.csv`: the added *Exophiala*), so if resolve finds no
 public proteome, point those rows at the local FASTA (`Protein_Source=local_faa`). `render` prefills a row only when another tracked `species.csv` in this repo
 already uses exactly one UniProt proteome for that species (so the same
@@ -130,7 +143,10 @@ UniProt's API was not reachable from where these files were drafted, so
 **whether every listed species has a usable proteome is unverified**. Expect a
 few substitutions (likely candidates: *Mucor racemosus*, *M. indicus*,
 *Hortaea thailandica*, *Eremothecium sinecaudum*, *Golovinomyces orontii*,
-*Kwoniella mangroviensis*, *Dothistroma septosporum*).
+*Kwoniella mangroviensis*, *Dothistroma septosporum*, *Geosiphon pyriformis*,
+*Lobosporangium transversale*, *Umbilicaria pustulata*, *Evernia prunastri*).
+For the lichen run, use mycobiont-only proteomes; a metagenome-derived one
+would add algal and bacterial "novelties".
 Change the YAML, then `render --force` for that contrast only after saving any
 resolve output you want to keep.
 

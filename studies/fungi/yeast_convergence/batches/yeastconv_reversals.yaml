@@ -49,6 +49,7 @@ outgroup_pools:
 
 studies:
   - id: yc_rev_eremothecium
+    split_rank: family
     origin: Eremothecium (filamentous reversal within Saccharomycetaceae)
     contrast: reversal_filamentous_vs_yeast_sister
     compare_with: yc_saccharomycotina
@@ -65,6 +66,7 @@ studies:
     outgroup_pool: saccharomycetaceae_yeasts_v1
 
   - id: yc_rev_neolecta
+    split_rank: subphylum
     origin: Neolecta (fruiting lineage within Taphrinomycotina)
     contrast: reversal_filamentous_vs_yeast_sister
     compare_with: yc_taphrinomycotina

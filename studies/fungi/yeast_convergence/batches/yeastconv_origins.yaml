@@ -94,6 +94,7 @@ outgroup_pools:
 
 studies:
   - id: yc_saccharomycotina
+    split_rank: subphylum
     origin: Saccharomycotina
     contrast: yeast_vs_filamentous_sister
     focal: Saccharomyces cerevisiae
@@ -110,6 +111,7 @@ studies:
     outgroup_pool: pezizomycotina_filamentous_v1
 
   - id: yc_taphrinomycotina
+    split_rank: subphylum
     origin: Taphrinomycotina
     contrast: yeast_vs_filamentous_sister
     focal: Schizosaccharomyces pombe
@@ -132,6 +134,7 @@ studies:
       mirror contrast to tell these apart.
 
   - id: yc_chaetothyriales
+    split_rank: family
     origin: Chaetothyriales black yeasts
     contrast: yeast_dominant_vs_hyphal_dominant
     focal: Exophiala dermatitidis
@@ -153,6 +156,7 @@ studies:
       dominance contrast like yc_ustilaginomycotina, not yeast vs filament.
 
   - id: yc_dothideales
+    split_rank: order
     origin: Dothideales (Aureobasidium)
     contrast: yeast_vs_filamentous_sister
     focal: Aureobasidium pullulans
@@ -168,6 +172,7 @@ studies:
     outgroup_pool: dothideomycetes_filamentous_v1
 
   - id: yc_capnodiales
+    split_rank: family
     origin: Capnodiales (Hortaea)
     contrast: yeast_vs_filamentous_sister
     focal: Hortaea werneckii
@@ -185,6 +190,7 @@ studies:
       overlap with that study's candidates is a confound to report.
 
   - id: yc_tremellomycetes
+    split_rank: class
     origin: Tremellomycetes
     contrast: yeast_vs_filamentous_sister
     focal: Cryptococcus neoformans
@@ -200,6 +206,7 @@ studies:
     outgroup_pool: agaricomycotina_filamentous_v1
 
   - id: yc_ustilaginomycotina
+    split_rank: class
     origin: Ustilaginomycotina
     contrast: yeast_dominant_vs_hyphal_dominant
     focal: Malassezia globosa
@@ -220,6 +227,7 @@ studies:
       few novelties and read the losses.
 
   - id: yc_pucciniomycotina
+    split_rank: class
     origin: Pucciniomycotina (red yeasts)
     contrast: yeast_vs_filamentous_sister
     focal: Rhodotorula toruloides
@@ -240,6 +248,7 @@ studies:
       the pseudo-origin controls in mind.
 
   - id: yc_mucoromycota
+    split_rank: family
     origin: Mucorales (dimorphic Mucor)
     contrast: dimorphic_vs_filamentous_sister
     focal: Mucor circinelloides

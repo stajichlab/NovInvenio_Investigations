@@ -30,6 +30,11 @@ Recurrence test (per direction x vocabulary, over the ORIGIN contrasts):
 Classification of terms with r_obs >= --min-origins and q_recur <= --alpha:
     yeast_convergent      significant in no pseudo-origin control
     streamlining_generic  also significant in >= 1 pseudo-origin control
+n_pseudo_deep_sig counts the controls whose split_rank is class or deeper
+(the depth of most yeast origins). A yeast_convergent term that the deep
+controls tested but did not call is the strongest result; a
+streamlining_generic term called only by shallow controls is worth a look,
+since shallow splits differ from yeast origins in depth as well as biology.
 
 Small ingroups: the novelty tables of contrasts with fewer than
 --min-in-novelty ingroup species (default 2) are not read; their loss tables are.
@@ -74,6 +79,8 @@ TABLE_FOR_VOCAB = {"pfam": "enrichment_domains.tsv.gz", "pfam_clan": "enrichment
 # InterPro exist only for UniProt proteomes (CLAUDE.md "Annotating non-UniProt
 # proteomes"), so a contrast with any non-UniProt species under-calls them.
 PRIMARY_VOCABS = ("pfam", "pfam_clan")
+# split_rank values (study_index.tsv) counted as deep controls.
+DEEP_RANKS = {"class", "subphylum", "phylum"}
 SECONDARY_VOCABS = ("go", "interpro")
 
 
@@ -180,6 +187,7 @@ def gather(folder: Path, index: list[dict], vocabs, scope, level, fdr, min_k,
 def recurrence(index, calls, vocabs, alpha, min_origins):
     origins = [st["id"] for st in index if st["role"] == "origin"]
     pseudos = [st["id"] for st in index if st["role"] == "pseudo"]
+    deep = {st["id"] for st in index if st["role"] == "pseudo" and st.get("split_rank") in DEEP_RANKS}
     reversals = [st["id"] for st in index if st["role"] == "reversal"]
     out = []
     for d, v in itertools.product(DIRECTIONS, vocabs):
@@ -204,6 +212,8 @@ def recurrence(index, calls, vocabs, alpha, min_origins):
                 "n_origin_tested": len(tested_in), "n_origin_sig": len(sig_in),
                 "origins_sig": ";".join(sig_in), "p_recur": p, "q_recur": None,
                 "n_pseudo_tested": len(ps_tested), "n_pseudo_sig": len(ps_sig),
+                "n_pseudo_deep_tested": len([s for s in ps_tested if s in deep]),
+                "n_pseudo_deep_sig": len([s for s in ps_sig if s in deep]),
                 "pseudo_sig": ";".join(ps_sig), "reversal_sig": ";".join(rv_sig),
                 "class": "",
             })
@@ -332,7 +342,8 @@ def summary_md(args, index, missing, rec, jac, rev, focus_rows, coverage=None) -
             for r in hits[:15]:
                 lines.append(f"- {r['vocab']} {r['term']} {r['name']}: {r['n_origin_sig']}/"
                              f"{r['n_origin_tested']} origins, q={r['q_recur']:.3g}, "
-                             f"pseudo {r['n_pseudo_sig']}/{r['n_pseudo_tested']}")
+                             f"controls {r['n_pseudo_sig']}/{r['n_pseudo_tested']} "
+                             f"(deep {r['n_pseudo_deep_sig']}/{r['n_pseudo_deep_tested']})")
             lines.append("")
         means = defaultdict(list)
         for j in jac:
@@ -391,7 +402,8 @@ def main(argv=None) -> int:
 
     write_tsv(out_dir / "term_recurrence.tsv", rec,
               ["tier", "direction", "vocab", "term", "name", "n_origin_tested", "n_origin_sig", "origins_sig",
-               "p_recur", "q_recur", "n_pseudo_tested", "n_pseudo_sig", "pseudo_sig", "reversal_sig", "class"])
+               "p_recur", "q_recur", "n_pseudo_tested", "n_pseudo_sig", "n_pseudo_deep_tested",
+               "n_pseudo_deep_sig", "pseudo_sig", "reversal_sig", "class"])
     write_tsv(out_dir / "pairwise_jaccard.tsv", jac,
               ["direction", "vocab", "a", "b", "role_pair", "n_shared_tested", "n_sig_a", "n_sig_b",
                "n_both", "jaccard"])

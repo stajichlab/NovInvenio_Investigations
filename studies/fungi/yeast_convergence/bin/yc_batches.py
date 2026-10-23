@@ -44,7 +44,7 @@ SPECIES_FIELDS = [
     "Protein_Accession", "Taxon_ID", "Genome_Source", "Genome_Accession",
     "GFF3_Source", "GFF3_Accession",
 ]
-INDEX_FIELDS = ["id", "batch", "role", "origin", "contrast", "compare_with", "n_in", "n_out",
+INDEX_FIELDS = ["id", "batch", "role", "origin", "contrast", "split_rank", "compare_with", "n_in", "n_out",
                 "n_prefilled", "n_to_resolve"]
 RUN_PARAMS = """\
 # Extra nextflow params for this study, applied by bin/run_study.sh before any
@@ -65,6 +65,9 @@ notes:
   - "yeast_convergence contrast ({role}): {origin}. Design and caveats: studies/fungi/yeast_convergence/README.md"
 """
 DOMINANT_PHASES = {"yeast", "hyphal"}
+# Rank of the IN/OUT split, shallow to deep. convergence_compare.py treats
+# class and deeper as "deep" when it compares origins with controls.
+SPLIT_RANKS = ("genus", "family", "order", "class", "subphylum", "phylum")
 HYPHAL_STATES = {"filamentous", "dimorphic_hyphal"}
 
 
@@ -147,6 +150,8 @@ def check(batches, growth_forms: set[str]) -> list[str]:
         for key in ("origin", "contrast"):
             if not s.get(key):
                 problems.append(f"{where}: missing {key!r}")
+        if s.get("split_rank") not in SPLIT_RANKS:
+            problems.append(f"{where}: split_rank must be one of {list(SPLIT_RANKS)} (got {s.get('split_rank')!r})")
         if role_of(s.get("contrast", "")) == "reversal" and not s.get("compare_with"):
             problems.append(f"{where}: reversal study needs compare_with (an origin study id)")
         if not (s.get("ingroup_extra") or {}).get("reason"):
@@ -310,7 +315,7 @@ def render(batches, folder: Path, known: dict[str, dict], force: bool) -> list[d
                                                    origin=s["origin"].replace('"', "'")))
         index.append({
             "id": sid, "batch": b["batch"], "role": role_of(s["contrast"]),
-            "origin": s["origin"], "contrast": s["contrast"], "compare_with": s.get("compare_with", ""),
+            "origin": s["origin"], "contrast": s["contrast"], "split_rank": s["split_rank"], "compare_with": s.get("compare_with", ""),
             "n_in": len(ins), "n_out": len(outs),
             "n_prefilled": prefilled, "n_to_resolve": len(rows) - prefilled,
         })

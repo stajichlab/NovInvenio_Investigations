@@ -1,0 +1,9 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Rhizirre,Rhizophagus irregularis,,IN,Glomeromycotina,,,,,,,
+Gigarose,Gigaspora rosea,,IN,Glomeromycotina,,,,,,,
+Diveepig,Diversispora epigaea,,IN,Glomeromycotina,,,,,,,
+Geospyri,Geosiphon pyriformis,,IN,Glomeromycotina,,,,,,,
+Umbevina,Umbelopsis vinacea,,OUT,Mucoromycotina,uniprot,UP000612746,44442,ncbi,GCA_016758895.1,,
+Umberama,Umbelopsis ramanniana,,OUT,Mucoromycotina,,,,,,,
+Mortelon,Mortierella elongata,,OUT,Mortierellomycotina,,,,,,,
+Lobotran,Lobosporangium transversale,,OUT,Mortierellomycotina,,,,,,,
