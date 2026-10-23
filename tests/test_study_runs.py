@@ -211,6 +211,37 @@ def test_record_run_writes_metadata(tmp_path):
     assert json.loads((report.parent.parent / "study.json").read_text()) == {"current": "mmseqs"}
 
 
+def test_nested_folder_target_and_record_run(tmp_path, capsys):
+    """A folder one level deeper (studies/fungi/<group>/<contrast>/) publishes under
+    the flat docs/<domain>/<study>/<run>/ layout; its results dir is named after
+    the folder's last component, as bin/run_study.sh --project uses basename."""
+    _folder(tmp_path, "fungi", "yeast_convergence/yc_x", "study: yc_x\nrun: pairwise-diamond\n")
+    root = ["--repo-root", str(tmp_path)]
+    assert study_pages.main(root + ["target", "fungi/yeast_convergence/yc_x"]) == 0
+    assert capsys.readouterr().out.strip() == "yc_x pairwise-diamond"
+    report = tmp_path / "docs" / "fungi" / "yc_x" / "pairwise-diamond" / "report.html"
+    report.parent.mkdir(parents=True)
+    report.write_text("<html></html>")
+    study_pages.main(root + ["record-run", "fungi/yeast_convergence/yc_x", "--report", str(report),
+                             "--published", "2026-10-22"])
+    meta = json.loads((report.parent / "run.json").read_text())
+    assert meta["folder"] == "studies/fungi/yeast_convergence/yc_x"
+    assert meta["source_dir"] == "results/yc_x"
+
+
+@pytest.mark.parametrize("bad", ["fungi", "fungi/", "fungi/../x", "fungi/./x", "/x"])
+def test_folder_argument_rejects_bad_paths(tmp_path, bad):
+    with pytest.raises(SystemExit):
+        study_pages.main(["--repo-root", str(tmp_path), "target", bad])
+
+
+def test_sync_reports_domain_is_first_component():
+    """sync_reports.sh must not use dirname for DOMAIN (wrong for nested folders)."""
+    text = (REPO_ROOT / "bin" / "sync_reports.sh").read_text()
+    assert 'DOMAIN="${STUDY%%/*}"' in text
+    assert 'DOMAIN="$(dirname "$STUDY")"' not in text
+
+
 # --- bin/generate_docs.py --------------------------------------------------
 
 
@@ -253,6 +284,19 @@ def test_gallery_cards(gallery):
     html = (gallery / "docs" / "fungi" / "index.html").read_text()
     assert 'href="pezizo_set1/pw/enrichment.html">enrichment</a>' in html
     assert "enrichment_loss" not in html
+
+
+def test_gallery_lists_nested_folders(gallery):
+    """Unpublished contrasts inside a grouping folder (no species.csv of its own)
+    get cards too; a grouping folder's own README is not mistaken for a study."""
+    _folder(gallery, "fungi", "yeast_convergence/yc_alpha", "study: yc_alpha\nrun: pw\n", staged=False)
+    _folder(gallery, "fungi", "yeast_convergence/yc_beta", "study: yc_beta\nrun: pw\n")
+    _folder(gallery, "fungi", "yeast_convergence/yc_unpub", None)
+    (gallery / "studies" / "fungi" / "yeast_convergence" / "batches").mkdir()
+    assert generate_docs.main() == 0
+    html = (gallery / "docs" / "fungi" / "index.html").read_text()
+    assert "yc alpha" in html and "yc beta" in html
+    assert "yc unpub" not in html
 
 
 # --- bin/migrate_docs_to_runs.py -------------------------------------------

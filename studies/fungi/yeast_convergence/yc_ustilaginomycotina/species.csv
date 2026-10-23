@@ -1,0 +1,9 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Malaglob,Malassezia globosa,CBS 7966,IN,Malasseziomycetes,uniprot,UP000008837,425265,ncbi,GCA_000181695.2,,
+Malasymp,Malassezia sympodialis,ATCC 42132,IN,Malasseziomycetes,uniprot,UP000186303,1230383,ncbi,GCA_900149145.1,,
+Moesaphi,Moesziomyces aphidis,,IN,Ustilaginales,uniprot,UP000019462,84754,ncbi,GCA_000517465.1,,
+Kalmbras,Kalmanozyma brasiliensis,GHG001,IN,Ustilaginales,uniprot,UP000019377,1365824,ncbi,GCA_000497045.1,,
+Mycomayd,Mycosarcoma maydis,,OUT,Ustilaginales,uniprot,UP000000561,5270,ncbi,GCA_000328475.2,,
+Sporreil,Sporisorium reilianum,SRZ2,OUT,Ustilaginales,uniprot,UP000008867,999809,ncbi,GCA_000230245.1,,
+Ustihord,Ustilago hordei,,OUT,Ustilaginales,uniprot,UP000006174,120017,ncbi,GCA_000286035.1,,
+Cerabomb,Ceraceosorus bombacis,,OUT,Exobasidiomycetes,uniprot,UP000054845,401625,ncbi,GCA_900000165.1,,

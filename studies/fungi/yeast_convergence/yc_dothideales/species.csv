@@ -1,0 +1,8 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Aurepull,Aureobasidium pullulans,,IN,Dothideales,,,,,,,
+Auremela,Aureobasidium melanogenum,,IN,Dothideales,,,,,,,
+Aurenami,Aureobasidium namibiae,,IN,Dothideales,,,,,,,
+Auresubg,Aureobasidium subglaciale,,IN,Dothideales,,,,,,,
+Botrdoth,Botryosphaeria dothidea,,OUT,Botryosphaeriales,,,,,,,
+Paranodo,Parastagonospora nodorum,,OUT,Pleosporales,,,,,,,
+Altealte,Alternaria alternata,,OUT,Pleosporales,,,,,,,

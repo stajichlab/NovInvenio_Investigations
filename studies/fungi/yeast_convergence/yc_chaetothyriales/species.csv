@@ -1,0 +1,9 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Exopderm,Exophiala dermatitidis,,IN,Chaetothyriales,,,,,,,
+Exopspin,Exophiala spinifera,,IN,Chaetothyriales,,,,,,,
+Exopphae,Exophiala phaeomuriformis,,IN,Chaetothyriales,,,,,,,
+Exopolig,Exophiala oligosperma,,IN,Chaetothyriales,,,,,,,
+Exopmeso,Exophiala mesophila,,IN,Chaetothyriales,,,,,,,
+Caprcoro,Capronia coronata,,OUT,Chaetothyriales,,,,,,,
+Cladcarr,Cladophialophora carrionii,,OUT,Chaetothyriales,,,,,,,
+Fonspedr,Fonsecaea pedrosoi,,OUT,Chaetothyriales,,,,,,,

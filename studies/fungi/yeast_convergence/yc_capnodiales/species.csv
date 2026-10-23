@@ -1,0 +1,6 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Hortwern,Hortaea werneckii,,IN,Capnodiales,,,,,,,
+Hortthai,Hortaea thailandica,,IN,Capnodiales,,,,,,,
+Pseufiji,Pseudocercospora fijiensis,,OUT,Capnodiales,,,,,,,
+Dothsept,Dothistroma septosporum,,OUT,Capnodiales,,,,,,,
+Cladclad,Cladosporium cladosporioides,,OUT,Capnodiales,,,,,,,

@@ -1,0 +1,8 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Nirr,Neolecta irregularis,DAH-3,IN,Taphrinomycotina,uniprot,UP000186594,1198029,ncbi,GCA_001929475.1,,
+Spom,Schizosaccharomyces pombe,972h,OUT,Taphrinomycotina,uniprot,UP000002485,284812,ncbi,GCA_000002945.2,,
+Schiocto,Schizosaccharomyces octosporus,,OUT,Taphrinomycotina,,,,,,,
+Schijapo,Schizosaccharomyces japonicus,,OUT,Taphrinomycotina,,,,,,,
+Saitcomp,Saitoella complicata,,OUT,Taphrinomycotina,,,,,,,
+Taphdefo,Taphrina deformans,,OUT,Taphrinomycotina,,,,,,,
+Protinou,Protomyces inouyei,,OUT,Taphrinomycotina,,,,,,,

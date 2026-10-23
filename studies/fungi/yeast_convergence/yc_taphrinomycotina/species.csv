@@ -1,0 +1,10 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Spom,Schizosaccharomyces pombe,972h,IN,Taphrinomycotina,uniprot,UP000002485,284812,ncbi,GCA_000002945.2,,
+Schiocto,Schizosaccharomyces octosporus,,IN,Taphrinomycotina,,,,,,,
+Schijapo,Schizosaccharomyces japonicus,,IN,Taphrinomycotina,,,,,,,
+Saitcomp,Saitoella complicata,,IN,Taphrinomycotina,,,,,,,
+Taphdefo,Taphrina deformans,,IN,Taphrinomycotina,,,,,,,
+Protinou,Protomyces inouyei,,IN,Taphrinomycotina,,,,,,,
+Nirr,Neolecta irregularis,DAH-3,OUT,Taphrinomycotina,uniprot,UP000186594,1198029,ncbi,GCA_001929475.1,,
+Amega,Arthrobotrys megalospora,TWF281,OUT,Orbiliomycetes,uniprot,UP001658139,2528406,ncbi,GCA_036971655.1,,
+Ncra,Neurospora crassa,OR74A,OUT,Sordariomycetes,uniprot,UP000001805,367110,ncbi,GCA_000182925.2,,

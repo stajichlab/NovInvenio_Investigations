@@ -1,0 +1,7 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Tricrubr,Trichophyton rubrum,,IN,Onygenales,,,,,,,
+Micrcani,Microsporum canis,,IN,Onygenales,,,,,,,
+Tricinte,Trichophyton interdigitale,,IN,Onygenales,,,,,,,
+Nanngyps,Nannizzia gypsea,,IN,Onygenales,,,,,,,
+Anid,Aspergillus nidulans,FGSC A4,OUT,Eurotiomycetes,uniprot,UP000000560,227321,ncbi,GCA_000011425.1,,
+Talastip,Talaromyces stipitatus,,OUT,Eurotiales,,,,,,,
