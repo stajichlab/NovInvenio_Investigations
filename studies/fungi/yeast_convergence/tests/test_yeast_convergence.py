@@ -304,3 +304,9 @@ def test_every_study_has_split_rank():
     for b in yc.load_batches(FOLDER / "batches"):
         for s in b["studies"]:
             assert s["split_rank"] in yc.SPLIT_RANKS
+
+
+def test_committed_comparisons_table_is_current():
+    """COMPARISONS.md is generated; regenerate with `bin/yc_batches.py table` after editing a YAML."""
+    batches = yc.load_batches(FOLDER / "batches")
+    assert (FOLDER / "COMPARISONS.md").read_text() == yc.comparisons_markdown(batches, FOLDER)
