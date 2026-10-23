@@ -310,3 +310,15 @@ def test_committed_comparisons_table_is_current():
     """COMPARISONS.md is generated; regenerate with `bin/yc_batches.py table` after editing a YAML."""
     batches = yc.load_batches(FOLDER / "batches")
     assert (FOLDER / "COMPARISONS.md").read_text() == yc.comparisons_markdown(batches, FOLDER)
+
+
+def test_setup_dryrun_writes_nothing(tmp_path, capsys):
+    dr = _load("setup_dryrun")
+    before = {p: p.stat().st_mtime_ns for p in FOLDER.rglob("*") if p.is_file() and "__pycache__" not in p.parts}
+    out_md = tmp_path / "dry.md"
+    assert dr.main(["--nii-root", str(NII), "--markdown", str(out_md)]) == 0
+    after = {p: p.stat().st_mtime_ns for p in FOLDER.rglob("*") if p.is_file() and "__pycache__" not in p.parts}
+    assert before == after
+    text = out_md.read_text()
+    assert "16 contrasts" in text and "yc_ustilaginomycotina" in text
+    assert "data_dir/pep/UP000008837_425265.pep.fa" in text     # UniProt stem rule

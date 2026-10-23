@@ -62,6 +62,7 @@ the batch YAMLs.
 | `study_index.tsv` | One row per contrast (role, sizes, unresolved count); read by the scripts below |
 | `focus_terms.tsv` | Pfam families named in Nagy et al. 2014, reported in every contrast |
 | `bin/yc_batches.py` | `check` (validate specs; optional master-pool and traits.csv checks), `render`, and `table` (rewrite `COMPARISONS.md`) |
+| `bin/setup_dryrun.py` | Dry run of the whole setup: every file and folder each step would create, per contrast, and which runs are ready; writes nothing |
 | `bin/run_all.sh` | Submits one SLURM pipeline job per resolved contrast |
 | `bin/run_enrichment_all.sh` | Novelty + loss enrichment per contrast, same settings as `yeast_filamentous` |
 | `bin/convergence_compare.py` | Cross-contrast recurrence test, pseudo-origin and reversal comparison |
@@ -93,6 +94,8 @@ On the cluster, from the NII checkout:
 
 ```bash
 F=studies/fungi/yeast_convergence
+# Preview everything below without writing anything
+python3 $F/bin/setup_dryrun.py --markdown /tmp/yc_dryrun.md
 # 0. Validate; with the master pool, also list species NovInvenio's pool lacks
 python3 $F/bin/yc_batches.py check --master-pool /path/to/NovInvenio/config_support/master_pool.csv
 # 1. Fill blank source columns (UniProt first, NCBI fallback) for each contrast
