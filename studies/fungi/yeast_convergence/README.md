@@ -163,6 +163,17 @@ Open points:
   *Eremothecium cymbalariae* (batch filamentous; traits.csv yeast).
 - Shared outgroups: `yc_saccharomycotina` and `yc_taphrinomycotina` share *A. megalospora*
   and *N. crassa*. Plan: a leave-shared-out rerun of the recurrence test (PLAN section 6, A).
+- Run counts that look unusual (checked 2026-10-24; no pipeline fault found):
+  `yc_rev_neolecta` has 0 candidates because all 4,328 *Neolecta* proteins have a hit in at
+  least one of the six Taphrinomycotina outgroups; its signal is in the loss list.
+  `yc_ustilaginomycotina` has 10 candidates because only the two *Malassezia* species have
+  many outgroup-free proteins (2.3 and 3.9%). `yc_chaetothyriales` has 55 loss candidates
+  with only 3 outgroup species.
+- AMF caveat: in `yc_pseudo_arbuscular_mycorrhizal` 46 to 54% of AMF proteins have no diamond
+  hit in the four Mucoromycota outgroups (31,206 candidates). The expansion is thought to be
+  real (lineage-specific gene content), but this is untested. Diamond sensitivity at this
+  distance and contamination were not checked. Read this contrast's candidate list with that
+  in mind.
 - `yc_pseudo_lichen` is held out of the analysis for now. Its proteomes are not
   checked for algal or bacterial contamination, and *L. lupina* WasteWater1 has one 3 Mb
   contig at 17% GC.
