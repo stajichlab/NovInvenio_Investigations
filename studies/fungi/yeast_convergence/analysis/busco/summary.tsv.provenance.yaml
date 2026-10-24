@@ -1,0 +1,353 @@
+local_path: analysis/busco/summary.tsv
+source_url: 'derived: BUSCO v5.8.0 on the proteomes listed in manifest_all.tsv (no
+  download)'
+source_release: BUSCO 5.8.0; lineage fungi_odb10 (creation 2019-12-13, 549 genomes,
+  758 BUSCOs) at /bigdata/stajichlab/shared/lib/funannotate_db/fungi_odb10
+access_date: '2026-10-24T16:24:54Z'
+checksum_sha256: 4728263e4d59ef3230629259359d883c2ee2b0f825d75dc3eecfcca2ec50862c
+license: derived table; inputs carry their own licenses (UniProt CC BY 4.0; BFD lab
+  annotations unpublished)
+derived_by: 'bin/busco_manifest.py then bin/run_busco_proteomes.sh (busco -m proteins
+  -l fungi_odb10 --offline, 8 CPUs); SLURM jobs 30326454-30326456 (106 proteomes),
+  30335621-30335622 (6 candidate genomes: M. canis x3, M. audouinii, M. ferrugineum,
+  P. xanthii)'
+pulled_with: mk.py on r12
+input_proteomes:
+  UP000194280:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000194280/UP000194280_1157616.fasta.gz
+    sha256: c57d679619ed3c3c17e5f21a562f7d214f0d5296c86bd80b1244f87c954b6d5e
+  UP000308549:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000308549/UP000308549_706561.fasta.gz
+    sha256: 3f568f31ddbcd524e6acea6f7eb29bee97f402f76168b429a76aa09dc467c60a
+  UP000016932:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000016932/UP000016932_383855.fasta.gz
+    sha256: f5af6dc1c58da64f925a80573c6b6d8e2e062fe77ec61500c74b3448a29332c9
+  UP000016933:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000016933/UP000016933_675120.fasta.gz
+    sha256: 849a67a6117071fd319647c878ef33e63c423c5b5005c881ce9a2806dfdb7354
+  Cladclad:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Cladosporium_cladosporioides_SYC63/predict_results/Cladosporium_cladosporioides_SYC63.proteins.fa.gz
+    sha256: 45b97d74c836f20d2a8463bffa38f896b2030866e44a3ea5d71a61062086bfdf
+  UP000007304:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000007304/UP000007304_858893.fasta.gz
+    sha256: deaa89cfe255dc457c2e7ac2bfc018ce02289318ad15abc42bd0a0325263eb75
+  UP000053328:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000053328/UP000053328_91928.fasta.gz
+    sha256: 3cb90bb75402d0c2d83bd53008c079447973de94c1c869948dc0d202dad0e933
+  Exopphae:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Exophiala_phaeomuriformis_CBS_132758/predict_results/Exophiala_phaeomuriformis_CBS_132758.proteins.fa.gz
+    sha256: 5101b40faf47e63aef741559a3ec79cf8263cca0a2f03a4655221f564966fdec
+  UP000053342:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000053342/UP000053342_215243.fasta.gz
+    sha256: 96dd1fb7e560734534f29c2f3f37e9b539868e177cbc9efefa5034b6edd10b9e
+  UP000054302:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000054302/UP000054302_212818.fasta.gz
+    sha256: 944ba08d15e6361f350f6a6ed8e5a011c697052cc3dc0e167a3db35784543675
+  UP000019484:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000019484/UP000019484_1182541.fasta.gz
+    sha256: 75b6503f53b039e579236d20f65e85b2707d88ac04680a1f31ddd395337db605
+  UP000094526:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000094526/UP000094526_86049.fasta.gz
+    sha256: 16657e189f287d943a1320e1b01a9b07882e3b89561dd3db22f4c6259b81244a
+  UP000053029:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000053029/UP000053029_1442368.fasta.gz
+    sha256: cbce9b174efc7b656f2a294558dda52722f84463ee112f2dba3c0ec9e74240ef
+  GCF_000721785.1:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/data_dir/pep/Aurepull.pep.fa
+    sha256: 80875092146f5e136bef98c74c82b8140fffe141ca1451389efac8931351569c
+  GCF_000721775.1:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/data_dir/pep/Auremela.pep.fa
+    sha256: 7e7a956e80b003d85e22d4324397f1da9520b327027dfa70bf067a2eb0a8eb0b
+  UP000027730:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000027730/UP000027730_1043004.fasta.gz
+    sha256: 74f1efec38f4b3ad7e93b255c8832099e3f17d49831b0a90652af59e28040d6d
+  UP000030641:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000030641/UP000030641_1043005.fasta.gz
+    sha256: 013466d3ff962f8b86d4783049aa56110d713ac3dc8716c471724c94f9764467
+  UP000572817:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000572817/UP000572817_55169.fasta.gz
+    sha256: 69505cb72153e5913588cdff2ed3a5d413363966372bbdf4f44e4367657c74a6
+  UP000663193:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000663193/UP000663193_321614.fasta.gz
+    sha256: 06d98659306245d98de754fe8baa3b7767cb50ced79d97ca61dbf6a422bdd522
+  UP000077248:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000077248/UP000077248_5599.fasta.gz
+    sha256: 71e6505828d015091773571da393bd2ed0a26e858fafa2a2027e77d17a553f0a
+  UP000014254:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000014254/UP000014254_1220926.fasta.gz
+    sha256: a9a1969bc09e945764f26c21460064cf2b6c7a0909acf5ff5fd422d0b52b58d9
+  Mucorace:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.proteins.fa.gz
+    sha256: 113049ce9c7320cf0e0d430085e6e8e4f8a26f4f42cf87b2c5a0325aa6f62abd
+  Thameleg:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.proteins.fa.gz
+    sha256: 34f2af6d5fb413952f42c37870d671f7acaaa19509450c888995a41fd9e960b6
+  UP000077315:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000077315/UP000077315_763407.fasta.gz
+    sha256: af05784ddd769ad26ba26e7a0e7c90db2a015b3628ae80e53f6d260d34be3425
+  UP000009138:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000009138/UP000009138_246409.fasta.gz
+    sha256: e4cc0f88f551c2f3be3e1a51546139e43cb666eabf1c2cdc7421a11c9ca3ee30
+  UP000027586:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000027586/UP000027586_1263082.fasta.gz
+    sha256: 8d01bdbf4204bc0430f58c3a29a6aca34533f5d78e1bf51704ad10ac1f84de6a
+  UP000078561:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000078561/UP000078561_4829.fasta.gz
+    sha256: 0f774036ad1b0974dd687fa02f6f1bbaa1b62b4fbcc6751007539a38e713e43b
+  Rhizirre:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Rhizophagus_irregularis_DAOM_181602/predict_results/Rhizophagus_irregularis_DAOM_181602.proteins.fa.gz
+    sha256: c9675c4ee091cd081f7dba7eae1d298131710d9d21ad01122511ac7179d315f1
+  UP000266673:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000266673/UP000266673_44941.fasta.gz
+    sha256: 8c5826c69568b1e3be72ad9c586b6fa65be7b035e31b2fa8f057f70b53326434
+  UP000266861:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000266861/UP000266861_1348612.fasta.gz
+    sha256: 0a393e9850504aed3000d69bb06dfffae51fbb9460e6bebd992e36cb8302932f
+  GCA_016748015.1:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/data_dir/pep/Geospyri.pep.fa
+    sha256: b2b6efd5546e4926575a4118092b648b22676353ac34f9b476f8824ead71f76b
+  UP000612746:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000612746/UP000612746_44442.fasta.gz
+    sha256: 4871f36718defe7acc6f5293e5f147dc4812844b41d217475bf4710d12f82b92
+  UP001206595:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP001206595/UP001206595_1314678.fasta.gz
+    sha256: 3606a7fe006b6e963b52b5d106d1d26b55e6338b41995b32941e0d4ebb69acf9
+  Mortelon:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Linnemannia_elongata_AG-77/predict_results/Linnemannia_elongata_AG-77.proteins.fa.gz
+    sha256: 656c8826ff469d0c6187e4b2b14cf544e6a8726b690b2e2c78417caad375d976
+  UP000193648:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000193648/UP000193648_64571.fasta.gz
+    sha256: 43d06e1233387df3c855169a2bca0f23d2be497e869881d2f8330e5c87d8e5e2
+  UP000008864:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000008864/UP000008864_559305.fasta.gz
+    sha256: 7331cdc8331ceeb1830f78108e69302c1275461bb9aa2b19b85900a5883236c2
+  Micrcani:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Microsporum_canis_BMU_08359/predict_results/Microsporum_canis_BMU_08359.proteins.fa.gz
+    sha256: b6d96381f60713deb156d79af4997f94c64b3faa2a68b9a0e0814ab117a6e6ec
+  UP000024533:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000024533/UP000024533_1215338.fasta.gz
+    sha256: 450d2a52ca30e22b2392f4d60dbe036d2d37f2aba6d774a3edecb25e56dafa29
+  Nanngyps:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Nannizzia_gypsea_CBS_118893/predict_results/Nannizzia_gypsea_CBS_118893.proteins.fa.gz
+    sha256: fba78fbd92e0262d9bd71ec3957c79a3cb8696bce023cac7e0db59c2a0979b76
+  UP000000560:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000000560/UP000000560_227321.fasta.gz
+    sha256: a8829a31492bf0fcad8f405b1046465544bdad1f5743abd4374a4bb98bec2928
+  UP000001745:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000001745/UP000001745_441959.fasta.gz
+    sha256: 311866056082127811c7345d103d1377b028b292836cdb08e73038eda0271635
+  UP000001194:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000001194/UP000001194_486041.fasta.gz
+    sha256: 5008d8f40af569e245a502ce23fedf897ef06c031e73705af043a3a9badcd814
+  UP000054477:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000054477/UP000054477_1095629.fasta.gz
+    sha256: 0224ecc43a322a19b1d58bf631134493357a397b9dfb9192e33f0b7334f01f37
+  UP000053424:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000053424/UP000053424_76867.fasta.gz
+    sha256: f9a690487c2361a878228f8c165d0ee0b3a904bfb99f79b8d49a030f3f3a0e11
+  UP000054549:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000054549/UP000054549_946122.fasta.gz
+    sha256: 833063e75d1aeecbc5c30d4379f2f62bbf8a3c7c6366875771ddc8204097140b
+  UP000242287:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000242287/UP000242287_703135.fasta.gz
+    sha256: f9af1c17c49c7711df1a5d10d2fbbb73108052961be3b6b9e09f25d1a6935c4d
+  UP000001861:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000001861/UP000001861_240176.fasta.gz
+    sha256: 79e80b02c73d4b042599eee0eea78b9177f7416a64d75a779fd7650ce18d28a0
+  UP000008493:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000008493/UP000008493_597362.fasta.gz
+    sha256: 517a146929f7e8342869c23b82239a1c7908b9156c5ee4017896ea5e40d76ddd
+  UP000623687:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000623687/UP000623687_5322.fasta.gz
+    sha256: 56244333d82debbdc8d8b55ddac83c551a851ef09b8b18d3c5fedf5d348e3304
+  Cladrubr:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Cladonia_rubrotincta/predict_results/Cladonia_rubrotincta.proteins.fa.gz
+    sha256: fc2446f61a1dd097eac352b251e49f3fef60b51f8309234eb6bc716edb56955e
+  UP001730806:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP001730806/UP001730806_107463.fasta.gz
+    sha256: ca81e31600057e6c15aef3e1f837d8f58f8d5ee7e3c12edd67921c4d6f19f860
+  UP000192927:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000192927/UP000192927_136370.fasta.gz
+    sha256: d9af27461bfa1916a6b90fab129174e44a58a223ad5f3f0aec49df578c25bdd1
+  Lethlupi:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Letharia_lupina_WasteWater1/predict_results/Letharia_lupina_WasteWater1.proteins.fa.gz
+    sha256: 0b9c21c00c5a4e7695a374f24fbf2962b2d4ff9d94fa06154ee56eddd69cdb89
+  UP001220256:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP001220256/UP001220256_5076.fasta.gz
+    sha256: 848afb98dc27383a6881f6cb4f1b9f536948bd7f209a58357fea995bd5dddca0
+  Fusagram:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Fusarium_graminearum_PH-1/predict_results/Fusarium_graminearum_PH-1.proteins.fa.gz
+    sha256: 023137562635aae9a28e55dde33ca7889be1d8d2e1872122d20957dbaaad3c27
+  Ascosarc:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Ascocoryne_sarcoides_NRRL_50072/predict_results/Ascocoryne_sarcoides_NRRL_50072.proteins.fa.gz
+    sha256: 6f074e3953f57ce21178d014b13efb0f8ce005454e6c6e889e1d76b30407b442
+  UP000249757:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000249757/UP000249757_45151.fasta.gz
+    sha256: d391183eee45789d6d40772ef23d70370993a13fdb9bc7ebb5247f4add9969b9
+  UP000324639:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000324639/UP000324639_62690.fasta.gz
+    sha256: 0c04a1f1c1cb5705dd1786afadd0d5324839cd28e6f573d7012432cf746a54bb
+  UP000015441:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000015441/UP000015441_546991.fasta.gz
+    sha256: 7f71c8796bb0f5bec46d3963deaa38f8f57b25107160f59bf5a43a3187ed8ced
+  UP000030854:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000030854/UP000030854_52586.fasta.gz
+    sha256: 0c7f9801c2c17c23c9529130f33855a5fd0e31016bef3601ff448b696e668fdb
+  Podofusc:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Podosphaera_fusca_ZM-2022-MT899186/predict_results/Podosphaera_fusca_ZM-2022-MT899186.proteins.fa.gz
+    sha256: 18ab2b66318007bfd83e5bfa71c66f4b88d0cd1e76763742e5fdd02e3c474a23
+  UP000001798:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000001798/UP000001798_332648.fasta.gz
+    sha256: 6777f5166a0e31e17333c5bbdc0ce2c166adb91b92aed857fd959241d34d1a1d
+  UP000001312:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000001312/UP000001312_665079.fasta.gz
+    sha256: 033501da45661a2c6416b7f8ffb1c7a55a28330782cb1462dfae6cba78a046ca
+  GCF_000320785.1:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/pep/Rhodtoru.pep.fa
+    sha256: 6037dd04c51ebd58fbf3042d55d58ad4aa69161914a7e48578cf8bbf97d08b49
+  UP000777482:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000777482/UP000777482_5537.fasta.gz
+    sha256: 622dc931a135c3e19b4fc2fe690ea1b2131a8b6d66760407ada03beed4c5d1d2
+  UP000053890:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000053890/UP000053890_578459.fasta.gz
+    sha256: ad14ec59e8af014768f497164a5fd1b90339fcc69e8bb2e191ac3470c2ff3d63
+  Sporrose:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.proteins.fa.gz
+    sha256: 01d79d6087fd8dc57f94cbb4fba39d9fb7f1f7f9dad08b3f9394ce35c8a08077
+  UP000193467:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000193467/UP000193467_106004.fasta.gz
+    sha256: 8e2d9d444faeb1fa13b35cc4804520b141876d77628f393d5ce200868e39dd27
+  UP000017200:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000017200/UP000017200_683840.fasta.gz
+    sha256: 96267a4ed5b4486c8edaa267d5f0fd219bfcb649909b3225a954f805c37705d7
+  GCF_000149925.1:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/pep/Puccgram.pep.fa
+    sha256: 963c59686fb2ad94991ed12c63a2c88fd49da7b50014a0fa1b723e72d4d940d4
+  Melalari:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.proteins.fa.gz
+    sha256: 43cfb6141bca0f53c2bdbee65c65f67013ff481f6cdc215e4321a364b3cd2cb7
+  UP000000591:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000000591/UP000000591_284811.fasta.gz
+    sha256: 5a514ca44c125f8c3c70519904590ead22a5ba1a794125bb47c87464fd91dee4
+  UP000006790:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000006790/UP000006790_931890.fasta.gz
+    sha256: 63650f60620a229f1ad3163dfc78deb47805708d3af1283d9bd95dd70609c11c
+  UP000243052:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000243052/UP000243052_45286.fasta.gz
+    sha256: fe72a24dccffb1357b434e47f634d34856e1418778d26e061ee2434adcf018de
+  UP000000598:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000000598/UP000000598_284590.fasta.gz
+    sha256: ce6265a3474508d20f094458b97731aa6ba4a1d0b4213189652345651c465e23
+  UP000002036:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000002036/UP000002036_559295.fasta.gz
+    sha256: a3b391e1ed73060d26fcd1b89109182be71bb82b466f0a9b566ee0ad5c27ff8c
+  UP000005627:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000005627/UP000005627_1076872.fasta.gz
+    sha256: 0bed8d858f9127e3d64747644710aa956e091e4a9d01dc18057a4a4cd73d0970
+  UP000002311:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000002311/UP000002311_559292.fasta.gz
+    sha256: 8ed21b6c6ce28bc0b74eac295aab65ec2136286616769757b39758427642f768
+  UP000186594:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000186594/UP000186594_1198029.fasta.gz
+    sha256: aaa9b77d31bb0d4f2522757c777869a624574662d34cdf61a37cc09be6939cb0
+  UP000002485:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000002485/UP000002485_284812.fasta.gz
+    sha256: 5e51fa6738934a045be80b5295f7ba86599347e880cfea804d363f6c2eb096cc
+  UP000016088:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000016088/UP000016088_483514.fasta.gz
+    sha256: c7ff8ffed2afed244c55c1e4172317a74d2a80b1469c198e573bd70d33b3ed68
+  UP000001744:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000001744/UP000001744_402676.fasta.gz
+    sha256: c3f8dc0c655eaa1ed01a00cc36b47b7f52ef689d5fb01fb152dc8cc43f6d965c
+  UP000033140:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000033140/UP000033140_698492.fasta.gz
+    sha256: 20c00ce401090f19fe5373dbe2ff21c4db373b2718a50675331d5ed1d419cea2
+  UP000013776:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000013776/UP000013776_1097556.fasta.gz
+    sha256: 8dd9ffe90bffe0d69c109cc2212600b6304004ede647058765bd12da088d7d56
+  Protinou:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Protomyces_inouyei_NRRL_YB-4354/predict_results/Protomyces_inouyei_NRRL_YB-4354.proteins.fa.gz
+    sha256: aec4f7edb6d6e0dda83c0f0a62656f6c93c07282501fea8602ec8a69937ba88a
+  UP000094385:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000094385/UP000094385_675824.fasta.gz
+    sha256: 68de8c400d731daa86e76ea0343b4731522e2bd53a1c64824b9092ea2d30973d
+  UP000001300:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000001300/UP000001300_284591.fasta.gz
+    sha256: 6703a474e71c8625224af9af2f6013506506858909ceded4648ced839abe634f
+  UP000000314:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000000314/UP000000314_644223.fasta.gz
+    sha256: 853dcc46c6d52af27a02a2111554396cdc8879eb3bc85443cd6bfc1f4ea2b1db
+  UP000000559:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000000559/UP000000559_237561.fasta.gz
+    sha256: 785cc74d7a9c3063d82df983f38f1af15c9b365fce0b4249cb33cd45052744bd
+  UP001658139:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP001658139/UP001658139_2528406.fasta.gz
+    sha256: 866f8652691b90ac4f5e10c18dc8a89472c6444c63a3eb295377a554ee69ee4e
+  UP000006911:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000006911/UP000006911_656061.fasta.gz
+    sha256: ebb1c042e4e440bb5d8b823a8f1fa5e48927322d3a37b7d463f70bab9b23cd5e
+  UP000001805:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000001805/UP000001805_367110.fasta.gz
+    sha256: 7a4b782d30b239947767bdbbc4e29db5288c22c54a7bbd3c08990985ff1f5993
+  UP000010091:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000010091/UP000010091_235443.fasta.gz
+    sha256: e1a63dd0af1ea78f2cb6b6cc08d684ba98421bd0aba51a4a79f9dbf40c5d3673
+  Kwonmang:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Kwoniella_mangrovensis_CBS_8507/predict_results/Kwoniella_mangrovensis_CBS_8507.proteins.fa.gz
+    sha256: fc51861e83f9515935a26e11d6985f550896db4d9754af29f2f3ec794df97f23
+  UP000006757:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000006757/UP000006757_1220162.fasta.gz
+    sha256: 83ddc0699b9c09ec2cdd7ce900be1981dfc5605b7eece7643770a9096b7804b4
+  UP000289152:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000289152/UP000289152_5217.fasta.gz
+    sha256: b2b9fac78fb651408fa8ea9ea0ddcedfd7e8b34678b98952e8d1939c56138c39
+  UP000030653:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000030653/UP000030653_1858805.fasta.gz
+    sha256: be1e68b01e5f22c744f7a8c6de7c7a4e49e57b10f23e3815046c88e589275979
+  UP000076842:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000076842/UP000076842_1353952.fasta.gz
+    sha256: a70f8fa8cfec718bee1923f7d519f3eadec548cefaad7394f95a1f4a47132b2c
+  UP000008837:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000008837/UP000008837_425265.fasta.gz
+    sha256: 860f8f8e69d1f2078e8982b452414975e60b4f456bcdf70b9325d1f9e961aba6
+  UP000186303:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000186303/UP000186303_1230383.fasta.gz
+    sha256: df6d3909616824cf2fe2fcd90e2b29c1c46387d670a1923c1ef70414f04cfc20
+  UP000019462:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000019462/UP000019462_84754.fasta.gz
+    sha256: 11fd88171a875d00fe94b42980134424a275b035523a6102ea595b4f22af1fa3
+  UP000019377:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000019377/UP000019377_1365824.fasta.gz
+    sha256: 9cf3db03441cafa1339ac2ff60b68d4c9aaa97998daad4a738f732c7a8d9ce50
+  UP000000561:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000000561/UP000000561_5270.fasta.gz
+    sha256: e86101c6417c4c61b7daf230ceaf6d15a741995f5f6ef22e2141f26a58151e5e
+  UP000008867:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000008867/UP000008867_999809.fasta.gz
+    sha256: 780597baa7ce41938a440056bddc3720111096d8eee0087bfc458ae14ac9fa15
+  UP000006174:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000006174/UP000006174_120017.fasta.gz
+    sha256: 8981c40c26b1fca547bbc4bbefb5cebea4a7b81808e7b85eaa27d32234f94cf4
+  UP000054845:
+    fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000054845/UP000054845_401625.fasta.gz
+    sha256: 30424171ef398c8088e08f0dc87386bc9e6bf3b204c3c996f167e803e0e7f115
+  Microsporum_canis_BMU_08102:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Microsporum_canis_BMU_08102/predict_results/Microsporum_canis_BMU_08102.proteins.fa.gz
+    sha256: e4069e7ca4d05d66aaa80e6abc91d933a87d8acce32742f32851e0fd817e673b
+  Microsporum_canis_BMU_11032:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Microsporum_canis_BMU_11032/predict_results/Microsporum_canis_BMU_11032.proteins.fa.gz
+    sha256: 09b0c875d924e1bfae4f4f66c523f8e4879c405badf17b5c594d18269162aaaa
+  Microsporum_canis_CBS_113480:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Microsporum_canis_CBS_113480/predict_results/Microsporum_canis_CBS_113480.proteins.fa.gz
+    sha256: acf7c01f6e0b37f3f09f260dc577d92c11dde0e1119ab6b15016575272b274e5
+  Microsporum_audouinii_IHEM_2214:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Microsporum_audouinii_IHEM_2214/predict_results/Microsporum_audouinii_IHEM_2214.proteins.fa.gz
+    sha256: 83b1f203b468f9239c2b3fc1b54dbf14722be71ff0cee712637f0e0fe08b6dfa
+  Microsporum_ferrugineum_M1a:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Microsporum_ferrugineum_M1a/predict_results/Microsporum_ferrugineum_M1a.proteins.fa.gz
+    sha256: 18d7d54cf4886b03ab16ffe880821b3f5587ece674b2c703ac00d12b7d16cd5f
+  Podosphaera_xanthii_YZU573:
+    fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Podosphaera_xanthii_YZU573/predict_results/Podosphaera_xanthii_YZU573.proteins.fa.gz
+    sha256: 4efa3f85402cd3ee8702d6622a0858500754b1519d13d3f2978d19aeaefccb1f
+notes: Each row is one proteome. Rows for replaced candidates (e.g. M. canis BMU_08359)
+  stay in summary.tsv.
