@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-#SBATCH -p stajichlab -N 1 -n 4 --mem 16G -t 1-00:00:00
+#SBATCH -p stajichlab -N 1 -n 4 --mem 16G -t 1-00:00:00 --constraint=milan
 #SBATCH --job-name yc-enrich
 #SBATCH -o /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/logs/slurm/yc_enrich_%j.out
 #
