@@ -1,0 +1,9 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Rhodotorula toruloides,,Rhodtoru.pep.fa,Rhodtoru.dna.fa,Rhodtoru.gff3,Rhodtoru,Sporidiobolales
+IN,Rhodotorula mucilaginosa,,UP000777482_5537.pep.fa,UP000777482_5537.dna.fa,UP000777482_5537.gff3,Rhodmuci,Sporidiobolales
+IN,Rhodotorula graminis,,UP000053890_578459.pep.fa,UP000053890_578459.dna.fa,UP000053890_578459.gff3,Rhodgram,Sporidiobolales
+IN,Sporobolomyces roseus,SR19,Sporrose.pep.fa,Sporrose.dna.fa,Sporrose.gff3,Sporrose,Sporidiobolales
+IN,Leucosporidium creatinivorum,,UP000193467_106004.pep.fa,UP000193467_106004.dna.fa,UP000193467_106004.gff3,Leuccrea,Leucosporidiales
+OUT,Microbotryum lychnidis-dioicae,,UP000017200_683840.pep.fa,UP000017200_683840.dna.fa,UP000017200_683840.gff3,Micrlych,Microbotryales
+OUT,Puccinia graminis,,Puccgram.pep.fa,Puccgram.dna.fa,Puccgram.gff3,Puccgram,Pucciniales
+OUT,Melampsora larici-populina,98AG31,Melalari.pep.fa,Melalari.dna.fa,Melalari.gff3,Melalari,Pucciniales

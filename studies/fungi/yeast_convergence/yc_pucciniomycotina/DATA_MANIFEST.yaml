@@ -1,0 +1,330 @@
+- local_path: data/ncbi/GCF_000320785.1/extracted/ncbi_dataset/data/GCF_000320785.1/protein.faa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000320785.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCF_000320785.1'
+  access_date: '2026-10-23T20:11:02Z'
+  checksum_sha256: 6037dd04c51ebd58fbf3042d55d58ad4aa69161914a7e48578cf8bbf97d08b49
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: protein
+  accession: GCF_000320785.1
+- local_path: data/ncbi/GCF_000320785.1/extracted/ncbi_dataset/data/GCF_000320785.1/GCF_000320785.1_RHOziaDV1.0_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000320785.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCF_000320785.1'
+  access_date: '2026-10-23T20:11:02Z'
+  checksum_sha256: f2c872ddd6877e66f25a344535da6ce226cce713ec64250f6687c2a8c8c82177
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCF_000320785.1
+- local_path: data/ncbi/GCF_000320785.1/extracted/ncbi_dataset/data/GCF_000320785.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000320785.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCF_000320785.1'
+  access_date: '2026-10-23T20:11:02Z'
+  checksum_sha256: b8bdc6469ad1def3bf06a617cdd09a849b5e2c479b5d8b332edfe01c31aec277
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCF_000320785.1
+- local_path: data/uniprot/UP000777482/UP000777482_5537.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000777482/UP000777482_5537.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:11:05Z'
+  checksum_sha256: 622dc931a135c3e19b4fc2fe690ea1b2131a8b6d66760407ada03beed4c5d1d2
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000777482
+  taxon_id: '5537'
+  organism: Rhodotorula mucilaginosa
+  genome_assembly:
+    assemblyId: GCA_016584205.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_016584205.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000777482/UP000777482_5537.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000777482/UP000777482_5537.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:11:06Z'
+  checksum_sha256: 20f3580304114af27fb514e1880f72cf8aa94eb360d882beb2b4ee37c3537970
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000777482
+  taxon_id: '5537'
+  organism: Rhodotorula mucilaginosa
+  genome_assembly:
+    assemblyId: GCA_016584205.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_016584205.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_016584205.1/extracted/ncbi_dataset/data/GCA_016584205.1/GCA_016584205.1_ASM1658420v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_016584205.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_016584205.1'
+  access_date: '2026-10-23T20:11:01Z'
+  checksum_sha256: c83f840591ea49968389cf5cee0e95ee842882a682fb735ed94b827f923c9a58
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_016584205.1
+- local_path: data/ncbi/GCA_016584205.1/extracted/ncbi_dataset/data/GCA_016584205.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_016584205.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_016584205.1'
+  access_date: '2026-10-23T20:11:01Z'
+  checksum_sha256: df23ffc298cb461ebbf292b7ffff6f41045a274c641331830ee1a3ae080efd47
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_016584205.1
+- local_path: data/uniprot/UP000053890/UP000053890_578459.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000053890/UP000053890_578459.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:11:11Z'
+  checksum_sha256: ad14ec59e8af014768f497164a5fd1b90339fcc69e8bb2e191ac3470c2ff3d63
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000053890
+  taxon_id: '578459'
+  organism: Rhodotorula graminis (strain WP1)
+  genome_assembly:
+    assemblyId: GCA_001329695.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001329695.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000053890/UP000053890_578459.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000053890/UP000053890_578459.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:11:12Z'
+  checksum_sha256: 9d61790cb8a6414c88f28f7ae055be0bda2f50f8070599eb8c86745e80498afb
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000053890
+  taxon_id: '578459'
+  organism: Rhodotorula graminis (strain WP1)
+  genome_assembly:
+    assemblyId: GCA_001329695.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001329695.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_001329695.1/extracted/ncbi_dataset/data/GCA_001329695.1/GCA_001329695.1_Rhoba1_1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001329695.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001329695.1'
+  access_date: '2026-10-23T20:11:00Z'
+  checksum_sha256: 951324ef2ddff32a82e78be43a88cf16199cbf8429a1bdf4c89b731bd4d63045
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_001329695.1
+- local_path: data/ncbi/GCA_001329695.1/extracted/ncbi_dataset/data/GCA_001329695.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001329695.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001329695.1'
+  access_date: '2026-10-23T20:11:00Z'
+  checksum_sha256: d3ed8edc6dc90aa95c303a4625057ebe928565cdf3d9896b7e7224ac80b4921a
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_001329695.1
+- local_path: studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/pep/Sporrose.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.proteins.fa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:11:15Z'
+  checksum_sha256: 634aea9eaaf70668f890804c7b28895ce39f0c2b53a4350ed2d4740491277cec
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.proteins.fa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/dna/Sporrose.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:11:16Z'
+  checksum_sha256: 2a28c68089ce8076ebe5991e0f5203c23c90f35ceb3ee4220582f61e0f7a4e3f
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/gff3/Sporrose.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.gff3.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:11:16Z'
+  checksum_sha256: 3d315a22cae428c73a58e086ce291461917ae6fe10aafb99e6fee66d5d1d0fa8
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.gff3.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: data/uniprot/UP000193467/UP000193467_106004.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000193467/UP000193467_106004.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:11:18Z'
+  checksum_sha256: 8e2d9d444faeb1fa13b35cc4804520b141876d77628f393d5ce200868e39dd27
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000193467
+  taxon_id: '106004'
+  organism: Leucosporidium creatinivorum
+  genome_assembly:
+    assemblyId: GCA_002105055.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_002105055.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000193467/UP000193467_106004.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000193467/UP000193467_106004.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:11:19Z'
+  checksum_sha256: 7f9064995c76bb2e3a12f8ef13030e4f384a05cbe13dcd11ddb4fbddcd9965a9
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000193467
+  taxon_id: '106004'
+  organism: Leucosporidium creatinivorum
+  genome_assembly:
+    assemblyId: GCA_002105055.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_002105055.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_002105055.1/extracted/ncbi_dataset/data/GCA_002105055.1/GCA_002105055.1_Leucr1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_002105055.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_002105055.1'
+  access_date: '2026-10-23T20:11:00Z'
+  checksum_sha256: 57075bcb18f365ebb49cf90b172cdb92b939eebc999ea05aa6b8b17795a0a959
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_002105055.1
+- local_path: data/ncbi/GCA_002105055.1/extracted/ncbi_dataset/data/GCA_002105055.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_002105055.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_002105055.1'
+  access_date: '2026-10-23T20:11:01Z'
+  checksum_sha256: edd5d1eb33befc7dafe97f7f38afecb5f18f0d9538f862aff410a6d3c4ee200c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_002105055.1
+- local_path: data/uniprot/UP000017200/UP000017200_683840.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000017200/UP000017200_683840.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:11:25Z'
+  checksum_sha256: 96267a4ed5b4486c8edaa267d5f0fd219bfcb649909b3225a954f805c37705d7
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000017200
+  taxon_id: '683840'
+  organism: Microbotryum lychnidis-dioicae (strain p1A1 Lamole / MvSl-1064)
+  genome_assembly:
+    assemblyId: GCA_000166175.1
+    genomeAssemblyUrl: http://fungi.ensembl.org/Microbotryum_violaceum/Info/Annotation/
+    level: full
+    source: EnsemblFungi
+- local_path: data/uniprot/UP000017200/UP000017200_683840.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000017200/UP000017200_683840.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:11:26Z'
+  checksum_sha256: 78302b53e1aac26ced948e638ae31222a6988f9b3d94aa91b04d025d7e02aa68
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000017200
+  taxon_id: '683840'
+  organism: Microbotryum lychnidis-dioicae (strain p1A1 Lamole / MvSl-1064)
+  genome_assembly:
+    assemblyId: GCA_000166175.1
+    genomeAssemblyUrl: http://fungi.ensembl.org/Microbotryum_violaceum/Info/Annotation/
+    level: full
+    source: EnsemblFungi
+- local_path: data/ncbi/GCA_000166175.1/extracted/ncbi_dataset/data/GCA_000166175.1/GCA_000166175.1_M_violaceum_V1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000166175.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000166175.1'
+  access_date: '2026-10-23T20:11:00Z'
+  checksum_sha256: db240eecf009767f3bd2f74e4f809e4697f5fc7b5c68b22e8b52ed4588b79d60
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000166175.1
+- local_path: data/ncbi/GCA_000166175.1/extracted/ncbi_dataset/data/GCA_000166175.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000166175.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000166175.1'
+  access_date: '2026-10-23T20:11:00Z'
+  checksum_sha256: 88ec640c709eecf2ae5633350a669c6b5312d0169f69f0b9d0c5ecad487d40ce
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000166175.1
+- local_path: data/ncbi/GCF_000149925.1/extracted/ncbi_dataset/data/GCF_000149925.1/protein.faa
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000149925.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCF_000149925.1'
+  access_date: '2026-10-23T20:11:02Z'
+  checksum_sha256: 963c59686fb2ad94991ed12c63a2c88fd49da7b50014a0fa1b723e72d4d940d4
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: protein
+  accession: GCF_000149925.1
+- local_path: data/ncbi/GCF_000149925.1/extracted/ncbi_dataset/data/GCF_000149925.1/GCF_000149925.1_ASM14992v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000149925.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCF_000149925.1'
+  access_date: '2026-10-23T20:11:02Z'
+  checksum_sha256: 2c1a0874557eed6e48ba15745297853b551f1628bd9192f10a084bba3ab0e0de
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCF_000149925.1
+- local_path: data/ncbi/GCF_000149925.1/extracted/ncbi_dataset/data/GCF_000149925.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000149925.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCF_000149925.1'
+  access_date: '2026-10-23T20:11:02Z'
+  checksum_sha256: 76ffe0331363e7f85e105c4d5983b9c9489aaac5a7e807ad817e194ebd489a1f
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCF_000149925.1
+- local_path: studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/pep/Melalari.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.proteins.fa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:11:30Z'
+  checksum_sha256: 15c13a2eb82e2a8cc949de496849d8e1975f49115987eeaba87d70edef356f35
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.proteins.fa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/dna/Melalari.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:11:31Z'
+  checksum_sha256: 72e67063bc0d185af50dd3113dc7208fc9fc456ffbda138f0d0715c116d37d1a
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/gff3/Melalari.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.gff3.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:11:32Z'
+  checksum_sha256: 01e809a84d2458f54f7c16bc4f8045742402efbe61459276d31c36b7305e6bd5
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.gff3.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_pucciniomycotina/config.csv
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-10-23T20:11:32Z'
+  checksum_sha256: 2012d08ed3f414d84a44ea0c42742a6d01cd5e754ac3dd3bfd2a8b9e767dd21a
+  license: n/a
+  derived_by: bin/build_study_config.py --study-dir studies/fungi/yeast_convergence/yc_pucciniomycotina
+  pulled_with: build_study_config.py on c01
