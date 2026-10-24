@@ -13,3 +13,5 @@
 */analysis/pfam_hmmsearch/
 # Cross-contrast comparison working files (the summary tables are tracked).
 analysis/convergence/tmp/
+# BUSCO per-proteome run directories (regenerable with bin/run_busco_proteomes.sh)
+analysis/busco/runs/

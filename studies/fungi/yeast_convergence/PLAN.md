@@ -159,9 +159,11 @@ A. **Shared outgroups between `yc_saccharomycotina` and `yc_taphrinomycotina`**
 
 B. **Species and codings to confirm** (default: keep, replace any without a
    genome after step 1):
-   - Genome availability: *Mucor racemosus*, *M. indicus*, *Hortaea
-     thailandica*, *Golovinomyces orontii*, *Geosiphon pyriformis*,
-     *Lobosporangium transversale*, *Umbilicaria pustulata*, *Evernia prunastri*.
+   - Genome availability: *Mucor racemosus*, *Hortaea thailandica*,
+     *Geosiphon pyriformis*, *Lobosporangium transversale*, *Umbilicaria pustulata*.
+     Already replaced from BFD: *Golovinomyces orontii* -> *Podosphaera xanthii* YZU573,
+     *Mucor indicus* -> *Thamnidium elegans* (predicted dimorphic, untested), *Evernia prunastri*
+     -> *Letharia lupina*, *Cladonia grayi* -> *C. rubrotincta*.
    - Growth form: *Eremothecium cymbalariae*, *E. sinecaudum* (traits.csv:
      yeast, from a genus-level call); *Exophiala oligosperma*, *E. mesophila*
      (yeast-dominant?); *Protomyces inouyei*, *Taphrina deformans* (coded

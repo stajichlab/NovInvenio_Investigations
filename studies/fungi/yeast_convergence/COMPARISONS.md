@@ -6,22 +6,22 @@ Each row is one independent NovInvenio pairwise run, built from `<id>/species.cs
 
 | # | id | set (batch YAML) | role | split | contrast | IN | OUT | read with | accessions |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | `yc_capnodiales` | `yeastconv_origins.yaml` | origin | family | yeast_vs_filamentous_sister | 2 | 3 |  | 0/5 filled |
-| 2 | `yc_chaetothyriales` | `yeastconv_origins.yaml` | origin | family | yeast_dominant_vs_hyphal_dominant | 5 | 3 |  | 0/8 filled |
-| 3 | `yc_dothideales` | `yeastconv_origins.yaml` | origin | order | yeast_vs_filamentous_sister | 4 | 3 |  | 0/7 filled |
-| 4 | `yc_mucoromycota` | `yeastconv_origins.yaml` | origin | family | dimorphic_vs_filamentous_sister | 3 | 4 |  | 5/7 filled |
-| 5 | `yc_pucciniomycotina` | `yeastconv_origins.yaml` | origin | class | yeast_vs_filamentous_sister | 5 | 3 |  | 0/8 filled |
-| 6 | `yc_saccharomycotina` | `yeastconv_origins.yaml` | origin | subphylum | yeast_vs_filamentous_sister | 5 | 4 |  | 7/9 filled |
-| 7 | `yc_taphrinomycotina` | `yeastconv_origins.yaml` | origin | subphylum | yeast_vs_filamentous_sister | 6 | 3 |  | 4/9 filled |
-| 8 | `yc_tremellomycetes` | `yeastconv_origins.yaml` | origin | class | yeast_vs_filamentous_sister | 4 | 3 |  | 3/7 filled |
+| 1 | `yc_capnodiales` | `yeastconv_origins.yaml` | origin | family | yeast_vs_filamentous_sister | 2 | 3 |  | 5/5 filled |
+| 2 | `yc_chaetothyriales` | `yeastconv_origins.yaml` | origin | family | yeast_dominant_vs_hyphal_dominant | 5 | 3 |  | 8/8 filled |
+| 3 | `yc_dothideales` | `yeastconv_origins.yaml` | origin | order | yeast_vs_filamentous_sister | 4 | 3 |  | 7/7 filled |
+| 4 | `yc_mucoromycota` | `yeastconv_origins.yaml` | origin | family | dimorphic_vs_filamentous_sister | 3 | 4 |  | 7/7 filled |
+| 5 | `yc_pucciniomycotina` | `yeastconv_origins.yaml` | origin | class | yeast_vs_filamentous_sister | 5 | 3 |  | 8/8 filled |
+| 6 | `yc_saccharomycotina` | `yeastconv_origins.yaml` | origin | subphylum | yeast_vs_filamentous_sister | 5 | 4 |  | 9/9 filled |
+| 7 | `yc_taphrinomycotina` | `yeastconv_origins.yaml` | origin | subphylum | yeast_vs_filamentous_sister | 6 | 3 |  | 9/9 filled |
+| 8 | `yc_tremellomycetes` | `yeastconv_origins.yaml` | origin | class | yeast_vs_filamentous_sister | 4 | 3 |  | 7/7 filled |
 | 9 | `yc_ustilaginomycotina` | `yeastconv_origins.yaml` | origin | class | yeast_dominant_vs_hyphal_dominant | 4 | 4 |  | 8/8 filled |
-| 10 | `yc_rev_eremothecium` | `yeastconv_reversals.yaml` | reversal | family | reversal_filamentous_vs_yeast_sister | 3 | 4 | yc_saccharomycotina | 5/7 filled |
-| 11 | `yc_rev_neolecta` | `yeastconv_reversals.yaml` | reversal | subphylum | reversal_filamentous_vs_yeast_sister | 1 | 6 | yc_taphrinomycotina | 2/7 filled |
-| 12 | `yc_pseudo_arbuscular_mycorrhizal` | `yeastconv_pseudo_origins.yaml` | pseudo | subphylum | pseudo_origin_obligate_symbiont_deep | 4 | 4 |  | 1/8 filled |
-| 13 | `yc_pseudo_dermatophyte` | `yeastconv_pseudo_origins.yaml` | pseudo | order | pseudo_origin_host_specialist | 4 | 2 |  | 1/6 filled |
-| 14 | `yc_pseudo_ectomycorrhizal` | `yeastconv_pseudo_origins.yaml` | pseudo | family | pseudo_origin_pcwde_loss | 4 | 4 |  | 2/8 filled |
-| 15 | `yc_pseudo_lichen` | `yeastconv_pseudo_origins.yaml` | pseudo | class | pseudo_origin_lichen_deep | 4 | 4 |  | 0/8 filled |
-| 16 | `yc_pseudo_powdery_mildew` | `yeastconv_pseudo_origins.yaml` | pseudo | family | pseudo_origin_obligate_biotroph | 4 | 3 |  | 1/7 filled |
+| 10 | `yc_rev_eremothecium` | `yeastconv_reversals.yaml` | reversal | family | reversal_filamentous_vs_yeast_sister | 3 | 4 | yc_saccharomycotina | 7/7 filled |
+| 11 | `yc_rev_neolecta` | `yeastconv_reversals.yaml` | reversal | subphylum | reversal_filamentous_vs_yeast_sister | 1 | 6 | yc_taphrinomycotina | 7/7 filled |
+| 12 | `yc_pseudo_arbuscular_mycorrhizal` | `yeastconv_pseudo_origins.yaml` | pseudo | subphylum | pseudo_origin_obligate_symbiont_deep | 4 | 4 |  | 8/8 filled |
+| 13 | `yc_pseudo_dermatophyte` | `yeastconv_pseudo_origins.yaml` | pseudo | order | pseudo_origin_host_specialist | 4 | 2 |  | 6/6 filled |
+| 14 | `yc_pseudo_ectomycorrhizal` | `yeastconv_pseudo_origins.yaml` | pseudo | family | pseudo_origin_pcwde_loss | 4 | 4 |  | 8/8 filled |
+| 15 | `yc_pseudo_lichen` | `yeastconv_pseudo_origins.yaml` | pseudo | class | pseudo_origin_lichen_deep | 4 | 4 |  | 8/8 filled |
+| 16 | `yc_pseudo_powdery_mildew` | `yeastconv_pseudo_origins.yaml` | pseudo | family | pseudo_origin_obligate_biotroph | 4 | 3 |  | 7/7 filled |
 
 16 runs (9 origin, 2 reversal, 5 pseudo), 106 distinct species.
 
@@ -37,11 +37,11 @@ Note: Hortaea is also a halotolerance focal (NovInvenio salt_hortaea.yaml); over
 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
-| IN | *Hortaea werneckii* | Capnodiales | yeast-dominant | to resolve |
-| IN | *Hortaea thailandica* | Capnodiales | yeast-dominant | to resolve |
-| OUT | *Pseudocercospora fijiensis* | Capnodiales | filamentous | to resolve |
-| OUT | *Dothistroma septosporum* | Capnodiales | filamentous | to resolve |
-| OUT | *Cladosporium cladosporioides* | Capnodiales | filamentous | to resolve |
+| IN | *Hortaea werneckii* | Capnodiales | yeast-dominant | filled |
+| IN | *Hortaea thailandica* | Capnodiales | yeast-dominant | filled |
+| OUT | *Pseudocercospora fijiensis* | Capnodiales | filamentous | filled |
+| OUT | *Dothistroma septosporum* | Capnodiales | filamentous | filled |
+| OUT | *Cladosporium cladosporioides* | Capnodiales | filamentous | filled |
 
 ### 2. `yc_chaetothyriales`: Chaetothyriales black yeasts
 
@@ -53,14 +53,14 @@ Note: FUNGuild codes the whole family as dimorphic (traits.csv rows for Capronia
 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
-| IN | *Exophiala dermatitidis* | Chaetothyriales | yeast-dominant | to resolve |
-| IN | *Exophiala spinifera* | Chaetothyriales | yeast-dominant | to resolve |
-| IN | *Exophiala phaeomuriformis* | Chaetothyriales | yeast-dominant | to resolve |
-| IN | *Exophiala oligosperma* | Chaetothyriales | yeast-dominant | to resolve |
-| IN | *Exophiala mesophila* | Chaetothyriales | yeast-dominant | to resolve |
-| OUT | *Capronia coronata* | Chaetothyriales | dimorphic, hypha-dominant | to resolve |
-| OUT | *Cladophialophora carrionii* | Chaetothyriales | dimorphic, hypha-dominant | to resolve |
-| OUT | *Fonsecaea pedrosoi* | Chaetothyriales | dimorphic, hypha-dominant | to resolve |
+| IN | *Exophiala dermatitidis* | Chaetothyriales | yeast-dominant | filled |
+| IN | *Exophiala spinifera* | Chaetothyriales | yeast-dominant | filled |
+| IN | *Exophiala phaeomuriformis* | Chaetothyriales | yeast-dominant | filled |
+| IN | *Exophiala oligosperma* | Chaetothyriales | yeast-dominant | filled |
+| IN | *Exophiala mesophila* | Chaetothyriales | yeast-dominant | filled |
+| OUT | *Capronia coronata* | Chaetothyriales | dimorphic, hypha-dominant | filled |
+| OUT | *Cladophialophora carrionii* | Chaetothyriales | dimorphic, hypha-dominant | filled |
+| OUT | *Fonsecaea pedrosoi* | Chaetothyriales | dimorphic, hypha-dominant | filled |
 
 ### 3. `yc_dothideales`: Dothideales (Aureobasidium)
 
@@ -70,13 +70,13 @@ Yeast-like Aureobasidium against filamentous Dothideomycetes from neighbouring o
 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
-| IN | *Aureobasidium pullulans* | Dothideales | yeast-dominant | to resolve |
-| IN | *Aureobasidium melanogenum* | Dothideales | yeast-dominant | to resolve |
-| IN | *Aureobasidium namibiae* | Dothideales | yeast-dominant | to resolve |
-| IN | *Aureobasidium subglaciale* | Dothideales | yeast-dominant | to resolve |
-| OUT | *Botryosphaeria dothidea* | Botryosphaeriales | filamentous | to resolve |
-| OUT | *Parastagonospora nodorum* | Pleosporales | filamentous | to resolve |
-| OUT | *Alternaria alternata* | Pleosporales | filamentous | to resolve |
+| IN | *Aureobasidium pullulans* | Dothideales | yeast-dominant | filled |
+| IN | *Aureobasidium melanogenum* | Dothideales | yeast-dominant | filled |
+| IN | *Aureobasidium namibiae* | Dothideales | yeast-dominant | filled |
+| IN | *Aureobasidium subglaciale* | Dothideales | yeast-dominant | filled |
+| OUT | *Botryosphaeria dothidea* | Botryosphaeriales | filamentous | filled |
+| OUT | *Parastagonospora nodorum* | Pleosporales | filamentous | filled |
+| OUT | *Alternaria alternata* | Pleosporales | filamentous | filled |
 
 ### 4. `yc_mucoromycota`: Mucorales (dimorphic Mucor)
 
@@ -89,8 +89,8 @@ Note: The UniProt proteome reused for "Mucor circinelloides" (UP000014254, taxon
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
 | IN | *Mucor circinelloides* | Mucorales | dimorphic, hypha-dominant | filled |
-| IN | *Mucor racemosus* | Mucorales | dimorphic, hypha-dominant | to resolve |
-| IN | *Mucor indicus* | Mucorales | dimorphic, hypha-dominant | to resolve |
+| IN | *Mucor racemosus* | Mucorales | dimorphic, hypha-dominant | filled |
+| IN | *Thamnidium elegans* | Mucorales | dimorphic, hypha-dominant | filled |
 | OUT | *Phycomyces blakesleeanus* | Mucorales | filamentous | filled |
 | OUT | *Rhizopus delemar* | Mucorales | filamentous | filled |
 | OUT | *Lichtheimia corymbifera* | Mucorales | filamentous | filled |
@@ -106,14 +106,14 @@ Note: Rusts are obligate biotrophs with their own large gene losses, so noveltie
 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
-| IN | *Rhodotorula toruloides* | Sporidiobolales | yeast-dominant | to resolve |
-| IN | *Rhodotorula mucilaginosa* | Sporidiobolales | yeast-dominant | to resolve |
-| IN | *Rhodotorula graminis* | Sporidiobolales | yeast-dominant | to resolve |
-| IN | *Sporobolomyces roseus* | Sporidiobolales | yeast-dominant | to resolve |
-| IN | *Leucosporidium creatinivorum* | Leucosporidiales | yeast-dominant | to resolve |
-| OUT | *Microbotryum lychnidis-dioicae* | Microbotryales | dimorphic, hypha-dominant | to resolve |
-| OUT | *Puccinia graminis* | Pucciniales | filamentous | to resolve |
-| OUT | *Melampsora larici-populina* | Pucciniales | filamentous | to resolve |
+| IN | *Rhodotorula toruloides* | Sporidiobolales | yeast-dominant | filled |
+| IN | *Rhodotorula mucilaginosa* | Sporidiobolales | yeast-dominant | filled |
+| IN | *Rhodotorula graminis* | Sporidiobolales | yeast-dominant | filled |
+| IN | *Sporobolomyces roseus* | Sporidiobolales | yeast-dominant | filled |
+| IN | *Leucosporidium creatinivorum* | Leucosporidiales | yeast-dominant | filled |
+| OUT | *Microbotryum lychnidis-dioicae* | Microbotryales | dimorphic, hypha-dominant | filled |
+| OUT | *Puccinia graminis* | Pucciniales | filamentous | filled |
+| OUT | *Melampsora larici-populina* | Pucciniales | filamentous | filled |
 
 ### 6. `yc_saccharomycotina`: Saccharomycotina
 
@@ -124,12 +124,12 @@ Spans the Saccharomycotina root (Lipomyces) to the CUG clade, so a candidate mus
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
 | IN | *Saccharomyces cerevisiae* | Saccharomycotina | yeast-dominant | filled |
-| IN | *Lipomyces starkeyi* | Saccharomycotina | yeast-dominant | to resolve |
+| IN | *Lipomyces starkeyi* | Saccharomycotina | yeast-dominant | filled |
 | IN | *Yarrowia lipolytica* | Saccharomycotina | yeast-dominant | filled |
 | IN | *Komagataella phaffii* | Saccharomycotina | yeast-dominant | filled |
 | IN | *Candida albicans* | Saccharomycotina | yeast-dominant | filled |
 | OUT | *Arthrobotrys megalospora* | Orbiliomycetes | filamentous | filled |
-| OUT | *Tuber melanosporum* | Pezizomycetes | filamentous | to resolve |
+| OUT | *Tuber melanosporum* | Pezizomycetes | filamentous | filled |
 | OUT | *Neurospora crassa* | Sordariomycetes | filamentous | filled |
 | OUT | *Aspergillus nidulans* | Eurotiomycetes | filamentous | filled |
 
@@ -144,11 +144,11 @@ Note: Neolecta is nested inside Taphrinomycotina, so it is either the ancestral 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
 | IN | *Schizosaccharomyces pombe* | Taphrinomycotina | yeast-dominant | filled |
-| IN | *Schizosaccharomyces octosporus* | Taphrinomycotina | yeast-dominant | to resolve |
-| IN | *Schizosaccharomyces japonicus* | Taphrinomycotina | yeast-dominant | to resolve |
-| IN | *Saitoella complicata* | Taphrinomycotina | yeast-dominant | to resolve |
-| IN | *Taphrina deformans* | Taphrinomycotina | dimorphic, hypha-dominant | to resolve |
-| IN | *Protomyces inouyei* | Taphrinomycotina | dimorphic, hypha-dominant | to resolve |
+| IN | *Schizosaccharomyces octosporus* | Taphrinomycotina | yeast-dominant | filled |
+| IN | *Schizosaccharomyces japonicus* | Taphrinomycotina | yeast-dominant | filled |
+| IN | *Saitoella complicata* | Taphrinomycotina | yeast-dominant | filled |
+| IN | *Taphrina deformans* | Taphrinomycotina | dimorphic, hypha-dominant | filled |
+| IN | *Protomyces inouyei* | Taphrinomycotina | dimorphic, hypha-dominant | filled |
 | OUT | *Neolecta irregularis* | Taphrinomycotina | filamentous | filled |
 | OUT | *Arthrobotrys megalospora* | Orbiliomycetes | filamentous | filled |
 | OUT | *Neurospora crassa* | Sordariomycetes | filamentous | filled |
@@ -162,11 +162,11 @@ Three orders of Tremellomycetes; Dacrymycetes (filamentous, jelly fungi) is the 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
 | IN | *Cryptococcus neoformans* | Tremellomycetes | yeast-dominant | filled |
-| IN | *Kwoniella mangroviensis* | Tremellomycetes | yeast-dominant | to resolve |
-| IN | *Trichosporon asahii* | Tremellomycetes | yeast-dominant | to resolve |
+| IN | *Kwoniella mangroviensis* | Tremellomycetes | yeast-dominant | filled |
+| IN | *Trichosporon asahii* | Tremellomycetes | yeast-dominant | filled |
 | IN | *Tremella mesenterica* | Tremellomycetes | yeast-dominant | filled |
-| OUT | *Dacryopinax primogenitus* | Dacrymycetes | filamentous | to resolve |
-| OUT | *Calocera cornea* | Dacrymycetes | filamentous | to resolve |
+| OUT | *Dacryopinax primogenitus* | Dacrymycetes | filamentous | filled |
+| OUT | *Calocera cornea* | Dacrymycetes | filamentous | filled |
 | OUT | *Coprinopsis cinerea* | Agaricomycetes | filamentous | filled |
 
 ### 9. `yc_ustilaginomycotina`: Ustilaginomycotina
@@ -197,8 +197,8 @@ Eremothecium (incl. Ashbya gossypii) grows as hyphae, nested inside the budding 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
 | IN | *Eremothecium gossypii* | Saccharomycotina | filamentous | filled |
-| IN | *Eremothecium cymbalariae* | Saccharomycotina | filamentous | to resolve |
-| IN | *Eremothecium sinecaudum* | Saccharomycotina | filamentous | to resolve |
+| IN | *Eremothecium cymbalariae* | Saccharomycotina | filamentous | filled |
+| IN | *Eremothecium sinecaudum* | Saccharomycotina | filamentous | filled |
 | OUT | *Kluyveromyces lactis* | Saccharomycotina | yeast-dominant | filled |
 | OUT | *Lachancea thermotolerans* | Saccharomycotina | yeast-dominant | filled |
 | OUT | *Torulaspora delbrueckii* | Saccharomycotina | yeast-dominant | filled |
@@ -214,11 +214,11 @@ Neolecta is the only Taphrinomycotina with hyphae and a fruiting body; mirror of
 |---|---|---|---|---|
 | IN | *Neolecta irregularis* | Taphrinomycotina | filamentous | filled |
 | OUT | *Schizosaccharomyces pombe* | Taphrinomycotina | yeast-dominant | filled |
-| OUT | *Schizosaccharomyces octosporus* | Taphrinomycotina | yeast-dominant | to resolve |
-| OUT | *Schizosaccharomyces japonicus* | Taphrinomycotina | yeast-dominant | to resolve |
-| OUT | *Saitoella complicata* | Taphrinomycotina | yeast-dominant | to resolve |
-| OUT | *Taphrina deformans* | Taphrinomycotina | dimorphic, hypha-dominant | to resolve |
-| OUT | *Protomyces inouyei* | Taphrinomycotina | dimorphic, hypha-dominant | to resolve |
+| OUT | *Schizosaccharomyces octosporus* | Taphrinomycotina | yeast-dominant | filled |
+| OUT | *Schizosaccharomyces japonicus* | Taphrinomycotina | yeast-dominant | filled |
+| OUT | *Saitoella complicata* | Taphrinomycotina | yeast-dominant | filled |
+| OUT | *Taphrina deformans* | Taphrinomycotina | dimorphic, hypha-dominant | filled |
+| OUT | *Protomyces inouyei* | Taphrinomycotina | dimorphic, hypha-dominant | filled |
 
 ### 12. `yc_pseudo_arbuscular_mycorrhizal`: none (control)
 
@@ -230,14 +230,14 @@ Note: Glomeromycotina is sister to Mucoromycotina + Mortierellomycotina, so this
 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
-| IN | *Rhizophagus irregularis* | Glomeromycotina | filamentous | to resolve |
-| IN | *Gigaspora rosea* | Glomeromycotina | filamentous | to resolve |
-| IN | *Diversispora epigaea* | Glomeromycotina | filamentous | to resolve |
-| IN | *Geosiphon pyriformis* | Glomeromycotina | filamentous | to resolve |
+| IN | *Rhizophagus irregularis* | Glomeromycotina | filamentous | filled |
+| IN | *Gigaspora rosea* | Glomeromycotina | filamentous | filled |
+| IN | *Diversispora epigaea* | Glomeromycotina | filamentous | filled |
+| IN | *Geosiphon pyriformis* | Glomeromycotina | filamentous | filled |
 | OUT | *Umbelopsis vinacea* | Mucoromycotina | filamentous | filled |
-| OUT | *Umbelopsis ramanniana* | Mucoromycotina | filamentous | to resolve |
-| OUT | *Mortierella elongata* | Mortierellomycotina | filamentous | to resolve |
-| OUT | *Lobosporangium transversale* | Mortierellomycotina | filamentous | to resolve |
+| OUT | *Umbelopsis ramanniana* | Mucoromycotina | filamentous | filled |
+| OUT | *Mortierella elongata* | Mortierellomycotina | filamentous | filled |
+| OUT | *Lobosporangium transversale* | Mortierellomycotina | filamentous | filled |
 
 ### 13. `yc_pseudo_dermatophyte`: none (control)
 
@@ -247,12 +247,12 @@ Filamentous keratinophilic host specialists with compact genomes.
 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
-| IN | *Trichophyton rubrum* | Onygenales | filamentous | to resolve |
-| IN | *Microsporum canis* | Onygenales | filamentous | to resolve |
-| IN | *Trichophyton interdigitale* | Onygenales | filamentous | to resolve |
-| IN | *Nannizzia gypsea* | Onygenales | filamentous | to resolve |
+| IN | *Trichophyton rubrum* | Onygenales | filamentous | filled |
+| IN | *Microsporum canis* | Onygenales | filamentous | filled |
+| IN | *Trichophyton interdigitale* | Onygenales | filamentous | filled |
+| IN | *Nannizzia gypsea* | Onygenales | filamentous | filled |
 | OUT | *Aspergillus nidulans* | Eurotiomycetes | filamentous | filled |
-| OUT | *Talaromyces stipitatus* | Eurotiales | filamentous | to resolve |
+| OUT | *Talaromyces stipitatus* | Eurotiales | filamentous | filled |
 
 ### 14. `yc_pseudo_ectomycorrhizal`: none (control)
 
@@ -262,14 +262,14 @@ Three independent ectomycorrhizal Agaricales lineages; all lost most plant-cell-
 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
-| IN | *Laccaria bicolor* | Agaricales | filamentous | to resolve |
-| IN | *Laccaria amethystina* | Agaricales | filamentous | to resolve |
-| IN | *Hebeloma cylindrosporum* | Agaricales | filamentous | to resolve |
-| IN | *Amanita muscaria* | Agaricales | filamentous | to resolve |
-| OUT | *Amanita thiersii* | Agaricales | filamentous | to resolve |
+| IN | *Laccaria bicolor* | Agaricales | filamentous | filled |
+| IN | *Laccaria amethystina* | Agaricales | filamentous | filled |
+| IN | *Hebeloma cylindrosporum* | Agaricales | filamentous | filled |
+| IN | *Amanita muscaria* | Agaricales | filamentous | filled |
+| OUT | *Amanita thiersii* | Agaricales | filamentous | filled |
 | OUT | *Coprinopsis cinerea* | Agaricales | filamentous | filled |
 | OUT | *Agaricus bisporus var. burnettii* | Agaricales | filamentous | filled |
-| OUT | *Pleurotus ostreatus* | Agaricales | filamentous | to resolve |
+| OUT | *Pleurotus ostreatus* | Agaricales | filamentous | filled |
 
 ### 15. `yc_pseudo_lichen`: none (control)
 
@@ -281,14 +281,14 @@ Note: Use mycobiont-only assemblies (cultured, or with photobiont and bacterial 
 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
-| IN | *Cladonia grayi* | Lecanoromycetes | filamentous | to resolve |
-| IN | *Xanthoria parietina* | Lecanoromycetes | filamentous | to resolve |
-| IN | *Umbilicaria pustulata* | Lecanoromycetes | filamentous | to resolve |
-| IN | *Evernia prunastri* | Lecanoromycetes | filamentous | to resolve |
-| OUT | *Penicillium chrysogenum* | Eurotiomycetes | filamentous | to resolve |
-| OUT | *Fusarium graminearum* | Sordariomycetes | filamentous | to resolve |
-| OUT | *Ascocoryne sarcoides* | Leotiomycetes | filamentous | to resolve |
-| OUT | *Pyrenophora tritici-repentis* | Dothideomycetes | filamentous | to resolve |
+| IN | *Cladonia rubrotincta* | Lecanoromycetes | filamentous | filled |
+| IN | *Xanthoria parietina* | Lecanoromycetes | filamentous | filled |
+| IN | *Umbilicaria pustulata* | Lecanoromycetes | filamentous | filled |
+| IN | *Letharia lupina* | Lecanoromycetes | filamentous | filled |
+| OUT | *Penicillium chrysogenum* | Eurotiomycetes | filamentous | filled |
+| OUT | *Fusarium graminearum* | Sordariomycetes | filamentous | filled |
+| OUT | *Ascocoryne sarcoides* | Leotiomycetes | filamentous | filled |
+| OUT | *Pyrenophora tritici-repentis* | Dothideomycetes | filamentous | filled |
 
 ### 16. `yc_pseudo_powdery_mildew`: none (control)
 
@@ -298,10 +298,10 @@ Three powdery-mildew genera: obligate biotrophs with large documented gene-famil
 
 | group | species | taxon group | growth form | accession |
 |---|---|---|---|---|
-| IN | *Blumeria graminis* | Leotiomycetes | filamentous | to resolve |
-| IN | *Blumeria hordei* | Leotiomycetes | filamentous | to resolve |
-| IN | *Erysiphe necator* | Leotiomycetes | filamentous | to resolve |
-| IN | *Golovinomyces orontii* | Leotiomycetes | filamentous | to resolve |
-| OUT | *Botrytis cinerea* | Leotiomycetes | filamentous | to resolve |
-| OUT | *Sclerotinia sclerotiorum* | Leotiomycetes | filamentous | to resolve |
+| IN | *Blumeria graminis* | Leotiomycetes | filamentous | filled |
+| IN | *Blumeria hordei* | Leotiomycetes | filamentous | filled |
+| IN | *Erysiphe necator* | Leotiomycetes | filamentous | filled |
+| IN | *Podosphaera xanthii* | Leotiomycetes | filamentous | filled |
+| OUT | *Botrytis cinerea* | Leotiomycetes | filamentous | filled |
+| OUT | *Sclerotinia sclerotiorum* | Leotiomycetes | filamentous | filled |
 | OUT | *Aspergillus nidulans* | Eurotiomycetes | filamentous | filled |

@@ -119,22 +119,56 @@ grouping folder. Each contrast publishes as its own study,
 
 ### Accessions
 
-The 16 contrasts use 106 distinct species: 31 are prefilled, 75 need
-`bin/ni resolve`. Several are in the lab's local genome lists
-(`config_support/1KFG_samples.csv`: *S. octosporus*, *Protomyces inouyei*,
-*Rhodotorula graminis*, *Laccaria amethystina*, both *Amanita*, *B. hordei*,
-*Rhizophagus irregularis*, *Umbelopsis ramanniana*, *Cladonia grayi*,
-*Xanthoria parietina*, and all four lichen-run outgroups;
-`Chaetothyriales_samples.csv`: the added *Exophiala*), so if resolve finds no
-public proteome, point those rows at the local FASTA (`Protein_Source=local_faa`). `render` prefills a row only when another tracked `species.csv` in this repo
-already uses exactly one UniProt proteome for that species (so the same
-proteome is reused across studies). Everything else is blank for `bin/ni resolve`.
-UniProt's API was not reachable from where these files were drafted, so
-**whether every listed species has a usable proteome is unverified**. Expect a
-few substitutions (likely candidates: *Mucor racemosus*, *M. indicus*,
-*Hortaea thailandica*, *Eremothecium sinecaudum*, *Golovinomyces orontii*,
-*Kwoniella mangroviensis*, *Dothistroma septosporum*, *Geosiphon pyriformis*,
-*Lobosporangium transversale*, *Umbilicaria pustulata*, *Evernia prunastri*).
+The 16 contrasts use 106 distinct species: 31 were prefilled from proteomes other
+studies already use, and 75 went through `bin/ni resolve`. Run resolve with
+`pixi run python bin/ni resolve ...`; plain `python` has no `datasets` CLI and fails
+on every NCBI lookup. Resolve only fills rows where `Protein_Source` and
+`Genome_Source` are both blank, and it skips a species whose name matches more than
+one NCBI taxon.
+
+Rows resolve could not fill (no public proteome, or an ambiguous taxon name) were set
+by hand to the lab's BFD annotations
+(`/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/<strain>/predict_results/`)
+with `Protein_Source=local_faa`, `Genome_Source=local_genome`, `GFF3_Source=local_gff3`.
+The strain was chosen by N50, contig count and predicted mRNA count. Replacements made
+for weak or missing genomes:
+
+| Was | Now | Reason |
+|---|---|---|
+| *Golovinomyces orontii* | *Podosphaera xanthii* YZU573 | no BFD genome; *P. fusca* ZM-2022 scored 74% BUSCO, YZU573 96.6% |
+| *Microsporum canis* BMU_08359 | *M. canis* BMU_08102 | BUSCO 60.4% complete, 21% fragmented; BMU_08102 96.6% |
+| *Cladonia grayi* | *Cladonia rubrotincta* | N50 16 kb, 2,184 contigs |
+| *Evernia prunastri* | *Letharia lupina* WasteWater1 | N50 264 kb at best |
+| *Mucor indicus* | *Thamnidium elegans* KKP_4289 | N50 60 kb; *M. lusitanicus* CBS 277.49 is the focal *M. circinelloides* proteome. Predicted dimorphic (Tahiri et al. 2026), not tested |
+
+Do not run `render --force` on a contrast whose `species.csv` was hand-filled.
+
+Open points:
+- *Thamnidium elegans* is predicted dimorphic by Tahiri et al. 2026 (Nat Commun 17:2148)
+  from gene-family patterns; it was not tested. The paper tested *M. lusitanicus*
+  and *M. circinelloides* (dimorphic) and two *Rhizopus* species (not).
+- BFD BUSCO scores (`logfiles/busco.log`) mix lineage sets (n=758 and n=1312) and are
+  not directly comparable with the 85% fungi_odb10 threshold in PLAN Step 1.
+- Proteomes under the 85% BUSCO threshold, kept on purpose (only proteome available for the
+  species; missing BUSCOs may be real gene loss, which these contrasts study). Read their
+  loss calls with this in mind: *Taphrina deformans* 76.9%, *Malassezia globosa* 77.2%,
+  *Rhizopus delemar* 79.6%, *Neolecta irregularis* 80.5% (the only ingroup genome in
+  `yc_rev_neolecta`), *Trichosporon asahii* 81.5%, *Ceraceosorus bombacis* 82.5%. All scores:
+  `analysis/busco/summary.tsv`.
+- Growth-form codings differ from `traits.csv` (NovInvenio `config_support/traits`) for
+  three species; the batch YAML coding is used and the codings are not promoted to
+  `config_support/traits/` (no source for each yet; follow-up issue):
+  *Thamnidium elegans* (batch dimorphic, predicted; traits.csv filamentous, genus-level
+  FUNGuild call), *Yarrowia lipolytica* (batch dimorphic; traits.csv yeast),
+  *Eremothecium cymbalariae* (batch filamentous; traits.csv yeast).
+- Shared outgroups: `yc_saccharomycotina` and `yc_taphrinomycotina` share *A. megalospora*
+  and *N. crassa*. Plan: a leave-shared-out rerun of the recurrence test (PLAN section 6, A).
+- `yc_pseudo_lichen` is held out of the analysis for now. Its proteomes are not
+  checked for algal or bacterial contamination, and *L. lupina* WasteWater1 has one 3 Mb
+  contig at 17% GC.
+- Lichen proteomes: a contig GC check found no high-GC (algal) contigs; it is not a
+  taxonomic assignment of the proteins.
+
 For the lichen run, use mycobiont-only proteomes; a metagenome-derived one
 would add algal and bacterial "novelties".
 Change the YAML, then `render --force` for that contrast only after saving any

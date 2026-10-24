@@ -77,7 +77,7 @@ studies:
       members:
         - "Blumeria hordei"       # 1KFG "Blumeria graminis f_sp_hordei_DH14"
         - "Erysiphe necator"
-        - "Golovinomyces orontii"
+        - "Podosphaera xanthii"     # replaces G. orontii (no BFD genome); BFD YZU573 (BUSCO 96.6%; P. fusca ZM-2022 was 74%)
       reason: >-
         Three powdery-mildew genera: obligate biotrophs with large documented
         gene-family loss and no yeast phase.
@@ -107,7 +107,7 @@ studies:
     ingroup_extra:
       mode: explicit
       members:
-        - "Microsporum canis"
+        - "Microsporum canis"        # strain BMU_08102 (BUSCO 96.6%); BMU_08359 scored 60.4%
         - "Trichophyton interdigitale"
         - "Nannizzia gypsea"
       reason: >-
@@ -140,13 +140,13 @@ studies:
     split_rank: class
     origin: none (control)
     contrast: pseudo_origin_lichen_deep
-    focal: Cladonia grayi                # local copy in 1KFG_samples.csv
+    focal: Cladonia rubrotincta           # BFD annotation (replaces C. grayi, N50 16 kb)
     ingroup_extra:
       mode: explicit
       members:
         - "Xanthoria parietina"          # local copy in 1KFG_samples.csv
         - "Umbilicaria pustulata"
-        - "Evernia prunastri"
+        - "Letharia lupina"
       reason: >-
         Four Lecanoromycetes lichen mycobionts from three orders, against one
         non-lichen species from each of four other Pezizomycotina classes.
@@ -160,7 +160,7 @@ species:
   "Blumeria graminis":                {taxon_group: Leotiomycetes, growth_form: filamentous}
   "Blumeria hordei":                  {taxon_group: Leotiomycetes, growth_form: filamentous}
   "Erysiphe necator":                 {taxon_group: Leotiomycetes, growth_form: filamentous}
-  "Golovinomyces orontii":            {taxon_group: Leotiomycetes, growth_form: filamentous}
+  "Podosphaera xanthii":              {taxon_group: Leotiomycetes, growth_form: filamentous}
   "Botrytis cinerea":                 {taxon_group: Leotiomycetes, growth_form: filamentous}
   "Sclerotinia sclerotiorum":         {taxon_group: Leotiomycetes, growth_form: filamentous}
   "Aspergillus nidulans":             {taxon_group: Eurotiomycetes, growth_form: filamentous}
@@ -185,10 +185,10 @@ species:
   "Umbelopsis ramanniana":            {taxon_group: Mucoromycotina, growth_form: filamentous}
   "Mortierella elongata":             {taxon_group: Mortierellomycotina, growth_form: filamentous}
   "Lobosporangium transversale":      {taxon_group: Mortierellomycotina, growth_form: filamentous}
-  "Cladonia grayi":                   {taxon_group: Lecanoromycetes, growth_form: filamentous}
+  "Cladonia rubrotincta":              {taxon_group: Lecanoromycetes, growth_form: filamentous}
   "Xanthoria parietina":              {taxon_group: Lecanoromycetes, growth_form: filamentous}
   "Umbilicaria pustulata":            {taxon_group: Lecanoromycetes, growth_form: filamentous}
-  "Evernia prunastri":                {taxon_group: Lecanoromycetes, growth_form: filamentous}
+  "Letharia lupina":                  {taxon_group: Lecanoromycetes, growth_form: filamentous}
   "Penicillium chrysogenum":          {taxon_group: Eurotiomycetes, growth_form: filamentous}
   "Fusarium graminearum":             {taxon_group: Sordariomycetes, growth_form: filamentous}
   "Ascocoryne sarcoides":             {taxon_group: Leotiomycetes, growth_form: filamentous}

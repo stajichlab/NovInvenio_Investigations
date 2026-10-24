@@ -1,7 +1,7 @@
 Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
-Tricrubr,Trichophyton rubrum,,IN,Onygenales,,,,,,,
-Micrcani,Microsporum canis,,IN,Onygenales,,,,,,,
-Tricinte,Trichophyton interdigitale,,IN,Onygenales,,,,,,,
-Nanngyps,Nannizzia gypsea,,IN,Onygenales,,,,,,,
+Tricrubr,Trichophyton rubrum,,IN,Onygenales,uniprot,UP000008864,559305,ncbi,GCA_000151425.1,,
+Micrcani,Microsporum canis,BMU_08102,IN,Onygenales,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Microsporum_canis_BMU_08102/predict_results/Microsporum_canis_BMU_08102.proteins.fa.gz,63405,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Microsporum_canis_BMU_08102/predict_results/Microsporum_canis_BMU_08102.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Microsporum_canis_BMU_08102/predict_results/Microsporum_canis_BMU_08102.gff3.gz
+Tricinte,Trichophyton interdigitale,,IN,Onygenales,uniprot,UP000024533,1215338,ncbi,GCA_000622975.1,,
+Nanngyps,Nannizzia gypsea,CBS_118893,IN,Onygenales,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Nannizzia_gypsea_CBS_118893/predict_results/Nannizzia_gypsea_CBS_118893.proteins.fa.gz,63402,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Nannizzia_gypsea_CBS_118893/predict_results/Nannizzia_gypsea_CBS_118893.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Nannizzia_gypsea_CBS_118893/predict_results/Nannizzia_gypsea_CBS_118893.gff3.gz
 Anid,Aspergillus nidulans,FGSC A4,OUT,Eurotiomycetes,uniprot,UP000000560,227321,ncbi,GCA_000011425.1,,
-Talastip,Talaromyces stipitatus,,OUT,Eurotiales,,,,,,,
+Talastip,Talaromyces stipitatus,,OUT,Eurotiales,uniprot,UP000001745,441959,ncbi,GCA_000003125.1,,

@@ -256,7 +256,7 @@ studies:
       mode: explicit
       members:
         - "Mucor racemosus"
-        - "Mucor indicus"
+        - "Thamnidium elegans"      # predicted dimorphic in Tahiri et al. 2026 (Nat Commun 17:2148), not tested
       reason: >-
         Three Mucor species with anaerobic or CO2-induced yeast growth; the
         other Mucorales here have no yeast phase.
@@ -340,7 +340,7 @@ species:
   # Mucorales origin
   "Mucor circinelloides":       {taxon_group: Mucorales, growth_form: dimorphic, dominant_phase: hyphal}
   "Mucor racemosus":            {taxon_group: Mucorales, growth_form: dimorphic, dominant_phase: hyphal}
-  "Mucor indicus":              {taxon_group: Mucorales, growth_form: dimorphic, dominant_phase: hyphal}
+  "Thamnidium elegans":          {taxon_group: Mucorales, growth_form: dimorphic, dominant_phase: hyphal}   # dimorphic is PREDICTED (Tahiri 2026), untested; hyphal phase unsourced. config_support traits.csv has a genus-level "filamentous" call
   "Phycomyces blakesleeanus":   {taxon_group: Mucorales, growth_form: filamentous}
   "Rhizopus delemar":           {taxon_group: Mucorales, growth_form: filamentous}
   "Lichtheimia corymbifera":    {taxon_group: Mucorales, growth_form: filamentous}

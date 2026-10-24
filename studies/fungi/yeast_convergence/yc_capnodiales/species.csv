@@ -1,6 +1,6 @@
 Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
-Hortwern,Hortaea werneckii,,IN,Capnodiales,,,,,,,
-Hortthai,Hortaea thailandica,,IN,Capnodiales,,,,,,,
-Pseufiji,Pseudocercospora fijiensis,,OUT,Capnodiales,,,,,,,
-Dothsept,Dothistroma septosporum,,OUT,Capnodiales,,,,,,,
-Cladclad,Cladosporium cladosporioides,,OUT,Capnodiales,,,,,,,
+Hortwern,Hortaea werneckii,,IN,Capnodiales,uniprot,UP000194280,1157616,ncbi,GCA_002127715.1,,
+Hortthai,Hortaea thailandica,,IN,Capnodiales,uniprot,UP000308549,706561,ncbi,GCA_005059885.1,,
+Pseufiji,Pseudocercospora fijiensis,,OUT,Capnodiales,uniprot,UP000016932,383855,ncbi,GCA_000340215.1,,
+Dothsept,Dothistroma septosporum,,OUT,Capnodiales,uniprot,UP000016933,675120,ncbi,GCA_000340195.1,,
+Cladclad,Cladosporium cladosporioides,SYC63,OUT,Capnodiales,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Cladosporium_cladosporioides_SYC63/predict_results/Cladosporium_cladosporioides_SYC63.proteins.fa.gz,29917,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Cladosporium_cladosporioides_SYC63/predict_results/Cladosporium_cladosporioides_SYC63.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Cladosporium_cladosporioides_SYC63/predict_results/Cladosporium_cladosporioides_SYC63.gff3.gz
