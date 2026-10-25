@@ -13,8 +13,9 @@
 # These are ephemeral analysis outputs (class 1, regenerable): do not commit
 # them. bin/convergence_compare.py reads their enrichment_*.tsv.gz.
 #
-# A contrast is skipped if results/<id> does not exist yet, or if its
-# outputs already exist (delete the directory to redo it).
+# A contrast is skipped if results/<id> does not exist yet, or if its output is
+# complete (it has PROVENANCE.yaml). A folder without PROVENANCE.yaml is a failed
+# run and is removed and redone.
 #
 # Usage: sbatch studies/fungi/yeast_convergence/bin/run_enrichment_all.sh [id ...]
 set -euo pipefail
@@ -47,9 +48,15 @@ for id in "${IDS[@]}"; do
             --ingroup-min-frac 0.75 --universe proteome --cluster-background)
     for direction in novelty loss; do
         out=$O/$direction/proteome_clustered
-        if [ -d "$out" ]; then
-            echo "SKIP $id $direction: $out exists" >&2
+        # enrich_novelties_v2.py creates $out first and writes PROVENANCE.yaml last, so an
+        # existing folder without it is a failed run: remove it and redo.
+        if [ -s "$out/PROVENANCE.yaml" ]; then
+            echo "SKIP $id $direction: $out is complete" >&2
             continue
+        fi
+        if [ -d "$out" ]; then
+            echo "REDO $id $direction: $out has no PROVENANCE.yaml (failed run); removing" >&2
+            rm -rf "$out"
         fi
         mkdir -p "$O/$direction"
         extra=()

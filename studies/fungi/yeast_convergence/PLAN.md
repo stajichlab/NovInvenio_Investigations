@@ -1,6 +1,6 @@
 # yeast_convergence: analysis plan
 
-Status (2026-10-22): designed, not run. No data pulled.
+Status (2026-10-25): 15 of 16 contrasts run, enrichment and first comparison done; see section 7 and `RUNLOG.md`.
 Comparisons: `COMPARISONS.md` (generated from `batches/*.yaml`).
 How the files fit together and how to run: `README.md`.
 
@@ -164,7 +164,7 @@ A. **Shared outgroups between `yc_saccharomycotina` and `yc_taphrinomycotina`**
    shared-outgroup runs; it could not remove these four. It would shift the null
    probabilities of those two runs slightly, and that was not measured.
    If the check is wanted later, `enrich_novelties_v2.py` would need an option such as
-   `--exclude-species Amega,Ncra`. What I read in the script: it builds the target
+   `--exclude-species Amega,Ncra`. The script builds the target
    and other species lists from `config.csv` GROUP (lines 369-370) and recomputes
    candidates from the presence matrix with `rule_candidates` (line 431), so dropping
    species from those two lists would change `n_other` and the counts. Not verified:
@@ -185,7 +185,9 @@ B. **Species and codings to confirm** (default: keep, replace any without a
      (yeast-dominant?); *Protomyces inouyei*, *Taphrina deformans* (coded
      hypha-dominant); *Yarrowia lipolytica* (traits.csv: yeast; here dimorphic).
 
-C. **BUSCO threshold** for step 1. Default about 85% complete.
+C. **BUSCO threshold** for step 1. Decided (2026-10-24): 85% complete (fungi_odb10) is the
+   reference. Six UniProt proteomes below it are kept, because they are the only proteomes
+   for their species and missing BUSCOs can be real gene loss. Their scores are in the README.
 
 ## 7. Status
 

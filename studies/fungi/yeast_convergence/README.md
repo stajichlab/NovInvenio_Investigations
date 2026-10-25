@@ -1,7 +1,8 @@
 # yeast_convergence: independent yeast origins, one pairwise run each
 
-Status: **draft, nothing run yet.** No data pulled, so no `DATA_MANIFEST.yaml`
-in any contrast (it is written by `bin/build_study_config.py` when the pull runs).
+Status (2026-10-25): 15 of 16 contrasts ran (pairwise diamond), enrichment and the first
+cross-contrast comparison are done and published. `yc_pseudo_lichen` is held out. What was
+run, with job IDs: `RUNLOG.md`. Open items: PR #43 and issue #44.
 
 ## Question
 
@@ -166,8 +167,11 @@ Open points:
   (2026-10-24) neither run makes a recurrent call: F-box novelty and the RNase_H clan loss
   come from other origins (PLAN section 6, A). No leave-shared-out rerun was done.
 - Run counts that look unusual (checked 2026-10-24; no pipeline fault found):
-  `yc_rev_neolecta` has 0 candidates because all 4,328 *Neolecta* proteins have a hit in at
-  least one of the six Taphrinomycotina outgroups; its signal is in the loss list.
+  `yc_rev_neolecta` has 0 novelty candidates because the pipeline cannot call any with a one-species
+  ingroup. From `build_presence_matrix.py` (read, not rerun): matrix rows are proteins with at
+  least one qualifying hit to another proteome, so a *Neolecta* protein with no outgroup hit has
+  no row. Of 5,530 proteins, 1,202 are not in the matrix; 969 of those have no diamond hit to any
+  of the six outgroups. Novelty is not tested for this contrast. Its signal is the loss list.
   `yc_ustilaginomycotina` has 10 candidates because only the two *Malassezia* species have
   many outgroup-free proteins (2.3 and 3.9%). `yc_chaetothyriales` has 55 loss candidates
   with only 3 outgroup species.

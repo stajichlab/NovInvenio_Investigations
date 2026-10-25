@@ -14,9 +14,12 @@ Absolute paths (study-specific script, NII CLAUDE.md).
 import csv, os, subprocess, sys
 from pathlib import Path
 
+import yaml
+
 NII = Path("/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations")
 FOLDER = NII / "studies/fungi/yeast_convergence"
-MAKE = NII / "studies/fungi/zoosporic_dikarya/analysis/enrichment/make_summary_figure.py"
+# YC_MAKE_FIGURE overrides the script (for example a branch checkout with the TE colouring, PR #46).
+MAKE = Path(os.environ.get("YC_MAKE_FIGURE", NII / "studies/fungi/zoosporic_dikarya/analysis/enrichment/make_summary_figure.py"))
 PY = NII / ".pixi/envs/default/bin/python3"
 PIPE = "NovInvenio d03f5a2"
 FOOT = ("Annotation: {ann}. Universe: all proteins of the target-group proteomes. Family units: candidate "
@@ -25,8 +28,30 @@ FOOT = ("Annotation: {ann}. Universe: all proteins of the target-group proteomes
         "Labels: k = candidate units with term / all units with term.")
 
 
+def focal_species():
+    """id -> focal species, from the batch YAMLs (study_index.tsv has no focal column)."""
+    out = {}
+    for f in sorted((FOLDER / "batches").glob("*.yaml")):
+        for s in yaml.safe_load(open(f)).get("studies", []):
+            out[s["id"]] = s.get("focal", "")
+    return out
+
+
+def lineage_label(r, focal):
+    """Readable lineage for a figure title. Controls have origin 'none (control)' in
+    study_index.tsv, so name the control type (from `contrast`) and the focal species."""
+    if r["role"] == "pseudo":
+        kind = r["contrast"].replace("pseudo_origin_", "").replace("_", " ").replace("pcwde", "plant cell wall enzyme")
+        return f"{kind} control, focal {focal} ({r['split_rank']}-level)"
+    return f"{r['origin']}"
+
+
+ROLE_TEXT = {"origin": "yeast origin", "pseudo": "pseudo-origin control", "reversal": "reversal"}
+
+
 def main():
     index = list(csv.DictReader(open(FOLDER / "study_index.tsv"), delimiter="\t"))
+    focal = focal_species()
     want = set(sys.argv[1:])
     for r in index:
         cid = r["id"]
@@ -40,7 +65,7 @@ def main():
         if not link.exists() and not link.is_symlink():
             os.symlink("novelty/proteome_clustered", link)
         sp = list(csv.DictReader(open(FOLDER / cid / "species.csv")))
-        non_up = [s["Short"] for s in sp if s["Protein_Source"] != "uniprot"]
+        non_up = [f"{s['Species']} ({s['Group']})" for s in sp if s["Protein_Source"] != "uniprot"]
         if non_up:
             ann = "UniProt (GO, Pfam, InterPro) for UniProt proteomes; Pfam only (HMMER hmmsearch) for " + ", ".join(non_up)
             annot_label = "GO/Pfam/InterPro (UniProt) or Pfam (hmmsearch)"
@@ -50,8 +75,8 @@ def main():
         (enr / "figures").mkdir(exist_ok=True)
         for direction, suffix, extra in (("novelty", "", []),
                                          ("loss", "_loss", ["--group", "OUT", "--candidate-label", "loss candidate proteins"])):
-            title = (f"{r['origin']} ({r['role']}): {r['n_in']} IN vs {r['n_out']} OUT, "
-                     f"{direction} enrichment (diamond pairwise, {PIPE})")
+            title = (f"{lineage_label(r, focal.get(cid, ''))} [{ROLE_TEXT[r['role']]}]: "
+                     f"{r['n_in']} IN vs {r['n_out']} OUT, {direction} enrichment (diamond pairwise, {PIPE})")
             cmd = [str(PY), str(MAKE), "--enrich", str(enr / "outputs" / direction / "proteome_clustered"),
                    "--config", str(FOLDER / cid / "config.csv"), "--title", title,
                    "--footnote", FOOT.format(ann=ann), "--annot-label", annot_label,
