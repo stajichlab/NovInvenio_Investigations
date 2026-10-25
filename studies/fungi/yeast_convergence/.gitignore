@@ -15,3 +15,4 @@
 analysis/convergence/tmp/
 # BUSCO per-proteome run directories (regenerable with bin/run_busco_proteomes.sh)
 analysis/busco/runs/
+analysis/convergence/term_recurrence.tsv
