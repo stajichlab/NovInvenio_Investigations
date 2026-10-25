@@ -48,6 +48,7 @@ import yaml
 REPO_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO_ROOT / "lib"))
 from study_runs import inject_run_report_links, load_publish_target, vocab_meta_tag  # noqa: E402
+from te_flags import te_class  # noqa: E402
 
 # candidate_ids cells in the enrichment tables can exceed csv's default 128 KB field limit.
 csv.field_size_limit(sys.maxsize)
@@ -187,9 +188,11 @@ def hits_table(hits: list[dict], vocab: str, go: bool = False, unavailable: str 
     rows = []
     for r in hits:
         sig = fnum(r["fdr_bh"]) < FDR_CUT
+        tag = (' <span class="tag-te" title="transposable-element family by name (heuristic)">TE</span>'
+               if vocab in ("pfam", "pfam_clan") and te_class(r["name"]) == "TE" else "")
         cells = [
             term_cell(vocab, r["term"]),
-            escape(r["name"]),
+            escape(r["name"]) + tag,
             f'{escape(r["k_cand_with_term"])} / {escape(r["N_cand_annotated"])}',
             f'{escape(r["n_bg_with_term"])} / {escape(r["M_bg_annotated"])}',
             escape(r["fold"]),
@@ -199,8 +202,11 @@ def hits_table(hits: list[dict], vocab: str, go: bool = False, unavailable: str 
             cells += [escape(r["go_evidence"]), escape(r["n_cand_units_non_IEA"])]
         rows.append(cells)
     n_sig = sum(fnum(r["fdr_bh"]) < FDR_CUT for r in hits)
+    n_te = sum(1 for r in hits if vocab in ("pfam", "pfam_clan") and te_class(r["name"]) == "TE")
+    te_note = (f" {n_te} are tagged <span class=\"tag-te\">TE</span>: transposable-element families, "
+               "flagged by name (heuristic, not a test)." if n_te else "")
     return (f'<p class="note">{len(hits)} rows shown, ordered by FDR then p-value; '
-            f"{n_sig} have FDR &lt; {FDR_CUT} (bold).</p>" + table(headers, rows, "hits"))
+            f"{n_sig} have FDR &lt; {FDR_CUT} (bold).{te_note}</p>" + table(headers, rows, "hits"))
 
 
 VOCABS = [("pfam", "Pfam"), ("pfam_clan", "Pfam clan"), ("interpro", "InterPro"), ("go", "GO")]
@@ -376,6 +382,8 @@ table.hits td:nth-child(2) { min-width: 18rem; }
            padding: 0.6rem 1rem; margin: 1rem 0; font-size: 0.9rem; }
 .caveats ul { margin: 0.3rem 0; padding-left: 1.2rem; }
 .warn { color: #b06000; }
+.tag-te { background: #f3d9b8; color: #5a3200; border-radius: 3px; padding: 0 0.3em; font-size: 0.75rem; font-weight: 600; }
+@media (prefers-color-scheme: dark) { .tag-te { background: #5a3a14; color: #f3d9b8; } }
 img.fig { max-width: 100%; height: auto; background: #fff; border: 1px solid var(--line); border-radius: 6px; }
 """
 
