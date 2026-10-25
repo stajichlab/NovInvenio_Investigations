@@ -257,3 +257,16 @@ def test_te_families_are_tagged(repo):
     row = page[page.index("Plavaka transposase"):]
     assert 'tag-te' in row[:200]
     assert "PF00001" in page and "X: thing</td>" in page      # a non-TE name is not tagged
+
+
+def test_zero_candidates_notice_replaces_low_annotation(repo):
+    d = repo / "studies" / "fungi" / "s1" / "analysis" / "enrichment" / "outputs" / "proteome_clustered"
+    (d / "coverage.tsv").write_text(
+        "species\tsubset\tn_proteins\tn_in_matrix\tn_pfam\tfrac_pfam\tn_pfam_clan\tfrac_pfam_clan\t"
+        "n_interpro\tfrac_interpro\tn_go\tfrac_go\tn_any\tfrac_any\n"
+        "ALL_IN\tuniverse\t100\t90\t80\t0.8\t70\t0.7\t85\t0.85\t60\t0.6\t88\t0.88\n"
+        "ALL_IN\tcandidates\t0\t0\t0\tnan\t0\tnan\t0\tnan\t0\tnan\t0\tnan\n")
+    assert _main(repo) == 0
+    page = (repo / "docs" / "fungi" / "s1" / "pw" / "enrichment.html").read_text()
+    assert "No novelty candidates" in page
+    assert "Low annotation" not in page

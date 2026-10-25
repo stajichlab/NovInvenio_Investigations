@@ -270,6 +270,15 @@ def low_annotation(cov: list[dict], skip: set[str] | frozenset[str] = frozenset(
     return out
 
 
+def n_candidates(cov: list[dict]) -> int | None:
+    """Candidate proteins of the target group (ALL_* row, subset candidates); None if absent."""
+    for r in cov:
+        if r["subset"] == "candidates" and r["species"].startswith("ALL_"):
+            x = fnum(r["n_proteins"])
+            return int(x) if x == x else None
+    return None
+
+
 GAP_VOCABS = [("go", "GO"), ("interpro", "InterPro"), ("pfam", "Pfam"), ("pfam_clan", "Pfam clan")]
 
 
@@ -422,10 +431,16 @@ def render(study: str, direction: str, run: str, prov: dict, cov: list[dict], te
         "clustering of the background proteome) are made by different runs, so family-level counts "
         "are not fully comparable.",
     ]
-    if low:
-        caveats.append("Low annotation: the candidate set has less than 50% annotation for "
-                       + ", ".join(low) + ". Enrichment for these vocabularies has low power.")
-    caveats.extend(vocabulary_gaps(cov))
+    if n_candidates(cov) == 0:
+        # No candidates: the annotation percentages are 0/0 and say nothing; say the real reason.
+        caveats.insert(0, f"<b>No {escape(direction)} candidates.</b> The run called 0 candidate proteins, "
+                          "so no enrichment test was run and the tables below are empty. This is not a "
+                          "test result. See the study README for why a contrast can have none.")
+    else:
+        if low:
+            caveats.append("Low annotation: the candidate set has less than 50% annotation for "
+                           + ", ".join(low) + ". Enrichment for these vocabularies has low power.")
+        caveats.extend(vocabulary_gaps(cov))
     pfam_rel = (prov.get("pfam_dat") or {}).get("path", "")
     go_ver = (prov.get("go_obo") or {}).get("data_version", "not recorded")
     ipr = prov.get("interpro_entries", "")
