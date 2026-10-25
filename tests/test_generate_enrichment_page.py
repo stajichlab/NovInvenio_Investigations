@@ -270,3 +270,53 @@ def test_zero_candidates_notice_replaces_low_annotation(repo):
     page = (repo / "docs" / "fungi" / "s1" / "pw" / "enrichment.html").read_text()
     assert "No novelty candidates" in page
     assert "Low annotation" not in page
+
+
+@pytest.fixture
+def nested_repo(tmp_path):
+    """studies/fungi/grp/c1 (a contrast inside a grouping folder); enrichment run by
+    studies/fungi/yeast_convergence/bin/run_enrichment_all.sh, which writes the novelty
+    output under outputs/novelty/ and not directly under outputs/."""
+    folder = tmp_path / "studies" / "fungi" / "grp" / "c1"
+    folder.mkdir(parents=True)
+    (folder / "publish.yaml").write_text("study: c1\nrun: pw\n")
+    _outputs(folder / "analysis" / "enrichment" / "outputs" / "novelty" / "proteome_clustered", tmp_path, "c1")
+    run = tmp_path / "docs" / "fungi" / "c1" / "pw"
+    run.mkdir(parents=True)
+    (run / "report.html").write_text(REPORT)
+    (run / "run.json").write_text(json.dumps({"run": "pw", "source_dir": "results/c1",
+                                              "report_sha256": _sha(run / "report.html")}))
+    return tmp_path
+
+
+def test_nested_study_writes_page_from_novelty_subdir(nested_repo):
+    assert gep.main(["--repo-root", str(nested_repo), "--study", "fungi/grp/c1"]) == 0
+    run = nested_repo / "docs" / "fungi" / "c1" / "pw"
+    assert (run / "enrichment.html").is_file()
+    assert 'href="enrichment.html"' in (run / "report.html").read_text()
+
+
+def test_nested_study_loss_direction(nested_repo):
+    enr = nested_repo / "studies" / "fungi" / "grp" / "c1" / "analysis" / "enrichment" / "outputs"
+    _outputs(enr / "loss" / "proteome_clustered", nested_repo, "c1")
+    assert gep.main(["--repo-root", str(nested_repo), "--study", "fungi/grp/c1", "--direction", "loss"]) == 0
+    assert (nested_repo / "docs" / "fungi" / "c1" / "pw" / "enrichment_loss.html").is_file()
+
+
+def test_nested_study_figure_named_after_last_component(nested_repo, capsys):
+    gep.main(["--repo-root", str(nested_repo), "--study", "fungi/grp/c1"])
+    err = capsys.readouterr().err
+    assert str(Path("grp/c1/analysis/enrichment/figures/c1_summary.png")) in err
+
+
+def test_flat_novelty_dir_still_preferred(repo):
+    """outputs/proteome_clustered wins over outputs/novelty/proteome_clustered when both exist."""
+    enr = repo / "studies" / "fungi" / "s1" / "analysis" / "enrichment" / "outputs"
+    _outputs(enr / "novelty" / "proteome_clustered", repo, "other")
+    assert _main(repo) == 0                      # would stop on source_dir mismatch if the novelty/ copy were read
+
+
+@pytest.mark.parametrize("value", ["fungi", "fungi/a/b/c", "fungi//c1", "/a/b"])
+def test_study_argument_shape_is_checked(repo, value):
+    with pytest.raises(SystemExit, match="--study"):
+        gep.main(["--repo-root", str(repo), "--study", value])
