@@ -1,0 +1,9 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Rhizophagus irregularis,DAOM_181602,Rhizirre.pep.fa,Rhizirre.dna.fa,Rhizirre.gff3,Rhizirre,Glomeromycotina
+IN,Gigaspora rosea,,UP000266673_44941.pep.fa,UP000266673_44941.dna.fa,UP000266673_44941.gff3,Gigarose,Glomeromycotina
+IN,Diversispora epigaea,,UP000266861_1348612.pep.fa,UP000266861_1348612.dna.fa,UP000266861_1348612.gff3,Diveepig,Glomeromycotina
+IN,Geosiphon pyriformis,,Geospyri.pep.fa,Geospyri.dna.fa,Geospyri.gff3,Geospyri,Glomeromycotina
+OUT,Umbelopsis vinacea,,UP000612746_44442.pep.fa,UP000612746_44442.dna.fa,UP000612746_44442.gff3,Umbevina,Mucoromycotina
+OUT,Umbelopsis ramanniana,,UP001206595_1314678.pep.fa,UP001206595_1314678.dna.fa,UP001206595_1314678.gff3,Umberama,Mucoromycotina
+OUT,Mortierella elongata,AG-77,Mortelon.pep.fa,Mortelon.dna.fa,Mortelon.gff3,Mortelon,Mortierellomycotina
+OUT,Lobosporangium transversale,,UP000193648_64571.pep.fa,UP000193648_64571.dna.fa,UP000193648_64571.gff3,Lobotran,Mortierellomycotina

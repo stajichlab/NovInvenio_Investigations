@@ -1,0 +1,9 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Exophiala dermatitidis,,UP000007304_858893.pep.fa,UP000007304_858893.dna.fa,UP000007304_858893.gff3,Exopderm,Chaetothyriales
+IN,Exophiala spinifera,,UP000053328_91928.pep.fa,UP000053328_91928.dna.fa,UP000053328_91928.gff3,Exopspin,Chaetothyriales
+IN,Exophiala phaeomuriformis,CBS_132758,Exopphae.pep.fa,Exopphae.dna.fa,Exopphae.gff3,Exopphae,Chaetothyriales
+IN,Exophiala oligosperma,,UP000053342_215243.pep.fa,UP000053342_215243.dna.fa,UP000053342_215243.gff3,Exopolig,Chaetothyriales
+IN,Exophiala mesophila,,UP000054302_212818.pep.fa,UP000054302_212818.dna.fa,UP000054302_212818.gff3,Exopmeso,Chaetothyriales
+OUT,Capronia coronata,,UP000019484_1182541.pep.fa,UP000019484_1182541.dna.fa,UP000019484_1182541.gff3,Caprcoro,Chaetothyriales
+OUT,Cladophialophora carrionii,,UP000094526_86049.pep.fa,UP000094526_86049.dna.fa,UP000094526_86049.gff3,Cladcarr,Chaetothyriales
+OUT,Fonsecaea pedrosoi,,UP000053029_1442368.pep.fa,UP000053029_1442368.dna.fa,UP000053029_1442368.gff3,Fonspedr,Chaetothyriales

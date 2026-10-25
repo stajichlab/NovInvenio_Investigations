@@ -1,0 +1,98 @@
+# HYPOTHESIS: if yeast form evolves by regulatory re-deployment of a retained
+# toolkit (Nagy et al. 2014), then a lineage that went BACK to filamentous
+# growth from yeast ancestors should not regain the hyphal genes its yeast
+# relatives lost. Its distinctive signal should be in regulators (Zn-cluster
+# TFs, other TF families), not in re-acquired hyphal effectors.
+#
+# DESIGN: IN = the filamentous reversal lineage, OUT = its yeast relatives.
+# Read the NOVELTY list (what the filamentous lineage has that its yeast
+# sisters lack) against the LOSS lists of the matching origin study:
+#   - yc_rev_eremothecium vs yc_saccharomycotina losses
+#   - yc_rev_neolecta     vs yc_taphrinomycotina losses
+# A hyphal gene family lost in yeasts AND present as a "novelty" here would
+# mean either independent regain (unlikely) or that the family was never
+# lost at the subphylum base (an artefact of sparse sampling in the origin
+# study). Either result is informative.
+#
+# yc_rev_neolecta is the mirror image of yc_taphrinomycotina (IN/OUT swapped,
+# Pezizomycotina dropped), the same both-directions pattern as
+# studies/fungi/fusarium_FOXY_vs_FSSC. Whether Neolecta is a reversal or
+# retains the ancestral state is itself open; this pair of runs is meant to
+# show which reading the gene content supports.
+#
+# Eremothecium growth forms: E. gossypii (Ashbya) is strictly hyphal.
+# traits.csv codes E. cymbalariae as yeast from a genus-level FUNGuild call
+# ("Yeast" for all of Eremothecium); it is coded filamentous here. Confirm
+# E. cymbalariae and E. sinecaudum growth forms before reading this run.
+#
+# `compare_with` names the origin study whose LOSS list this reversal's
+# NOVELTY list is read against (bin/convergence_compare.py, reversal_overlap.tsv).
+# Same format and conventions as yeastconv_origins.yaml (see its header).
+
+batch: yeastconv_reversals
+
+outgroup_pools:
+  saccharomycetaceae_yeasts_v1:
+    members:
+      - "Kluyveromyces lactis"
+      - "Lachancea thermotolerans"
+      - "Torulaspora delbrueckii"
+      - "Saccharomyces cerevisiae"
+  taphrinomycotina_yeasts_v1:
+    members:
+      - "Schizosaccharomyces pombe"
+      - "Schizosaccharomyces octosporus"
+      - "Schizosaccharomyces japonicus"
+      - "Saitoella complicata"
+      - "Taphrina deformans"
+      - "Protomyces inouyei"
+
+studies:
+  - id: yc_rev_eremothecium
+    split_rank: family
+    origin: Eremothecium (filamentous reversal within Saccharomycetaceae)
+    contrast: reversal_filamentous_vs_yeast_sister
+    compare_with: yc_saccharomycotina
+    focal: Eremothecium gossypii
+    ingroup_extra:
+      mode: explicit
+      members:
+        - "Eremothecium cymbalariae"
+        - "Eremothecium sinecaudum"
+      reason: >-
+        Eremothecium (incl. Ashbya gossypii) grows as hyphae, nested inside the
+        budding yeasts; three species span the genus, and their closest yeast
+        relatives form the outgroup.
+    outgroup_pool: saccharomycetaceae_yeasts_v1
+
+  - id: yc_rev_neolecta
+    split_rank: subphylum
+    origin: Neolecta (fruiting lineage within Taphrinomycotina)
+    contrast: reversal_filamentous_vs_yeast_sister
+    compare_with: yc_taphrinomycotina
+    focal: Neolecta irregularis
+    ingroup_extra:
+      mode: explicit
+      members: []
+      reason: >-
+        Neolecta is the only Taphrinomycotina with hyphae and a fruiting
+        body; mirror of yc_taphrinomycotina. Only N. irregularis has a genome,
+        so this run stays single-species: convergence_compare.py uses only its
+        loss list (--min-in-novelty).
+    outgroup_pool: taphrinomycotina_yeasts_v1
+
+species:
+  "Eremothecium gossypii":     {taxon_group: Saccharomycotina, growth_form: filamentous}
+  "Eremothecium cymbalariae":  {taxon_group: Saccharomycotina, growth_form: filamentous}
+  "Eremothecium sinecaudum":   {taxon_group: Saccharomycotina, growth_form: filamentous}
+  "Kluyveromyces lactis":      {taxon_group: Saccharomycotina, growth_form: yeast}
+  "Lachancea thermotolerans":  {taxon_group: Saccharomycotina, growth_form: yeast}
+  "Torulaspora delbrueckii":   {taxon_group: Saccharomycotina, growth_form: yeast}
+  "Saccharomyces cerevisiae":  {taxon_group: Saccharomycotina, growth_form: yeast}
+  "Neolecta irregularis":      {taxon_group: Taphrinomycotina, growth_form: filamentous}
+  "Schizosaccharomyces pombe": {taxon_group: Taphrinomycotina, growth_form: yeast}
+  "Saitoella complicata":      {taxon_group: Taphrinomycotina, growth_form: yeast}
+  "Taphrina deformans":        {taxon_group: Taphrinomycotina, growth_form: dimorphic, dominant_phase: hyphal}
+  "Schizosaccharomyces octosporus": {taxon_group: Taphrinomycotina, growth_form: yeast}
+  "Schizosaccharomyces japonicus":  {taxon_group: Taphrinomycotina, growth_form: dimorphic, dominant_phase: yeast}
+  "Protomyces inouyei":        {taxon_group: Taphrinomycotina, growth_form: dimorphic, dominant_phase: hyphal}

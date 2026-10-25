@@ -1,0 +1,8 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Eremothecium gossypii,NRRL Y-1056,UP000000591_284811.pep.fa,UP000000591_284811.dna.fa,UP000000591_284811.gff3,Eremgoss,Saccharomycotina
+IN,Eremothecium cymbalariae,,UP000006790_931890.pep.fa,UP000006790_931890.dna.fa,UP000006790_931890.gff3,Eremcymb,Saccharomycotina
+IN,Eremothecium sinecaudum,,UP000243052_45286.pep.fa,UP000243052_45286.dna.fa,UP000243052_45286.gff3,Eremsine,Saccharomycotina
+OUT,Kluyveromyces lactis,WM37,UP000000598_284590.pep.fa,UP000000598_284590.dna.fa,UP000000598_284590.gff3,Kluylact,Saccharomycotina
+OUT,Lachancea thermotolerans,NRRL Y-8284,UP000002036_559295.pep.fa,UP000002036_559295.dna.fa,UP000002036_559295.gff3,Lachther,Saccharomycotina
+OUT,Torulaspora delbrueckii,NRRL Y-866,UP000005627_1076872.pep.fa,UP000005627_1076872.dna.fa,UP000005627_1076872.gff3,Torudelb,Saccharomycotina
+OUT,Saccharomyces cerevisiae,S288C,UP000002311_559292.pep.fa,UP000002311_559292.dna.fa,UP000002311_559292.gff3,Scer,Saccharomycotina

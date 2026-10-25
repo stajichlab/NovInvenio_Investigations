@@ -1,0 +1,9 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Laccaria bicolor,,UP000001194_486041.pep.fa,UP000001194_486041.dna.fa,UP000001194_486041.gff3,Laccbico,Agaricales
+IN,Laccaria amethystina,,UP000054477_1095629.pep.fa,UP000054477_1095629.dna.fa,UP000054477_1095629.gff3,Laccamet,Agaricales
+IN,Hebeloma cylindrosporum,,UP000053424_76867.pep.fa,UP000053424_76867.dna.fa,UP000053424_76867.gff3,Hebecyli,Agaricales
+IN,Amanita muscaria,,UP000054549_946122.pep.fa,UP000054549_946122.dna.fa,UP000054549_946122.gff3,Amanmusc,Agaricales
+OUT,Amanita thiersii,,UP000242287_703135.pep.fa,UP000242287_703135.dna.fa,UP000242287_703135.gff3,Amanthie,Agaricales
+OUT,Coprinopsis cinerea,Okayama-7/130,UP000001861_240176.pep.fa,UP000001861_240176.dna.fa,UP000001861_240176.gff3,Ccin,Agaricales
+OUT,Agaricus bisporus var. burnettii,JB137-S8,UP000008493_597362.pep.fa,UP000008493_597362.dna.fa,UP000008493_597362.gff3,Agbis,Agaricales
+OUT,Pleurotus ostreatus,,UP000623687_5322.pep.fa,UP000623687_5322.dna.fa,UP000623687_5322.gff3,Pleuostr,Agaricales

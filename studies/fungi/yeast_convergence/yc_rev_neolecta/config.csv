@@ -1,0 +1,8 @@
+GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
+IN,Neolecta irregularis,DAH-3,UP000186594_1198029.pep.fa,UP000186594_1198029.dna.fa,UP000186594_1198029.gff3,Nirr,Taphrinomycotina
+OUT,Schizosaccharomyces pombe,972h,UP000002485_284812.pep.fa,UP000002485_284812.dna.fa,UP000002485_284812.gff3,Spom,Taphrinomycotina
+OUT,Schizosaccharomyces octosporus,,UP000016088_483514.pep.fa,UP000016088_483514.dna.fa,UP000016088_483514.gff3,Schiocto,Taphrinomycotina
+OUT,Schizosaccharomyces japonicus,,UP000001744_402676.pep.fa,UP000001744_402676.dna.fa,UP000001744_402676.gff3,Schijapo,Taphrinomycotina
+OUT,Saitoella complicata,,UP000033140_698492.pep.fa,UP000033140_698492.dna.fa,UP000033140_698492.gff3,Saitcomp,Taphrinomycotina
+OUT,Taphrina deformans,,UP000013776_1097556.pep.fa,UP000013776_1097556.dna.fa,UP000013776_1097556.gff3,Taphdefo,Taphrinomycotina
+OUT,Protomyces inouyei,NRRL_YB-4354,Protinou.pep.fa,Protinou.dna.fa,Protinou.gff3,Protinou,Taphrinomycotina

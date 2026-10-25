@@ -1,0 +1,326 @@
+- local_path: data/uniprot/UP000014254/UP000014254_1220926.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000014254/UP000014254_1220926.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:03:53Z'
+  checksum_sha256: a9a1969bc09e945764f26c21460064cf2b6c7a0909acf5ff5fd422d0b52b58d9
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000014254
+  taxon_id: '1220926'
+  organism: Mucor circinelloides f. circinelloides (strain 1006PhL)
+  genome_assembly:
+    assemblyId: GCA_000401635.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000401635.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000014254/UP000014254_1220926.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000014254/UP000014254_1220926.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:03:55Z'
+  checksum_sha256: 1ebcd9511e3a6c0437e97caa02dae34895a0dd001ded40af1fd1a946e2e3463f
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000014254
+  taxon_id: '1220926'
+  organism: Mucor circinelloides f. circinelloides (strain 1006PhL)
+  genome_assembly:
+    assemblyId: GCA_000401635.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000401635.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000401635.1/extracted/ncbi_dataset/data/GCA_000401635.1/GCA_000401635.1_Muco_sp_1006Ph_V1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000401635.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000401635.1'
+  access_date: '2026-10-23T20:03:49Z'
+  checksum_sha256: f5db902edfbbcc909a5c74758efebf0ec2b9fd4baefda1392cb3866cf322b8f5
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000401635.1
+- local_path: data/ncbi/GCA_000401635.1/extracted/ncbi_dataset/data/GCA_000401635.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000401635.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000401635.1'
+  access_date: '2026-10-23T20:03:49Z'
+  checksum_sha256: 88039657e5a88d43f660d70a6436d3f6ee1aa48d6ec1468fb8d916928c124fab
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000401635.1
+- local_path: studies/fungi/yeast_convergence/yc_mucoromycota/data_dir/pep/Mucorace.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.proteins.fa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:03:59Z'
+  checksum_sha256: 2d9d12f7973bdfa7163fe6ed0abe9e71ad605bb0d46c67368b8937b879db9192
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.proteins.fa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_mucoromycota/data_dir/dna/Mucorace.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:04:00Z'
+  checksum_sha256: b6b4a0790a49260faf4c8cb53542e943011b84e4657a46e14e283f3a85de6976
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_mucoromycota/data_dir/gff3/Mucorace.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.gff3.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:04:00Z'
+  checksum_sha256: 69d81946537e9b24dd19a49253551ebd9560ff57ff833ce8b5d00740a6fd0ad6
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.gff3.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_mucoromycota/data_dir/pep/Thameleg.pep.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.proteins.fa.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:04:00Z'
+  checksum_sha256: a876fe4700db8303229cd726a601674dd72694bc43b56550b07bbfe48ca37d43
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.proteins.fa.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_mucoromycota/data_dir/dna/Thameleg.dna.fa
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.scaffolds.fa)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:04:01Z'
+  checksum_sha256: 1eebaab3121c4e2ab2b8e6805e6215c78d31d1bdb5c7ef17460d8258970fbda2
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: copied from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.scaffolds.fa
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: studies/fungi/yeast_convergence/yc_mucoromycota/data_dir/gff3/Thameleg.gff3
+  source_url: (internal -- /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.gff3.gz)
+  source_release: local file, not independently versioned
+  access_date: '2026-10-23T20:04:01Z'
+  checksum_sha256: 6cdd1f6e8f20912ba9817d7c0652a923250eafc1a3790ec5f6783a0d7a5d3216
+  license: Internal / unpublished (not yet released outside this project)
+  derived_by: gunzipped from /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.gff3.gz
+    via bin/build_study_config.py
+  pulled_with: build_study_config.py on c01
+- local_path: data/uniprot/UP000077315/UP000077315_763407.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000077315/UP000077315_763407.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:04:04Z'
+  checksum_sha256: af05784ddd769ad26ba26e7a0e7c90db2a015b3628ae80e53f6d260d34be3425
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000077315
+  taxon_id: '763407'
+  organism: Phycomyces blakesleeanus (strain ATCC 8743b / DSM 1359 / FGSC 10004 /
+    NBRC 33097 / NRRL 1555)
+  genome_assembly:
+    assemblyId: GCA_001638985.2
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001638985.2
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000077315/UP000077315_763407.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000077315/UP000077315_763407.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:04:05Z'
+  checksum_sha256: 9b11f6ec366fe286a096fcb48800d1f05879ea143b85acbf0e1a968ebe0298c0
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000077315
+  taxon_id: '763407'
+  organism: Phycomyces blakesleeanus (strain ATCC 8743b / DSM 1359 / FGSC 10004 /
+    NBRC 33097 / NRRL 1555)
+  genome_assembly:
+    assemblyId: GCA_001638985.2
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_001638985.2
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_001638985.2/extracted/ncbi_dataset/data/GCA_001638985.2/GCA_001638985.2_Phybl2_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001638985.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001638985.2'
+  access_date: '2026-10-23T20:03:50Z'
+  checksum_sha256: c8fcca5e34908a4b3bbfeaa5e8e7e4a22fc742b5c8088a0a3a3794a1ac39855c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_001638985.2
+- local_path: data/ncbi/GCA_001638985.2/extracted/ncbi_dataset/data/GCA_001638985.2/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_001638985.2/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_001638985.2'
+  access_date: '2026-10-23T20:03:50Z'
+  checksum_sha256: 02be94897b9f5028d5f4683da50526f1b621b3159cfd3f766977d7d08ffee06c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_001638985.2
+- local_path: data/uniprot/UP000009138/UP000009138_246409.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000009138/UP000009138_246409.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:04:13Z'
+  checksum_sha256: e4cc0f88f551c2f3be3e1a51546139e43cb666eabf1c2cdc7421a11c9ca3ee30
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000009138
+  taxon_id: '246409'
+  organism: Rhizopus delemar (strain RA 99-880 / ATCC MYA-4621 / FGSC 9543 / NRRL
+    43880)
+  genome_assembly:
+    assemblyId: GCA_000149305.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000149305.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000009138/UP000009138_246409.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000009138/UP000009138_246409.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:04:14Z'
+  checksum_sha256: 1705c8f72edfde4112e6228a0e5228c2bfa235d3990906373b5910b1ee1592eb
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000009138
+  taxon_id: '246409'
+  organism: Rhizopus delemar (strain RA 99-880 / ATCC MYA-4621 / FGSC 9543 / NRRL
+    43880)
+  genome_assembly:
+    assemblyId: GCA_000149305.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000149305.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000149305.1/extracted/ncbi_dataset/data/GCA_000149305.1/GCA_000149305.1_RO3_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149305.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000149305.1'
+  access_date: '2026-10-23T20:03:49Z'
+  checksum_sha256: ca5cd1c80b542b8f59fa94c65381703d852186811d3c681f12055b1029cbe41c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000149305.1
+- local_path: data/ncbi/GCA_000149305.1/extracted/ncbi_dataset/data/GCA_000149305.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000149305.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000149305.1'
+  access_date: '2026-10-23T20:03:49Z'
+  checksum_sha256: 59e841095b829aabae50bdecbf0f9fd5102da0be7220571d8d0d6406e64bf14a
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000149305.1
+- local_path: data/uniprot/UP000027586/UP000027586_1263082.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000027586/UP000027586_1263082.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:04:23Z'
+  checksum_sha256: 8d01bdbf4204bc0430f58c3a29a6aca34533f5d78e1bf51704ad10ac1f84de6a
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000027586
+  taxon_id: '1263082'
+  organism: Lichtheimia corymbifera JMRC:FSU:9682
+  genome_assembly:
+    assemblyId: GCA_000723665.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000723665.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000027586/UP000027586_1263082.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000027586/UP000027586_1263082.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:04:24Z'
+  checksum_sha256: 1aaeb1593e1682c0d01519904a817e8ecd7a8f6ade1f08346d434f1c2f3a5a26
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000027586
+  taxon_id: '1263082'
+  organism: Lichtheimia corymbifera JMRC:FSU:9682
+  genome_assembly:
+    assemblyId: GCA_000723665.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_000723665.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_000723665.1/extracted/ncbi_dataset/data/GCA_000723665.1/GCA_000723665.1_454Minimus_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000723665.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000723665.1'
+  access_date: '2026-10-23T20:03:50Z'
+  checksum_sha256: f9ba687d49e0d01f48445d9626346eff4b08d6be2e9e8e1e6456dac6424054b8
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_000723665.1
+- local_path: data/ncbi/GCA_000723665.1/extracted/ncbi_dataset/data/GCA_000723665.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_000723665.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_000723665.1'
+  access_date: '2026-10-23T20:03:50Z'
+  checksum_sha256: 6c96f6abcb53988638c1b0461a8209a7ec3d3e7d25fc9081d62f9c4d0cd99105
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_000723665.1
+- local_path: data/uniprot/UP000078561/UP000078561_4829.fasta.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000078561/UP000078561_4829.fasta.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:04:31Z'
+  checksum_sha256: 0f774036ad1b0974dd687fa02f6f1bbaa1b62b4fbcc6751007539a38e713e43b
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000078561
+  taxon_id: '4829'
+  organism: Absidia glauca
+  genome_assembly:
+    assemblyId: GCA_900079185.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_900079185.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/uniprot/UP000078561/UP000078561_4829.dat.gz
+  source_url: https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000078561/UP000078561_4829.dat.gz
+  source_release: UniProt reference proteomes release 2026_03 (02-Sep-2026)
+  access_date: '2026-10-23T20:04:32Z'
+  checksum_sha256: 2b884f4f0a3a95a3f53d08e42adc269fe89600dea770a5adc753f8cebb19d412
+  license: CC-BY-4.0 (UniProt, https://www.uniprot.org/help/license)
+  derived_by: null
+  pulled_with: fetch_uniprot_proteome.py on c01
+  proteome_id: UP000078561
+  taxon_id: '4829'
+  organism: Absidia glauca
+  genome_assembly:
+    assemblyId: GCA_900079185.1
+    genomeAssemblyUrl: https://www.ebi.ac.uk/ena/browser/view/GCA_900079185.1
+    level: full
+    source: ENA/EMBL
+- local_path: data/ncbi/GCA_900079185.1/extracted/ncbi_dataset/data/GCA_900079185.1/GCA_900079185.1_AG_v1_genomic.fna
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_900079185.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_900079185.1'
+  access_date: '2026-10-23T20:03:51Z'
+  checksum_sha256: c930945b24ac15a4cc071b3c88a61ca422de8cfc5d32002102fdf9cb7ecdc2b5
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: genome
+  accession: GCA_900079185.1
+- local_path: data/ncbi/GCA_900079185.1/extracted/ncbi_dataset/data/GCA_900079185.1/genomic.gff
+  source_url: https://www.ncbi.nlm.nih.gov/datasets/genome/GCA_900079185.1/
+  source_release: 'NCBI Datasets CLI datasets version: 18.37.0, accession GCA_900079185.1'
+  access_date: '2026-10-23T20:03:51Z'
+  checksum_sha256: 271b594b309cc4df8f86b623d037e038fcd073b254fd1a418872c6ea69d5237c
+  license: Public Domain (NCBI, https://www.ncbi.nlm.nih.gov/home/about/policies/)
+  derived_by: null
+  pulled_with: fetch_genome_assemblies_batch.py on c01
+  kind: gff3
+  accession: GCA_900079185.1
+- local_path: studies/fungi/yeast_convergence/yc_mucoromycota/config.csv
+  source_url: (derived, no external source)
+  source_release: n/a
+  access_date: '2026-10-23T20:04:37Z'
+  checksum_sha256: f7a885928253ebbeb2d62787e32225eafdd6aced916133b4c810d081ac733c01
+  license: n/a
+  derived_by: bin/build_study_config.py --study-dir studies/fungi/yeast_convergence/yc_mucoromycota
+  pulled_with: build_study_config.py on c01
