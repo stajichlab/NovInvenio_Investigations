@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_saccharomycotina",
+  "source_dir": "results/yc_saccharomycotina",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 9,
+  "report_sha256": "8a6038f6968c5fa99a8e8595c7a9729b8a02a976a97c16b46a12efda33e1987f"
+}

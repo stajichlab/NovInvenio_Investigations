@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_mucoromycota",
+  "source_dir": "results/yc_mucoromycota",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 7,
+  "report_sha256": "9434933671cce35a18a74857c3fdb3f56a14a18425e5ee1527b5fb3f52715ccf"
+}

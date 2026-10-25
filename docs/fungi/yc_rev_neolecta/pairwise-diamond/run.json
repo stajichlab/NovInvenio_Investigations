@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_rev_neolecta",
+  "source_dir": "results/yc_rev_neolecta",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 7,
+  "report_sha256": "c61f690bc121c2bf912705ec7415a2288ebee2f35882adabc4900efc55f2caca"
+}

@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_taphrinomycotina",
+  "source_dir": "results/yc_taphrinomycotina",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 9,
+  "report_sha256": "2902d74bba98e6ac252419a2eaf9356aa9b0ef71fc9f4871dda0c1d6dd25d70d"
+}

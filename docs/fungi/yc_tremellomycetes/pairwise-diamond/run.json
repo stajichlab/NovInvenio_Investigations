@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_tremellomycetes",
+  "source_dir": "results/yc_tremellomycetes",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 7,
+  "report_sha256": "7c918836a46e50358688dcb2bd4d08eee05e393a1bda9d47e733ac1888668b69"
+}

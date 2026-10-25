@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_rev_eremothecium",
+  "source_dir": "results/yc_rev_eremothecium",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 7,
+  "report_sha256": "b6a1d95324cbae8775c57591dcfe19f29862b64ac86178bf32f8505513cf4ecc"
+}

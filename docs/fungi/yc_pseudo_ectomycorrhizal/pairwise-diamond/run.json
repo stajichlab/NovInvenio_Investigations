@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal",
+  "source_dir": "results/yc_pseudo_ectomycorrhizal",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 8,
+  "report_sha256": "9c884451c37f64c1005ce8043b80f64b440843f3150a0f8bab2f0fcaf2c8d370"
+}

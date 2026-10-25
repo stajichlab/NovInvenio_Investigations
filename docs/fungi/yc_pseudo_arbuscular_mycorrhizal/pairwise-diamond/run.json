@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal",
+  "source_dir": "results/yc_pseudo_arbuscular_mycorrhizal",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 8,
+  "report_sha256": "6a9d0af1e3aef57d546394bc545bde037a8cf66ac70ae396aec24dc661212dda"
+}

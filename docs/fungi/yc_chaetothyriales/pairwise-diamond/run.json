@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_chaetothyriales",
+  "source_dir": "results/yc_chaetothyriales",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 8,
+  "report_sha256": "af1609d122ff5d1f3951af022a62ddc1c5725722e04d9a3a7785cf32af983f60"
+}

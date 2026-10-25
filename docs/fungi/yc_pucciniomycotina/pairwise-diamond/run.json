@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_pucciniomycotina",
+  "source_dir": "results/yc_pucciniomycotina",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 8,
+  "report_sha256": "e833ed61cc183b550e92043d840b02133d02d88ba01ff329101a82d5a38193f3"
+}

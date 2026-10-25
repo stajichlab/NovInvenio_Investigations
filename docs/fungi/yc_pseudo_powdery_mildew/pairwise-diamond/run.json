@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew",
+  "source_dir": "results/yc_pseudo_powdery_mildew",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 7,
+  "report_sha256": "1dad9db3bb15b63648cd762394bbd416ae3e68c7815c4cd6abf4f4ba47f57f7d"
+}

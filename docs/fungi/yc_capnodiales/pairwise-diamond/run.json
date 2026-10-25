@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_capnodiales",
+  "source_dir": "results/yc_capnodiales",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 5,
+  "report_sha256": "e22e4c649c5657022e4b8bfe1e32896f2a2d4f7c0fb43d2f754ac3f99fa73272"
+}

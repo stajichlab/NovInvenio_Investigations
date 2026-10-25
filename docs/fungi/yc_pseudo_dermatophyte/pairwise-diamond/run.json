@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_pseudo_dermatophyte",
+  "source_dir": "results/yc_pseudo_dermatophyte",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 6,
+  "report_sha256": "d2a2da36d654c5a994d1ca056a24cc506b1750a0ef8ee0350c7ce47b68a6b08a"
+}

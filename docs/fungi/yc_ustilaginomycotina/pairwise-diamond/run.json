@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-24",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_ustilaginomycotina",
+  "source_dir": "results/yc_ustilaginomycotina",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 8,
+  "report_sha256": "c404af5f065f1f5524d99fef8b8e300ef02698164b7e9f1b600f6b6cd4392758"
+}
