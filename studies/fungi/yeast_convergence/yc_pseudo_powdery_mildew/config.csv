@@ -1,8 +1,0 @@
-GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
-IN,Blumeria graminis,,UP000324639_62690.pep.fa,UP000324639_62690.dna.fa,UP000324639_62690.gff3,Blumgram,Leotiomycetes
-IN,Blumeria hordei,,UP000015441_546991.pep.fa,UP000015441_546991.dna.fa,UP000015441_546991.gff3,Blumhord,Leotiomycetes
-IN,Erysiphe necator,,UP000030854_52586.pep.fa,UP000030854_52586.dna.fa,UP000030854_52586.gff3,Erysneca,Leotiomycetes
-IN,Podosphaera xanthii,YZU573,Podoxant.pep.fa,Podoxant.dna.fa,Podoxant.gff3,Podoxant,Leotiomycetes
-OUT,Botrytis cinerea,,UP000001798_332648.pep.fa,UP000001798_332648.dna.fa,UP000001798_332648.gff3,Botrcine,Leotiomycetes
-OUT,Sclerotinia sclerotiorum,,UP000001312_665079.pep.fa,UP000001312_665079.dna.fa,UP000001312_665079.gff3,Sclescle,Leotiomycetes
-OUT,Aspergillus nidulans,FGSC A4,UP000000560_227321.pep.fa,UP000000560_227321.dna.fa,UP000000560_227321.gff3,Anid,Eurotiomycetes

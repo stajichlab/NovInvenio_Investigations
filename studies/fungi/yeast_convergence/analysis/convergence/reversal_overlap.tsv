@@ -1,3 +1,0 @@
-reversal	origin	vocab	pattern	term	name	origin_k	origin_fdr	reversal_k	reversal_fdr
-yc_rev_neolecta	yc_taphrinomycotina	pfam	gained_in_yeast_origin__lost_in_reversal	PF09271	LAG1-DNAbind: LAG1, DNA binding	4	0.0001335	4	0.02832
-yc_rev_neolecta	yc_taphrinomycotina	pfam	gained_in_yeast_origin__lost_in_reversal	PF09816	EAF: RNA polymerase II transcription elongation factor	3	0.005111	4	0.02832

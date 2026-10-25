@@ -1,8 +1,0 @@
-GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
-IN,Aureobasidium pullulans,,Aurepull.pep.fa,Aurepull.dna.fa,Aurepull.gff3,Aurepull,Dothideales
-IN,Aureobasidium melanogenum,,Auremela.pep.fa,Auremela.dna.fa,Auremela.gff3,Auremela,Dothideales
-IN,Aureobasidium namibiae,,UP000027730_1043004.pep.fa,UP000027730_1043004.dna.fa,UP000027730_1043004.gff3,Aurenami,Dothideales
-IN,Aureobasidium subglaciale,,UP000030641_1043005.pep.fa,UP000030641_1043005.dna.fa,UP000030641_1043005.gff3,Auresubg,Dothideales
-OUT,Botryosphaeria dothidea,,UP000572817_55169.pep.fa,UP000572817_55169.dna.fa,UP000572817_55169.gff3,Botrdoth,Botryosphaeriales
-OUT,Parastagonospora nodorum,,UP000663193_321614.pep.fa,UP000663193_321614.dna.fa,UP000663193_321614.gff3,Paranodo,Pleosporales
-OUT,Alternaria alternata,,UP000077248_5599.pep.fa,UP000077248_5599.dna.fa,UP000077248_5599.gff3,Altealte,Pleosporales

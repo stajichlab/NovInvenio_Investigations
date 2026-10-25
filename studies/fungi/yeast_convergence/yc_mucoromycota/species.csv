@@ -1,8 +1,0 @@
-Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
-Mcir,Mucor circinelloides,1006PhL,IN,Mucorales,uniprot,UP000014254,1220926,ncbi,GCA_000401635.1,,
-Mucorace,Mucor racemosus,CGMCC-40320,IN,Mucorales,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.proteins.fa.gz,4841,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Mucor_racemosus_CGMCC-40320/predict_results/Mucor_racemosus_CGMCC-40320.gff3.gz
-Thameleg,Thamnidium elegans,KKP_4289,IN,Mucorales,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.proteins.fa.gz,101142,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Thamnidium_elegans_KKP_4289/predict_results/Thamnidium_elegans_KKP_4289.gff3.gz
-Phycblak,Phycomyces blakesleeanus,NRRL 1555,OUT,Mucorales,uniprot,UP000077315,763407,ncbi,GCA_001638985.2,,
-Rhizdele,Rhizopus delemar,NRRL 43880,OUT,Mucorales,uniprot,UP000009138,246409,ncbi,GCA_000149305.1,,
-Lichcory,Lichtheimia corymbifera,,OUT,Mucorales,uniprot,UP000027586,1263082,ncbi,GCA_000723665.1,,
-Absiglau,Absidia glauca,,OUT,Mucorales,uniprot,UP000078561,4829,ncbi,GCA_900079185.1,,

@@ -1,7 +1,0 @@
-GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
-IN,Trichophyton rubrum,,UP000008864_559305.pep.fa,UP000008864_559305.dna.fa,UP000008864_559305.gff3,Tricrubr,Onygenales
-IN,Microsporum canis,BMU_08102,Micrcani.pep.fa,Micrcani.dna.fa,Micrcani.gff3,Micrcani,Onygenales
-IN,Trichophyton interdigitale,,UP000024533_1215338.pep.fa,UP000024533_1215338.dna.fa,UP000024533_1215338.gff3,Tricinte,Onygenales
-IN,Nannizzia gypsea,CBS_118893,Nanngyps.pep.fa,Nanngyps.dna.fa,Nanngyps.gff3,Nanngyps,Onygenales
-OUT,Aspergillus nidulans,FGSC A4,UP000000560_227321.pep.fa,UP000000560_227321.dna.fa,UP000000560_227321.gff3,Anid,Eurotiomycetes
-OUT,Talaromyces stipitatus,,UP000001745_441959.pep.fa,UP000001745_441959.dna.fa,UP000001745_441959.gff3,Talastip,Eurotiales

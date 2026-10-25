@@ -1,9 +1,0 @@
-GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
-IN,Cladonia rubrotincta,,Cladrubr.pep.fa,Cladrubr.dna.fa,Cladrubr.gff3,Cladrubr,Lecanoromycetes
-IN,Xanthoria parietina,,UP001730806_107463.pep.fa,UP001730806_107463.dna.fa,UP001730806_107463.gff3,Xantpari,Lecanoromycetes
-IN,Umbilicaria pustulata,,UP000192927_136370.pep.fa,UP000192927_136370.dna.fa,UP000192927_136370.gff3,Umbipust,Lecanoromycetes
-IN,Letharia lupina,WasteWater1,Lethlupi.pep.fa,Lethlupi.dna.fa,Lethlupi.gff3,Lethlupi,Lecanoromycetes
-OUT,Penicillium chrysogenum,,UP001220256_5076.pep.fa,UP001220256_5076.dna.fa,UP001220256_5076.gff3,Penichry,Eurotiomycetes
-OUT,Fusarium graminearum,PH-1,Fusagram.pep.fa,Fusagram.dna.fa,Fusagram.gff3,Fusagram,Sordariomycetes
-OUT,Ascocoryne sarcoides,NRRL_50072,Ascosarc.pep.fa,Ascosarc.dna.fa,Ascosarc.gff3,Ascosarc,Leotiomycetes
-OUT,Pyrenophora tritici-repentis,,UP000249757_45151.pep.fa,UP000249757_45151.dna.fa,UP000249757_45151.gff3,Pyretrit,Dothideomycetes

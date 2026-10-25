@@ -1,8 +1,0 @@
-GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
-IN,Mucor circinelloides,1006PhL,UP000014254_1220926.pep.fa,UP000014254_1220926.dna.fa,UP000014254_1220926.gff3,Mcir,Mucorales
-IN,Mucor racemosus,CGMCC-40320,Mucorace.pep.fa,Mucorace.dna.fa,Mucorace.gff3,Mucorace,Mucorales
-IN,Thamnidium elegans,KKP_4289,Thameleg.pep.fa,Thameleg.dna.fa,Thameleg.gff3,Thameleg,Mucorales
-OUT,Phycomyces blakesleeanus,NRRL 1555,UP000077315_763407.pep.fa,UP000077315_763407.dna.fa,UP000077315_763407.gff3,Phycblak,Mucorales
-OUT,Rhizopus delemar,NRRL 43880,UP000009138_246409.pep.fa,UP000009138_246409.dna.fa,UP000009138_246409.gff3,Rhizdele,Mucorales
-OUT,Lichtheimia corymbifera,,UP000027586_1263082.pep.fa,UP000027586_1263082.dna.fa,UP000027586_1263082.gff3,Lichcory,Mucorales
-OUT,Absidia glauca,,UP000078561_4829.pep.fa,UP000078561_4829.dna.fa,UP000078561_4829.gff3,Absiglau,Mucorales

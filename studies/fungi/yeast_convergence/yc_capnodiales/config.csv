@@ -1,6 +1,0 @@
-GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
-IN,Hortaea werneckii,,UP000194280_1157616.pep.fa,UP000194280_1157616.dna.fa,UP000194280_1157616.gff3,Hortwern,Capnodiales
-IN,Hortaea thailandica,,UP000308549_706561.pep.fa,UP000308549_706561.dna.fa,UP000308549_706561.gff3,Hortthai,Capnodiales
-OUT,Pseudocercospora fijiensis,,UP000016932_383855.pep.fa,UP000016932_383855.dna.fa,UP000016932_383855.gff3,Pseufiji,Capnodiales
-OUT,Dothistroma septosporum,,UP000016933_675120.pep.fa,UP000016933_675120.dna.fa,UP000016933_675120.gff3,Dothsept,Capnodiales
-OUT,Cladosporium cladosporioides,SYC63,Cladclad.pep.fa,Cladclad.dna.fa,Cladclad.gff3,Cladclad,Capnodiales

@@ -1,7 +1,0 @@
-# Extra nextflow params for this study, applied by bin/run_study.sh before any
-# args passed on the command line. One flag/value per line.
-# Written by studies/fungi/yeast_convergence/bin/yc_batches.py render.
-
-# diamond for pairwise search and self-search, same as every other
-# yeast_convergence contrast so the runs stay comparable.
---run_tool diamond

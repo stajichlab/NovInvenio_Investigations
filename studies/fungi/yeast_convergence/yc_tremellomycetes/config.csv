@@ -1,8 +1,0 @@
-GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
-IN,Cryptococcus neoformans,H99,UP000010091_235443.pep.fa,UP000010091_235443.dna.fa,UP000010091_235443.gff3,CneoH99,Tremellomycetes
-IN,Kwoniella mangroviensis,CBS_8507,Kwonmang.pep.fa,Kwonmang.dna.fa,Kwonmang.gff3,Kwonmang,Tremellomycetes
-IN,Trichosporon asahii,,UP000006757_1220162.pep.fa,UP000006757_1220162.dna.fa,UP000006757_1220162.gff3,Tricasah,Tremellomycetes
-IN,Tremella mesenterica,,UP000289152_5217.pep.fa,UP000289152_5217.dna.fa,UP000289152_5217.gff3,Tremes,Tremellomycetes
-OUT,Dacryopinax primogenitus,,UP000030653_1858805.pep.fa,UP000030653_1858805.dna.fa,UP000030653_1858805.gff3,Dacrprim,Dacrymycetes
-OUT,Calocera cornea,,UP000076842_1353952.pep.fa,UP000076842_1353952.dna.fa,UP000076842_1353952.gff3,Calocorn,Dacrymycetes
-OUT,Coprinopsis cinerea,Okayama-7/130,UP000001861_240176.pep.fa,UP000001861_240176.dna.fa,UP000001861_240176.gff3,Ccin,Agaricomycetes

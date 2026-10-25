@@ -1,8 +1,0 @@
-Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
-Blumgram,Blumeria graminis,,IN,Leotiomycetes,uniprot,UP000324639,62690,ncbi,GCA_900519115.1,,
-Blumhord,Blumeria hordei,,IN,Leotiomycetes,uniprot,UP000015441,546991,ncbi,GCA_000151065.3,,
-Erysneca,Erysiphe necator,,IN,Leotiomycetes,uniprot,UP000030854,52586,ncbi,GCA_000798715.1,,
-Podoxant,Podosphaera xanthii,YZU573,IN,Leotiomycetes,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Podosphaera_xanthii_YZU573/predict_results/Podosphaera_xanthii_YZU573.proteins.fa.gz,135283,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Podosphaera_xanthii_YZU573/predict_results/Podosphaera_xanthii_YZU573.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Podosphaera_xanthii_YZU573/predict_results/Podosphaera_xanthii_YZU573.gff3.gz
-Botrcine,Botrytis cinerea,,OUT,Leotiomycetes,uniprot,UP000001798,332648,ncbi,GCA_000143535.4,,
-Sclescle,Sclerotinia sclerotiorum,,OUT,Leotiomycetes,uniprot,UP000001312,665079,ncbi,GCA_000146945.2,,
-Anid,Aspergillus nidulans,FGSC A4,OUT,Eurotiomycetes,uniprot,UP000000560,227321,ncbi,GCA_000011425.1,,

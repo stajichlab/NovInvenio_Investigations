@@ -1,9 +1,0 @@
-GROUP,Species,Strain,Protein,DNA,GFF3,Short,TaxonGroup
-IN,Malassezia globosa,CBS 7966,UP000008837_425265.pep.fa,UP000008837_425265.dna.fa,UP000008837_425265.gff3,Malaglob,Malasseziomycetes
-IN,Malassezia sympodialis,ATCC 42132,UP000186303_1230383.pep.fa,UP000186303_1230383.dna.fa,UP000186303_1230383.gff3,Malasymp,Malasseziomycetes
-IN,Moesziomyces aphidis,,UP000019462_84754.pep.fa,UP000019462_84754.dna.fa,UP000019462_84754.gff3,Moesaphi,Ustilaginales
-IN,Kalmanozyma brasiliensis,GHG001,UP000019377_1365824.pep.fa,UP000019377_1365824.dna.fa,UP000019377_1365824.gff3,Kalmbras,Ustilaginales
-OUT,Mycosarcoma maydis,,UP000000561_5270.pep.fa,UP000000561_5270.dna.fa,UP000000561_5270.gff3,Mycomayd,Ustilaginales
-OUT,Sporisorium reilianum,SRZ2,UP000008867_999809.pep.fa,UP000008867_999809.dna.fa,UP000008867_999809.gff3,Sporreil,Ustilaginales
-OUT,Ustilago hordei,,UP000006174_120017.pep.fa,UP000006174_120017.dna.fa,UP000006174_120017.gff3,Ustihord,Ustilaginales
-OUT,Ceraceosorus bombacis,,UP000054845_401625.pep.fa,UP000054845_401625.dna.fa,UP000054845_401625.gff3,Cerabomb,Exobasidiomycetes
