@@ -154,8 +154,24 @@ python3 $F/bin/convergence_compare.py            # -> $F/analysis/convergence/
 ## 6. Open decisions
 
 A. **Shared outgroups between `yc_saccharomycotina` and `yc_taphrinomycotina`**
-   (*Neurospora crassa*, *Arthrobotrys megalospora*). Default if not decided:
-   keep them, and report recurrence both as is and with these two runs collapsed.
+   (*Neurospora crassa*, *Arthrobotrys megalospora*). Decision (2026-10-24): keep
+   them, disclose, and do not run a leave-shared-out rerun.
+   Reason: in the first comparison (`analysis/convergence/term_recurrence.tsv`) neither
+   run is among the origins that make a recurrent call. F-box (novelty) is called in
+   `yc_dothideales`, `yc_pucciniomycotina` and `yc_mucoromycota`. The RNase_H clan
+   (loss) is called in `yc_tremellomycetes`, `yc_ustilaginomycotina`,
+   `yc_pucciniomycotina` and `yc_mucoromycota`. A rerun could add calls in the two
+   shared-outgroup runs; it could not remove these four. It would shift the null
+   probabilities of those two runs slightly, and that was not measured.
+   If the check is wanted later, `enrich_novelties_v2.py` would need an option such as
+   `--exclude-species Amega,Ncra`. What I read in the script: it builds the target
+   and other species lists from `config.csv` GROUP (lines 369-370) and recomputes
+   candidates from the presence matrix with `rule_candidates` (line 431), so dropping
+   species from those two lists would change `n_other` and the counts. Not verified:
+   the pipeline's own `candidates.txt`, tblastn validation and the loss tables were
+   made with the full species set, so they would also need to be rebuilt or
+   re-filtered. The script is shared with `zoosporic_dikarya` and `yeast_filamentous`,
+   so a new option needs a test and a default that leaves their output unchanged.
 
 B. **Species and codings to confirm** (default: keep, replace any without a
    genome after step 1):

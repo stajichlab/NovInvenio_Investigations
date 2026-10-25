@@ -162,7 +162,9 @@ Open points:
   FUNGuild call), *Yarrowia lipolytica* (batch dimorphic; traits.csv yeast),
   *Eremothecium cymbalariae* (batch filamentous; traits.csv yeast).
 - Shared outgroups: `yc_saccharomycotina` and `yc_taphrinomycotina` share *A. megalospora*
-  and *N. crassa*. Plan: a leave-shared-out rerun of the recurrence test (PLAN section 6, A).
+  and *N. crassa*, so those two runs are not fully independent. In the first comparison
+  (2026-10-24) neither run makes a recurrent call: F-box novelty and the RNase_H clan loss
+  come from other origins (PLAN section 6, A). No leave-shared-out rerun was done.
 - Run counts that look unusual (checked 2026-10-24; no pipeline fault found):
   `yc_rev_neolecta` has 0 candidates because all 4,328 *Neolecta* proteins have a hit in at
   least one of the six Taphrinomycotina outgroups; its signal is in the loss list.
