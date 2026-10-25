@@ -7,7 +7,12 @@ Input (written by the study's enrichment analysis, not by this script):
       PROVENANCE.yaml  controls.tsv (optional)
   studies/<domain>/<folder>/analysis/enrichment/figures/<folder><suffix>_summary.png
 where <sub> is "" for --direction novelty and "loss/" for --direction loss,
-and <suffix> is "" for novelty and "_loss" for loss.
+and <suffix> is "" for novelty and "_loss" for loss. If the novelty output is not at
+outputs/proteome_clustered, outputs/novelty/proteome_clustered is used (the layout that
+studies/fungi/yeast_convergence/bin/run_enrichment_all.sh writes).
+<folder> is <group>/<contrast> for a contrast inside a grouping folder (nested study,
+for example fungi/yeast_convergence/yc_saccharomycotina); the figure name then uses the
+last component only (<contrast><suffix>_summary.png).
 
 Output, in the run folder docs/<domain>/<study>/<run>/ (from publish.yaml):
   enrichment.html / enrichment_loss.html          the page
@@ -502,23 +507,24 @@ Full record: <a href="{escape(prov_name)}">PROVENANCE</a>. Run report: <a href="
 # --- main --------------------------------------------------------------------
 
 
-def split2(value: str) -> tuple[str, str]:
+def split_study(value: str) -> tuple[str, str]:
+    """`<domain>/<folder>` or `<domain>/<group>/<contrast>` -> (domain, folder path under studies/<domain>/)."""
     parts = value.split("/")
-    if len(parts) != 2 or not all(parts):
-        raise SystemExit(f"ERROR: --study must be <domain>/<folder>, got {value!r}")
-    return parts[0], parts[1]
+    if len(parts) not in (2, 3) or not all(parts):
+        raise SystemExit(f"ERROR: --study must be <domain>/<folder> or <domain>/<group>/<contrast>, got {value!r}")
+    return parts[0], "/".join(parts[1:])
 
 
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--study", help="<domain>/<folder> under studies/")
+    ap.add_argument("--study", help="<domain>/<folder> or <domain>/<group>/<contrast> under studies/")
     ap.add_argument("--direction", choices=sorted(DIRECTIONS), default="novelty")
     ap.add_argument("--docs-run-dir", type=Path,
                     help="published run folder (default: docs/<domain>/<study>/<run>/ from publish.yaml)")
     ap.add_argument("--out", type=Path, help="page path (default: <docs-run-dir>/enrichment[_loss].html)")
     ap.add_argument("--enrichment-dir", type=Path,
                     help="default: studies/<domain>/<folder>/analysis/enrichment")
-    ap.add_argument("--figure", type=Path, help="default: <enrichment-dir>/figures/<folder>[_loss]_summary.png")
+    ap.add_argument("--figure", type=Path, help="default: <enrichment-dir>/figures/<folder name>[_loss]_summary.png (last component of --study)")
     ap.add_argument("--links-only", action="store_true",
                     help="only update the links in <docs-run-dir>/report.html (for bin/sync_reports.sh)")
     ap.add_argument("--no-links", action="store_true", help="do not edit report.html")
@@ -537,10 +543,13 @@ def main(argv: list[str] | None = None) -> int:
     if not args.study:
         raise SystemExit("ERROR: --study is required")
 
-    domain, folder = split2(args.study)
+    domain, folder = split_study(args.study)
+    folder_name = folder.rsplit("/", 1)[-1]
     sub, fig_suffix, page_name, fig_name, prov_name, _ = DIRECTIONS[args.direction]
     enr = args.enrichment_dir or root / "studies" / domain / folder / "analysis" / "enrichment"
     src = enr / "outputs" / sub / "proteome_clustered"
+    if args.direction == "novelty" and not src.is_dir() and (enr / "outputs" / "novelty" / "proteome_clustered").is_dir():
+        src = enr / "outputs" / "novelty" / "proteome_clustered"
     needed = ["tests.tsv", "coverage.tsv", "enrichment_domains.tsv.gz", "enrichment_go.tsv.gz", "PROVENANCE.yaml"]
     missing = [n for n in needed if not (src / n).is_file()]
     if missing:
@@ -576,7 +585,7 @@ def main(argv: list[str] | None = None) -> int:
     go = read_tsv(src / "enrichment_go.tsv.gz", GO_COLS)
     controls = read_controls(src / "controls.tsv") if (src / "controls.tsv").is_file() else None
 
-    fig_src = args.figure or enr / "figures" / f"{folder}{fig_suffix}_summary.png"
+    fig_src = args.figure or enr / "figures" / f"{folder_name}{fig_suffix}_summary.png"
     fig_out = None
     if fig_src.is_file():
         print(f"figure: {scale_figure(fig_src, run_dir / fig_name)}", file=sys.stderr)
