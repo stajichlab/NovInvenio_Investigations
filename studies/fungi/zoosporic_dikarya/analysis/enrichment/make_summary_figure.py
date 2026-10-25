@@ -24,6 +24,7 @@ import csv
 import gzip
 import math
 import re
+import sys
 import textwrap
 from pathlib import Path
 
@@ -103,16 +104,21 @@ for r in go_all:
         break
 tests = {(r["scope"], r["level"], r["vocab"]): r for r in csv.DictReader(open(a.enrich / "tests.tsv"), delimiter="\t")}
 
-# Heuristic label only (Pfam ID prefix). Not a test. Repeats and mobile-element domains.
-REPEAT = re.compile(r"^(Ank|LRR|WD40|TPR|HEAT|Kelch|Sel1|PPR|RVT|rve|Transposase|DDE|MULE|HTH_Tnp|Retrotrans|"
-                    r"zf-CCHC|PDDEXK|Helitron|Tc5|CENP-B|DUF4219|Chromo|Exo_endo_phos|Mito_fiss_reg)", re.I)
+# Heuristic label only (Pfam short name and description). Not a test. TE families and
+# generic repeat families are separate classes; the rules are in lib/te_flags.py.
+sys.path.insert(0, str(Path(__file__).resolve().parents[5] / "lib"))
+from te_flags import te_class  # noqa: E402
+
+KIND_LABEL = {"TE": "transposable element (name heuristic)", "repeat": "repeat family (name heuristic)",
+              "other": "other"}
 
 
 def kind(r):
-    return "repeat / TE-like (name heuristic)" if REPEAT.match(r["name"].split(":")[0]) else "other"
+    return KIND_LABEL[te_class(r["name"])]
 
 
-COL = {"other": "#2a78d6", "repeat / TE-like (name heuristic)": "#9a9a9a"}
+COL = {"other": "#2a78d6", "transposable element (name heuristic)": "#e08a1e",
+       "repeat family (name heuristic)": "#9a9a9a"}
 COMPUTATIONAL = {"IEA", "IBA", "ISS", "ISO", "ISA", "ISM", "IGC", "RCA", "NA"}
 
 
