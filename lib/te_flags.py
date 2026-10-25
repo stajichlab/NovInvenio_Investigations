@@ -10,6 +10,10 @@ short name, then description) and returns one of:
     "repeat"  generic repeat families that are not TEs (ankyrin, LRR, WD40, TPR, HEAT, Kelch, ...)
     "other"   everything else
 
+HTH_psq and ZBED1 are flagged because, in the 106 yeast_convergence proteomes, 81% of HTH_psq
+proteins and 56% of ZBED1_RNase-like proteins also carry a TE-flagged domain (Tc5/DDE_1 and
+Dimer_Tnp_hAT). DUF659 is not flagged: 12% of its 115 proteins carry one.
+
 Not flagged on purpose: RNase_H alone, generic "Aspartyl protease" families (PF13650,
 PF09668: these also occur outside TEs), restriction endonucleases (Uma2, Mrr_cat),
 homing endonucleases (LAGLIDADG), FAR1 (domesticated). Add a pattern here when a
@@ -25,6 +29,7 @@ TE_RE = re.compile(
     r"\bgag\b|gag[-_ ]|polyprotein|^Pol_|\bPol polyprotein|Helitron|(?-i:\bhAT\b)|Dimer_Tnp|\bTnp|_Tnp|Tnp_|"
     r"IS605|OrfB|TnpB|Cas12f1|MULE|Mutator|piggyBac|KDZ|Plavaka|\bCxC\d|^DDE_|DDE superfamily|"
     r"PEG10|Peptidase_A2B|Spuma|mobile element|^Tc[1-5]\b|HTH_Tnp|CENP-B|TNP-like|Plant_tran|"
+    r"^HTH_psq|^ZBED\d|"
     r"\b(Hermes|Tc1|mariner|Sleeping Beauty|Harbinger|Pogo|Tigger)\b",
     re.I,
 )

@@ -182,9 +182,14 @@ A_TITLE = f"A  {total:,} candidates in {len(IN)} {a.group} species"
 B_TITLE = textwrap.wrap("B  Pfam families enriched in candidates (primary; family units on both sides)", 95)
 GO_TEST = tests.get(("whole_set", "family", "go"))
 C_TITLE = textwrap.wrap("C  GO: not available (Pfam-only annotation)" if not_available(GO_TEST)
-                        else "C  GO terms (secondary; UniProt computational evidence)", 95)
+                        else "C  GO terms (secondary; GO annotation from UniProt)", 95)
 B_SUB = textwrap.wrap(stats_line(tests.get(("whole_set", "family", "pfam"))), 120)
-C_SUB = textwrap.wrap(stats_line(tests.get(("whole_set", "family", "go"))), 120)
+# Say which species have GO at all: bar colours show the evidence codes of the candidates,
+# and a species without GO adds no GO terms to either side of the test.
+_no_go = [LABEL[s] for s in IN if int(cov[(s, "universe")]["n_go"]) == 0]
+_go_note = (f"GO annotation in {len(IN) - len(_no_go)} of {len(IN)} {a.group} species"
+            + (f" (none: {', '.join(_no_go)})" if _no_go else ""))
+C_SUB = textwrap.wrap(stats_line(GO_TEST) + ("" if not_available(GO_TEST) else f"; {_go_note}"), 120)
 
 blocks = [  # (kind, height_in)
     ("title", len(title_lines) * FS_TITLE * LINE + 0.15),

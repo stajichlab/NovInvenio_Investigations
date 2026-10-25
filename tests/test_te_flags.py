@@ -23,13 +23,15 @@ TE = [
     "DDE_1: DDE superfamily endonuclease", "DDE_Tnp_4: DDE superfamily endonuclease",
     "HTH_Tnp_Tc5: Tc5 transposase DNA-binding domain", "Pol_BBD: Pol polyprotein, beta-barrel domain",
     "SH3_retrovirus: Retroviral polymerase SH3-like domain", "Spuma_A9PTase: Spumavirus aspartic protease (A9)",
-    "Plant_tran: Plant transposon protein", "HTH_Tnp_Tc3_2: Transposase", "Transposase_21: Transposase family tnp2",
+    "Plant_tran: Plant transposon protein", "HTH_psq: helix-turn-helix, Psq domain",
+    "ZBED1_RNase-like: ZBED1 RNase-like domain", "ZBED1_RNase-like_helical: ZBED1 RNase-like, helical domain", "HTH_Tnp_Tc3_2: Transposase", "Transposase_21: Transposase family tnp2",
 ]
 OTHER = [
     "Zn_clus: Fungal Zn(2)-Cys(6) binuclear cluster domain", "F-box: F-box domain", "F-box-like: F-box-like",
     "Vhr1: Transcription factor Vhr1", "RNase_H: RNase H", "Asp_protease_2: Aspartyl protease",
     "Asp_protease: Aspartyl protease", "Uma2: Putative restriction endonuclease",
     "Mrr_cat: Restriction endonuclease", "LAGLIDADG_1: LAGLIDADG endonuclease", "FAR1: FAR1 DNA-binding domain",
+    "DUF659: Domain of unknown function (DUF659)", "DUF3723_N: Protein of unknown function (DUF3723) N-terminal domain",
     "Globin: Globin", "Fasciclin: Fasciclin domain", "BTB: BTB/POZ domain", "Glyco_hydro_16: Glycosyl hydrolases family 16",
     "DNA_pol_B: DNA polymerase family B", "CFEM: CFEM domain", "HMG_box: HMG (high mobility group) box",
 ]
