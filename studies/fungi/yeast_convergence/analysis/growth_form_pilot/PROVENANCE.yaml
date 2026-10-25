@@ -1,0 +1,27 @@
+generated: '2026-10-25T20:10:50Z'
+class: 'tracked record of agent output (class 2): small text; not regenerable (agent runs are not deterministic)'
+source_url: 'none: output of five general-purpose agents (model: sonnet) that searched PubMed and read PubMed Central open-access
+  text on 2026-10-25'
+source_release: PubMed and PMC as of 2026-10-25; NCBI nr/taxonomy not used
+license: reports are our own agent output; each report quotes at most 40 words per record from articles cited by PMID or DOI
+derived_by: agent run described in prompt.txt, then manual transcription of the five hand-back reports from the chat session
+  into reports/*.txt (text copied, not edited); verification.tsv records the checks made afterwards
+verification: 17 quotes or key phrases from 11 sources checked (8 abstract quotes against PubMed, 9 full-text key phrases
+  against PMC XML). All matched. Every other record is unchecked. Do not treat unchecked quotes as verified.
+tools_used_by_agents:
+- ToolSearch
+- 'PubMed MCP: search_articles, get_article_metadata, get_full_text_article'
+- WebSearch
+- WebFetch
+tools_used_for_verification:
+- PubMed MCP get_article_metadata
+- curl NCBI E-utilities efetch db=pmc rettype=xml
+files_sha256:
+  README.md: 4aaa5f95ae7d2c11fd83fa02d29eca0bab91198c5d584ea8b48c21223c6191c7
+  prompt.txt: 54de1706f8402d38f38a25afaf387782c35fefd602af51b1519b41cec4ff2bc4
+  reports/1_eremothecium_rhizopus.txt: c6477861eab2cfd83c1ed06bc5b94836026c4654f2dc8d8fa5b8098242c7b76a
+  reports/2_mucor_aureobasidium.txt: 210175d73c756b65d42f448a17e202ce00757c5fb970aa27eac52025040374d2
+  reports/3_thamnidium_yarrowia.txt: 769c66901eb9eda9b00de64e787f056491dd468b9295ae6dc5f98a71048e1239
+  reports/4_exophiala_taphrina.txt: e0dc38f7773fb2d7294c455e25f518f6028e0bf6022c172b591b650f38516b72
+  reports/5_protomyces_neolecta.txt: 51011fd203f2b4c43f3c27c4939709fc178ce8af96e21abfcdb2bd7854738aca
+  verification.tsv: 69205e01d74815b7581ccc8f083cbc3591e600ab190f0af3d99ab3deef7b411e
