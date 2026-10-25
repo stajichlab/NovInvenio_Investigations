@@ -1,0 +1,12 @@
+{
+  "run": "pairwise-diamond",
+  "published": "2026-10-25",
+  "pipeline": "main.nf",
+  "folder": "studies/fungi/yeast_convergence/yc_pseudo_lichen",
+  "source_dir": "results/yc_pseudo_lichen",
+  "params": [
+    "--run_tool diamond"
+  ],
+  "n_species": 8,
+  "report_sha256": "c2db3ecc8adbc4548f8826fdc20e7cc486504c2d952495e8708d2c39894499e9"
+}

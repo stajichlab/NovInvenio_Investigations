@@ -1,4 +1,4 @@
-generated: '2026-10-25T03:16:48Z'
+generated: '2026-10-25T19:36:38Z'
 class: derived table (tracked, class 2); inputs are ephemeral and not tracked
 source_url: none; derived from this repo's yeast_convergence enrichment output
 license: derived; inputs follow their own licenses (UniProt CC BY 4.0, BFD lab annotations unpublished)
@@ -6,7 +6,7 @@ derived_by:
   script: studies/fungi/yeast_convergence/bin/convergence_compare.py
   script_sha256: 483c2b70ce1c1d9e86eb430cd519b457922f5db5fda0630850dbe4caf5280c68
   script_last_commit: 81f2418fbbbe9c8a805c10834a180b93bcb35456
-  repo_head_when_recorded: c6a0a3b4e5c216dab83a5d4ae293d58ac4a5dc5a
+  repo_head_when_recorded: bd5a796dd9761970a2361772aeea11b120311184
   command: /usr/bin/python3.12 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/bin/convergence_compare.py
     (no arguments)
   parameters:
@@ -168,6 +168,15 @@ inputs_sha256:
   : 026c3fd6cd0a6fa0c52a65229446b760750a281f17a8ae8145c1540c0c361726
   ? studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/analysis/enrichment/outputs/loss/proteome_clustered/enrichment_go.tsv.gz
   : 88874055e29451b8955a5d720879b13c3bea2166867c59e6c8a9c32b6fbf6973
+  studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/enrichment/outputs/novelty/proteome_clustered/PROVENANCE.yaml: 3abe45b5fb4b833307c05e060d35d96db3b4c0677cef4c4baa8d68186bfc002c
+  ? studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/enrichment/outputs/novelty/proteome_clustered/enrichment_domains.tsv.gz
+  : 70c2cb80efc483b4e72c8cdb54aafed0229465e27f12b25a4620aee044acc347
+  ? studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/enrichment/outputs/novelty/proteome_clustered/enrichment_go.tsv.gz
+  : c1b0d2f15dc40b4748fadc4ea51bb6b2898182065c2cf6db48855719a1cedd2c
+  studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/enrichment/outputs/loss/proteome_clustered/PROVENANCE.yaml: 1e5d551850d94ad46a23023cf46ecd535b3fe5117f40336b0f8ad84e1fd38752
+  ? studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/enrichment/outputs/loss/proteome_clustered/enrichment_domains.tsv.gz
+  : 7b7c55fe379b4ffa1d3d848439442a31047d5d0658f19dcb30c7f8a9717342a6
+  studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/enrichment/outputs/loss/proteome_clustered/enrichment_go.tsv.gz: bb6478abb5b4fa570055ee02607d948cd5603abe3324d6aac92d4e4d07d03da4
   studies/fungi/yeast_convergence/yc_rev_eremothecium/analysis/enrichment/outputs/novelty/proteome_clustered/PROVENANCE.yaml: 00a77059d279470f017ba18b552a4476ad313e61b1583872f87eac41dbef828f
   ? studies/fungi/yeast_convergence/yc_rev_eremothecium/analysis/enrichment/outputs/novelty/proteome_clustered/enrichment_domains.tsv.gz
   : 760dc5a7c083ef96399aeb7771533bc9c033de66fbad39a9af7d2252d5e9dfab
@@ -191,11 +200,11 @@ inputs_sha256:
   studies/fungi/yeast_convergence/focus_terms.tsv: 55c8837e8a0a8ea89302be7b21024fac5329e3085317ff6c447b5a6b12f6cf72
 outputs_sha256:
   annotation_coverage.tsv: cbc09e8dda752bee9e99ffa8a296c1a4a4fb2250c30214e82c7add9797fa5d2b
-  focus_terms.tsv: 614192c2388f3e81ea3990cec924dfabbeb482a41a7d0787b1480ba957d5d4c8
-  pairwise_jaccard.tsv: d7a45c384b593655395b9f100b63ac2d2716b2d84b2603b6e47268497fdf0015
+  focus_terms.tsv: b04319e7c1a05f6eaaece5633ab485c5a6ae25285e85c016ae643d475818c6d8
+  pairwise_jaccard.tsv: 36fce3f0ef056165b01dcb40490c4b196aeed8765ee3d799744a7e1d5126c0c0
   reversal_overlap.tsv: 3dd63aefc40ece83a54ced7d646cb3695e454bd445f567e5f0326553fc7d64e5
-  summary.md: 125c995448bf8b1d910825b410dcec2f7be2519c8379b13578d6d99ca73a943c
-  term_recurrence.tsv.gz: 7db169bd9e86eb9bed6b6ff077addf509eea307af87a1a2054c0a0ea6847933b
+  summary.md: cdbb7cf8d6bb1e3994cef9cc6a63bc86f0418bcaeec2963ef37fa3906a58d238
+  term_recurrence.tsv.gz: 3c2425722701fd1fa88e89d8e036445818b921ea76f4710da0e5269b657173bb
 output_note: term_recurrence.tsv.gz is gzip of term_recurrence.tsv (mtime 0); the plain file is ignored by git. Its sha256
   is of the .gz.
 scope_note: Excludes yc_pseudo_lichen (no run). GO/InterPro only over all-UniProt contrasts.

@@ -1,0 +1,182 @@
+generated: '2026-10-25T08:49:01'
+study: yc_pseudo_lichen
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_lichen --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations
+  --study yc_pseudo_lichen --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Penichry
+  - Fusagram
+  - Ascosarc
+  - Pyretrit
+other_group:
+  label: IN
+  species:
+  - Cladrubr
+  - Xantpari
+  - Umbipust
+  - Lethlupi
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations
+annotation_files:
+  Penichry: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/UP001220256.tsv.gz
+  Fusagram: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Fusarium_graminearum_PH-1.proteins.tsv.gz
+  Ascosarc: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Ascocoryne_sarcoides_NRRL_50072.proteins.tsv.gz
+  Pyretrit: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/UP000249757.tsv.gz
+  Cladrubr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Cladonia_rubrotincta.proteins.tsv.gz
+  Xantpari: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/UP001730806.tsv.gz
+  Umbipust: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/UP000192927.tsv.gz
+  Lethlupi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Letharia_lupina_WasteWater1.proteins.tsv.gz
+annotation_sources:
+  Penichry: not recorded (no sidecar)
+  Fusagram: Pfam-A HMM search (hmmsearch); Pfam only
+  Ascosarc: Pfam-A HMM search (hmmsearch); Pfam only
+  Pyretrit: not recorded (no sidecar)
+  Cladrubr: Pfam-A HMM search (hmmsearch); Pfam only
+  Xantpari: not recorded (no sidecar)
+  Umbipust: not recorded (no sidecar)
+  Lethlupi: Pfam-A HMM search (hmmsearch); Pfam only
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Penichry
+    - Fusagram
+    - Ascosarc
+    - Pyretrit
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  pfam_clan:
+    species_with_terms:
+    - Penichry
+    - Fusagram
+    - Ascosarc
+    - Pyretrit
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  interpro:
+    species_with_terms:
+    - Penichry
+    - Pyretrit
+    species_without_terms:
+    - Fusagram
+    - Ascosarc
+    n_with: 2
+    n_species: 4
+  go:
+    species_with_terms:
+    - Penichry
+    - Pyretrit
+    species_without_terms:
+    - Fusagram
+    - Ascosarc
+    n_with: 2
+    n_species: 4
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 1311
+  candidates_txt: 1311
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_lichen/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_lichen/loss_presence_matrix.tsv
+  rule: OUT count / 4 >= 0.75 and IN count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 1a92964295bb6df0
+  n_sequences: 47644
+  n_clusters: 25321
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 85.1
+  threads: 4
+  created: '2026-10-25T08:48:55'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_lichen/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/config.csv
+  : da5591a7fb175a36577260539a5fb0d1f1d98ca1243d9102ae1c44d0142fb443
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_lichen/loss_candidates.txt: 7b7c92bd38bc110744789e04edc3c2a0a2e581eac1bf83e28a1b145e4801bfbd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_lichen/clusters/loss_clusters_cluster.tsv
+  : 617ef9510e925644ca36ff2731b9da48dc93d219a40fe3615bad1ef84119774b
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_lichen/loss_presence_matrix.tsv: ac0011256cf5ff4d1702c3330a52f44d6d461f342620a312d581262c15542d3a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/data_dir/pep/UP001220256_5076.pep.fa
+  : e93c77d19d82f21ce54473b56b4e3fdefd3be91727418fb61773f7d116ee8c54
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/data_dir/pep/Fusagram.pep.fa
+  : 8bac7dc9b935206369bba8276bd079c7183c5c9435945af8833af47e9a94c1dd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/data_dir/pep/Ascosarc.pep.fa
+  : d140d5982c1453cb0368f2385fa1a8730a2b79d390c8975abf6724ec7762401b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/data_dir/pep/UP000249757_45151.pep.fa
+  : 8421bbd36fa4503fe94c9e5e9c79a24b41eda500796bb3fcd0278bd43eef4dfc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/species.csv
+  : 6bb81e5a47b49554607fd780aae78fde983e9cadbf282b709689bc36504ad7fe
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/UP001220256.tsv.gz
+  : 4b9a7990245f60ece6c67616502edb9eb9209d878073c269a76a312b9690f6e3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Fusarium_graminearum_PH-1.proteins.tsv.gz
+  : 1e26a365528a75bd3a4d72b5d559ee4eb56721d8474e26d9d800b529c13992b3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Ascocoryne_sarcoides_NRRL_50072.proteins.tsv.gz
+  : 5f0956843b97deea01da6f4e2cb01b8cf533fd0899920cafe163298188d7ecce
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/UP000249757.tsv.gz
+  : ba988ed84d9127fd96936f006facf656c6d1365fa60af488cbd6ed9d21cdc3c8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Cladonia_rubrotincta.proteins.tsv.gz
+  : ebe076795a35a2f7feb3c91a5333175d54894818ddd081c639be0d9162828ff5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/UP001730806.tsv.gz
+  : 402f0d653914d99dac26343d2b65bec36b1e4ad9f5543bd30bb35404d566481f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/UP000192927.tsv.gz
+  : 6e55de543c7fc820cc6adfd54f2daf3a54da8d45d997757635b45a7bb9b431cd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Letharia_lupina_WasteWater1.proteins.tsv.gz
+  : 114b8100497d19456ffae06507d552e736814abe540e457ffc3329f1a05aa37e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Fusarium_graminearum_PH-1.proteins.tsv.gz.provenance.yaml
+  : 1ef3013da341b5910fe8f2e306a6eb053562898a1c2a763955c141f71f25f857
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Ascocoryne_sarcoides_NRRL_50072.proteins.tsv.gz.provenance.yaml
+  : bca7ff55d636ce587570a94604411096fcf93e627193f4a0fab2c940e417160c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Cladonia_rubrotincta.proteins.tsv.gz.provenance.yaml
+  : 46169ec9a555ae223ab379949fc8e3c5ebde5541b07089411d7775f23edfc949
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/annotations/Letharia_lupina_WasteWater1.proteins.tsv.gz.provenance.yaml
+  : 47b7069c960ee4a82b8306bdbf3b11654932a8cac5315a4da8f9e2455abb1d1a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 3.9
+  background_cluster_s: 85.5
+  tests_s: 4.3
+  total_s: 95.6
+host: r11
+slurm_job: '30548936'
