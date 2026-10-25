@@ -69,6 +69,20 @@ def load_domains() -> list[tuple[str, str, str]]:
     return [(row["slug"], row["name"], row["desc"]) for row in rows]
 
 
+def load_domain_pages() -> dict[str, list[dict]]:
+    """slug -> hand-made page cards from conf/domains.yaml (`pages:`, optional)."""
+    with open(DOMAINS_YAML) as fh:
+        rows = yaml.safe_load(fh)
+    out = {}
+    for row in rows:
+        pages = row.get("pages") or []
+        for pg in pages:
+            if not (isinstance(pg, dict) and pg.get("title") and pg.get("href")):
+                raise SystemExit(f"{DOMAINS_YAML}: {row['slug']}: each page needs a title and href, got {pg!r}")
+        out[row["slug"]] = pages
+    return out
+
+
 def species_counts(study_dir: Path) -> tuple[int, int] | tuple[None, None]:
     species_csv = study_dir / "species.csv"
     if not species_csv.exists():
@@ -171,6 +185,7 @@ def main() -> int:
     site_name = load_site_name()
     domains = load_domains()
     domain_data = {slug: find_studies(slug) for slug, _, _ in domains}
+    domain_pages = load_domain_pages()
 
     DOCS_ROOT.mkdir(parents=True, exist_ok=True)
     (DOCS_ROOT / "index.html").write_text(render_top_level([
@@ -181,12 +196,12 @@ def main() -> int:
 
     for slug, name, _ in domains:
         studies = domain_data[slug]
-        if not studies:
+        if not studies and not domain_pages.get(slug):
             continue
         domain_docs_dir = DOCS_ROOT / slug
         domain_docs_dir.mkdir(parents=True, exist_ok=True)
         (domain_docs_dir / "index.html").write_text(
-            render_domain_index(name, studies, site_name=site_name)
+            render_domain_index(name, studies, site_name=site_name, pages=domain_pages.get(slug))
         )
         print(f"Wrote {domain_docs_dir / 'index.html'} ({len(studies)} studies)", file=sys.stderr)
 

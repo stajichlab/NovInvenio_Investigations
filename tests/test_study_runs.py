@@ -242,6 +242,25 @@ def test_sync_reports_domain_is_first_component():
     assert 'DOMAIN="$(dirname "$STUDY")"' not in text
 
 
+def test_publish_target_related(tmp_path):
+    (tmp_path / "publish.yaml").write_text(
+        "study: s\nrun: r\nrelated:\n  - {title: Comparison, href: yeast_convergence/index.html}\n")
+    assert load_publish_target(tmp_path).related == (("Comparison", "yeast_convergence/index.html"),)
+    (tmp_path / "publish.yaml").write_text("study: s\n")
+    assert load_publish_target(tmp_path).related == ()
+
+
+@pytest.mark.parametrize("entry", [
+    "{title: X, href: 'https://example.org/'}", "{title: X, href: /abs/path.html}",
+    "{title: X, href: ../other/index.html}", "{title: '', href: a/index.html}", "{href: a/index.html}",
+    "just a string",
+])
+def test_publish_target_related_rejects_bad_entries(tmp_path, entry):
+    (tmp_path / "publish.yaml").write_text(f"study: s\nrelated:\n  - {entry}\n")
+    with pytest.raises(ValueError, match="related"):
+        load_publish_target(tmp_path)
+
+
 # --- bin/generate_docs.py --------------------------------------------------
 
 
@@ -455,3 +474,22 @@ def test_pfam_only_pages_name_the_vocabulary(tmp_path):
     (tmp_path / "run.json").write_text(json.dumps({"run": tmp_path.name, "published": "2026-10-16"}))
     pages = rebuild_study_pages(tmp_path.parent, "fungi", "s")
     assert pages and "enrichment (Pfam only)" in (tmp_path.parent / "report.html").read_text()
+
+
+def test_gallery_domain_pages(gallery):
+    """conf/domains.yaml `pages:` adds a card for a hand-made page that is not a study."""
+    (gallery / "conf" / "domains.yaml").write_text(
+        "- slug: fungi\n  name: Fungi\n  desc: d\n  pages:\n"
+        "    - {title: yeast_convergence comparison, href: yeast_convergence/index.html, desc: 'Across 16 contrasts'}\n")
+    _folder(gallery, "fungi", "newstudy", "study: newstudy\nrun: pw\n")
+    assert generate_docs.main() == 0
+    html = (gallery / "docs" / "fungi" / "index.html").read_text()
+    assert 'href="yeast_convergence/index.html"' in html
+    assert "yeast_convergence comparison" in html and "Across 16 contrasts" in html
+
+
+def test_gallery_domain_with_only_pages_is_written(gallery):
+    (gallery / "conf" / "domains.yaml").write_text(
+        "- slug: fungi\n  name: Fungi\n  desc: d\n  pages:\n    - {title: T, href: x/index.html, desc: D}\n")
+    assert generate_docs.main() == 0
+    assert 'href="x/index.html"' in (gallery / "docs" / "fungi" / "index.html").read_text()

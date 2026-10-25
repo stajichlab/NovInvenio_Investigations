@@ -404,8 +404,12 @@ img.fig { max-width: 100%; height: auto; background: #fff; border: 1px solid var
 
 def render(study: str, direction: str, run: str, prov: dict, cov: list[dict], tests: list[dict],
            domains: list[dict], go: list[dict], controls: tuple[list[str], list[dict]] | None,
-           fig_name: str | None, prov_name: str, src_rel: str) -> str:
+           fig_name: str | None, prov_name: str, src_rel: str,
+           related: tuple[tuple[str, str], ...] = ()) -> str:
     _, _, _, _, _, dir_text = DIRECTIONS[direction]
+    # publish.yaml `related:` hrefs are relative to docs/<domain>/; this page is two levels below.
+    related_line = ("" if not related else '<p class="note">Related: ' + " &middot; ".join(
+        f'<a href="../../{escape(h)}">{escape(ti)}</a>' for ti, h in related) + "</p>")
     params = prov.get("parameters") or {}
     bgc = prov.get("background_clustering") or {}
     method = (
@@ -470,6 +474,7 @@ def render(study: str, direction: str, run: str, prov: dict, cov: list[dict], te
 <p class="method">{method}</p>
 <p class="note">Sources: {sources} Source tables: <code>{escape(src_rel)}</code>.
 Full record: <a href="{escape(prov_name)}">PROVENANCE</a>. Run report: <a href="report.html">report.html</a>.</p>
+{related_line}
 <div class="caveats"><b>Caveats</b><ul>{''.join(f'<li>{c}</li>' for c in caveats)}</ul></div>
 """]
     if fig_name:
@@ -557,8 +562,9 @@ def main(argv: list[str] | None = None) -> int:
         return 0
 
     run_dir = args.docs_run_dir
+    study_target = load_publish_target(root / "studies" / domain / folder)
     if run_dir is None:
-        target = load_publish_target(root / "studies" / domain / folder)
+        target = study_target
         if target is None or target.run is None:
             print(f"== {args.study}: no publish.yaml with a run; not published, no page written ==",
                   file=sys.stderr)
@@ -599,7 +605,7 @@ def main(argv: list[str] | None = None) -> int:
     except ValueError:
         src_rel = str(src)
     html = render(study_name, args.direction, run_dir.name, prov, cov, tests, domains, go, controls,
-                  fig_out, prov_name, src_rel)
+                  fig_out, prov_name, src_rel, study_target.related if study_target else ())
     out = args.out or run_dir / page_name
     out.write_text(html, encoding="utf-8")
     print(f"wrote {out} ({len(html.encode()):,} bytes; sha256 "

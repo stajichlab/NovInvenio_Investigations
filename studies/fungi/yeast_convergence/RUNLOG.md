@@ -67,3 +67,17 @@ Design and caveats: `README.md` and `PLAN.md`. Comparison provenance:
 - Growth-form codings are not in `config_support/traits/` (issue #44). Three codings conflict with `traits.csv`.
 - 32 species are not in the NovInvenio master pool (not added).
 - Merge of PR #43. `studies/` and `bin/` changes are on the branch `yeast-convergence-contrasts`, not on `main`.
+
+## 9. After the first comparison (2026-10-25)
+
+- Enrichment pages, figures and the comparison page were published to `main` (docs only).
+- Review fixes: `run_enrichment_all.sh` redoes a folder that has no `PROVENANCE.yaml`; control
+  figure titles name the control type and focal species; the comparison page takes its counts
+  from the files.
+- Shared-code PRs: #45 (nested studies in `generate_enrichment_page.py`), #46 (TE flags in
+  figures and pages, plain notice for 0 candidates), and this follow-up (related links and a
+  gallery page card for the comparison page).
+- Lichen screen: job 30474764 was cancelled (it ran on 1 thread). Job 30478145 uses 32 threads.
+- `yc_rev_neolecta` has 0 novelty candidates because a one-species ingroup cannot yield any
+  (see README).
+

@@ -320,3 +320,16 @@ def test_flat_novelty_dir_still_preferred(repo):
 def test_study_argument_shape_is_checked(repo, value):
     with pytest.raises(SystemExit, match="--study"):
         gep.main(["--repo-root", str(repo), "--study", value])
+
+
+def test_related_links_on_page(repo):
+    (repo / "studies" / "fungi" / "s1" / "publish.yaml").write_text(
+        "study: s1\nrun: pw\nrelated:\n  - {title: 'Comparison across contrasts', href: grp/index.html}\n")
+    assert _main(repo) == 0
+    page = (repo / "docs" / "fungi" / "s1" / "pw" / "enrichment.html").read_text()
+    assert 'href="../../grp/index.html"' in page and "Comparison across contrasts" in page
+
+
+def test_no_related_no_related_line(repo):
+    assert _main(repo) == 0
+    assert "Related:" not in (repo / "docs" / "fungi" / "s1" / "pw" / "enrichment.html").read_text()

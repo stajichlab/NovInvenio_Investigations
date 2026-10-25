@@ -191,6 +191,40 @@ would add algal and bacterial "novelties".
 Change the YAML, then `render --force` for that contrast only after saving any
 resolve output you want to keep.
 
+## Known follow-ups
+
+From the Opus review of PR #43 (2026-10-25). None of these changes a published result. They are
+recorded so a later change can pick them up.
+
+- **Run record.** `analysis/convergence/PROVENANCE.yaml` is written after the comparison run.
+  The `nf_NovInvenio` commit comes from a worktree HEAD at record time, the Python version is
+  the provenance script's own, and `command` and `parameters` are typed in. The 6 outputs and 92
+  inputs were re-hashed and match. Fix: let `convergence_compare.py` write its own run record
+  (argv, interpreter, parameters, input hashes) and read the pipeline commit from
+  `results/<id>/nextflow_log`.
+- **Hard-coded per-user paths.** `NOVINVENIO_ROOT` in `bin/write_comparison_provenance.py`, and
+  the text "NovInvenio d03f5a2" in `bin/yc_enrichment_figures.py` titles. Add an environment
+  override and read the commit from the Nextflow log.
+- **BUSCO record.** `analysis/busco/summary.tsv.provenance.yaml` names `mk.py` as the writing
+  script; it is not in the repo. Six rows (replaced or candidate proteomes) were added by hand.
+  `bin/run_busco_proteomes.sh` skips a proteome by name, so a proteome re-pointed to a new FASTA
+  is not rerun. Fix: key on the accession.
+- **Secondary-vocabulary classes.** `convergence_compare.py` assigns `class` to GO and InterPro
+  rows as well (tier `secondary`, a cross-check). Any reader of `term_recurrence.tsv.gz` must
+  filter on `tier`. The comparison page does.
+- **Nested studies.** `bin/generate_enrichment_page.py` accepts `<domain>/<group>/<contrast>`.
+  `bin/study_pages.py` and `bin/migrate_docs_to_runs.py` still reject nested folders.
+- **TE flag gaps.** `lib/te_flags.py` is a name rule. It does not flag HTH_psq, ZBED1,
+  `Asp_protease` and `Asp_protease_2` (generic aspartyl proteases), DUF659, or LAGLIDADG homing
+  endonucleases. Some of these may sit in TEs in the arbuscular mycorrhizal proteomes; no
+  evidence was checked.
+- **Panel C subtitle.** The GO panel of the summary figure says "UniProt computational
+  evidence" even when most bars carry curated codes, and it does not say which species lack GO.
+  This is in the shared `make_summary_figure.py`.
+- **Lichen.** `yc_pseudo_lichen` has not run. The proteome screen (job 30478145,
+  `bin/lichen_taxcheck.sh`) classifies best nr hits by NCBI lineage. Its result and the
+  decision on the control go in a later PR.
+
 ## What the comparison does and does not test
 
 `convergence_compare.py` asks, per vocabulary and direction, whether a term is
