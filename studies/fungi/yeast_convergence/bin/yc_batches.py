@@ -64,6 +64,8 @@ study: {id}
 run: pairwise-diamond
 notes:
   - "yeast_convergence contrast ({role}): {origin}. Design and caveats: studies/fungi/yeast_convergence/README.md"
+related:
+  - {{title: "yeast_convergence: comparison across contrasts", href: yeast_convergence/index.html}}
 """
 DOMINANT_PHASES = {"yeast", "hyphal"}
 # Rank of the IN/OUT split, shallow to deep. convergence_compare.py treats

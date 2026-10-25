@@ -36,6 +36,27 @@ class PublishTarget:
     study: str
     run: str | None
     notes: tuple[str, ...] = ()
+    related: tuple[tuple[str, str], ...] = ()   # (title, href relative to docs/<domain>/)
+
+
+def validate_related(entries, where: str) -> tuple[tuple[str, str], ...]:
+    """publish.yaml `related:` -> ((title, href), ...). href is a path under docs/<domain>/:
+    no scheme, no leading slash, no `..` segment."""
+    if entries is None:
+        return ()
+    if not isinstance(entries, list):
+        raise ValueError(f"{where}: related must be a list of {{title, href}}")
+    out = []
+    for e in entries:
+        title = e.get("title") if isinstance(e, dict) else None
+        href = e.get("href") if isinstance(e, dict) else None
+        if not (isinstance(title, str) and title.strip() and isinstance(href, str) and href.strip()):
+            raise ValueError(f"{where}: each related entry needs a non-empty title and href, got {e!r}")
+        href = href.strip()
+        if "://" in href or href.startswith("/") or ".." in href.split("/"):
+            raise ValueError(f"{where}: related href must be a path under docs/<domain>/, got {href!r}")
+        out.append((title.strip(), href))
+    return tuple(out)
 
 
 def validate_slug(name: str, what: str) -> str:
@@ -59,7 +80,8 @@ def load_publish_target(folder_dir: Path) -> PublishTarget | None:
     notes = data.get("notes") or []
     if not isinstance(notes, list) or not all(isinstance(n, str) and n.strip() for n in notes):
         raise ValueError(f"{path}: notes must be a list of non-empty strings")
-    return PublishTarget(study=study, run=run, notes=tuple(n.strip() for n in notes))
+    related = validate_related(data.get("related"), f"{path}: related")
+    return PublishTarget(study=study, run=run, notes=tuple(n.strip() for n in notes), related=related)
 
 
 def render_redirect(target: str) -> str:

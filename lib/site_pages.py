@@ -142,7 +142,8 @@ _STATUS_TEXT = {
 
 
 def render_domain_index(
-    domain_name: str, studies: list[dict], site_name: str = "NovInvenio Investigations"
+    domain_name: str, studies: list[dict], site_name: str = "NovInvenio Investigations",
+    pages: list[dict] | None = None,
 ) -> str:
     """studies: [{name, slug, hypothesis, n_ingroup, n_outgroup, status,
     href, n_runs}] -- href is the card link (the current run's report.html,
@@ -183,6 +184,15 @@ def render_domain_index(
   <h2>{escape(s['name'].replace('_', ' '))}</h2>
   <p class="desc">{escape(s.get('hypothesis', ''))}</p>
   <p class="meta">{meta}{status_bit}</p>
+</a>""")
+    # Hand-made pages that are not studies (conf/domains.yaml `pages:`), for example a
+    # comparison across several studies: [{title, href, desc}], href relative to docs/<domain>/.
+    for pg in pages or []:
+        cards.append(f"""
+<a class="card" href="{escape(pg['href'])}">
+  <h2>{escape(pg['title'])}</h2>
+  <p class="desc">{escape(pg.get('desc', ''))}</p>
+  <p class="meta">page</p>
 </a>""")
     body = f"""
 <div class="title-row"><img class="logo" src="{_LOGO_DATA_URI}" alt=""><h1>{escape(domain_name)}</h1></div>
