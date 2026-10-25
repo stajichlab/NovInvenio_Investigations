@@ -46,7 +46,7 @@ Design and caveats: `README.md` and `PLAN.md`. Comparison provenance:
 ## 6. Comparison
 
 - `/usr/bin/python3.12 bin/convergence_compare.py` (defaults), then `bin/write_comparison_provenance.py`.
-- Output in `analysis/convergence/`. 9 origin, 5 pseudo, 2 reversal contrasts.
+- Output in `analysis/convergence/`. 9 origin, 4 pseudo (the fifth, lichen, has no run) and 2 reversal contrasts have tables.
 - Result: 0 yeast-convergent terms. 4 streamlining-generic terms (F-box x3 in novelty; RNase_H clan in loss).
   This does not show that convergence is absent (README and PLAN list the limits).
 - Shared outgroups of `yc_saccharomycotina` and `yc_taphrinomycotina`: neither run makes a recurrent call. No leave-shared-out rerun (PLAN section 6, A).
