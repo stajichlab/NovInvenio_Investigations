@@ -58,6 +58,7 @@ Outputs (in --out-dir):
     annotation_coverage.tsv  per contrast: species, UniProt species, whether
                           GO/InterPro were used
     summary.md            counts, coverage, top terms
+    run_record.json       argv, interpreter, parameters and finish time of this run
 """
 from __future__ import annotations
 
@@ -65,7 +66,9 @@ import argparse
 import csv
 import gzip
 import itertools
+import json
 import sys
+from datetime import datetime, timezone
 from collections import defaultdict
 from pathlib import Path
 
@@ -417,6 +420,13 @@ def main(argv=None) -> int:
                for c in coverage.values()],
               ["id", "role", "n_species", "n_uniprot", "all_uniprot", "secondary_vocabs_used"])
     (out_dir / "summary.md").write_text(summary_md(args, index, missing, rec, jac, rev, foc, coverage))
+    # Run record: what this run actually was (write_comparison_provenance.py copies it).
+    record = {"script": str(Path(__file__).resolve()), "argv": list(sys.argv if argv is None else argv),
+              "python": sys.version.split()[0], "executable": sys.executable,
+              "finished_utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+              "parameters": {k: (str(v) if isinstance(v, Path) else v) for k, v in vars(args).items()},
+              "missing_tables": missing}
+    (out_dir / "run_record.json").write_text(json.dumps(record, indent=2, sort_keys=True) + "\n")
     print(f"wrote {out_dir}/: term_recurrence.tsv pairwise_jaccard.tsv reversal_overlap.tsv "
           f"focus_terms.tsv annotation_coverage.tsv summary.md ({len(missing)} missing tables)")
     return 0

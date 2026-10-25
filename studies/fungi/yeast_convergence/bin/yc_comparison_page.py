@@ -24,6 +24,35 @@ def tsv(p):
         return list(csv.DictReader(fh, delimiter="\t"))
 
 
+def lichen_screen_item() -> str:
+    """Limits-box line from the lichen proteome and candidate screens (analysis/lichen_check,
+    yc_pseudo_lichen/analysis/candidate_taxcheck), read from the summary tables. Empty if absent."""
+    p1 = CONV.parent / "lichen_check/summary.tsv"
+    p2 = SRC / "yc_pseudo_lichen/analysis/candidate_taxcheck/summary.tsv"
+    if not (p1.is_file() and p2.is_file()):
+        return ""
+    prot = {(r["proteome"], r["group_of_best_hit"]): r for r in tsv(p1)}
+    lup = prot.get(("Lethlupi", "Fungi"))
+    cand_tot = cand_nonfungal = cand_nohit = 0
+    for r in tsv(p2):
+        n = int(r["n_proteins"])
+        if r["group_of_best_hit"] == "no_hit":
+            cand_nohit += n
+        elif r["group_of_best_hit"] != "Fungi":
+            cand_nonfungal += n
+        if r["group_of_best_hit"] != "no_hit":
+            cand_tot += n
+    if not lup:
+        return ""
+    plant = int(prot.get(("Lethlupi", "Viridiplantae"), {"n_proteins": 0})["n_proteins"])
+    return (f"<li>Lichen proteomes: <em>Letharia lupina</em> WasteWater1 was screened against NCBI nr "
+            f"(diamond, best hit by bit score): {100 * float(lup['fraction_of_all_proteins']):.1f}% of its "
+            f"{int(lup['n_proteins_total']):,} proteins have a fungal best hit, and {plant} have a green-plant or algal one. "
+            f"Of {cand_tot + cand_nohit:,} novelty and loss candidate proteins of the lichen contrast, {cand_nonfungal} have a "
+            f"non-fungal best hit and {cand_nohit} have no hit. The screen is a check, not an assignment. "
+            f"<em>C. rubrotincta</em> was not screened as a whole proteome.</li>\n")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--repo-root", type=Path, required=True)
@@ -70,6 +99,10 @@ def main():
            f"<a href=\"../{r['id']}/pairwise-diamond/report.html\">report</a></td>"
            if r in have_tables else "<td>not run</td>") + "</tr>"
         for r in idx)
+    not_run = [r["id"] for r in idx if r not in have_tables]
+    not_run_item = ("<li>Not run, so not in the comparison: " + ", ".join(f"<code>{escape(i)}</code>" for i in not_run)
+                    + f". {n_role.get('pseudo', 0)} controls are included.</li>") if not_run else ""
+    lichen_item = lichen_screen_item()
     files = "".join(f"<li><a href=\"data/{f}\">{f}</a></li>" for f in DATA_FILES)
     html = f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -95,7 +128,7 @@ Terms that a pseudo-origin control also calls are labelled <em>streamlining_gene
 This does not show that convergence is absent. The analysis has few origins, small ingroups for some contrasts, and a null model that ignores family size.</p>
 <div class="scroll"><table><thead><tr><th>direction</th><th>vocab</th><th>term</th><th>name</th><th>origins sig/tested</th><th>origins</th><th>q</th><th>controls sig/tested</th><th>class</th></tr></thead><tbody>{rows}</tbody></table></div>
 <div class="caveats"><strong>Limits</strong><ul>
-<li><code>yc_pseudo_lichen</code> was not run. Its proteomes are not yet checked for algal or bacterial contamination. Only {n_role.get('pseudo', 0)} controls are in the comparison.</li>
+{not_run_item}{lichen_item}
 <li>Pfam is the primary vocabulary for every contrast: from UniProt records, or from a HMMER search for proteomes without UniProt annotation. GO and InterPro are used only for contrasts whose species are all UniProt proteomes. {n_secondary} terms are recurrent in those secondary vocabularies.</li>
 <li>{n_low} proteomes score under 85% BUSCO complete (fungi_odb10) and are kept. Loss calls for those species may include missing genes, not only losses.</li>
 <li>The arbuscular mycorrhizal control has {f"{n_amf:,}" if n_amf else "many"} novelty candidates. About half of its proteins have no diamond hit in the Mucoromycota outgroups. Whether this is real expansion is not tested. Several of its top Pfam bars are transposon families.</li>

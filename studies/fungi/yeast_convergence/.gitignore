@@ -16,3 +16,12 @@ analysis/convergence/tmp/
 # BUSCO per-proteome run directories (regenerable with bin/run_busco_proteomes.sh)
 analysis/busco/runs/
 analysis/convergence/term_recurrence.tsv
+# Taxonomy screens (bin/lichen_taxcheck.sh, bin/candidate_taxcheck.sh): the hit tables and query lists are
+# not tracked (their SHA-256 is in each PROVENANCE.yaml); summary.tsv and the provenance are.
+analysis/lichen_check/hits.tsv.zst
+analysis/lichen_check/queries.txt
+analysis/lichen_check/diamond.log
+analysis/lichen_check/best_hits.tsv.gz
+*/analysis/candidate_taxcheck/hits.tsv.zst
+*/analysis/candidate_taxcheck/queries.txt
+*/analysis/candidate_taxcheck/diamond.log

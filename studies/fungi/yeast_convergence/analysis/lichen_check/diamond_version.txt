@@ -1,0 +1,2 @@
+diamond version 2.1.12
+-rw-r--r-- 1 pkgadmin pkgadmin 194995166099 Apr  5  2026 /srv/projects/db/ncbi/diamond/current/nr_cluster_seq.dmnd

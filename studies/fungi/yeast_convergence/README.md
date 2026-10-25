@@ -1,7 +1,7 @@
 # yeast_convergence: independent yeast origins, one pairwise run each
 
-Status (2026-10-25): 15 of 16 contrasts ran (pairwise diamond), enrichment and the first
-cross-contrast comparison are done and published. `yc_pseudo_lichen` is held out. What was
+Status (2026-10-25): all 16 contrasts ran (pairwise diamond); enrichment and the cross-contrast
+comparison (9 origins, 5 controls, 2 reversals) are done and published. What was
 run, with job IDs: `RUNLOG.md`. Open items: PR #43 and issue #44.
 
 ## Question
@@ -180,9 +180,9 @@ Open points:
   real (lineage-specific gene content), but this is untested. Diamond sensitivity at this
   distance and contamination were not checked. Read this contrast's candidate list with that
   in mind.
-- `yc_pseudo_lichen` is held out of the analysis for now. Its proteomes are not
-  checked for algal or bacterial contamination, and *L. lupina* WasteWater1 has one 3 Mb
-  contig at 17% GC.
+- `yc_pseudo_lichen` ran after the first comparison (see RUNLOG section 10). *L. lupina*
+  WasteWater1 has one 3 Mb contig at 17% GC with 65 of 12,349 genes; 53 of them have a fungal best hit
+  in nr and none a non-fungal one.
 - Lichen proteomes: a contig GC check found no high-GC (algal) contigs; it is not a
   taxonomic assignment of the proteins.
 
@@ -193,37 +193,40 @@ resolve output you want to keep.
 
 ## Known follow-ups
 
-From the Opus review of PR #43 (2026-10-25). None of these changes a published result. They are
-recorded so a later change can pick them up.
+From the Opus review of PR #43 (2026-10-25). None of these changes a published result. Items
+marked done were fixed in the follow-up PR for the lichen contrast.
 
-- **Run record.** `analysis/convergence/PROVENANCE.yaml` is written after the comparison run.
-  The `nf_NovInvenio` commit comes from a worktree HEAD at record time, the Python version is
-  the provenance script's own, and `command` and `parameters` are typed in. The 6 outputs and 92
-  inputs were re-hashed and match. Fix: let `convergence_compare.py` write its own run record
-  (argv, interpreter, parameters, input hashes) and read the pipeline commit from
-  `results/<id>/nextflow_log`.
-- **Hard-coded per-user paths.** `NOVINVENIO_ROOT` in `bin/write_comparison_provenance.py`, and
-  the text "NovInvenio d03f5a2" in `bin/yc_enrichment_figures.py` titles. Add an environment
-  override and read the commit from the Nextflow log.
-- **BUSCO record.** `analysis/busco/summary.tsv.provenance.yaml` names `mk.py` as the writing
-  script; it is not in the repo. Six rows (replaced or candidate proteomes) were added by hand.
-  `bin/run_busco_proteomes.sh` skips a proteome by name, so a proteome re-pointed to a new FASTA
-  is not rerun. Fix: key on the accession.
-- **Secondary-vocabulary classes.** `convergence_compare.py` assigns `class` to GO and InterPro
-  rows as well (tier `secondary`, a cross-check). Any reader of `term_recurrence.tsv.gz` must
-  filter on `tier`. The comparison page does.
-- **Nested studies.** `bin/generate_enrichment_page.py` accepts `<domain>/<group>/<contrast>`.
-  `bin/study_pages.py` and `bin/migrate_docs_to_runs.py` still reject nested folders.
-- **TE flag gaps.** `lib/te_flags.py` is a name rule. It does not flag HTH_psq, ZBED1,
-  `Asp_protease` and `Asp_protease_2` (generic aspartyl proteases), DUF659, or LAGLIDADG homing
-  endonucleases. Some of these may sit in TEs in the arbuscular mycorrhizal proteomes; no
-  evidence was checked.
-- **Panel C subtitle.** The GO panel of the summary figure says "UniProt computational
-  evidence" even when most bars carry curated codes, and it does not say which species lack GO.
-  This is in the shared `make_summary_figure.py`.
-- **Lichen.** `yc_pseudo_lichen` has not run. The proteome screen (job 30478145,
-  `bin/lichen_taxcheck.sh`) classifies best nr hits by NCBI lineage. Its result and the
-  decision on the control go in a later PR.
+- **Run record (done).** `convergence_compare.py` writes `analysis/convergence/run_record.json`
+  (argv, interpreter, parameters, finish time). `write_comparison_provenance.py` copies those into
+  `PROVENANCE.yaml` and takes the pipeline checkout and Nextflow version from the runs' own
+  reports (`bin/yc_run_info.py`). The record still says the checkout's HEAD *now*; it shows
+  whether that matches the directory name that ran.
+- **Hard-coded paths (done).** The pipeline commit in figure titles and in the provenance is read
+  from the Nextflow reports. The Pfam file comes from the enrichment runs' `PROVENANCE.yaml`.
+  The scripts still use the absolute NII path (CLAUDE.md allows it for study scripts).
+- **BUSCO record (done).** `bin/write_busco_provenance.py` writes
+  `analysis/busco/summary.tsv.provenance.yaml` from the repo (the earlier record named a script
+  that was not in the repo). `bin/run_busco_proteomes.sh` now skips a proteome only when its name
+  and accession are both already scored. Six rows were added by hand; the record lists them.
+  `summary.tsv` still holds rows of proteomes that `species.csv` no longer uses.
+- **Secondary-vocabulary classes (open, documented).** `convergence_compare.py` assigns `class` to
+  GO and InterPro rows as well (tier `secondary`, a cross-check). A reader of
+  `term_recurrence.tsv.gz` must filter on `tier`. The comparison page does.
+- **Nested studies (checked, no change needed).** `bin/generate_enrichment_page.py` accepts
+  `<domain>/<group>/<contrast>` (PR #45). `bin/study_pages.py` already accepts nested folders
+  (`split_folder`); its `split2` is for published study names, which are flat by design.
+  `bin/migrate_docs_to_runs.py` moves the old flat `docs/` layout once; nested folders never had one.
+- **TE flag gaps (partly done).** `lib/te_flags.py` flags `HTH_psq` and `ZBED*` (PR #48; checked
+  against co-occurrence in the 106 annotations). It does not flag `DUF659` (12% of its proteins carry
+  a TE domain), `Asp_protease` and `Asp_protease_2` (generic aspartyl proteases), or LAGLIDADG homing
+  endonucleases.
+- **Panel C subtitle (done, PR #48).** The GO panel says "GO annotation from UniProt" and lists the
+  species without GO. Figures on the site keep the old subtitle until their figure script is rerun.
+- **Lichen (done).** `yc_pseudo_lichen` ran (job 30481302, 23 min). *L. lupina* WasteWater1 was
+  screened against nr (`bin/lichen_taxcheck.sh`): 95.6% of 12,349 proteins have a fungal best hit,
+  none a green-plant or algal one. The 2,666 novelty and loss candidates were screened too
+  (`bin/candidate_taxcheck.sh`): none has a non-fungal best hit, 10 have no hit. *C. rubrotincta*
+  and the two UniProt proteomes were not screened as whole proteomes.
 
 ## What the comparison does and does not test
 

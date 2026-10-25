@@ -21,7 +21,8 @@ SUMMARY="$OUT/summary.tsv"
 [ -s "$SUMMARY" ] || printf 'name\tsource\taccession\tcomplete_pct\tsingle_pct\tdup_pct\tfragmented_pct\tmissing_pct\tn_groups\tlineage\n' > "$SUMMARY"
 tail -n +2 "$MANIFEST" | while IFS=$'\t' read -r name source acc fasta; do
   [ -n "$fasta" ] || { echo "skip $name (no FASTA)"; continue; }
-  grep -q -P "^${name}\t" "$SUMMARY" && { echo "done $name"; continue; }
+  # Skip only when this name AND accession are already scored: a Short re-pointed to a new FASTA is rerun.
+  awk -F'\t' -v n="$name" -v a="$acc" '$1==n && $3==a {f=1} END{exit !f}' "$SUMMARY" && { echo "done $name"; continue; }
   d="$WORK/$name"; rm -rf "$d"; mkdir -p "$d"
   case "$fasta" in
     *.gz) zcat "$fasta" > "$d/in.faa" ;;

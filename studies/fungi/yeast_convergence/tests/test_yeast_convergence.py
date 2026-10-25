@@ -322,3 +322,45 @@ def test_setup_dryrun_writes_nothing(tmp_path, capsys):
     text = out_md.read_text()
     assert "16 contrasts" in text and "yc_ustilaginomycotina" in text
     assert "data_dir/pep/UP000008837_425265.pep.fa" in text     # UniProt stem rule
+
+
+# ---------- run info, lichen screen summary, comparison run record ----------
+def test_run_info_reads_main_nf_and_nextflow_version(tmp_path, monkeypatch):
+    ri = _load("yc_run_info")
+    root = tmp_path / "NovInvenio-worktrees" / "main-abc1234"
+    root.mkdir(parents=True)
+    log = tmp_path / "results" / "c1" / "nextflow_log"
+    log.mkdir(parents=True)
+    (log / "c1-report.html").write_text(
+        f'<dt>Nextflow version</dt> <dd class="x">version 26.04.6, build 1 (x)</dd> "{root}/main.nf" '
+        '"/other/path/main.nf"')
+    (tmp_path / "study_index.tsv").write_text("id\tx\nc1\t1\n")
+    monkeypatch.setattr(ri, "NII", tmp_path)
+    monkeypatch.setattr(ri, "FOLDER", tmp_path)
+    info = ri.pipeline_info()
+    assert info["main_nf_roots"] == [str(root)]            # only NovInvenio paths count
+    assert info["nextflow"] == ["26.04.6"]
+    assert ri.label() == "NovInvenio abc1234"
+
+
+def test_lichen_summary_groups_by_lineage(tmp_path):
+    ls = _load("lichen_taxcheck_summary")
+    nodes = tmp_path / "nodes.dmp"
+    # taxid | parent | rank
+    rows = [(1, 1), (131567, 1), (2, 131567), (2759, 131567), (4751, 2759), (33090, 2759), (33208, 2759),
+            (4932, 4751), (562, 2), (3702, 33090), (9606, 33208), (999, 2759)]
+    nodes.write_text("".join(f"{a}\t|\t{b}\t|\trank\t|\n" for a, b in rows))
+    parent = ls.load_parents(nodes)
+    cache = {}
+    assert ls.group_of(4932, parent, cache) == "Fungi"
+    assert ls.group_of(562, parent, cache) == "Bacteria"
+    assert ls.group_of(3702, parent, cache) == "Viridiplantae"
+    assert ls.group_of(9606, parent, cache) == "Metazoa"
+    assert ls.group_of(999, parent, cache) == "other_Eukaryota"
+    assert ls.group_of(424242, parent, cache) == "other"      # unknown id
+
+
+def test_compare_writes_run_record(tmp_path):
+    """convergence_compare.py records argv, interpreter and parameters of its own run."""
+    src = (FOLDER / "bin" / "convergence_compare.py").read_text()
+    assert "run_record.json" in src and "vars(args)" in src

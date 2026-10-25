@@ -81,3 +81,19 @@ Design and caveats: `README.md` and `PLAN.md`. Comparison provenance:
 - `yc_rev_neolecta` has 0 novelty candidates because a one-species ingroup cannot yield any
   (see README).
 
+## 10. Lichen contrast and screens (2026-10-25)
+
+- Lichen proteome screen: `bin/lichen_taxcheck.sh`. Job 30474764 was cancelled after 14 min (DIAMOND ran on
+  1 thread because `-n 32` was requested, not `-c 32`). Job 30478145 (32 threads) finished in 14 min 45 s.
+  `bin/lichen_taxcheck_summary.py` groups each best hit by NCBI lineage (nodes.dmp), not by the DIAMOND
+  kingdom column (many bacteria have no kingdom rank). Result in README, "Known follow-ups".
+- Lichen pipeline run: job 30481302 (23 min 39 s, 144 tasks, none failed); 1,355 novelty and 1,311 loss
+  candidates. Enrichment: job 30548936 (3 min 12 s, no warning).
+- Candidate screen: `bin/candidate_taxcheck.sh`, job 30549029 (15 min 8 s): 0 non-fungal best hits among
+  the lichen candidates.
+- Release assets for `yc_pseudo_lichen` uploaded; landing pages, enrichment pages, the comparison page and
+  the gallery pushed to `main` as docs. The comparison with 5 controls has the same 4 recurrent terms; the
+  lichen control also calls the F-box novelty terms (F-box significant in 3 of 5 controls).
+- Provenance: `convergence_compare.py` now writes its own run record; `bin/write_busco_provenance.py` and
+  `bin/write_screen_provenance.py` write the BUSCO and screen records.
+
