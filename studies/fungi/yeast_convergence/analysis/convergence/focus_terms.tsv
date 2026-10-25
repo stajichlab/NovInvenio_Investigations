@@ -25,8 +25,8 @@ PF00172	Zn_clus	duplication	yc_pseudo_dermatophyte	pseudo	novelty	tested_ns	4	0.
 PF00172	Zn_clus	duplication	yc_pseudo_dermatophyte	pseudo	loss	tested_ns	29	0.72	1
 PF00172	Zn_clus	duplication	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	tested_ns	18	0.717	1
 PF00172	Zn_clus	duplication	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	10	1.385	1
-PF00172	Zn_clus	duplication	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF00172	Zn_clus	duplication	yc_pseudo_lichen	pseudo	loss	no_table			
+PF00172	Zn_clus	duplication	yc_pseudo_lichen	pseudo	novelty	tested_ns	3	0.955	1
+PF00172	Zn_clus	duplication	yc_pseudo_lichen	pseudo	loss	tested_ns	30	1.531	0.3224
 PF00172	Zn_clus	duplication	yc_rev_eremothecium	reversal	novelty	tested_ns	0	0	1
 PF00172	Zn_clus	duplication	yc_rev_eremothecium	reversal	loss	tested_ns	7	1.64	1
 PF00172	Zn_clus	duplication	yc_rev_neolecta	reversal	novelty	no_table			
@@ -57,8 +57,8 @@ PF04082	Fungal_trans	duplication	yc_pseudo_dermatophyte	pseudo	novelty	tested_ns
 PF04082	Fungal_trans	duplication	yc_pseudo_dermatophyte	pseudo	loss	tested_ns	28	1.019	1
 PF04082	Fungal_trans	duplication	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	tested_ns	0	0	1
 PF04082	Fungal_trans	duplication	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	3	0.518	1
-PF04082	Fungal_trans	duplication	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF04082	Fungal_trans	duplication	yc_pseudo_lichen	pseudo	loss	no_table			
+PF04082	Fungal_trans	duplication	yc_pseudo_lichen	pseudo	novelty	tested_ns	0	0	1
+PF04082	Fungal_trans	duplication	yc_pseudo_lichen	pseudo	loss	significant	34	2.327	0.0004887
 PF04082	Fungal_trans	duplication	yc_rev_eremothecium	reversal	novelty	tested_ns	0	0	1
 PF04082	Fungal_trans	duplication	yc_rev_eremothecium	reversal	loss	tested_ns	8	3.436	0.05466
 PF04082	Fungal_trans	duplication	yc_rev_neolecta	reversal	novelty	no_table			
@@ -89,8 +89,8 @@ PF01764	Lipase_3	duplication	yc_pseudo_dermatophyte	pseudo	novelty	tested_ns	0	0
 PF01764	Lipase_3	duplication	yc_pseudo_dermatophyte	pseudo	loss	tested_ns	1	1.588	1
 PF01764	Lipase_3	duplication	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	tested_ns	68	0.906	1
 PF01764	Lipase_3	duplication	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	0	0	1
-PF01764	Lipase_3	duplication	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF01764	Lipase_3	duplication	yc_pseudo_lichen	pseudo	loss	no_table			
+PF01764	Lipase_3	duplication	yc_pseudo_lichen	pseudo	novelty	tested_ns	0	0	1
+PF01764	Lipase_3	duplication	yc_pseudo_lichen	pseudo	loss	tested_ns	1	1.936	1
 PF01764	Lipase_3	duplication	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF01764	Lipase_3	duplication	yc_rev_eremothecium	reversal	loss	not_tested			
 PF01764	Lipase_3	duplication	yc_rev_neolecta	reversal	novelty	no_table			
@@ -121,8 +121,8 @@ PF01185	Hydrophobin	loss	yc_pseudo_dermatophyte	pseudo	novelty	not_tested
 PF01185	Hydrophobin	loss	yc_pseudo_dermatophyte	pseudo	loss	tested_ns	1	1.588	1
 PF01185	Hydrophobin	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	not_tested			
 PF01185	Hydrophobin	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	not_tested			
-PF01185	Hydrophobin	loss	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF01185	Hydrophobin	loss	yc_pseudo_lichen	pseudo	loss	no_table			
+PF01185	Hydrophobin	loss	yc_pseudo_lichen	pseudo	novelty	not_tested			
+PF01185	Hydrophobin	loss	yc_pseudo_lichen	pseudo	loss	not_tested			
 PF01185	Hydrophobin	loss	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF01185	Hydrophobin	loss	yc_rev_eremothecium	reversal	loss	not_tested			
 PF01185	Hydrophobin	loss	yc_rev_neolecta	reversal	novelty	no_table			
@@ -153,8 +153,8 @@ PF06766	Hydrophobin_2	loss	yc_pseudo_dermatophyte	pseudo	novelty	not_tested
 PF06766	Hydrophobin_2	loss	yc_pseudo_dermatophyte	pseudo	loss	not_tested			
 PF06766	Hydrophobin_2	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	not_tested			
 PF06766	Hydrophobin_2	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	not_tested			
-PF06766	Hydrophobin_2	loss	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF06766	Hydrophobin_2	loss	yc_pseudo_lichen	pseudo	loss	no_table			
+PF06766	Hydrophobin_2	loss	yc_pseudo_lichen	pseudo	novelty	not_tested			
+PF06766	Hydrophobin_2	loss	yc_pseudo_lichen	pseudo	loss	not_tested			
 PF06766	Hydrophobin_2	loss	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF06766	Hydrophobin_2	loss	yc_rev_eremothecium	reversal	loss	not_tested			
 PF06766	Hydrophobin_2	loss	yc_rev_neolecta	reversal	novelty	no_table			
@@ -185,8 +185,8 @@ PF00067	p450	loss	yc_pseudo_dermatophyte	pseudo	novelty	tested_ns	1	0.31	1
 PF00067	p450	loss	yc_pseudo_dermatophyte	pseudo	loss	tested_ns	2	0.224	1
 PF00067	p450	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	tested_ns	37	1.06	1
 PF00067	p450	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	0	0	1
-PF00067	p450	loss	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF00067	p450	loss	yc_pseudo_lichen	pseudo	loss	no_table			
+PF00067	p450	loss	yc_pseudo_lichen	pseudo	novelty	tested_ns	0	0	1
+PF00067	p450	loss	yc_pseudo_lichen	pseudo	loss	tested_ns	0	0	1
 PF00067	p450	loss	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF00067	p450	loss	yc_rev_eremothecium	reversal	loss	tested_ns	0	0	1
 PF00067	p450	loss	yc_rev_neolecta	reversal	novelty	no_table			
@@ -217,8 +217,8 @@ PF02798	GST_N	loss	yc_pseudo_dermatophyte	pseudo	novelty	tested_ns	2	3.625	1
 PF02798	GST_N	loss	yc_pseudo_dermatophyte	pseudo	loss	tested_ns	2	2.118	1
 PF02798	GST_N	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	tested_ns	1	0.626	1
 PF02798	GST_N	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	4	5.319	0.1124
-PF02798	GST_N	loss	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF02798	GST_N	loss	yc_pseudo_lichen	pseudo	loss	no_table			
+PF02798	GST_N	loss	yc_pseudo_lichen	pseudo	novelty	tested_ns	0	0	1
+PF02798	GST_N	loss	yc_pseudo_lichen	pseudo	loss	tested_ns	0	0	1
 PF02798	GST_N	loss	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF02798	GST_N	loss	yc_rev_eremothecium	reversal	loss	not_tested			
 PF02798	GST_N	loss	yc_rev_neolecta	reversal	novelty	no_table			
@@ -249,8 +249,8 @@ PF00043	GST_C	loss	yc_pseudo_dermatophyte	pseudo	novelty	tested_ns	2	4.284	1
 PF00043	GST_C	loss	yc_pseudo_dermatophyte	pseudo	loss	tested_ns	0	0	1
 PF00043	GST_C	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	tested_ns	0	0	1
 PF00043	GST_C	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	2	2.66	1
-PF00043	GST_C	loss	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF00043	GST_C	loss	yc_pseudo_lichen	pseudo	loss	no_table			
+PF00043	GST_C	loss	yc_pseudo_lichen	pseudo	novelty	tested_ns	2	5.733	1
+PF00043	GST_C	loss	yc_pseudo_lichen	pseudo	loss	tested_ns	0	0	1
 PF00043	GST_C	loss	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF00043	GST_C	loss	yc_rev_eremothecium	reversal	loss	tested_ns	1	4.639	1
 PF00043	GST_C	loss	yc_rev_neolecta	reversal	novelty	no_table			
@@ -281,8 +281,8 @@ PF00734	CBM_1	loss	yc_pseudo_dermatophyte	pseudo	novelty	not_tested
 PF00734	CBM_1	loss	yc_pseudo_dermatophyte	pseudo	loss	significant	15	7.942	1.08e-10
 PF00734	CBM_1	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	not_tested			
 PF00734	CBM_1	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	1	1.9	1
-PF00734	CBM_1	loss	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF00734	CBM_1	loss	yc_pseudo_lichen	pseudo	loss	no_table			
+PF00734	CBM_1	loss	yc_pseudo_lichen	pseudo	novelty	not_tested			
+PF00734	CBM_1	loss	yc_pseudo_lichen	pseudo	loss	significant	17	11.81	8.226e-12
 PF00734	CBM_1	loss	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF00734	CBM_1	loss	yc_rev_eremothecium	reversal	loss	not_tested			
 PF00734	CBM_1	loss	yc_rev_neolecta	reversal	novelty	no_table			
@@ -313,8 +313,8 @@ PF03443	AA9	loss	yc_pseudo_dermatophyte	pseudo	novelty	not_tested
 PF03443	AA9	loss	yc_pseudo_dermatophyte	pseudo	loss	not_tested			
 PF03443	AA9	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	not_tested			
 PF03443	AA9	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	not_tested			
-PF03443	AA9	loss	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF03443	AA9	loss	yc_pseudo_lichen	pseudo	loss	no_table			
+PF03443	AA9	loss	yc_pseudo_lichen	pseudo	novelty	tested_ns	0	0	1
+PF03443	AA9	loss	yc_pseudo_lichen	pseudo	loss	tested_ns	2	3.387	1
 PF03443	AA9	loss	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF03443	AA9	loss	yc_rev_eremothecium	reversal	loss	not_tested			
 PF03443	AA9	loss	yc_rev_neolecta	reversal	novelty	no_table			
@@ -345,8 +345,8 @@ PF00704	Glyco_hydro_18	loss	yc_pseudo_dermatophyte	pseudo	novelty	tested_ns	1	0.
 PF00704	Glyco_hydro_18	loss	yc_pseudo_dermatophyte	pseudo	loss	tested_ns	1	0.397	1
 PF00704	Glyco_hydro_18	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	tested_ns	2	0.626	1
 PF00704	Glyco_hydro_18	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	4	2.955	0.5983
-PF00704	Glyco_hydro_18	loss	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF00704	Glyco_hydro_18	loss	yc_pseudo_lichen	pseudo	loss	no_table			
+PF00704	Glyco_hydro_18	loss	yc_pseudo_lichen	pseudo	novelty	tested_ns	0	0	1
+PF00704	Glyco_hydro_18	loss	yc_pseudo_lichen	pseudo	loss	tested_ns	0	0	1
 PF00704	Glyco_hydro_18	loss	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF00704	Glyco_hydro_18	loss	yc_rev_eremothecium	reversal	loss	not_tested			
 PF00704	Glyco_hydro_18	loss	yc_rev_neolecta	reversal	novelty	no_table			
@@ -377,8 +377,8 @@ PF02839	CBM_5_12	loss	yc_pseudo_dermatophyte	pseudo	novelty	not_tested
 PF02839	CBM_5_12	loss	yc_pseudo_dermatophyte	pseudo	loss	not_tested			
 PF02839	CBM_5_12	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	not_tested			
 PF02839	CBM_5_12	loss	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	2	5.319	0.6134
-PF02839	CBM_5_12	loss	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF02839	CBM_5_12	loss	yc_pseudo_lichen	pseudo	loss	no_table			
+PF02839	CBM_5_12	loss	yc_pseudo_lichen	pseudo	novelty	not_tested			
+PF02839	CBM_5_12	loss	yc_pseudo_lichen	pseudo	loss	not_tested			
 PF02839	CBM_5_12	loss	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF02839	CBM_5_12	loss	yc_rev_eremothecium	reversal	loss	not_tested			
 PF02839	CBM_5_12	loss	yc_rev_neolecta	reversal	novelty	no_table			
@@ -409,8 +409,8 @@ PF01644	Chitin_synth_1	retained	yc_pseudo_dermatophyte	pseudo	novelty	tested_ns	
 PF01644	Chitin_synth_1	retained	yc_pseudo_dermatophyte	pseudo	loss	not_tested			
 PF01644	Chitin_synth_1	retained	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	tested_ns	0	0	1
 PF01644	Chitin_synth_1	retained	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	0	0	1
-PF01644	Chitin_synth_1	retained	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF01644	Chitin_synth_1	retained	yc_pseudo_lichen	pseudo	loss	no_table			
+PF01644	Chitin_synth_1	retained	yc_pseudo_lichen	pseudo	novelty	tested_ns	0	0	1
+PF01644	Chitin_synth_1	retained	yc_pseudo_lichen	pseudo	loss	tested_ns	0	0	1
 PF01644	Chitin_synth_1	retained	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF01644	Chitin_synth_1	retained	yc_rev_eremothecium	reversal	loss	not_tested			
 PF01644	Chitin_synth_1	retained	yc_rev_neolecta	reversal	novelty	no_table			
@@ -441,8 +441,8 @@ PF03142	Chitin_synth_2	retained	yc_pseudo_dermatophyte	pseudo	novelty	tested_ns	
 PF03142	Chitin_synth_2	retained	yc_pseudo_dermatophyte	pseudo	loss	not_tested			
 PF03142	Chitin_synth_2	retained	yc_pseudo_arbuscular_mycorrhizal	pseudo	novelty	tested_ns	0	0	1
 PF03142	Chitin_synth_2	retained	yc_pseudo_arbuscular_mycorrhizal	pseudo	loss	tested_ns	0	0	1
-PF03142	Chitin_synth_2	retained	yc_pseudo_lichen	pseudo	novelty	no_table			
-PF03142	Chitin_synth_2	retained	yc_pseudo_lichen	pseudo	loss	no_table			
+PF03142	Chitin_synth_2	retained	yc_pseudo_lichen	pseudo	novelty	not_tested			
+PF03142	Chitin_synth_2	retained	yc_pseudo_lichen	pseudo	loss	tested_ns	0	0	1
 PF03142	Chitin_synth_2	retained	yc_rev_eremothecium	reversal	novelty	not_tested			
 PF03142	Chitin_synth_2	retained	yc_rev_eremothecium	reversal	loss	not_tested			
 PF03142	Chitin_synth_2	retained	yc_rev_neolecta	reversal	novelty	no_table			

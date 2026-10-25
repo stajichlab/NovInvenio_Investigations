@@ -1,0 +1,25 @@
+local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/candidate_taxcheck/summary.tsv
+source_url: 'derived: diamond blastp against NCBI nr (clustered, taxonomy built in);
+  no download'
+source_release: NCBI nr 20260128 (nr_cluster_seq.dmnd); taxonomy nodes.dmp 20260128
+  under /srv/projects/db/ncbi/preformatted/20260128
+access_date: '2026-10-25T19:40:04Z'
+checksum_sha256: 113163d030b96fcdf995d806f059dcdc64330e0a45892ad7904ad047ebacfc31
+license: derived table; inputs carry their own licenses
+derived_by: sbatch candidate_taxcheck.sh (diamond blastp --fast --max-target-seqs
+  5 --evalue 1e-5 -b 4 -c 1, 32 threads), then python3 lichen_taxcheck_summary.py
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_lichen/analysis/candidate_taxcheck
+  (best hit by bitscore, group by NCBI lineage of the first taxon id)
+pulled_with: write_screen_provenance.py on r12
+screen_script: /scratch/jstajich/30414886/wt_b/studies/fungi/yeast_convergence/bin/candidate_taxcheck.sh
+screen_script_sha256: f0bf92e39daccf96a601960b885b883392bc72862d87a5642a01bf57bf91d950
+summary_script_sha256: c286203aa0b1972fb66511bc3d6e703f68e2208441c9d995c6adde7a192b0470
+diamond: diamond version 2.1.12
+database:
+- -rw-r--r-- 1 pkgadmin pkgadmin 194995166099 Apr  5  2026 /srv/projects/db/ncbi/diamond/current/nr_cluster_seq.dmnd
+hits_tsv_zst_sha256: be80ea6c7fe439c1cc8e8eb0bd65074a0bfc86965bf134be463e27c6a255b150
+queries_txt_sha256: 3ca9bbec950e80d6db05c8f1ce8ef1fcf3ecc3bf93d86fb7c1fdd161c980eda6
+inputs:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_lichen/candidates.fa: 59783666ba18456fed2ef7e292bf7c87e2f7d0e12724e23bf0efa5b65c3d8f44
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_lichen/loss_candidates.fa: 5ca0d52b04ead1a20bcf3c37bcb4e4d5d96e7c4c3d9735a3563e91a05e2ec7ac
+note: 'A screen, not a taxonomic assignment: best hit only, --fast, E-value 1e-5.'

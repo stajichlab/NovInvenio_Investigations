@@ -1,17 +1,16 @@
-local_path: analysis/busco/summary.tsv
-source_url: 'derived: BUSCO v5.8.0 on the proteomes listed in manifest_all.tsv (no
-  download)'
+local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/analysis/busco/summary.tsv
+source_url: 'derived: BUSCO on the proteomes listed in manifest_all.tsv (no download)'
 source_release: BUSCO 5.8.0; lineage fungi_odb10 (creation 2019-12-13, 549 genomes,
   758 BUSCOs) at /bigdata/stajichlab/shared/lib/funannotate_db/fungi_odb10
-access_date: '2026-10-24T16:24:54Z'
+access_date: '2026-10-25T19:39:49Z'
 checksum_sha256: 4728263e4d59ef3230629259359d883c2ee2b0f825d75dc3eecfcca2ec50862c
 license: derived table; inputs carry their own licenses (UniProt CC BY 4.0; BFD lab
   annotations unpublished)
 derived_by: 'bin/busco_manifest.py then bin/run_busco_proteomes.sh (busco -m proteins
-  -l fungi_odb10 --offline, 8 CPUs); SLURM jobs 30326454-30326456 (106 proteomes),
-  30335621-30335622 (6 candidate genomes: M. canis x3, M. audouinii, M. ferrugineum,
-  P. xanthii)'
-pulled_with: mk.py on r12
+  -l fungi_odb10 --offline, 8 CPUs); this record: bin/write_busco_provenance.py. SLURM
+  jobs 30326454 to 30326456 (106 proteomes) and 30335621, 30335622 (6 candidate genomes).'
+pulled_with: write_busco_provenance.py on r12
+manifest_sha256: a9389728a5c515c42ebbc5a6001ad30e6e4806ac0f19b8de2531730fc88f4a1b
 input_proteomes:
   UP000194280:
     fasta: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/uniprot/UP000194280/UP000194280_1157616.fasta.gz
@@ -349,5 +348,20 @@ input_proteomes:
   Podosphaera_xanthii_YZU573:
     fasta: /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Podosphaera_xanthii_YZU573/predict_results/Podosphaera_xanthii_YZU573.proteins.fa.gz
     sha256: 4efa3f85402cd3ee8702d6622a0858500754b1519d13d3f2978d19aeaefccb1f
-notes: Each row is one proteome. Rows for replaced candidates (e.g. M. canis BMU_08359)
-  stay in summary.tsv.
+rows_added_by_hand:
+  names:
+  - Microsporum_canis_BMU_08102
+  - Microsporum_canis_BMU_11032
+  - Microsporum_canis_CBS_113480
+  - Microsporum_audouinii_IHEM_2214
+  - Microsporum_ferrugineum_M1a
+  - Podosphaera_xanthii_YZU573
+  note: These six manifest rows were written by hand (the candidate genomes were chosen
+    after the first BUSCO pass), so their names are directory names and not the names
+    busco_manifest.py would write. Five are Microsporum candidates and one is Podosphaera
+    xanthii YZU573.
+stale_rows:
+  note: summary.tsv keeps rows of proteomes that species.csv no longer uses (for example
+    Micrcani = M. canis BMU_08359, 60.4%, replaced by BMU_08102; P. fusca; two other
+    M. canis candidates) so the replacement choices stay traceable. Match rows to
+    species.csv by accession (manifest_all.tsv), not by Short.

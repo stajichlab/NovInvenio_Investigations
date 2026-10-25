@@ -1,0 +1,17 @@
+proteome	group_of_best_hit	n_proteins	fraction_of_all_proteins	n_proteins_total
+novelty:Cladrubr	Fungi	350	0.9887	354
+novelty:Cladrubr	no_hit	4	0.0113	354
+novelty:Xantpari	Fungi	385	1.0000	385
+novelty:Xantpari	no_hit	0	0.0000	385
+novelty:Umbipust	Fungi	149	1.0000	149
+novelty:Umbipust	no_hit	0	0.0000	149
+novelty:Lethlupi	Fungi	463	0.9914	467
+novelty:Lethlupi	no_hit	4	0.0086	467
+loss:Penichry	Fungi	311	1.0000	311
+loss:Penichry	no_hit	0	0.0000	311
+loss:Fusagram	Fungi	426	1.0000	426
+loss:Fusagram	no_hit	0	0.0000	426
+loss:Ascosarc	Fungi	273	0.9927	275
+loss:Ascosarc	no_hit	2	0.0073	275
+loss:Pyretrit	Fungi	299	1.0000	299
+loss:Pyretrit	no_hit	0	0.0000	299

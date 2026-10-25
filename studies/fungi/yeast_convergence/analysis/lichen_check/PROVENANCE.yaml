@@ -1,0 +1,26 @@
+local_path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/analysis/lichen_check/summary.tsv
+source_url: 'derived: diamond blastp against NCBI nr (clustered, taxonomy built in);
+  no download'
+source_release: NCBI nr 20260128 (nr_cluster_seq.dmnd); taxonomy nodes.dmp 20260128
+  under /srv/projects/db/ncbi/preformatted/20260128
+access_date: '2026-10-25T19:40:04Z'
+checksum_sha256: d4a66e799ba07e643ee7fbb1e042389dd6df067ca6611cc54d11eb983c7dd8cd
+license: derived table; inputs carry their own licenses
+derived_by: sbatch lichen_taxcheck.sh (diamond blastp --fast --max-target-seqs 5 --evalue
+  1e-5 -b 4 -c 1, 32 threads), then python3 lichen_taxcheck_summary.py /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/analysis/lichen_check
+  (best hit by bitscore, group by NCBI lineage of the first taxon id)
+pulled_with: write_screen_provenance.py on r12
+screen_script: /scratch/jstajich/30414886/wt_b/studies/fungi/yeast_convergence/bin/lichen_taxcheck.sh
+screen_script_sha256: 2e26242b0f2a0fc849e06434421e844b6d8ea4d72cf2898f80ef02facfbd145e
+summary_script_sha256: c286203aa0b1972fb66511bc3d6e703f68e2208441c9d995c6adde7a192b0470
+diamond: diamond version 2.1.12
+database:
+- -rw-r--r-- 1 pkgadmin pkgadmin 194995166099 Apr  5  2026 /srv/projects/db/ncbi/diamond/current/nr_cluster_seq.dmnd
+hits_tsv_zst_sha256: 1a8cabdd8e4c9ba6667b62b2b1ec5c59fe3768e6cdb6b92559e10e9cf95e06d9
+queries_txt_sha256: e87312b93ea74928c2714bb6e69af3b797f5e36044e4ee91f726a9d274baab02
+inputs:
+  ? /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Letharia_lupina_WasteWater1/predict_results/Letharia_lupina_WasteWater1.proteins.fa.gz
+  : 0b9c21c00c5a4e7695a374f24fbf2962b2d4ff9d94fa06154ee56eddd69cdb89
+  ? /bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Ascocoryne_sarcoides_NRRL_50072/predict_results/Ascocoryne_sarcoides_NRRL_50072.proteins.fa.gz
+  : 6f074e3953f57ce21178d014b13efb0f8ce005454e6c6e889e1d76b30407b442
+note: 'A screen, not a taxonomic assignment: best hit only, --fast, E-value 1e-5.'

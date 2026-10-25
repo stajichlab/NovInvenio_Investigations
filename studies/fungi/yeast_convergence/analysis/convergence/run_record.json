@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "studies/fungi/yeast_convergence/bin/convergence_compare.py"
+  ],
+  "executable": "/usr/bin/python3.12",
+  "finished_utc": "2026-10-25T19:41:22Z",
+  "missing_tables": [],
+  "parameters": {
+    "alpha": 0.05,
+    "fdr": 0.05,
+    "folder": "/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence",
+    "include_mixed_annotation": false,
+    "level": "family",
+    "min_in_novelty": 2,
+    "min_k": 3,
+    "min_origins": 3,
+    "out_dir": null,
+    "scope": "whole_set",
+    "vocab": [
+      "pfam",
+      "pfam_clan",
+      "interpro",
+      "go"
+    ]
+  },
+  "python": "3.12.13",
+  "script": "/scratch/jstajich/30414886/wt_b/studies/fungi/yeast_convergence/bin/convergence_compare.py"
+}
