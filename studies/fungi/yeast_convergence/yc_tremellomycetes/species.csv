@@ -1,0 +1,8 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+CneoH99,Cryptococcus neoformans,H99,IN,Tremellomycetes,uniprot,UP000010091,235443,ncbi,GCA_000149245.3,,
+Kwonmang,Kwoniella mangroviensis,CBS_8507,IN,Tremellomycetes,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Kwoniella_mangrovensis_CBS_8507/predict_results/Kwoniella_mangrovensis_CBS_8507.proteins.fa.gz,463800,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Kwoniella_mangrovensis_CBS_8507/predict_results/Kwoniella_mangrovensis_CBS_8507.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Kwoniella_mangrovensis_CBS_8507/predict_results/Kwoniella_mangrovensis_CBS_8507.gff3.gz
+Tricasah,Trichosporon asahii,,IN,Tremellomycetes,uniprot,UP000006757,1220162,ncbi,GCA_000299215.2,,
+Tremes,Tremella mesenterica,,IN,Tremellomycetes,uniprot,UP000289152,5217,ncbi,GCA_004117975.1,,
+Dacrprim,Dacryopinax primogenitus,,OUT,Dacrymycetes,uniprot,UP000030653,1858805,ncbi,GCA_000292625.1,,
+Calocorn,Calocera cornea,,OUT,Dacrymycetes,uniprot,UP000076842,1353952,ncbi,GCA_001632435.1,,
+Ccin,Coprinopsis cinerea,Okayama-7/130,OUT,Agaricomycetes,uniprot,UP000001861,240176,ncbi,GCA_000182895.1,,

@@ -1,0 +1,9 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Exopderm,Exophiala dermatitidis,,IN,Chaetothyriales,uniprot,UP000007304,858893,ncbi,GCA_000230625.1,,
+Exopspin,Exophiala spinifera,,IN,Chaetothyriales,uniprot,UP000053328,91928,ncbi,GCA_000836115.1,,
+Exopphae,Exophiala phaeomuriformis,CBS_132758,IN,Chaetothyriales,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Exophiala_phaeomuriformis_CBS_132758/predict_results/Exophiala_phaeomuriformis_CBS_132758.proteins.fa.gz,406760,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Exophiala_phaeomuriformis_CBS_132758/predict_results/Exophiala_phaeomuriformis_CBS_132758.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Exophiala_phaeomuriformis_CBS_132758/predict_results/Exophiala_phaeomuriformis_CBS_132758.gff3.gz
+Exopolig,Exophiala oligosperma,,IN,Chaetothyriales,uniprot,UP000053342,215243,ncbi,GCA_000835515.1,,
+Exopmeso,Exophiala mesophila,,IN,Chaetothyriales,uniprot,UP000054302,212818,ncbi,GCA_000836275.1,,
+Caprcoro,Capronia coronata,,OUT,Chaetothyriales,uniprot,UP000019484,1182541,ncbi,GCA_000585585.1,,
+Cladcarr,Cladophialophora carrionii,,OUT,Chaetothyriales,uniprot,UP000094526,86049,ncbi,GCA_001700775.1,,
+Fonspedr,Fonsecaea pedrosoi,,OUT,Chaetothyriales,uniprot,UP000053029,1442368,ncbi,GCA_000835455.1,,

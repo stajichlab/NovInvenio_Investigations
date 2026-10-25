@@ -96,6 +96,20 @@ def hypothesis_text(study_dir: Path) -> str:
     return ", ".join(taxa)
 
 
+def study_folders(domain_dir: Path) -> list[Path]:
+    """Folders under studies/<domain>/ that hold a species.csv: direct children,
+    plus the children of a grouping folder that has none itself (e.g.
+    studies/fungi/yeast_convergence/<contrast>/)."""
+    out = []
+    for folder in sorted(p for p in domain_dir.iterdir() if p.is_dir()):
+        if (folder / "species.csv").exists():
+            out.append(folder)
+        else:
+            out.extend(sorted(c for c in folder.iterdir()
+                              if c.is_dir() and (c / "species.csv").exists()))
+    return out
+
+
 def find_studies(domain_slug: str) -> list[dict]:
     """One dict per study: published studies from docs/, plus unpublished
     studies/ folders that have a publish.yaml."""
@@ -123,9 +137,7 @@ def find_studies(domain_slug: str) -> list[dict]:
 
     domain_dir = STUDIES_ROOT / domain_slug
     if domain_dir.exists():
-        for folder in sorted(domain_dir.iterdir()):
-            if not folder.is_dir() or not (folder / "species.csv").exists():
-                continue
+        for folder in study_folders(domain_dir):
             try:
                 target = load_publish_target(folder)
             except ValueError as e:

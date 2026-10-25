@@ -1,0 +1,9 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Rhodtoru,Rhodotorula toruloides,,IN,Sporidiobolales,ncbi,GCF_000320785.1,5286,ncbi,GCF_000320785.1,,
+Rhodmuci,Rhodotorula mucilaginosa,,IN,Sporidiobolales,uniprot,UP000777482,5537,ncbi,GCA_016584205.1,,
+Rhodgram,Rhodotorula graminis,,IN,Sporidiobolales,uniprot,UP000053890,578459,ncbi,GCA_001329695.1,,
+Sporrose,Sporobolomyces roseus,SR19,IN,Sporidiobolales,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.proteins.fa.gz,40563,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Sporobolomyces_roseus_SR19/predict_results/Sporobolomyces_roseus_SR19.gff3.gz
+Leuccrea,Leucosporidium creatinivorum,,IN,Leucosporidiales,uniprot,UP000193467,106004,ncbi,GCA_002105055.1,,
+Micrlych,Microbotryum lychnidis-dioicae,,OUT,Microbotryales,uniprot,UP000017200,683840,ncbi,GCA_000166175.1,,
+Puccgram,Puccinia graminis,,OUT,Pucciniales,ncbi,GCF_000149925.1,5297,ncbi,GCF_000149925.1,,
+Melalari,Melampsora larici-populina,98AG31,OUT,Pucciniales,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.proteins.fa.gz,203908,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Melampsora_laricis-populina_98AG31/predict_results/Melampsora_laricis-populina_98AG31.gff3.gz

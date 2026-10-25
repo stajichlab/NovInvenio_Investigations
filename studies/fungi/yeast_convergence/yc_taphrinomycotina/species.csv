@@ -1,0 +1,10 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Spom,Schizosaccharomyces pombe,972h,IN,Taphrinomycotina,uniprot,UP000002485,284812,ncbi,GCA_000002945.2,,
+Schiocto,Schizosaccharomyces octosporus,,IN,Taphrinomycotina,uniprot,UP000016088,483514,ncbi,GCA_000150505.2,,
+Schijapo,Schizosaccharomyces japonicus,,IN,Taphrinomycotina,uniprot,UP000001744,402676,ncbi,GCA_000149845.2,,
+Saitcomp,Saitoella complicata,,IN,Taphrinomycotina,uniprot,UP000033140,698492,ncbi,GCA_000227095.3,,
+Taphdefo,Taphrina deformans,,IN,Taphrinomycotina,uniprot,UP000013776,1097556,ncbi,GCA_000312925.2,,
+Protinou,Protomyces inouyei,NRRL_YB-4354,IN,Taphrinomycotina,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Protomyces_inouyei_NRRL_YB-4354/predict_results/Protomyces_inouyei_NRRL_YB-4354.proteins.fa.gz,27332,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Protomyces_inouyei_NRRL_YB-4354/predict_results/Protomyces_inouyei_NRRL_YB-4354.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Protomyces_inouyei_NRRL_YB-4354/predict_results/Protomyces_inouyei_NRRL_YB-4354.gff3.gz
+Nirr,Neolecta irregularis,DAH-3,OUT,Taphrinomycotina,uniprot,UP000186594,1198029,ncbi,GCA_001929475.1,,
+Amega,Arthrobotrys megalospora,TWF281,OUT,Orbiliomycetes,uniprot,UP001658139,2528406,ncbi,GCA_036971655.1,,
+Ncra,Neurospora crassa,OR74A,OUT,Sordariomycetes,uniprot,UP000001805,367110,ncbi,GCA_000182925.2,,

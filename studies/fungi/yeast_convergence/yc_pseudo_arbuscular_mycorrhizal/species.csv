@@ -1,0 +1,9 @@
+Short,Species,Strain,Group,TaxonGroup,Protein_Source,Protein_Accession,Taxon_ID,Genome_Source,Genome_Accession,GFF3_Source,GFF3_Accession
+Rhizirre,Rhizophagus irregularis,DAOM_181602,IN,Glomeromycotina,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Rhizophagus_irregularis_DAOM_181602/predict_results/Rhizophagus_irregularis_DAOM_181602.proteins.fa.gz,588596,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Rhizophagus_irregularis_DAOM_181602/predict_results/Rhizophagus_irregularis_DAOM_181602.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Rhizophagus_irregularis_DAOM_181602/predict_results/Rhizophagus_irregularis_DAOM_181602.gff3.gz
+Gigarose,Gigaspora rosea,,IN,Glomeromycotina,uniprot,UP000266673,44941,ncbi,GCA_003550325.1,,
+Diveepig,Diversispora epigaea,,IN,Glomeromycotina,uniprot,UP000266861,1348612,ncbi,GCA_003547095.1,,
+Geospyri,Geosiphon pyriformis,,IN,Glomeromycotina,ncbi,GCA_016748015.1,50956,ncbi,GCA_016748015.1,,
+Umbevina,Umbelopsis vinacea,,OUT,Mucoromycotina,uniprot,UP000612746,44442,ncbi,GCA_016758895.1,,
+Umberama,Umbelopsis ramanniana,,OUT,Mucoromycotina,uniprot,UP001206595,1314678,ncbi,GCA_025399195.1,,
+Mortelon,Mortierella elongata,AG-77,OUT,Mortierellomycotina,local_faa,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Linnemannia_elongata_AG-77/predict_results/Linnemannia_elongata_AG-77.proteins.fa.gz,310910,local_genome,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Linnemannia_elongata_AG-77/predict_results/Linnemannia_elongata_AG-77.scaffolds.fa,local_gff3,/bigdata/stajichlab/shared/projects/BFD/Fungi_BFD_runs/genome_annotation/Linnemannia_elongata_AG-77/predict_results/Linnemannia_elongata_AG-77.gff3.gz
+Lobotran,Lobosporangium transversale,,OUT,Mortierellomycotina,uniprot,UP000193648,64571,ncbi,GCA_002105155.1,,
