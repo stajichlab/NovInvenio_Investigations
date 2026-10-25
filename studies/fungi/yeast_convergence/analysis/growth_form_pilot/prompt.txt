@@ -1,0 +1,35 @@
+Reader prompt used for all five agents (2026-10-25). Only the species line changed between agents:
+  agent 1: Eremothecium cymbalariae; Rhizopus delemar
+  agent 2: Mucor circinelloides; Aureobasidium pullulans
+  agent 3: Thamnidium elegans; Yarrowia lipolytica
+  agent 4: Exophiala dermatitidis; Taphrina deformans
+  agent 5: Protomyces inouyei; Neolecta irregularis
+Agent type: general-purpose, model sonnet. Species-specific hints (synonyms) were added in the species line.
+
+PILOT TASK (read-only research; do NOT edit, create, commit or delete any file in the repository; do not run sbatch). Find published evidence for the vegetative GROWTH FORM of each species below, and report it in the exact format at the end.
+
+Species: (1) <species 1>  (2) <species 2>
+
+Question per species: in the literature, is the species described as YEAST (unicellular budding form is the normal vegetative form), FILAMENTOUS (hyphae/mycelium only), or DIMORPHIC (switches between yeast and hyphal forms depending on conditions)? If dimorphic, which phase dominates in standard laboratory culture (yeast or hyphal)? Do NOT assume an answer from the genus or from what you expect. If you find no direct statement about THIS species, say so.
+
+How to work:
+- Load the PubMed tools first with the ToolSearch tool, for example query "select:mcp__plugin_bio-research_pubmed__search_articles,mcp__plugin_bio-research_pubmed__get_full_text_article,mcp__plugin_bio-research_pubmed__get_article_metadata". Also use WebSearch and WebFetch (europepmc.org, ncbi.nlm.nih.gov/pmc, doi.org links) if useful.
+- For each species run 3 to 4 different searches (species name + dimorphism / yeast phase / hyphae / morphology / "yeast-to-hypha"; also the older name or synonym if you know one, and name it).
+- Prefer papers whose FULL TEXT you can read (PubMed Central open access). Read the relevant results/methods/table text. An abstract alone is weaker evidence: mark such records "abstract only".
+- Use at most 8 papers per species. Stop earlier if you have 2 independent clear statements.
+- Evidence types: "tested" = the authors grew the species and observed the forms under stated conditions; "described" = a statement or table about the species without a new test (review, database, taxonomy text); "predicted" = inferred computationally or by analogy.
+- Quote the source text VERBATIM, at most 40 words per quote. Do not paraphrase inside a quote. If you cannot quote it, you did not read it: do not report it.
+- If two sources disagree, report both. Do not pick a winner.
+- Never invent a citation. Give PMID or DOI or PMCID for every record. If you cannot give one, drop the record.
+
+FORMAT (plain text, one block per species, no extra prose):
+SPECIES: <name>
+CODING_SUPPORTED_BY_EVIDENCE: yeast | filamentous | dimorphic | conflicting | unsourced
+DOMINANT_PHASE (if dimorphic): yeast | hyphal | unclear | n/a
+OVERALL_NOTE: <1-2 sentences: how strong is the evidence and what is missing>
+RECORDS:
+ 1. citation: <authors year journal, PMID/DOI/PMCID> | read: full text | abstract only | evidence_type: tested | described | predicted | condition: <temperature, medium, host or 'not stated'> | location: <section/table/figure> | quote: "<verbatim, max 40 words>" | supports: yeast | filamentous | dimorphic | other
+ 2. ...
+SEARCHES_RUN: <list of the queries you used>
+NOT_CHECKED: <what you could not access, for example paywalled books>
+Keep the whole report under 700 words.

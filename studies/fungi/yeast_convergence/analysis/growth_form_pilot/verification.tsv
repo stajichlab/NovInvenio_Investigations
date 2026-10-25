@@ -1,0 +1,18 @@
+level	pmid	pmcid	source	checked_text	method	result
+abstract	24039585	24039585 (PMC3764228)	Lee et al. 2013 PLoS Pathog	exhibits hyphal growth in aerobic conditions but switches to multi-budded yeast growth under anaerobic/high CO₂ conditions	PubMed abstract (get_article_metadata)	whole quote matched
+abstract	28188651		Liang et al. 2017 Mol Microbiol	grows in the oval-shaped yeast form in glycerol media whereas it adopts a filamentous form in glucose media	PubMed abstract	whole quote matched
+abstract	10940039	PMC111375	Ye and Szaniszlo 2000 J Bacteriol	strongly repressed filamentous growth both in the wild-type strain and in the temperature-sensitive hyphal-form mutant Hf1	PubMed abstract	whole quote matched
+abstract	10940039	PMC111375	Ye and Szaniszlo 2000 J Bacteriol	commit its yeast-like cells to a phenotype transition that produces sclerotic bodies while repressing hyphal development	PubMed abstract	whole quote matched
+abstract	28244594		Svetaz et al. 2017 Plant Cell Environ	caused by the dimorphic fungus Taphrina deformans	PubMed abstract	whole quote matched
+abstract	28244594		Svetaz et al. 2017 Plant Cell Environ	Fungal dimorphism to the filamentous form	PubMed abstract	quote matched; the agent's '...' omits text up to 'were observed independently of the genotype'
+abstract	14563128		Landvik et al. 2003 Mycol Res	Non-ascogenous hyphae were multinucleate, often with nuclei in pairs.	PubMed abstract	whole quote matched
+abstract	14563128		Landvik et al. 2003 Mycol Res	Attempts to culture N. vitellina and to obtain molecular information from the type species, N. flarovirescens, were unsuccessful.	PubMed abstract	whole quote matched (the abstract itself spells it 'flarovirescens')
+full_text	22384365	PMC3276169	Wendland and Walther 2011 G3	can easily be distinguished from the dimorphic representatives in this genus	PMC XML (efetch), tags stripped	key phrase only; the agent's quote starts 'Both [E. cymbalariae and A. gossypii] are filamentous fungi...' and the first words were not checked. In the XML the dimorphic species named next are Holleya sinecauda and E. coryli.
+full_text	22384365	PMC3276169	Wendland and Walther 2011 G3	fluffy aerial mycelium unique in this genus	PMC XML (efetch)	key phrase matched; sentence names E. cymbalariae
+full_text	30258038	PMC6158513	Sephton-Clark et al. 2018 mSphere	the switch to sustained filamentous growth	PMC XML (efetch)	key phrase matched
+full_text	30258038	PMC6158513	Sephton-Clark et al. 2018 mSphere	average width of hyphae being	PMC XML (efetch)	key phrase matched
+full_text	23826133	PMC3691278	Martinez-Vazquez et al. 2013 PLoS One	to induce the yeast-to-hypha transition	PMC XML (efetch)	key phrase matched (Figure 2 legend)
+full_text	28176784	PMC5309816	Nguyen et al. 2017 Nat Commun	have not been successfully cultured in the lab	PMC XML (efetch)	key phrase matched; the preceding word in the XML is 'Neolecta species'
+full_text	33741074	PMC7980564	Wang, Sipilä and Overmyer 2021 IMA Fungus	is yeast-like, unicellular, reproduces by budding, and is easy to culture	PMC XML (efetch)	key phrase matched; genus-level (Protomyces) statement
+full_text	35559141	PMC9088945	Permana et al. 2022 ACS Omega	was grown from hyphal inoculum	PMC XML (efetch)	key phrase matched
+full_text	35559141	PMC9088945	Permana et al. 2022 ACS Omega	day old mycelia	PMC XML (efetch)	key phrase matched
