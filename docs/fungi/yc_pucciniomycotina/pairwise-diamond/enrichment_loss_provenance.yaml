@@ -1,0 +1,176 @@
+generated: '2026-10-24T14:43:31'
+study: yc_pucciniomycotina
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pucciniomycotina --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations
+  --study yc_pucciniomycotina --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Micrlych
+  - Puccgram
+  - Melalari
+other_group:
+  label: IN
+  species:
+  - Rhodtoru
+  - Rhodmuci
+  - Rhodgram
+  - Sporrose
+  - Leuccrea
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations
+annotation_files:
+  Micrlych: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/UP000017200.tsv.gz
+  Puccgram: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/GCF_000149925.1.tsv.gz
+  Melalari: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/Melampsora_laricis-populina_98AG31.proteins.tsv.gz
+  Rhodtoru: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/GCF_000320785.1.tsv.gz
+  Rhodmuci: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/UP000777482.tsv.gz
+  Rhodgram: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/UP000053890.tsv.gz
+  Sporrose: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/Sporobolomyces_roseus_SR19.proteins.tsv.gz
+  Leuccrea: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/UP000193467.tsv.gz
+annotation_sources:
+  Micrlych: not recorded (no sidecar)
+  Puccgram: Pfam-A HMM search (hmmsearch); Pfam only
+  Melalari: Pfam-A HMM search (hmmsearch); Pfam only
+  Rhodtoru: Pfam-A HMM search (hmmsearch); Pfam only
+  Rhodmuci: not recorded (no sidecar)
+  Rhodgram: not recorded (no sidecar)
+  Sporrose: Pfam-A HMM search (hmmsearch); Pfam only
+  Leuccrea: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Micrlych
+    - Puccgram
+    - Melalari
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  pfam_clan:
+    species_with_terms:
+    - Micrlych
+    - Puccgram
+    - Melalari
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  interpro:
+    species_with_terms:
+    - Micrlych
+    species_without_terms:
+    - Puccgram
+    - Melalari
+    n_with: 1
+    n_species: 3
+  go:
+    species_with_terms:
+    - Micrlych
+    species_without_terms:
+    - Puccgram
+    - Melalari
+    n_with: 1
+    n_species: 3
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 1049
+  candidates_txt: 1049
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pucciniomycotina/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pucciniomycotina/loss_presence_matrix.tsv
+  rule: OUT count / 3 >= 0.75 and IN count / 5 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: bb50dad3396f41d4
+  n_sequences: 40639
+  n_clusters: 25701
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 66.0
+  threads: 4
+  created: '2026-10-24T14:43:27'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pucciniomycotina/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/config.csv
+  : 2012d08ed3f414d84a44ea0c42742a6d01cd5e754ac3dd3bfd2a8b9e767dd21a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pucciniomycotina/loss_candidates.txt: c1f894f0ba046de2a90986566dc6a5d262a8750f176d02c88e36e3465981e75d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pucciniomycotina/clusters/loss_clusters_cluster.tsv
+  : 646e8219a846c0c0afae82319cc01a6ede5879ccf424aa496766b69dd489125a
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pucciniomycotina/loss_presence_matrix.tsv: 8ea68545aa2a9a510a87c3d8446878c52f3b83437c5b2e8070bff9a155187d31
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/pep/UP000017200_683840.pep.fa
+  : 181699b46c423fb3550e303ba4c6d2a16e05d020b8cdb9ca42b4f78b9dc4aafa
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/pep/Puccgram.pep.fa
+  : 963c59686fb2ad94991ed12c63a2c88fd49da7b50014a0fa1b723e72d4d940d4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/data_dir/pep/Melalari.pep.fa
+  : 15c13a2eb82e2a8cc949de496849d8e1975f49115987eeaba87d70edef356f35
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/species.csv
+  : 767b5b3b1589543003da6a5a4f613fcecfff2375ea1eff01ac3135ae942a506a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/UP000017200.tsv.gz
+  : 7851737bebbe9a80f5b3a7a357d12c7f9d0e23d6a418a2d6f3440b63c87cdd0c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/GCF_000149925.1.tsv.gz
+  : f1b5366d077a645edb480cd1a11b845698ae040488f8717785db3f90f9c02318
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/Melampsora_laricis-populina_98AG31.proteins.tsv.gz
+  : c1322949ee2ab67ec025fbf5da7fb84179143723249f001045ef6a351a44abdc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/GCF_000320785.1.tsv.gz
+  : a16855bdcd6bb3e197662ac41bab9edbc62dc1520c99c3edbf25853b08199ff9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/UP000777482.tsv.gz
+  : 9e9c90f01c2e5af3a40c9ddf2268d8f4c7d85b43a3f97fe5f0d167030ea1ad09
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/UP000053890.tsv.gz
+  : 0ce036b67e82f2677b0063d0965b975aa5249556d86e9502badd353c6b954439
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/Sporobolomyces_roseus_SR19.proteins.tsv.gz
+  : 14b1e7ca9faa2b0326541ac83a8170fb59ccc0f7f4d64a4e457131d1c80265a1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/UP000193467.tsv.gz
+  : 6313562242b0454d899748a8802823f1801cdbaa117b0ab62148a03d195dd902
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/GCF_000149925.1.tsv.gz.provenance.yaml
+  : a936fa434effbe234fdec5d1939d54d7e34132f4f7250291e9dddfa361d10b48
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/Melampsora_laricis-populina_98AG31.proteins.tsv.gz.provenance.yaml
+  : 304d672440e10066477f60482bff2155422b1a2714f971d098592b3eb47d5305
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/GCF_000320785.1.tsv.gz.provenance.yaml
+  : cc9a6a2d26df1d21d35c4e01e3be38e6aee85324cc3e50ff92150d237f9c4a42
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pucciniomycotina/annotations/Sporobolomyces_roseus_SR19.proteins.tsv.gz.provenance.yaml
+  : 272597bd7f3194f24ea040fdd7b0b8766dde6d37f08e8152b22987f6dd526365
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 3.2
+  background_cluster_s: 66.3
+  tests_s: 2.4
+  total_s: 73.2
+host: r11
+slurm_job: '30452604'

@@ -1,0 +1,147 @@
+generated: '2026-10-24T14:35:49'
+study: yc_capnodiales
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_capnodiales --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations
+  --study yc_capnodiales --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction novelty --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/analysis/enrichment/outputs/novelty/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: novelty
+target_group:
+  label: IN
+  species:
+  - Hortwern
+  - Hortthai
+other_group:
+  label: OUT
+  species:
+  - Pseufiji
+  - Dothsept
+  - Cladclad
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations
+annotation_files:
+  Hortwern: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/UP000194280.tsv.gz
+  Hortthai: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/UP000308549.tsv.gz
+  Pseufiji: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/UP000016932.tsv.gz
+  Dothsept: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/UP000016933.tsv.gz
+  Cladclad: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/Cladosporium_cladosporioides_SYC63.proteins.tsv.gz
+annotation_sources:
+  Hortwern: not recorded (no sidecar)
+  Hortthai: not recorded (no sidecar)
+  Pseufiji: not recorded (no sidecar)
+  Dothsept: not recorded (no sidecar)
+  Cladclad: Pfam-A HMM search (hmmsearch); Pfam only
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Hortwern
+    - Hortthai
+    species_without_terms: []
+    n_with: 2
+    n_species: 2
+  pfam_clan:
+    species_with_terms:
+    - Hortwern
+    - Hortthai
+    species_without_terms: []
+    n_with: 2
+    n_species: 2
+  interpro:
+    species_with_terms:
+    - Hortwern
+    - Hortthai
+    species_without_terms: []
+    n_with: 2
+    n_species: 2
+  go:
+    species_with_terms:
+    - Hortwern
+    - Hortthai
+    species_without_terms: []
+    n_with: 2
+    n_species: 2
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 354
+  candidates_txt: 354
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_capnodiales/candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_capnodiales/presence_matrix.uniprot.tsv
+  rule: IN count / 2 >= 0.75 and OUT count / 3 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 777d86571def475e
+  n_sequences: 23881
+  n_clusters: 11087
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 38.4
+  threads: 4
+  created: '2026-10-24T14:35:44'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/config.csv: 1f20536239d96325dce916060160832828580fd3f1b4eae8829f78f806e6f231
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_capnodiales/candidates.txt: 9d290dbd841abfb02009852fa4a9f0f04b4f93b144757d2f044a7cb63770e1b3
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_capnodiales/novelties.Hortwern.tsv: 57bf9ffdde868075266732c1805e74d9bd9f9ed0bbcd75270c5c27a2e54721f9
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_capnodiales/novelties.Hortthai.tsv: 41cc614811604c354ba8385d308a7d7729f2ae0b71b78d9877856d69d305545b
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_capnodiales/presence_matrix.uniprot.tsv: 3ee8bd1119fc8c06e2de4157978c93a3e9867220563e6e253db1a47431ad9c84
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/data_dir/pep/UP000194280_1157616.pep.fa
+  : 5d5fa266fe9b2dfc39f5c73b754cebb651195d8d3ceffce1aa1254956ede722c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/data_dir/pep/UP000308549_706561.pep.fa
+  : ad2ed5fa1038bb48f566ac8154996a188dd8af5751c8cca2e575ba1fc2d98f52
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/species.csv: 3a70fe395ca4973171415c64c3d305fa09bbde0547c1771454e4b91b4dc18dab
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/UP000194280.tsv.gz
+  : 99375c520d235a1818cf99cf77991cc5c098f15f3eb46c27c083067c472af786
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/UP000308549.tsv.gz
+  : e24246e2f44f86442362c504acb21b4fd978bde6f17b8a0c2da82156604b427f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/UP000016932.tsv.gz
+  : 83107018015d4e9272147459b3dc9d7496adb09ec47fd35f268c28c99826c926
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/UP000016933.tsv.gz
+  : 3154c0a7f45133fa3f5b3c288ac5171eac91b3bdde0fca1bbd592c494cb729ce
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/Cladosporium_cladosporioides_SYC63.proteins.tsv.gz
+  : 6c0756d8fcb49130e74aff91dc736fe5651558b48732e39b023a0d90a74663e1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_capnodiales/annotations/Cladosporium_cladosporioides_SYC63.proteins.tsv.gz.provenance.yaml
+  : 22c3d574368b9691b690b946033d3b875e874e29c9d29c5c2f3ae53ecdaa217d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 5.5
+  background_cluster_s: 38.8
+  tests_s: 3.7
+  total_s: 50.1
+host: r11
+slurm_job: '30452604'

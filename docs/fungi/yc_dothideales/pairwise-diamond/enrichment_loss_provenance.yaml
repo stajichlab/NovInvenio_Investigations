@@ -1,0 +1,164 @@
+generated: '2026-10-24T14:34:54'
+study: yc_dothideales
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_dothideales --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations
+  --study yc_dothideales --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Botrdoth
+  - Paranodo
+  - Altealte
+other_group:
+  label: IN
+  species:
+  - Aurepull
+  - Auremela
+  - Aurenami
+  - Auresubg
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations
+annotation_files:
+  Botrdoth: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000572817.tsv.gz
+  Paranodo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000663193.tsv.gz
+  Altealte: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000077248.tsv.gz
+  Aurepull: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/GCF_000721785.1.tsv.gz
+  Auremela: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/GCF_000721775.1.tsv.gz
+  Aurenami: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000027730.tsv.gz
+  Auresubg: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000030641.tsv.gz
+annotation_sources:
+  Botrdoth: not recorded (no sidecar)
+  Paranodo: not recorded (no sidecar)
+  Altealte: not recorded (no sidecar)
+  Aurepull: Pfam-A HMM search (hmmsearch); Pfam only
+  Auremela: Pfam-A HMM search (hmmsearch); Pfam only
+  Aurenami: not recorded (no sidecar)
+  Auresubg: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Botrdoth
+    - Paranodo
+    - Altealte
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  pfam_clan:
+    species_with_terms:
+    - Botrdoth
+    - Paranodo
+    - Altealte
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  interpro:
+    species_with_terms:
+    - Botrdoth
+    - Paranodo
+    - Altealte
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  go:
+    species_with_terms:
+    - Botrdoth
+    - Paranodo
+    - Altealte
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 1663
+  candidates_txt: 1663
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_dothideales/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_dothideales/loss_presence_matrix.tsv
+  rule: OUT count / 3 >= 0.75 and IN count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 30e9cd86a2fa73dd
+  n_sequences: 42348
+  n_clusters: 24209
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 77.2
+  threads: 4
+  created: '2026-10-24T14:34:47'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_dothideales/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/config.csv: 64758967240a1a09f19d829c067e54032bb48967520e0658bf0b16d1fbee98fc
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_dothideales/loss_candidates.txt: f7997408f80de19318c39fa50763822def94fd76d0b361940d9a926e8227682d
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_dothideales/clusters/loss_clusters_cluster.tsv: 9df286744aafdcbfd32148b572e1276c1f9831a5ea1ce0f783808113d1c4c3fa
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_dothideales/loss_presence_matrix.tsv: 40995aeaa5e30cb50b15dc5d2147dff728fd7ddce2536dfb886615f98d474303
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/data_dir/pep/UP000572817_55169.pep.fa
+  : 77622e6d331f84b128562570a6361ae673ca1c9d646a8f82db7e1363d9343159
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/data_dir/pep/UP000663193_321614.pep.fa
+  : ab293be1941dfff411d9f1af8c8fb8ce2e5e87fe326f23f4f9b829ca772bbf9e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/data_dir/pep/UP000077248_5599.pep.fa
+  : ed62ef84522633acba9c07148e5da11a22e4016c87afd72c7a5c8e98a3d48153
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/species.csv: cf7613b351d88842f6589b7273db4ba01688c639ab97c7e928ada287591cfe8c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000572817.tsv.gz
+  : d31f28b5a7f7b34a932a08838c65518fc90f3285c50d3792bcea2741910b3321
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000663193.tsv.gz
+  : fe6ec318960ffeb97d92743ab0540f8553ac2991529ebc9e3ec5bc02986d2de4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000077248.tsv.gz
+  : d97a3105e4f777e2de3a13942779f65964c4c92bdabdff7d5d36b9aa5e07b93c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/GCF_000721785.1.tsv.gz
+  : 09bf67ff868fb40c41c54d96f83307516029e725c43981f58f551ee3206d4c10
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/GCF_000721775.1.tsv.gz
+  : 2f4f67947d180c6ca37b5f8cbd29883ce4dd11d5e9d3d065f4b0ed36bf1c3241
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000027730.tsv.gz
+  : 13b9749c4b6c01c7c925bb4a62ca401771df6134e9e185400b10b34f3e55e353
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/UP000030641.tsv.gz
+  : fbb4bf7be5a855dc5a288ad508919c05b2ac61247b2911e6437b5a7686a0173f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/GCF_000721785.1.tsv.gz.provenance.yaml
+  : ede368c6618d123b575b0f9bdb715e8f8c03b68bfe66dc4315024b6ac8c328ad
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_dothideales/annotations/GCF_000721775.1.tsv.gz.provenance.yaml
+  : 4f1ddc1777625ae8aaee8c0d3de9dfc943f2faa4136edaffd591a1da993bc8d8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 4.2
+  background_cluster_s: 77.9
+  tests_s: 5.3
+  total_s: 89.3
+host: r11
+slurm_job: '30452604'

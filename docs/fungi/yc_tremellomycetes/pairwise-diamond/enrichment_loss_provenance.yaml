@@ -1,0 +1,165 @@
+generated: '2026-10-24T14:39:13'
+study: yc_tremellomycetes
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_tremellomycetes --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations
+  --study yc_tremellomycetes --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Dacrprim
+  - Calocorn
+  - Ccin
+other_group:
+  label: IN
+  species:
+  - CneoH99
+  - Kwonmang
+  - Tricasah
+  - Tremes
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations
+annotation_files:
+  Dacrprim: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000030653.tsv.gz
+  Calocorn: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000076842.tsv.gz
+  Ccin: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000001861.tsv.gz
+  CneoH99: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000010091.tsv.gz
+  Kwonmang: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/Kwoniella_mangrovensis_CBS_8507.proteins.tsv.gz
+  Tricasah: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000006757.tsv.gz
+  Tremes: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000289152.tsv.gz
+annotation_sources:
+  Dacrprim: not recorded (no sidecar)
+  Calocorn: not recorded (no sidecar)
+  Ccin: not recorded (no sidecar)
+  CneoH99: not recorded (no sidecar)
+  Kwonmang: Pfam-A HMM search (hmmsearch); Pfam only
+  Tricasah: not recorded (no sidecar)
+  Tremes: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Dacrprim
+    - Calocorn
+    - Ccin
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  pfam_clan:
+    species_with_terms:
+    - Dacrprim
+    - Calocorn
+    - Ccin
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  interpro:
+    species_with_terms:
+    - Dacrprim
+    - Calocorn
+    - Ccin
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  go:
+    species_with_terms:
+    - Dacrprim
+    - Calocorn
+    - Ccin
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 2677
+  candidates_txt: 2677
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_tremellomycetes/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_tremellomycetes/loss_presence_matrix.tsv
+  rule: OUT count / 3 >= 0.75 and IN count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: d365f1220b9faa6b
+  n_sequences: 33966
+  n_clusters: 20933
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 52.3
+  threads: 4
+  created: '2026-10-24T14:39:06'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_tremellomycetes/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/config.csv
+  : 2764e26bddc94a8848e42aa8dae2345315cae01d8a4e3d6f669c415757ce536d
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_tremellomycetes/loss_candidates.txt: 72c9e023376a30fc63ca63e84c798e1c5ae7765ac794c175d65af8fd1454ba99
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_tremellomycetes/clusters/loss_clusters_cluster.tsv
+  : db6d6f261493dd2809a777c0e3af3e384335d27e99660b42e454cdb29f561ca0
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_tremellomycetes/loss_presence_matrix.tsv: 35fb9c95f7933995126e8e2ac234dada0bca515340eb0a6ab50e3f07a0fe0cb2
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/data_dir/pep/UP000030653_1858805.pep.fa
+  : 2e91d7d57967c20adfb3e3e0fd78b17ef46f6d7eac1bac0377cc731934efdefb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/data_dir/pep/UP000076842_1353952.pep.fa
+  : e9c72778295da1be6b325491b77abdcd1cfa2f75509fbeef218b32cb916aaf75
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/data_dir/pep/UP000001861_240176.pep.fa
+  : 74c44aa4bf25cf5b12557eb189790357f7864197c5f0ec34b2724c338bda80c3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/species.csv
+  : ae82141b90bf1cf681bc92385b7378d3d595faf654fc84a3c05b0ec9f0905dae
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000030653.tsv.gz
+  : bf1bca91cd10d8ebf08cb049af219ae5e60af857251514f6071a146bb82422eb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000076842.tsv.gz
+  : 814fdac7f685fc44f43b779ee66d698571cad86cd040de7930defc4b95f081d0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000001861.tsv.gz
+  : d9c9d7d2ba7462a6ec34aa250423058af301c3664e9c1249cd16a365c7fccd97
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000010091.tsv.gz
+  : dd02a5d33482dba013da7e124c73b991cb09c72ebcce4ebce78d9fa57fb11100
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/Kwoniella_mangrovensis_CBS_8507.proteins.tsv.gz
+  : db1e84e7e0d73ab9434fd74534a86d8a295cba1d950ddaea0d17e135020ce6ec
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000006757.tsv.gz
+  : 6260cedaf1acaafed0712a45c5d15b27108bbf7985a8fa3065d1e1df164ddd43
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/UP000289152.tsv.gz
+  : c3d7c3860dc208784fcb655774cf510cf615ade87c8a891508a4dbda12cae87c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_tremellomycetes/annotations/Kwoniella_mangrovensis_CBS_8507.proteins.tsv.gz.provenance.yaml
+  : f0449ac3f73b36bf12b365d4caae90ba274a6bc55afe82d9593662af45ad917c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 5.0
+  background_cluster_s: 52.9
+  tests_s: 5.4
+  total_s: 65.1
+host: r11
+slurm_job: '30452604'

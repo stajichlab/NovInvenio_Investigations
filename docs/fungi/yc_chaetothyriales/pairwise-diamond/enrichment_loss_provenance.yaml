@@ -1,0 +1,170 @@
+generated: '2026-10-24T14:32:25'
+study: yc_chaetothyriales
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_chaetothyriales --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations
+  --study yc_chaetothyriales --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Caprcoro
+  - Cladcarr
+  - Fonspedr
+other_group:
+  label: IN
+  species:
+  - Exopderm
+  - Exopspin
+  - Exopphae
+  - Exopolig
+  - Exopmeso
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations
+annotation_files:
+  Caprcoro: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000019484.tsv.gz
+  Cladcarr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000094526.tsv.gz
+  Fonspedr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000053029.tsv.gz
+  Exopderm: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000007304.tsv.gz
+  Exopspin: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000053328.tsv.gz
+  Exopphae: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/Exophiala_phaeomuriformis_CBS_132758.proteins.tsv.gz
+  Exopolig: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000053342.tsv.gz
+  Exopmeso: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000054302.tsv.gz
+annotation_sources:
+  Caprcoro: not recorded (no sidecar)
+  Cladcarr: not recorded (no sidecar)
+  Fonspedr: not recorded (no sidecar)
+  Exopderm: not recorded (no sidecar)
+  Exopspin: not recorded (no sidecar)
+  Exopphae: Pfam-A HMM search (hmmsearch); Pfam only
+  Exopolig: not recorded (no sidecar)
+  Exopmeso: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Caprcoro
+    - Cladcarr
+    - Fonspedr
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  pfam_clan:
+    species_with_terms:
+    - Caprcoro
+    - Cladcarr
+    - Fonspedr
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  interpro:
+    species_with_terms:
+    - Caprcoro
+    - Cladcarr
+    - Fonspedr
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  go:
+    species_with_terms:
+    - Caprcoro
+    - Cladcarr
+    - Fonspedr
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 55
+  candidates_txt: 55
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_chaetothyriales/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_chaetothyriales/loss_presence_matrix.tsv
+  rule: OUT count / 3 >= 0.75 and IN count / 5 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 6b39fc33a3339d92
+  n_sequences: 32881
+  n_clusters: 14202
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 47.8
+  threads: 4
+  created: '2026-10-24T14:32:18'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_chaetothyriales/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/config.csv
+  : d4d3053408fe01d3617203348009c7e8a93ea921a50d9aec3ae3079dd2684e92
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_chaetothyriales/loss_candidates.txt: dc8f9d65d343524ffcabe40f08c77d4f3c1090d306dc603a4da2afc63637e3f3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_chaetothyriales/clusters/loss_clusters_cluster.tsv
+  : 8f5c3fd4530121acede25ee2d345d894bd53c0b3ad524279c41f1ab5f04e009b
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_chaetothyriales/loss_presence_matrix.tsv: bf05c4370ce818240a22e234f2b05a733a57595b608943fe40f9369844c7cb0f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/data_dir/pep/UP000019484_1182541.pep.fa
+  : a0031f20f7f2b578ffebcdb713ec4647032d866d397aac6ee82c75158cd339ef
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/data_dir/pep/UP000094526_86049.pep.fa
+  : ae4ebe5378d5c9d0db70c3b4b3361f8a3558915ae52f1ca4b60eafe9d7b4be88
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/data_dir/pep/UP000053029_1442368.pep.fa
+  : e20faa7ae21b7d1903f4d1b54ef12ce708a46399358b8561ca6eb989ecad8c26
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/species.csv
+  : acd604021beea7a363e5632f03182ad9785a9ca1994e5cfdbbacd67477622896
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000019484.tsv.gz
+  : d2c31fab5674f8cfac582e24411ec94d13d602769f14f1d86d5bcfc8b1848649
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000094526.tsv.gz
+  : 1113bcc855fa09d02b55ed2da09aa000537fbce5a77a53e6991a034a8cc197ab
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000053029.tsv.gz
+  : 5ad639903fab13c7f390a2f7799900623e5ee252392d64c1457f10e5416a084e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000007304.tsv.gz
+  : 85f01303d01dccba682fbbf162afa9420f998dab4f9129dbc676c6bad66380bb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000053328.tsv.gz
+  : 28a4cfb17710d37608266b78a9bdc6098e7e806ce3d679a663c71c818e392588
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/Exophiala_phaeomuriformis_CBS_132758.proteins.tsv.gz
+  : 0ba612ac5cdff2d6ed5282b2f74add434a1e1a422b7e06028df5cdc9d9ceb1f6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000053342.tsv.gz
+  : 95aa1868e624a97ab7e0ddda5732d1a1af63bcc5609aa9dc5457bc17429f0dc1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/UP000054302.tsv.gz
+  : 2f714e4d396238632308ac55aff9176eef37904410b9c7d1bbe3c361f6b292a1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_chaetothyriales/annotations/Exophiala_phaeomuriformis_CBS_132758.proteins.tsv.gz.provenance.yaml
+  : ed10b3ac84bb674da2684bf3737fe181746948a9691584eabc97d2b255c286e8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 4.6
+  background_cluster_s: 48.3
+  tests_s: 4.8
+  total_s: 59.4
+host: r11
+slurm_job: '30452604'

@@ -1,0 +1,183 @@
+generated: '2026-10-24T14:56:28'
+study: yc_pseudo_arbuscular_mycorrhizal
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_arbuscular_mycorrhizal --config
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations
+  --study yc_pseudo_arbuscular_mycorrhizal --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Umbevina
+  - Umberama
+  - Mortelon
+  - Lobotran
+other_group:
+  label: IN
+  species:
+  - Rhizirre
+  - Gigarose
+  - Diveepig
+  - Geospyri
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations
+annotation_files:
+  Umbevina: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP000612746.tsv.gz
+  Umberama: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP001206595.tsv.gz
+  Mortelon: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/Linnemannia_elongata_AG-77.proteins.tsv.gz
+  Lobotran: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP000193648.tsv.gz
+  Rhizirre: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/Rhizophagus_irregularis_DAOM_181602.proteins.tsv.gz
+  Gigarose: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP000266673.tsv.gz
+  Diveepig: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP000266861.tsv.gz
+  Geospyri: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/GCA_016748015.1.tsv.gz
+annotation_sources:
+  Umbevina: not recorded (no sidecar)
+  Umberama: not recorded (no sidecar)
+  Mortelon: Pfam-A HMM search (hmmsearch); Pfam only
+  Lobotran: not recorded (no sidecar)
+  Rhizirre: Pfam-A HMM search (hmmsearch); Pfam only
+  Gigarose: not recorded (no sidecar)
+  Diveepig: not recorded (no sidecar)
+  Geospyri: Pfam-A HMM search (hmmsearch); Pfam only
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Umbevina
+    - Umberama
+    - Mortelon
+    - Lobotran
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  pfam_clan:
+    species_with_terms:
+    - Umbevina
+    - Umberama
+    - Mortelon
+    - Lobotran
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  interpro:
+    species_with_terms:
+    - Umbevina
+    - Umberama
+    - Lobotran
+    species_without_terms:
+    - Mortelon
+    n_with: 3
+    n_species: 4
+  go:
+    species_with_terms:
+    - Umbevina
+    - Umberama
+    - Lobotran
+    species_without_terms:
+    - Mortelon
+    n_with: 3
+    n_species: 4
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 2317
+  candidates_txt: 2317
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_arbuscular_mycorrhizal/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_arbuscular_mycorrhizal/loss_presence_matrix.tsv
+  rule: OUT count / 4 >= 0.75 and IN count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: b6009cc4293e4a5f
+  n_sequences: 42481
+  n_clusters: 21042
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 69.1
+  threads: 4
+  created: '2026-10-24T14:56:20'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_arbuscular_mycorrhizal/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/config.csv
+  : 43d8c4aa68f90c965d970433b16de2580380f52d8318c70265e78dae5408c06d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_arbuscular_mycorrhizal/loss_candidates.txt
+  : cdbbdd11c038819a4bfe14b1e115bdca1c91d6609ab74cffbc43c5a36b38deb5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_arbuscular_mycorrhizal/clusters/loss_clusters_cluster.tsv
+  : 2f75783b0e71465042d7445298319b7c8b4e486a98c1e6ec9a3469307d2a9251
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_arbuscular_mycorrhizal/loss_presence_matrix.tsv
+  : 8831741b6dccd9c758b3f1600d654c54d251f779f84362d44ffdace58c450d89
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/data_dir/pep/UP000612746_44442.pep.fa
+  : f414c2815acc40eba2da1abf0a1bfdebf583111b7de5f6415730b9d664d84699
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/data_dir/pep/UP001206595_1314678.pep.fa
+  : 8c2c75e3373a13f808d4253a3e7a9518596e2e35602cbb8dfce47de2867812ed
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/data_dir/pep/Mortelon.pep.fa
+  : 719771532bbc1d59311555e8678c494851268976b51964c8fe29796ec55d3ef8
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/data_dir/pep/UP000193648_64571.pep.fa
+  : 60001fa8f448590a4b71a79cffd3f8d0860fdb3796ede45a6c583a58f3b2a330
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/species.csv
+  : 7f066032c8fefce2144251e3a41003fb70f95ca2ed77486cd039d96185f764cc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP000612746.tsv.gz
+  : 7be13bcbae2a30331c14b55855141791537091f0afe2de4a982ba67955297032
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP001206595.tsv.gz
+  : 64251f6c8682c7b6c489bee248eaecf2e6bebd217514bd2812d79994781bcc74
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/Linnemannia_elongata_AG-77.proteins.tsv.gz
+  : 92b519d3ec1b5ff084467e74be8d5720e152891d7155e4bc1d9572f0bb4d5c48
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP000193648.tsv.gz
+  : 827497e632b4084abf7312b04844f541b750e0c5891c548344b8a264211f337b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/Rhizophagus_irregularis_DAOM_181602.proteins.tsv.gz
+  : 48ff156e851dac237abfdec2f6eb1839de6ca530f52222f9ecdd0c1ab2e096ad
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP000266673.tsv.gz
+  : e493fdff35dd753e899155b04d2e3d98e814f5df3110dc310446a722456829c0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/UP000266861.tsv.gz
+  : f8604acf5e5d058391933277c21480f8a8d937643b868007349f2c86450f46d5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/GCA_016748015.1.tsv.gz
+  : e359d0022faa22d965b967ca0cc683f353c359c340af6ce2ebe37e74fc4124c4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/Linnemannia_elongata_AG-77.proteins.tsv.gz.provenance.yaml
+  : 9107ce58e3e3cce211d61d30ac92d1a68d1bf7402bd2e2d0dd6a8459f10d0ba9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/Rhizophagus_irregularis_DAOM_181602.proteins.tsv.gz.provenance.yaml
+  : afff290a7f54fe7a0570ea9e2446fe3a3e0fcabc88c03526fb0b0f0d806405e3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_arbuscular_mycorrhizal/annotations/GCA_016748015.1.tsv.gz.provenance.yaml
+  : 4a18f63a883b3fdb9532258086a147cea413ae39415f56dd6243e0dd5b42549d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 4.2
+  background_cluster_s: 69.6
+  tests_s: 5.7
+  total_s: 82.0
+host: r11
+slurm_job: '30452604'

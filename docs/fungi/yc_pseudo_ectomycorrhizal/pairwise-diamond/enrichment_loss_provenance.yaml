@@ -1,0 +1,174 @@
+generated: '2026-10-24T14:50:59'
+study: yc_pseudo_ectomycorrhizal
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_ectomycorrhizal --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations
+  --study yc_pseudo_ectomycorrhizal --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Amanthie
+  - Ccin
+  - Agbis
+  - Pleuostr
+other_group:
+  label: IN
+  species:
+  - Laccbico
+  - Laccamet
+  - Hebecyli
+  - Amanmusc
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations
+annotation_files:
+  Amanthie: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000242287.tsv.gz
+  Ccin: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000001861.tsv.gz
+  Agbis: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000008493.tsv.gz
+  Pleuostr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000623687.tsv.gz
+  Laccbico: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000001194.tsv.gz
+  Laccamet: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000054477.tsv.gz
+  Hebecyli: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000053424.tsv.gz
+  Amanmusc: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000054549.tsv.gz
+annotation_sources:
+  Amanthie: not recorded (no sidecar)
+  Ccin: not recorded (no sidecar)
+  Agbis: not recorded (no sidecar)
+  Pleuostr: not recorded (no sidecar)
+  Laccbico: not recorded (no sidecar)
+  Laccamet: not recorded (no sidecar)
+  Hebecyli: not recorded (no sidecar)
+  Amanmusc: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Amanthie
+    - Ccin
+    - Agbis
+    - Pleuostr
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  pfam_clan:
+    species_with_terms:
+    - Amanthie
+    - Ccin
+    - Agbis
+    - Pleuostr
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  interpro:
+    species_with_terms:
+    - Amanthie
+    - Ccin
+    - Agbis
+    - Pleuostr
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  go:
+    species_with_terms:
+    - Amanthie
+    - Ccin
+    - Agbis
+    - Pleuostr
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 361
+  candidates_txt: 361
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_ectomycorrhizal/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_ectomycorrhizal/loss_presence_matrix.tsv
+  rule: OUT count / 4 >= 0.75 and IN count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: c52899b98e63600c
+  n_sequences: 46144
+  n_clusters: 22248
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 69.1
+  threads: 4
+  created: '2026-10-24T14:50:52'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_ectomycorrhizal/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/config.csv
+  : 6eddef582c1f178b66b6e206de035800b052498ab1df98ba8bf5d2cb4c20c07b
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_ectomycorrhizal/loss_candidates.txt: 30b0ac925eaab1b6931328601e82250ded7de34197739e378bf843d1432cb8d1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_ectomycorrhizal/clusters/loss_clusters_cluster.tsv
+  : 24ad33de04443541b83cbad6cd38fcd286101bf9bdcbb0d054f1e2653f67a397
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_ectomycorrhizal/loss_presence_matrix.tsv: 53f1a804d5475313854231ed9aac210f11c0efcaa9172487ad82fa55255d6743
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/data_dir/pep/UP000242287_703135.pep.fa
+  : ce1aecbd364888d0ead060aa327c1731f94bc5c24789e54b85d4d65b92abba33
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/data_dir/pep/UP000001861_240176.pep.fa
+  : 74c44aa4bf25cf5b12557eb189790357f7864197c5f0ec34b2724c338bda80c3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/data_dir/pep/UP000008493_597362.pep.fa
+  : 32dd0444169cfd2e54ea9363f4f971e2aff3f5b414926ee86dbfc7ba8c9ced4a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/data_dir/pep/UP000623687_5322.pep.fa
+  : 5ac563f6d6c392eb063d1e762c6cdfbc7a00a1f728814a75746a6c8608de7976
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/species.csv
+  : c90b6ba069c7de6eae906cb212f0810828eb5f40d9b9558b506de3d0b987c0ef
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000242287.tsv.gz
+  : cf4898979fe7b7fcca3bcbbd25099af62af34fd617e9c52e96f9f49dc0f56df3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000001861.tsv.gz
+  : 3e90bf8e6d7a60e464f904a30f9df462c29ec9fb7836d24ee9b7cfc2c4eeb4ca
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000008493.tsv.gz
+  : 33965ed8e5926dc68e862af851550a27bb3696124a3f809c2a0bdbb477938924
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000623687.tsv.gz
+  : 0a2cde75e88da66789449ff67aa6dd1a359b1a71407c166808f303cc207fd612
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000001194.tsv.gz
+  : c671f268c3d82fe34920602b1524cc7d0dcffb12a41374a1690fb07088fc84b1
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000054477.tsv.gz
+  : 7fbe17a8ec32d2540235eb7fddc99bfa4f13c971e2569a13a3836d4bdd656c87
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000053424.tsv.gz
+  : 84cb9ae0e9bb7d9117cc31de233c4bed3d6c541a4e5b2604c45c1b2ec6ff2a3a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_ectomycorrhizal/annotations/UP000054549.tsv.gz
+  : 8837ab3248263a2d42880cf29f87ac13a1c0cf8118ea913e5dc925b5a541d81c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 4.3
+  background_cluster_s: 69.6
+  tests_s: 5.0
+  total_s: 81.1
+host: r11
+slurm_job: '30452604'

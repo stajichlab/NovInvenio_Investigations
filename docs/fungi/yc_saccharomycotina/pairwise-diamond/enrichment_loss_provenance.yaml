@@ -1,0 +1,179 @@
+generated: '2026-10-24T14:27:43'
+study: yc_saccharomycotina
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_saccharomycotina --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations
+  --study yc_saccharomycotina --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Amega
+  - Tubemela
+  - Ncra
+  - Anid
+other_group:
+  label: IN
+  species:
+  - Scer
+  - Lipostar
+  - Ylip
+  - Komaphaf
+  - Candalbi
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations
+annotation_files:
+  Amega: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP001658139.tsv.gz
+  Tubemela: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000006911.tsv.gz
+  Ncra: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000001805.tsv.gz
+  Anid: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000000560.tsv.gz
+  Scer: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000002311.tsv.gz
+  Lipostar: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000094385.tsv.gz
+  Ylip: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000001300.tsv.gz
+  Komaphaf: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000000314.tsv.gz
+  Candalbi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000000559.tsv.gz
+annotation_sources:
+  Amega: not recorded (no sidecar)
+  Tubemela: not recorded (no sidecar)
+  Ncra: not recorded (no sidecar)
+  Anid: not recorded (no sidecar)
+  Scer: not recorded (no sidecar)
+  Lipostar: not recorded (no sidecar)
+  Ylip: not recorded (no sidecar)
+  Komaphaf: not recorded (no sidecar)
+  Candalbi: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Amega
+    - Tubemela
+    - Ncra
+    - Anid
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  pfam_clan:
+    species_with_terms:
+    - Amega
+    - Tubemela
+    - Ncra
+    - Anid
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  interpro:
+    species_with_terms:
+    - Amega
+    - Tubemela
+    - Ncra
+    - Anid
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  go:
+    species_with_terms:
+    - Tubemela
+    - Ncra
+    - Anid
+    species_without_terms:
+    - Amega
+    n_with: 3
+    n_species: 4
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 3672
+  candidates_txt: 3672
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_saccharomycotina/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_saccharomycotina/loss_presence_matrix.tsv
+  rule: OUT count / 4 >= 0.75 and IN count / 5 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: bb91c54c96e3372f
+  n_sequences: 36001
+  n_clusters: 21933
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 70.4
+  threads: 4
+  created: '2026-10-24T14:27:35'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_saccharomycotina/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/config.csv
+  : deecbde38aafcc041378ffc582e483d977c5eeb2f34c3df8f5c2d0b851353095
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_saccharomycotina/loss_candidates.txt: 6c3bf2d4deda257fbf85577d9b988baf88332fde56ef09591c04142f1ebad268
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_saccharomycotina/clusters/loss_clusters_cluster.tsv
+  : df2007651f081a092799a5aa8db6948747c26e86805ccf50cf210177edd2a5f3
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_saccharomycotina/loss_presence_matrix.tsv: 926438d3b0037746512e999fabf0ad16e72a63bc688f047357411f48427b982e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/data_dir/pep/UP001658139_2528406.pep.fa
+  : 2f3e3fabaa24307b063911f3ad1f01c2d9b49d0602fc56e31679894476facde4
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/data_dir/pep/UP000006911_656061.pep.fa
+  : f098cab4186822eb2fd59279de5a586ccbad5efab1d2965bfab22170388289bd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/data_dir/pep/UP000001805_367110.pep.fa
+  : 6c3a6d498fb30b129e2ab084f95789b3c510164f34661a5c85acb6a14e5f3dde
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/data_dir/pep/UP000000560_227321.pep.fa
+  : 929546c62a96b539b87eff1da79f95462d02f3853e6a1301cc43572bf8f3f7cc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/species.csv
+  : d9a786ec640646651e0de6cbb223b433f2201f251210f865d34e5fc270328ed7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP001658139.tsv.gz
+  : ad733d34f19586ffe37ffea92f5da242fbba8c9965f5f5cda4f58157da482d22
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000006911.tsv.gz
+  : a60be7c90d8def222f211d14b270a6ef1cb9b5e832de9b02fa62ca6b1d2ad2b6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000001805.tsv.gz
+  : bef3e2b7d985d46ed6edd299d15420b8e8d1987d1886bebb2ca5eab116888bf9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000000560.tsv.gz
+  : 59e3bf3c002f0341bc772b583eba5ebb0b45185874ecc0f9b04c1acdc6653ce9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000002311.tsv.gz
+  : 6bb8cd4fdaf082109b729c39dacce1a67e585cb22402a23d86c4256067a4561e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000094385.tsv.gz
+  : 986f829438d52ea497806e723b3271e8331281277b359694a21198a1545e3da0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000001300.tsv.gz
+  : 8b0053748250a11ee3e1441bb7dcd3564361bc0a0d70f54bc1cf9f01e3c53f21
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000000314.tsv.gz
+  : 33e433ea105d15d2aacec4f12b792a0d530b0e8a7d9442740ce1c0871711f8fd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_saccharomycotina/annotations/UP000000559.tsv.gz
+  : 3ae6bf15a6d2ec16726c89439fc0462975bf3f5820c38a994a4e12b9f366025c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 3.8
+  background_cluster_s: 70.8
+  tests_s: 6.1
+  total_s: 82.4
+host: r11
+slurm_job: '30452604'

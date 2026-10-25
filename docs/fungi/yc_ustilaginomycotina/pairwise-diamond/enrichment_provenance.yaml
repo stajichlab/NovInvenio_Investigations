@@ -1,0 +1,176 @@
+generated: '2026-10-24T14:40:05'
+study: yc_ustilaginomycotina
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_ustilaginomycotina --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations
+  --study yc_ustilaginomycotina --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction novelty --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/analysis/enrichment/outputs/novelty/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: novelty
+target_group:
+  label: IN
+  species:
+  - Malaglob
+  - Malasymp
+  - Moesaphi
+  - Kalmbras
+other_group:
+  label: OUT
+  species:
+  - Mycomayd
+  - Sporreil
+  - Ustihord
+  - Cerabomb
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations
+annotation_files:
+  Malaglob: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000008837.tsv.gz
+  Malasymp: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000186303.tsv.gz
+  Moesaphi: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000019462.tsv.gz
+  Kalmbras: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000019377.tsv.gz
+  Mycomayd: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000000561.tsv.gz
+  Sporreil: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000008867.tsv.gz
+  Ustihord: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000006174.tsv.gz
+  Cerabomb: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000054845.tsv.gz
+annotation_sources:
+  Malaglob: not recorded (no sidecar)
+  Malasymp: not recorded (no sidecar)
+  Moesaphi: not recorded (no sidecar)
+  Kalmbras: not recorded (no sidecar)
+  Mycomayd: not recorded (no sidecar)
+  Sporreil: not recorded (no sidecar)
+  Ustihord: not recorded (no sidecar)
+  Cerabomb: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Malaglob
+    - Malasymp
+    - Moesaphi
+    - Kalmbras
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  pfam_clan:
+    species_with_terms:
+    - Malaglob
+    - Malasymp
+    - Moesaphi
+    - Kalmbras
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  interpro:
+    species_with_terms:
+    - Malaglob
+    - Malasymp
+    - Moesaphi
+    - Kalmbras
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  go:
+    species_with_terms:
+    - Malaglob
+    - Malasymp
+    - Moesaphi
+    - Kalmbras
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 10
+  candidates_txt: 10
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_ustilaginomycotina/candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_ustilaginomycotina/presence_matrix.uniprot.tsv
+  rule: IN count / 4 >= 0.75 and OUT count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 80981bb1d83b4101
+  n_sequences: 20411
+  n_clusters: 10919
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 39.9
+  threads: 4
+  created: '2026-10-24T14:40:02'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/config.csv
+  : 3355dc9d4a7f88cd41e5d1aeb5e381d6b1ce69c1d8cd906782cd777822a76666
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_ustilaginomycotina/candidates.txt: bd9e3a5406bcc3e70bb2b0b3913cae769e0f7a89eb414f5a45d061429c3810c1
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_ustilaginomycotina/novelties.Malaglob.tsv: 18c84c5599db6f47bbe3bf62fbcbf90099bc9bdc606aadeea3144980166f28e7
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_ustilaginomycotina/novelties.Malasymp.tsv: 7ef6b3f7a4113a50d7ca81d0cd80c009dbe6aed3dfac2b3fd1a1b49b3992ae46
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_ustilaginomycotina/novelties.Moesaphi.tsv: 64d1bde6917971260dcdb41f902cbbbfa520331eccb930f4fd108bfa1f84c3d7
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_ustilaginomycotina/novelties.Kalmbras.tsv: 64d1bde6917971260dcdb41f902cbbbfa520331eccb930f4fd108bfa1f84c3d7
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_ustilaginomycotina/presence_matrix.uniprot.tsv: b4836f78f90bf631f0c11fec63f8c14acb822c687a4317d50b41462136257959
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/data_dir/pep/UP000008837_425265.pep.fa
+  : b04ad9cf4378628541da28c9bb394e9f74e7a18c283279106e58214fc840f330
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/data_dir/pep/UP000186303_1230383.pep.fa
+  : 0f145951fff56d202d835f0224eb3226cd6ec067115f5355ec38697bc7a47266
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/data_dir/pep/UP000019462_84754.pep.fa
+  : 81bc024265c8f56816b213c2bae43e8f1942948c7c8bb5e91e314c695c95c02b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/data_dir/pep/UP000019377_1365824.pep.fa
+  : a021c6cde3bc17a85b7f99f9673da8b494dfc0a62c6d2880d39fa8200e0a75ea
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/species.csv
+  : 7d35e52fc3df317fdd89aef0ea8475c8df6d0f80922ca85aafd1dfe295874fbc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000008837.tsv.gz
+  : 5196b874a4c777d8dfb52e36d6b585c0ed611dd656af948a2c8e80055948a6c6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000186303.tsv.gz
+  : df6801222786aa8b1654c08c8c4f11610b1360ba9462484cd50180a09ca8ec2d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000019462.tsv.gz
+  : 592e5c75c273d3aa45db92cb5e013dfeb848074ec0967e9f79dffd61ea56ada6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000019377.tsv.gz
+  : 8b4b208683184402d8ef14192010071a4d8827b20daad7fede522802102279fe
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000000561.tsv.gz
+  : 58da95b04b106212125016a94c470c165934e832f536989fc3976baeddc3ae68
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000008867.tsv.gz
+  : 3b99bbdc2a40eb72f8a811a469948a2987a38d06e54ba61bfdb46e4773433f4e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000006174.tsv.gz
+  : f67d31553bc8cc751ef6e56c33fe507f23c39d9e5254555566ee4c3e62855f24
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_ustilaginomycotina/annotations/UP000054845.tsv.gz
+  : bf2d958c6012c6cc10b58ed6ce423943741d8f9d8f80cb92083b41cc1d8b6d2e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 4.1
+  background_cluster_s: 40.1
+  tests_s: 2.9
+  total_s: 48.0
+host: r11
+slurm_job: '30452604'

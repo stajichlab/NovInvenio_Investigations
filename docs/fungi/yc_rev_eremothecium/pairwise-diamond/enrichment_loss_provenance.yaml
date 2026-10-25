@@ -1,0 +1,169 @@
+generated: '2026-10-24T14:57:38'
+study: yc_rev_eremothecium
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_rev_eremothecium --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations
+  --study yc_rev_eremothecium --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Kluylact
+  - Lachther
+  - Torudelb
+  - Scer
+other_group:
+  label: IN
+  species:
+  - Eremgoss
+  - Eremcymb
+  - Eremsine
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations
+annotation_files:
+  Kluylact: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000000598.tsv.gz
+  Lachther: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000002036.tsv.gz
+  Torudelb: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000005627.tsv.gz
+  Scer: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000002311.tsv.gz
+  Eremgoss: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000000591.tsv.gz
+  Eremcymb: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000006790.tsv.gz
+  Eremsine: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000243052.tsv.gz
+annotation_sources:
+  Kluylact: not recorded (no sidecar)
+  Lachther: not recorded (no sidecar)
+  Torudelb: not recorded (no sidecar)
+  Scer: not recorded (no sidecar)
+  Eremgoss: not recorded (no sidecar)
+  Eremcymb: not recorded (no sidecar)
+  Eremsine: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Kluylact
+    - Lachther
+    - Torudelb
+    - Scer
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  pfam_clan:
+    species_with_terms:
+    - Kluylact
+    - Lachther
+    - Torudelb
+    - Scer
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  interpro:
+    species_with_terms:
+    - Kluylact
+    - Lachther
+    - Torudelb
+    - Scer
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  go:
+    species_with_terms:
+    - Kluylact
+    - Lachther
+    - Torudelb
+    - Scer
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 716
+  candidates_txt: 716
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_rev_eremothecium/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_rev_eremothecium/loss_presence_matrix.tsv
+  rule: OUT count / 4 >= 0.75 and IN count / 3 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: bc0c9b6549fe9d91
+  n_sequences: 20488
+  n_clusters: 7005
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 29.4
+  threads: 4
+  created: '2026-10-24T14:57:32'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_rev_eremothecium/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/config.csv
+  : 09a73ac572da099f076eef129c6bd33673646f536aee3d66ea89138cf94f1c73
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_rev_eremothecium/loss_candidates.txt: 03323ec066afb4f3ab43c3df12d911c148a954d1edec19bdc6675d23898d52d9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_rev_eremothecium/clusters/loss_clusters_cluster.tsv
+  : 430c07c31184e2cf13ab0fa4b1e0dcf4f810d5ba195404e9bf70302c5f88ed9d
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_rev_eremothecium/loss_presence_matrix.tsv: ffd849cdc8b1842c77725e21a25d94cda449a90b64cb8965cc1a52c3977f8375
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/data_dir/pep/UP000000598_284590.pep.fa
+  : d90b1665b282db52cec6656b69c3facf6d35464f98a666e2f0004bd29bc5e5b9
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/data_dir/pep/UP000002036_559295.pep.fa
+  : 2c116f665af04fb7858d711f3ab4b0ec3bac6532e97e61b20be9018f41712427
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/data_dir/pep/UP000005627_1076872.pep.fa
+  : df804cb98350944d51afc62cf45353cef5e83d1af7b75de24472905fe7c31a68
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/data_dir/pep/UP000002311_559292.pep.fa
+  : 8ca7d8ccfd337f039527d136c3d10ec9c81be3aae33578cadef3abf2093792cb
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/species.csv
+  : 7bc3c250ccb58501953ffd4ce3f48ed07caa416c9ccd8582030111501914c00f
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000000598.tsv.gz
+  : 2d9dd1b5b8bc031eb256c8c5a4606513367fb68594af22ac0b6c481c73ce6860
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000002036.tsv.gz
+  : 2d6b71ac9748c00fb4a236986ec21eaf31430733ca9f0db4193c68e0b568586e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000005627.tsv.gz
+  : 125d08fc0e7decdc85807580f1d221ce2c015da8dd36bdd9c64178382eb1c639
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000002311.tsv.gz
+  : 83a0c1436d2357898e74c648a772b30ee1cb962e7cca7b975394bde1bb61d690
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000000591.tsv.gz
+  : 27e5e67968a888e408ec7aaba955d94c20c6af32708b9f5945519cb21e13fb53
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000006790.tsv.gz
+  : 5831d5fcfd3b8a28e4e6078777975416e8295e2dd3c41a405c300a544c1fc187
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_rev_eremothecium/annotations/UP000243052.tsv.gz
+  : 5149f9de4ffa7a254079a1bf1423a1ff6edb48ead8f567805c4fafc612f2828a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 3.4
+  background_cluster_s: 29.6
+  tests_s: 5.1
+  total_s: 39.1
+host: r11
+slurm_job: '30452604'

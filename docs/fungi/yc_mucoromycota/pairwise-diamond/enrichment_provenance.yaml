@@ -1,0 +1,167 @@
+generated: '2026-10-24T14:44:26'
+study: yc_mucoromycota
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_mucoromycota --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations
+  --study yc_mucoromycota --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction novelty --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/analysis/enrichment/outputs/novelty/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: novelty
+target_group:
+  label: IN
+  species:
+  - Mcir
+  - Mucorace
+  - Thameleg
+other_group:
+  label: OUT
+  species:
+  - Phycblak
+  - Rhizdele
+  - Lichcory
+  - Absiglau
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations
+annotation_files:
+  Mcir: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000014254.tsv.gz
+  Mucorace: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/Mucor_racemosus_CGMCC-40320.proteins.tsv.gz
+  Thameleg: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/Thamnidium_elegans_KKP_4289.proteins.tsv.gz
+  Phycblak: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000077315.tsv.gz
+  Rhizdele: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000009138.tsv.gz
+  Lichcory: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000027586.tsv.gz
+  Absiglau: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000078561.tsv.gz
+annotation_sources:
+  Mcir: not recorded (no sidecar)
+  Mucorace: Pfam-A HMM search (hmmsearch); Pfam only
+  Thameleg: Pfam-A HMM search (hmmsearch); Pfam only
+  Phycblak: not recorded (no sidecar)
+  Rhizdele: not recorded (no sidecar)
+  Lichcory: not recorded (no sidecar)
+  Absiglau: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Mcir
+    - Mucorace
+    - Thameleg
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  pfam_clan:
+    species_with_terms:
+    - Mcir
+    - Mucorace
+    - Thameleg
+    species_without_terms: []
+    n_with: 3
+    n_species: 3
+  interpro:
+    species_with_terms:
+    - Mcir
+    species_without_terms:
+    - Mucorace
+    - Thameleg
+    n_with: 1
+    n_species: 3
+  go:
+    species_with_terms:
+    - Mcir
+    species_without_terms:
+    - Mucorace
+    - Thameleg
+    n_with: 1
+    n_species: 3
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 1051
+  candidates_txt: 1051
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_mucoromycota/candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_mucoromycota/presence_matrix.uniprot.tsv
+  rule: IN count / 3 >= 0.75 and OUT count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 014452dab0e801b7
+  n_sequences: 35978
+  n_clusters: 13781
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 43.9
+  threads: 4
+  created: '2026-10-24T14:44:22'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/config.csv: f7a885928253ebbeb2d62787e32225eafdd6aced916133b4c810d081ac733c01
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_mucoromycota/candidates.txt: 93ec5083a7c7c1cdea603a08ac7f18f39b40a38ad1477b0f3cb501ddf741b14b
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_mucoromycota/novelties.Mcir.tsv: 70783f24fa9420617e628d9cc49a150b645befc3b3cc1a68fb7b852d9f7ac29c
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_mucoromycota/novelties.Mucorace.tsv: 7e5e8d41f0f38fed74e6b7f84781e178843913c190db6d1c275124b636d445c8
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_mucoromycota/novelties.Thameleg.tsv: 864c69abd6e759546fe998ed690a6d609f065085b0db087cee3d97c1ee0af3af
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_mucoromycota/presence_matrix.uniprot.tsv: 34fb4f3b40de2961dec2c719e63592d6aa650729b31d0260568676eb3b6b912a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/data_dir/pep/UP000014254_1220926.pep.fa
+  : 3b012673b05d0822caa95402ff9dd1ac83fd96fec77d37a9cd3fd4c598f7dc93
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/data_dir/pep/Mucorace.pep.fa
+  : 2d9d12f7973bdfa7163fe6ed0abe9e71ad605bb0d46c67368b8937b879db9192
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/data_dir/pep/Thameleg.pep.fa
+  : a876fe4700db8303229cd726a601674dd72694bc43b56550b07bbfe48ca37d43
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/species.csv
+  : 93c3ada73c2dd7567c9481660bdfffc88a2e31fcb25b519c69fd8370cf3d023d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000014254.tsv.gz
+  : 58ae1874928453ee53dc0b9cd14df101fd45f4ca50e81bf0e7d2ad6da1ef94db
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/Mucor_racemosus_CGMCC-40320.proteins.tsv.gz
+  : 7a5146b3e287ba2158c3305fad7c6af41effd5f2a5b55ab15256105fe73eab30
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/Thamnidium_elegans_KKP_4289.proteins.tsv.gz
+  : a00ca86e0b2228fe22fc68ea3d67672e9a8b297488435f5d31b69bbfbee1e719
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000077315.tsv.gz
+  : 026f6af828589dcd9a52510fa1ece222d7a543425473bb44b00bb98e1d984934
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000009138.tsv.gz
+  : 5d973c0b2863e53494a6e640b04487102515181631f68e0b4592389e4953788b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000027586.tsv.gz
+  : 9a7bc7ac5fcb8143c8e29729db9a356705d526e675a4ba217af5b1a66b9f0d92
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/UP000078561.tsv.gz
+  : 77ce72f5d4c48357a32925bdfa83dd4d72c748ec383650011f13b2cdd9d7b2cf
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/Mucor_racemosus_CGMCC-40320.proteins.tsv.gz.provenance.yaml
+  : 0f6511b4a46f5b4c600e1c8c25199ee4d741597f5535efa915b126f23464b323
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_mucoromycota/annotations/Thamnidium_elegans_KKP_4289.proteins.tsv.gz.provenance.yaml
+  : b93bec80c57c24bb45d01984092533518c965e4a378be4ffb01d014cc0d26e80
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 4.1
+  background_cluster_s: 44.2
+  tests_s: 2.6
+  total_s: 52.6
+host: r11
+slurm_job: '30452604'

@@ -1,0 +1,197 @@
+generated: '2026-10-24T14:28:54'
+study: yc_taphrinomycotina
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations
+  --study yc_taphrinomycotina --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction novelty --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/analysis/enrichment/outputs/novelty/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: novelty
+target_group:
+  label: IN
+  species:
+  - Spom
+  - Schiocto
+  - Schijapo
+  - Saitcomp
+  - Taphdefo
+  - Protinou
+other_group:
+  label: OUT
+  species:
+  - Nirr
+  - Amega
+  - Ncra
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations
+annotation_files:
+  Spom: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000002485.tsv.gz
+  Schiocto: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000016088.tsv.gz
+  Schijapo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000001744.tsv.gz
+  Saitcomp: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000033140.tsv.gz
+  Taphdefo: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000013776.tsv.gz
+  Protinou: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/Protomyces_inouyei_NRRL_YB-4354.proteins.tsv.gz
+  Nirr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000186594.tsv.gz
+  Amega: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP001658139.tsv.gz
+  Ncra: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000001805.tsv.gz
+annotation_sources:
+  Spom: not recorded (no sidecar)
+  Schiocto: not recorded (no sidecar)
+  Schijapo: not recorded (no sidecar)
+  Saitcomp: not recorded (no sidecar)
+  Taphdefo: not recorded (no sidecar)
+  Protinou: Pfam-A HMM search (hmmsearch); Pfam only
+  Nirr: not recorded (no sidecar)
+  Amega: not recorded (no sidecar)
+  Ncra: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Spom
+    - Schiocto
+    - Schijapo
+    - Saitcomp
+    - Taphdefo
+    - Protinou
+    species_without_terms: []
+    n_with: 6
+    n_species: 6
+  pfam_clan:
+    species_with_terms:
+    - Spom
+    - Schiocto
+    - Schijapo
+    - Saitcomp
+    - Taphdefo
+    - Protinou
+    species_without_terms: []
+    n_with: 6
+    n_species: 6
+  interpro:
+    species_with_terms:
+    - Spom
+    - Schiocto
+    - Schijapo
+    - Saitcomp
+    - Taphdefo
+    species_without_terms:
+    - Protinou
+    n_with: 5
+    n_species: 6
+  go:
+    species_with_terms:
+    - Spom
+    - Schiocto
+    - Schijapo
+    - Saitcomp
+    - Taphdefo
+    species_without_terms:
+    - Protinou
+    n_with: 5
+    n_species: 6
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 258
+  candidates_txt: 258
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/presence_matrix.uniprot.tsv
+  rule: IN count / 6 >= 0.75 and OUT count / 3 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 4234d33c456854cb
+  n_sequences: 32711
+  n_clusters: 15573
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 56.8
+  threads: 4
+  created: '2026-10-24T14:28:48'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/config.csv
+  : 1c052e1abd02e511c3bf2628a29ccc21718fe4fab28564b02b56ee175c12ed23
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/candidates.txt: 914e127fb897996585cdadf3f0cae014b549e4e75b359b99fe1654fa29ebac01
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/novelties.Spom.tsv: 1d685ba9b5607adcef6795ce4c83c4b08114450c4393f7a986c7bce671ff6516
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/novelties.Schiocto.tsv: 05048f3db90c0ae35decf4c3bf5c7a39adf8afb66102b067922ba7ac379f99eb
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/novelties.Schijapo.tsv: c0fb1819bc0a7f1f86699aa852baa39d54da054df05aa896f4f408c51433a924
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/novelties.Saitcomp.tsv: cb50c043b9810d63fa2ed18b0ce40ab1ec2d35b52dd93d6088a755e0ca7d4798
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/novelties.Taphdefo.tsv: e1c8c12fc7889fcbc98a6c2efa3251185f584d52bef99ef65a6370ac4c6dac68
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/novelties.Protinou.tsv: fdedf6226cbf0ff276a8d454f9ebf1d01ea1eac4ca15a980e290e2e21d0292c7
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_taphrinomycotina/presence_matrix.uniprot.tsv: d0b548f1f4f80740d79e1ce123657879cbfc782ef17b1562576d04186012e2c3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/data_dir/pep/UP000002485_284812.pep.fa
+  : b5d0a365078dc93e90244f462ebdead02b85de578db20ef20b9d7af9caa0de47
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/data_dir/pep/UP000016088_483514.pep.fa
+  : f406958f7002d46466caf40ec15af10a55f99e72229816e10a62a0e0398a4bfd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/data_dir/pep/UP000001744_402676.pep.fa
+  : cfdd3ece460f711449d28a6069fdf93e8e4d788863d81ef5d91bbca07441a3d0
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/data_dir/pep/UP000033140_698492.pep.fa
+  : eb69f19616ec6ca9efca93c8265cdaa8679f07292d670a8b002f1c2e6f7e1ab7
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/data_dir/pep/UP000013776_1097556.pep.fa
+  : e8cb37745877b35a67b2dc7f52932b6e6a665147dcbc309da04db83584aa34fd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/data_dir/pep/Protinou.pep.fa
+  : 2b32099912b241a4cab3bad4e897f0a63bdae4cfc127827009660547e326eb6e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/species.csv
+  : 4c778b62e3ed6bb8a73df615366bcedb13b39705107c4e0849c2d0f0591fc108
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000002485.tsv.gz
+  : 63b0e656b692fc431786bf3175391ab5ab41380a00319fd378f3933accdd3154
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000016088.tsv.gz
+  : 51bdd4fca20412dd789920f4bc8bff2ba663fe854c6e48efb887dc24c64c89de
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000001744.tsv.gz
+  : 4b097ec1594d6aed4eb7601482782e5d53f891d92bc0999bb3ca7435ab5eb0ec
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000033140.tsv.gz
+  : 5925fc1c8bb9a3acd13d5ea3298f70480aea1fab7fbd4eba323e531a69b16f8c
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000013776.tsv.gz
+  : d762d02130351381ea75e9a082ac243ba61280a6d97c02fd01592305c3e12d32
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/Protomyces_inouyei_NRRL_YB-4354.proteins.tsv.gz
+  : e94a842ec3f1b4d62e8ed8e506fb47689c27e6e38ac06f6104a0a25a9d0d91a5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000186594.tsv.gz
+  : 8e4b602b8dfc7c96e2679d70c92d4f8720bfa9380bb2aac6ecda0d2b5b2ab0bc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP001658139.tsv.gz
+  : f0960624740d07e6e2197b0d08b62dee72b3cb63fbbe2353d0f2375350d69a02
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/UP000001805.tsv.gz
+  : a1f3d317c188519a6f6b199e85b0099d384ed7ec3601e1a620cabc831356e920
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_taphrinomycotina/annotations/Protomyces_inouyei_NRRL_YB-4354.proteins.tsv.gz.provenance.yaml
+  : 44d7e3fb5f2f20ee9e6182a1ef079fd9f8e819c5c89071f05e958d515617e5d5
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 5.0
+  background_cluster_s: 57.2
+  tests_s: 5.3
+  total_s: 69.0
+host: r11
+slurm_job: '30452604'

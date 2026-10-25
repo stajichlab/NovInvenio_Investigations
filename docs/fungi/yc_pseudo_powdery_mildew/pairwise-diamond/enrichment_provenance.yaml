@@ -1,0 +1,174 @@
+generated: '2026-10-24T14:46:52'
+study: yc_pseudo_powdery_mildew
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_powdery_mildew --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations
+  --study yc_pseudo_powdery_mildew --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction novelty --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/analysis/enrichment/outputs/novelty/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: novelty
+target_group:
+  label: IN
+  species:
+  - Blumgram
+  - Blumhord
+  - Erysneca
+  - Podoxant
+other_group:
+  label: OUT
+  species:
+  - Botrcine
+  - Sclescle
+  - Anid
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations
+annotation_files:
+  Blumgram: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000324639.tsv.gz
+  Blumhord: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000015441.tsv.gz
+  Erysneca: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000030854.tsv.gz
+  Podoxant: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/Podosphaera_xanthii_YZU573.proteins.tsv.gz
+  Botrcine: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000001798.tsv.gz
+  Sclescle: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000001312.tsv.gz
+  Anid: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000000560.tsv.gz
+annotation_sources:
+  Blumgram: not recorded (no sidecar)
+  Blumhord: not recorded (no sidecar)
+  Erysneca: not recorded (no sidecar)
+  Podoxant: Pfam-A HMM search (hmmsearch); Pfam only
+  Botrcine: not recorded (no sidecar)
+  Sclescle: not recorded (no sidecar)
+  Anid: not recorded (no sidecar)
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Blumgram
+    - Blumhord
+    - Erysneca
+    - Podoxant
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  pfam_clan:
+    species_with_terms:
+    - Blumgram
+    - Blumhord
+    - Erysneca
+    - Podoxant
+    species_without_terms: []
+    n_with: 4
+    n_species: 4
+  interpro:
+    species_with_terms:
+    - Blumgram
+    - Blumhord
+    - Erysneca
+    species_without_terms:
+    - Podoxant
+    n_with: 3
+    n_species: 4
+  go:
+    species_with_terms:
+    - Blumgram
+    - Blumhord
+    - Erysneca
+    species_without_terms:
+    - Podoxant
+    n_with: 3
+    n_species: 4
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 1456
+  candidates_txt: 1456
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_powdery_mildew/candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_powdery_mildew/presence_matrix.uniprot.tsv
+  rule: IN count / 4 >= 0.75 and OUT count / 3 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: f8595c32cfcbe356
+  n_sequences: 30320
+  n_clusters: 13448
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 34.6
+  threads: 4
+  created: '2026-10-24T14:46:48'
+  cache_hit: false
+pipeline_candidate_families: 'novelties.<Short>.tsv family_id (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id
+  0.3 -c 0.8 --cov-mode 0 on candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/config.csv
+  : fac5afa72c6fb3aab482dee1872c2585a09d5939109502cd0e5b471dd69ee2df
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_powdery_mildew/candidates.txt: a95a1a366aee8b690bba74c63c991299533f349a9ec2ef4f2795abf71bed9503
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_powdery_mildew/novelties.Blumgram.tsv: a8a70b109994c8786df776dfff190b127b2b8d0f56ec59ab25a7dde8c59b6f85
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_powdery_mildew/novelties.Blumhord.tsv: 0e241cbd32760c35042ed5146b43f1d7b2b1fe11585b6ec0665e8f764b8bdec0
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_powdery_mildew/novelties.Erysneca.tsv: 63a58da118254f4c7ea94a33da5a57f3769ac22b819d007049203649211db2ab
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_powdery_mildew/novelties.Podoxant.tsv: 9bb25ac51320008c968b9db2e6464cbc7f642d024e7decb47ba1d423f7e75c04
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_powdery_mildew/presence_matrix.uniprot.tsv
+  : 4c62f578aa6cfbe2ac1ccc41cbc322cce9dc82cecaa6796ad6205bb22b6d4543
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/data_dir/pep/UP000324639_62690.pep.fa
+  : bef0168dcc73c7cdfbf9e060e92dad591375624abf7a865e3425fa4235e1ac26
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/data_dir/pep/UP000015441_546991.pep.fa
+  : 081f4ad7af639b7f0a06226cdd1f9b430080c3892db28c884987abd69ea48e11
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/data_dir/pep/UP000030854_52586.pep.fa
+  : e6c7e02692771e5888104ffa827a41a41fd6a06463200f2bc00e3cafa9562b44
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/data_dir/pep/Podoxant.pep.fa
+  : 4f351625a9fc2bc08035bf61ce96f6fe32ff6faea2e0ef6e1d88a13b627e6c59
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/species.csv
+  : 116b64b3b6436765487410ffc8878027b0e9dad389bd0183265a5341f40f5991
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000324639.tsv.gz
+  : aaa2a021002442a195585fa59a7116d425d94ab3540886b01679d0d73700ed27
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000015441.tsv.gz
+  : 70a87b6a2e12038d9aaeea18551873972eb50db44027d598d949ef844d5762f3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000030854.tsv.gz
+  : 5a5d643acbab6ac7a74957a022566af3e7f260ccdaa7daf505f7e203a795c034
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/Podosphaera_xanthii_YZU573.proteins.tsv.gz
+  : ccafbebb9c73f885cb06cb231934ddc5b0d195521e5ff7f54ece4f6a94a91cdd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000001798.tsv.gz
+  : f8f53d90bf1f81867d72740476cfa6cfcfe34d7a1457965220096176ba75f77e
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000001312.tsv.gz
+  : 1d58ef834f059d78aff2178d263ec12d0a7c555e38f537177093cedcf1e209b3
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/UP000000560.tsv.gz
+  : df6cc273d410051b9eb99039e0ac6ed30bc1847f724c5d24e56b04945bec5e35
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_powdery_mildew/annotations/Podosphaera_xanthii_YZU573.proteins.tsv.gz.provenance.yaml
+  : 66aa013c6cf9a916fb323ae77b34a799eb651b9bdb4c35482c9e002fc443a8dd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 4.5
+  background_cluster_s: 34.9
+  tests_s: 3.0
+  total_s: 43.7
+host: r11
+slurm_job: '30452604'

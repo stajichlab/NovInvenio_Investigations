@@ -1,0 +1,156 @@
+generated: '2026-10-24T14:52:54'
+study: yc_pseudo_dermatophyte
+script:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  sha256: d1e8fe16f6842e86fb6c226f822c8c173450a8fec660ca6879a6f8a821ad5aa7
+command: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/python3 /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/enrich_novelties_v2.py
+  --results /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_dermatophyte --config /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/config.csv
+  --annotations /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations
+  --study yc_pseudo_dermatophyte --cache-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/analysis/enrichment/outputs/cache
+  --threads 4 --pfam-dat /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat --interpro-entries /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+  --controls /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  --ingroup-min-frac 0.75 --universe proteome --cluster-background --direction loss --other-max-frac 0.0 --out-dir /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/analysis/enrichment/outputs/loss/proteome_clustered
+class: ephemeral analysis output (not tracked; regenerate with the command above)
+direction: loss
+target_group:
+  label: OUT
+  species:
+  - Anid
+  - Talastip
+other_group:
+  label: IN
+  species:
+  - Tricrubr
+  - Micrcani
+  - Tricinte
+  - Nanngyps
+universe: proteome
+annotations: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations
+annotation_files:
+  Anid: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/UP000000560.tsv.gz
+  Talastip: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/UP000001745.tsv.gz
+  Tricrubr: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/UP000008864.tsv.gz
+  Micrcani: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/Microsporum_canis_BMU_08102.proteins.tsv.gz
+  Tricinte: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/UP000024533.tsv.gz
+  Nanngyps: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/Nannizzia_gypsea_CBS_118893.proteins.tsv.gz
+annotation_sources:
+  Anid: not recorded (no sidecar)
+  Talastip: not recorded (no sidecar)
+  Tricrubr: not recorded (no sidecar)
+  Micrcani: Pfam-A HMM search (hmmsearch); Pfam only
+  Tricinte: not recorded (no sidecar)
+  Nanngyps: Pfam-A HMM search (hmmsearch); Pfam only
+vocabulary_coverage:
+  pfam:
+    species_with_terms:
+    - Anid
+    - Talastip
+    species_without_terms: []
+    n_with: 2
+    n_species: 2
+  pfam_clan:
+    species_with_terms:
+    - Anid
+    - Talastip
+    species_without_terms: []
+    n_with: 2
+    n_species: 2
+  interpro:
+    species_with_terms:
+    - Anid
+    - Talastip
+    species_without_terms: []
+    n_with: 2
+    n_species: 2
+  go:
+    species_with_terms:
+    - Anid
+    - Talastip
+    species_without_terms: []
+    n_with: 2
+    n_species: 2
+parameters:
+  min_bg: 5
+  exclude_iea: false
+  report_ids_fdr: 0.05
+  ingroup_min_frac: 0.75
+  other_max_frac: 0.0
+  cluster_background: true
+statistics: one-sided hypergeometric scipy.stats.hypergeom.sf(k-1,M,n,N); BH (lib/stats_util.bh_fdr) within scope x level
+  x vocabulary; scope-B fdr_bh_all_species = BH across species tests of one level x vocabulary. goatools only parses the OBO
+  and gives is_a ancestors.
+candidate_check:
+  matrix_in_rule_and_0_out: 2367
+  candidates_txt: 2367
+  symmetric_difference: 0
+  candidates_file: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_dermatophyte/loss_candidates.txt
+  presence_matrix: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_dermatophyte/loss_presence_matrix.tsv
+  rule: OUT count / 2 >= 0.75 and IN count / 4 <= 0.0 (own proteome counts toward the target group)
+  only_in_matrix_rule: []
+  only_in_candidates_file: []
+background_clustering:
+  key: 7791b87dfc3a6789
+  n_sequences: 20662
+  n_clusters: 12690
+  mmseqs: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/.pixi/envs/default/bin/mmseqs
+  mmseqs_version: 18.8cc5c
+  command: mmseqs easy-cluster <bg.fa> <out> <tmp> --threads N --min-seq-id 0.3 -c 0.8 --cov-mode 0
+  runtime_s: 50.4
+  threads: 4
+  created: '2026-10-24T14:52:49'
+  cache_hit: false
+pipeline_candidate_families: '/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_dermatophyte/clusters/loss_clusters_cluster.tsv
+  (nf_NovInvenio MMSEQS_CLUSTER: mmseqs easy-cluster --min-seq-id 0.3 -c 0.8 --cov-mode 0 on loss_candidates.fa)'
+candidates_without_family_row: 0
+go_obo:
+  path: /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/data/go/go-basic.obo
+  data_version: releases/2026-07-26
+  sha256: b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc
+pfam_dat:
+  path: /srv/projects/db/pfam/2026-01-27-Pfam38.2/Pfam-A.hmm.dat
+  sha256: ead9a40cdb871e1e6ceb151ea15c7aeaff083add2558031b4811afb9d7496b2d
+  release_note: release taken from directory name; the .dat file has no version line
+interpro_entries: /srv/projects/db/interproscan/6.0.0/110.0/interpro/110.0/entries.json
+inputs_sha256:
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/config.csv
+  : 5b58378692ee5449b1c71d3bb5754ae6cd18b3d75449c49bc2c98b58396ccd3e
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_dermatophyte/loss_candidates.txt: 3ff3d9fbbf201da8742842549fb89cc6b54a95139e9e62a5ec20974df82000f6
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_dermatophyte/clusters/loss_clusters_cluster.tsv
+  : 0b7fab804b9de65f10fa6f455d3696eed5e13b0a75b9750d8fb258de5fe774a5
+  /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/results/yc_pseudo_dermatophyte/loss_presence_matrix.tsv: 6c317b9be70acd7d0f36fc5e4426c61083c820406da48f9d3dc899ae06213a08
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/data_dir/pep/UP000000560_227321.pep.fa
+  : 929546c62a96b539b87eff1da79f95462d02f3853e6a1301cc43572bf8f3f7cc
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/data_dir/pep/UP000001745_441959.pep.fa
+  : cc316aa77be8787586f854588410334e3e68226f9005d61092a1194232274bcd
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/species.csv
+  : ed23d1e53ebe264ac291beb81fffc874d4988461587eb14c5c8f0ee45a851b4b
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/UP000000560.tsv.gz
+  : 39c8a51f76bbfcff402e73adc4af1bba62df58f8e76af87a63c2aa7e5204de3d
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/UP000001745.tsv.gz
+  : d858b84e6e03b950834d4b036778b406329a9d34422b86c46b4f160e07ec4961
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/UP000008864.tsv.gz
+  : 60d1ad081da989724c1872832a69e6432385210eab61f4f64c38fa353e246885
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/Microsporum_canis_BMU_08102.proteins.tsv.gz
+  : 44cb98c7f909340843ae4a17e266b1c8ba1ed7b3052e01c8b023a6c7628c0f6a
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/UP000024533.tsv.gz
+  : ddad87128940f1113360060c513b9cc875fda30514e36cf87fefe320bc1fe544
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/Nannizzia_gypsea_CBS_118893.proteins.tsv.gz
+  : b2afc566d13c29cd870b4f1346c53ac43007164c23dd7c97f43575c6bf924fbe
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/Microsporum_canis_BMU_08102.proteins.tsv.gz.provenance.yaml
+  : 9572ec90a81441c87a703f29ae41460da94edd780eb608448c8cf7ce932c1ebf
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/yc_pseudo_dermatophyte/annotations/Nannizzia_gypsea_CBS_118893.proteins.tsv.gz.provenance.yaml
+  : 3b66639f8b38cf9d8776070047d11597050d5073e616d0d06878d9f6087ea186
+  ? /bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/zoosporic_dikarya/analysis/enrichment/actin_controls.tsv
+  : dd7c85c91f413f3eee48b75b51c1ad75f7e2de6afcb611c5e0b3659f777a23d1
+tools:
+  python: 3.12.14
+  scipy: 1.18.1
+  goatools: 1.6.4
+  mmseqs: 18.8cc5c
+runtimes_s:
+  load_s: 3.0
+  background_cluster_s: 50.7
+  tests_s: 4.1
+  total_s: 59.1
+host: r11
+slurm_job: '30452604'
