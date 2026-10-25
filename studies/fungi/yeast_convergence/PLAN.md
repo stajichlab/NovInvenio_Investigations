@@ -189,12 +189,14 @@ C. **BUSCO threshold** for step 1. Default about 85% complete.
 
 ## 7. Status
 
+Details, job IDs and results: `RUNLOG.md`.
+
 - [x] Design, batch YAMLs, per-run `species.csv`, `run_params.txt`, `publish.yaml`
 - [x] Checker, renderer, run and enrichment drivers, comparison script, tests
 - [x] Nested-folder publishing in the shared scripts
-- [ ] Decisions A–C
-- [ ] Step 1: resolve, fetch, BUSCO
-- [ ] Step 2: pipeline runs
-- [ ] Step 3: enrichment
-- [ ] Step 4: comparison
-- [ ] Step 5: follow-ups (scripts to write)
+- [x] Decisions A, B, C (A: keep and disclose; B: replacements made; C: six proteomes under 85% kept)
+- [x] Step 1: resolve, fetch, BUSCO
+- [x] Step 2: pipeline runs (15 of 16; `yc_pseudo_lichen` held out)
+- [x] Step 3: enrichment (15 of 16)
+- [x] Step 4: comparison (first run, without the lichen control)
+- [ ] Step 5: follow-ups (lichen proteome check and run; growth-form sourcing, issue #44)
