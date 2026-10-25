@@ -13,8 +13,8 @@
     - title: yeast_convergence comparison
       href: yeast_convergence/index.html
       desc: >-
-        Independent yeast origins: which functional terms recur across 16 contrasts
-        (15 run), compared with filamentous controls.
+        Independent yeast origins: which functional terms recur across 16 contrasts,
+        compared with 5 filamentous controls.
 - slug: eukaryotes
   name: Eukaryotes
   desc: >-

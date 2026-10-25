@@ -9,14 +9,17 @@ Each best hit is assigned to a group by walking its NCBI taxon id up nodes.dmp (
 nr database was built with, NODES below): Fungi, Viridiplantae, Metazoa, other Eukaryota,
 Bacteria, Archaea, Viruses, or other. If staxids lists several ids, the first one is used.
 The diamond kingdom columns are not used: many bacterial taxa have no kingdom rank.
-Output: analysis/lichen_check/summary.tsv, one row per (proteome, group), and per-protein
+Usage: lichen_taxcheck_summary.py [DIR]   (default analysis/lichen_check; DIR holds hits.tsv.zst and queries.txt,
+for example <contrast>/analysis/candidate_taxcheck from candidate_taxcheck.sh)
+Output: <DIR>/summary.tsv, one row per (proteome, group), and per-protein
 calls in best_hits.tsv.gz. Proteins with no hit are counted as "no_hit".
 """
 import csv, gzip, subprocess, sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
-D = Path("/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/analysis/lichen_check")
+D = Path(sys.argv[1] if len(sys.argv) > 1 else
+         "/bigdata/stajichlab/jstajich/projects/NovInvenio_Investigations/studies/fungi/yeast_convergence/analysis/lichen_check")
 NODES = Path("/srv/projects/db/ncbi/preformatted/20260128/nodes.dmp")
 GROUPS = {4751: "Fungi", 33090: "Viridiplantae", 33208: "Metazoa", 2759: "other_Eukaryota",
           2: "Bacteria", 2157: "Archaea", 10239: "Viruses"}   # order of search = nearest ancestor first

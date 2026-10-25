@@ -21,7 +21,10 @@ FOLDER = NII / "studies/fungi/yeast_convergence"
 # YC_MAKE_FIGURE overrides the script (for example a branch checkout with the TE colouring, PR #46).
 MAKE = Path(os.environ.get("YC_MAKE_FIGURE", NII / "studies/fungi/zoosporic_dikarya/analysis/enrichment/make_summary_figure.py"))
 PY = NII / ".pixi/envs/default/bin/python3"
-PIPE = "NovInvenio d03f5a2"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from yc_run_info import label as pipeline_label  # noqa: E402
+
+PIPE = pipeline_label()   # read from the Nextflow reports of the runs
 FOOT = ("Annotation: {ann}. Universe: all proteins of the target-group proteomes. Family units: candidate "
         "families from the pipeline; background clustered with mmseqs (0.3 id, 0.8 cov, cov-mode 0). "
         "One-sided hypergeometric; BH within each vocabulary. Bars: FDR<0.05 and k>=3 candidate units. "

@@ -1,6 +1,6 @@
 # yeast_convergence: analysis plan
 
-Status (2026-10-25): 15 of 16 contrasts run, enrichment and first comparison done; see section 7 and `RUNLOG.md`.
+Status (2026-10-25): 16 of 16 contrasts run, enrichment and comparison done; see section 7 and `RUNLOG.md`.
 Comparisons: `COMPARISONS.md` (generated from `batches/*.yaml`).
 How the files fit together and how to run: `README.md`.
 
@@ -198,7 +198,7 @@ Details, job IDs and results: `RUNLOG.md`.
 - [x] Nested-folder publishing in the shared scripts
 - [x] Decisions A, B, C (A: keep and disclose; B: replacements made; C: six proteomes under 85% kept)
 - [x] Step 1: resolve, fetch, BUSCO
-- [x] Step 2: pipeline runs (15 of 16; `yc_pseudo_lichen` held out)
-- [x] Step 3: enrichment (15 of 16)
-- [x] Step 4: comparison (first run, without the lichen control)
-- [ ] Step 5: follow-ups (lichen proteome check and run; growth-form sourcing, issue #44)
+- [x] Step 2: pipeline runs (16 of 16)
+- [x] Step 3: enrichment (16 of 16)
+- [x] Step 4: comparison (with the lichen control; 4 recurrent terms, none yeast-specific)
+- [ ] Step 5: follow-ups (growth-form sourcing, issue #44; see README "Known follow-ups")
