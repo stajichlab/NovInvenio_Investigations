@@ -2198,8 +2198,8 @@ def gold_recall_rows(
             for s in sentences.get(slugify(sp), [])
             if (pmid and s.get("pmid") == pmid) or (pmcid and s.get("pmcid") == pmcid)
         ]
-        phrase = g.get("phrase", "")
-        found_phrase = any(
+        phrase = g.get("phrase", "").strip()
+        found_phrase = bool(phrase) and any(
             quote_in_text(
                 phrase,
                 " ".join(
@@ -2213,8 +2213,8 @@ def gold_recall_rows(
                 **g,
                 "retrieved": "yes" if retrieved else "no",
                 "selected": "yes" if selected else ("forced_only" if forced_only else "no"),
-                "sentence": "yes" if recs else "no",
-                "phrase": "yes" if found_phrase else "no",
+                "sentence": "n/a" if not phrase else ("yes" if recs else "no"),
+                "phrase": "n/a" if not phrase else ("yes" if found_phrase else "no"),
             }
         )
     return out
@@ -2236,11 +2236,16 @@ def cmd_recall(args: argparse.Namespace) -> None:
         read_tsv(out / "articles.tsv"),
         sentences,
     )
-    write_tsv(out / "gold_recall.tsv", rows, list(rows[0].keys()))
+    write_tsv(
+        Path(args.recall_out) if args.recall_out else out / "gold_recall.tsv",
+        rows,
+        list(rows[0].keys()),
+    )
     n = len(rows)
     for stage in ("retrieved", "selected", "sentence", "phrase"):
         k = sum(1 for r in rows if r[stage] == "yes")
-        print(f"{stage:10s} {k}/{n}")
+        n_stage = sum(1 for r in rows if r[stage] != "n/a")
+        print(f"{stage:10s} {k}/{n_stage}")
     forced = sum(1 for r in rows if r["selected"] == "forced_only")
     if forced:
         print(f"{forced} gold sources were only present because they were forced in")
@@ -2489,6 +2494,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     add_common(p)
     p.add_argument("--gold", help="gold_sources.tsv (default <out>/gold_sources.tsv)")
+    p.add_argument("--recall-out", default="", help="output TSV (default <out>/gold_recall.tsv)")
     p.set_defaults(func=cmd_recall)
 
     p = sub.add_parser("provenance", help="write PROVENANCE.yaml")

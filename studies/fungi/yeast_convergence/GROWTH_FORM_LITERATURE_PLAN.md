@@ -364,3 +364,29 @@ This sample is small (about 10 species). State that in any conclusion drawn from
 - Nothing is promoted to `config_support/traits/` until a person has reviewed a sample.
 - A change to a prompt or a model is a new `pass_tag`. Results of different tags are never mixed in one file.
 
+## 15. Gold sets and what they show (2026-10-25)
+
+Two gold sets test retrieval and selection (`gf_lit.py recall --gold <file> --recall-out <file>`):
+
+- `growth_form/gold_sources.tsv` (19 rows, 12 sources): from the pilot's verified items. A method that
+  copies the pilot's search scores well here, so it is a regression test, not a measure of coverage.
+- `growth_form/gold_sources_independent.tsv` (82 rows, 29 species): built by `bin/gf_gold_tables.py` from
+  the tables and body text of 336 review and comparative papers found by seven searches that are not the
+  pipeline's. Rows have no phrase: they test whether the paper is retrieved and selected. Each row has a
+  `strength`: `table`, `about` (species in the title or abstract), or `passing` (a sentence only).
+
+Result of the hybrid selection (caps 60 articles, 40 full texts) on the independent set:
+
+| strength | rows | retrieved | selected |
+|---|---|---|---|
+| table | 13 | 12 | 4 (31%) |
+| about | 40 | 39 | 28 (70%) |
+| passing | 29 | 23 | 6 (21%) |
+
+Excluding *C. albicans*, *C. neoformans* and *S. cerevisiae*: about 28 rows, 26 selected (93%); table 8 rows,
+4 selected, all four misses being one review table that lists many species once. For the three
+species: table 0 of 5, about 2 of 12 selected. With caps of 300 articles (200 full texts) and a screen of
+800 for these three: table 3 of 5, about 7 of 12. So the cap limits heavily studied species, and a larger
+cap does not remove the problem. A species-specific `review[pt]` query mode is a candidate fix; not tried.
+Do not read `passing` recall as a failure: a review that names 30 species once is not a source to select for each.
+

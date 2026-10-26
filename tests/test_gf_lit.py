@@ -422,3 +422,11 @@ def test_pick_article_level_prefers_dimorphism_sentences_and_caps():
     assert [c[2] for c in gf.pick_article_level(cands, 3)] == ["b", "d", "a"]
     assert gf.pick_article_level(cands, 0) == []
 
+
+def test_gold_recall_blank_phrase_is_not_applicable():
+    gold = [{"species": "Sp a", "level": "species", "pmid": "1", "pmcid": "10", "phrase": ""}]
+    candidates = [{"species": "Sp a", "uid": "10"}]
+    articles = [{"species": "Sp a", "pmid": "1", "pmcid": "10", "priority": "0"}]
+    r = gf.gold_recall_rows(gold, candidates, articles, {})[0]
+    assert (r["retrieved"], r["selected"], r["sentence"], r["phrase"]) == ("yes", "yes", "n/a", "n/a")
+
