@@ -1991,11 +1991,51 @@ def quote_in_text(quote: str, text: str) -> bool:
     return bool(q) and q in t
 
 
+def name_reasons(rec: dict[str, Any], quote: str) -> list[str]:
+    """Rejection reasons about the species name, by how the sentence matched the species.
+
+    "full" and "abbrev" sentences name the species: the quote must keep the matched name and the
+    sentence must carry it verbatim. "genus" and "article" sentences do not name the species (genus
+    only; or a paper about the species whose sentence says "the fungus ..."): the name checks do not
+    apply, and the row keeps `match_level` so that the adjudicator can weigh it as genus-level or
+    article-level evidence, not as a species statement.
+    """
+    level = rec.get("match_level", "") or "full"
+    if level not in ("full", "abbrev"):
+        return []
+    reasons: list[str] = []
+    matched = rec.get("matched_name", "")
+    if quote and matched:
+        # An "abbrev" sentence writes the species as "G. species"; the quote may keep either form.
+        forms = [matched]
+        if level == "abbrev":
+            ab = abbreviation_for(matched)
+            if ab:
+                forms.append(ab)
+        if not any(quote_in_text(f, quote) for f in forms):
+            reasons.append("name_not_in_quote")
+    if rec.get("name_used_in_source") != "yes":
+        reasons.append("name_not_verbatim_in_sentence")
+    return reasons
+
+
+def read_evidence(path: Path) -> list[dict[str, str]]:
+    """Evidence rows from a TSV or a JSON-lines file (one object per line; values become strings)."""
+    if path.suffix == ".jsonl":
+        rows = []
+        with open(path) as fh:
+            for line in fh:
+                if line.strip():
+                    rows.append({k: "" if v is None else str(v) for k, v in json.loads(line).items()})
+        return rows
+    return read_tsv(path)
+
+
 def cmd_verify(args: argparse.Namespace) -> None:
     study = Path(args.study_dir)
     out = Path(args.out) if args.out else study / "growth_form"
     cache = out / "cache"
-    evidence = read_tsv(Path(args.evidence))
+    evidence = read_evidence(Path(args.evidence))
     articles = read_tsv(out / "articles.tsv", required=False)
     article_index: dict[tuple[str, str, str], dict[str, str]] = {
         (r["species"], r["source_db"], r["uid"]): r for r in articles
@@ -2045,11 +2085,7 @@ def cmd_verify(args: argparse.Namespace) -> None:
                     reasons.append("source_text_empty")
                 elif not quote_in_text(quote, text):
                     reasons.append("quote_not_in_source")
-                if quote and rec.get("matched_name"):
-                    if not quote_in_text(rec["matched_name"], quote):
-                        reasons.append("name_not_in_quote")
-                if not rec.get("name_used_in_source") == "yes":
-                    reasons.append("name_not_verbatim_in_sentence")
+                reasons.extend(name_reasons(rec, quote))
 
         out_row = {
             **row,
@@ -2064,6 +2100,7 @@ def cmd_verify(args: argparse.Namespace) -> None:
             "read_level": rec.get("read_level", "") if rec else "",
             "source_title": rec.get("title", "") if rec else "",
             "name_used_in_source": rec.get("name_used_in_source", "") if rec else "",
+            "match_level": rec.get("match_level", "") if rec else "",
             "verified_utc": utc_now(),
             "verifier": SCRIPT_VERSION,
         }
@@ -2082,11 +2119,14 @@ def cmd_verify(args: argparse.Namespace) -> None:
         "read_level",
         "source_title",
         "name_used_in_source",
+        "match_level",
         "verified_utc",
         "verifier",
     ]
-    write_tsv(out / "evidence.verified.tsv", verified, fields + extra_fields)
-    write_tsv(out / "evidence.rejected.tsv", rejected, fields + extra_fields)
+    dest = Path(args.verified_dir) if args.verified_dir else out
+    dest.mkdir(parents=True, exist_ok=True)
+    write_tsv(dest / f"{args.out_prefix}.verified.tsv", verified, fields + extra_fields)
+    write_tsv(dest / f"{args.out_prefix}.rejected.tsv", rejected, fields + extra_fields)
     print(
         f"verify: {len(verified)} verified, {len(rejected)} rejected "
         f"(of {len(evidence)})"
@@ -2488,8 +2528,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument(
         "--evidence",
         default="",
-        help="evidence TSV (default: <out>/evidence.tsv)",
+        help="evidence TSV or JSON-lines file (default: <out>/evidence.tsv)",
     )
+    p.add_argument("--out-prefix", default="evidence", help="output name: <prefix>.verified.tsv and .rejected.tsv")
+    p.add_argument("--verified-dir", default="", help="directory for the two output files (default: <out>)")
     p.set_defaults(func=cmd_verify)
 
     p = sub.add_parser("gold", help="check gold.tsv")

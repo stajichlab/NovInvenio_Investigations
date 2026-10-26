@@ -432,3 +432,32 @@ def test_gold_recall_blank_phrase_is_not_applicable():
     r = gf.gold_recall_rows(gold, candidates, articles, {})[0]
     assert (r["retrieved"], r["selected"], r["sentence"], r["phrase"]) == ("yes", "yes", "n/a", "n/a")
 
+
+def test_name_reasons_apply_only_to_species_level_sentences():
+    full_ok = {"match_level": "full", "matched_name": "Taphrina deformans", "name_used_in_source": "yes"}
+    assert gf.name_reasons(full_ok, "the dimorphic fungus Taphrina deformans") == []
+    assert gf.name_reasons(full_ok, "the dimorphic fungus") == ["name_not_in_quote"]
+    no_name = {"match_level": "full", "matched_name": "Taphrina deformans", "name_used_in_source": "no"}
+    assert "name_not_verbatim_in_sentence" in gf.name_reasons(no_name, "Taphrina deformans is dimorphic")
+    for level in ("article", "genus"):
+        rec = {"match_level": level, "matched_name": "Taphrina deformans", "name_used_in_source": "no"}
+        assert gf.name_reasons(rec, "the fungus switches between yeast and hyphae") == []
+
+
+def test_read_evidence_accepts_jsonl(tmp_path):
+    f = tmp_path / "e.jsonl"
+    f.write_text('{"species": "Sp a", "sentence_id": "x1", "quote": "q", "n": 3, "none": null}\n\n'
+                 '{"species": "Sp a", "sentence_id": "x2", "quote": "r"}\n')
+    rows = gf.read_evidence(f)
+    assert [r["sentence_id"] for r in rows] == ["x1", "x2"]
+    assert rows[0]["n"] == "3" and rows[0]["none"] == ""
+
+
+def test_name_reasons_accept_the_abbreviation_for_abbrev_sentences():
+    rec = {"match_level": "abbrev", "matched_name": "Mucor circinelloides", "name_used_in_source": "yes"}
+    assert gf.name_reasons(rec, "M. circinelloides is a dimorphic fungus") == []
+    assert gf.name_reasons(rec, "Mucor circinelloides is a dimorphic fungus") == []
+    assert gf.name_reasons(rec, "is a dimorphic fungus") == ["name_not_in_quote"]
+    full = {"match_level": "full", "matched_name": "Mucor circinelloides", "name_used_in_source": "yes"}
+    assert gf.name_reasons(full, "M. circinelloides is a dimorphic fungus") == ["name_not_in_quote"]
+
