@@ -316,6 +316,61 @@ def cmd_compare(args: argparse.Namespace) -> None:
           f"need adjudication {n_adj}; disagreement rows {len(detail)} -> {dest}")
 
 
+def cmd_phase_input(args: argparse.Namespace) -> None:
+    """Input for the phase pass: the counted rows of an extraction pass, quote only (short)."""
+    out = Path(args.out)
+    dest = out / "stage_d_phase_input"
+    dest.mkdir(parents=True, exist_ok=True)
+    for sp in args.species:
+        slug = gf.slugify(sp)
+        rows = counted_rows(gf.read_tsv(out / "evidence" / args.pass_tag / f"{slug}.verified.tsv", required=False))
+        seen, keep = set(), []
+        for r in rows:
+            if r["sentence_id"] in seen:
+                continue
+            seen.add(r["sentence_id"])
+            keep.append({"sentence_id": r["sentence_id"], "evidence_type": r["evidence_type"],
+                         "supports": r["supports"], "quote": r["quote"].replace("\t", " ")})
+        gf.write_tsv(dest / f"{slug}.tsv", keep, ["sentence_id", "evidence_type", "supports", "quote"])
+        print(f"{sp}: {len(keep)} quotes, about {sum(len(r['quote']) for r in keep) // 4} tokens")
+
+
+def phase_compare(results: dict[str, dict], valid_ids: set[str]) -> dict:
+    """Compare phase calls of several passes for one species. `results` maps pass tag to the JSON object."""
+    calls = {tag: r.get("dominant_phase_in_culture", "") for tag, r in results.items()}
+    bad_basis = {tag: [b for b in r.get("basis", []) if b not in valid_ids] for tag, r in results.items()}
+    filled = {tag: sum(1 for x in r.get("rows", []) if x.get("phase") in {"yeast", "hyphal", "both"})
+              for tag, r in results.items()}
+    return {"calls": calls, "agree": "yes" if len(set(calls.values())) == 1 else "no",
+            "invalid_basis": {t: b for t, b in bad_basis.items() if b}, "phase_stated_rows": filled}
+
+
+def cmd_phase_compare(args: argparse.Namespace) -> None:
+    out = Path(args.out)
+    table = []
+    for sp in args.species:
+        slug = gf.slugify(sp)
+        valid = {r["sentence_id"]: r for r in gf.read_tsv(out / "stage_d_phase_input" / f"{slug}.tsv", required=False)}
+        results = {}
+        for tag in args.pass_tags:
+            path = out / "evidence_phase" / tag / f"{slug}.json"
+            if path.exists():
+                results[tag] = json.loads(path.read_text())
+        if not results:
+            continue
+        res = phase_compare(results, set(valid))
+        table.append({"species": sp, **{f"call:{t}": res["calls"].get(t, "") for t in args.pass_tags},
+                      **{f"conf:{t}": results[t].get("confidence", "") if t in results else "" for t in args.pass_tags},
+                      **{f"phase_rows:{t}": res["phase_stated_rows"].get(t, "") for t in args.pass_tags},
+                      "agree": res["agree"], "invalid_basis": json.dumps(res["invalid_basis"])})
+        for tag, r in results.items():
+            for sid in r.get("basis", []):
+                if sid in valid:
+                    print(f"  [{sp[:14]}|{tag}|{r.get('dominant_phase_in_culture')}] {valid[sid]['quote'][:150]}")
+    gf.write_tsv(out / "phase_compare.tsv", table, list(table[0].keys()))
+    print(f"phase_compare: {len(table)} species, agree {sum(1 for r in table if r['agree'] == 'yes')}")
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -332,6 +387,16 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--reference", default="")
     p.add_argument("--gold", default="")
     p.set_defaults(func=cmd_score)
+    p = sub.add_parser("phase-input", help="write the quotes of an extraction pass as input for the phase pass")
+    p.add_argument("--out", required=True)
+    p.add_argument("--pass-tag", required=True)
+    p.add_argument("--species", nargs="+", required=True)
+    p.set_defaults(func=cmd_phase_input)
+    p = sub.add_parser("phase-compare", help="compare phase calls of several phase passes")
+    p.add_argument("--out", required=True)
+    p.add_argument("--pass-tags", nargs="+", required=True)
+    p.add_argument("--species", nargs="+", required=True)
+    p.set_defaults(func=cmd_phase_compare)
     p = sub.add_parser("compare", help="compare verified rows of two or more passes per species")
     p.add_argument("--out", required=True)
     p.add_argument("--pass-tags", nargs="+", required=True)

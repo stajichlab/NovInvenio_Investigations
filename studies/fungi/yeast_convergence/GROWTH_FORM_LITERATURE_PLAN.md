@@ -464,3 +464,34 @@ the weakest field of the existing codings (the batch YAML codes *Taphrina* `domi
 on Haiku would leave it mostly blank. Options: ask for phase in a separate prompt, or use Sonnet for it. Not tested.
 The quotes are verified as real; my reading of them is not reviewed.
 
+### 16.2 Phase pass (a second step on verified rows)
+
+Extraction on Haiku left `phase_stated` almost empty, so a second prompt (`prompts/phase-v1.txt`) works on the
+rows that already passed `verify` (quotes only, about 1,600 to 5,600 tokens per species). Per quote it asks the
+context (culture, induced, host, natural, unspecified) and the phase; per species it asks for
+`dominant_phase_in_culture` (yeast, hyphal, unclear, not_stated), up to five basis sentence ids, and a confidence.
+`gf_stage_d.py phase-input` writes the input and `phase-compare` compares passes and prints the cited quotes.
+Tested on the five dimorphic species with Haiku and Sonnet:
+
+| Species | Haiku | Sonnet | Batch YAML `dominant_phase` |
+|---|---|---|---|
+| *Mucor circinelloides* | hyphal (medium) | hyphal (medium) | hyphal |
+| *Taphrina deformans* | yeast (medium) | yeast (high) | hyphal |
+| *Aureobasidium pullulans* | unclear (low) | unclear (low) | yeast |
+| *Yarrowia lipolytica* | unclear (low) | unclear (medium) | yeast |
+| *Exophiala dermatitidis* | unclear (low) | yeast (medium) | yeast |
+
+- The two models agree on 4 of 5 and all cited sentence ids were in the input. The disagreement (*Exophiala*) is about
+  the same quotes: "in most rich media ... budding yeast", "exists predominantly as a yeast form", and "exclusively as a
+  filamentous morphotype in liquid media". Sonnet reads the rich-medium statements as the culture default; Haiku reads the
+  conflict as unclear. The prompt defines the question as a rich medium, which favours Sonnet's reading; I did not review
+  the source papers.
+- Only *Mucor* has a firm reference (hyphal in aerobic culture, tested by Lee et al. 2013), and both models match it.
+  The others show agreement between models and quotes a person can read, not accuracy.
+- If the quotes are right, three of the five existing `dominant_phase` codings are not supported: *Taphrina* is yeast in
+  culture (hyphae in the host), and *Aureobasidium* and *Yarrowia* depend on the medium. This is from five species and has
+  not been applied to any file.
+- Agent tokens: about 0.37 million (Haiku) and 0.34 million (Sonnet) for five species. Most of this is the fixed cost of
+  starting an agent (each used 60,000 to 80,000 tokens on a 2,000 to 6,000 token input), so one agent per species is
+  wasteful; batching species into one call would cut it. Not tried.
+

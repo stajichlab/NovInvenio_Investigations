@@ -116,3 +116,13 @@ def test_disagreement_rows_lists_minority_and_unique_rows():
     assert ("p2", "only p2") in quotes                     # unique to one pass
     assert ("p1", "q0") not in quotes                      # shared and in the majority form
 
+
+def test_phase_compare_agreement_and_invalid_basis():
+    a = {"dominant_phase_in_culture": "yeast", "basis": ["s1", "s2"], "rows": [{"phase": "yeast"}, {"phase": "none"}]}
+    b = {"dominant_phase_in_culture": "yeast", "basis": ["s1", "zzz"], "rows": [{"phase": "both"}]}
+    res = sd.phase_compare({"p1": a, "p2": b}, {"s1", "s2"})
+    assert res["agree"] == "yes" and res["invalid_basis"] == {"p2": ["zzz"]}
+    assert res["phase_stated_rows"] == {"p1": 1, "p2": 1}
+    c = {"dominant_phase_in_culture": "hyphal", "basis": [], "rows": []}
+    assert sd.phase_compare({"p1": a, "p2": c}, set())["agree"] == "no"
+
