@@ -34,9 +34,11 @@ from pathlib import Path
 import yaml
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
-from site_pages import render_domain_index, render_top_level  # noqa: E402
+from site_pages import (  # noqa: E402
+    GROUP_PAGE_MARKER, render_domain_index, render_group_index, render_top_level,
+)
 from study_runs import (  # noqa: E402
-    load_publish_target, read_current, rebuild_study_pages, run_extra_links,
+    load_publish_target, read_current, rebuild_study_pages, run_extra_links, validate_slug,
 )
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -80,6 +82,32 @@ def load_domain_pages() -> dict[str, list[dict]]:
             if not (isinstance(pg, dict) and pg.get("title") and pg.get("href")):
                 raise SystemExit(f"{DOMAINS_YAML}: {row['slug']}: each page needs a title and href, got {pg!r}")
         out[row["slug"]] = pages
+    return out
+
+
+def load_domain_groups() -> dict[str, list[dict]]:
+    """slug -> study groups from conf/domains.yaml (`groups:`, optional): [{slug, title, desc,
+    member_label, page: {title, href, desc}}]. A study is shown inside a group only when its
+    domain lists the group here."""
+    with open(DOMAINS_YAML) as fh:
+        rows = yaml.safe_load(fh)
+    out = {}
+    for row in rows:
+        groups = []
+        for g in row.get("groups") or []:
+            if not isinstance(g, dict):
+                raise SystemExit(f"{DOMAINS_YAML}: {row['slug']}: each group must be a mapping, got {g!r}")
+            try:
+                slug = validate_slug(g.get("slug"), "group slug")
+            except ValueError as e:
+                raise SystemExit(f"{DOMAINS_YAML}: {row['slug']}: {e}")
+            page = g.get("page")
+            if page is not None and not (isinstance(page, dict) and page.get("title") and page.get("href")):
+                raise SystemExit(f"{DOMAINS_YAML}: {row['slug']}/{slug}: page needs a title and href, got {page!r}")
+            groups.append({"slug": slug, "title": g.get("title") or slug.replace("_", " "),
+                           "desc": g.get("desc") or "", "member_label": g.get("member_label") or "studies",
+                           "page": page})
+        out[row["slug"]] = groups
     return out
 
 
@@ -165,11 +193,21 @@ def find_studies(domain_slug: str) -> list[dict]:
                 "n_ingroup": None, "n_outgroup": None, "folders": [],
             })
             entry["folders"].append(folder)
+            # Group: publish.yaml `group:` (null = none), else the grouping folder that
+            # holds this folder (studies/<domain>/<group>/<folder>/), else none.
+            nested = folder.parent != domain_dir
+            entry.setdefault("_groups", set()).add(
+                target.group if target.group_set else (folder.parent.name if nested else None))
 
     out = []
     for name in sorted(by_study):
         entry = by_study[name]
         folders = entry.pop("folders")
+        groups = entry.pop("_groups", set())
+        if len(groups) > 1:
+            raise SystemExit(f"study {name!r}: its folders give different groups: "
+                             f"{sorted(str(g) for g in groups)}. Set the same `group:` in each publish.yaml.")
+        entry["group"] = next(iter(groups)) if groups else None
         if folders:
             src = next((f for f in folders if f.name == name), folders[0])
             entry["n_ingroup"], entry["n_outgroup"] = species_counts(src)
@@ -181,11 +219,71 @@ def find_studies(domain_slug: str) -> list[dict]:
     return out
 
 
+def split_groups(domain_slug: str, studies: list[dict], groups_cfg: dict[str, dict],
+                 pages: list[dict]) -> tuple[list[dict], list[dict], list[tuple[dict, list[dict]]]]:
+    """Split a domain's studies into cards for the domain page.
+
+    Returns (studies shown directly, group cards, [(group, members)] to render as pages).
+    A group page is written only when the domain lists the group in conf/domains.yaml and it
+    has at least two members. A group with one member shows that member directly. A group with
+    none adds its `page:` to `pages` so the link is not lost. A study whose group is not listed
+    stays ungrouped (warning)."""
+    names = {s["slug"] for s in studies}
+    members: dict[str, list[dict]] = {}
+    shown = []
+    for s in studies:
+        g = s.get("group")
+        if g in groups_cfg:
+            members.setdefault(g, []).append(s)
+        else:
+            if g:
+                print(f"WARNING: {domain_slug}/{s['slug']}: group {g!r} is not listed under `groups:` "
+                      f"in {DOMAINS_YAML.name}; shown as its own card.", file=sys.stderr)
+            shown.append(s)
+    cards, group_pages = [], []
+    for slug, g in groups_cfg.items():
+        if slug in names:
+            raise SystemExit(f"{domain_slug}: group {slug!r} has the same name as a study; rename one.")
+        mem = members.get(slug, [])
+        if len(mem) >= 2:
+            cards.append({**g, "n_members": len(mem)})
+            group_pages.append((g, mem))
+            continue
+        print(f"WARNING: {domain_slug}: group {slug!r} has {len(mem)} member(s); no group page.",
+              file=sys.stderr)
+        shown.extend(mem)
+        if g.get("page"):
+            pages.append(g["page"])
+    shown.sort(key=lambda s: s["name"])
+    return shown, cards, group_pages
+
+
+def check_group_target(domain_docs_dir: Path, group: dict) -> None:
+    """Refuse to overwrite a file that is not a generated group page. The one exception is the
+    old page at the same address when the group's `page:` has already been written elsewhere."""
+    index = domain_docs_dir / group["slug"] / "index.html"
+    if not index.exists() or GROUP_PAGE_MARKER in index.read_text(errors="replace"):
+        return
+    page = group.get("page")
+    moved = page and page["href"] != f"{group['slug']}/index.html" and (domain_docs_dir / page["href"]).exists()
+    if not moved:
+        raise SystemExit(f"{index} exists and is not a generated group page"
+                         + (f"; write {group['page']['href']} first" if page else "") + ".")
+
+
+def warn_stale_group_pages(domain_docs_dir: Path, active: set[str]) -> None:
+    for index in sorted(domain_docs_dir.glob("*/index.html")):
+        if index.parent.name not in active and GROUP_PAGE_MARKER in index.read_text(errors="replace"):
+            print(f"WARNING: {index} is a group page for a group that no longer exists; delete it.",
+                  file=sys.stderr)
+
+
 def main() -> int:
     site_name = load_site_name()
     domains = load_domains()
     domain_data = {slug: find_studies(slug) for slug, _, _ in domains}
     domain_pages = load_domain_pages()
+    domain_groups = load_domain_groups()
 
     DOCS_ROOT.mkdir(parents=True, exist_ok=True)
     (DOCS_ROOT / "index.html").write_text(render_top_level([
@@ -196,14 +294,25 @@ def main() -> int:
 
     for slug, name, _ in domains:
         studies = domain_data[slug]
-        if not studies and not domain_pages.get(slug):
+        pages = list(domain_pages.get(slug) or [])
+        groups_cfg = {g["slug"]: g for g in domain_groups.get(slug, [])}
+        shown, group_cards, group_pages = split_groups(slug, studies, groups_cfg, pages)
+        if not studies and not pages:
             continue
         domain_docs_dir = DOCS_ROOT / slug
         domain_docs_dir.mkdir(parents=True, exist_ok=True)
+        for g, members in group_pages:
+            check_group_target(domain_docs_dir, g)
+            gdir = domain_docs_dir / g["slug"]
+            gdir.mkdir(parents=True, exist_ok=True)
+            (gdir / "index.html").write_text(render_group_index(name, g, members, site_name=site_name))
+            print(f"Wrote {gdir / 'index.html'} ({len(members)} members)", file=sys.stderr)
+        warn_stale_group_pages(domain_docs_dir, {g["slug"] for g, _ in group_pages})
         (domain_docs_dir / "index.html").write_text(
-            render_domain_index(name, studies, site_name=site_name, pages=domain_pages.get(slug))
+            render_domain_index(name, shown, site_name=site_name, pages=pages, groups=group_cards)
         )
-        print(f"Wrote {domain_docs_dir / 'index.html'} ({len(studies)} studies)", file=sys.stderr)
+        print(f"Wrote {domain_docs_dir / 'index.html'} ({len(studies)} studies, {len(group_cards)} groups)",
+              file=sys.stderr)
 
     return 0
 

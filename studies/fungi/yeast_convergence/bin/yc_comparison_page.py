@@ -2,7 +2,7 @@
 """Write the cross-contrast comparison page for yeast_convergence.
 
 Reads analysis/convergence/ (convergence_compare.py output + PROVENANCE.yaml) and writes
-<docs>/fungi/yeast_convergence/index.html plus data/ with the small tables (class 2).
+<docs>/fungi/yeast_convergence/comparison.html plus data/ with the small tables (class 2).
 Numbers come from the tables, not from typed text.
 
 Usage: python3.12 bin/yc_comparison_page.py --repo-root <worktree of main with docs/>
@@ -145,8 +145,8 @@ This does not show that convergence is absent. The analysis has few origins, sma
 <ul>{files}</ul>
 </main></body></html>
 """
-    (out / "index.html").write_text(html, encoding="utf-8")
-    print(f"wrote {out/'index.html'}: {len(hits)} recurrent terms, {n_conv} yeast_convergent, contrasts with tables {len(have_tables)}")
+    (out / "comparison.html").write_text(html, encoding="utf-8")
+    print(f"wrote {out/'comparison.html'}: {len(hits)} recurrent terms, {n_conv} yeast_convergent, contrasts with tables {len(have_tables)}")
 
 
 if __name__ == "__main__":

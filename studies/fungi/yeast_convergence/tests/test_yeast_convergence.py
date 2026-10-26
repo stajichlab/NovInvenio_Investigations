@@ -312,6 +312,18 @@ def test_committed_comparisons_table_is_current():
     assert (FOLDER / "COMPARISONS.md").read_text() == yc.comparisons_markdown(batches, FOLDER)
 
 
+def test_committed_publish_yaml_matches_template():
+    """The 16 publish.yaml files are written once by `yc_batches.py render` and edited by hand
+    after that (render --force would also overwrite species.csv). They must still equal the
+    template, and none may link to the old comparison address, which is now the group page."""
+    rows = list(csv.DictReader(open(FOLDER / "study_index.tsv"), delimiter="\t"))
+    assert len(rows) == 16
+    for r in rows:
+        text = (FOLDER / r["id"] / "publish.yaml").read_text()
+        assert text == yc.PUBLISH_YAML.format(id=r["id"], role=r["role"], origin=r["origin"].replace('"', "'")), r["id"]
+        assert "yeast_convergence/index.html" not in text
+
+
 def test_setup_dryrun_writes_nothing(tmp_path, capsys):
     dr = _load("setup_dryrun")
     before = {p: p.stat().st_mtime_ns for p in FOLDER.rglob("*") if p.is_file() and "__pycache__" not in p.parts}

@@ -46,6 +46,7 @@ h1 { font-size: 1.6rem; margin-bottom: 0.2rem; }
 .card { border: 1px solid #ddd; border-radius: 10px; padding: 1rem 1.2rem;
         background: #fff; text-decoration: none; color: inherit; display: block; }
 .card:hover { border-color: #888; }
+.card.group { border-left-width: 6px; }
 .card.empty { opacity: 0.5; border-style: dashed; pointer-events: none; }
 .card h2 { font-size: 1.1rem; margin: 0 0 0.3rem; overflow-wrap: anywhere; }
 div.card h2 a { color: inherit; text-decoration: none; }
@@ -141,62 +142,107 @@ _STATUS_TEXT = {
 }
 
 
+# Marks a generated group page, so bin/generate_docs.py can tell it from a hand-made file
+# and warn about one whose group no longer exists.
+GROUP_PAGE_MARKER = "<!-- ni-group-page -->"
+
+
+def _study_card(s: dict, prefix: str = "") -> str:
+    """One study card. prefix is put in front of every link (use "../" on a page
+    one level below the domain page)."""
+    complete = s["status"] == "complete"
+    cls = "card" if complete else "card empty"
+    href = (s.get("href") or f"{s['slug']}/report.html") if complete else "#"
+    if complete:
+        href = prefix + href
+    meta = (
+        f"{s['n_ingroup']} ingroup &middot; {s['n_outgroup']} outgroup"
+        if s.get("n_ingroup") is not None else ""
+    )
+    status_bit = _STATUS_TEXT.get(s["status"], "")
+    if complete:
+        # A div, not an <a>: it holds two links (current run, run list),
+        # and links cannot nest.
+        n_runs = s.get("n_runs") or 0
+        runs_link = (f'<a href="{escape(prefix + s["slug"])}/report.html">'
+                     f'{n_runs} run{"s" if n_runs != 1 else ""}</a>')
+        # Optional pages of the current run, e.g. enrichment.html
+        # (s["extras"]: [(href, label)], only for files that exist).
+        runs_link += "".join(f' &middot; <a href="{escape(prefix + h)}">{escape(lbl)}</a>'
+                             for h, lbl in s.get("extras") or [])
+        return f"""
+<div class="card">
+  <h2><a href="{escape(href)}">{escape(s['name'].replace('_', ' '))}</a></h2>
+  <p class="desc">{escape(s.get('hypothesis', ''))}</p>
+  <p class="meta">{meta}{' &middot; ' if meta else ''}{runs_link}</p>
+</div>"""
+    return f"""
+<a class="{cls}" href="{escape(href)}">
+  <h2>{escape(s['name'].replace('_', ' '))}</h2>
+  <p class="desc">{escape(s.get('hypothesis', ''))}</p>
+  <p class="meta">{meta}{status_bit}</p>
+</a>"""
+
+
+def _page_card(pg: dict, prefix: str = "") -> str:
+    return f"""
+<a class="card" href="{escape(prefix + pg['href'])}">
+  <h2>{escape(pg['title'])}</h2>
+  <p class="desc">{escape(pg.get('desc', ''))}</p>
+  <p class="meta">page</p>
+</a>"""
+
+
 def render_domain_index(
     domain_name: str, studies: list[dict], site_name: str = "NovInvenio Investigations",
-    pages: list[dict] | None = None,
+    pages: list[dict] | None = None, groups: list[dict] | None = None,
 ) -> str:
     """studies: [{name, slug, hypothesis, n_ingroup, n_outgroup, status,
     href, n_runs}] -- href is the card link (the current run's report.html,
     see bin/generate_docs.py); n_runs is the number of published runs.
 
+    groups: [{slug, title, desc, n_members, member_label}] -- one card each, linking to
+    <slug>/index.html (render_group_index). Order of cards: studies, groups, pages.
+
     site_name: see render_top_level()'s docstring -- same parameterization,
     same default.
     """
-    cards = []
-    for s in studies:
-        complete = s["status"] == "complete"
-        cls = "card" if complete else "card empty"
-        href = (s.get("href") or f"{s['slug']}/report.html") if complete else "#"
-        meta = (
-            f"{s['n_ingroup']} ingroup &middot; {s['n_outgroup']} outgroup"
-            if s.get("n_ingroup") is not None else ""
-        )
-        status_bit = _STATUS_TEXT.get(s["status"], "")
-        if complete:
-            # A div, not an <a>: it holds two links (current run, run list),
-            # and links cannot nest.
-            n_runs = s.get("n_runs") or 0
-            runs_link = (f'<a href="{escape(s["slug"])}/report.html">'
-                         f'{n_runs} run{"s" if n_runs != 1 else ""}</a>')
-            # Optional pages of the current run, e.g. enrichment.html
-            # (s["extras"]: [(href, label)], only for files that exist).
-            runs_link += "".join(f' &middot; <a href="{escape(h)}">{escape(lbl)}</a>'
-                                 for h, lbl in s.get("extras") or [])
-            cards.append(f"""
-<div class="card">
-  <h2><a href="{escape(href)}">{escape(s['name'].replace('_', ' '))}</a></h2>
-  <p class="desc">{escape(s.get('hypothesis', ''))}</p>
-  <p class="meta">{meta}{' &middot; ' if meta else ''}{runs_link}</p>
-</div>""")
-            continue
+    cards = [_study_card(s) for s in studies]
+    for g in groups or []:
         cards.append(f"""
-<a class="{cls}" href="{escape(href)}">
-  <h2>{escape(s['name'].replace('_', ' '))}</h2>
-  <p class="desc">{escape(s.get('hypothesis', ''))}</p>
-  <p class="meta">{meta}{status_bit}</p>
+<a class="card group" href="{escape(g['slug'])}/index.html">
+  <h2>{escape(g['title'])}</h2>
+  <p class="desc">{escape(g.get('desc', ''))}</p>
+  <p class="meta">{g['n_members']} {escape(g.get('member_label') or 'studies')}</p>
 </a>""")
     # Hand-made pages that are not studies (conf/domains.yaml `pages:`), for example a
     # comparison across several studies: [{title, href, desc}], href relative to docs/<domain>/.
-    for pg in pages or []:
-        cards.append(f"""
-<a class="card" href="{escape(pg['href'])}">
-  <h2>{escape(pg['title'])}</h2>
-  <p class="desc">{escape(pg.get('desc', ''))}</p>
-  <p class="meta">page</p>
-</a>""")
+    cards.extend(_page_card(pg) for pg in pages or [])
     body = f"""
 <div class="title-row"><img class="logo" src="{_LOGO_DATA_URI}" alt=""><h1>{escape(domain_name)}</h1></div>
 <p class="subtitle"><a href="../index.html">&larr; all domains</a></p>
 <div class="grid">{''.join(cards)}</div>
 """
     return _page(f"{domain_name} — {site_name}", body)
+
+
+def render_group_index(
+    domain_name: str, group: dict, members: list[dict], site_name: str = "NovInvenio Investigations",
+) -> str:
+    """Page docs/<domain>/<group>/index.html: the group's own page (group['page'] =
+    {title, href, desc}, href relative to docs/<domain>/) and one card per member study.
+    Member links are written relative to this page, so they start with "../"."""
+    cards = []
+    page = group.get("page")
+    if page:
+        cards.append(_page_card(page, prefix="../"))
+    cards.extend(_study_card(s, prefix="../") for s in members)
+    n = len(members)
+    label = group.get("member_label") or "studies"
+    body = f"""{GROUP_PAGE_MARKER}
+<div class="title-row"><img class="logo" src="{_LOGO_DATA_URI}" alt=""><h1>{escape(group['title'])}</h1></div>
+<p class="subtitle"><a href="../index.html">&larr; {escape(domain_name)}</a> &middot; {n} {escape(label)}</p>
+<p class="desc">{escape(group.get('desc', ''))}</p>
+<div class="grid">{''.join(cards)}</div>
+"""
+    return _page(f"{group['title']} — {site_name}", body)
