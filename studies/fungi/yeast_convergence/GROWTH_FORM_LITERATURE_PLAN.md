@@ -407,3 +407,42 @@ multi-species table in a review about smut fungi, and *T. rubrum*, whose only go
 mating-type locus. None of the three is a clear selection failure. Report this per-species number next to
 the per-paper one.
 
+## 16. Stage D calibration (2026-10-26): Haiku and Sonnet on ten species
+
+Ten species with known answers (the pilot's), candidate sentences from the hybrid selection with article-level
+sentences, prompt `prompts/extract-v1.txt`, one call per chunk of 200 sentences (21 chunks), the evidence checked by
+`gf_lit.py verify` and scored by `gf_stage_d.py score`. Opus was not run.
+
+| Pass | Rows | Verified | Class match | Gold sources found | Agent tokens (total) |
+|---|---|---|---|---|---|
+| haiku-v1 (unchunked input; flawed baseline) | 368 | 94% | 10 of 10 | 10 of 13 | about 1.15 million |
+| haiku-v2 (chunked) | 789 | 96% | 9 of 10 | 12 of 13 | about 1.29 million |
+| sonnet-v2 (chunked) | 543 | 94.5% | 9 of 10 | 10 of 13 | about 0.98 million |
+
+Token totals are the agents' own reports (input, output and tool reads together); I did not convert them to cost.
+
+What it shows:
+
+- **Quotes are not the problem.** 367 of 368 first-pass quotes were verbatim in the source. Nearly all rejections were
+  two gate rules, now fixed: the quote had to hold the full species name even when the sentence used "M. circinelloides",
+  and article-level and genus-level sentences were rejected outright.
+- **Reading protocol matters.** One unchunked run read 350 of 775 lines. Input is now cut into chunks.
+- **Haiku found more and as accurately as Sonnet, on this sample.** It gave more rows and found more gold sources
+  (12 of 13 against 10 of 13); both had a verified rate near 95%. Its first pass also gave different counts from its
+  second on the same sentences (for example 5 against 10 rows for *Protomyces*), so one pass is not a stable answer.
+- **The crude class call was the weak part, not extraction.** My first rule let one `predicted` row (Tahiri 2026: *T.
+  elegans* behaves like the dimorphic *Mucor*) flip *Thamnidium* to "dimorphic" against ten descriptive "filamentous"
+  rows, and one loose "the yeast E. cymbalariae" row flip *Eremothecium*. The rule now ignores `predicted` rows and needs
+  a minority form to reach 20%. **I changed the rule after seeing these results**, so the 9 of 10 match is not an
+  independent test; both models gain, haiku-v1 is unaffected. The adjudicator (stage F) must do this job properly.
+- ***Protomyces* is the one miss.** Both models call it "yeast" from a sentence that reports *P. inouyei* cell length
+  in YPD culture; my reference (the pilot: genus-level only) may be the thing that is wrong.
+- **Caps still bind.** Chunks that return 55 to 60 objects (the prompt allows 60 per chunk) were common for *Taphrina*,
+  *Exophiala* and *Mucor*, so the number of rows per species is bounded by the prompt, not by the evidence.
+- **Row precision is not measured.** I read 12 verified rows by hand for haiku-v1: about 10 clearly stated the growth form
+  of the species, 2 were marginal. A verified row means the quote is real and sits in a sentence that names the species,
+  not that the model's label is right.
+
+Open: two independent passes with different models would show disagreements for the adjudicator; `gf_lit.py compare`
+is not written; a larger test than ten species is needed before any model is chosen for the 106.
+

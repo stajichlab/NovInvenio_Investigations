@@ -46,18 +46,30 @@ def compact_rows(records: list[dict]) -> list[dict[str, str]]:
 
 
 def class_call(rows: list[dict[str, str]]) -> str:
-    """Reduce verified species-level rows to yeast | filamentous | dimorphic | unsourced."""
-    sup = {
-        r.get("supports", "").strip().lower()
-        for r in rows
-        if r.get("organism_level", "").strip().lower() == "species"
-    }
-    sup &= {"yeast", "filamentous", "dimorphic"}
-    if not sup:
+    """Reduce verified species-level rows to yeast | filamentous | dimorphic | unsourced.
+
+    Only rows the model labelled organism_level `species` and evidence_type `tested` or `described` count:
+    a `predicted` row (an inference by sequence or analogy) is not an observation of growth form. Each
+    row votes by `supports`. A `dimorphic` vote share of at least 20% gives dimorphic; so does a yeast
+    share and a filamentous share that are each at least 20%. Otherwise the larger share wins. One stray
+    row against a dozen no longer flips the call. A calibration device, not the stage F adjudicator.
+    """
+    votes = {"yeast": 0, "filamentous": 0, "dimorphic": 0}
+    for r in rows:
+        if r.get("organism_level", "").strip().lower() != "species":
+            continue
+        if r.get("evidence_type", "").strip().lower() not in {"tested", "described"}:
+            continue
+        s = r.get("supports", "").strip().lower()
+        if s in votes:
+            votes[s] += 1
+    total = sum(votes.values())
+    if total == 0:
         return "unsourced"
-    if "dimorphic" in sup or {"yeast", "filamentous"} <= sup:
+    share = {k: v / total for k, v in votes.items()}
+    if share["dimorphic"] >= 0.2 or (share["yeast"] >= 0.2 and share["filamentous"] >= 0.2):
         return "dimorphic"
-    return next(iter(sup))
+    return max(votes, key=votes.get)
 
 
 PART_RE = re.compile(r"\.part\d+$")

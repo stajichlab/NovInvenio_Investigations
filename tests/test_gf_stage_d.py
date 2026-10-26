@@ -29,14 +29,23 @@ def test_compact_rows_orders_species_level_first_and_strips_tabs():
 
 
 def test_class_call_reduces_species_level_rows():
-    r = lambda s, lvl="species": {"supports": s, "organism_level": lvl}
+    r = lambda sup, lvl="species", ev="described": {"supports": sup, "organism_level": lvl, "evidence_type": ev}
     assert sd.class_call([r("filamentous")]) == "filamentous"
     assert sd.class_call([r("yeast")]) == "yeast"
-    assert sd.class_call([r("yeast"), r("filamentous")]) == "dimorphic"
+    assert sd.class_call([r("yeast"), r("filamentous")]) == "dimorphic"            # 50% each
     assert sd.class_call([r("dimorphic"), r("yeast")]) == "dimorphic"
-    assert sd.class_call([r("yeast", "genus")]) == "unsourced"      # genus-level rows do not give a species call
+    assert sd.class_call([r("yeast", "genus")]) == "unsourced"                      # genus rows give no species call
     assert sd.class_call([r("other")]) == "unsourced"
     assert sd.class_call([]) == "unsourced"
+
+
+def test_class_call_ignores_predicted_rows_and_stray_minorities():
+    r = lambda sup, ev="described": {"supports": sup, "organism_level": "species", "evidence_type": ev}
+    ten_fil = [r("filamentous") for _ in range(10)]
+    assert sd.class_call(ten_fil + [r("dimorphic", "predicted")]) == "filamentous"   # a prediction is not an observation
+    assert sd.class_call(ten_fil + [r("yeast")]) == "filamentous"                    # 1 of 11 is under 20%
+    assert sd.class_call(ten_fil[:4] + [r("yeast"), r("yeast")]) == "dimorphic"      # 2 of 6 reach 20%
+    assert sd.class_call([r("dimorphic", "predicted")]) == "unsourced"
 
 
 def test_split_chunks_and_base_slug():
