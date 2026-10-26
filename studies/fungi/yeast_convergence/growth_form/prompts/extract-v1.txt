@@ -1,0 +1,24 @@
+You extract evidence about the GROWTH FORM of one fungal species from candidate sentences. Do not use outside knowledge. Read only the input file named below. Write only the output file named below.
+
+Target species: {species}
+Other names in use: {synonyms}
+Input file (TSV with a header line; one candidate sentence per line): {input_path}
+  columns: sentence_id, match_level, year, section, text
+  match_level: full or abbrev = the sentence names the species; article = from a paper about the species, but the sentence does not name it; genus = the sentence names only the genus.
+Output file (JSON Lines, one object per line): {output_path}
+
+Definitions. yeast: the unicellular budding form is the normal vegetative form. filamentous: hyphae or mycelium only. dimorphic: the species switches between a yeast form and a hyphal form depending on conditions (temperature, CO2, medium, host, ...).
+
+A sentence qualifies only if it states or reports how the target species (or, when match_level is genus, its genus) grows: as yeast, as hyphae or mycelium, as a switch between them, or the conditions of a switch. Skip sentences where a word such as yeast or hypha appears but the sentence says nothing about this organism's own growth form (drug tests, other organisms, gene names, general background).
+
+For each qualifying sentence write one object with these fields:
+  sentence_id   copy from the input
+  species       the target species
+  quote         copied VERBATIM from the text of that sentence, at most 40 words, one continuous piece; do not paraphrase and do not change spelling or punctuation
+  organism_level  species = the statement is about the target species itself; genus = about the genus or about the genus in general; other = about another organism; unclear
+  evidence_type   tested = the authors observed the forms under stated conditions; described = a statement or background without a new test; predicted = inferred from sequences or by analogy
+  supports      yeast, filamentous, dimorphic, or other (what the sentence says about growth form)
+  phase_stated  yeast, hyphal, or none (which phase the sentence says is the normal or default one)
+  condition     short text (temperature, medium, host) or "not stated"
+
+Rules. If the sentences do not state the growth form of the target species, write nothing; an empty file is a correct answer. Do not infer from the genus. If two sentences disagree, write both. Write at most 60 objects, the clearest first. When done, reply with one line: the number of objects written.

@@ -1,0 +1,20 @@
+species	level	pmid	pmcid	phrase	source	note
+Mucor circinelloides	species	24039585	3764228	exhibits hyphal growth in aerobic conditions but switches to multi-budded yeast growth under anaerobic/high CO₂ conditions	Lee et al. 2013 PLoS Pathog	abstract
+Mucor circinelloides	species	41611685	12957363	Mucor circinelloides was incorporated into de study as a dimorphic fungus due to its close phylogenetic proximity to M. lusitanicus	Tahiri et al. 2026 Nat Commun	from gold.tsv (full text)
+Rhizopus delemar	species	41611685	12957363	The dimorphism of M. circinelloides and the lack thereof in R. microsporus and R. delemar were experimentally validated (Fig. 5a)	Tahiri et al. 2026 Nat Commun	from gold.tsv (full text)
+Rhizopus delemar	species	30258038	6158513	the switch to sustained filamentous growth	Sephton-Clark et al. 2018 mSphere	full text key phrase
+Rhizopus delemar	species	30258038	6158513	average width of hyphae being	Sephton-Clark et al. 2018 mSphere	full text key phrase
+Yarrowia lipolytica	species	28188651		grows in the oval-shaped yeast form in glycerol media whereas it adopts a filamentous form in glucose media	Liang et al. 2017 Mol Microbiol	abstract
+Yarrowia lipolytica	species	23826133	3691278	to induce the yeast-to-hypha transition	Martinez-Vazquez et al. 2013 PLoS One	full text key phrase (figure legend; species name not in this sentence)
+Exophiala dermatitidis	species	10940039	111375	strongly repressed filamentous growth both in the wild-type strain and in the temperature-sensitive hyphal-form mutant Hf1	Ye and Szaniszlo 2000 J Bacteriol	abstract; names the species as Wangiella (Exophiala) dermatitidis
+Exophiala dermatitidis	species	10940039	111375	commit its yeast-like cells to a phenotype transition that produces sclerotic bodies while repressing hyphal development	Ye and Szaniszlo 2000 J Bacteriol	abstract; species name not in this sentence
+Taphrina deformans	species	28244594		caused by the dimorphic fungus Taphrina deformans	Svetaz et al. 2017 Plant Cell Environ	abstract
+Taphrina deformans	species	28244594		Fungal dimorphism to the filamentous form	Svetaz et al. 2017 Plant Cell Environ	abstract
+Eremothecium cymbalariae	species	22384365	3276169	can easily be distinguished from the dimorphic representatives in this genus	Wendland and Walther 2011 G3	full text key phrase
+Eremothecium cymbalariae	species	22384365	3276169	fluffy aerial mycelium unique in this genus	Wendland and Walther 2011 G3	full text key phrase
+Thamnidium elegans	species	35559141	9088945	was grown from hyphal inoculum	Permana et al. 2022 ACS Omega	full text key phrase (incidental)
+Thamnidium elegans	species	35559141	9088945	day old mycelia	Permana et al. 2022 ACS Omega	full text key phrase (incidental; species name not in this sentence)
+Protomyces inouyei	genus	33741074	7980564	is yeast-like, unicellular, reproduces by budding, and is easy to culture	Wang, Sipilä and Overmyer 2021 IMA Fungus	full text key phrase; genus-level
+Neolecta irregularis	genus	28176784	5309816	have not been successfully cultured in the lab	Nguyen et al. 2017 Nat Commun	full text key phrase; genus-level
+Neolecta irregularis	genus	14563128		Non-ascogenous hyphae were multinucleate, often with nuclei in pairs.	Landvik et al. 2003 Mycol Res	abstract; genus-level (studies N. vitellina)
+Neolecta irregularis	genus	14563128		Attempts to culture N. vitellina and to obtain molecular information from the type species, N. flarovirescens, were unsuccessful.	Landvik et al. 2003 Mycol Res	abstract; genus-level

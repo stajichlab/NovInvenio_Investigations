@@ -1,0 +1,36 @@
+generated: '2026-10-26T02:50:33Z'
+class: curated (tracked, class 2)
+local_path: studies/fungi/yeast_convergence/growth_form/gold_sources_independent.tsv
+checksum_sha256: 22fc1f548e40e655b035a157f5575ba880d8d75ad9ea38e63f52976c0b73ad46
+source_url: derived from PubMed Central open-access full text (NCBI E-utilities esearch and efetch, db=pmc), seven review
+  and comparative-paper queries listed in bin/gf_gold_tables.py QUERIES
+source_release: PMC as of 2026-10-25
+license: rows hold at most 40 words per table row or sentence from articles identified by PMCID; full text is not stored
+derived_by: python bin/gf_gold_tables.py --study-dir studies/fungi/yeast_convergence --out <growth_form dir> --max-per-species
+  8 (names.tsv supplies the species names; papers already in gold_sources.tsv are excluded)
+counts:
+  rows: 82
+  species: 29
+  by_strength:
+    about: 40
+    passing: 29
+    table: 13
+  search_summary:
+    query:dimorphism_review: count=326 returned=100
+    query:dimorphic_comparative: count=86 returned=86
+    query:yeast_origins: count=23 returned=23
+    query:growth_form_evolution: count=22 returned=22
+    query:mucorales_dimorphism: count=65 returned=65
+    query:black_yeasts: count=42 returned=42
+    query:basidiomycete_yeasts: count=17 returned=17
+    papers_searched: '339'
+    papers_excluded_already_in_pilot_gold: '3'
+    papers_parsed: '336'
+    tables: '404'
+    matching_table_rows: '16'
+    matching_body_sentences: '138'
+    gold_rows_species_paper: '82'
+    species_with_gold: 29 of 106
+note: 'Article-level gold: a row says the paper names the species with a growth-form term, not that the coding it gives is
+  correct. strength: table = a table row; about = full name in title or abstract plus a growth-form sentence; passing = a
+  body sentence only. Do not expect the pipeline to select ''passing'' papers.'

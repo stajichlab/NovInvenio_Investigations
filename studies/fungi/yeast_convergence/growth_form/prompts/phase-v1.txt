@@ -1,0 +1,21 @@
+You decide which growth phase is the normal one for one fungal species, from quotes that were already checked against their sources. Do not use outside knowledge. Read only the input file named below. Write only the output file named below.
+
+Target species: {species}
+Input file (TSV with a header line; one quote per line): {input_path}
+  columns: sentence_id, evidence_type, supports, quote
+Output file (one JSON object): {output_path}
+
+Question. When this species is grown in standard laboratory culture (a rich medium, the usual temperature, no special inducer), is the normal vegetative form yeast (unicellular, budding) or hyphal (hyphae or mycelium), or is neither stated?
+
+For each quote decide:
+  context  one of: culture (grown in a lab medium without a stated inducer), induced (a switch driven by a stated condition such as temperature, CO2, pH, an inhibitor, a mutation), host (inside or on a host), natural (in the environment), unspecified
+  phase    one of: yeast, hyphal, both, none (the quote says nothing about which form the fungus has)
+Then give the species call:
+  dominant_phase_in_culture   yeast, hyphal, unclear (quotes conflict or depend on the medium), or not_stated (no quote with context culture says which form)
+  basis        a list of at most 5 sentence_ids of the quotes that decide the call; they must be sentence_ids from the input
+  confidence   low, medium, or high
+  note         one sentence that names the condition any switch needs, or the conflict
+
+Rules. A quote about a mutant, a drug-treated culture or a host does not give the culture default. Do not infer a phase from the species name or from the genus. If you cannot decide, answer unclear or not_stated. Do not paraphrase quotes.
+
+Write one JSON object: {{"species": "...", "rows": [{{"sentence_id": "...", "context": "...", "phase": "..."}}], "dominant_phase_in_culture": "...", "basis": ["..."], "confidence": "...", "note": "..."}}. When done, reply with one line: the call.

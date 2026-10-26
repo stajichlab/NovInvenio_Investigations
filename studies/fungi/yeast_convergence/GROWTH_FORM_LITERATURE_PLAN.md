@@ -1,5 +1,12 @@
 # Growth-form literature search: plan for an agent set
 
+> **Status: experimental tooling (2026-10-26).** The code in `bin/gf_lit.py`, `bin/gf_stage_d.py` and
+> `bin/gf_gold_tables.py` is tested on 10 species. Stage F (adjudicator) is not written. No growth-form
+> coding from this work is used by any study or promoted to `config_support/traits/`. Curation of all 106
+> species is not done and is expected to take a long time (issue #44). The retrieval and extraction figures
+> below are indications from small gold sets, not accuracy estimates for the full set.
+> `gf_lit.py` came from another agent and had its first code review on 2026-10-26 (see the PR).
+
 Purpose: code the growth form of the 106 yeast_convergence species from published text, with a source
 for every coding (issue #44). This plan records what a pilot did on 10 species (2026-10-25), what
 worked, what failed, and how to run it better. A new agent set can follow it without the chat history.
@@ -84,17 +91,45 @@ Stages A to C are plain scripts. Only stage D needs a model.
 *Ashbya gossypii* for the *Eremothecium* clade). Output: `names.tsv` (species, name, source).
 
 **B. Candidate retrieval (script).** For each name, run `esearch` on pubmed (Title/Abstract) and pmc
-(All Fields), each with and without the growth terms: `dimorphic`, `dimorphism`, `yeast-like`,
-`yeast phase`, `hyphae`, `hyphal`, `mycelium`, `pseudohyphae`, `budding`, `yeast-to-hypha`, `morphology`.
-Save the PMIDs and PMCIDs, the query, the date and the hit count. Keep every query (section 6).
+(Text Word) in three modes: `dimorph` (the name AND dimorphism terms such as `dimorphic`,
+`yeast-to-hypha`, `pseudohyphal growth`), `growth` (the name AND the generic growth terms `yeast`,
+`hyphae`, `mycelium`, `budding`, ...), and `name` (the name alone). Priority order: dimorph, growth, name.
+The `dimorph` mode is needed because for well-studied species the generic growth query matches
+thousands of papers, and the relevance-sorted top 200 can miss the dimorphism papers (the pilot's
+*Yarrowia* source, Liang 2017, was missed this way). Save the PMIDs and PMCIDs, the query, the date and
+the hit count. Keep every query (section 6).
+
+**B2. Article selection (script, in `fetch`).** Do not take the first N rows by search rank. Rank ties
+among the many name queries of one species fill a small cap with arbitrary papers (the pilot's
+*Mucor* source, Lee 2013, was rank 2 and still cut). Merge the PubMed and PMC rows of one article by
+PMCID, then order by (priority, number of queries that returned it, best rank). Use caps large enough
+that selection is not the limiting step: the sentence stage costs about 1,200 tokens per species, so
+60 articles (40 full texts) per species is cheap. `gf_lit.py fetch --selection score` does this;
+`--selection rank` is the earlier order.
+
+For species with very large literatures, add a second step: `--selection two-step`. It takes the top
+`--screen-articles` (300) candidates in the score order, fetches only their PubMed abstracts, and scores
+each title and abstract (dimorphism terms +3 each, growth terms +1 each up to 5, species name in the title
++5, in the abstract +2). It then fills half of the slots (`--base-share`, 0.5) from the score order and the
+rest from the abstract-screen order. Neither order alone is enough: in the 19-row gold test the score order
+missed a dimorphism paper that the abstract screen found (Liang 2017), and the abstract screen missed a
+paper whose abstract has no dimorphism term (Tahiri 2026) that the score order found. The hybrid found both.
 
 **C. Text fetch and sentence filter (script).**
 1. For each PMCID, `efetch` the XML once. Cache it on `/bigdata`, compressed (`zstd`; CLAUDE.md prefers
    compressed text). Record the SHA-256 of the XML.
 2. For abstract-only PMIDs, store the abstract from `get_article_metadata` or `efetch db=pubmed`.
 3. Strip tags, split into sentences (keep the section title and table captions).
-4. Keep only sentences that contain a species name from stage A *and* a growth term, plus the one
-   sentence before and after. A genus-level sentence ("*Aureobasidium* is a genus of dimorphic yeast-like
+4. Keep sentences that contain a species name from stage A *and* a growth term, plus the one
+   sentence before and after. Names are matched in three ways: the full name, the abbreviation
+   (`G. species`) when the full name is in the same article, and a name written with both genera
+   (`Wangiella (Exophiala) dermatitidis`, built from the species' synonyms).
+   **Article-level rule** (`--article-level abstract`, the default): when the full name is in the
+   article's title or abstract, the article is about the species, and its growth sentences that do not
+   name the species ("the fungus ...", "these cells ...") are kept too, labelled `match_level article`,
+   at most `--article-cap` (12) per article, sentences with a dimorphism term first. Without this rule a
+   gold sentence such as "the switch to sustained filamentous growth" in a paper about *R. delemar* is
+   lost. A genus-level sentence ("*Aureobasidium* is a genus of dimorphic yeast-like
    fungi") is kept and labelled genus-level.
 
 **D. Classification (model).** Give the model only the kept sentences of one species, not the papers.
@@ -245,3 +280,249 @@ the sentences"): see the pilot task text in the session of 2026-10-25. Keep thes
 4. If recall and the quote-verification rate are acceptable, run the 6 low-BUSCO species and the three
    #44 conflicts, then the rest in waves.
 5. Hand the unsourced list and the book worksheet to a person.
+
+## 14. Working with more than one agent
+
+Several agents, possibly from different vendors and with different costs, can share this work. They do
+not need to talk to each other. They need one file contract, a script that checks every output, and a
+rule for who touches which file. A message to a peer session is not reliable for this: a session list
+shows only sessions started from the same tool, and an agent from another tool is not on it.
+
+### 14.1 Roles
+
+| Role | Does | Model |
+|---|---|---|
+| Retrieval | stages A to C (`gf_lit.py species, names, search, fetch, sentences`): scripts, no model | none |
+| Extractor | stage D: reads `sentences/<species>.jsonl`, writes evidence rows | cheap model; two independent passes with different models |
+| Verifier | `gf_lit.py verify`: checks each quote against the cached source text | none (script) |
+| Adjudicator | stage F: one decision per species, from the verified rows of all passes | strong model; only for species where passes disagree, or where evidence is conflicting or genus-level |
+| Reviewer | a person: reads every `differs` and `conflict` row | human |
+
+An agent may hold several roles. A cheap extractor is safe because the verifier rejects any quote that is
+not verbatim in the source (case-insensitive, anywhere in the article text). See "Known issues" at the end: the gate does not yet check that the quote comes from the cited sentence.
+
+### 14.2 File contract
+
+All shared files live under `studies/fungi/yeast_convergence/growth_form/`. Agents write only there. No
+agent writes to `config_support/traits/`, a batch YAML, or any file outside `growth_form/`.
+
+| Path | Writer | Content |
+|---|---|---|
+| `sentences/<species_slug>.jsonl` | retrieval | input for extractors (gitignored; holds source text) |
+| `prompts/<prompt_version>.txt` | whoever changes a prompt | the exact prompt; never edited after use, a new version is a new file |
+| `evidence/<pass_tag>/<species_slug>.jsonl` | one extractor | evidence rows (section 6 of this plan). `<pass_tag>` names the model and prompt, for example `haiku-v1`. One directory per pass, so passes stay independent. |
+| `evidence/<pass_tag>/<species_slug>.verified.tsv`, `.rejected.tsv` | the verifier | output of `gf_lit.py verify` |
+| `adjudicated/<species_slug>.json` | adjudicator | class, dominant phase, confidence, conflicts, the rows used |
+| `work/<stage>/<species_slug>.claim/` | any agent | claim marker (14.3) |
+| `cost_log.tsv` | any agent | one row per call batch: pass_tag, species, model, input tokens, output tokens, wall seconds, date |
+| `calibration.tsv` | whoever runs a calibration | per model: quote-verified rate, gold sources found, class agreement (14.5) |
+| `STATUS.md` (study folder) | each agent, own section only | what is done, blocked or unclear |
+
+Every evidence row carries `model` and `prompt_version`. An agent never edits another pass's files.
+
+### 14.3 Claiming work
+
+1. List the species with no `evidence/<pass_tag>/<species_slug>.jsonl`.
+2. Claim one with `mkdir work/D/<species_slug>.claim`. If `mkdir` fails, another agent has it: take the
+   next species. (`mkdir` is atomic on `/bigdata`.)
+3. Write `owner`, `model` and the UTC time into `work/D/<species_slug>.claim/info.txt`.
+4. Write the output file, then remove the claim directory.
+5. A claim older than 6 hours with no output file is stale. Any agent may remove it and must add a line
+   to its STATUS section.
+
+### 14.4 The check that gates everything
+
+`gf_lit.py verify --evidence <file>` is the only way a row becomes `verified`. It accepts a row when the
+quote is at most 40 words and appears verbatim in the cached source (after whitespace and punctuation
+normalization). It works for any model, so the cheap and the strong model are held to the same rule.
+Rows that fail go to `.rejected.tsv`. Report the rejected fraction per pass in `calibration.tsv`: a
+high fraction means the model paraphrases, and that model should not be used for extraction.
+
+### 14.4a Comparing passes
+
+`gf_stage_d.py compare` is written (section 16.1). It reads the verified rows of all passes for a species and
+report: the class and phase each pass supports, whether they agree, and the quotes behind any
+disagreement. The adjudicator reads only species that are flagged. Build it before running two passes.
+
+### 14.5 Choosing the cheap model by measurement
+
+1. Pick the gold-set species (`gold_sources.tsv`, 19 rows from the pilot's verified items plus Tahiri 2026).
+2. Run stage D on these species with each candidate model and the same prompt version.
+3. For each model record in `calibration.tsv`: share of rows that verify; share of gold sources that give
+   a row; agreement of class and phase with the verified pilot result; tokens used.
+4. Use the cheapest model whose numbers match the strong model on these four. If none does, use the strong
+   model for extraction and keep the cheap one as the second pass only.
+
+This sample is small (about 10 species). State that in any conclusion drawn from it.
+
+### 14.6 What an outside agent needs to join
+
+- This plan and `STATUS.md`.
+- `bin/gf_lit.py` and its `--help` (run with `pixi run python bin/gf_lit.py ...`).
+- Read access to `growth_form/sentences/` and the cache, write access to `growth_form/evidence/<pass_tag>/`
+  and `growth_form/work/`.
+- An API key for its own model, if it uses one. Never write a key to a file in the repo.
+- No network access to NCBI is needed for stage D: the sentences are local.
+
+### 14.7 Rules that protect the data
+
+- Source text stays out of git: `cache/` and `sentences/` are gitignored. Evidence rows hold quotes of at
+  most 40 words.
+- Nothing is promoted to `config_support/traits/` until a person has reviewed a sample.
+- A change to a prompt or a model is a new `pass_tag`. Results of different tags are never mixed in one file.
+
+## 15. Gold sets and what they show (2026-10-25)
+
+Two gold sets test retrieval and selection (`gf_lit.py recall --gold <file> --recall-out <file>`):
+
+- `growth_form/gold_sources.tsv` (19 rows, 12 sources): from the pilot's verified items. A method that
+  copies the pilot's search scores well here, so it is a regression test, not a measure of coverage.
+- `growth_form/gold_sources_independent.tsv` (82 rows, 29 species): built by `bin/gf_gold_tables.py` from
+  the tables and body text of 336 review and comparative papers found by seven searches that are not the
+  pipeline's. Rows have no phrase: they test whether the paper is retrieved and selected. Each row has a
+  `strength`: `table`, `about` (species in the title or abstract), or `passing` (a sentence only).
+
+Result of the hybrid selection (caps 60 articles, 40 full texts) on the independent set:
+
+| strength | rows | retrieved | selected |
+|---|---|---|---|
+| table | 13 | 12 | 4 (31%) |
+| about | 40 | 39 | 28 (70%) |
+| passing | 29 | 23 | 6 (21%) |
+
+Excluding *C. albicans*, *C. neoformans* and *S. cerevisiae*: about 28 rows, 26 selected (93%); table 8 rows,
+4 selected, all four misses being one review table that lists many species once. For the three
+species: table 0 of 5, about 2 of 12 selected. With caps of 300 articles (200 full texts) and a screen of
+800 for these three: table 3 of 5, about 7 of 12. So the cap limits heavily studied species, and a larger
+cap does not remove the problem. A species-specific `review[pt]` query mode is a candidate fix; not tried.
+Do not read `passing` recall as a failure: a review that names 30 species once is not a source to select for each.
+
+### 15.1 Review query and the per-species measure
+
+A `review` query mode (the name AND dimorphism terms AND `review[pt]`, PubMed, same priority as `dimorph`)
+returns a small, complete set even for heavily studied species (162 reviews for *C. albicans* against 1,677
+dimorphism papers). Run on the whole pipeline (hybrid selection, article-level sentences), it changed little
+per paper (independent gold, the three species: about 2 of 12 to 3 of 12 selected; table rows still 0 of 5;
+pilot gold unchanged at 17, 17, 17 and 13 of 19). It did rescue *S. cerevisiae* by one review.
+
+The per-paper measure understates what matters. The missed papers of the three species are mostly
+tangential research papers (an antifungal compound that blocks hyphal growth, an enzyme paper), at rank 20
+to 170 with one agreeing query; the authoritative reviews of dimorphism were selected. The useful measure is
+per species: is at least one gold source selected? On the independent set that is 17 of 20 species
+(16 before the review query). The three left are *A. pullulans* and *H. werneckii*, whose only gold row is a
+multi-species table in a review about smut fungi, and *T. rubrum*, whose only gold row is a paper on the
+mating-type locus. None of the three is a clear selection failure. Report this per-species number next to
+the per-paper one.
+
+## 16. Stage D calibration (2026-10-26): Haiku and Sonnet on ten species
+
+Ten species with known answers (the pilot's), candidate sentences from the hybrid selection with article-level
+sentences, prompt `prompts/extract-v1.txt`, one call per chunk of 200 sentences (21 chunks), the evidence checked by
+`gf_lit.py verify` and scored by `gf_stage_d.py score`. Opus was not run.
+
+| Pass | Rows | Verified | Class match | Gold sources found | Agent tokens (total) |
+|---|---|---|---|---|---|
+| haiku-v1 (unchunked input; flawed baseline) | 368 | 94% | 10 of 10 | 10 of 13 | about 1.15 million |
+| haiku-v2 (chunked) | 789 | 96% | 9 of 10 | 12 of 13 | about 1.29 million |
+| sonnet-v2 (chunked) | 543 | 94.5% | 9 of 10 | 10 of 13 | about 0.98 million |
+
+Token totals are the agents' own reports (input, output and tool reads together); I did not convert them to cost.
+
+What it shows:
+
+- **Quotes are not the problem.** 367 of 368 first-pass quotes were verbatim in the source. Nearly all rejections were
+  two gate rules, now fixed: the quote had to hold the full species name even when the sentence used "M. circinelloides",
+  and article-level and genus-level sentences were rejected outright.
+- **Reading protocol matters.** One unchunked run read 350 of 775 lines. Input is now cut into chunks.
+- **Haiku found more and as accurately as Sonnet, on this sample.** It gave more rows and found more gold sources
+  (12 of 13 against 10 of 13); both had a verified rate near 95%. Its first pass also gave different counts from its
+  second on the same sentences (for example 5 against 10 rows for *Protomyces*), so one pass is not a stable answer.
+- **The crude class call was the weak part, not extraction.** My first rule let one `predicted` row (Tahiri 2026: *T.
+  elegans* behaves like the dimorphic *Mucor*) flip *Thamnidium* to "dimorphic" against ten descriptive "filamentous"
+  rows, and one loose "the yeast E. cymbalariae" row flip *Eremothecium*. The rule now ignores `predicted` rows and needs
+  a minority form to reach 20%. **I changed the rule after seeing these results**, so the 9 of 10 match is not an
+  independent test; both models gain, haiku-v1 is unaffected. The adjudicator (stage F) must do this job properly.
+- ***Protomyces* is the one miss.** Both models call it "yeast" from a sentence that reports *P. inouyei* cell length
+  in YPD culture; my reference (the pilot: genus-level only) may be the thing that is wrong.
+- **Caps still bind.** Chunks that return 55 to 60 objects (the prompt allows 60 per chunk) were common for *Taphrina*,
+  *Exophiala* and *Mucor*, so the number of rows per species is bounded by the prompt, not by the evidence.
+- **Row precision is not measured.** I read 12 verified rows by hand for haiku-v1: about 10 clearly stated the growth form
+  of the species, 2 were marginal. A verified row means the quote is real and sits in a sentence that names the species,
+  not that the model's label is right.
+
+Open: two independent passes with different models would show disagreements for the adjudicator; `gf_lit.py compare`
+is not written; a larger test than ten species is needed before any model is chosen for the 106.
+
+### 16.1 `compare`: where two passes disagree
+
+`gf_stage_d.py compare --out <dir> --pass-tags haiku-v2 sonnet-v2` reads the verified rows of each pass and reports, per
+species, the class and phase of each pass, whether they agree, the sentences each found, and `needs_adjudication`:
+class_disagree, phase_disagree, thin_evidence (a pass with one or two counted rows), no_species_rows_in. A species
+whose rows show both yeast and hyphal growth is not flagged: that is what a dimorphic species looks like (an earlier
+version flagged all five dimorphic species; it was changed). It also writes the rows an adjudicator should read.
+
+On the ten species: Haiku and Sonnet agree on the class for 9; three species need a look: *Neolecta* and *Protomyces*
+(thin evidence: one row or none) and *Taphrina* (phase). Haiku against its own first pass: class agrees for 8; the two
+that flip are the same thin species. So thin evidence is where a single model run is unstable.
+
+**The models differ on phase.** For *Taphrina*, Sonnet filled the `phase_stated` field on 12 of 32 counted rows (mostly
+"yeast": the yeast state grows on culture media and filamentous growth appears in the host), Haiku on 1 of 56. Phase is
+the weakest field of the existing codings (the batch YAML codes *Taphrina* `dominant_phase: hyphal`), and a class pass
+on Haiku would leave it mostly blank. Options: ask for phase in a separate prompt, or use Sonnet for it. Not tested.
+The quotes are verified as real; my reading of them is not reviewed.
+
+### 16.2 Phase pass (a second step on verified rows)
+
+Extraction on Haiku left `phase_stated` almost empty, so a second prompt (`prompts/phase-v1.txt`) works on the
+rows that already passed `verify` (quotes only, about 1,600 to 5,600 tokens per species). Per quote it asks the
+context (culture, induced, host, natural, unspecified) and the phase; per species it asks for
+`dominant_phase_in_culture` (yeast, hyphal, unclear, not_stated), up to five basis sentence ids, and a confidence.
+`gf_stage_d.py phase-input` writes the input and `phase-compare` compares passes and prints the cited quotes.
+Tested on the five dimorphic species with Haiku and Sonnet:
+
+| Species | Haiku | Sonnet | Batch YAML `dominant_phase` |
+|---|---|---|---|
+| *Mucor circinelloides* | hyphal (medium) | hyphal (medium) | hyphal |
+| *Taphrina deformans* | yeast (medium) | yeast (high) | hyphal |
+| *Aureobasidium pullulans* | unclear (low) | unclear (low) | yeast |
+| *Yarrowia lipolytica* | unclear (low) | unclear (medium) | yeast |
+| *Exophiala dermatitidis* | unclear (low) | yeast (medium) | yeast |
+
+- The two models agree on 4 of 5 and all cited sentence ids were in the input. The disagreement (*Exophiala*) is about
+  the same quotes: "in most rich media ... budding yeast", "exists predominantly as a yeast form", and "exclusively as a
+  filamentous morphotype in liquid media". Sonnet reads the rich-medium statements as the culture default; Haiku reads the
+  conflict as unclear. The prompt defines the question as a rich medium, which favours Sonnet's reading; I did not review
+  the source papers.
+- Only *Mucor* has a firm reference (hyphal in aerobic culture, tested by Lee et al. 2013), and both models match it.
+  The others show agreement between models and quotes a person can read, not accuracy.
+- If the quotes are right, three of the five existing `dominant_phase` codings are not supported: *Taphrina* is yeast in
+  culture (hyphae in the host), and *Aureobasidium* and *Yarrowia* depend on the medium. This is from five species and has
+  not been applied to any file.
+- Agent tokens: about 0.37 million (Haiku) and 0.34 million (Sonnet) for five species. Most of this is the fixed cost of
+  starting an agent (each used 60,000 to 80,000 tokens on a 2,000 to 6,000 token input), so one agent per species is
+  wasteful; batching species into one call would cut it. Not tried.
+
+## Known issues from the code review (2026-10-26, Opus, PR #51)
+
+Fixed in PR #51: `.gitignore` rules for the cache, sentences, logs, gold cache and stage D input; the API key is
+removed from request error messages.
+
+Not fixed yet. None changes a study output, because no study uses this code.
+
+1. **Verify gate is weaker than the text above says.** A quote is checked against the whole article, not against the
+   cited sentence. A name-only quote, a one-word genus/article quote, a quote that spans a sentence boundary, and a
+   row whose species string differs from the sentence record all pass (5 of 5 synthetic bad rows passed). Fix: require
+   the quote in the sentence text, a growth term, at least about 4 words, and an exact species match. This will change
+   the verified rates in section 16, so the calibration must be rerun.
+2. Two species with the same slug would overwrite each other's `sentences/<slug>.jsonl`. Check slugs for uniqueness.
+3. Cache writes are not atomic, and an HTTP 200 error payload is cached. Write to a temp file and `os.replace`; do not
+   cache an esearch result with an error key.
+4. The UID in cache file names is not validated (`--include-pmcid` and idconv output). Require digits only.
+5. Provenance gaps: no sidecar for `calibration_reference.tsv` and `gold_independent_summary.tsv`; the tracked
+   summary name differs from the name `gf_gold_tables.py` writes; `cmd_provenance` hardcodes the taxonomy release;
+   rerunning `gf_gold_tables.py` overwrites the tracked gold table without updating its sidecar.
+6. Network: the rate limit is per process (run one process at a time, or add a lock); no warning when no email is set;
+   `Retry-After` is ignored; connection resets during `read()` are not retried. Default taxonomy path and a missing
+   `zstd` give a raw `FileNotFoundError`. Several outputs raise `IndexError` on empty input.
+7. Tests: the network layer and `cmd_verify`, `fetch_and_cache`, `cmd_sentences`, `cmd_score` and `cmd_compare` have no
+   end-to-end tests.
