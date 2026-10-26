@@ -25,3 +25,12 @@ analysis/lichen_check/best_hits.tsv.gz
 */analysis/candidate_taxcheck/hits.tsv.zst
 */analysis/candidate_taxcheck/queries.txt
 */analysis/candidate_taxcheck/diamond.log
+# Growth-form literature work (bin/gf_lit.py): source article XML, full sentence text and scratch
+# runs are regenerable and must not be committed (CLAUDE.md data class 1). The tables, the gold sets,
+# the prompts and their provenance are tracked.
+growth_form/cache/
+growth_form/sentences/
+growth_form/logs/
+growth_form/gold_cache/
+growth_form/stage_d_input/
+growth_form_v*_scratch/

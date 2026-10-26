@@ -461,3 +461,18 @@ def test_name_reasons_accept_the_abbreviation_for_abbrev_sentences():
     full = {"match_level": "full", "matched_name": "Mucor circinelloides", "name_used_in_source": "yes"}
     assert gf.name_reasons(full, "M. circinelloides is a dimorphic fungus") == ["name_not_in_quote"]
 
+
+
+def test_failed_request_error_does_not_contain_the_api_key(monkeypatch):
+    import urllib.error
+
+    def boom(*a, **k):
+        raise urllib.error.URLError("down")
+
+    monkeypatch.setattr(gf.urllib.request, "urlopen", boom)
+    monkeypatch.setattr(gf.time, "sleep", lambda s: None)
+    client = gf.HttpClient(api_key="SECRETKEY123")
+    with pytest.raises(RuntimeError) as err:
+        client.get("https://example.org/e", {"term": "x", "api_key": "SECRETKEY123"}, retries=2)
+    assert "SECRETKEY123" not in str(err.value)
+    assert "api_key=REDACTED" in str(err.value)

@@ -1,5 +1,12 @@
 # Growth-form literature search: plan for an agent set
 
+> **Status: experimental tooling (2026-10-26).** The code in `bin/gf_lit.py`, `bin/gf_stage_d.py` and
+> `bin/gf_gold_tables.py` is tested on 10 species. Stage F (adjudicator) is not written. No growth-form
+> coding from this work is used by any study or promoted to `config_support/traits/`. Curation of all 106
+> species is not done and is expected to take a long time (issue #44). The retrieval and extraction figures
+> below are indications from small gold sets, not accuracy estimates for the full set.
+> `gf_lit.py` came from another agent and had its first code review on 2026-10-26 (see the PR).
+
 Purpose: code the growth form of the 106 yeast_convergence species from published text, with a source
 for every coding (issue #44). This plan records what a pilot did on 10 species (2026-10-25), what
 worked, what failed, and how to run it better. A new agent set can follow it without the chat history.
@@ -292,7 +299,7 @@ shows only sessions started from the same tool, and an agent from another tool i
 | Reviewer | a person: reads every `differs` and `conflict` row | human |
 
 An agent may hold several roles. A cheap extractor is safe because the verifier rejects any quote that is
-not verbatim in the source. A model cannot make an unverifiable claim pass.
+not verbatim in the source (case-insensitive, anywhere in the article text). See "Known issues" at the end: the gate does not yet check that the quote comes from the cited sentence.
 
 ### 14.2 File contract
 
@@ -495,3 +502,27 @@ Tested on the five dimorphic species with Haiku and Sonnet:
   starting an agent (each used 60,000 to 80,000 tokens on a 2,000 to 6,000 token input), so one agent per species is
   wasteful; batching species into one call would cut it. Not tried.
 
+## Known issues from the code review (2026-10-26, Opus, PR #51)
+
+Fixed in PR #51: `.gitignore` rules for the cache, sentences, logs, gold cache and stage D input; the API key is
+removed from request error messages.
+
+Not fixed yet. None changes a study output, because no study uses this code.
+
+1. **Verify gate is weaker than the text above says.** A quote is checked against the whole article, not against the
+   cited sentence. A name-only quote, a one-word genus/article quote, a quote that spans a sentence boundary, and a
+   row whose species string differs from the sentence record all pass (5 of 5 synthetic bad rows passed). Fix: require
+   the quote in the sentence text, a growth term, at least about 4 words, and an exact species match. This will change
+   the verified rates in section 16, so the calibration must be rerun.
+2. Two species with the same slug would overwrite each other's `sentences/<slug>.jsonl`. Check slugs for uniqueness.
+3. Cache writes are not atomic, and an HTTP 200 error payload is cached. Write to a temp file and `os.replace`; do not
+   cache an esearch result with an error key.
+4. The UID in cache file names is not validated (`--include-pmcid` and idconv output). Require digits only.
+5. Provenance gaps: no sidecar for `calibration_reference.tsv` and `gold_independent_summary.tsv`; the tracked
+   summary name differs from the name `gf_gold_tables.py` writes; `cmd_provenance` hardcodes the taxonomy release;
+   rerunning `gf_gold_tables.py` overwrites the tracked gold table without updating its sidecar.
+6. Network: the rate limit is per process (run one process at a time, or add a lock); no warning when no email is set;
+   `Retry-After` is ignored; connection resets during `read()` are not retried. Default taxonomy path and a missing
+   `zstd` give a raw `FileNotFoundError`. Several outputs raise `IndexError` on empty input.
+7. Tests: the network layer and `cmd_verify`, `fetch_and_cache`, `cmd_sentences`, `cmd_score` and `cmd_compare` have no
+   end-to-end tests.

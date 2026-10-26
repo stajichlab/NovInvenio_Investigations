@@ -344,7 +344,8 @@ class HttpClient:
             except (urllib.error.URLError, TimeoutError) as exc:
                 last = exc
                 time.sleep(min(60, 2**attempt))
-        raise RuntimeError(f"request failed after {retries}: {full}: {last}")
+        shown = re.sub(r"(api_key=)[^&]*", r"\1REDACTED", str(full))  # keep the key out of logs
+        raise RuntimeError(f"request failed after {retries}: {shown}: {last}")
 
     def post(
         self,

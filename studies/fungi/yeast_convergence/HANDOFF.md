@@ -1,5 +1,12 @@
 # Handoff: yeast_convergence and the growth-form literature work
 
+> **Status: experimental tooling (2026-10-26).** The code in `bin/gf_lit.py`, `bin/gf_stage_d.py` and
+> `bin/gf_gold_tables.py` is tested on 10 species. Stage F (adjudicator) is not written. No growth-form
+> coding from this work is used by any study or promoted to `config_support/traits/`. Curation of all 106
+> species is not done and is expected to take a long time (issue #44). The retrieval and extraction figures
+> below are indications from small gold sets, not accuracy estimates for the full set.
+> `gf_lit.py` came from another agent and had its first code review on 2026-10-26 (see the PR).
+
 State as of 2026-10-25. Counts come from the run logs and PR #51 tests. Where a figure is a first-pass estimate, the text says so.
 
 ## 1. Yeast_convergence study: done
