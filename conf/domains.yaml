@@ -9,12 +9,19 @@
   desc: >-
     Lineage-specific gene novelty/loss in fungi (Ascomycota, Basidiomycota,
     early-diverging lineages).
-  pages:
-    - title: yeast_convergence comparison
-      href: yeast_convergence/index.html
+  groups:
+    - slug: yeast_convergence
+      title: yeast convergence
+      member_label: contrasts
       desc: >-
-        Independent yeast origins: which functional terms recur across 16 contrasts,
-        compared with 5 filamentous controls.
+        Independent yeast origins in fungi: 16 contrasts (9 origins, 5 filamentous
+        controls, 2 reversals) and a comparison of recurrent functional terms.
+      page:
+        title: comparison across contrasts
+        href: yeast_convergence/comparison.html
+        desc: >-
+          Which functional terms recur across the contrasts, compared with the
+          filamentous controls.
 - slug: eukaryotes
   name: Eukaryotes
   desc: >-

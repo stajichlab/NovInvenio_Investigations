@@ -37,6 +37,8 @@ class PublishTarget:
     run: str | None
     notes: tuple[str, ...] = ()
     related: tuple[tuple[str, str], ...] = ()   # (title, href relative to docs/<domain>/)
+    group: str | None = None     # gallery group slug from `group:`; None = no value given
+    group_set: bool = False      # True when the file has a `group:` key (null opts out)
 
 
 def validate_related(entries, where: str) -> tuple[tuple[str, str], ...]:
@@ -81,7 +83,12 @@ def load_publish_target(folder_dir: Path) -> PublishTarget | None:
     if not isinstance(notes, list) or not all(isinstance(n, str) and n.strip() for n in notes):
         raise ValueError(f"{path}: notes must be a list of non-empty strings")
     related = validate_related(data.get("related"), f"{path}: related")
-    return PublishTarget(study=study, run=run, notes=tuple(n.strip() for n in notes), related=related)
+    group_set = "group" in data
+    group = data.get("group")
+    if group is not None:
+        group = validate_slug(group, f"{path}: group")
+    return PublishTarget(study=study, run=run, notes=tuple(n.strip() for n in notes), related=related,
+                         group=group, group_set=group_set)
 
 
 def render_redirect(target: str) -> str:

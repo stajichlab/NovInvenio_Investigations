@@ -6,4 +6,4 @@ run: pairwise-diamond
 notes:
   - "yeast_convergence contrast (origin): Dothideales (Aureobasidium). Design and caveats: studies/fungi/yeast_convergence/README.md"
 related:
-  - {title: "yeast_convergence: comparison across contrasts", href: yeast_convergence/index.html}
+  - {title: "yeast_convergence: comparison across contrasts", href: yeast_convergence/comparison.html}

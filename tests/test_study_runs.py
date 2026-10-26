@@ -493,3 +493,214 @@ def test_gallery_domain_with_only_pages_is_written(gallery):
         "- slug: fungi\n  name: Fungi\n  desc: d\n  pages:\n    - {title: T, href: x/index.html, desc: D}\n")
     assert generate_docs.main() == 0
     assert 'href="x/index.html"' in (gallery / "docs" / "fungi" / "index.html").read_text()
+
+
+# --- gallery groups ---------------------------------------------------------
+
+
+def _groups_yaml(gallery, extra=""):
+    (gallery / "conf" / "domains.yaml").write_text(
+        "- slug: fungi\n  name: Fungi\n  desc: d\n  groups:\n"
+        "    - slug: yc\n      title: yeast convergence\n      member_label: contrasts\n"
+        "      desc: grouped\n      page: {title: comparison, href: yc/comparison.html}\n" + extra)
+
+
+def _nested_pair(gallery):
+    _folder(gallery, "fungi", "yc/yc_alpha", "study: yc_alpha\nrun: pw\n")
+    _folder(gallery, "fungi", "yc/yc_beta", "study: yc_beta\nrun: pw\n")
+    _folder(gallery, "fungi", "solo", "study: solo\nrun: pw\n")
+
+
+def test_publish_target_group_key(tmp_path):
+    (tmp_path / "publish.yaml").write_text("study: s\n")
+    t = load_publish_target(tmp_path)
+    assert (t.group, t.group_set) == (None, False)
+    (tmp_path / "publish.yaml").write_text("study: s\ngroup: g\n")
+    assert load_publish_target(tmp_path).group == "g"
+    (tmp_path / "publish.yaml").write_text("study: s\ngroup: null\n")
+    t = load_publish_target(tmp_path)
+    assert (t.group, t.group_set) == (None, True)
+    (tmp_path / "publish.yaml").write_text("study: s\ngroup: ../x\n")
+    with pytest.raises(ValueError):
+        load_publish_target(tmp_path)
+
+
+def test_gallery_group_card_and_page(gallery):
+    _groups_yaml(gallery)
+    _nested_pair(gallery)
+    (gallery / "docs" / "fungi" / "yc").mkdir(parents=True)
+    (gallery / "docs" / "fungi" / "yc" / "comparison.html").write_text("x")
+    assert generate_docs.main() == 0
+    domain = (gallery / "docs" / "fungi" / "index.html").read_text()
+    assert 'href="yc/index.html"' in domain and "2 contrasts" in domain
+    assert "yc alpha" not in domain and "yc beta" not in domain and "solo" in domain
+    group = (gallery / "docs" / "fungi" / "yc" / "index.html").read_text()
+    assert "ni-group-page" in group and "2 contrasts" in group
+    assert "yc alpha" in group and "yc beta" in group and "solo" not in group
+    assert 'href="../yc/comparison.html"' in group
+    top = (gallery / "docs" / "index.html").read_text()
+    assert "3 studies" in top
+
+
+def test_gallery_group_member_links_are_relative_to_group_page(gallery):
+    _groups_yaml(gallery)
+    _nested_pair(gallery)
+    for name in ("yc_alpha", "yc_beta"):
+        d = gallery / "docs" / "fungi" / name
+        _run_json(d, "pw")
+        set_current(d, "pw")
+        (d / "pw" / "enrichment.html").write_text("x")
+    assert generate_docs.main() == 0
+    group = (gallery / "docs" / "fungi" / "yc" / "index.html").read_text()
+    assert 'href="../yc_alpha/pw/report.html"' in group
+    assert 'href="../yc_alpha/report.html">1 run</a>' in group
+    assert 'href="../yc_alpha/pw/enrichment.html"' in group
+
+
+def test_gallery_unlisted_group_stays_ungrouped(gallery, capsys):
+    _nested_pair(gallery)  # domains.yaml has no `groups:`
+    assert generate_docs.main() == 0
+    assert "yc alpha" in (gallery / "docs" / "fungi" / "index.html").read_text()
+    assert not (gallery / "docs" / "fungi" / "yc").exists()
+    assert "not listed under `groups:`" in capsys.readouterr().err
+
+
+def test_gallery_group_opt_out_and_override(gallery):
+    _groups_yaml(gallery)
+    _folder(gallery, "fungi", "yc/yc_alpha", "study: yc_alpha\nrun: pw\ngroup: null\n")
+    _folder(gallery, "fungi", "yc/yc_beta", "study: yc_beta\nrun: pw\n")
+    _folder(gallery, "fungi", "other", "study: other\nrun: pw\ngroup: yc\n")
+    assert generate_docs.main() == 0
+    group = (gallery / "docs" / "fungi" / "yc" / "index.html").read_text()
+    assert "yc beta" in group and "other" in group and "yc alpha" not in group
+
+
+def test_gallery_one_member_group_shows_member_and_page(gallery, capsys):
+    _groups_yaml(gallery)
+    _folder(gallery, "fungi", "yc/yc_alpha", "study: yc_alpha\nrun: pw\n")
+    assert generate_docs.main() == 0
+    html = (gallery / "docs" / "fungi" / "index.html").read_text()
+    assert "yc alpha" in html and 'href="yc/comparison.html"' in html
+    assert not (gallery / "docs" / "fungi" / "yc").exists()
+    assert "1 member" in capsys.readouterr().err
+
+
+def test_gallery_group_conflict_between_folders_fails(gallery):
+    _groups_yaml(gallery)
+    _folder(gallery, "fungi", "yc/yc_alpha", "study: yc_alpha\nrun: pw\n")
+    _folder(gallery, "fungi", "yc_alpha_flat", "study: yc_alpha\nrun: mm\n")
+    with pytest.raises(SystemExit, match="different groups"):
+        generate_docs.main()
+
+
+def test_gallery_group_slug_equal_to_study_name_fails(gallery):
+    _groups_yaml(gallery)
+    _folder(gallery, "fungi", "yc", "study: yc\nrun: pw\n")
+    with pytest.raises(SystemExit, match="same name as a study"):
+        generate_docs.main()
+
+
+def test_gallery_group_refuses_to_overwrite_foreign_index(gallery):
+    _groups_yaml(gallery)
+    _nested_pair(gallery)
+    d = gallery / "docs" / "fungi" / "yc"
+    d.mkdir(parents=True)
+    (d / "index.html").write_text("<html><title>hand made</title></html>")
+    with pytest.raises(SystemExit, match="not a generated group page"):
+        generate_docs.main()
+    # The page has moved, but it is a different page: still refused.
+    (d / "comparison.html").write_text("<html><title>comparison</title></html>")
+    with pytest.raises(SystemExit, match="not a generated group page"):
+        generate_docs.main()
+    # The old comparison page (same <title>) may be replaced once it exists at the new address.
+    (d / "index.html").write_text("<html><title>comparison</title>old</html>")
+    assert generate_docs.main() == 0
+    assert "ni-group-page" in (d / "index.html").read_text()
+
+
+def test_gallery_refusal_happens_before_any_group_page_is_written(gallery):
+    (gallery / "conf" / "domains.yaml").write_text(
+        "- slug: fungi\n  name: Fungi\n  desc: d\n  groups:\n"
+        "    - {slug: ga, title: A}\n    - {slug: gb, title: B}\n")
+    for g in ("ga", "gb"):
+        _folder(gallery, "fungi", f"{g}/{g}_one", f"study: {g}_one\nrun: pw\n")
+        _folder(gallery, "fungi", f"{g}/{g}_two", f"study: {g}_two\nrun: pw\n")
+    foreign = gallery / "docs" / "fungi" / "gb"
+    foreign.mkdir(parents=True)
+    (foreign / "index.html").write_text("<html>hand made</html>")
+    with pytest.raises(SystemExit):
+        generate_docs.main()
+    assert not (gallery / "docs" / "fungi" / "ga" / "index.html").exists()
+    assert not (gallery / "docs" / "index.html").exists()
+    assert not (gallery / "docs" / "fungi" / "index.html").exists()
+
+
+@pytest.mark.parametrize("href", ["https://example.org/x.html", "/etc/hostname", "../x.html"])
+def test_gallery_group_page_href_must_be_relative(gallery, href):
+    (gallery / "conf" / "domains.yaml").write_text(
+        "- slug: fungi\n  name: Fungi\n  desc: d\n  groups:\n"
+        f"    - slug: yc\n      page: {{title: t, href: '{href}'}}\n")
+    with pytest.raises(SystemExit, match="related href|page"):
+        generate_docs.main()
+
+
+def test_gallery_duplicate_group_slug_fails(gallery):
+    (gallery / "conf" / "domains.yaml").write_text(
+        "- slug: fungi\n  name: Fungi\n  desc: d\n  groups:\n    - {slug: yc}\n    - {slug: yc}\n")
+    with pytest.raises(SystemExit, match="listed twice"):
+        generate_docs.main()
+
+
+def test_gallery_empty_group_keeps_its_page_card(gallery, capsys):
+    _groups_yaml(gallery)
+    _folder(gallery, "fungi", "solo", "study: solo\nrun: pw\n")
+    assert generate_docs.main() == 0
+    html = (gallery / "docs" / "fungi" / "index.html").read_text()
+    assert 'href="yc/comparison.html"' in html and "contrasts" not in html.split("</h1>")[1].split("page")[0]
+    assert not (gallery / "docs" / "fungi" / "yc").exists()
+    assert "0 member" in capsys.readouterr().err
+
+
+def test_gallery_card_order_and_pending_member(gallery):
+    _groups_yaml(gallery)
+    _folder(gallery, "fungi", "yc/yc_alpha", "study: yc_alpha\nrun: pw\n", staged=False)  # pending
+    _folder(gallery, "fungi", "yc/yc_beta", "study: yc_beta\nrun: pw\n")
+    _folder(gallery, "fungi", "zeta", "study: zeta\nrun: pw\n")
+    _folder(gallery, "fungi", "alpha", "study: alpha\nrun: pw\n")
+    assert generate_docs.main() == 0
+    html = (gallery / "docs" / "fungi" / "index.html").read_text()
+    pos = [html.index(f"<h2>{t}") for t in ("alpha", "zeta", "yeast convergence")]
+    assert pos == sorted(pos)
+    group = (gallery / "docs" / "fungi" / "yc" / "index.html").read_text()
+    assert 'class="card empty" href="#"' in group and 'href="../#"' not in group
+
+
+def test_gallery_group_text_is_escaped(gallery):
+    (gallery / "conf" / "domains.yaml").write_text(
+        "- slug: fungi\n  name: Fungi\n  desc: d\n  groups:\n"
+        "    - slug: yc\n      title: '<b>T</b>'\n      desc: '<i>d</i>'\n      member_label: '<u>m</u>'\n")
+    _nested_pair(gallery)
+    assert generate_docs.main() == 0
+    for page in ("index.html", "yc/index.html"):
+        html = (gallery / "docs" / "fungi" / page).read_text()
+        assert "<b>T</b>" not in html and "&lt;b&gt;T&lt;/b&gt;" in html
+        assert "<u>m</u>" not in html
+
+
+def test_gallery_warns_about_stale_group_page(gallery, capsys):
+    _groups_yaml(gallery)
+    _nested_pair(gallery)
+    (gallery / "docs" / "fungi" / "yc").mkdir(parents=True)
+    (gallery / "docs" / "fungi" / "yc" / "comparison.html").write_text("x")
+    assert generate_docs.main() == 0
+    (gallery / "conf" / "domains.yaml").write_text("- {slug: fungi, name: Fungi, desc: d}\n")
+    capsys.readouterr()
+    assert generate_docs.main() == 0
+    assert "no longer in conf/domains.yaml" in capsys.readouterr().err
+    # Still configured, but down to one member: a different reason.
+    _groups_yaml(gallery)
+    import shutil
+    shutil.rmtree(gallery / "studies" / "fungi" / "yc" / "yc_beta")
+    capsys.readouterr()
+    assert generate_docs.main() == 0
+    assert "fewer than 2 members" in capsys.readouterr().err
