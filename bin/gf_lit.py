@@ -1242,7 +1242,8 @@ def merge_article_records(
     """
     merged: dict[str, dict[str, Any]] = {}
     for rec in records:
-        pmcid = str(rec.get("pmcid", "") or "")
+        # The ID converter returns "PMC123"; PMC records and the cache use the bare number "123".
+        pmcid = normalize_pmcid(str(rec.get("pmcid", "") or ""))
         key = f"pmc:{pmcid}" if pmcid else f"{rec['db']}:{rec['uid']}"
         cur = merged.get(key)
         if cur is None:
@@ -1250,6 +1251,7 @@ def merge_article_records(
                 **rec,
                 "db": "pmc" if pmcid else rec["db"],
                 "uid": pmcid if pmcid else rec["uid"],
+                "pmcid": pmcid,
                 "n_queries": int(rec.get("n_queries", 1) or 1),
             }
             continue
@@ -1296,6 +1298,13 @@ def select_for_species(
             ordered.append(rec)
     else:
         raise ValueError(f"selection must be 'score' or 'rank', got {selection!r}")
+    return apply_caps(ordered, max_articles, max_fulltext)
+
+
+def apply_caps(
+    ordered: list[dict[str, Any]], max_articles: int, max_fulltext: int
+) -> list[dict[str, Any]]:
+    """Take records in order until max_articles; at most max_fulltext of them PMC (full text)."""
     out: list[dict[str, Any]] = []
     n_ft = 0
     for rec in ordered:
@@ -1307,6 +1316,70 @@ def select_for_species(
             n_ft += 1
         out.append(rec)
     return out
+
+
+def screen_score(title: str, abstract: str, names: list[str]) -> float:
+    """How likely an article answers the growth-form question, from its title and abstract.
+
+    +3 for each distinct dimorphism term, +1 for each distinct growth term (at most 5 growth terms),
+    +5 if a usable name of the species is in the title, +2 if it is in the abstract. A heuristic for
+    ordering only; it never decides that a coding is true.
+    """
+    low_t, low_a = (title or "").lower(), (abstract or "").lower()
+    both = f"{low_t} {low_a}"
+    dim = sum(1 for term in DIMORPH_TERMS if term.lower() in both)
+    growth = min(5, sum(1 for term in GROWTH_TERMS if term.lower() in both))
+    score = 3.0 * dim + 1.0 * growth
+    lower_names = [n.lower() for n in names if len(n) >= 6]
+    if any(n in low_t for n in lower_names):
+        score += 5.0
+    elif any(n in low_a for n in lower_names):
+        score += 2.0
+    return score
+
+
+def select_two_step(
+    records: list[dict[str, Any]],
+    screen: dict[str, tuple[str, str]],
+    names: list[str],
+    max_articles: int,
+    max_fulltext: int,
+    screen_articles: int,
+    base_share: float = 0.5,
+) -> list[dict[str, Any]]:
+    """Two-step selection, as a hybrid of two orders.
+
+    Base order: merged records ordered by (priority, -n_queries, rank), as in `score` selection.
+    Screen order: the first `screen_articles` of the base order, re-ordered by the title/abstract
+    screen score (`screen` maps PMID to (title, abstract); no abstract scores 0), ties by base order.
+    The first `base_share` of the slots go to the base order and the rest to the screen order. Forced
+    records (priority < 0) always come first. Why a hybrid: in the 19-row gold test the base order missed
+    a dimorphism paper that the screen found (Liang 2017), and the screen missed a paper whose abstract
+    carries no dimorphism term (Tahiri 2026) that the base order found.
+    """
+    base = sorted(
+        merge_article_records(records),
+        key=lambda r: (r["priority"], -r["n_queries"], r["rank"], r["db"], r["uid"]),
+    )
+    pool = [r for i, r in enumerate(base) if i < screen_articles or r["priority"] < 0]
+    order_idx = {id(r): i for i, r in enumerate(base)}
+    for r in pool:
+        title, abstract = screen.get(str(r.get("pmid", "") or ""), ("", ""))
+        r["screen_score"] = screen_score(title, abstract, names)
+    by_screen = sorted(
+        pool, key=lambda r: (r["priority"] >= 0, -r["screen_score"], order_idx[id(r)])
+    )
+    n_base = int(max_articles * base_share)
+    ordered: list[dict[str, Any]] = []
+    seen: set[tuple[str, str]] = set()
+    forced = [r for r in base if r["priority"] < 0]
+    for r in forced + [r for r in base if r["priority"] >= 0][:n_base] + by_screen:
+        key = (r["db"], r["uid"])
+        if key in seen:
+            continue
+        seen.add(key)
+        ordered.append(r)
+    return apply_caps(ordered, max_articles, max_fulltext)
 
 
 def cmd_fetch(args: argparse.Namespace) -> None:
@@ -1370,15 +1443,48 @@ def cmd_fetch(args: argparse.Namespace) -> None:
                 )
 
     selected: list[dict[str, Any]] = []
-    for species in sorted(by_species):
-        for rec in select_for_species(
-            by_species[species],
-            args.max_articles,
-            args.max_fulltext,
-            args.selection,
-        ):
-            rec["species"] = species
-            selected.append(rec)
+    if args.selection == "two-step":
+        usable: dict[str, list[str]] = {}
+        for r in read_tsv(out / "names.tsv"):
+            if r.get("name_tier") != "genus":
+                usable.setdefault(r["species"], []).append(r["name"])
+        pools: dict[str, list[dict[str, Any]]] = {}
+        screen_pmids: set[str] = set()
+        for species in sorted(by_species):
+            base = sorted(
+                merge_article_records(by_species[species]),
+                key=lambda r: (r["priority"], -r["n_queries"], r["rank"], r["db"], r["uid"]),
+            )
+            pools[species] = base[: args.screen_articles]
+            screen_pmids.update(str(r["pmid"]) for r in pools[species] if r.get("pmid"))
+        fetch_and_cache(client, cache, "pubmed", sorted(screen_pmids))
+        screen: dict[str, tuple[str, str]] = {}
+        for pmid in sorted(screen_pmids):
+            parsed, _meta = load_cached_article(cache, "pubmed", pmid)
+            if parsed:
+                screen[pmid] = (parsed.get("title", ""), parsed.get("abstract", ""))
+        for species in sorted(by_species):
+            for rec in select_two_step(
+                by_species[species],
+                screen,
+                usable.get(species, [species]),
+                args.max_articles,
+                args.max_fulltext,
+                args.screen_articles,
+                args.base_share,
+            ):
+                rec["species"] = species
+                selected.append(rec)
+    else:
+        for species in sorted(by_species):
+            for rec in select_for_species(
+                by_species[species],
+                args.max_articles,
+                args.max_fulltext,
+                args.selection,
+            ):
+                rec["species"] = species
+                selected.append(rec)
 
     selected_pmc = {r["uid"] for r in selected if r["db"] == "pmc"}
     selected = [
@@ -2193,10 +2299,20 @@ def main(argv: list[str] | None = None) -> int:
     add_common(p)
     p.add_argument(
         "--selection",
-        choices=["score", "rank"],
+        choices=["score", "rank", "two-step"],
         default="score",
         help="score: merge duplicates, order by (priority, -n_queries, rank); "
-        "rank: earlier order (priority, rank, db, uid)",
+        "rank: earlier order (priority, rank, db, uid); "
+        "two-step: fetch abstracts of the top --screen-articles candidates, order them by a "
+        "title/abstract screen score, then fetch full text for the best",
+    )
+    p.add_argument("--screen-articles", type=int, default=300)
+    p.add_argument(
+        "--base-share",
+        type=float,
+        default=0.5,
+        help="two-step: share of the article slots filled from the score order; the rest follow the "
+        "title/abstract screen order",
     )
     p.add_argument("--max-articles", type=int, default=200)
     p.add_argument("--max-fulltext", type=int, default=100)

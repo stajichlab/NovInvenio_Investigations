@@ -100,6 +100,14 @@ that selection is not the limiting step: the sentence stage costs about 1,200 to
 60 articles (40 full texts) per species is cheap. `gf_lit.py fetch --selection score` does this;
 `--selection rank` is the earlier order.
 
+For species with very large literatures, add a second step: `--selection two-step`. It takes the top
+`--screen-articles` (300) candidates in the score order, fetches only their PubMed abstracts, and scores
+each title and abstract (dimorphism terms +3 each, growth terms +1 each up to 5, species name in the title
++5, in the abstract +2). It then fills half of the slots (`--base-share`, 0.5) from the score order and the
+rest from the abstract-screen order. Neither order alone is enough: in the 19-row gold test the score order
+missed a dimorphism paper that the abstract screen found (Liang 2017), and the abstract screen missed a
+paper whose abstract has no dimorphism term (Tahiri 2026) that the score order found. The hybrid found both.
+
 **C. Text fetch and sentence filter (script).**
 1. For each PMCID, `efetch` the XML once. Cache it on `/bigdata`, compressed (`zstd`; CLAUDE.md prefers
    compressed text). Record the SHA-256 of the XML.

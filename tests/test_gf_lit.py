@@ -134,6 +134,23 @@ def test_merge_article_records_joins_pubmed_and_pmc():
     assert m["n_queries"] == 3 and m["pmid"] == "111"
 
 
+def test_merge_normalizes_prefixed_pmcid():
+    """The ID converter gives 'PMC999'; PMC rows use '999'. They are one article, and the merged
+    uid is the bare number that the cache uses."""
+    recs = [_rec("pubmed", "111", 0, 2, 2, pmid="111", pmcid="PMC999"),
+            _rec("pmc", "999", 1, 48, 1, pmcid="999")]
+    merged = gf.merge_article_records(recs)
+    assert len(merged) == 1
+    assert merged[0]["uid"] == "999" and merged[0]["pmcid"] == "999"
+    assert merged[0]["n_queries"] == 3
+
+
+def test_two_step_uid_is_cache_key_for_prefixed_pmcid():
+    recs = [_rec("pubmed", "111", 0, 0, 1, pmid="111", pmcid="PMC999")]
+    out = gf.select_two_step(recs, {}, ["Species name"], 5, 5, screen_articles=5)
+    assert (out[0]["db"], out[0]["uid"]) == ("pmc", "999")
+
+
 def test_score_selection_beats_rank_ties():
     """Many name queries return rank-0 rows; the paper that several queries agree on must win."""
     recs = [_rec("pubmed", str(100 + i), 0, 0, 1, pmid=str(100 + i)) for i in range(15)]
@@ -331,3 +348,44 @@ def test_cmd_species_rejects_batch_without_csv_row(tmp_path):
         gf.cmd_species(argparse.Namespace(
             study_dir=str(study), out=str(study / "growth_form"),
             taxonomy_dir=str(taxonomy)))
+
+
+def test_screen_score_rewards_dimorphism_and_name_in_title():
+    names = ["Yarrowia lipolytica"]
+    dim = gf.screen_score(
+        "TORC1 represses yeast-to-hypha transition in Yarrowia lipolytica",
+        "The yeast-to-hypha dimorphic transition is important. Hyphae form in glucose media.", names)
+    plain = gf.screen_score("Lipid production by Yarrowia lipolytica", "We improved lipid yield.", names)
+    other = gf.screen_score("A dimorphic fungus", "Dimorphism and hyphae in another species.", names)
+    assert plain == 5.0                                          # name in title, no growth terms
+    assert dim > other > plain
+    assert gf.screen_score("", "", names) == 0.0
+    assert gf.screen_score("T", "x", ["abc"]) == 0.0            # names shorter than 6 characters are ignored
+
+
+def test_two_step_selection_finds_paper_beyond_the_cap():
+    """A dimorphism paper that sits at rank 80 of a saturated species is found by the screen."""
+    recs = [_rec("pubmed", str(100 + i), 0, i, 1, pmid=str(100 + i)) for i in range(100)]
+    screen = {str(100 + i): ("Lipid yield of Yarrowia lipolytica", "Biotechnology.") for i in range(100)}
+    screen["180"] = ("Yeast-to-hypha dimorphic transition in Yarrowia lipolytica", "Hyphae and yeast forms.")
+    plain = gf.select_for_species(recs, 12, 10, selection="score")
+    two = gf.select_two_step(recs, screen, ["Yarrowia lipolytica"], 12, 10, screen_articles=100)
+    assert "180" not in {r["uid"] for r in plain}
+    assert "180" in {r["uid"] for r in two}                 # found by the screen half
+    assert {r["uid"] for r in two} >= {"100", "101", "102", "103", "104", "105"}   # base half kept
+    assert len(two) == 12
+
+
+def test_two_step_never_ranks_a_screened_out_paper_above_a_screened_in_one():
+    recs = [_rec("pubmed", str(i), 0, i, 1, pmid=str(i)) for i in range(10)]
+    screen = {"9": ("Dimorphic Yarrowia lipolytica", "yeast hyphae dimorphism")}      # best text, but rank 9
+    out = gf.select_two_step(recs, screen, ["Yarrowia lipolytica"], 3, 3, screen_articles=5)
+    assert "9" not in {r["uid"] for r in out}                                          # outside the pool of 5
+
+
+def test_two_step_keeps_forced_records_and_handles_no_abstract():
+    recs = [_rec("pmc", "5", 0, 0, 1, pmcid="5"), _rec("pmc", "9", -1, -1, 1, pmcid="9")]
+    out = gf.select_two_step(recs, {}, ["Species name"], 2, 2, screen_articles=1)
+    assert [r["uid"] for r in out][0] == "9"
+    assert {r["uid"] for r in out} == {"5", "9"}
+
