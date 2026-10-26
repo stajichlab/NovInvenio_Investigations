@@ -126,7 +126,7 @@ DIMORPH_TERMS = (
     "morphological transition",
 )
 # Lower value = used first when articles are selected.
-QUERY_PRIORITY = {"dimorph": 0, "growth": 1, "name": 2}
+QUERY_PRIORITY = {"dimorph": 0, "review": 0, "growth": 1, "name": 2}
 
 GROWTH_RE = re.compile(
     r"\b("
@@ -801,6 +801,14 @@ def build_queries(name: str) -> list[dict[str, str]]:
             "db": "pubmed",
             "mode": "dimorph",
             "term": f'"{name}"[Title/Abstract] AND ({dimorph_pubmed})',
+        },
+        # Reviews on dimorphism name the species and are the likeliest to give a stated growth form. For a
+        # heavily studied species (hundreds of dimorphism papers) they are crowded out of the top results,
+        # so ask for them on their own. PubMed only: the merge assigns the PMCID when one exists.
+        {
+            "db": "pubmed",
+            "mode": "review",
+            "term": f'"{name}"[Title/Abstract] AND review[pt] AND ({dimorph_pubmed})',
         },
         {
             "db": "pmc",

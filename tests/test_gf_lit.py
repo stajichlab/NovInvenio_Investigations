@@ -100,12 +100,13 @@ def test_is_usable_name(name, tier, usable):
 
 def test_build_queries_uses_correct_fields():
     qs = gf.build_queries("Mucor circinelloides")
-    assert len(qs) == 6
+    assert len(qs) == 7
     by = {(q["db"], q["mode"]): q["term"] for q in qs}
     assert set(by) == {
-        ("pubmed", "name"), ("pubmed", "growth"), ("pubmed", "dimorph"),
+        ("pubmed", "name"), ("pubmed", "growth"), ("pubmed", "dimorph"), ("pubmed", "review"),
         ("pmc", "name"), ("pmc", "growth"), ("pmc", "dimorph"),
     }
+    assert "review[pt]" in by[("pubmed", "review")] and '"dimorphism"[Title/Abstract]' in by[("pubmed", "review")]
     assert by[("pubmed", "name")] == '"Mucor circinelloides"[Title/Abstract]'
     assert by[("pmc", "name")] == '"Mucor circinelloides"[Text Word]'
     assert "[All Fields]" in by[("pubmed", "growth")]
@@ -116,6 +117,7 @@ def test_build_queries_uses_correct_fields():
 
 def test_query_priority_puts_dimorphism_first():
     assert gf.QUERY_PRIORITY["dimorph"] < gf.QUERY_PRIORITY["growth"] < gf.QUERY_PRIORITY["name"]
+    assert gf.QUERY_PRIORITY["review"] == gf.QUERY_PRIORITY["dimorph"]
 
 
 def _rec(db, uid, priority, rank, n_queries=1, pmid="", pmcid=""):

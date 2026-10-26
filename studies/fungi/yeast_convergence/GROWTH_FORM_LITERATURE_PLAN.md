@@ -390,3 +390,20 @@ species: table 0 of 5, about 2 of 12 selected. With caps of 300 articles (200 fu
 cap does not remove the problem. A species-specific `review[pt]` query mode is a candidate fix; not tried.
 Do not read `passing` recall as a failure: a review that names 30 species once is not a source to select for each.
 
+### 15.1 Review query and the per-species measure
+
+A `review` query mode (the name AND dimorphism terms AND `review[pt]`, PubMed, same priority as `dimorph`)
+returns a small, complete set even for heavily studied species (162 reviews for *C. albicans* against 1,677
+dimorphism papers). Run on the whole pipeline (hybrid selection, article-level sentences), it changed little
+per paper (independent gold, the three species: about 2 of 12 to 3 of 12 selected; table rows still 0 of 5;
+pilot gold unchanged at 17, 17, 17 and 13 of 19). It did rescue *S. cerevisiae* by one review.
+
+The per-paper measure understates what matters. The missed papers of the three species are mostly
+tangential research papers (an antifungal compound that blocks hyphal growth, an enzyme paper), at rank 20
+to 170 with one agreeing query; the authoritative reviews of dimorphism were selected. The useful measure is
+per species: is at least one gold source selected? On the independent set that is 17 of 20 species
+(16 before the review query). The three left are *A. pullulans* and *H. werneckii*, whose only gold row is a
+multi-species table in a review about smut fungi, and *T. rubrum*, whose only gold row is a paper on the
+mating-type locus. None of the three is a clear selection failure. Report this per-species number next to
+the per-paper one.
+
