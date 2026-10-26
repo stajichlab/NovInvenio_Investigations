@@ -30,3 +30,12 @@ runs:
     starship_sm_dir: analysis/starship_island_overlap/full_v072_antismash
     params:
       pangenome_island_reference_strains: Asfu_Af293,Asfu_A1163
+  full_v073:                 # same pipeline commit as v072 (05fcf3a); only the viewer sizes change: 500 loci (500 candidates scored) and 500 islands drawn. Reuses v072's cache (incl. the 295 TBLASTN tasks).
+    samplesheet: config.csv
+    pipeline_commit: 05fcf3abbd0b5156e1f5b84c11f6fc5ab173891e
+    publish: true
+    params:
+      pangenome_island_reference_strains: Asfu_Af293,Asfu_A1163
+      pangenome_top_loci: 500
+      pangenome_locus_candidates: 500
+      pangenome_viz_top_islands: 500
