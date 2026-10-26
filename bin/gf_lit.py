@@ -136,6 +136,9 @@ GROWTH_RE = re.compile(
     r")\b",
     re.I,
 )
+DIMORPH_RE = re.compile(
+    "|".join(re.escape(term) for term in DIMORPH_TERMS), re.I
+)
 
 ABBREV_RE = re.compile(
     r"\b(?:"
@@ -1617,6 +1620,60 @@ def article_sections(source_db: str, parsed: dict[str, Any]) -> list[tuple[str, 
     return sections
 
 
+def parenthetical_genus_patterns(
+    names: list[tuple[str, str]],
+) -> list[tuple[str, str, re.Pattern[str]]]:
+    """Patterns for names written with both genera, for example "Wangiella (Exophiala) dermatitidis".
+
+    `names` holds (name, tier) pairs of one species. Names with the same epithet under two or more
+    genera (a current name and its synonyms) give one pattern: "G1 (G2) epithet" with G1 and G2 any of
+    those genera. The label and tier are those of the best-tier name of the group.
+    """
+    groups: dict[str, list[tuple[str, str]]] = {}
+    for name, tier in names:
+        parts = name.split()
+        if len(parts) == 2 and parts[0][:1].isupper() and parts[1][:1].islower():
+            groups.setdefault(parts[1], []).append((parts[0], tier, name))
+    out: list[tuple[str, str, re.Pattern[str]]] = []
+    for epithet, members in sorted(groups.items()):
+        genera = sorted({g for g, _t, _n in members})
+        if len(genera) < 2:
+            continue
+        best = min(members, key=lambda m: (NAME_TIER_ORDER.get(m[1], 9), m[2]))
+        alt = "|".join(re.escape(g) for g in genera)
+        pat = re.compile(
+            rf"(?<![A-Za-z])(?:{alt})\s+\((?:{alt})\)\s+{re.escape(epithet)}(?![A-Za-z])", re.I
+        )
+        out.append((best[2], best[1], pat))
+    return out
+
+
+def is_about_species(
+    title: str,
+    abstract: str,
+    patterns: list[tuple[str, str, re.Pattern[str]]],
+    mode: str,
+) -> bool:
+    """True if the article is about the species: a full name in the title (mode "title"), or in the
+    title or abstract (mode "abstract"). Mode "off" is always False. Genus-only matches do not count."""
+    if mode == "off":
+        return False
+    text = title or ""
+    if mode == "abstract":
+        text = f"{title or ''} {abstract or ''}"
+    return any(pat.search(text) for _name, _tier, pat in patterns)
+
+
+def pick_article_level(
+    candidates: list[tuple[int, int, Any]], cap: int
+) -> list[tuple[int, int, Any]]:
+    """Keep at most `cap` article-level candidates, (priority, position, payload) each. Priority 0
+    (the sentence has a dimorphism term) comes before priority 1; document order breaks ties."""
+    if cap <= 0:
+        return []
+    return sorted(candidates, key=lambda c: (c[0], c[1]))[:cap]
+
+
 def cmd_sentences(args: argparse.Namespace) -> None:
     study = Path(args.study_dir)
     out = Path(args.out) if args.out else study / "growth_form"
@@ -1652,6 +1709,10 @@ def cmd_sentences(args: argparse.Namespace) -> None:
             ab = abbreviation_for(name)
             if ab:
                 abbrev_patterns.append((name, tier, name_pattern(ab)))
+        # "Wangiella (Exophiala) dermatitidis": one name written with both genera.
+        patterns += parenthetical_genus_patterns(
+            [(r["name"], r["name_tier"]) for r in name_recs if len(r["name"]) >= 4]
+        )
         genus_to_names: dict[str, list[str]] = {}
         for name, _tier, _pat in patterns:
             genus = name.split()[0]
@@ -1681,6 +1742,14 @@ def cmd_sentences(args: argparse.Namespace) -> None:
                 for name, _tier, pat in patterns
                 if pat.search(article_text)
             }
+            # Article-level: for a paper about this species (name in the title or abstract), growth
+            # sentences that do not name it ("the fungus ...") are kept too, labelled match_level
+            # "article", at most --article-cap per article, dimorphism sentences first.
+            about = is_about_species(
+                parsed.get("title", ""), parsed.get("abstract", ""), patterns, args.article_level
+            )
+            article_cands: list[tuple[int, int, dict[str, Any]]] = []
+            position = 0
             for section, section_text in sections:
                 sentences = split_sentences(section_text)
                 for idx, sentence in enumerate(sentences):
@@ -1698,6 +1767,7 @@ def cmd_sentences(args: argparse.Namespace) -> None:
                             continue
                         if pat.search(sentence):
                             hits.append((name, tier, "abbrev"))
+                    position += 1
                     if not hits:
                         genus = species.split()[0]
                         if not re.search(
@@ -1705,6 +1775,26 @@ def cmd_sentences(args: argparse.Namespace) -> None:
                             sentence,
                             re.I,
                         ):
+                            if about:
+                                best = min(
+                                    (p for p in patterns if p[0] in full_names_found),
+                                    key=lambda p: (NAME_TIER_ORDER.get(p[1], 9), -len(p[0])),
+                                    default=(species, "canonical", None),
+                                )
+                                article_cands.append(
+                                    (
+                                        0 if DIMORPH_RE.search(sentence) else 1,
+                                        position,
+                                        {
+                                            "section": section,
+                                            "sentence": sentence,
+                                            "idx": idx,
+                                            "sentences": sentences,
+                                            "name": best[0],
+                                            "tier": best[1],
+                                        },
+                                    )
+                                )
                             continue
                         other = [
                             n
@@ -1787,6 +1877,38 @@ def cmd_sentences(args: argparse.Namespace) -> None:
                     seen[key] = rec
                     records.append(rec)
 
+            for _prio, _pos, c in pick_article_level(article_cands, args.article_cap):
+                text = c["sentence"]
+                key = (source_db, uid, norm_quote(text))
+                if key in seen:
+                    continue
+                sents = c["sentences"]
+                rec = {
+                    "sentence_id": sha256_text(
+                        f"{source_db}|{uid}|{norm_quote(text)}"
+                    )[:16],
+                    "species": species,
+                    "source_type": "pmc" if source_db == "pmc" else "pubmed",
+                    "uid": uid,
+                    "pmid": parsed.get("pmid", ""),
+                    "pmcid": parsed.get("pmcid", ""),
+                    "doi": parsed.get("doi", ""),
+                    "title": parsed.get("title", ""),
+                    "journal": parsed.get("journal", ""),
+                    "year": parsed.get("year", ""),
+                    "section": c["section"],
+                    "read_level": "full_text" if parsed.get("has_fulltext") else "abstract",
+                    "matched_name": c["name"],
+                    "match_tier": c["tier"],
+                    "match_level": "article",
+                    "name_used_in_source": "no",
+                    "text": text,
+                    "context_before": sents[c["idx"] - 1] if c["idx"] > 0 else "",
+                    "context_after": sents[c["idx"] + 1] if c["idx"] + 1 < len(sents) else "",
+                }
+                seen[key] = rec
+                records.append(rec)
+
         records.sort(
             key=lambda r: (r["source_type"], r["uid"], r["section"], r["sentence_id"])
         )
@@ -1809,6 +1931,9 @@ def cmd_sentences(args: argparse.Namespace) -> None:
                 "n_genus_level": sum(
                     1 for r in records if r["match_level"] == "genus"
                 ),
+                "n_article_level": sum(
+                    1 for r in records if r["match_level"] == "article"
+                ),
                 "approx_text_tokens": approx_tokens,
             }
         )
@@ -1825,6 +1950,7 @@ def cmd_sentences(args: argparse.Namespace) -> None:
             "n_records",
             "n_species_level",
             "n_genus_level",
+            "n_article_level",
             "approx_text_tokens",
         ],
     )
@@ -2329,6 +2455,19 @@ def main(argv: list[str] | None = None) -> int:
 
     p = sub.add_parser("sentences", help="extract growth-form sentences")
     add_common(p)
+    p.add_argument(
+        "--article-level",
+        choices=["off", "title", "abstract"],
+        default="abstract",
+        help="for an article about the species (full name in the title, or in the title or abstract), "
+        "also keep growth sentences that do not name it (match_level 'article')",
+    )
+    p.add_argument(
+        "--article-cap",
+        type=int,
+        default=12,
+        help="at most this many article-level sentences per article, dimorphism sentences first",
+    )
     p.set_defaults(func=cmd_sentences)
 
     p = sub.add_parser("verify", help="verify evidence quotes")

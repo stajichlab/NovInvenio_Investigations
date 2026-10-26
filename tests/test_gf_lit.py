@@ -389,3 +389,36 @@ def test_two_step_keeps_forced_records_and_handles_no_abstract():
     assert [r["uid"] for r in out][0] == "9"
     assert {r["uid"] for r in out} == {"5", "9"}
 
+
+# ---------- article-level sentences and parenthetical genus names ----------
+def test_parenthetical_genus_pattern_matches_wangiella_exophiala():
+    names = [("Exophiala dermatitidis", "canonical"), ("Wangiella dermatitidis", "ncbi_synonym"),
+             ("Hormiscium dermatitidis", "ncbi_synonym")]
+    pats = gf.parenthetical_genus_patterns(names)
+    assert pats, "same epithet under several genera should give a pattern"
+    label, tier, pat = pats[0]
+    assert label == "Exophiala dermatitidis" and tier == "canonical"
+    assert pat.search("The pathogen Wangiella (Exophiala) dermatitidis grows as yeast.")
+    assert pat.search("Exophiala (Wangiella) dermatitidis is a black yeast")
+    assert not pat.search("Wangiella dermatitidis")          # plain forms are matched elsewhere
+    assert not pat.search("Wangiella (Exophiala) spinifera")
+
+
+def test_parenthetical_genus_pattern_needs_two_genera():
+    assert gf.parenthetical_genus_patterns([("Mucor circinelloides", "canonical")]) == []
+
+
+def test_is_about_species():
+    pats = [("Taphrina deformans", "canonical", gf.name_pattern("Taphrina deformans"))]
+    assert gf.is_about_species("Early events in the Taphrina deformans-Prunus interaction", "x", pats, "abstract")
+    assert gf.is_about_species("Peach leaf curl", "Caused by Taphrina deformans.", pats, "abstract")
+    assert not gf.is_about_species("Peach leaf curl", "Caused by Taphrina deformans.", pats, "title")
+    assert not gf.is_about_species("A review of fungi", "Many fungi.", pats, "abstract")
+    assert not gf.is_about_species("Taphrina deformans", "x", pats, "off")
+
+
+def test_pick_article_level_prefers_dimorphism_sentences_and_caps():
+    cands = [(1, 0, "a"), (0, 5, "b"), (1, 2, "c"), (0, 9, "d"), (1, 3, "e")]     # (priority, position, payload)
+    assert [c[2] for c in gf.pick_article_level(cands, 3)] == ["b", "d", "a"]
+    assert gf.pick_article_level(cands, 0) == []
+

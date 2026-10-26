@@ -113,8 +113,16 @@ paper whose abstract has no dimorphism term (Tahiri 2026) that the score order f
    compressed text). Record the SHA-256 of the XML.
 2. For abstract-only PMIDs, store the abstract from `get_article_metadata` or `efetch db=pubmed`.
 3. Strip tags, split into sentences (keep the section title and table captions).
-4. Keep only sentences that contain a species name from stage A *and* a growth term, plus the one
-   sentence before and after. A genus-level sentence ("*Aureobasidium* is a genus of dimorphic yeast-like
+4. Keep sentences that contain a species name from stage A *and* a growth term, plus the one
+   sentence before and after. Names are matched in three ways: the full name, the abbreviation
+   (`G. species`) when the full name is in the same article, and a name written with both genera
+   (`Wangiella (Exophiala) dermatitidis`, built from the species' synonyms).
+   **Article-level rule** (`--article-level abstract`, the default): when the full name is in the
+   article's title or abstract, the article is about the species, and its growth sentences that do not
+   name the species ("the fungus ...", "these cells ...") are kept too, labelled `match_level article`,
+   at most `--article-cap` (12) per article, sentences with a dimorphism term first. Without this rule a
+   gold sentence such as "the switch to sustained filamentous growth" in a paper about *R. delemar* is
+   lost. A genus-level sentence ("*Aureobasidium* is a genus of dimorphic yeast-like
    fungi") is kept and labelled genus-level.
 
 **D. Classification (model).** Give the model only the kept sentences of one species, not the papers.
