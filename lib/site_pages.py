@@ -242,7 +242,7 @@ def render_group_index(
     body = f"""{GROUP_PAGE_MARKER}
 <div class="title-row"><img class="logo" src="{_LOGO_DATA_URI}" alt=""><h1>{escape(group['title'])}</h1></div>
 <p class="subtitle"><a href="../index.html">&larr; {escape(domain_name)}</a> &middot; {n} {escape(label)}</p>
-<p class="desc">{escape(group.get('desc', ''))}</p>
+<p class="subtitle">{escape(group.get('desc', ''))}</p>
 <div class="grid">{''.join(cards)}</div>
 """
     return _page(f"{group['title']} — {site_name}", body)

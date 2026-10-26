@@ -116,7 +116,7 @@ main {{ max-width:1100px; margin:0 auto; }} a {{ color:var(--link); }} h1 {{ fon
 table {{ border-collapse:collapse; font-size:.82rem; background:var(--card); }} th,td {{ border:1px solid var(--line); padding:.25rem .5rem; text-align:left; vertical-align:top; }} th {{ background:var(--head); }}
 .caveats {{ background:var(--warn-bg); border:1px solid var(--warn-line); border-radius:8px; padding:.6rem 1rem; margin:1rem 0; font-size:.9rem; }} .caveats ul {{ margin:.3rem 0; padding-left:1.2rem; }}
 </style></head><body><main>
-<p class="note"><a href="../index.html">fungi</a> / yeast_convergence. Design and run log: <a href="https://github.com/stajichlab/NovInvenio_Investigations/tree/main/studies/fungi/yeast_convergence">studies/fungi/yeast_convergence</a> (PR #43).</p>
+<p class="note"><a href="../index.html">fungi</a> / <a href="index.html">yeast convergence</a> / comparison. Design and run log: <a href="https://github.com/stajichlab/NovInvenio_Investigations/tree/main/studies/fungi/yeast_convergence">studies/fungi/yeast_convergence</a> (PR #43).</p>
 <h1>yeast_convergence: cross-contrast comparison</h1>
 <p>Sixteen contrasts test whether yeast growth form evolved independently with the same functional gene families.
 {n_role.get('origin', 0)} origin contrasts compare a yeast lineage with its filamentous sister. {n_role.get('pseudo', 0)} pseudo-origin controls

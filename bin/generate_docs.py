@@ -27,6 +27,7 @@ The domain registry itself (slug/name/desc for each tab) is curated data, not co
 -- see conf/domains.yaml, edited directly rather than here.
 """
 import csv
+import re
 import sys
 import tomllib
 from pathlib import Path
@@ -38,7 +39,8 @@ from site_pages import (  # noqa: E402
     GROUP_PAGE_MARKER, render_domain_index, render_group_index, render_top_level,
 )
 from study_runs import (  # noqa: E402
-    load_publish_target, read_current, rebuild_study_pages, run_extra_links, validate_slug,
+    load_publish_target, read_current, rebuild_study_pages, run_extra_links, validate_related,
+    validate_slug,
 )
 
 REPO_ROOT = Path(__file__).parent.parent
@@ -101,9 +103,16 @@ def load_domain_groups() -> dict[str, list[dict]]:
                 slug = validate_slug(g.get("slug"), "group slug")
             except ValueError as e:
                 raise SystemExit(f"{DOMAINS_YAML}: {row['slug']}: {e}")
+            if any(x["slug"] == slug for x in groups):
+                raise SystemExit(f"{DOMAINS_YAML}: {row['slug']}: group {slug!r} is listed twice")
             page = g.get("page")
-            if page is not None and not (isinstance(page, dict) and page.get("title") and page.get("href")):
-                raise SystemExit(f"{DOMAINS_YAML}: {row['slug']}/{slug}: page needs a title and href, got {page!r}")
+            if page is not None:
+                if not (isinstance(page, dict) and page.get("title") and page.get("href")):
+                    raise SystemExit(f"{DOMAINS_YAML}: {row['slug']}/{slug}: page needs a title and href, got {page!r}")
+                try:  # a path under docs/<domain>/, like a publish.yaml `related:` link
+                    validate_related([page], f"{DOMAINS_YAML}: {row['slug']}/{slug}: page")
+                except ValueError as e:
+                    raise SystemExit(str(e))
             groups.append({"slug": slug, "title": g.get("title") or slug.replace("_", " "),
                            "desc": g.get("desc") or "", "member_label": g.get("member_label") or "studies",
                            "page": page})
@@ -258,24 +267,36 @@ def split_groups(domain_slug: str, studies: list[dict], groups_cfg: dict[str, di
     return shown, cards, group_pages
 
 
+def _title(path: Path) -> str | None:
+    m = re.search(r"<title>(.*?)</title>", path.read_text(errors="replace"), re.S)
+    return m.group(1).strip() if m else None
+
+
 def check_group_target(domain_docs_dir: Path, group: dict) -> None:
     """Refuse to overwrite a file that is not a generated group page. The one exception is the
-    old page at the same address when the group's `page:` has already been written elsewhere."""
+    old page of the group (for example the comparison page) at the same address: it may be
+    replaced once the group's `page:` file exists at its new address with the same <title>."""
     index = domain_docs_dir / group["slug"] / "index.html"
     if not index.exists() or GROUP_PAGE_MARKER in index.read_text(errors="replace"):
         return
     page = group.get("page")
-    moved = page and page["href"] != f"{group['slug']}/index.html" and (domain_docs_dir / page["href"]).exists()
+    moved = False
+    if page and page["href"] != f"{group['slug']}/index.html":
+        new = domain_docs_dir / page["href"]
+        moved = new.exists() and _title(new) is not None and _title(new) == _title(index)
     if not moved:
         raise SystemExit(f"{index} exists and is not a generated group page"
-                         + (f"; write {group['page']['href']} first" if page else "") + ".")
+                         + (f"; to replace the old page, write {page['href']} first (same <title>)" if page else "") + ".")
 
 
-def warn_stale_group_pages(domain_docs_dir: Path, active: set[str]) -> None:
+def warn_stale_group_pages(domain_docs_dir: Path, rendered: set[str], configured: set[str]) -> None:
     for index in sorted(domain_docs_dir.glob("*/index.html")):
-        if index.parent.name not in active and GROUP_PAGE_MARKER in index.read_text(errors="replace"):
-            print(f"WARNING: {index} is a group page for a group that no longer exists; delete it.",
-                  file=sys.stderr)
+        name = index.parent.name
+        if name in rendered or GROUP_PAGE_MARKER not in index.read_text(errors="replace"):
+            continue
+        why = ("the group now has fewer than 2 members" if name in configured
+               else "the group is no longer in conf/domains.yaml")
+        print(f"WARNING: {index} is an old group page ({why}); delete it.", file=sys.stderr)
 
 
 def main() -> int:
@@ -285,13 +306,9 @@ def main() -> int:
     domain_pages = load_domain_pages()
     domain_groups = load_domain_groups()
 
-    DOCS_ROOT.mkdir(parents=True, exist_ok=True)
-    (DOCS_ROOT / "index.html").write_text(render_top_level([
-        {"name": name, "slug": slug, "desc": desc, "n_studies": len(domain_data[slug])}
-        for slug, name, desc in domains
-    ], site_name=site_name))
-    print(f"Wrote {DOCS_ROOT / 'index.html'}", file=sys.stderr)
-
+    # Decide and check everything for all domains first, so that a refusal stops the run
+    # before any group or domain page is written.
+    plans = []
     for slug, name, _ in domains:
         studies = domain_data[slug]
         pages = list(domain_pages.get(slug) or [])
@@ -300,14 +317,26 @@ def main() -> int:
         if not studies and not pages:
             continue
         domain_docs_dir = DOCS_ROOT / slug
+        for g, _members in group_pages:
+            check_group_target(domain_docs_dir, g)
+        plans.append((slug, name, studies, pages, shown, group_cards, group_pages, set(groups_cfg)))
+
+    DOCS_ROOT.mkdir(parents=True, exist_ok=True)
+    (DOCS_ROOT / "index.html").write_text(render_top_level([
+        {"name": name, "slug": slug, "desc": desc, "n_studies": len(domain_data[slug])}
+        for slug, name, desc in domains
+    ], site_name=site_name))
+    print(f"Wrote {DOCS_ROOT / 'index.html'}", file=sys.stderr)
+
+    for slug, name, studies, pages, shown, group_cards, group_pages, configured in plans:
+        domain_docs_dir = DOCS_ROOT / slug
         domain_docs_dir.mkdir(parents=True, exist_ok=True)
         for g, members in group_pages:
-            check_group_target(domain_docs_dir, g)
             gdir = domain_docs_dir / g["slug"]
             gdir.mkdir(parents=True, exist_ok=True)
             (gdir / "index.html").write_text(render_group_index(name, g, members, site_name=site_name))
             print(f"Wrote {gdir / 'index.html'} ({len(members)} members)", file=sys.stderr)
-        warn_stale_group_pages(domain_docs_dir, {g["slug"] for g, _ in group_pages})
+        warn_stale_group_pages(domain_docs_dir, {g["slug"] for g, _ in group_pages}, configured)
         (domain_docs_dir / "index.html").write_text(
             render_domain_index(name, shown, site_name=site_name, pages=pages, groups=group_cards)
         )
