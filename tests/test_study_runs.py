@@ -460,20 +460,25 @@ def test_full_or_untagged_pages_keep_default_link_text(tmp_path, vocabs):
 
 
 def test_pfam_only_pages_name_the_vocabulary(tmp_path):
-    (tmp_path / "enrichment.html").write_text(_page_with(["pfam"]))
-    (tmp_path / "enrichment_loss.html").write_text(_page_with(["pfam"]))
-    (tmp_path / "report.html").write_text(_LINK_REPORT)
-    assert run_extra_links(tmp_path) == [("enrichment.html", "enrichment (Pfam only)"),
+    # A private study folder: tmp_path.parent is the pytest-wide temp dir, which other tests
+    # fill with run.json files that have no "run" key (KeyError in load_runs).
+    study = tmp_path / "s"
+    run = study / "pw"
+    run.mkdir(parents=True)
+    (run / "enrichment.html").write_text(_page_with(["pfam"]))
+    (run / "enrichment_loss.html").write_text(_page_with(["pfam"]))
+    (run / "report.html").write_text(_LINK_REPORT)
+    assert run_extra_links(run) == [("enrichment.html", "enrichment (Pfam only)"),
                                          ("enrichment_loss.html", "loss enrichment (Pfam only)")]
-    inject_run_report_links(tmp_path)
-    report = (tmp_path / "report.html").read_text()
+    inject_run_report_links(run)
+    report = (run / "report.html").read_text()
     assert ("Pfam term enrichment of the novelty candidates against the proteome background. "
             "InterPro and GO: not available.") in report
     assert "Pfam, InterPro and GO" not in report
     # Run list (rebuild_study_pages) uses the same labels.
-    (tmp_path / "run.json").write_text(json.dumps({"run": tmp_path.name, "published": "2026-10-16"}))
-    pages = rebuild_study_pages(tmp_path.parent, "fungi", "s")
-    assert pages and "enrichment (Pfam only)" in (tmp_path.parent / "report.html").read_text()
+    (run / "run.json").write_text(json.dumps({"run": run.name, "published": "2026-10-16"}))
+    pages = rebuild_study_pages(study, "fungi", "s")
+    assert pages and "enrichment (Pfam only)" in (study / "report.html").read_text()
 
 
 def test_gallery_domain_pages(gallery):
