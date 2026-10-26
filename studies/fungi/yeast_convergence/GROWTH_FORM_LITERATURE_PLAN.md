@@ -331,9 +331,9 @@ normalization). It works for any model, so the cheap and the strong model are he
 Rows that fail go to `.rejected.tsv`. Report the rejected fraction per pass in `calibration.tsv`: a
 high fraction means the model paraphrases, and that model should not be used for extraction.
 
-### 14.4a Comparing passes (to build)
+### 14.4a Comparing passes
 
-`gf_lit.py compare` is not written yet. It should read the verified rows of all passes for a species and
+`gf_stage_d.py compare` is written (section 16.1). It reads the verified rows of all passes for a species and
 report: the class and phase each pass supports, whether they agree, and the quotes behind any
 disagreement. The adjudicator reads only species that are flagged. Build it before running two passes.
 
@@ -445,4 +445,22 @@ What it shows:
 
 Open: two independent passes with different models would show disagreements for the adjudicator; `gf_lit.py compare`
 is not written; a larger test than ten species is needed before any model is chosen for the 106.
+
+### 16.1 `compare`: where two passes disagree
+
+`gf_stage_d.py compare --out <dir> --pass-tags haiku-v2 sonnet-v2` reads the verified rows of each pass and reports, per
+species, the class and phase of each pass, whether they agree, the sentences each found, and `needs_adjudication`:
+class_disagree, phase_disagree, thin_evidence (a pass with one or two counted rows), no_species_rows_in. A species
+whose rows show both yeast and hyphal growth is not flagged: that is what a dimorphic species looks like (an earlier
+version flagged all five dimorphic species; it was changed). It also writes the rows an adjudicator should read.
+
+On the ten species: Haiku and Sonnet agree on the class for 9; three species need a look: *Neolecta* and *Protomyces*
+(thin evidence: one row or none) and *Taphrina* (phase). Haiku against its own first pass: class agrees for 8; the two
+that flip are the same thin species. So thin evidence is where a single model run is unstable.
+
+**The models differ on phase.** For *Taphrina*, Sonnet filled the `phase_stated` field on 12 of 32 counted rows (mostly
+"yeast": the yeast state grows on culture media and filamentous growth appears in the host), Haiku on 1 of 56. Phase is
+the weakest field of the existing codings (the batch YAML codes *Taphrina* `dominant_phase: hyphal`), and a class pass
+on Haiku would leave it mostly blank. Options: ask for phase in a separate prompt, or use Sonnet for it. Not tested.
+The quotes are verified as real; my reading of them is not reviewed.
 

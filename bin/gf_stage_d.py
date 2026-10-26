@@ -5,6 +5,10 @@
       -> <out>/stage_d_input/<slug>.tsv  (sentence_id, match_level, year, section, text), one line per
          candidate sentence, for a model to read. Context sentences and article metadata are left out
          to keep the input short; `verify` still checks quotes against the full source.
+  gf_stage_d.py compare --out <growth_form dir> --pass-tags haiku-v2 sonnet-v2
+      -> <out>/compare/<tags>.tsv (per species: each pass's class and phase call, agreement, shared and
+         one-pass-only sentences, needs_adjudication reasons) and <tags>.disagreements.tsv (the rows an
+         adjudicator should read). Run `score` for each pass first; compare reads <slug>.verified.tsv.
   gf_stage_d.py score --out <growth_form dir> --pass-tag haiku-v1 [--reference <file>] [--gold <file>]
       -> reads <out>/evidence/<pass_tag>/<slug>.jsonl, runs `gf_lit.py verify` on each, and writes
          <out>/evidence/<pass_tag>/calibration_rows.tsv (one row per species) and appends one summary
@@ -169,6 +173,149 @@ def cmd_score(args: argparse.Namespace) -> None:
     print(json.dumps(summ))
 
 
+COUNTED_EVIDENCE = {"tested", "described"}
+THIN_ROWS = 2   # a pass with this many counted rows or fewer is thin evidence
+
+
+def counted_rows(rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Rows that bear on the species' own growth form: organism_level species, evidence tested or described."""
+    return [
+        r for r in rows
+        if r.get("organism_level", "").strip().lower() == "species"
+        and r.get("evidence_type", "").strip().lower() in COUNTED_EVIDENCE
+        and r.get("supports", "").strip().lower() in {"yeast", "filamentous", "dimorphic"}
+    ]
+
+
+def phase_call(rows: list[dict[str, str]]) -> str:
+    """The normal phase the counted rows state: yeast, hyphal, unclear (no 60% majority) or none."""
+    votes = {"yeast": 0, "hyphal": 0}
+    for r in counted_rows(rows):
+        ph = r.get("phase_stated", "").strip().lower()
+        if ph in votes:
+            votes[ph] += 1
+    total = sum(votes.values())
+    if total == 0:
+        return "none"
+    top = max(votes, key=votes.get)
+    return top if votes[top] / total >= 0.6 else "unclear"
+
+
+def _shares(rows: list[dict[str, str]]) -> dict[str, float]:
+    c = counted_rows(rows)
+    n = len(c)
+    return {k: (sum(1 for r in c if r["supports"].strip().lower() == k) / n if n else 0.0)
+            for k in ("yeast", "filamentous", "dimorphic")}
+
+
+def compare_species(rows_by_tag: dict[str, list[dict[str, str]]]) -> dict:
+    """Compare the verified rows of several passes for one species.
+
+    Reports each pass's class and phase call, whether the passes agree, the sentences they share and
+    those found by one pass only, and `needs_adjudication`, a list of reasons: class_disagree,
+    phase_disagree, thin_evidence:<tag> (a pass has one or two counted rows), no_species_rows_in:<tag>
+    (a pass has none while another has some). `mixed` says per pass whether it has both forms.
+    """
+    calls = {tag: class_call(rows) for tag, rows in rows_by_tag.items()}
+    phases = {tag: phase_call(rows) for tag, rows in rows_by_tag.items()}
+    sents = {tag: {r["sentence_id"] for r in counted_rows(rows)} for tag, rows in rows_by_tag.items()}
+    shared = set.intersection(*sents.values()) if sents else set()
+    reasons: list[str] = []
+    class_agree = len(set(calls.values())) == 1
+    if not class_agree:
+        reasons.append("class_disagree")
+    known = {p for p in phases.values() if p in {"yeast", "hyphal"}}
+    if len(known) > 1:
+        reasons.append("phase_disagree")
+    # mixed_forms is information, not a disagreement: a dimorphic species has yeast and hyphal rows.
+    mixed = {
+        tag: bool(
+            (sh := _shares(rows))["dimorphic"] >= 0.2
+            or (sh["yeast"] >= 0.2 and sh["filamentous"] >= 0.2)
+        )
+        for tag, rows in rows_by_tag.items()
+    }
+    # One or two rows are too few for a stable call: runs of the same model flipped between none and
+    # one row on such species.
+    for tag, rows in rows_by_tag.items():
+        if 1 <= len(counted_rows(rows)) <= THIN_ROWS:
+            reasons.append(f"thin_evidence:{tag}")
+    have = {tag for tag, rows in rows_by_tag.items() if counted_rows(rows)}
+    if have and len(have) < len(rows_by_tag):
+        reasons += [f"no_species_rows_in:{tag}" for tag in rows_by_tag if tag not in have]
+    return {
+        "calls": calls, "phases": phases, "class_agree": "yes" if class_agree else "no",
+        "phase_agree": "yes" if len(known) <= 1 else "no",
+        "shared_sentences": len(shared), "only": {tag: len(s - shared) for tag, s in sents.items()},
+        "n_counted": {tag: len(counted_rows(rows)) for tag, rows in rows_by_tag.items()},
+        "mixed": mixed,
+        "needs_adjudication": ";".join(reasons) if reasons else "no",
+    }
+
+
+def disagreement_rows(rows_by_tag: dict[str, list[dict[str, str]]], cap: int = 40) -> list[dict[str, str]]:
+    """The rows an adjudicator should read: counted rows in a minority form of their pass, and counted
+    rows whose sentence only one pass found. At most `cap` rows."""
+    sents = {tag: {r["sentence_id"] for r in counted_rows(rows)} for tag, rows in rows_by_tag.items()}
+    out: list[dict[str, str]] = []
+    for tag, rows in rows_by_tag.items():
+        c = counted_rows(rows)
+        if not c:
+            continue
+        sh = _shares(rows)
+        major = max(sh, key=sh.get)
+        others = set.union(*(s for t, s in sents.items() if t != tag)) if len(sents) > 1 else set()
+        for r in c:
+            minority = r["supports"].strip().lower() != major
+            unique = r["sentence_id"] not in others if len(sents) > 1 else False
+            if minority or unique:
+                out.append({"pass_tag": tag, "sentence_id": r["sentence_id"], "supports": r["supports"],
+                            "phase_stated": r.get("phase_stated", ""), "evidence_type": r["evidence_type"],
+                            "why": ("minority_form" if minority else "") + (";" if minority and unique else "")
+                                   + ("only_this_pass" if unique else ""),
+                            "quote": r["quote"]})
+    return out[:cap]
+
+
+def cmd_compare(args: argparse.Namespace) -> None:
+    out = Path(args.out)
+    tags = args.pass_tags
+    by_species: dict[str, dict[str, list[dict[str, str]]]] = {}
+    names: dict[str, str] = {}
+    for tag in tags:
+        for path in sorted((out / "evidence" / tag).glob("*.verified.tsv")):
+            slug = path.name[: -len(".verified.tsv")]
+            rows = gf.read_tsv(path, required=False)
+            by_species.setdefault(slug, {})[tag] = rows
+            if rows:
+                names[slug] = rows[0]["species"]
+    dest = out / "compare"
+    dest.mkdir(parents=True, exist_ok=True)
+    label = "+".join(tags)
+    table, detail = [], []
+    for slug in sorted(by_species):
+        rows_by_tag = {tag: by_species[slug].get(tag, []) for tag in tags}
+        res = compare_species(rows_by_tag)
+        sp = names.get(slug, slug)
+        table.append({"species": sp, **{f"call:{t}": res["calls"][t] for t in tags},
+                      **{f"phase:{t}": res["phases"][t] for t in tags},
+                      **{f"rows:{t}": res["n_counted"][t] for t in tags},
+                      **{f"mixed:{t}": "yes" if res["mixed"][t] else "no" for t in tags},
+                      "class_agree": res["class_agree"], "phase_agree": res["phase_agree"],
+                      "shared_sentences": res["shared_sentences"],
+                      **{f"only:{t}": res["only"][t] for t in tags},
+                      "needs_adjudication": res["needs_adjudication"]})
+        if res["needs_adjudication"] != "no":
+            for r in disagreement_rows(rows_by_tag):
+                detail.append({"species": sp, **r})
+    gf.write_tsv(dest / f"{label}.tsv", table, list(table[0].keys()))
+    if detail:
+        gf.write_tsv(dest / f"{label}.disagreements.tsv", detail, list(detail[0].keys()))
+    n_adj = sum(1 for r in table if r["needs_adjudication"] != "no")
+    print(f"compare {label}: {len(table)} species; class agree {sum(1 for r in table if r['class_agree'] == 'yes')}; "
+          f"need adjudication {n_adj}; disagreement rows {len(detail)} -> {dest}")
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -185,6 +332,10 @@ def main(argv: list[str] | None = None) -> int:
     p.add_argument("--reference", default="")
     p.add_argument("--gold", default="")
     p.set_defaults(func=cmd_score)
+    p = sub.add_parser("compare", help="compare verified rows of two or more passes per species")
+    p.add_argument("--out", required=True)
+    p.add_argument("--pass-tags", nargs="+", required=True)
+    p.set_defaults(func=cmd_compare)
     args = ap.parse_args(argv)
     args.func(args)
     return 0

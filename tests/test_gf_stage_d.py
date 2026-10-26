@@ -55,3 +55,64 @@ def test_split_chunks_and_base_slug():
     assert sd.split_chunks(rows, 0) == [rows] and sd.split_chunks(rows[:5], 120) == [rows[:5]]
     assert sd.base_slug("mucor_circinelloides.part3") == "mucor_circinelloides"
     assert sd.base_slug("taphrina_deformans") == "taphrina_deformans"
+
+
+def _row(sup, ev="described", lvl="species", phase="none", sid="s", quote="q"):
+    return {"supports": sup, "evidence_type": ev, "organism_level": lvl, "phase_stated": phase,
+            "sentence_id": sid, "quote": quote}
+
+
+def test_phase_call():
+    assert sd.phase_call([_row("dimorphic", phase="hyphal"), _row("dimorphic", phase="hyphal"),
+                          _row("dimorphic", phase="yeast")]) == "hyphal"           # 2 of 3 = 0.67
+    assert sd.phase_call([_row("dimorphic", phase="hyphal"), _row("dimorphic", phase="yeast")]) == "unclear"
+    assert sd.phase_call([_row("yeast")]) == "none"
+    assert sd.phase_call([_row("yeast", ev="predicted", phase="yeast")]) == "none"   # predicted rows do not count
+    assert sd.phase_call([_row("yeast", lvl="genus", phase="yeast")]) == "none"
+
+
+def test_compare_species_agreement_and_flags():
+    a = [_row("filamentous", sid=f"a{i}") for i in range(5)]
+    b = [_row("filamentous", sid=f"a{i}") for i in range(3)] + [_row("filamentous", sid="b9")]
+    res = sd.compare_species({"p1": a, "p2": b})
+    assert res["class_agree"] == "yes" and res["calls"] == {"p1": "filamentous", "p2": "filamentous"}
+    assert res["needs_adjudication"] == "no"
+    assert res["shared_sentences"] == 3 and res["only"] == {"p1": 2, "p2": 1}
+
+
+def test_compare_species_flags_class_disagreement():
+    p1 = [_row("filamentous", sid=f"f{i}") for i in range(4)]
+    p2 = [_row("dimorphic", sid=f"d{i}") for i in range(4)]
+    res = sd.compare_species({"p1": p1, "p2": p2})
+    assert res["class_agree"] == "no" and "class_disagree" in res["needs_adjudication"]
+
+
+def test_mixed_forms_is_information_not_a_flag():
+    mixed = [_row("yeast", sid=f"y{i}") for i in range(3)] + [_row("filamentous", sid=f"f{i}") for i in range(3)]
+    res = sd.compare_species({"p1": mixed, "p2": mixed})
+    assert res["class_agree"] == "yes" and res["mixed"] == {"p1": True, "p2": True}
+    assert res["needs_adjudication"] == "no"                  # a dimorphic species is not a disagreement
+
+
+def test_thin_evidence_is_flagged_even_when_passes_agree():
+    one = [_row("yeast", sid="y1")]
+    res = sd.compare_species({"p1": one, "p2": one})
+    assert res["class_agree"] == "yes" and "thin_evidence:p1" in res["needs_adjudication"]
+
+
+def test_compare_species_flags_one_pass_without_species_evidence():
+    p1 = [_row("filamentous", sid="f1")]
+    p2 = [_row("filamentous", lvl="genus", sid="g1")]
+    res = sd.compare_species({"p1": p1, "p2": p2})
+    assert res["class_agree"] == "no" and "no_species_rows_in:p2" in res["needs_adjudication"]
+
+
+def test_disagreement_rows_lists_minority_and_unique_rows():
+    p1 = [_row("filamentous", sid=f"f{i}", quote=f"q{i}") for i in range(4)] + [_row("yeast", sid="y1", quote="loose")]
+    p2 = [_row("filamentous", sid="f0", quote="q0"), _row("filamentous", sid="z", quote="only p2")]
+    rows = sd.disagreement_rows({"p1": p1, "p2": p2})
+    quotes = {(r["pass_tag"], r["quote"]) for r in rows}
+    assert ("p1", "loose") in quotes                       # a minority form
+    assert ("p2", "only p2") in quotes                     # unique to one pass
+    assert ("p1", "q0") not in quotes                      # shared and in the majority form
+
