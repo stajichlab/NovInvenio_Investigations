@@ -84,9 +84,21 @@ Stages A to C are plain scripts. Only stage D needs a model.
 *Ashbya gossypii* for the *Eremothecium* clade). Output: `names.tsv` (species, name, source).
 
 **B. Candidate retrieval (script).** For each name, run `esearch` on pubmed (Title/Abstract) and pmc
-(All Fields), each with and without the growth terms: `dimorphic`, `dimorphism`, `yeast-like`,
-`yeast phase`, `hyphae`, `hyphal`, `mycelium`, `pseudohyphae`, `budding`, `yeast-to-hypha`, `morphology`.
-Save the PMIDs and PMCIDs, the query, the date and the hit count. Keep every query (section 6).
+(Text Word) in three modes: `dimorph` (the name AND dimorphism terms such as `dimorphic`,
+`yeast-to-hypha`, `pseudohyphal growth`), `growth` (the name AND the generic growth terms `yeast`,
+`hyphae`, `mycelium`, `budding`, ...), and `name` (the name alone). Priority order: dimorph, growth, name.
+The `dimorph` mode is needed because for well-studied species the generic growth query matches
+thousands of papers, and the relevance-sorted top 200 can miss the dimorphism papers (the pilot's
+*Yarrowia* source, Liang 2017, was missed this way). Save the PMIDs and PMCIDs, the query, the date and
+the hit count. Keep every query (section 6).
+
+**B2. Article selection (script, in `fetch`).** Do not take the first N rows by search rank. Rank ties
+among the many name queries of one species fill a small cap with arbitrary papers (the pilot's
+*Mucor* source, Lee 2013, was rank 2 and still cut). Merge the PubMed and PMC rows of one article by
+PMCID, then order by (priority, number of queries that returned it, best rank). Use caps large enough
+that selection is not the limiting step: the sentence stage costs about 1,200 tokens per species, so
+60 articles (40 full texts) per species is cheap. `gf_lit.py fetch --selection score` does this;
+`--selection rank` is the earlier order.
 
 **C. Text fetch and sentence filter (script).**
 1. For each PMCID, `efetch` the XML once. Cache it on `/bigdata`, compressed (`zstd`; CLAUDE.md prefers
@@ -245,3 +257,94 @@ the sentences"): see the pilot task text in the session of 2026-10-25. Keep thes
 4. If recall and the quote-verification rate are acceptable, run the 6 low-BUSCO species and the three
    #44 conflicts, then the rest in waves.
 5. Hand the unsourced list and the book worksheet to a person.
+
+## 14. Working with more than one agent
+
+Several agents, possibly from different vendors and with different costs, can share this work. They do
+not need to talk to each other. They need one file contract, a script that checks every output, and a
+rule for who touches which file. A message to a peer session is not reliable for this: a session list
+shows only sessions started from the same tool, and an agent from another tool is not on it.
+
+### 14.1 Roles
+
+| Role | Does | Model |
+|---|---|---|
+| Retrieval | stages A to C (`gf_lit.py species, names, search, fetch, sentences`): scripts, no model | none |
+| Extractor | stage D: reads `sentences/<species>.jsonl`, writes evidence rows | cheap model; two independent passes with different models |
+| Verifier | `gf_lit.py verify`: checks each quote against the cached source text | none (script) |
+| Adjudicator | stage F: one decision per species, from the verified rows of all passes | strong model; only for species where passes disagree, or where evidence is conflicting or genus-level |
+| Reviewer | a person: reads every `differs` and `conflict` row | human |
+
+An agent may hold several roles. A cheap extractor is safe because the verifier rejects any quote that is
+not verbatim in the source. A model cannot make an unverifiable claim pass.
+
+### 14.2 File contract
+
+All shared files live under `studies/fungi/yeast_convergence/growth_form/`. Agents write only there. No
+agent writes to `config_support/traits/`, a batch YAML, or any file outside `growth_form/`.
+
+| Path | Writer | Content |
+|---|---|---|
+| `sentences/<species_slug>.jsonl` | retrieval | input for extractors (gitignored; holds source text) |
+| `prompts/<prompt_version>.txt` | whoever changes a prompt | the exact prompt; never edited after use, a new version is a new file |
+| `evidence/<pass_tag>/<species_slug>.jsonl` | one extractor | evidence rows (section 6 of this plan). `<pass_tag>` names the model and prompt, for example `haiku-v1`. One directory per pass, so passes stay independent. |
+| `evidence/<pass_tag>/<species_slug>.verified.tsv`, `.rejected.tsv` | the verifier | output of `gf_lit.py verify` |
+| `adjudicated/<species_slug>.json` | adjudicator | class, dominant phase, confidence, conflicts, the rows used |
+| `work/<stage>/<species_slug>.claim/` | any agent | claim marker (14.3) |
+| `cost_log.tsv` | any agent | one row per call batch: pass_tag, species, model, input tokens, output tokens, wall seconds, date |
+| `calibration.tsv` | whoever runs a calibration | per model: quote-verified rate, gold sources found, class agreement (14.5) |
+| `STATUS.md` (study folder) | each agent, own section only | what is done, blocked or unclear |
+
+Every evidence row carries `model` and `prompt_version`. An agent never edits another pass's files.
+
+### 14.3 Claiming work
+
+1. List the species with no `evidence/<pass_tag>/<species_slug>.jsonl`.
+2. Claim one with `mkdir work/D/<species_slug>.claim`. If `mkdir` fails, another agent has it: take the
+   next species. (`mkdir` is atomic on `/bigdata`.)
+3. Write `owner`, `model` and the UTC time into `work/D/<species_slug>.claim/info.txt`.
+4. Write the output file, then remove the claim directory.
+5. A claim older than 6 hours with no output file is stale. Any agent may remove it and must add a line
+   to its STATUS section.
+
+### 14.4 The check that gates everything
+
+`gf_lit.py verify --evidence <file>` is the only way a row becomes `verified`. It accepts a row when the
+quote is at most 40 words and appears verbatim in the cached source (after whitespace and punctuation
+normalization). It works for any model, so the cheap and the strong model are held to the same rule.
+Rows that fail go to `.rejected.tsv`. Report the rejected fraction per pass in `calibration.tsv`: a
+high fraction means the model paraphrases, and that model should not be used for extraction.
+
+### 14.4a Comparing passes (to build)
+
+`gf_lit.py compare` is not written yet. It should read the verified rows of all passes for a species and
+report: the class and phase each pass supports, whether they agree, and the quotes behind any
+disagreement. The adjudicator reads only species that are flagged. Build it before running two passes.
+
+### 14.5 Choosing the cheap model by measurement
+
+1. Pick the gold-set species (`gold_sources.tsv`, 19 rows from the pilot's verified items plus Tahiri 2026).
+2. Run stage D on these species with each candidate model and the same prompt version.
+3. For each model record in `calibration.tsv`: share of rows that verify; share of gold sources that give
+   a row; agreement of class and phase with the verified pilot result; tokens used.
+4. Use the cheapest model whose numbers match the strong model on these four. If none does, use the strong
+   model for extraction and keep the cheap one as the second pass only.
+
+This sample is small (about 10 species). State that in any conclusion drawn from it.
+
+### 14.6 What an outside agent needs to join
+
+- This plan and `STATUS.md`.
+- `bin/gf_lit.py` and its `--help` (run with `pixi run python bin/gf_lit.py ...`).
+- Read access to `growth_form/sentences/` and the cache, write access to `growth_form/evidence/<pass_tag>/`
+  and `growth_form/work/`.
+- An API key for its own model, if it uses one. Never write a key to a file in the repo.
+- No network access to NCBI is needed for stage D: the sentences are local.
+
+### 14.7 Rules that protect the data
+
+- Source text stays out of git: `cache/` and `sentences/` are gitignored. Evidence rows hold quotes of at
+  most 40 words.
+- Nothing is promoted to `config_support/traits/` until a person has reviewed a sample.
+- A change to a prompt or a model is a new `pass_tag`. Results of different tags are never mixed in one file.
+

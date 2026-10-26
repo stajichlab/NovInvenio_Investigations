@@ -1,0 +1,11 @@
+generated: '2026-10-26T01:11:35Z'
+class: curated (tracked, class 2)
+local_path: studies/fungi/yeast_convergence/growth_form/gold_sources.tsv
+checksum_sha256: 95605ccc7cadd5a5c12d9fe552ca4d0c83cc1f8c0bf90103fe14bec50a1a749d
+source_url: 'none: hand-built from studies/fungi/yeast_convergence/analysis/growth_form_pilot/verification.tsv (17 checked
+  items) plus two rows of growth_form/gold.tsv (Tahiri et al. 2026, PMC12957363)'
+source_release: PubMed and PMC as of 2026-10-25
+license: phrases are 40 words or fewer from articles cited by PMID and PMCID
+derived_by: manual mapping of each verified item to a species and level; the 19 rows are the gold set for `gf_lit.py recall`
+note: level genus = the source states the fact for the genus or another species of it; do not count a miss there as a species-level
+  failure
